@@ -21,7 +21,6 @@ SET time_zone = "+00:00";
 --
 
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `tbl_guide_detail_profile`
 --
@@ -74,6 +73,22 @@ CREATE TABLE IF NOT EXISTS `tbl_guide_tour_locations` (
   `guide_tour_location_id` bigint(20) NOT NULL,
   `guide_detail_id` bigint(20) NOT NULL,
   `tour_location_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_referrals`
+--
+
+CREATE TABLE IF NOT EXISTS `tbl_referrals` (
+  `referral_id` bigint(20) NOT NULL,
+  `referrer_id` bigint(20) NOT NULL,
+  `referral_name` int(11) NOT NULL,
+  `referral_email` varchar(50) ,
+  `referral_phone` varchar(50) ,
+  `referral_status` int(11) NOT NULL,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------

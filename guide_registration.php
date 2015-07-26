@@ -10,7 +10,8 @@ include("db.php");
   
   
   
-  $update=mysql_query("");
+  $update=true;
+//mysql_query("");
   
   if($update)
   {
