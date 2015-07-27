@@ -246,10 +246,10 @@ CREATE TABLE IF NOT EXISTS `tbl_tour_media_videos` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table ` tbl_user_profile`
+-- Table structure for table `tbl_user_profile`
 --
 
-CREATE TABLE IF NOT EXISTS ` tbl_user_profile` (
+CREATE TABLE IF NOT EXISTS `tbl_user_profile` (
   `user_id` bigint(20) NOT NULL,
   `user_type_id` tinyint(4) NOT NULL,
   `user_password` varchar(50) NOT NULL,
@@ -370,9 +370,9 @@ ALTER TABLE `tbl_tour_media_videos`
   ADD PRIMARY KEY (`video_media_id`);
 
 --
--- Indexes for table ` tbl_user_profile`
+-- Indexes for table `tbl_user_profile`
 --
-ALTER TABLE ` tbl_user_profile`
+ALTER TABLE `tbl_user_profile`
   ADD PRIMARY KEY (`user_id`), ADD UNIQUE KEY `ui_Email` (`email`), ADD UNIQUE KEY `ui_mobileNo` (`mobileNo`), ADD KEY `user_type_id` (`user_type_id`), ADD KEY `user_type_id_2` (`user_type_id`), ADD KEY `user_type_id_3` (`user_type_id`);
 
 --
@@ -396,9 +396,9 @@ ALTER TABLE `tbl_guide_detail_profile`
 ALTER TABLE `tbl_referrals`
   MODIFY `referral_id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=22;
 --
--- AUTO_INCREMENT for table ` tbl_user_profile`
+-- AUTO_INCREMENT for table `tbl_user_profile`
 --
-ALTER TABLE ` tbl_user_profile`
+ALTER TABLE `tbl_user_profile`
   MODIFY `user_id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `tbl_user_type`
