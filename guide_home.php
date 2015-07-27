@@ -76,7 +76,7 @@
 									<br /> <input type="password" class="form-control" id="password" name="password" placeholder="Password" style="height:40px; background-color:white; color:black; -moz-border-radius: 10px; border-radius: 3px; border:solid 1px gray; padding:5px;">
 									<br /> <button class="btn  btn-sm btn-default btn-block" style="height:40px; -moz-border-radius: 10px; border-radius: 3px; padding:5px; background-color:#ff845e; font-size:larger;" type="submit">login</button>
 								</form>
-								<br /> <center><span style="color:gray;">Not a member? <a href="RegistrationPage.php" style="color:#ff845e">Join now</a></span></center>
+								<br /> <center><span style="color:gray;">Not a member? <a href="guide_registration.php" style="color:#ff845e">Join now</a></span></center>
 								
 							</div>
 						</div>
