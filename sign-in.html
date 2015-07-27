@@ -32,6 +32,12 @@
 		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Karla:400,700,400italic,700italic" />
 		<!-- color scheme -->
 		<link rel="stylesheet" type="text/css" href="css/colors/color1.css" title="color1" />
+		
+		<style type="text/css">
+		#header-banner {margin-bottom:0px; background:url(../img/header-banner.jpg) center 0 no-repeat;}
+.banner-overlay {padding:0px 0; background:rgba(0,0,0, .8);}
+		
+		</style>
 	</head>
 	<!-- END head -->
 
@@ -160,129 +166,39 @@
 			</header>
 			<!-- END header -->
 			
-			<!-- START #page-header -->
-			<div id="header-banner">
-				<div class="banner-overlay">
-					<div class="container">
-						<div class="row">
-							<section class="col-sm-6">
-								<h1 class="text-upper">Sign In</h1>
-							</section>
-							
-							<!-- breadcrumbs -->
-							<section class="col-sm-6">
-								<ol class="breadcrumb">
-									<li class="home"><a href="#">Home</a></li>
-									<li class="active">Contact Us</li>
-								</ol>
-							</section>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- END #page-header -->
 			
-			<!-- START .main-contents -->
+			
+			<!-- START .main-contents --> 
 			<div class="main-contents">
-				<div class="container">
-					<div class="row">
-						<!-- START #page -->
-						<div id="page" class="col-md-8">					
-							<!-- START #contactForm -->
-							<section id="signin-form">
-								<h2 class="ft-heading text-upper">Sign In</h2>
-								<form action="contact.php" method="post">
-									<fieldset>
-										<ul class="formFields list-unstyled">
-											<li class="row">
-												<div class="col-md-6">
-													<label>Email <span class="required small">(Required)</span></label>
-													<input type="text" class="form-control" name="name" value="" />
-												</div>
-												<div class="col-md-6">
-													<label>Password <span class="required small">(Required)</span></label>
-													<input type="text" class="form-control" name="email" value="" />
-												</div>
-											</li>
-											<li class="row">
-												<div class="col-md-12">
-													<input type="submit" class="btn btn-primary btn-lg text-upper" name="submit" value="signin" />
-													<span class="required small">*Your email will never published.</span>
-												</div>
-											</li>
-										</ul>
-									</fieldset>
-								</form>
-							</section>
-							<!-- END #contactForm -->
-						</div>
-						<!-- END #page -->
-						
-						<!-- START #sidebar -->
-						<aside id="sidebar" class="col-md-4">
-							<div class="sidebar-widget">
-								<!-- Sidebar Social Icons -->
-								<ul class="sidebar-social list-unstyled">
-									<li class="facebook">
-										<a href="#">
-											<span class="sc-count text-center">28,096</span>
-											<span class="sc-text text-center">fans &amp; likes</span>
-										</a>
-									</li>
-									<li class="twitter">
-										<a href="#">
-											<span class="sc-count text-center">8,096</span>
-											<span class="sc-text text-center">Followers</span>
-										</a>
-									</li>
-									<li class="rss">
-										<a href="#">
-											<span class="sc-count text-center">12,096</span>
-											<span class="sc-text text-center">Subscribers</span>
-										</a>
-									</li>
-								</ul>
+				<div class="container" id="home-page">
+					<section id="page-top">
+						<div class="row">
+							<div class="col-sm-4 col-sm-offset-4" ><br>
+								<div class="mycontainer"  style="background-color:#dddddd;">
+										<div class="text-center"><br />
+											<a href="Index.html" style="color: black; font-size:47px; font-weight:bold; font-family:Pacifico; text-decoration:none;">Guided Gateway</a>
+										</div>
+										<br /><br />
+										<div class="col-sm-12">
+											<form action="guide_login_code.php" method="POST">
+												<input type="text" class="form-control" id="username" name="username" placeholder="Email Address or Mobile Number" style="height:36px; background-color:white; color:black; -moz-border-radius: 10px; border-radius: 2px; border:solid 1px gray; padding:5px;">
+												<br /> <input type="password" class="form-control" id="password" name="password" placeholder="Password" style="height:36px; background-color:white; color:black; -moz-border-radius: 10px; border-radius: 2px; border:solid 1px gray; padding:5px;">
+												<br /> <button class="btn  btn-sm btn-default btn-block" style="font-size:18px; font-weight:bold; height:36px; -moz-border-radius: 10px; border-radius: 2px; padding:5px; background-color:#ff845e;" type="submit">Login</button>
+												
+											</form>
+											<br /> <center><span style="color:gray;">Not a member? <a href="guide_registration.php" style="color:#ff845e">Join now</a></span></center>
+										</div>
+									</div>
 							</div>
-						</aside>
-						<!-- END #sidebar -->
-					</div>
-					<!-- END .row -->
+							
+						</div>
+						<br /><br />
+					</section><!-- /#page-top -->
 				</div>
 			</div>
-			<!-- END .main-contents -->
 			
 			<!-- START footer -->
 			<footer>
-				<!-- START #ft-footer -->
-				<div id="ft-footer">
-					<div class="footer-overlay">
-						<div class="container">
-							<div class="row">
-								<!-- testimonials -->
-								<section class="col-md-6">
-									<h3>Testimonials</h3>
-									<p>Tortor turpis. Proin. Dolor. Auctor arcu, habitasse mid placerat magna? Dis ac, adipiscing? Cras mus dolor sit a? Platea eros dictumst ridiculus sed phasellus, rhoncus magnis a pellentesque pulvinar duis purus risus tristique ultricies natoque, nec! Natoque natoque cum? Nec, placerat sociis! Sit ut, scelerisque? placerat sociis! Sit ut, scelerisque? Urna ut aliquam duis et scelerisque,</p>
-									<div class="tl-author">
-										<span class="tl-author-img">
-											<img class="img-circle" src="http://placehold.it/70x70" alt="Testimonial Author" />
-										</span>
-										<span class="tl-author-title">Jassem Elrakesh</span>
-										<span class="tl-author-desc">Visited Barcelona recently</span>
-									</div>
-								</section>
-								
-								<!-- twitter -->
-								<section class="col-md-6">
-									<h3 class="tw-feeds">Twitter Feeds</h3>
-									<p>The only netball team that takes a team photo after every game #envato <a href="#">http://instagram.com/p/gXSJNTwBJe/</a></p>
-									<p>Very excited that Envato is joining the big-ticket Macaw backers list - <a href="#">http://macaw.co</a>  - very intuitive looking new web design app!</p>
-									<p>Remember, you really are your own boss. Sink or swim, but do it like a boss. (10/10) <a href="#">#10BootstrappingTips</a></p>
-								</section>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- END #ft-footer -->
 				
 				<!-- START #ex-footer -->
 				<div id="#ex-footer">
