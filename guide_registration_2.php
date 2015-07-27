@@ -254,7 +254,7 @@ session_start();
 						
 						<div class="row form-group">
 							<div class="col-sm-12">
-							<strong style="color:#444454;">Guest Intrest</strong>
+							<strong style="color:#444454;">Intrest</strong>
 							</div>
 							<div class="">
 								<div class="form-group col-sm-12">
@@ -264,7 +264,7 @@ session_start();
 						</div>
 						<div class="row form-group">
 							<div class="col-sm-12">
-							<strong style="color:#444454;">Guest Experiance</strong>
+							<strong style="color:#444454;">Travel Experiance</strong>
 							</div>
 							<div class="">
 								<div class="form-group col-sm-12">
@@ -274,7 +274,7 @@ session_start();
 						</div>
 						<div class="row form-group">
 							<div class="col-sm-12">
-							<strong style="color:#444454;">Guest Summery</strong>
+							<strong style="color:#444454;">Summery</strong>
 							</div>
 							<div class="">
 								<div class="form-group col-sm-12">
@@ -284,7 +284,7 @@ session_start();
 						</div>
   
 						
-						<div class="form-group>
+						<!-- div class="form-group>
 							<label id="termsofservice-label">
 							<input type="checkbox" value="yes" name="TermsOfService" id="TermsOfService"  >
 							<span id="terms-of-service-label">
@@ -293,7 +293,7 @@ session_start();
 							</label>
 							<span role="alert" class="errormsg" id="errormsg_0_TermsOfService">
 							</span>
-						</div>
+						</div -->
 						
 					  <div class="row form-group pull-right">
 					  <br>
