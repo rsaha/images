@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 22, 2015 at 11:58 AM
+-- Generation Time: Jul 27, 2015 at 03:13 PM
 -- Server version: 5.6.24
--- PHP Version: 5.5.24
+-- PHP Version: 5.6.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -29,28 +29,28 @@ SET time_zone = "+00:00";
 CREATE TABLE IF NOT EXISTS `tbl_guide_detail_profile` (
   `guide_detail_id` bigint(20) NOT NULL,
   `user_id` bigint(20) NOT NULL,
-  `guide_profile_pic` blob NOT NULL,
-  `guide_Cover_pic` blob NOT NULL,
-  `nick_name` varchar(100) NOT NULL,
-  `license_Image` blob NOT NULL,
-  `license_no` varchar(200) NOT NULL,
-  `validity` date NOT NULL,
-  `guide_summary` text NOT NULL,
-  `guide_experience` text NOT NULL,
-  `guide_interest` text NOT NULL,
-  `guide_facebook_profile` varchar(200) NOT NULL,
-  `guide_linkedin_profile` varchar(200) NOT NULL,
-  `guide_pinterest_profile` varchar(200) NOT NULL,
-  `guide_skype_address` varchar(200) NOT NULL,
-  `landline_no` varchar(50) NOT NULL,
-  `payment_currency` varchar(100) NOT NULL,
-  `payment_terms` varchar(300) NOT NULL,
-  `Best_time_for_contact` varchar(100) NOT NULL,
-  `Communication_mechanism` varchar(100) NOT NULL,
-  `guide_Remarks` text NOT NULL,
+  `guide_profile_pic` blob,
+  `guide_Cover_pic` blob,
+  `nick_name` varchar(100) DEFAULT NULL,
+  `license_Image` blob,
+  `license_no` varchar(200) DEFAULT NULL,
+  `validity` date DEFAULT NULL,
+  `guide_summary` text,
+  `guide_experience` text,
+  `guide_interest` text,
+  `guide_facebook_profile` varchar(200) DEFAULT NULL,
+  `guide_linkedin_profile` varchar(200) DEFAULT NULL,
+  `guide_pinterest_profile` varchar(200) DEFAULT NULL,
+  `guide_skype_address` varchar(200) DEFAULT NULL,
+  `landline_no` varchar(50) DEFAULT NULL,
+  `payment_currency` varchar(100) DEFAULT NULL,
+  `payment_terms` varchar(300) DEFAULT NULL,
+  `Best_time_for_contact` varchar(100) DEFAULT NULL,
+  `Communication_mechanism` varchar(100) DEFAULT NULL,
+  `guide_Remarks` text,
   `status` tinyint(4) NOT NULL,
   `datecreated` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Guide Detail Profile data';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='Guide Detail Profile data';
 
 -- --------------------------------------------------------
 
@@ -104,6 +104,22 @@ CREATE TABLE IF NOT EXISTS `tbl_messages` (
   `status` tinyint(4) NOT NULL,
   `datecreated` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Message Repository table';
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_referrals`
+--
+
+CREATE TABLE IF NOT EXISTS `tbl_referrals` (
+  `referral_id` bigint(20) NOT NULL,
+  `referrer_id` bigint(20) NOT NULL,
+  `referral_name` varchar(20) DEFAULT NULL,
+  `referral_email` varchar(50) NOT NULL,
+  `referral_phone` varchar(50) DEFAULT NULL,
+  `referral_status` int(11) NOT NULL,
+  `datecreated` date NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -226,15 +242,15 @@ CREATE TABLE IF NOT EXISTS ` tbl_user_profile` (
   `l_name` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `mobileNo` varchar(50) NOT NULL,
-  `gender` varchar(20) NOT NULL,
-  `d_o_b` date NOT NULL,
-  `street_address` varchar(100) NOT NULL,
-  `city` varchar(100) NOT NULL,
-  `state` varchar(100) NOT NULL,
-  `country` varchar(100) NOT NULL,
+  `gender` varchar(20) DEFAULT NULL,
+  `d_o_b` date DEFAULT NULL,
+  `street_address` varchar(100) DEFAULT NULL,
+  `city` varchar(100) DEFAULT NULL,
+  `state` varchar(100) DEFAULT NULL,
+  `country` varchar(100) DEFAULT NULL,
   `status` tinyint(4) NOT NULL,
   `datecreated` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Users Basic Profile';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='Users Basic Profile';
 
 -- --------------------------------------------------------
 
@@ -247,7 +263,14 @@ CREATE TABLE IF NOT EXISTS `tbl_user_type` (
   `user_type_name` varchar(50) NOT NULL,
   `status` tinyint(4) NOT NULL,
   `datecreated` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='User Type Master Table';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='User Type Master Table';
+
+--
+-- Dumping data for table `tbl_user_type`
+--
+
+INSERT INTO `tbl_user_type` (`user_type_id`, `user_type_name`, `status`, `datecreated`) VALUES
+(1, 'GUIDE', 1, '2015-07-27');
 
 --
 -- Indexes for dumped tables
@@ -257,7 +280,7 @@ CREATE TABLE IF NOT EXISTS `tbl_user_type` (
 -- Indexes for table `tbl_guide_detail_profile`
 --
 ALTER TABLE `tbl_guide_detail_profile`
-  ADD PRIMARY KEY (`guide_detail_id`);
+  ADD PRIMARY KEY (`guide_detail_id`), ADD UNIQUE KEY `user_id` (`user_id`);
 
 --
 -- Indexes for table `tbl_guide_known_languages`
@@ -282,6 +305,12 @@ ALTER TABLE `tbl_languages`
 --
 ALTER TABLE `tbl_messages`
   ADD PRIMARY KEY (`message_id`);
+
+--
+-- Indexes for table `tbl_referrals`
+--
+ALTER TABLE `tbl_referrals`
+  ADD PRIMARY KEY (`referral_id`);
 
 --
 -- Indexes for table `tbl_tours`
@@ -335,18 +364,32 @@ ALTER TABLE ` tbl_user_profile`
 -- Indexes for table `tbl_user_type`
 --
 ALTER TABLE `tbl_user_type`
-  ADD PRIMARY KEY (`user_type_id`), ADD UNIQUE KEY `ui_user_type` (`user_type_name`);
+  ADD PRIMARY KEY (`user_type_id`);
 
 --
--- Constraints for dumped tables
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- Constraints for table ` tbl_user_profile`
+-- AUTO_INCREMENT for table `tbl_guide_detail_profile`
+--
+ALTER TABLE `tbl_guide_detail_profile`
+  MODIFY `guide_detail_id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `tbl_referrals`
+--
+ALTER TABLE `tbl_referrals`
+  MODIFY `referral_id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=22;
+--
+-- AUTO_INCREMENT for table ` tbl_user_profile`
 --
 ALTER TABLE ` tbl_user_profile`
-ADD CONSTRAINT ` tbl_user_profile_ibfk_1` FOREIGN KEY (`user_type_id`) REFERENCES `tbl_user_type` (`user_type_id`);
-
+  MODIFY `user_id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `tbl_user_type`
+--
+ALTER TABLE `tbl_user_type`
+  MODIFY `user_type_id` tinyint(4) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
