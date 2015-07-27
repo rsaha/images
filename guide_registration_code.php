@@ -8,7 +8,7 @@
 	$MobileNumber=mysql_real_escape_string($_POST['MobileNumber']);
 	$Password=mysql_real_escape_string($_POST['Password']);
 		  
-	$update=mysql_query("INSERT INTO ` tbl_user_profile`(`user_type_id`, `user_password`, `f_name`, `l_name`, `email`, `mobileNo`, `gender`, `d_o_b`, `street_address`, `city`, `state`, `country`, `status`, `datecreated`) VALUES (1, '$Password', '$FirstName', '$LastName', '$EmailAddress', '$MobileNumber', 1, now())");
+	$update=mysql_query("INSERT INTO `tbl_user_profile`(`user_type_id`, `user_password`, `f_name`, `l_name`, `email`, `mobileNo`, `gender`, `status`, `datecreated`) VALUES (1, '$Password', '$FirstName', '$LastName', '$EmailAddress', '$MobileNumber', 1, now())");
 
 	if($update)
 	{
