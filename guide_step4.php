@@ -33,7 +33,7 @@
 		
 		if($create3)
 		{
-			$select = mysql_query("SELECT * FROM ` tbl_user_profile` WHERE `user_id` = $userid");
+			$select = mysql_query("SELECT * FROM `tbl_user_profile` WHERE `user_id` = $userid");
 			$username =  mysql_result($select, 0, 3) . " " . mysql_result($select, 0, 4);
 			$from=mysql_result($select, 0, 5);
 			$mobileNumber = mysql_result($select, 0, 6);

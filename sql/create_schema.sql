@@ -308,7 +308,7 @@ CREATE TABLE IF NOT EXISTS `tbl_user_profile` (
 -- Dumping data for table ` tbl_user_profile`
 --
 
-INSERT INTO ` tbl_user_profile` (`user_id`, `user_type_id`, `user_password`, `f_name`, `l_name`, `email`, `mobileNo`, `gender`, `d_o_b`, `street_address`, `city`, `state`, `country`, `status`, `datecreated`) VALUES
+INSERT INTO `tbl_user_profile` (`user_id`, `user_type_id`, `user_password`, `f_name`, `l_name`, `email`, `mobileNo`, `gender`, `d_o_b`, `street_address`, `city`, `state`, `country`, `status`, `datecreated`) VALUES
 (11, 1, 'ANUPKR', 'ANUP KR', 'SAHA', 'rsaha@xmapledatalab.com', '9234567891', 'Male', '0000-00-00', '', '', '', '', 1, '2015-07-28'),
 (13, 1, 'KALLOL', 'KALLOL', 'BOSE', 'kal@xmapledatalab.com', '8234567891', 'Male', '0000-00-00', '', 'Delhi', 'Delhi', 'India', 1, '2015-07-28'),
 (14, 1, 'AMITAVA', 'AMITAVA', 'MUKHOPADHYAY', 'amit@xmaple.com', '7234567891', 'Male', '0000-00-00', 'old govind puri', 'Delhi', '', '', 1, '2015-07-28'),

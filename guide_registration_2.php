@@ -13,7 +13,7 @@ if($_SESSION["userReg"]!=$userid)
 else
 {
 	include('db.php');
-	$select = mysql_query("SELECT * FROM ` tbl_user_profile` WHERE `user_id` = $userid");
+	$select = mysql_query("SELECT * FROM `tbl_user_profile` WHERE `user_id` = $userid");
 	$firstName=mysql_result($select, 0, 3);
 	$secondName=mysql_result($select, 0, 4);
 	$username =  $firstName . " " . $secondName;

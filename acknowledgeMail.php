@@ -6,7 +6,7 @@
 	{
 	$userid = $_GET['id'];
 	}
-	$select1 = mysql_query("SELECT * FROM ` tbl_user_profile` WHERE `user_id` = $userid");
+	$select1 = mysql_query("SELECT * FROM `tbl_user_profile` WHERE `user_id` = $userid");
 			$username =  mysql_result($select1, 0, 3) . " " . mysql_result($select1, 0, 4);
 			$from=mysql_result($select1, 0, 5);
 			$mobileNumber = mysql_result($select1, 0, 6);

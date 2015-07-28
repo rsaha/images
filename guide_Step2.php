@@ -60,7 +60,7 @@
 	
 	include("db.php");
 	
-	$update = mysql_query("UPDATE ` tbl_user_profile` SET `gender`='$Gender', `d_o_b`=$DOB, `street_address`='$streetaddress', `city`='$city', `state`='$state', `country`='$country', `datecreated`=now() WHERE `user_id`=$userid");
+	$update = mysql_query("UPDATE `tbl_user_profile` SET `gender`='$Gender', `d_o_b`=$DOB, `street_address`='$streetaddress', `city`='$city', `state`='$state', `country`='$country', `datecreated`=now() WHERE `user_id`=$userid");
 	
 	if($update)
 	{

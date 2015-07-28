@@ -8,7 +8,7 @@
 	$MobileNumber = mysql_real_escape_string($_POST['MobileNumber']);
 	$Password = mysql_real_escape_string($_POST['Password']); 
 		 
-		$create = mysql_query("INSERT INTO ` tbl_user_profile`(`user_type_id`, `user_password`, `f_name`, `l_name`, `email`, `mobileNo`, `status`, `datecreated`) VALUES (1, '$Password', '$FirstName', '$LastName', '$EmailAddress', '$MobileNumber', 1, now())");
+		$create = mysql_query("INSERT INTO `tbl_user_profile`(`user_type_id`, `user_password`, `f_name`, `l_name`, `email`, `mobileNo`, `status`, `datecreated`) VALUES (1, '$Password', '$FirstName', '$LastName', '$EmailAddress', '$MobileNumber', 1, now())");
 		
 		if($create)
 		{
