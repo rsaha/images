@@ -1,5 +1,6 @@
 <?php
 	session_start();
+	
 	include("db.php");
 	$FirstName=mysql_real_escape_string($_POST['FirstName']);
 	$LastName=mysql_real_escape_string($_POST['LastName']);
@@ -14,16 +15,17 @@
 			$select = mysql_query("SELECT * FROM ` tbl_user_profile` WHERE `email`='$EmailAddress' && `mobileNo`='$MobileNumber'");
 			$userid = mysql_result($select, 0, 0);
 			
-			$_session['login']= "true";
+			$_SESSION["userReg"]=$userid;
 			
 			$msg="Successfully Updated!!";
 			echo "<script type='text/javascript'>alert('$msg');</script>";
-			header('Location:registration2.php?id=' . $userid . '');
+			header('Location:guide_registration_2.php?id=' . $userid . '');
 		}
 		else
 		{
 			$errormsg="Something went wrong, Try again";
 			echo "<script type='text/javascript'>alert('$errormsg');</script>";
+			header('Location:guide_registration_1.php');
 		}
 ?>
 

@@ -1,11 +1,18 @@
 <?php
 	session_start();
-	include("db.php");
+	
+	if(isset($_SESSION["userReg"]))
+	{
 	if(isset($_POST['userid']))
 	{
 	$userid=mysql_real_escape_string($_POST['userid']);
 	}
-	
+	if($_SESSION["userReg"]!=$userid)
+	{
+		header('Location:guide_registration_1.php');
+	}
+	else
+	{
 	$Gender=mysql_real_escape_string($_POST['Gender']);
 	
 	$DOB=mysql_real_escape_string($_POST['DOB']);
@@ -50,6 +57,9 @@
 	
 	$profilepicture=mysql_real_escape_string($_POST['profilepicture']);
 	
+	
+	include("db.php");
+	
 	$update = mysql_query("UPDATE ` tbl_user_profile` SET `gender`='$Gender', `d_o_b`=$DOB, `street_address`='$streetaddress', `city`='$city', `state`='$state', `country`='$country', `datecreated`=now() WHERE `user_id`=$userid");
 	
 	if($update)
@@ -88,11 +98,17 @@
 		$_session['login']="true";
 		$msg="Successfully Updated!!";
 		echo "<script type='text/javascript'>alert('$msg');</script>";
-		header('Location:registration3.php?id=' . $userid . '');
+		header('Location:guide_registration_3.php?id=' . $userid . '');
 	}
 	else
 	{
 		$errormsg="Something went wrong, Try again";
 		echo "<script type='text/javascript'>alert('$errormsg');</script>";
+	}
+	}
+	}
+	else
+	{
+	header('Location:guide_registration_1.php');	
 	}
 ?>
