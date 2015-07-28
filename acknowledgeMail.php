@@ -42,16 +42,14 @@
 		{
 			echo "<script>
 			alert('Sorry! mail could not be sent at this moment. Please try again!');
-			window.location.href='guide_profile.php?id=". $userid . ";
 			</script>";
-			//header('Location: guide_profile.php?id='. $userid .'');
+			header('Location: guide_profile.php?id='. $userid .'');
 			exit;
 		}
 		echo "<script>
 		alert('Thank you for contacting us. As early as possible  we will contact you.');
-		window.location.href='guide_profile.php?id=". $userid . ";
 		</script>";
-		//header('Location: guide_profile.php?id='. $userid .'');
+		header('Location: guide_profile.php?id='. $userid .'');
 		die;
 ?>
 

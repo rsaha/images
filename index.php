@@ -1,4 +1,3 @@
-
 <html lang="en" dir="ltr">
 
 	<!-- START head --> <head> <!-- Site meta charset --> <meta
@@ -516,7 +515,7 @@
                 								</section> </div> </div> </div> </div>
 								<!-- END #ft-footer -->
 
-				<?php include("MasterFutter.php"); ?>
+				<?php include("MasterFooter.php"); ?>
 				
 							</div> <!-- END #wrapper -->
 
