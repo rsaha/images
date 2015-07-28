@@ -72,59 +72,36 @@
 	
 	<!-- START body --> <body> 
 	<!-- START #wrapper --> <div id="wrapper"> 
-	<!-- START header --> <header> <!-- START #top-header --> 
-		<div id="top-header"> 
-			<div class="container"> 
-				<div class="row top-row"> 
-					<div class="col-md-6"> 
-						<div class="left-part alignleft">
-							<span class="contact-email small">support@xmapledatalab.com</span>
-							<span class="contact-phone small">+1 510 938 2562</span> 
-							<ul class="social-media header-social"> 
-								<li><a class="sm-facebook" href="#"><span>Facebook</span></a></li> 
-								<li><a class="sm-flickr" href="#"><span>Pinterest</span></a></li> 
-								<li><a class="sm-windows" href="#"><span>Youtube</span></a></li> 
-								<li><a class="sm-stumble" href="#"><span>Twitter</span></a></li> 
-							</ul> 
-						</div> 
-					</div> 
-					<div class="col-md-6"> 
-						<div class="right-part alignright"> 
-							<!-- <form action="#" method="get"> 
-								<fieldset class="alignright">
-									<input type="text" name="s" class="search-input" value="Search..." onfocus="if (this.value == 'Search...') { this.value = ''; }"
-									onblur="if (this.value == '') { this.value = 'Search...'; }" />
-									<input type="submit" name="submit" class="search-submit" value="" />
-								</fieldset> 
-							</form> -->
-							<span class="top-link small">
-								<a href="guide_login.php" title="">Guide Sign-in</a>
-							</span> 
-							<span class="top-link small">
-								<a href="sign-in.html" title="">SIGN IN</a>
-							</span> 
-						</div>
-					</div> 
-				</div> 
-			</div> 
-		</div> <!-- END #top-header -->
+	
+	<!-- START footer --> <footer> 
+				<!-- START #ex-footer --> <div id="#ex-footer"> <div
+				class="container"> <div class="row"> <nav
+				class="col-md-12"> <ul class="footer-menu"> <li><a
+				href="#">Cancellation Policy</a></li> <li><a
+				href="#">Careers</a></li> <li><a href="#">Hotel
+				Directory</a></li> <li><a href="termofuse.html">Website Terms of
+				Use</a></li> <li><a href="privacy.html">Privacy Statement</a></li>
+				<li><a href="#">Affiliates</a></li> <li
+				class="last-item"><a href="#">Top Destinations</a></li>
+				</ul> </nav>
 
-				<!-- START #main-header --> <div id="main-header"> <div
-				class="container"> <div class="row"> <div
-				class="col-md-3"> <a id="site-logo" href="#"> <img
-				src="img/logo.png" alt="Guided Gateway" /> </a> </div> <div
-				class="col-md-9"> <nav class="main-nav">
-				<span>MENU</span> <ul id="main-menu"> <li><a href="index.php"
-				title="">HOME</a> 
-				</li> <li><a
-				href="guides.html" title="">Guides</a></li> <li><a
-				href="top-destinations-listview-sidebar.html" title="">Destinations</a> </li>
-                <li><a
-				href="top-themes-listview-sidebar.html" title="">Themes</a> </li>
-
-									</ul> </nav> </div> </div> </div>
-									</div> <!-- END #main-header -->
-									</header> <!-- END header -->
+							<div class="foot-boxs"> <div class="foot-box
+							col-md-4 text-right"> <span>Stay
+							Connected</span> <ul class="social-media
+							footer-social"><li><a class="sm-facebook"
+	href="#"><span>Facebook</span></a></li> <li><a class="sm-flickr"
+	href="#"><span>Pinterest</span></a></li> <li><a class="sm-windows"
+	href="#"><span>Youtube</span></a></li> <li><a class="sm-stumble"
+	href="#"><span>Twitter</span></a></li>
+							</ul> </div> <div class="foot-box
+							foot-box-md col-md-4"> <span
+							class="contact-email">
+							touchus@guidedgateway.com</span> <span
+							class="contact-phone"> +1 510 938 2562</span> </div> <div class="foot-box
+							col-md-4"> <span class="">&copy; 2015							GuideGateway. All Rights Reserved.</span>
+							</div> </div> </div> </div> </div> <!-- END #ex-footer --> 
+				</footer> <!-- END footer -->
+	
 	<!-- START #wrapper --> </div> 
 	</body>
 	</html>

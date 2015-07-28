@@ -12,13 +12,13 @@ if($_SESSION["userReg"]!=$userid)
 }
 else
 {
-	include('db.php');
-	$select = mysql_query("SELECT * FROM ` tbl_user_profile` WHERE `user_id` = $userid");
-	$firstName=mysql_result($select, 0, 3);
-	$secondName=mysql_result($select, 0, 4);
-	$username =  $firstName . " " . $secondName;
-	$emailID = mysql_result($select, 0, 5);
-	$mobileNumber = mysql_result($select, 0, 6); 
+include('db.php');
+$select = mysql_query("SELECT * FROM ` tbl_user_profile` WHERE `user_id` = $userid");
+$firstName=mysql_result($select, 0, 3);
+$secondName=mysql_result($select, 0, 4);
+$username =  $firstName . " " . $secondName;
+$emailID = mysql_result($select, 0, 5);
+$mobileNumber = mysql_result($select, 0, 6); 
 }
 }
 else
@@ -78,7 +78,7 @@ else
 		{
 		position:relative;
 		bottom:100px;
-		left:0px;
+		left:55px;
 		visibility:hidden;
 		}
 		
@@ -91,18 +91,14 @@ else
 		<!-- START #wrapper -->
 		<div id="wrapper">
 			<?php include('MasterHeader.php'); ?>
-			<form action="guide_Step2.php" method="post">
+			
 			<!-- START #page-header -->
-			<div class="hovera" >
-					<input type="file" id="upload" name="coverpicture" style="visibility: hidden; width: 1px; height: 1px"/>
-					<a href="" onclick="document.getElementById('upload').click(); return false">
-					
+			<div>
 					<img src="img/profilepic.jpg" class="hover img-responsive" />
-						<p class="text">change image</p>
-					</a>
+						<br /><br />
 					</div>
 					
-		<input type="hidden" name="userid" value="<?php echo $userid ?>" />
+		
 			<!-- END #page-header -->
 			
 			<!-- START .main-contents -->
@@ -112,14 +108,11 @@ else
 					<div id="page" class="col-md-2">
 					<center>
 					<div class="row">
-					<div class="hovera" style="border: 0px solid black; height:201px">
-					<input type="file" id="upload" name="profilepicture" style="visibility: hidden; width: 1px; height: 1px"/>
-					<a href="" onclick="document.getElementById('upload').click(); return false">
 					
-					<img src="img/userDefaultIcon.png" class="hover img-responsive" style="max-height:198px; max-width:198px;" />
-						<p class="text">change image</p>
-					</a>
+					<div style="border: 0px solid black; height:201px">
+					<img src="img/userDefaultIcon.png" class="hover img-responsive"  style="max-height:198px; max-width:198px;"/>
 					</div>
+					
 					</div>
 					</center>
 					<br /><br />
@@ -128,6 +121,7 @@ else
 					Email - <?php echo $emailID ?><br /><br />
 					Mobile - <?php echo $mobileNumber ?>
 					</div>
+					
 					</div>
 						<!-- START #page -->
 						<div id="page" class="col-md-10">
@@ -135,7 +129,7 @@ else
 								<!-- Sidebar recent popular posts -->
 								<!-- START TABS -->
 								<ul class="nav nav-tabs text-upper">
-									<li class="active"><a href="#userinfo" data-toggle="tab">Registration Step 2</a></li>
+									<li class="active"><a href="#userinfo" data-toggle="tab">Registration Step 3</a></li>
 									<li style="font-size:35px">&nbsp;&nbsp;&nbsp;Welcome <?php echo $firstName ?></li>
 								</ul>
 								<!-- END TABS -->
@@ -144,94 +138,59 @@ else
 								<div class="tab-content clearfix marb30">
 									<!-- START TAB 1 -->
 									<div class="tab-pane active mart20" id="userinfo">
-										
+										<form action="guide_Step3.php" method="post">
+										<input type="hidden" name="userid" value="<?php echo $userid ?>" />
 											<fieldset>
 												<ul class="formFields list-unstyled">
 													<li class="row">
-														<div class="col-md-4">
-															<label>Nick Name</label>
-															<input type="text" class="form-control" name="nickname" value="" pattern="[a-z A-Z]+" />
+														<div class="col-md-6">
+															<label>Guide Facebook Profile</label>
+															<input type="text" class="form-control" name="GuideFacebookProfile" value="" />
 														</div>
-														<div class="col-md-4">
-															<label>Gender</label>
-															 <select class="form-control" name="Gender">
-															  <option value="SELECT">Select</option>
-															  <option value="Male">Male</option>
-															  <option value="Female">Female</option>
-															</select>
-														</div>
-														<div class="col-md-4">
-															<label>Date Of Birth</label>
-															<input type="date" class="form-control" name="DOB" id="DOB" value=""  />
-														</div>
-													</li>
-													<li class="row">
-														<div class="col-md-12">
-															<label>Street Address</label>
-															<input type="text" class="form-control" name="streetaddress" value="" />
+														<div class="col-md-6">
+															<label>Guide Linkedin Profile</label>
+															<input type="text" class="form-control" name="GuideLinkedinProfile" value="" />
 														</div>
 														
 													</li>
 													<li class="row">
-														<div class="col-md-4">
-															<label>City</label>
-															<input type="text" class="form-control" name="city" value="" pattern="[a-z A-Z]+" />
+														<div class="col-md-6">
+															<label>Guide Pinterest Profile</label>
+															<input type="text" class="form-control" name="GuidePinterestProfile" value="" />
 														</div>
-														<div class="col-md-4">
-															<label>State</label>
-															<input type="text" class="form-control" name="state" value="" pattern="[a-z A-Z]+" />
-														</div>
-														<div class="col-md-4">
-															<label>Country</label>
-															<input type="text" class="form-control" name="country" value="" pattern="[a-z A-Z]+" />
+														<div class="col-md-6">
+															<label>Guide Skype Address</label>
+															<input type="text" class="form-control" name="GuideSkypeAddress" value="" />
 														</div>
 													</li>
-													<li class="row">
-														<div class="col-md-4">
-															<label>Licence Number</label>
-															<input type="text" class="form-control" name="licencenumber" maxlength="20" value="" pattern="[a-z0-9A-Z]+" />
-														</div>
-														<div class="col-md-4">
-															<label>Licence Expiry</label>
-															<input type="text" id="LicenceExpiry" class="form-control" name="licenceexpiry" value="" />
-														</div>
-														<div class="col-md-4">
-															<label>Licence Image</label>
-															<input type="file" class="form-control" name="licenceImage" value="" style="padding:0px 0px " />
-														</div>
-														</li>
-													<li class="row">
-														<div class="col-md-4">
-															<label>Landline Number</label>
-															<input type="tel" class="form-control" name="landlinenumber" value="" maxlength="15" pattern="\d{15}"/>
-														</div>
-														<div class="col-md-4">
-															<label>Best Time for Contact</label>
-															<input type="text" class="form-control" name="contacttime" value="" />
-														</div>
-														<div class="col-md-4">
-															<label>Payment Currency</label>
-															<input type="text " class="form-control" name="paymentcurrency" value="" />
-														</div>
-														<div class="col-md-4">
-															
-														</div>
-													</li>
+													
 													<li class="row">
 														
-														<div class="col-md-12">
-															<label>Payment Terms</label>
-															<textarea class="form-control" name="paymentterms" ></textarea>
+														<div class="col-md-6">
+															<label>Guide Experience</label>
+															<textarea class="form-control" name="GuideExperience" ></textarea>
+														</div>
+														
+														<div class="col-md-6">
+															<label>Guide Interest</label>
+															<textarea class="form-control" name="GuideInterest" ></textarea>
 														</div>
 														</li>
 														<li class="row">
 														
 														<div class="col-md-12">
-															<label>Communication Mechanism</label>
-															<textarea class="form-control" name="communicationmechanism" ></textarea>
+															<label>Guide Summary</label>
+															<textarea class="form-control" name="GuideSummary" ></textarea>
 														</div>
 														</li>
 														
+														<li class="row">
+														
+														<div class="col-md-12">
+															<label>Guide Remark</label>
+															<textarea class="form-control" name="GuideRemark" ></textarea>
+														</div>
+														</li>
 														<li class="row">
 														
 														<div class="form-group">
@@ -243,14 +202,14 @@ else
 														<?php
 														echo '<input type="button" class="btn btn-default form-control" onclick="myFunction(' . $userid. ')" value="Skip">'
 														?>
-														</div>
+															</div>
 														</div>
 														</li>
 													
 													
 												</ul>
 											</fieldset>
-										
+										</form>
 									</div>
 									<!-- END TAB 1 -->
 								</div>
@@ -263,33 +222,22 @@ else
 				</div>
 			</div>
 			<!-- END .main-contents -->
-			</form>
+			
 			<?php include('MasterFooter.php'); ?>
 		</div>
 		<!-- END #wrapper -->
-			
-			<script>
-			$(function() {
-			$('#DOB').datepicker({
-			numberOfMonths: 3,
-			showButtonPanel: true
-			});
-			$('#LicenceExpiry').datepicker({
-			numberOfMonths: 3,
-			showButtonPanel: true
-			});
-			});
-
-			</script>
-
-			<script>
+		
+		<script type="text/javascript" >
+		$(function() {
+		$( "#LicenceValidtyDatepicker" ).datepicker();
+		});
+		</script>
+		<script>
 		function myFunction(id) {
-		window.location.href = "guide_registration_3.php?id="+id;
+		window.location.href = "guide_registration_4.php?id="+id;
 		return false;
 		}
 		</script>
-
-
 				<!-- javascripts -->
 		<script type="text/javascript" src="js/modernizr.custom.17475.js"></script>
 

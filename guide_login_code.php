@@ -1,6 +1,6 @@
 <?php 
 session_start();
-
+$_SESSION["signinCheck"]="signout";
 
 include('db.php');
 
@@ -17,15 +17,11 @@ $count = mysql_num_rows($result1);
 
 if ($count==1)
 {
-	
-	$_SESSION["login"]="true";
-	
+	$_SESSION["signinCheck"]="signin";
 	header('location:guide_profile.php');
 }
 else
-{
-	$_SESSION["login"]="false";
-	
+{	
 	header('location:guide_login.php');
 }
 }

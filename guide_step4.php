@@ -1,12 +1,26 @@
 <?php
 	session_start();
-	include("db.php");
+	
+	
+	if(isset($_SESSION["userReg"]))
+	{
+	if(isset($_POST['userid']))
+	{
 	$userid=mysql_real_escape_string($_POST['userid']);
+	}
+	if($_SESSION["userReg"]!=$userid)
+	{
+		header('Location:guide_registration_1.php');
+	}
+	else
+	{
+		
+	
 	$emailFriend1=mysql_real_escape_string($_POST['emailFriend1']);
 	$emailFriend2=mysql_real_escape_string($_POST['emailFriend2']);
 	$emailFriend3=mysql_real_escape_string($_POST['emailFriend3']);
 	
-		 
+		 include("db.php");
 		$create1 = mysql_query("INSERT INTO `tbl_referrals`(`referrer_id`, `referral_name`, `referral_email`, `referral_phone`, `referral_status`, `datecreated`) VALUES ($userid, '', '$emailFriend1', '', 1, now())");
 		if($create1)
 		{
@@ -51,9 +65,12 @@
 
 			if(!$mail->Send())
 			{
-				header("Location: acknowledgeMail.php");
+				header('Location: acknowledgeMail.php?id=' . $userid . '');
+				unset($_SESSION['userReg']);
 				exit;
 			}
+			
+			unset($_SESSION['userReg']);
 			header('Location: acknowledgeMail.php?id=' . $userid . '');
 			die;
 			
@@ -64,7 +81,14 @@
 		}
 		else
 		{
+			unset($_SESSION['userReg']);
 			$errormsg="Something went wrong, Try again";
 			echo "<script type='text/javascript'>alert('$errormsg');</script>";
 		}
+		}
+	}
+	else
+	{
+	header('Location:guide_registration_1.php');	
+	}
 ?>
