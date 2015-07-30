@@ -128,7 +128,7 @@ else
 							<div class="user-profile">
 								<!-- Sidebar recent popular posts -->
 								<!-- START TABS -->
-								<ul class="nav nav-tabs text-upper">
+								<ul class="nav nav-tabs text-upper" style="background-color:#ff845e">
 									<li class="active"><a href="#userinfo" data-toggle="tab">Registration Step 3</a></li>
 									<li style="font-size:35px">&nbsp;&nbsp;&nbsp;Welcome <?php echo $firstName ?></li>
 								</ul>
@@ -160,7 +160,7 @@ else
 														</div>
 														<div class="col-md-6">
 															<label>Guide Skype Address</label>
-															<input type="text" class="form-control" name="GuideSkypeAddress" value="" />
+															<input type="text" class="form-control" name="GuideSkypeAddress" pattern="[a-z0-9A-Z_-.]+"  value="" />
 														</div>
 													</li>
 													

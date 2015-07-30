@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(isset($_SESSION["userReg"]))
+/* if(isset($_SESSION["userReg"]))
 {
 if(isset($_GET['id']))
 {
@@ -11,7 +11,7 @@ if($_SESSION["userReg"]!=$userid)
 	header('Location:guide_registration_1.php');
 }
 else
-{
+{ 
 include('db.php');
 $select = mysql_query("SELECT * FROM ` tbl_user_profile` WHERE `user_id` = $userid");
 $firstName=mysql_result($select, 0, 3);
@@ -24,7 +24,7 @@ $mobileNumber = mysql_result($select, 0, 6);
 else
 {
 	header('Location:guide_registration_1.php');
-}
+}*/
 ?>
 <html lang="en" dir="ltr">
 
@@ -117,9 +117,9 @@ else
 					</center>
 					<br /><br />
 					<div class="row">
-					Name - <?php echo $username ?><br /><br />
-					Email - <?php echo $emailID ?><br /><br />
-					Mobile - <?php echo $mobileNumber ?>
+					Name - <?php echo " ";/* $username */ ?><br /><br />
+					Email - <?php echo " ";/* $emailID */ ?><br /><br />
+					Mobile - <?php echo " ";/* $mobileNumber */ ?>
 					</div>
 					
 					</div>
@@ -130,7 +130,7 @@ else
 								<!-- START TABS -->
 								<ul class="nav nav-tabs text-upper" style="background-color:#ff845e">
 									<li class="active"><a data-toggle="tab">Registration Step 4</a></li>
-									<li style="color:black; font-size:35px">&nbsp;&nbsp;&nbsp;Welcome <?php echo $firstName ?></li>
+									<li style="color:black; font-size:35px">&nbsp;&nbsp;&nbsp;Welcome <?php " ";/* echo $firstName */ ?></li>
 								</ul>
 								<!-- END TABS --><br>
 								
@@ -139,7 +139,7 @@ else
 								<div class="tab-content clearfix marb30">
 									<!-- START TAB 1 -->
 									<div class="tab-pane active mart20" id="inviteGuide">
-									<center><h3>Invite your 3 friends by their email id and get some exciting offers...</h3></center><br />
+									<center><h3>Invite your 3 touriest to plan their tour by their email id and get some exciting offers...</h3></center><br />
 										<form action="guide_step4.php" method="post">
 										<input type="hidden" name="userid" value="<?php echo $userid ?>" />
 										
@@ -153,11 +153,11 @@ else
 														</div>
 														<div class="col-md-4">
 															<label>Email Id of your 1st friend</label>
-															<input type="email" class="form-control" name="emailFriend1" value="" pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,5}(\.[a-zA-Z]{2,5}){0,1}"/>
+															<input type="email" class="form-control" name="emailFriend1" value=""  pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,5}(\.[a-zA-Z]{2,5}){0,1}"/>
 														</div>
 														<div class="col-md-4">
 															<label>Mobile Number of your 1st friend</label>
-															<input type="tel" class="form-control" name="mobileFeiend1" maxlength="10"  pattern="([7-9]{1})(\d{9})" value=""/>
+															<input type="tel" class="form-control" name="mobileFeiend1" maxlength="10" required pattern="([7-9]{1})(\d{9})" value=""/>
 														</div>
 														
 													</li>
@@ -169,11 +169,11 @@ else
 														</div>
 														<div class="col-md-4">
 															<label>Email Id of your 2nd friend</label>
-															<input type="email" class="form-control" name="emailFriend2" value="" pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,5}(\.[a-zA-Z]{2,5}){0,1}"/>
+															<input type="email" class="form-control" name="emailFriend2" value=""  pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,5}(\.[a-zA-Z]{2,5}){0,1}"/>
 														</div>
 														<div class="col-md-4">
 															<label>Mobile Number of your 2nd friend</label>
-															<input type="tel" class="form-control" name="mobileFeiend2" maxlength="10"  pattern="([7-9]{1})(\d{9})" value="" />
+															<input type="tel" class="form-control" name="mobileFeiend2" maxlength="10" required pattern="([7-9]{1})(\d{9})" value="" />
 														</div>
 														
 													</li>
@@ -189,7 +189,7 @@ else
 														</div>
 														<div class="col-md-4">
 															<label>Mobile Number of your 3rd friend</label>
-															<input type="tel" class="form-control" name="mobileFeiend3" value="" maxlength="10"  pattern="([7-9]{1})(\d{9})" value="" />
+															<input type="tel" class="form-control" name="mobileFeiend3" value="" maxlength="10" required pattern="([7-9]{1})(\d{9})" value="" />
 														</div>
 														
 													</li>
@@ -199,7 +199,7 @@ else
 													</div>
 													<div class="col-md-4 pull-right" >
 														<?php
-														echo '<input type="button" class="btn btn-default form-control" onclick="myFunction(' . $userid. ')" value="Skip">'
+														echo '<input type="button" class="btn btn-default form-control" onclick="myFunction()" value="Skip">'
 														?>
 													</div>
 													</li>
@@ -238,8 +238,7 @@ else
 		  </script>
 		  <script>
 function myFunction(id) {
-	//window.location.href = "guide_profile.php?id="+id;
-	window.location.href = "guided_profile.php";
+	window.location.href = "guide_profile.php?id="+id;
 	 return false;
  }
 </script>

@@ -88,21 +88,21 @@
 							</ul> 
 						</div> 
 					</div> 
-					<div class="col-md-6"> 
+					<div class="col-md-6">
 						<div class="right-part alignright"> 
-							<!-- <form action="#" method="get"> 
-								<fieldset class="alignright">
+							<span class="top-link small pull-left">
+								<a href="sign-in.html" style="color:#292c2f" title="">SIGN IN</a>
+							</span> 
+							<span class="top-link small pull-left">
+								<a href="guide_login.php" style="color:#292c2f" title="">Guide Sign-in</a>
+							</span> 
+							<form action="#" method="get"> 
+								<fieldset class="pull-left">
 									<input type="text" name="s" class="search-input" value="Search..." onfocus="if (this.value == 'Search...') { this.value = ''; }"
 									onblur="if (this.value == '') { this.value = 'Search...'; }" />
 									<input type="submit" name="submit" class="search-submit" value="" />
 								</fieldset> 
-							</form> -->
-							<span class="top-link small">
-								<a href="guide_login.php" title="">Guide Sign-in</a>
-							</span> 
-							<span class="top-link small">
-								<a href="sign-in.html" title="">SIGN IN</a>
-							</span> 
+							</form>
 						</div>
 					</div> 
 				</div> 

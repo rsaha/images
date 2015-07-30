@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+unset($_SESSION['userReg']);
 /* if(isset($_GET['id']))
 {
 $userid = $_GET['id'];
@@ -78,121 +78,12 @@ $mobileNumber = mysql_result($select, 0, 6);  */
 		<!-- START #wrapper -->
 		<div id="wrapper">
 			
-			<header>
-				<!-- START #top-header -->
-				<div id="top-header"  style="background-color:#ffe200;">
-					<div class="container">
-						<div class="row top-row" >
-							<div class="col-md-6">
-								<div class="left-part alignleft">
-									<span class="contact-email small">touchus@travelhub.com</span>
-									<span class="contact-phone small">+1 125 496 0999</span>
-									<ul class="social-media header-social">
-										<li><a class="sm-yahoo" href="#"><span>Yahoo</span></a></li>
-										<li><a class="sm-facebook" href="#"><span>Facebook</span></a></li>
-										<li><a class="sm-rss" href="#"><span>RSS</span></a></li>
-										<li><a class="sm-flickr" href="#"><span>Flicker</span></a></li>
-										<li><a class="sm-windows" href="#"><span>Windows</span></a></li>
-										<li><a class="sm-stumble" href="#"><span>Stumbleupon</span></a></li>
-									</ul>
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="right-part alignright">
-									<form action="#" method="get">
-										<fieldset class="alignright">
-											<input type="text" name="s" class="search-input" value="Search..." onfocus="if (this.value == 'Search...') { this.value = ''; }" onblur="if (this.value == '') { this.value = 'Search...'; }" />
-											<input type="submit" name="submit" class="search-submit" value="" />
-										</fieldset>
-									</form>
-									<span class="top-link small">Tell a Friend</span>
-									<span class="top-link small">Bookmark</span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- END #top-header -->
-				
-				<!-- START #main-header -->
-				<div id="main-header">
-					<div class="container">
-						<div class="row">
-							<div class="col-md-3">
-								<a id="site-logo" href="#">
-									<img src="img/logo.png" alt="Travel Hub" />
-								</a>
-							</div>
-							<div class="col-md-9">
-								<nav class="main-nav">
-									<span>MENU</span>
-									<ul id="main-menu">
-										<li><a href="#" title="">HOME</a>
-											<ul>
-												<li><a href="index.html" title="">HOME PAGE 1</a></li>
-												<li><a href="home.html" title="">HOME PAGE 2</a></li>
-											</ul>
-										</li>
-										<li><a title="">MY PROFILE</a>
-											<ul>
-												<li><a href="blog.html" title="">BLOG PAGE</a></li>
-												<li><a href="blog-sidebar.html" title="">BLOG PAGE WITH SIDEBAR</a></li>
-												<li><a href="blog-detail.html" title="">BLOG DETAIL</a></li>
-												<li><a href="blog-detail-sidebar.html" title="">BLOG DETAIL SIDEBAR</a></li>
-												<li><a href="blog-listview.html" title="">LIST VIEW</a></li>
-												<li><a href="blog-listview-sidebar.html" title="">LIST VIEW SIDEBAR</a></li>
-												<li><a href="single.html" title="">SINGLE POST</a></li>
-											</ul>
-										</li>
-										
-										<li><a title="">TOURS</a>
-											<ul>
-												<li><a href="gallery.html" title="">GALLERY COLUMNS</a></li>
-												<li><a href="gallery-slideshow.html" title="">GALLERY SLIDESHOW</a></li>
-											</ul>
-										</li>
-										<li><a title="">PLACES</a>
-											<ul>
-												<li><a href="widget.html" title="">WIDGETS</a></li>
-												<li><a href="shortcodes.html" title="">SHORTCODES</a></li>
-												<li><a href="404page.html" title="">404 ERROR PAGE</a></li>
-												<li><a href="booking-form.html" title="">BOOKING FORM</a></li>
-												<li><a href="order-confirmation.html" title="">ORDER CONFIRMATION</a></li>
-												<li><a href="price-table.html" title="">PRICE TABLES</a></li>
-												<li><a href="sign-in.html" title="">SIGN IN</a></li>
-												<li><a href="sign-up.html" title="">SIGN UP</a></li>
-												<li><a href="tour-plan.html" title="">TOUR PLAN</a></li>
-												<li><a href="user-profile.html" title="">USER PROFILE</a></li>
-											</ul>
-										</li>										
-										
-										<li><a title="">ACTIVITIES</a>
-											<ul>
-												<li><a href="top-activities.html" title="">TOP ACTIVITIES</a></li>
-												<li><a href="top-activities-sidebar.html" title="">TOP ACTIVITIES WITH SIDEBAR</a></li>
-												<li><a href="top-activities-listview.html" title="">LIST VIEW</a></li>
-												<li><a href="top-activities-listview-sidebar.html" title="">LIST VIEW SIDEBAR</a></li>
-											</ul>
-										</li>
-										<li><a title="">CONTACT</a>
-											<ul>
-												<li><a href="contact.html" title="">CONTACT PAGE 1</a></li>
-												<li><a href="contact-us.html" title="">CONTACT PAGE 2</a></li>
-											</ul>
-										</li>
-									</ul>
-								</nav>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- END #main-header -->
-			</header>
+			<?php include('MasterHeader.php'); ?>
 			<form action="guide_Step2.php" method="post">
 			<!-- START #page-header -->
 			<div class="hovera" >
 					<input type="file" id="upload" name="coverpicture" style="visibility: hidden; width: 1px; height: 1px"/>
-					<a href="" onclick="document.getElementById('upload').click(); return false">
+					<a href="" onClick="document.getElementById('upload').click(); return false">
 					
 					<img src="img/Default.jpg" class="hover img-responsive" />
 						<p class="text">change image</p>
@@ -205,13 +96,13 @@ $mobileNumber = mysql_result($select, 0, 6);  */
 			<!-- START .main-contents -->
 			<div class="main-contents">
 				<div class="container">
-					<div class="row">
+				<div class="row">
 					<div id="page" class="col-md-2">
 					 <center>
 					   <div class="row">
 					    <div class="hovera" style="border: 0px solid black; height:201px">
 					      <input type="file" id="upload" name="profilepicture" style="visibility: hidden; width: 1px; height: 1px"/>
-					     <a href="" onclick="document.getElementById('upload').click(); return false">
+					     <a href="" onClick="document.getElementById('upload').click(); return false">
 					
 					     <img src="img/aa.jpg" class="hover img-responsive" style="max-height:198px; max-width:198px;" />
 						    <p class="text">change image</p>
@@ -219,218 +110,533 @@ $mobileNumber = mysql_result($select, 0, 6);  */
 					     </div>
 					   </div>
 					</center>
-					        <br />
-					    <div class="row">
-					          Aayushi Sharma <?php/*  echo $username */ ?><br /><br />
-					          aayushi89@gmail.com <?php/*  echo $emailID */ ?><br /><br />
-					         contact:8459632541 <?php /* echo $mobileNumber */ ?>
-					   </div>
-					   <hr >
-					   <br> <br>
+					        <br /><br />
+					   <div class="row">
 					   
+					  <ul class="list-unstyled">
+							<li><span class="menu-text"> Lic. No.  <a >24XR5874</a><br></li>
+							<li><span class="menu-text"> Valid upto  <a >24/9/2018</a></li>
+							</ul>
+						   <?php/*  echo $username */ ?>
+						   <?php/*  echo $emailID */ ?>
+					   </div>
 					   <div class="row"> 
 					    <div class="hovera" style="border: 0px solid black; height:201px">
 					      <input type="file" id="upload" name="profilepicture" style="visibility: hidden; width: 1px; height: 1px"/>
-					     <a href="" onclick="document.getElementById('upload').click(); return false">
+					     <a href="" onClick="document.getElementById('upload').click(); return false">
 					
 					     <img src="img/PRcard.jpg" class="hover img-responsive" style="max-height:127px; max-width:200px;" />
 						    <p class="text">change image</p>
 					    </a>
 					     </div>
 					   </div>
-					   
 					    <div class="row">
-					          Lic. No. 24XR5874 <?php/*  echo $username */ ?><br /><br />
-					          Valid upto 24/9/2018 <?php/*  echo $emailID */ ?><br /><br />
-					         
+					   
+					  <ul class="list-unstyled">
+							<li><span class="menu-text"> Communication Mechanism  <a >Mobile, Email</a><br></li>
+							</ul>
+						   <?php/*  echo $username */ ?>
+						   <?php/*  echo $emailID */ ?>
 					   </div>
+					    
 			      </div>
 						<!-- START #page -->
-				  <div id="page" class="col-md-10">
+						<div id="page" class="col-md-10">
 							<div class="user-profile">
-								<!-- Sidebar recent popular posts -->
 								<!-- START TABS -->
-								<ul class="nav nav-tabs text-upper">
+								<ul class="nav nav-tabs text-upper" style="background-color:#FFA98E;">
 									<li class="active"><a href="#userinfo" data-toggle="tab">Guide Profile</a></li>
-									<li style="font-size:35px">&nbsp;&nbsp;&nbsp;Welcome <?php/*  echo $firstName */ ?></li>
+									<li><a href="#tourList" data-toggle="tab">Tours</a></li>
+									<li><a href="#createTour" data-toggle="tab">Create Tour</a></li>
+									<!--<li><a href="#licenceDetail" data-toggle="tab">Licence Detail</a></li>-->
 								</ul>
 								<!-- END TABS -->
 								
 								<!-- START TAB CONTENT -->
-								<div class="tab-content clearfix marb30">
+								<div class="tab-content clearfix ">
 									<!-- START TAB 1 -->
-									<div class="tab-pane active mart20" id="userinfo">
-										
+									<div class="tab-pane active " id="userinfo">
+										<div class="booking gray clearfix box-shadow1">
 											<fieldset>
-												<ul class="formFields list-unstyled">
-													<li class="row">
-														<div class="col-md-4">
-															<label>First Name</label>
-															<input type="text" class="form-control" name="nickname" value="" pattern="[a-z A-Z]+" />
-														</div>
-														<div class="col-md-4">
-															<label>Last Name</label>
-															 <select class="form-control" name="Gender">
-															  <option value="SELECT">Select</option>
-															  <option value="Male">Male</option>
-															  <option value="Female">Female</option>
-															</select>
-														</div>
-														<div class="col-md-4">
-															<label>Email</label>
-															<input type="date" class="form-control" name="DOB" id="DOB" value=""  />
-														</div>
-													</li>
-													<li class="row">
-														<div class="col-md-4">
-															<label>Mobile Number</label>
-															<input type="text" class="form-control" name="nickname" value="" pattern="[a-z A-Z]+" />
-														</div>
-														<div class="col-md-4">
-															<label>Gender</label>
-															 <select class="form-control" name="Gender">
-															  <option value="SELECT">Select</option>
-															  <option value="Male">Male</option>
-															  <option value="Female">Female</option>
-															</select>
-														</div>
-														<div class="col-md-4">
-															<label>Date Of Birth</label>
-															<input type="date" class="form-control" name="DOB" id="DOB" value=""  />
-														</div>
-													</li>
-													<li class="row">
-														<div class="col-md-12">
-															<label>Street Address</label>
-															<input type="text" class="form-control" name="streetaddress" value="" required />
-														</div>
-														
-													</li>
-													<li class="row">
-														<div class="col-md-4">
-															<label>City</label>
-															<input type="text" class="form-control" name="city" value="" pattern="[a-z A-Z]+" />
-														</div>
-														<div class="col-md-4">
-															<label>State</label>
-															<input type="text" class="form-control" name="state" value="" pattern="[a-z A-Z]+" />
-														</div>
-														<div class="col-md-4">
-															<label>Country</label>
-															<input type="text" class="form-control" name="country" value="" pattern="[a-z A-Z]+" />
-														</div>
-													</li>
-													<li class="row">
-														<div class="col-md-4">
-															<label>Licence Number</label>
-															<input type="text" class="form-control" name="licencenumber" maxlength="20" value="" pattern="[a-z0-9A-Z]+" />
-														</div>
-														<div class="col-md-4">
-															<label>Licence Expiry</label>
-															<input type="text" id="LicenceExpiry" class="form-control" name="licenceexpiry" value="" />
-														</div>
-														<div class="col-md-4">
-															<label>Licence Image</label>
-															<input type="file" class="form-control" name="licenceImage" value="" style="padding:0px 0px " />
-														</div>
-														</li>
-													<li class="row">
-														<div class="col-md-3">
-															<label>Guide's facebook Profile</label>
-															<input type="text" class="form-control" name="licencenumber" maxlength="20" value="" pattern="[a-z0-9A-Z]+" />
-														</div>
-														<div class="col-md-3">
-															<label>Guide's LinkedIn Profile</label>
-															<input type="text" id="LicenceExpiry" class="form-control" name="licenceexpiry" value="" />
-														</div>
-														<div class="col-md-3">
-															<label>Guide's PInterest Profile</label>
-															<input type="text" class="form-control" name="licenceImage" value="" style="padding:0px 0px " />
-														</div>
-														<div class="col-md-3">
-															<label>Guide's Skype Address</label>
-															<input type="text" class="form-control" name="licenceImage" value="" style="padding:0px 0px " />
-														</div>
-														</li>
-													<li class="row">
-														<div class="col-md-4">
-															<label>Landline Number</label>
-															<input type="tel" class="form-control" name="landlinenumber" value="" maxlength="15" pattern="\d{15}"/>
-														</div>
-														<div class="col-md-4">
-															<label>Best Time for Contact</label>
-															<input type="text" class="form-control" name="contacttime" value="" />
-														</div>
-														<div class="col-md-4">
-															<label>Payment Currency</label>
-															<input type="text " class="form-control" name="paymentcurrency" value="" />
-														</div>
-														<div class="col-md-4">
-															
-														</div>
-													</li>
-													<li class="row">
-														
-														<div class="col-md-12">
-															<label>Payment Terms</label>
-															<textarea class="form-control" name="paymentterms" ></textarea>
-														</div>
-														</li>
-														
-														<li class="row">
-														
-														<div class="col-md-12">
-															<label>Communication Mechanism</label>
-															<textarea class="form-control" name="communicationmechanism" ></textarea>
-														</div>
-														</li>
-														<li class="row">
-														
-														<div class="col-md-12">
-															<label>Guide Summary</label>
-															<textarea class="form-control" name="communicationmechanism" ></textarea>
-														</div>
-														</li>
-															<li class="row">
-														
-														<div class="col-md-12">
-															<label>Guide Experience</label>
-															<textarea class="form-control" name="communicationmechanism" ></textarea>
-														</div>
-														</li>
-															<li class="row">
-														
-														<div class="col-md-12">
-															<label>Guide Interest</label>
-															<textarea class="form-control" name="communicationmechanism" ></textarea>
-														</div>
-														</li>
-															<li class="row">
-														
-														<div class="col-md-12">
-															<label>Guide Remarks</label>
-															<textarea class="form-control" name="communicationmechanism" ></textarea>
-														</div>
-														</li>
-														<li class="row">
-														
-														<div class="form-group">
-														<div class="col-md-3 pull-right" >
-															<button type="submit" class="btn btn-danger form-control">SAVE</button>
-														
-														</div>
-														<div class="col-md-3 pull-right" >
-														<?php
-														/* echo '<input type="button" class="btn btn-default form-control" onclick="myFunction(' . $userid. ')" value="Skip">' */
-														?>
-														</div>
-														</div>
-														</li>
-													
-													
-												</ul>
-											</fieldset>
-										
+												
+										<div > <a class="btn btn-default pull-right" style="background-color:#ffa98e"> <i class="fa fa-pencil"></i> Edit Profile </a> </div>      
+												<h3 class=" mgtp-10 font-semibold"><i class="icon-user mgr-10 profile-icon"></i> ABOUT</h3>
+												<div class="row">
+												  <div class="col-sm-6">
+													<div class="row mgbt-xs-0">
+													  <label class="col-xs-5 control-label">Name:</label>
+													  <div class="col-xs-7 controls">Mariah Caraiban</div>
+													  <!-- col-sm-10 --> 
+													</div>
+												  </div>
+												  <div class="col-sm-6">
+													<div class="row mgbt-xs-0">
+													  <label class="col-xs-5 control-label">Gender:</label>
+													  <div class="col-xs-7 controls">Female</div>
+													  <!-- col-sm-10 --> 
+													</div>
+												  </div>
+												  <div class="col-sm-6">
+													<div class="row mgbt-xs-0">
+													  <label class="col-xs-5 control-label">Mobile Number:</label>
+													  <div class="col-xs-7 controls">9865795632</div>
+													  <!-- col-sm-10 --> 
+													</div>
+												  </div>
+												  <div class="col-sm-6">
+													<div class="row mgbt-xs-0">
+													  <label class="col-xs-5 control-label">Email:</label>
+													  <div class="col-xs-7 controls">mariah@Vendroid.com</div>
+													  <!-- col-sm-10 --> 
+													</div>
+												  </div>
+												  <div class="col-sm-6">
+													<div class="row mgbt-xs-0">
+													  <label class="col-xs-5 control-label">City:</label>
+													  <div class="col-xs-7 controls">Los Angeles</div>
+													  <!-- col-sm-10 --> 
+													</div>
+												  </div>
+												  <div class="col-sm-6">
+													<div class="row mgbt-xs-0">
+													  <label class="col-xs-5 control-label">Country:</label>
+													  <div class="col-xs-7 controls">United States</div>
+													  <!-- col-sm-10 --> 
+													</div>
+												  </div>
+												  <div class="col-sm-6">
+													<div class="row mgbt-xs-0">
+													  <label class="col-xs-5 control-label">Birthday:</label>
+													  <div class="col-xs-7 controls">Jan 22, 1984</div>
+													  <!-- col-sm-10 --> 
+													</div>
+												  </div>
+												  
+												  <div class="col-sm-6">
+													<div class="row mgbt-xs-0">
+													  <label class="col-xs-5 control-label">Phone:</label>
+													  <div class="col-xs-7 controls">+1-234-5678</div>
+													  <!-- col-sm-10 --> 
+													</div>
+												  </div>
+												  
+												   <div class="col-sm-6">
+													<div class="row mgbt-xs-0">
+													  <label class="col-xs-5 control-label">Country:</label>
+													  <div class="col-xs-7 controls">United States</div>
+													  <!-- col-sm-10 --> 
+													</div>
+												  </div>
+												   <div class="col-sm-6">
+													<div class="row mgbt-xs-0">
+													  <label class="col-xs-5 control-label">Best time to contact:</label>
+													  <div class="col-xs-7 controls">09:00 AM - 05:00 PM</div>
+													  <!-- col-sm-10 --> 
+													</div>
+												  </div>
+												   <div class="col-sm-6">
+													<div class="row mgbt-xs-0">
+													  <label class="col-xs-5 control-label">Payment Corrency:</label>
+													  <div class="col-xs-7 controls">USD, RS</div>
+													  <!-- col-sm-10 --> 
+													</div>
+												  </div>
+												   <div class="col-sm-6">
+													<div class="row mgbt-xs-0">
+													  <label class="col-xs-5 control-label">Payment Terms:</label>
+													  <div class="col-xs-7 controls">Non refundable once paid</div>
+													  <!-- col-sm-10 --> 
+													</div>
+												  </div>
+												 
+												  
+												  
+												</div>
+												<hr class="pd-10">
+												<div class="row">
+												  <div class="col-sm-6">
+													<h3 class=" font-semibold"><i class="fa fa-file-text-o mgr-10 profile-icon"></i> EXPERIENCE</h3>
+													<div class="content-list content-menu col-sm-11">
+													   <span class="menu-text"> <a href="http://www.venmond.com">Owner</a> at <a href="http://www.venmond.com">Vendroid Ltd.</a> <span class="menu-info"><span class="menu-date"> March 2013 ~ Now</span></span> </span> 
+													   <span class="menu-text"> <a href="http://www.venmond.com">CEO</a> at <a href="http://www.venmond.com">Mc. Dondon</a> <span class="menu-info"><span class="menu-date"> March 2011 ~ February 2013</span></span> </span>
+													   <span class="menu-text"> <a href="http://www.venmond.com">Web Designer</a> at <a href="http://www.venmond.com">Web Design Company Ltd.</a> <span class="menu-info"><span class="menu-date"> March 2010 ~ February 2011</span></span> </span>
+													   <span class="menu-text"> <a href="http://www.venmond.com">Sales</a> at <a href="http://www.venmond.com">Sales Company Ltd.</a> <span class="menu-info"><span class="menu-date"> March 2009 ~ February 2010</span></span> </span>
+													</div>
+												  </div>
+												  <div class="col-sm-6">
+													<h3 class=" font-semibold"><i class="fa fa-trophy mgr-10 profile-icon"></i> INTREST</h3>
+													<div class="content-list content-menu  col-sm-11">
+														<span class="menu-text"> Bachelor's degree, E-Commerce/Electronic Commerce at <a href="http://www.venmond.com">UCLA</a> <span class="menu-info"><span class="menu-date"> August 2003 ~ July 2008</span></span> </span>
+														<span class="menu-text"> Student at <a href="http://www.venmond.com">Web Design Education</a> <span class="menu-info"><span class="menu-date"> March 2006 ~ February 2007</span></span> </span>                
+														<span class="menu-text"> Student at <a href="http://www.venmond.com">St. Louis High School</a> <span class="menu-info"><span class="menu-date"> August 2000 ~ July 2003 </span></span> </span>
+													</div>
+												  </div>
+												</div>
+												<!-- row -->
+												<hr class="pd-10">
+												<div class="row">
+												  <div class="col-sm-6">
+													<h3 class=" font-semibold"><i class="fa fa-globe mgr-10 profile-icon"></i> REMARK</h3>
+													<div class=" col-sm-11">
+													  <div class="content-list">
+														<div style="overflow: hidden;" class="mCustomScrollbar _mCS_6" data-rel="scroll"><div class="mCustomScrollBox mCS-light" id="mCSB_6" style="position: relative; height: 100%; overflow: hidden; max-width: 100%; max-height: 400px;"><div class="mCSB_container" style="position: relative; top: 0px;">
+														  <ul class="list-wrapper">
+															<li> <span class="menu-icon vd_yellow"><i class="fa fa-suitcase"></i></span> <span class="menu-text"> Someone has give you a surprise <span class="menu-info"><span class="menu-date"> ~ 12 Minutes Ago</span></span> </span>  </li>
+															<li> <span class="menu-icon vd_blue"><i class=" fa fa-user"></i></span> <span class="menu-text"> Change your user profile details <span class="menu-info"><span class="menu-date"> ~ 1 Hour 20 Minutes Ago</span></span> </span> </li>
+															<li> <span class="menu-icon vd_red"><i class=" fa fa-cogs"></i></span> <span class="menu-text"> Your setting is updated <span class="menu-info"><span class="menu-date"> ~ 12 Days Ago</span></span> </span></li>
+															<li>  <span class="menu-icon vd_green"><i class=" fa fa-book"></i></span> <span class="menu-text"> Added new article <span class="menu-info"><span class="menu-date"> ~ 19 Days Ago</span></span> </span>  </li>
+															<li>  <span class="menu-icon vd_green"><img alt="example image" src="img/avatar/avatar.jpg"></span> <span class="menu-text"> Change Profile Pic <span class="menu-info"><span class="menu-date"> ~ 20 Days Ago</span></span> </span> </li>
+															<li>  <span class="menu-icon vd_red"><i class=" fa fa-cogs"></i></span> <span class="menu-text"> Your setting is updated <span class="menu-info"><span class="menu-date"> ~ 12 Days Ago</span></span> </span>  </li>
+															<li>  <span class="menu-icon vd_green"><i class=" fa fa-book"></i></span> <span class="menu-text"> Added new article <span class="menu-info"><span class="menu-date"> ~ 19 Days Ago</span></span> </span> </li>
+															<li>  <span class="menu-icon vd_green"><img alt="example image" src="img/avatar/avatar.jpg"></span> <span class="menu-text"> Change Profile Pic <span class="menu-info"><span class="menu-date"> ~ 20 Days Ago</span></span> </span>  </li>
+														  </ul>
+														</div><div class="mCSB_scrollTools" style="position: absolute; display: block; opacity: 0;"><div class="mCSB_draggerContainer"><div class="mCSB_dragger" style="position: absolute; top: 0px; height: 352px;" oncontextmenu="return false;"><div class="mCSB_dragger_bar" style="position: relative; line-height: 352px;"></div></div><div class="mCSB_draggerRail"></div></div></div></div></div>
+													  </div>
+													</div>
+												  </div>
+												  <!-- col-sm-7 --> 
+												  <div class="col-sm-6">
+													<h3 class=" font-semibold"><i class="fa fa-flask mgr-10 profile-icon"></i> SUMMERY</h3>
+													<div class="col-sm-11">
+													<div class="skill-list">
+													  <div class="skill-name"> Cost Effective </div>
+													  <div class="progress  progress-sm">
+														<div style="width: 50%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="50" role="progressbar" class="progress-bar progress-bar-warning "> <span class="sr-only">50% Complete</span> </div>
+													  </div>
+													</div>
+													<div class="skill-list">
+													  <div class="skill-name"> Reliability </div>
+													  <div class="progress  progress-sm">
+														<div style="width: 60%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="60" role="progressbar" class="progress-bar progress-bar-info "> <span class="sr-only">60% Complete</span> </div>
+													  </div>
+													</div>
+													<div class="skill-list">
+													  <div class="skill-name"> Territory  Knowledge </div>
+													  <div class="progress  progress-sm">
+														<div style="width: 95%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="95" role="progressbar" class="progress-bar progress-bar-success "> <span class="sr-only">95% Complete</span> </div>
+													  </div>
+													</div>					
+												  </div>
+												  </div>
+												  <!-- col-sm-7 -->           
+												</div>
+												<!-- row --> 
+      
+												</fieldset>
+											</div>
+											</div>
+											<!-- START TAB 2 -->
+									<div class="tab-pane " id="tourList">
+										<div class="booking gray clearfix box-shadow1">
+											<div class="row">
+						<div class="col-md-3">
+							<div class="ft-item">
+								<span class="ft-image">
+									<img alt="featured Scroller" src="img/custom1.jpg" draggable="false">
+								</span>
+								<div class="ft-data2">
+									<a href="#" class="ft-hotel text-upper">Lodging</a>
+									<a href="#" class="ft-plane text-upper">History</a>
+									<a href="#" class="ft-tea text-upper">Custom</a>
+								</div>
+								<div class="ft-foot">
+									<h4 class="ft-title text-upper"><a href="#">Kolkata, WB</a></h4>
+									<span class="ft-offer text-upper">Starting From INR 2500</span>
+								</div>
+								<div class="ft-foot-ex">
+									<span class="ft-date text-upper alignleft">**** 4020 reviews</span>
+									<span class="ft-temp alignright">Female</span>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="ft-item">
+								<span class="ft-image">
+									<img alt="featured Scroller" src="img/custom2.jpg" draggable="false">
+								</span>
+								<div class="ft-data2">
+									<a href="#" class="ft-hotel text-upper">Lodging</a>
+									<a href="#" class="ft-plane text-upper">History</a>
+									<a href="#" class="ft-tea text-upper">Custom</a>
+								</div>
+								<div class="ft-foot">
+									<h4 class="ft-title text-upper"><a href="#">Konark, OR</a></h4>
+									<span class="ft-offer text-upper">Starting From 220 $</span>
+								</div>
+								<div class="ft-foot-ex">
+									<span class="ft-date text-upper alignleft">**** 4020 reviews</span>
+									<span class="ft-temp alignright">Female</span>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3">
+							
+							<div class="ft-item">
+								<span class="ft-image">
+									<img alt="featured Scroller" src="img/custom4.jpg" draggable="false">
+								</span>
+								<div class="ft-data2">
+									<a href="#" class="ft-hotel text-upper">Lodging</a>
+									<a href="#" class="ft-plane text-upper">History</a>
+									<a href="#" class="ft-tea text-upper">Custom</a>
+								</div>
+								<div class="ft-foot">
+									<h4 class="ft-title text-upper"><a href="#">Konark, OR</a></h4>
+									<span class="ft-offer text-upper">Starting From 220 $</span>
+								</div>
+								<div class="ft-foot-ex">
+									<span class="ft-date text-upper alignleft">**** 4020 reviews</span>
+									<span class="ft-temp alignright">Female</span>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="ft-item">
+								<span class="ft-image">
+									<img alt="featured Scroller" src="img/custom3.jpg" draggable="false">
+								</span>
+								<div class="ft-data2">
+									<a href="#" class="ft-hotel text-upper">Lodging</a>
+									<a href="#" class="ft-plane text-upper">History</a>
+									<a href="#" class="ft-tea text-upper">Custom</a>
+								</div>
+								<div class="ft-foot">
+									<h4 class="ft-title text-upper"><a href="#">Konark, OR</a></h4>
+									<span class="ft-offer text-upper">Starting From 220 $</span>
+								</div>
+								<div class="ft-foot-ex">
+									<span class="ft-date text-upper alignleft">**** 4020 reviews</span>
+									<span class="ft-temp alignright">Female</span>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="ft-item">
+								<span class="ft-image">
+									<img alt="featured Scroller" src="img/custom5.jpg" draggable="false">
+								</span>
+								<div class="ft-data2">
+									<a href="#" class="ft-hotel text-upper">Lodging</a>
+									<a href="#" class="ft-plane text-upper">History</a>
+									<a href="#" class="ft-tea text-upper">Custom</a>
+								</div>
+								<div class="ft-foot">
+									<h4 class="ft-title text-upper"><a href="#">Konark, OR</a></h4>
+									<span class="ft-offer text-upper">Starting From 220 $</span>
+								</div>
+								<div class="ft-foot-ex">
+									<span class="ft-date text-upper alignleft">**** 4020 reviews</span>
+									<span class="ft-temp alignright">Female</span>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="ft-item">
+								<span class="ft-image">
+									<img alt="featured Scroller" src="img/custom6.jpg" draggable="false">
+								</span>
+								<div class="ft-data2">
+									<a href="#" class="ft-hotel text-upper">Lodging</a>
+									<a href="#" class="ft-plane text-upper">History</a>
+									<a href="#" class="ft-tea text-upper">Custom</a>
+								</div>
+								<div class="ft-foot">
+									<h4 class="ft-title text-upper"><a href="#">Kolkata, WB</a></h4>
+									<span class="ft-offer text-upper">Starting From 250 $</span>
+								</div>
+								<div class="ft-foot-ex">
+									<span class="ft-date text-upper alignleft">**** 4020 reviews</span>
+									<span class="ft-temp alignright">Female</span>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="ft-item">
+								<span class="ft-image">
+									<img alt="featured Scroller" src="img/custom7.jpg" draggable="false">
+								</span>
+								<div class="ft-data2">
+									<a href="#" class="ft-hotel text-upper">Lodging</a>
+									<a href="#" class="ft-plane text-upper">History</a>
+									<a href="#" class="ft-tea text-upper">Custom</a>
+								</div>
+								<div class="ft-foot">
+									<h4 class="ft-title text-upper"><a href="#">Kolkata, WB</a></h4>
+									<span class="ft-offer text-upper">Starting From 250 $</span>
+								</div>
+								<div class="ft-foot-ex">
+									<span class="ft-date text-upper alignleft">**** 4020 reviews</span>
+									<span class="ft-temp alignright">Female</span>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="ft-item">
+								<span class="ft-image">
+									<img alt="featured Scroller" src="img/custom8.jpg" draggable="false">
+								</span>
+								<div class="ft-data2">
+									<a href="#" class="ft-hotel text-upper">Lodging</a>
+									<a href="#" class="ft-plane text-upper">History</a>
+									<a href="#" class="ft-tea text-upper">Custom</a>
+								</div>
+								<div class="ft-foot">
+									<h4 class="ft-title text-upper"><a href="#">Kolkata, WB</a></h4>
+									<span class="ft-offer text-upper">Starting From 250 $</span>
+								</div>
+								<div class="ft-foot-ex">
+									<span class="ft-date text-upper alignleft">**** 4020 reviews</span>
+									<span class="ft-temp alignright">Female</span>
+								</div>
+							</div>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<!-- START .pagination -->
+					<ul class="pagination">
+						<li><a href="#">&lsaquo;</a></li>
+						<li class="active"><a href="#">1</a></li>
+						<li><a href="#">2</a></li>
+						<li><a href="#">3</a></li>
+						<li><a href="#">4</a></li>
+						<li><a href="#">5</a></li>
+						<li><a href="#">6</a></li>
+						<li><a href="#">7</a></li>
+						<li><a href="#">&rsaquo;</a></li>
+					</ul>
+											
+										</div>
+									</div>
+												<!-- START TAB 3 -->
+									<div class="tab-pane" id="createTour">
+										<div class="booking gray clearfix box-shadow1">
+											<div class="col-sm-6">
+												<h2 class="">Set a picture for your tour</h2><br>
+												<div class="ft-item">
+													<span class="ft-image">
+														<img src="img/ft-img-1.jpg" alt="featured Scroller" />
+													</span>
+													<div class="ft-data">
+														<a class="ft-hotel text-upper" href="#">Hotel</a>
+														<a class="ft-plane text-upper" href="#">Air Ticket</a>
+														<a class="ft-tea text-upper" href="#">Break Fast</a>
+													</div>
+													<div class="ft-foot">
+														<h4 class="ft-title text-upper"><a href="#">Colosseum</a></h4>
+														<span class="ft-offer text-upper">Starting From 250 $</span>
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-6">
+											<div class="form-group">
+												<strong> Tour Name:</strong>
+												<input type="text" class="form-control" placeholder="tour name" name="tourNmae" style="background-color:white" />
+											</div>
+											</div>
+											<div class="col-sm-6">
+											<div class="form-group">
+												<strong> Description:</strong>
+												<input type="text" class="form-control" placeholder="tour name" name="tourNmae" style="background-color:white" />
+											</div>
+											</div>
+											<div class="col-sm-6">
+											<div class="form-group">
+												<strong> Duration:</strong>
+												<input type="text" class="form-control" placeholder="tour name" name="tourNmae" style="background-color:white" />
+											</div>
+											</div>
+											<div class="col-sm-6">
+											<div class="form-group">
+												<strong> Tour Price:</strong>
+												<input type="text" class="form-control" placeholder="tour name" name="tourNmae" style="background-color:white" />
+											</div>
+											</div>
+											<div class="col-sm-6">
+											<div class="form-group">
+												<strong> Start Point:</strong>
+												<input type="text" class="form-control" placeholder="tour name" name="tourNmae" style="background-color:white" />
+											</div>
+											</div>
+											<div class="col-sm-6">
+											<div class="form-group">
+												<strong> End Pont:</strong>
+												<input type="text" class="form-control" placeholder="tour name" name="tourNmae" style="background-color:white" />
+											</div>
+											</div>
+											<div class="col-sm-6">
+											<div class="form-group">
+												<strong> Inclusive:</strong>
+												<input type="text" class="form-control" placeholder="tour name" name="tourNmae" style="background-color:white" />
+											</div>
+											</div>
+											<div class="col-sm-6">
+											<div class="form-group">
+												<strong> Exclusive:</strong>
+												<input type="text" class="form-control" placeholder="tour name" name="tourNmae" style="background-color:white" />
+											</div>
+											</div>
+											<div class="col-sm-6">
+											<div class="form-group">
+												<strong> Cancelation Policy:</strong>
+												<input type="text" class="form-control" placeholder="tour name" name="tourNmae" style="background-color:white" />
+											</div>
+											</div>
+											<div class="col-sm-6">
+											<div class="form-group">
+												<strong> Restriction:</strong>
+												<input type="text" class="form-control" placeholder="tour name" name="tourNmae" style="background-color:white" />
+											</div>
+											</div>
+											<div class="col-sm-6">
+											<div class="form-group">
+												<strong> Notes:</strong>
+												<input type="text" class="form-control" placeholder="tour name" name="tourNmae" style="background-color:white" />
+											</div>
+											</div>
+											<div class="col-sm-12">
+											
+												<div class="col-sm-4 col-sm-offset-4">
+												<input type="submit" class="form-control btn btn-warning"  name="tourNmae" />
+											
+											</div>
+											</div>
+										</div>
+									</div>
+											<!-- START TAB 4 -->
+									<div class="tab-pane" id="licenceDetail">
+										<div class="booking gray clearfix box-shadow1">
+											<div class="selected-deal">
+												<h2 class="">Selected Deal</h2>
+												<div class="ft-item">
+													<span class="ft-image">
+														<img src="img/ft-img-1.jpg" alt="featured Scroller" />
+													</span>
+													<div class="ft-data">
+														<a class="ft-hotel text-upper" href="#">Hotel</a>
+														<a class="ft-plane text-upper" href="#">Air Ticket</a>
+														<a class="ft-tea text-upper" href="#">Break Fast</a>
+													</div>
+													<div class="ft-foot">
+														<h4 class="ft-title text-upper"><a href="#">Colosseum</a></h4>
+														<span class="ft-offer text-upper">Starting From 250 $</span>
+													</div>
+													<div class="ft-foot-ex">
+														<span class="ft-date text-upper alignleft">28 December 2013</span>
+														<span class="ft-temp alignright">17&#730;c</span>
+													</div>
+												</div>
+											</div>
+											<div class="booking-status">
+												<h2 class="marb20">Booking Status</h2>
+												<p>Amet turpis tristique, nec in aliquet dis amet, proin egestas in tempor, cras et dapibus.</p>
+												<span class="checkbox-container">
+													<label><input type="radio" name="radio" class="styled"  checked="checked" /> First Choice</label>
+													<label><input type="radio" name="radio" class="styled" /> Second Choice</label>
+													<label><input type="radio" name="radio" class="styled" /> Third Choice</label>
+												</span>
+											</div>
+											
+										</div>
 									</div>
 									<!-- END TAB 1 -->
 								</div>
@@ -444,7 +650,7 @@ $mobileNumber = mysql_result($select, 0, 6);  */
 			</div>
 			<!-- END .main-contents -->
 			</form>
-			<?php include('MasterFutter.php'); ?>
+			<?php include('MasterFooter.php'); ?>
 		</div>
 		<!-- END #wrapper -->
 			

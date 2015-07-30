@@ -1,5 +1,9 @@
 <?php
 session_start();
+if(isset($_SESSION['userReg']))
+{
+	header('Location:guide_Registration_2.php?id=' . $_SESSION['userReg'] . '');
+}
 $_SESSION["registraionPhase"]="phase1";
 ?>
 
@@ -113,13 +117,13 @@ $_SESSION["registraionPhase"]="phase1";
 								
 								<div class="form-group">
 								<div class="form-group col-sm-12">
-								<input type="email" value="" name="EmailAddress" id="EmailAddress" placeholder="Email Address" class="form-control" pattern="^[a-zA-Z0-9._]+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$" required >
+								<input type="email" value="" name="EmailAddress" id="EmailAddress" placeholder="Email Address" class="form-control" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,5}(\.[a-zA-Z]{2,5}){0,1}" required >
 								</div>
 								</div>
 								
 								<div class="form-group">
 								<div class="form-group col-sm-12">
-								<input type="tel" value="" name="MobileNumber" id="MobileNumber" placeholder="Mobile Number"  maxlength="10" class="form-control" required pattern="([7-9]{1})(\d{9})">
+								<input type="tel" value="" name="MobileNumber" id="MobileNumber" placeholder="Mobile Number" class="form-control" maxlength="10" required pattern="([7-9]{1})(\d{9})">
 								</div>
 								</div>
 								

@@ -98,7 +98,7 @@
 							class="contact-email">
 							touchus@guidedgateway.com</span> <span
 							class="contact-phone"> +1 510 938 2562</span> </div> <div class="foot-box
-							col-md-4"> <span class="">&copy; 2015							GuideGateway. All Rights Reserved.</span>
+							col-md-4"> <span class="">&copy; 2015 GuideGateway. All Rights Reserved.</span>
 							</div> </div> </div> </div> </div> <!-- END #ex-footer --> 
 				</footer> <!-- END footer -->
 	
