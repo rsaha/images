@@ -4,7 +4,6 @@ if(isset($_SESSION['userReg']))
 {
 	unset($_SESSION['userReg']);
 }
-unset($_SESSION['userReg']);
 $_SESSION["signinCheck"]="signout";
 ?>
 <html lang="en" dir="ltr">
@@ -40,6 +39,7 @@ $_SESSION["signinCheck"]="signout";
 		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Karla:400,700,400italic,700italic" />
 		<!-- color scheme -->
 		<link rel="stylesheet" type="text/css" href="css/colors/color1.css" title="color1" />
+		
 	</head>
 	<!-- END head -->
 
@@ -49,14 +49,15 @@ $_SESSION["signinCheck"]="signout";
 		<div id="wrapper">
 			<?php include('MasterHeader.php'); ?>
 			
-			<br />
+			
 			
 			<!-- START .main-contents -->
-			<div class="main-contents">
+			<div class="main-contents" id="myDiv">
+			<br />
 				<div class="container">
 					<div class="row">
 						<!-- START #page -->
-						<div id="page" class="col-md-4">
+						<div id="page" class="col-md-4" style="border:1px solid gray">
 							<div id="DivSignIn">
 								<div class="col-sm-12">
 										<div class="row">
@@ -74,9 +75,9 @@ $_SESSION["signinCheck"]="signout";
 													<br /> <input type="password" class="form-control" id="password" name="password" placeholder="Password" >
 													<br /> <button class="btn  btn-sm btn-warning btn-block form-control" type="submit" style="font-size:17px; font-weight: bold;">Login</button>
 												</form>
-												<br /> <center><span style="color:gray;">Not a member? 
+												<center><span style="color:gray;">Not a member? 
 												<a id="LinkSignUp" href="guide_registration_1.php">Join now</a>
-												</span></center>
+												</span></center><br />
 											</div>
 										</div>
 									</div>
@@ -87,11 +88,12 @@ $_SESSION["signinCheck"]="signout";
 						</div>
 						<!-- START #sidebar -->
 						<div id="sidebar" class="col-md-7">
-							<img src="images/slo1.png" style="height:350px" />
+							<img src="images/slo1.png" style="width:90%" />
 						</div>
 						<!-- END #sidebar -->
 					</div>
 					<!-- END .row -->
+					<br />
 				</div>
 			</div>
 			<!-- END .main-contents -->

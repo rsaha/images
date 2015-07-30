@@ -289,6 +289,7 @@ blockquote strong {font-size:16px;}
 .ft-image {float:left; width:100%; display:block;}
 .ft-image img {width:100%; height:auto;}
 .ft-data {float:left; width:100%; padding:10px 5px; background:#ff845e;}
+.ft-data2 {float:left; width:100%; padding:10px 5px; background:#FFB097;}
 .ft-foot {float:left; width:100%; padding:3px 10px; background:#000;}
 .ft-title {float:left; font-size:14px;}
 .ft-title a {color:#fff;}

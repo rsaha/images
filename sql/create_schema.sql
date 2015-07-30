@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 28, 2015 at 03:10 PM
+-- Generation Time: Jul 29, 2015 at 02:26 PM
 -- Server version: 5.6.24
 -- PHP Version: 5.6.8
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `db_guide_database`
+-- Database: `gg_stage_db`
 --
 
 -- --------------------------------------------------------
@@ -49,22 +49,7 @@ CREATE TABLE IF NOT EXISTS `tbl_guide_detail_profile` (
   `guide_Remarks` text,
   `status` tinyint(4) NOT NULL,
   `datecreated` date NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COMMENT='Guide Detail Profile data';
-
---
--- Dumping data for table `tbl_guide_detail_profile`
---
-
-INSERT INTO `tbl_guide_detail_profile` (`guide_detail_id`, `user_id`, `guide_profile_pic`, `guide_Cover_pic`, `nick_name`, `license_Image`, `license_no`, `validity`, `guide_summary`, `guide_experience`, `guide_interest`, `guide_facebook_profile`, `guide_linkedin_profile`, `guide_pinterest_profile`, `guide_skype_address`, `landline_no`, `payment_currency`, `payment_terms`, `Best_time_for_contact`, `Communication_mechanism`, `guide_Remarks`, `status`, `datecreated`) VALUES
-(4, 11, NULL, NULL, 'ANU', NULL, '12345678', '0000-00-00', '', '', '', '', '', '', '', '', '', '', '', '', '', 1, '2015-07-28'),
-(5, 13, NULL, NULL, 'KALL', NULL, '', '0000-00-00', '', '', '', '', 'abx@lin.com', '', '', '', '', '', '', '', '', 1, '2015-07-28'),
-(6, 14, NULL, NULL, '', NULL, '12345666', '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '..', '', '22', '', NULL, 1, '2015-07-28'),
-(9, 18, NULL, NULL, 'aj', NULL, '', '0000-00-00', 'sdadfas', '', '', 'abc@yah.com', '', '', '', '', '', 'credit ', '', 'via mobile phone', 'asdfsa', 1, '2015-07-28'),
-(10, 19, NULL, NULL, 'ananana', NULL, '2537895456', '0000-00-00', '', '', '', '@kal@gmao;l.com', 'abx@lin.com', '', '', '', '', '', '', '', '', 1, '2015-07-28'),
-(11, 20, NULL, NULL, '', NULL, '', '0000-00-00', '', '', '', '', '', '', '', '', '', '', '', '', '', 1, '2015-07-28'),
-(12, 21, NULL, NULL, 'brat', NULL, '', '0000-00-00', '', '', '', 'abc@yah.com', '', '', '', '', '', '', '', '', '', 1, '2015-07-28');
-
--- --------------------------------------------------------
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COMMENT='Guide Detail Profile data';
 
 --
 -- Table structure for table `tbl_guide_known_languages`
@@ -147,33 +132,7 @@ CREATE TABLE IF NOT EXISTS `tbl_referrals` (
   `referral_phone` varchar(50) DEFAULT NULL,
   `referral_status` int(11) NOT NULL,
   `datecreated` date NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tbl_referrals`
---
-
-INSERT INTO `tbl_referrals` (`referral_id`, `referrer_id`, `referral_name`, `referral_email`, `referral_phone`, `referral_status`, `datecreated`) VALUES
-(10, 11, '', '', '', 1, '2015-07-28'),
-(11, 11, '', '', '', 1, '2015-07-28'),
-(12, 11, '', '', '', 1, '2015-07-28'),
-(13, 13, '', '', '', 1, '2015-07-28'),
-(14, 13, '', '', '', 1, '2015-07-28'),
-(15, 13, '', '', '', 1, '2015-07-28'),
-(16, 18, '', '1111@gmail.com', '', 1, '2015-07-28'),
-(17, 18, '', '222sals33@gmail.com', '', 1, '2015-07-28'),
-(18, 18, '', 'sal@yahoo.in', '', 1, '2015-07-28'),
-(19, 19, '', '', '', 1, '2015-07-28'),
-(20, 19, '', '', '', 1, '2015-07-28'),
-(21, 19, '', '', '', 1, '2015-07-28'),
-(22, 20, '', 'abc@hjaljsdk.ckj', '', 1, '2015-07-28'),
-(23, 20, '', 'sddmfks@zmfkdm.szo', '', 1, '2015-07-28'),
-(24, 20, '', '', '', 1, '2015-07-28'),
-(25, 21, '', 'brajeh@gmail.com', '', 1, '2015-07-28'),
-(26, 21, '', '', '', 1, '2015-07-28'),
-(27, 21, '', '', '', 1, '2015-07-28');
-
--- --------------------------------------------------------
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
 
 --
 -- Table structure for table `tbl_tours`
@@ -302,10 +261,11 @@ CREATE TABLE IF NOT EXISTS `tbl_user_profile` (
   `country` varchar(100) DEFAULT NULL,
   `status` tinyint(4) NOT NULL,
   `datecreated` date NOT NULL
+<<<<<<< HEAD
 ) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COMMENT='Users Basic Profile';
 
 --
--- Dumping data for table ` tbl_user_profile`
+-- Dumping data for table `tbl_user_profile`
 --
 
 INSERT INTO `tbl_user_profile` (`user_id`, `user_type_id`, `user_password`, `f_name`, `l_name`, `email`, `mobileNo`, `gender`, `d_o_b`, `street_address`, `city`, `state`, `country`, `status`, `datecreated`) VALUES
@@ -318,6 +278,9 @@ INSERT INTO `tbl_user_profile` (`user_id`, `user_type_id`, `user_password`, `f_n
 (21, 1, 'Bratati ', 'Bratati ', 'Saha', 'brat@maple.com', '7234566491', 'Male', '0000-00-00', 'BRS 81', '', '', '', 1, '2015-07-28');
 
 -- --------------------------------------------------------
+=======
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8 COMMENT='Users Basic Profile';
+>>>>>>> origin/Waltrump-Updates
 
 --
 -- Table structure for table `tbl_user_type`
@@ -329,13 +292,6 @@ CREATE TABLE IF NOT EXISTS `tbl_user_type` (
   `status` tinyint(4) NOT NULL,
   `datecreated` date NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='User Type Master Table';
-
---
--- Dumping data for table `tbl_user_type`
---
-
-INSERT INTO `tbl_user_type` (`user_type_id`, `user_type_name`, `status`, `datecreated`) VALUES
-(1, 'GUIDE', 1, '2015-07-27');
 
 --
 -- Indexes for dumped tables
@@ -439,17 +395,17 @@ ALTER TABLE `tbl_user_type`
 -- AUTO_INCREMENT for table `tbl_guide_detail_profile`
 --
 ALTER TABLE `tbl_guide_detail_profile`
-  MODIFY `guide_detail_id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
+  MODIFY `guide_detail_id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT for table `tbl_referrals`
 --
 ALTER TABLE `tbl_referrals`
-  MODIFY `referral_id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=28;
+  MODIFY `referral_id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=27;
 --
 -- AUTO_INCREMENT for table `tbl_user_profile`
 --
 ALTER TABLE `tbl_user_profile`
-  MODIFY `user_id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=22;
+  MODIFY `user_id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=30;
 --
 -- AUTO_INCREMENT for table `tbl_user_type`
 --
