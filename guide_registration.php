@@ -204,7 +204,7 @@ session_start();
 							</div>
 						</div>
 						
-						<div class="row form-group">
+						<!-- div class="row form-group">
 							<div class="col-sm-12">
 							<strong style="color:#444454;">Date of Birth</strong>
 							</div>
@@ -540,7 +540,7 @@ session_start();
                                             <option value="Zimbabwe">Zimbabwe</option>
 								</select>
 							</div>
-						</div>
+						</div -->
 						
   
 						<!--<div class="form-group">

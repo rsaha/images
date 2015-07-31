@@ -74,6 +74,8 @@
 		header('Location:guide_login.php');
 		exit;
 	}
+session_start();
+unset($_SESSION['userReg']);
 ?>
 <html lang="en" dir="ltr">
 

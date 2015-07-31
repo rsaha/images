@@ -14,6 +14,13 @@
 		}
 		else
 		{
+			$select = mysql_query("SELECT * FROM `tbl_user_profile` WHERE `user_id` = $userid");
+			$username =  mysql_result($select, 0, 3) . " " . mysql_result($select, 0, 4);
+			$from=mysql_result($select, 0, 5);
+			$mobileNumber = mysql_result($select, 0, 6);
+			
+			$subject    = "Hi, I am " . $username . " inviting you to join for free"; 
+			$message    = "Hi, I am " . $username . " inviting you to join for free";
 		$emailFriend1=mysql_real_escape_string($_POST['emailFriend1']);
 		$emailFriend2=mysql_real_escape_string($_POST['emailFriend2']);
 		$emailFriend3=mysql_real_escape_string($_POST['emailFriend3']);

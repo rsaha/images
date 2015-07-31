@@ -262,6 +262,137 @@ else
 								<!-- END TAB CONTENT -->
 							</div>
 						</div>
+						<div class="row form-group">
+							<div class="col-sm-12">
+							<strong style="color:#444454;">Landline Number</strong>
+							</div>
+							<div class="">
+								<div class="form-group col-sm-12">
+								<input type="text" name="LandlineNumber" id="LandlineNumber" value="" placeholder="Landline Number" class="form-control" style="height:30px; background-color:white; color:black; -moz-border-radius: 10px; border-radius: 2px; border:solid 1px gray; padding:5px;">
+							</div>
+							</div>
+						</div>
+						
+						<div class="row form-group">
+							<div class="col-sm-12">
+							<strong style="color:#444454;">Best Time To Contact</strong>
+							</div>
+							<div class="">
+								<div class="form-group col-sm-12">
+								<input type="text" name="BestTimeToContact" id="BestTimeToContact" value="" placeholder="hh:mm AM/PM - hh:mm AM/PM" class="form-control" style="height:30px; background-color:white; color:black; -moz-border-radius: 10px; border-radius: 2px; border:solid 1px gray; padding:5px;">
+							</div>
+							</div>
+						</div>
+						
+						<div class="row form-group">
+							<div class="col-sm-12">
+							<strong style="color:#444454;">Communication Mechanism</strong>
+							</div>
+							<div class="">
+								<div class="form-group col-sm-12">
+								<input type="text" name="CommunicationMechanism" id="CommunicationMechanism" value="" placeholder="Communication Mechanism" class="form-control" style="height:30px; background-color:white; color:black; -moz-border-radius: 10px; border-radius: 2px; border:solid 1px gray; padding:5px;">
+							</div>
+							</div>
+						</div>
+						
+						
+						<div class="row form-group">
+							<div class="col-sm-12">
+							<strong style="color:#444454;">Payment Currency</strong>
+							</div>
+							<div class="">
+								<div class="form-group col-sm-12">
+								<input type="text" name="PaymentCurrency" id="PaymentCurrency" value="" placeholder="Payment Currency" class="form-control" style="height:30px; background-color:white; color:black; -moz-border-radius: 10px; border-radius: 2px; border:solid 1px gray; padding:5px;">
+							</div>
+							</div>
+						</div>
+						
+						<div class="row form-group">
+							<div class="col-sm-12">
+							<strong style="color:#444454;">Payment Terms</strong>
+							</div>
+							<div class="">
+								<div class="form-group col-sm-12">
+								<input type="text" name="PaymentTerms" id="PaymentTerms" value="" placeholder="Payment Terms" class="form-control" style="height:30px; background-color:white; color:black; -moz-border-radius: 10px; border-radius: 2px; border:solid 1px gray; padding:5px;">
+							</div>
+							</div>
+						</div>
+						
+						
+						
+						<div class="row form-group">
+							<div class="col-sm-12">
+							<strong style="color:#444454;">Intrest</strong>
+							</div>
+							<div class="">
+								<div class="form-group col-sm-12">
+								<input type="text" name="GuestIntrest" id="GuestIntrest" value="" placeholder="Guest Intrest" class="form-control" style="height:30px; background-color:white; color:black; -moz-border-radius: 10px; border-radius: 2px; border:solid 1px gray; padding:5px;">
+							</div>
+							</div>
+						</div>
+						<div class="row form-group">
+							<div class="col-sm-12">
+							<strong style="color:#444454;">Travel Experiance</strong>
+							</div>
+							<div class="">
+								<div class="form-group col-sm-12">
+								<input type="text" name="GuestExperiance" id="GuestExperiance" value="" placeholder="Guest Experiance (In Years)" class="form-control" style="height:30px; background-color:white; color:black; -moz-border-radius: 10px; border-radius: 2px; border:solid 1px gray; padding:5px;">
+							</div>
+							</div>
+						</div>
+						<div class="row form-group">
+							<div class="col-sm-12">
+							<strong style="color:#444454;">Summery</strong>
+							</div>
+							<div class="">
+								<div class="form-group col-sm-12">
+								<input type="text" name="GuestSummery" id="GuestSummery" value="" placeholder="Guest Summery" class="form-control" style="height:30px; background-color:white; color:black; -moz-border-radius: 10px; border-radius: 2px; border:solid 1px gray; padding:5px;">
+							</div>
+							</div>
+						</div>
+  
+						
+						<!-- div class="form-group>
+							<label id="termsofservice-label">
+							<input type="checkbox" value="yes" name="TermsOfService" id="TermsOfService"  >
+							<span id="terms-of-service-label">
+							<strong style="color:#444454;">I agree to the Guided Gateway's <a target="_blank" id="TosLink" href="#">Terms of Service</a> and <a target="_blank" id="PrivacyLink" href="#">Privacy Policy</a></strong>
+							</span>
+							</label>
+							<span role="alert" class="errormsg" id="errormsg_0_TermsOfService">
+							</span>
+						</div -->
+						
+					  <div class="row form-group pull-right">
+					  <br>
+					  <div class="col-sm-12">
+						<input class="btn btn-default" name="submitbutton" type="submit" value="Register" style="background-color:#ff845e;">
+					  </div>
+					  </div>
+					  </form>
+					  <br>
+					  <div class="row">
+					  <br><br><br>
+					  <center><span style="color:gray;">Already a member? <a href="guide_login.php" style="color:#ff845e;">Sign In</a></span></center>
+					  </div>
+				</div><br /><br /><br /><br /><br /><br />
+			</div>
+			
+			
+			
+			<div class="col-sm-7" >
+				
+				<div class="row">
+				<br /><br />
+				<center>
+				<img class="img-responsive" src="images/slo1.png" />
+				</center>
+				</div>
+				<br /><br /><br />
+				<div class="row">
+				<center>
+				<img class="img-responsive" src="images/slo22.png" />
+				</center>
 						<!-- END #page -->
 					</div>
 					<!-- END .row -->
