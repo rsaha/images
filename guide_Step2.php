@@ -1,13 +1,13 @@
 <?php
 	session_start();
 	
-	if(isset($_SESSION["userReg"]))
+	if(isset($_SESSION['userId']))
 	{
 	if(isset($_POST['userid']))
 	{
 	$userid=mysql_real_escape_string($_POST['userid']);
 	}
-	if($_SESSION["userReg"]!=$userid)
+	if($_SESSION['userId']!=$userid)
 	{
 		header('Location:guide_registration_1.php');
 	}
@@ -60,7 +60,7 @@
 	
 	include("db.php");
 	
-	$update = mysql_query("UPDATE ` tbl_user_profile` SET `gender`='$Gender', `d_o_b`=$DOB, `street_address`='$streetaddress', `city`='$city', `state`='$state', `country`='$country', `datecreated`=now() WHERE `user_id`=$userid");
+	$update = mysql_query("UPDATE `tbl_user_profile` SET `gender`='$Gender', `d_o_b`=$DOB, `street_address`='$streetaddress', `city`='$city', `state`='$state', `country`='$country', `datecreated`=now() WHERE `user_id`=$userid");
 	
 	if($update)
 	{

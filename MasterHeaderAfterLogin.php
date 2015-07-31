@@ -89,12 +89,9 @@
 						</div> 
 					</div> 
 					<div class="col-md-6">
-						<div class="right-part alignright"> 
+						<div class="right-part alignright">
 							<span class="top-link small pull-left">
-								<a href="sign-in.html" style="color:#292c2f" title="">SIGN IN</a>
-							</span> 
-							<span class="top-link small pull-left">
-								<a href="guide_login.php" style="color:#292c2f" title="">Guide Sign-in</a>
+								<a href="signOut.php" style="color:#292c2f" title="">Sign Out</a>
 							</span> 
 							<form action="#" method="get"> 
 								<fieldset class="pull-left">

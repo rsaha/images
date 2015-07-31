@@ -1,30 +1,33 @@
 <?php
 session_start();
-if(isset($_SESSION["userReg"]))
+if(isset($_SESSION['userId']) && ($_SESSION['phase'] == "reg"))
 {
-if(isset($_GET['id']))
-{
-$userid = $_GET['id'];
-}
-if($_SESSION["userReg"]!=$userid)
-{
-	header('Location:guide_registration_1.php');
+	if(isset($_GET['id']))
+	{
+	$userid = $_GET['id'];
+	}
+	if($_SESSION['userId']!=$userid)
+	{
+		header('Location:guide_registration_1.php');
+		exit;
+	}
+	else
+	{
+		include('db.php');
+		$select = mysql_query("SELECT * FROM `tbl_user_profile` WHERE `user_id` = $userid");
+		$firstName=mysql_result($select, 0, 3);
+		$secondName=mysql_result($select, 0, 4);
+		$username =  $firstName . " " . $secondName;
+		$emailID = mysql_result($select, 0, 5);
+		$mobileNumber = mysql_result($select, 0, 6); 
+	}
 }
 else
 {
-	include('db.php');
-	$select = mysql_query("SELECT * FROM ` tbl_user_profile` WHERE `user_id` = $userid");
-	$firstName=mysql_result($select, 0, 3);
-	$secondName=mysql_result($select, 0, 4);
-	$username =  $firstName . " " . $secondName;
-	$emailID = mysql_result($select, 0, 5);
-	$mobileNumber = mysql_result($select, 0, 6); 
-}
-}
-else
-{
 	header('Location:guide_registration_1.php');
+	exit;
 }
+
 ?>
 <html lang="en" dir="ltr">
 
@@ -90,7 +93,9 @@ else
 	<body>
 		<!-- START #wrapper -->
 		<div id="wrapper">
-			<?php include('MasterHeader.php'); ?>
+		
+			<?php include('MasterHeaderAfterLogin.php'); ?>
+			
 			<form action="guide_Step2.php" method="post">
 			<!-- START #page-header -->
 			<div class="hovera" >
@@ -134,7 +139,7 @@ else
 							<div class="user-profile">
 								<!-- Sidebar recent popular posts -->
 								<!-- START TABS -->
-								<ul class="nav nav-tabs text-upper">
+								<ul class="nav nav-tabs text-upper" style="background-color:#ff845e">
 									<li class="active"><a href="#userinfo" data-toggle="tab">Registration Step 2</a></li>
 									<li style="font-size:35px">&nbsp;&nbsp;&nbsp;Welcome <?php echo $firstName ?></li>
 								</ul>
@@ -162,13 +167,13 @@ else
 														</div>
 														<div class="col-md-4">
 															<label>Date Of Birth</label>
-															<input type="date" class="form-control" name="DOB" id="DOB" value=""  />
+															<input type="date" class="form-control" name="DOB" placeholder="yyyy-mm-dd" id="DOB" value=""  />
 														</div>
 													</li>
 													<li class="row">
 														<div class="col-md-12">
 															<label>Street Address</label>
-															<input type="text" class="form-control" name="streetaddress" value="" />
+															<input type="text" class="form-control" name="streetaddress" pattern="[a-z0-9A-Z -.]+" value="" />
 														</div>
 														
 													</li>
@@ -179,11 +184,11 @@ else
 														</div>
 														<div class="col-md-4">
 															<label>State</label>
-															<input type="text" class="form-control" name="state" value="" pattern="[a-z A-Z]+" />
+															<select name="state" id="state" class="form-control"></select>
 														</div>
 														<div class="col-md-4">
 															<label>Country</label>
-															<input type="text" class="form-control" name="country" value="" pattern="[a-z A-Z]+" />
+															<select id="country" name="country" selected="India" class="form-control"></select>
 														</div>
 													</li>
 													<li class="row">
@@ -193,7 +198,7 @@ else
 														</div>
 														<div class="col-md-4">
 															<label>Licence Expiry</label>
-															<input type="text" id="LicenceExpiry" class="form-control" name="licenceexpiry" value="" />
+															<input type="text" id="LicenceExpiry" placeholder="yyyy-mm-dd" class="form-control" name="licenceexpiry" value="" />
 														</div>
 														<div class="col-md-4">
 															<label>Licence Image</label>
@@ -267,7 +272,11 @@ else
 			<?php include('MasterFooter.php'); ?>
 		</div>
 		<!-- END #wrapper -->
-			
+			<script type="text/javascript" src="js/country_state.js"></script>
+			<script language="javascript">
+				populateCountries("country", "state");
+			</script>
+		
 			<script>
 			$(function() {
 			$('#DOB').datepicker({

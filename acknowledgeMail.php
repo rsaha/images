@@ -1,12 +1,12 @@
 <?php
 	session_start();
 	include('db.php');
-	
+	echo "<script type='text/javascript'>alert('acknowledgemant');</script>";
 	if(isset($_GET['id']))
 	{
 	$userid = $_GET['id'];
 	}
-	$select1 = mysql_query("SELECT * FROM ` tbl_user_profile` WHERE `user_id` = $userid");
+	$select1 = mysql_query("SELECT * FROM `tbl_user_profile` WHERE `user_id` = $userid");
 			$username =  mysql_result($select1, 0, 3) . " " . mysql_result($select1, 0, 4);
 			$from=mysql_result($select1, 0, 5);
 			$mobileNumber = mysql_result($select1, 0, 6);
@@ -27,6 +27,9 @@
 		$mail->SMTPAuth = true;     // turn on SMTP authentication
 		$mail->Username = "contact@waltrump.com";  // SMTP username
 		$mail->Password = "tarzan567"; // SMTP password
+		
+		//$mail->Username = "touchus@xmapledatalab.com";  // SMTP username
+		//$mail->Password = "xMaple123"; // SMTP password
 
 		$mail->From = "contact@waltrump.com";
 		$mail->FromName = $username;
@@ -43,13 +46,13 @@
 			echo "<script>
 			alert('Sorry! mail could not be sent at this moment. Please try again!');
 			</script>";
-			header('Location: guide_profile.php?id='. $userid .'');
 			exit;
 		}
 		echo "<script>
 		alert('Thank you for contacting us. As early as possible  we will contact you.');
 		</script>";
-		header('Location: guide_profile.php?id='. $userid .'');
+		//header('Location: guided_profile.php');
+		header('Location: guided_profile.php?id='. $userid .'');
 		die;
 ?>
 

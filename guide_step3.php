@@ -1,13 +1,13 @@
 <?php
 	session_start();
 	
-	if(isset($_SESSION["userReg"]))
+	if(isset($_SESSION['userId']))
 	{
 	if(isset($_POST['userid']))
 	{
 	$userid=mysql_real_escape_string($_POST['userid']);
 	}
-	if($_SESSION["userReg"]!=$userid)
+	if($_SESSION['userId']!=$userid)
 	{
 		header('Location:guide_registration_1.php');
 	}

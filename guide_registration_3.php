@@ -1,30 +1,33 @@
 <?php
 session_start();
-if(isset($_SESSION["userReg"]))
+if(isset($_SESSION['userId']) && ($_SESSION['phase'] == "reg"))
 {
-if(isset($_GET['id']))
-{
-$userid = $_GET['id'];
-}
-if($_SESSION["userReg"]!=$userid)
-{
-	header('Location:guide_registration_1.php');
+	if(isset($_GET['id']))
+	{
+	$userid = $_GET['id'];
+	}
+	if($_SESSION['userId']!=$userid)
+	{
+		header('Location:guide_registration_1.php');
+		exit;
+	}
+	else
+	{
+	include('db.php');
+	$select = mysql_query("SELECT * FROM `tbl_user_profile` WHERE `user_id` = $userid");
+	$firstName=mysql_result($select, 0, 3);
+	$secondName=mysql_result($select, 0, 4);
+	$username =  $firstName . " " . $secondName;
+	$emailID = mysql_result($select, 0, 5);
+	$mobileNumber = mysql_result($select, 0, 6); 
+	}
 }
 else
 {
-include('db.php');
-$select = mysql_query("SELECT * FROM ` tbl_user_profile` WHERE `user_id` = $userid");
-$firstName=mysql_result($select, 0, 3);
-$secondName=mysql_result($select, 0, 4);
-$username =  $firstName . " " . $secondName;
-$emailID = mysql_result($select, 0, 5);
-$mobileNumber = mysql_result($select, 0, 6); 
-}
-}
-else
-{
 	header('Location:guide_registration_1.php');
+	exit;
 }
+
 ?>
 <html lang="en" dir="ltr">
 
@@ -90,7 +93,7 @@ else
 	<body>
 		<!-- START #wrapper -->
 		<div id="wrapper">
-			<?php include('MasterHeader.php'); ?>
+			<?php include('MasterHeaderAfterLogin.php'); ?>
 			
 			<!-- START #page-header -->
 			<div>
@@ -128,7 +131,7 @@ else
 							<div class="user-profile">
 								<!-- Sidebar recent popular posts -->
 								<!-- START TABS -->
-								<ul class="nav nav-tabs text-upper">
+								<ul class="nav nav-tabs text-upper" style="background-color:#ff845e">
 									<li class="active"><a href="#userinfo" data-toggle="tab">Registration Step 3</a></li>
 									<li style="font-size:35px">&nbsp;&nbsp;&nbsp;Welcome <?php echo $firstName ?></li>
 								</ul>
@@ -160,7 +163,7 @@ else
 														</div>
 														<div class="col-md-6">
 															<label>Guide Skype Address</label>
-															<input type="text" class="form-control" name="GuideSkypeAddress" value="" />
+															<input type="text" class="form-control" name="GuideSkypeAddress" pattern="[a-z0-9A-Z_-.]+"  value="" />
 														</div>
 													</li>
 													
