@@ -1,6 +1,7 @@
 <?php
 	session_start();
-	
+	include("db.php");
+
 	if(isset($_SESSION['userId']))
 	{
 	if(isset($_POST['userid']))

@@ -6,9 +6,9 @@
     <!--[if IE]><meta http-equiv="x-ua-compatible" content="IE=9" /><![endif]-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Guided Gateway</title>
-    <meta name="description" content="waltrump.com">
+    <meta name="description" content="Guided Gateway Website">
     <meta name="keywords" content="">
-    <meta name="author" content="Waltrump.com">
+    <meta name="author" content="GuidedGateway">
     
     <!-- Favicons
     ================================================== -->
@@ -76,16 +76,15 @@
 	<!-- START footer --> <footer> 
 				<!-- START #ex-footer --> <div id="#ex-footer"> <div
 				class="container"> <div class="row"> <nav
-				class="col-md-12"> <ul class="footer-menu"> <li><a
-				href="#">Cancellation Policy</a></li> <li><a
-				href="#">Careers</a></li> <li><a href="#">Hotel
-				Directory</a></li> <li><a href="termofuse.html">Website Terms of
+				class="col-md-12"> <ul class="footer-menu"> 
+                <li><a href="#">How it works</a></li> 
+                <li><a href="#">Cancellation Policy</a>
+                </li> <li><a href="termofuse.html">Website Terms of
 				Use</a></li> <li><a href="privacy.html">Privacy Statement</a></li>
-				<li><a href="#">Affiliates</a></li> <li
-				class="last-item"><a href="#">Top Destinations</a></li>
+				<li><a href="#">Join Us</a></li> 
 				</ul> </nav>
 
-							<div class="foot-boxs"> <div class="foot-box
+				<div class="foot-boxs"> <div class="foot-box
 							col-md-4 text-right"> <span>Stay
 							Connected</span> <ul class="social-media
 							footer-social"><li><a class="sm-facebook"
