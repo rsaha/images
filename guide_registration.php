@@ -246,8 +246,6 @@ session_start();
 							</div>
 							</div>
 						</div>
-  
-<<<<<<< HEAD
 						<div class="row form-group">
 							<div class="col-sm-12">
 							<strong style="color:#444454;">Gender</strong>

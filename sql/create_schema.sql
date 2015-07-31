@@ -261,10 +261,6 @@ CREATE TABLE IF NOT EXISTS `tbl_user_profile` (
   `country` varchar(100) DEFAULT NULL,
   `status` tinyint(4) NOT NULL,
   `datecreated` date NOT NULL
-<<<<<<< HEAD
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COMMENT='Users Basic Profile';
-=======
-<<<<<<< HEAD
 ) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COMMENT='Users Basic Profile';
 
 --
@@ -409,11 +405,7 @@ ALTER TABLE `tbl_referrals`
 -- AUTO_INCREMENT for table `tbl_user_profile`
 --
 ALTER TABLE `tbl_user_profile`
-<<<<<<< HEAD
-  MODIFY `user_id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=22;
-=======
   MODIFY `user_id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=30;
->>>>>>> master
 --
 -- AUTO_INCREMENT for table `tbl_user_type`
 --
