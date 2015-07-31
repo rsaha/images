@@ -2,7 +2,7 @@
 session_start();
 if(isset($_SESSION['userId']))
 {
-	header('Location:guide_Registration_2.php?id=' . $_SESSION['userId'] . '');
+	header('Location:guide_registration_2.php?id=' . $_SESSION['userId'] . '');
 	exit;
 }
 ?>
