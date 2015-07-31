@@ -2,13 +2,13 @@
 	session_start();
 	
 	
-	if(isset($_SESSION["userReg"]))
+	if(isset($_SESSION['userId']))
 	{
 		if(isset($_POST['userid']))
 		{
 			$userid=mysql_real_escape_string($_POST['userid']);
 		}
-		if($_SESSION["userReg"]!=$userid)
+		if($_SESSION['userId']!=$userid)
 		{
 			header('Location:guide_registration_1.php');
 		}
@@ -34,7 +34,7 @@
 			
 			if($create1==1 || $create2==1 || $create3==1)
 			{
-				$select = mysql_query("SELECT * FROM ` tbl_user_profile` WHERE `user_id` = $userid");
+				$select = mysql_query("SELECT * FROM `tbl_user_profile` WHERE `user_id` = $userid");
 				$username =  mysql_result($select, 0, 3) . " " . mysql_result($select, 0, 4);
 				$from=mysql_result($select, 0, 5);
 				$mobileNumber = mysql_result($select, 0, 6);
@@ -78,7 +78,7 @@
 
 				if(!$mail->Send())
 				{
-				unset($_SESSION['userReg']);
+				unset($_SESSION['userId']);
 				$errormsg="Something went wrong, Try again";
 				echo "<script type='text/javascript'>alert('$errormsg');</script>";
 				header('Location: guided_profile.php');
@@ -88,7 +88,7 @@
 				}
 				else
 				{
-				unset($_SESSION['userReg']);
+				unset($_SESSION['userId']);
 				$msg="Successfully invited!!";
 				echo "<script type='text/javascript'>alert('$msg');</script>";
 				header('Location: acknowledgeMail.php?id=' . $userid . '');
@@ -98,8 +98,8 @@
 			}
 			else
 			{
-			header('Location: guided_profile.php');
-				//header('Location: guide_profile.php?id=' . $userid . '');
+			//header('Location: guided_profile.php');
+			header('Location: guided_profile.php?id='. $userid .'');
 			die;
 			}
 		}

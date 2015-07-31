@@ -1,6 +1,5 @@
 <?php 
 session_start();
-$_SESSION["signinCheck"]="signout";
 
 include('db.php');
 
@@ -10,19 +9,21 @@ if (isset($_POST['username']) and isset($_POST['password']))
 $tbxUsername = $_POST['username'];
 $tbxPassword = $_POST['password'];
 $check = false;
-$query1 = "SELECT * FROM `tbl_user_profile` WHERE ((email_id = '$tbxUsername' || mobile_no = '$tbxUsername')&& password = '$tbxPassword')";
-$result1 = mysql_query($query1);
-$count = mysql_num_rows($result1);
+$result1 = mysql_query("SELECT * FROM `tbl_user_profile` WHERE ((email = '$tbxUsername' || mobileNo = '$tbxUsername')&& user_password = '$tbxPassword')");
 
+$count = mysql_num_rows($result1);
 
 if ($count==1)
 {
-	$_SESSION["signinCheck"]="signin";
-	header('location:guide_profile.php');
+	$userid=mysql_result($result1, 0, 0);
+	$_SESSION['userId'] = $userid;
+	$_SESSION['phase'] = "signin";
+	header('Location: guided_profile.php?id='. $userid .'');
 }
 else
 {	
-	header('location:guide_login.php');
+echo "<script type='text/javascript'>alert('1');</script>";
+	//header('location:guide_login.php');
 }
 }
 

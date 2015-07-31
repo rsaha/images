@@ -1,10 +1,10 @@
 <?php
 session_start();
-if(isset($_SESSION['userReg']))
+if(isset($_SESSION['userId']))
 {
-	header('Location:guide_Registration_2.php?id=' . $_SESSION['userReg'] . '');
+	header('Location:guide_Registration_2.php?id=' . $_SESSION['userId'] . '');
+	exit;
 }
-$_SESSION["registraionPhase"]="phase1";
 ?>
 
 <html lang="en" dir="ltr">
@@ -115,25 +115,25 @@ $_SESSION["registraionPhase"]="phase1";
 								</div>
 								</div>
 								
-								<div class="form-group">
+									<div class="form-group">
 								<div class="form-group col-sm-12">
-								<input type="email" value="" name="EmailAddress" id="EmailAddress" placeholder="Email Address" class="form-control" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,5}(\.[a-zA-Z]{2,5}){0,1}" required >
+								<input type="email" value="" name="EmailAddress" id="EmailAddress" placeholder="Email Address" class="form-control" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9]+\.([a-zA-Z]{2,3}|([a-zA-Z]{2,3}\.[a-zA-Z]{2}))" required >
 								</div>
 								</div>
 								
 								<div class="form-group">
 								<div class="form-group col-sm-12">
-								<input type="tel" value="" name="MobileNumber" id="MobileNumber" placeholder="Mobile Number" class="form-control" maxlength="10" required pattern="([7-9]{1})(\d{9})">
+								<input type="tel" value="" name="MobileNumber" id="MobileNumber" placeholder="Mobile Number" class="form-control" maxlength="10" required pattern="(^[7-9]{1}\d{9}$)">
 								</div>
 								</div>
 								
 								
 								<div class="form-group">
 								<div class="form-group col-sm-6">
-								<input type="password" class="form-control" id="Password" maxlength="15" name="Password" placeholder="Password" pattern="[a-z A-Z 0-9]+" required >
+								<input type="password" class="form-control" id="Password" maxlength="15" name="Password" placeholder="Password" pattern="(^[a-zA-Z_0-9!@#$%^&* ]{6,15}$)" required >
 								</div>
 								<div class="form-group col-sm-6">
-								<input type="password" class="form-control" id="conformpassword" name="conformpassword" onkeyup="validate()" placeholder="Conform Password" pattern="[a-z A-Z 0-9]+" required  >
+								<input type="password" class="form-control" id="conformpassword" name="conformpassword" onKeyUp="validate()" placeholder="Conform Password" pattern="(^[a-zA-Z_0-9!@#$%^&* ]{6,15}$)" required  >
 								</div>
 								</div>
 								

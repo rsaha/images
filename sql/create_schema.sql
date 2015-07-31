@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 29, 2015 at 02:26 PM
+-- Generation Time: Jul 31, 2015 at 07:53 AM
 -- Server version: 5.6.24
 -- PHP Version: 5.6.8
 
@@ -50,7 +50,7 @@ CREATE TABLE IF NOT EXISTS `tbl_guide_detail_profile` (
   `guide_Remarks` text,
   `status` tinyint(4) NOT NULL,
   `datecreated` date NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COMMENT='Guide Detail Profile data';
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COMMENT='Guide Detail Profile data';
 
 --
 -- Table structure for table `tbl_guide_known_languages`
@@ -117,7 +117,7 @@ CREATE TABLE IF NOT EXISTS `tbl_referrals` (
   `referral_phone` varchar(50) DEFAULT NULL,
   `referral_status` int(11) NOT NULL,
   `datecreated` date NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
 
 --
 -- Table structure for table `tbl_tours`
@@ -227,10 +227,10 @@ CREATE TABLE IF NOT EXISTS `tbl_tour_media_videos` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table ` tbl_user_profile`
+-- Table structure for table `tbl_user_profile`
 --
 
-CREATE TABLE IF NOT EXISTS ` tbl_user_profile` (
+CREATE TABLE IF NOT EXISTS `tbl_user_profile` (
   `user_id` bigint(20) NOT NULL,
   `user_type_id` tinyint(4) NOT NULL,
   `user_password` varchar(50) NOT NULL,
@@ -246,7 +246,7 @@ CREATE TABLE IF NOT EXISTS ` tbl_user_profile` (
   `country` varchar(100) DEFAULT NULL,
   `status` tinyint(4) NOT NULL,
   `datecreated` date NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8 COMMENT='Users Basic Profile';
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COMMENT='Users Basic Profile';
 
 --
 -- Table structure for table `tbl_user_type`
@@ -342,9 +342,9 @@ ALTER TABLE `tbl_tour_media_videos`
   ADD PRIMARY KEY (`video_media_id`);
 
 --
--- Indexes for table ` tbl_user_profile`
+-- Indexes for table `tbl_user_profile`
 --
-ALTER TABLE ` tbl_user_profile`
+ALTER TABLE `tbl_user_profile`
   ADD PRIMARY KEY (`user_id`), ADD UNIQUE KEY `ui_Email` (`email`), ADD UNIQUE KEY `ui_mobileNo` (`mobileNo`), ADD KEY `user_type_id` (`user_type_id`), ADD KEY `user_type_id_2` (`user_type_id`), ADD KEY `user_type_id_3` (`user_type_id`);
 
 --
@@ -361,17 +361,17 @@ ALTER TABLE `tbl_user_type`
 -- AUTO_INCREMENT for table `tbl_guide_detail_profile`
 --
 ALTER TABLE `tbl_guide_detail_profile`
-  MODIFY `guide_detail_id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=21;
+  MODIFY `guide_detail_id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT for table `tbl_referrals`
 --
 ALTER TABLE `tbl_referrals`
-  MODIFY `referral_id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=27;
+  MODIFY `referral_id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=19;
 --
--- AUTO_INCREMENT for table ` tbl_user_profile`
+-- AUTO_INCREMENT for table `tbl_user_profile`
 --
-ALTER TABLE ` tbl_user_profile`
-  MODIFY `user_id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=30;
+ALTER TABLE `tbl_user_profile`
+  MODIFY `user_id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=22;
 --
 -- AUTO_INCREMENT for table `tbl_user_type`
 --

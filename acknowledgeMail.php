@@ -6,7 +6,7 @@
 	{
 	$userid = $_GET['id'];
 	}
-	$select1 = mysql_query("SELECT * FROM ` tbl_user_profile` WHERE `user_id` = $userid");
+	$select1 = mysql_query("SELECT * FROM `tbl_user_profile` WHERE `user_id` = $userid");
 			$username =  mysql_result($select1, 0, 3) . " " . mysql_result($select1, 0, 4);
 			$from=mysql_result($select1, 0, 5);
 			$mobileNumber = mysql_result($select1, 0, 6);
@@ -51,8 +51,8 @@
 		echo "<script>
 		alert('Thank you for contacting us. As early as possible  we will contact you.');
 		</script>";
-		header('Location: guided_profile.php');
-		//header('Location: guide_profile.php?id='. $userid .'');
+		//header('Location: guided_profile.php');
+		header('Location: guided_profile.php?id='. $userid .'');
 		die;
 ?>
 

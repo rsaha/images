@@ -1,10 +1,10 @@
 <?php
 session_start();
-if(isset($_SESSION['userReg']))
+/* if(isset($_SESSION['userId']))
 {
-	unset($_SESSION['userReg']);
-}
-$_SESSION["signinCheck"]="signout";
+	unset($_SESSION['userId']);
+} */
+
 ?>
 <html lang="en" dir="ltr">
 
@@ -71,8 +71,8 @@ $_SESSION["signinCheck"]="signout";
 										<div class="row">
 											<div class="col-sm-12">
 												<form action="guide_login_code.php" method="POST">
-													<input type="text" class="form-control" id="username" name="username" placeholder="Email Address or Mobile Number" >
-													<br /> <input type="password" class="form-control" id="password" name="password" placeholder="Password" >
+													<input type="text" class="form-control" id="username" name="username" placeholder="Email Address or Mobile Number" pattern="(([a-zA-Z0-9._%+-]+@[a-zA-Z0-9]+\.([a-zA-Z]{2,3}|([a-zA-Z]{2,3}\.[a-zA-Z]{2})))|([7-9]{1}\d{9}))" required >
+													<br /> <input type="password" class="form-control" id="password" name="password" placeholder="Password" pattern="(^[a-zA-Z_0-9!@#$%^&* ]{6,15}$)" required>
 													<br /> <button class="btn  btn-sm btn-warning btn-block form-control" type="submit" style="font-size:17px; font-weight: bold;">Login</button>
 												</form>
 												<center><span style="color:gray;">Not a member? 

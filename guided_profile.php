@@ -1,17 +1,79 @@
 <?php
-session_start();
-unset($_SESSION['userReg']);
-/* if(isset($_GET['id']))
-{
-$userid = $_GET['id'];
-}
-include('db.php');
-$select = mysql_query("SELECT * FROM ` tbl_user_profile` WHERE `user_id` = $userid");
-$firstName=mysql_result($select, 0, 3);
-$secondName=mysql_result($select, 0, 4);
-$username =  $firstName . " " . $secondName;
-$emailID = mysql_result($select, 0, 5);
-$mobileNumber = mysql_result($select, 0, 6);  */
+	session_start();
+	if(isset($_SESSION['userId']))
+	{
+		if(isset($_GET['id']))
+		{
+		$userid = $_GET['id'];
+		}
+		if($_SESSION['userId']!=$userid)
+		{
+			header('Location:guide_login.php');
+			exit;
+		}
+		else
+		{
+			$_SESSION["signinCheck"]="signin";
+				include('db.php');
+
+				$select1 = mysql_query("SELECT * FROM `tbl_user_profile` WHERE `user_id` = $userid");
+
+				$firstName=mysql_result($select1, 0, 3);
+				$secondName=mysql_result($select1, 0, 4);
+				$username =  $firstName . " " . $secondName;
+				$emailID = mysql_result($select1, 0, 5);
+				$mobileNumber = mysql_result($select1, 0, 6);
+				$gender = mysql_result($select1, 0, 7);
+				$birthdaay = mysql_result($select1, 0, 8);
+				$streetAddress = mysql_result($select1, 0, 9);
+				$city = mysql_result($select1, 0, 10);
+				$state = mysql_result($select1, 0, 11);
+				$country = mysql_result($select1, 0, 12);
+
+				$select2 = mysql_query("SELECT * FROM `tbl_guide_detail_profile` WHERE `user_id` = $userid");
+				if(mysql_num_rows($select2) > 0 )
+				{
+				$profilePicture = mysql_result($select2, 0, 2);
+				$coverPicture = mysql_result($select2, 0, 3);
+				$nickName = mysql_result($select2, 0, 4);
+				$LicenceImage = mysql_result($select2, 0, 5);
+				$licenceNumber = mysql_result($select2, 0, 6);
+				$licenceValidty = mysql_result($select2, 0, 7);
+				$summery = mysql_result($select2, 0, 8);
+				$experiance = mysql_result($select2, 0, 9);
+				$intrest = mysql_result($select2, 0, 10);
+				$landLineNumber = mysql_result($select2, 0, 15);
+				$paymentCurrency = mysql_result($select2, 0, 16);
+				$paymentTerm = mysql_result($select2, 0, 17);
+				$bestTimeToContace = mysql_result($select2, 0, 18);
+				$communicationMechanism = mysql_result($select2, 0, 19);
+				$remark = mysql_result($select2, 0, 20);
+				}
+				else
+				{
+				$profilePicture = "";
+				$coverPicture = "";
+				$nickName = "";
+				$LicenceImage = "";
+				$licenceNumber = "";
+				$licenceValidty = "";
+				$summery = "";
+				$experiance = "";
+				$intrest = "";
+				$landLineNumber = "";
+				$paymentCurrency = "";
+				$paymentTerm = "";
+				$bestTimeToContace = "";
+				$communicationMechanism = "";
+				$remark = "";
+				}
+		}
+	}
+	else
+	{
+		header('Location:guide_login.php');
+		exit;
+	}
 ?>
 <html lang="en" dir="ltr">
 
@@ -78,7 +140,8 @@ $mobileNumber = mysql_result($select, 0, 6);  */
 		<!-- START #wrapper -->
 		<div id="wrapper">
 			
-			<?php include('MasterHeader.php'); ?>
+			<?php include('MasterHeaderAfterLogin.php'); ?>
+			
 			<form action="guide_Step2.php" method="post">
 			<!-- START #page-header -->
 			<div class="hovera" >
@@ -112,14 +175,12 @@ $mobileNumber = mysql_result($select, 0, 6);  */
 					</center>
 					        <br /><br />
 					   <div class="row">
-					   
 					  <ul class="list-unstyled">
-							<li><span class="menu-text"> Lic. No.  <a >24XR5874</a><br></li>
-							<li><span class="menu-text"> Valid upto  <a >24/9/2018</a></li>
+							<li><span class="menu-text"> Lic. No.  <a ><?php echo $licenceNumber ?></a><br></li>
+							<li><span class="menu-text"> Valid upto  <a ><?php echo $licenceValidty ?></a></li>
 							</ul>
-						   <?php/*  echo $username */ ?>
-						   <?php/*  echo $emailID */ ?>
 					   </div>
+					   
 					   <div class="row"> 
 					    <div class="hovera" style="border: 0px solid black; height:201px">
 					      <input type="file" id="upload" name="profilepicture" style="visibility: hidden; width: 1px; height: 1px"/>
@@ -133,7 +194,7 @@ $mobileNumber = mysql_result($select, 0, 6);  */
 					    <div class="row">
 					   
 					  <ul class="list-unstyled">
-							<li><span class="menu-text"> Communication Mechanism  <a >Mobile, Email</a><br></li>
+							<li><span class="menu-text"> Communication Mechanism  <a ><?php echo $communicationMechanism ?></a><br></li>
 							</ul>
 						   <?php/*  echo $username */ ?>
 						   <?php/*  echo $emailID */ ?>
@@ -165,110 +226,100 @@ $mobileNumber = mysql_result($select, 0, 6);  */
 												  <div class="col-sm-6">
 													<div class="row mgbt-xs-0">
 													  <label class="col-xs-5 control-label">Name:</label>
-													  <div class="col-xs-7 controls">Mariah Caraiban</div>
+													  <div class="col-xs-7 controls"><?php echo $username ?></div>
 													  <!-- col-sm-10 --> 
 													</div>
 												  </div>
 												  <div class="col-sm-6">
 													<div class="row mgbt-xs-0">
 													  <label class="col-xs-5 control-label">Gender:</label>
-													  <div class="col-xs-7 controls">Female</div>
+													  <div class="col-xs-7 controls"><?php echo $gender ?></div>
 													  <!-- col-sm-10 --> 
 													</div>
 												  </div>
 												  <div class="col-sm-6">
 													<div class="row mgbt-xs-0">
 													  <label class="col-xs-5 control-label">Mobile Number:</label>
-													  <div class="col-xs-7 controls">9865795632</div>
+													  <div class="col-xs-7 controls"><?php echo $mobileNumber ?></div>
 													  <!-- col-sm-10 --> 
 													</div>
 												  </div>
 												  <div class="col-sm-6">
 													<div class="row mgbt-xs-0">
 													  <label class="col-xs-5 control-label">Email:</label>
-													  <div class="col-xs-7 controls">mariah@Vendroid.com</div>
+													  <div class="col-xs-7 controls"><?php echo $emailID ?></div>
 													  <!-- col-sm-10 --> 
 													</div>
 												  </div>
 												  <div class="col-sm-6">
 													<div class="row mgbt-xs-0">
-													  <label class="col-xs-5 control-label">City:</label>
-													  <div class="col-xs-7 controls">Los Angeles</div>
+													  <label class="col-xs-5 control-label">Street Address:</label>
+													  <div class="col-xs-7 controls"><?php echo $streetAddress . ', ' . $city ?></div>
+													  <!-- col-sm-10 --> 
+													</div>
+												  </div>
+												  <div class="col-sm-6">
+													<div class="row mgbt-xs-0">
+													  <label class="col-xs-5 control-label">State</label>
+													  <div class="col-xs-7 controls"><?php echo $state ?></div>
 													  <!-- col-sm-10 --> 
 													</div>
 												  </div>
 												  <div class="col-sm-6">
 													<div class="row mgbt-xs-0">
 													  <label class="col-xs-5 control-label">Country:</label>
-													  <div class="col-xs-7 controls">United States</div>
+													  <div class="col-xs-7 controls"><?php echo $country ?></div>
 													  <!-- col-sm-10 --> 
 													</div>
 												  </div>
 												  <div class="col-sm-6">
 													<div class="row mgbt-xs-0">
 													  <label class="col-xs-5 control-label">Birthday:</label>
-													  <div class="col-xs-7 controls">Jan 22, 1984</div>
+													  <div class="col-xs-7 controls"><?php echo $birthdaay ?></div>
 													  <!-- col-sm-10 --> 
 													</div>
 												  </div>
-												  
 												  <div class="col-sm-6">
 													<div class="row mgbt-xs-0">
 													  <label class="col-xs-5 control-label">Phone:</label>
-													  <div class="col-xs-7 controls">+1-234-5678</div>
-													  <!-- col-sm-10 --> 
-													</div>
-												  </div>
-												  
-												   <div class="col-sm-6">
-													<div class="row mgbt-xs-0">
-													  <label class="col-xs-5 control-label">Country:</label>
-													  <div class="col-xs-7 controls">United States</div>
+													  <div class="col-xs-7 controls"><?php echo $landLineNumber ?></div>
 													  <!-- col-sm-10 --> 
 													</div>
 												  </div>
 												   <div class="col-sm-6">
 													<div class="row mgbt-xs-0">
 													  <label class="col-xs-5 control-label">Best time to contact:</label>
-													  <div class="col-xs-7 controls">09:00 AM - 05:00 PM</div>
+													  <div class="col-xs-7 controls"><?php echo $bestTimeToContace ?></div>
 													  <!-- col-sm-10 --> 
 													</div>
 												  </div>
 												   <div class="col-sm-6">
 													<div class="row mgbt-xs-0">
 													  <label class="col-xs-5 control-label">Payment Corrency:</label>
-													  <div class="col-xs-7 controls">USD, RS</div>
+													  <div class="col-xs-7 controls"><?php echo $paymentCurrency ?></div>
 													  <!-- col-sm-10 --> 
 													</div>
 												  </div>
 												   <div class="col-sm-6">
 													<div class="row mgbt-xs-0">
 													  <label class="col-xs-5 control-label">Payment Terms:</label>
-													  <div class="col-xs-7 controls">Non refundable once paid</div>
+													  <div class="col-xs-7 controls"><?php echo $paymentTerm ?></div>
 													  <!-- col-sm-10 --> 
 													</div>
 												  </div>
-												 
-												  
-												  
 												</div>
 												<hr class="pd-10">
 												<div class="row">
 												  <div class="col-sm-6">
 													<h3 class=" font-semibold"><i class="fa fa-file-text-o mgr-10 profile-icon"></i> EXPERIENCE</h3>
 													<div class="content-list content-menu col-sm-11">
-													   <span class="menu-text"> <a href="http://www.venmond.com">Owner</a> at <a href="http://www.venmond.com">Vendroid Ltd.</a> <span class="menu-info"><span class="menu-date"> March 2013 ~ Now</span></span> </span> 
-													   <span class="menu-text"> <a href="http://www.venmond.com">CEO</a> at <a href="http://www.venmond.com">Mc. Dondon</a> <span class="menu-info"><span class="menu-date"> March 2011 ~ February 2013</span></span> </span>
-													   <span class="menu-text"> <a href="http://www.venmond.com">Web Designer</a> at <a href="http://www.venmond.com">Web Design Company Ltd.</a> <span class="menu-info"><span class="menu-date"> March 2010 ~ February 2011</span></span> </span>
-													   <span class="menu-text"> <a href="http://www.venmond.com">Sales</a> at <a href="http://www.venmond.com">Sales Company Ltd.</a> <span class="menu-info"><span class="menu-date"> March 2009 ~ February 2010</span></span> </span>
+													   <span class="menu-text"><?php echo $experiance ?></span>
 													</div>
 												  </div>
 												  <div class="col-sm-6">
 													<h3 class=" font-semibold"><i class="fa fa-trophy mgr-10 profile-icon"></i> INTREST</h3>
 													<div class="content-list content-menu  col-sm-11">
-														<span class="menu-text"> Bachelor's degree, E-Commerce/Electronic Commerce at <a href="http://www.venmond.com">UCLA</a> <span class="menu-info"><span class="menu-date"> August 2003 ~ July 2008</span></span> </span>
-														<span class="menu-text"> Student at <a href="http://www.venmond.com">Web Design Education</a> <span class="menu-info"><span class="menu-date"> March 2006 ~ February 2007</span></span> </span>                
-														<span class="menu-text"> Student at <a href="http://www.venmond.com">St. Louis High School</a> <span class="menu-info"><span class="menu-date"> August 2000 ~ July 2003 </span></span> </span>
+														<span class="menu-text"><?php echo $intrest ?></span>
 													</div>
 												  </div>
 												</div>
@@ -280,48 +331,23 @@ $mobileNumber = mysql_result($select, 0, 6);  */
 													<div class=" col-sm-11">
 													  <div class="content-list">
 														<div style="overflow: hidden;" class="mCustomScrollbar _mCS_6" data-rel="scroll"><div class="mCustomScrollBox mCS-light" id="mCSB_6" style="position: relative; height: 100%; overflow: hidden; max-width: 100%; max-height: 400px;"><div class="mCSB_container" style="position: relative; top: 0px;">
-														  <ul class="list-wrapper">
-															<li> <span class="menu-icon vd_yellow"><i class="fa fa-suitcase"></i></span> <span class="menu-text"> Someone has give you a surprise <span class="menu-info"><span class="menu-date"> ~ 12 Minutes Ago</span></span> </span>  </li>
-															<li> <span class="menu-icon vd_blue"><i class=" fa fa-user"></i></span> <span class="menu-text"> Change your user profile details <span class="menu-info"><span class="menu-date"> ~ 1 Hour 20 Minutes Ago</span></span> </span> </li>
-															<li> <span class="menu-icon vd_red"><i class=" fa fa-cogs"></i></span> <span class="menu-text"> Your setting is updated <span class="menu-info"><span class="menu-date"> ~ 12 Days Ago</span></span> </span></li>
-															<li>  <span class="menu-icon vd_green"><i class=" fa fa-book"></i></span> <span class="menu-text"> Added new article <span class="menu-info"><span class="menu-date"> ~ 19 Days Ago</span></span> </span>  </li>
-															<li>  <span class="menu-icon vd_green"><img alt="example image" src="img/avatar/avatar.jpg"></span> <span class="menu-text"> Change Profile Pic <span class="menu-info"><span class="menu-date"> ~ 20 Days Ago</span></span> </span> </li>
-															<li>  <span class="menu-icon vd_red"><i class=" fa fa-cogs"></i></span> <span class="menu-text"> Your setting is updated <span class="menu-info"><span class="menu-date"> ~ 12 Days Ago</span></span> </span>  </li>
-															<li>  <span class="menu-icon vd_green"><i class=" fa fa-book"></i></span> <span class="menu-text"> Added new article <span class="menu-info"><span class="menu-date"> ~ 19 Days Ago</span></span> </span> </li>
-															<li>  <span class="menu-icon vd_green"><img alt="example image" src="img/avatar/avatar.jpg"></span> <span class="menu-text"> Change Profile Pic <span class="menu-info"><span class="menu-date"> ~ 20 Days Ago</span></span> </span>  </li>
-														  </ul>
+														  <span class="menu-icon vd_yellow"><?php echo $remark ?></span>
 														</div><div class="mCSB_scrollTools" style="position: absolute; display: block; opacity: 0;"><div class="mCSB_draggerContainer"><div class="mCSB_dragger" style="position: absolute; top: 0px; height: 352px;" oncontextmenu="return false;"><div class="mCSB_dragger_bar" style="position: relative; line-height: 352px;"></div></div><div class="mCSB_draggerRail"></div></div></div></div></div>
 													  </div>
 													</div>
 												  </div>
-												  <!-- col-sm-7 --> 
-												  <div class="col-sm-6">
-													<h3 class=" font-semibold"><i class="fa fa-flask mgr-10 profile-icon"></i> SUMMERY</h3>
+												 <div class="col-sm-6">
+													<h3 class=" font-semibold"><i class="fa fa-flask mgr-10 profile-icon"></i> SUMMARY</h3>
 													<div class="col-sm-11">
-													<div class="skill-list">
-													  <div class="skill-name"> Cost Effective </div>
-													  <div class="progress  progress-sm">
-														<div style="width: 50%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="50" role="progressbar" class="progress-bar progress-bar-warning "> <span class="sr-only">50% Complete</span> </div>
-													  </div>
-													</div>
-													<div class="skill-list">
-													  <div class="skill-name"> Reliability </div>
-													  <div class="progress  progress-sm">
-														<div style="width: 60%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="60" role="progressbar" class="progress-bar progress-bar-info "> <span class="sr-only">60% Complete</span> </div>
-													  </div>
-													</div>
-													<div class="skill-list">
-													  <div class="skill-name"> Territory  Knowledge </div>
-													  <div class="progress  progress-sm">
-														<div style="width: 95%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="95" role="progressbar" class="progress-bar progress-bar-success "> <span class="sr-only">95% Complete</span> </div>
-													  </div>
-													</div>					
+													 <div class="content-list">
+														<div style="overflow: hidden;" class="mCustomScrollbar _mCS_6" data-rel="scroll"><div class="mCustomScrollBox mCS-light" id="mCSB_6" style="position: relative; height: 100%; overflow: hidden; max-width: 100%; max-height: 400px;"><div class="mCSB_container" style="position: relative; top: 0px;">
+														  <span class="menu-icon vd_yellow"><?php echo $summery ?></span>
+														</div><div class="mCSB_scrollTools" style="position: absolute; display: block; opacity: 0;"><div class="mCSB_draggerContainer"><div class="mCSB_dragger" style="position: absolute; top: 0px; height: 352px;" oncontextmenu="return false;"><div class="mCSB_dragger_bar" style="position: relative; line-height: 352px;"></div></div><div class="mCSB_draggerRail"></div></div></div></div></div>
+													  </div>				
 												  </div>
 												  </div>
-												  <!-- col-sm-7 -->           
 												</div>
 												<!-- row --> 
-      
 												</fieldset>
 											</div>
 											</div>
@@ -660,6 +686,7 @@ $mobileNumber = mysql_result($select, 0, 6);  */
 			numberOfMonths: 3,
 			showButtonPanel: true
 			});
+			
 			$('#LicenceExpiry').datepicker({
 			numberOfMonths: 3,
 			showButtonPanel: true
@@ -667,14 +694,7 @@ $mobileNumber = mysql_result($select, 0, 6);  */
 			});
 
 			</script>
-
-			<script>
-			function myFunction(id) {
-			window.location.href = "registration3.php?id="+id;
-			return false;
-			</script>
-
-
+			
 				<!-- javascripts -->
 		<script type="text/javascript" src="js/modernizr.custom.17475.js"></script>
 

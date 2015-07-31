@@ -5,14 +5,14 @@
 
 INSERT INTO `tbl_user_type` (`user_type_id`, `user_type_name`, `status`, `datecreated`) VALUES
 (1, 'GUIDE', 1, '2015-07-27');
--- --------------------------------------------------------
+-- ----------------------------------------------------------------------------
 
 
 --
--- Dumping data for table ` tbl_user_profile`
+-- Dumping data for table `tbl_user_profile`
 --
 
-INSERT INTO ` tbl_user_profile` (`user_id`, `user_type_id`, `user_password`, `f_name`, `l_name`, `email`, `mobileNo`, `gender`, `d_o_b`, `street_address`, `city`, `state`, `country`, `status`, `datecreated`) VALUES
+INSERT INTO `tbl_user_profile` (`user_id`, `user_type_id`, `user_password`, `f_name`, `l_name`, `email`, `mobileNo`, `gender`, `d_o_b`, `street_address`, `city`, `state`, `country`, `status`, `datecreated`) VALUES
 (1, 1, 'ANUPKR', 'ANUP KR', 'SAHA', 'rsaha@xmapledatalab.com', '9234567891', 'Male', '0000-00-00', '', '', '', '', 1, '2015-07-28'),
 (2, 1, 'KALLOL', 'KALLOL', 'BOSE', 'kal@xmapledatalab.com', '8234567891', 'Male', '0000-00-00', '', 'Delhi', 'Delhi', 'India', 1, '2015-07-28'),
 (3, 1, 'AMITAVA', 'AMITAVA', 'MUKHOPADHYAY', 'amit@xmaple.com', '7234567891', 'Male', '0000-00-00', 'old govind puri', 'Delhi', '', '', 1, '2015-07-28'),
@@ -31,10 +31,11 @@ INSERT INTO ` tbl_user_profile` (`user_id`, `user_type_id`, `user_password`, `f_
 (16, 1, 'Krishnendu ', 'Krishnendu ', 'Bhattacharya', 'Krishnendu@lalal.com', '7896236548', 'Male', '0000-00-00', '80,L.N.Road', 'riyala', 'Punjab', 'India', 1, '2015-07-29'),
 (17, 1, 'Sekhar ', 'Sekhar ', 'Ghosh', 'Ghosh@sk.com', '9234567222', 'Male', '0000-00-00', '8B-35, CIT Buildings, Old Beliaghata', 'rithala', 'Delhi', 'India', 1, '2015-07-29'),
 (18, 1, 'Sudhapallab ', 'Sudhapallab ', 'Dasgupta', 'Dasgupta@xmal.com', '9632587459', 'Male', '0000-00-00', '2, Flat L3/24,KMDA Housing Estates PhaseII Kalyani Express Highway ', 'greaternoida', 'Uttar Pradesh', 'India', 1, '2015-07-29'),
-(19, 1, 'vikas', 'vikas', 'alam', 'viki@gmai.com', '8523698523', 'Male', '0000-00-00', '', 'meeru', 'Uttar Pradesh', 'India', 1, '2015-07-29');
+(19, 1, 'vikas', 'vikas', 'alam', 'viki@gmai.com', '8523698523', 'Male', '0000-00-00', '', 'meeru', 'Uttar Pradesh', 'India', 1, '2015-07-29'),
+(20, 1, 'yuyu', 'hritik', 'roshan', 'hritik@gmail.com', '9823928382', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2015-07-30'),
+(21, 1, 'rishi', 'rishi', 'kapoor', 'rishikapoor@gmail.com', '9321225412', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2015-07-31');
 
 -- --------------------------------------------------------
-
 
 
 --
@@ -63,6 +64,8 @@ INSERT INTO `tbl_guide_detail_profile` (`guide_detail_id`, `user_id`, `guide_pro
 
 -- --------------------------------------------------------
 
+
+
 --
 -- Dumping data for table `tbl_referrals`
 --
@@ -84,6 +87,9 @@ INSERT INTO `tbl_referrals` (`referral_id`, `referrer_id`, `referral_name`, `ref
 (14, 14, '', '222sals33@gmail.com', '', 1, '2015-07-29'),
 (15, 17, '', 'ris@yaj.com', '', 1, '2015-07-29'),
 (16, 17, '', 'vikas@code.com', '', 1, '2015-07-29'),
-(17, 19, '', 'anuku@gmailo.com', '', 1, '2015-07-29');
+(17, 19, '', 'anuku@gmailo.com', '', 1, '2015-07-29'),
+(18, 20, '', 'acewin4u@gmail.com', '', 1, '2015-07-30');
 
 -- --------------------------------------------------------
+
+
