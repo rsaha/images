@@ -263,27 +263,6 @@ else
 							</div>
 						</div>
 			</div>
-			
-			
-			
-			<div class="col-sm-7" >
-				
-				<div class="row">
-				<br /><br />
-				<center>
-				<img class="img-responsive" src="images/slo1.png" />
-				</center>
-				</div>
-				<br /><br /><br />
-				<div class="row">
-				<center>
-				<img class="img-responsive" src="images/slo22.png" />
-				</center>
-						<!-- END #page -->
-					</div>
-					<!-- END .row -->
-				</div>
-			</div>
 			<!-- END .main-contents -->
 			</form>
 			<?php include('MasterFooter.php'); ?>
