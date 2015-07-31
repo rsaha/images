@@ -12,7 +12,7 @@
 		
 		if($create)
 		{
-			$select = mysql_query("SELECT * FROM ` tbl_user_profile` WHERE `email`='$EmailAddress' && `mobileNo`='$MobileNumber'");
+			$select = mysql_query("SELECT * FROM `tbl_user_profile` WHERE `email`='$EmailAddress' && `mobileNo`='$MobileNumber'");
 			$userid = mysql_result($select, 0, 0);
 			
 			$_SESSION["userReg"]=$userid;

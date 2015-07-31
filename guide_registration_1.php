@@ -133,7 +133,7 @@ $_SESSION["registraionPhase"]="phase1";
 								<input type="password" class="form-control" id="Password" maxlength="15" name="Password" placeholder="Password" pattern="[a-z A-Z 0-9]+" required >
 								</div>
 								<div class="form-group col-sm-6">
-								<input type="password" class="form-control" id="conformpassword" name="conformpassword" onkeyup="validate()" placeholder="Conform Password" pattern="[a-z A-Z 0-9]+" required  >
+								<input type="password" class="form-control" id="conformpassword" name="conformpassword" onkeyup="validate()" placeholder="Confirm Password" pattern="[a-z A-Z 0-9]+" required  >
 								</div>
 								</div>
 								
