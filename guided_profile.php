@@ -85,13 +85,13 @@ unset($_SESSION['userReg']);
 		<meta charset="UTF-8">
 		
 		<!-- title -->
-		<title>User Profile | Travel Hub HTML5 Template</title>
+		<title>Guide Profile | Guided Gateway</title>
 		
 		<!-- meta description -->
-		<meta name="description" content="YOUR META DESCRIPTION GOES HERE" />
+		<meta name="description" content="Guided Gateway" />
 		
 		<!-- meta keywords -->
-		<meta name="keywords" content="YOUR META KEYWORDS GOES HERE" />
+		<meta name="keywords" content="Travel India Tourist Guide" />
 		
 		<!-- meta viewport -->
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
@@ -151,7 +151,7 @@ unset($_SESSION['userReg']);
 					<a href="" onClick="document.getElementById('upload').click(); return false">
 					
 					<img src="img/Default.jpg" class="hover img-responsive" />
-						<p class="text">change image</p>
+						<p class="text">Click to Change</p>
 					</a>
 					</div>
 					
@@ -170,7 +170,7 @@ unset($_SESSION['userReg']);
 					     <a href="" onClick="document.getElementById('upload').click(); return false">
 					
 					     <img src="img/aa.jpg" class="hover img-responsive" style="max-height:198px; max-width:198px;" />
-						    <p class="text">change image</p>
+						    <p class="text">Click to Change</p>
 					    </a>
 					     </div>
 					   </div>
