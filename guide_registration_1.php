@@ -15,7 +15,7 @@ if(isset($_SESSION['userId']))
 		<meta charset="UTF-8">
 		
 		<!-- title -->
-		<title>User Profile</title>
+		<title>Guide Sign Up</title>
 		
 		<!-- meta description -->
 		<meta name="description" content="YOUR META DESCRIPTION GOES HERE" />
@@ -44,7 +44,7 @@ if(isset($_SESSION['userId']))
 		#abc {
 			border-radius: 25px;
 	padding: 80px 20px 80px 20px;
-	background: url(img/divad.jpg);
+	background: url(img/portfolio/07.jpg);
 }
 
 	#abc h1 {
@@ -77,24 +77,25 @@ if(isset($_SESSION['userId']))
 					<div class="row">
 					
 						<!-- START #page -->
-						<section
-						class="col-md-3 fd-column"> <div
+                        <div id="abc" class="col-md-5 text-center">
+						<!--div id="sidebar" class="col-md-3">
+                     <div
 						class="featured-dest"> <span class="fd-image">
 						<img class="img-circle"
 						src="http://placehold.it/150x150" alt="Featured
-						Destination" /> 
+						Destination" / --> 
 						<h1>Make tourists happier</h1>
 						<h3>Be great at what you do!</h3><br />
 						<h2>Attract More Tourists through our marketing programs</h2>
 						<h2>Make more from each tourist with our low commission</h2>
 						<h2>Provide complete tour package with our partners</h2>
 						<h2>Compensation for no-show or late cancellation</h2>
-						</div>
                         <span
 						class="btn-center"><a class="btn btn-primary
 						text-upper" href="How it works"
 						title="Learn More">Learn More</a></span> </div>
-						</section>	
+                        </div>
+                        </div>
 						<!-- END #page -->
 						
 						<!-- START #sidebar -->
