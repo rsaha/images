@@ -8,7 +8,8 @@ if(isset($_SESSION['userId']) && ($_SESSION['phase'] == "reg"))
 	}
 	if($_SESSION['userId']!=$userid)
 	{
-		header('Location:guide_registration_1.php');
+		session_destroy();
+        header('Location:guide_registration_1.php');
 		exit;
 	}
 	else
@@ -24,7 +25,8 @@ if(isset($_SESSION['userId']) && ($_SESSION['phase'] == "reg"))
 }
 else
 {
-	header('Location:guide_registration_1.php');
+	session_destroy();
+    header('Location:guide_registration_1.php');
 	exit;
 }
 
@@ -37,13 +39,13 @@ else
 		<meta charset="UTF-8">
 		
 		<!-- title -->
-		<title>User Profile | Travel Hub HTML5 Template</title>
+		<title>Guide Profile | Guided Gateway</title>
 		
 		<!-- meta description -->
-		<meta name="description" content="YOUR META DESCRIPTION GOES HERE" />
+		<meta name="description" content="Guided Gateway" />
 		
 		<!-- meta keywords -->
-		<meta name="keywords" content="YOUR META KEYWORDS GOES HERE" />
+		<meta name="keywords" content="Travel India Tourist Guide" />
 		
 		<!-- meta viewport -->
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
@@ -138,44 +140,83 @@ else
 								<!-- END TABS --><br>
 								
 								<div class="">
-									<div class="form-group">
-								<div class="form-group col-sm-12">
-								<input type="email" value="" name="EmailAddress" id="EmailAddress" placeholder="Email Address" class="form-control" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9]+\.([a-zA-Z]{2,3}|([a-zA-Z]{2,3}\.[a-zA-Z]{2}))" required >
+								<!-- START TAB CONTENT -->
+								<div class="tab-content clearfix marb30">
+									<!-- START TAB 1 -->
+									<div class="tab-pane active mart20" id="inviteGuide">
+									<center><h3>Invite 3 Guide Friends and get some exciting referal rewards when your friend register with us...</h3></center><br />
+										<form action="guide_step4.php" method="post">
+										<input type="hidden" name="userid" value="<?php echo $userid ?>" />
+										
+											<div class="col-md-12">
+											
+											<ul  class="formFields list-unstyled">
+											<li class="row">
+											<div class="col-md-4">
+															<label>Name of your 1st friend</label>
+															<input type="text" class="form-control" name="nameFriend1" value=""  pattern="[a-z A-Z]+" />
+														</div>
+														<div class="col-md-4">
+															<label>Email Id of your 1st friend</label>
+															<input type="email" class="form-control" name="emailFriend1" value=""  pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,5}(\.[a-zA-Z]{2,5}){0,1}"/>
+														</div>
+														<div class="col-md-4">
+															<label>Mobile Number of your 1st friend</label>
+															<input type="tel" class="form-control" name="mobileFeiend1" maxlength="10" required pattern="([7-9]{1})(\d{9})" value=""/>
+														</div>
+														
+													</li>
+													<hr>
+													<li class="row">
+														<div class="col-md-4">
+															<label>Name of your 2nd friend</label>
+															<input type="text" class="form-control" name="nameFriend2" value=""  pattern="[a-z A-Z]+" />
+														</div>
+														<div class="col-md-4">
+															<label>Email Id of your 2nd friend</label>
+															<input type="email" class="form-control" name="emailFriend2" value=""  pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,5}(\.[a-zA-Z]{2,5}){0,1}"/>
+														</div>
+														<div class="col-md-4">
+															<label>Mobile Number of your 2nd friend</label>
+															<input type="tel" class="form-control" name="mobileFeiend2" maxlength="10" required pattern="([7-9]{1})(\d{9})" value="" />
+														</div>
+														
+													</li>
+													<hr>
+													<li class="row">
+														<div class="col-md-4">
+															<label>Name of your 3rd friend</label>
+															<input type="text" class="form-control" name="nameFriend3" value=""  pattern="[a-z A-Z]+"/>
+														</div>
+														<div class="col-md-4">
+															<label>Email Id of your 3rd friend</label>
+															<input type="email" class="form-control" name="emailFriend3" value="" pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,5}(\.[a-zA-Z]{2,5}){0,1}"/>
+														</div>
+														<div class="col-md-4">
+															<label>Mobile Number of your 3rd friend</label>
+															<input type="tel" class="form-control" name="mobileFeiend3" value="" maxlength="10" required pattern="([7-9]{1})(\d{9})" value="" />
+														</div>
+														
+													</li>
+													<li class="row">
+													<div class="col-md-4 pull-right" >
+														<button type="submit" class="btn btn-warning form-control">Send Invitation</button>
+													</div>
+													<div class="col-md-4 pull-right" >
+														<?php
+														echo '<input type="button" class="btn btn-default form-control" onclick="myFunction()" value="Skip">'
+														?>
+													</div>
+													</li>
+													</ul>
+													
+											</div>
+													
+									</form>
+									</div>
+									<!-- END TAB 1 -->
 								</div>
-								</div>
-								
-								<div class="form-group">
-								<div class="form-group col-sm-12">
-								<input type="tel" value="" name="MobileNumber" id="MobileNumber" placeholder="Mobile Number" class="form-control" maxlength="10" required pattern="(^[7-9]{1}\d{9}$)">
-								</div>
-								</div>
-								
-								
-								<div class="form-group">
-								<div class="form-group col-sm-6">
-								<input type="password" class="form-control" id="Password" maxlength="15" name="Password" placeholder="Password" pattern="(^[a-zA-Z_0-9!@#$%^&* ]{6,15}$)" required >
-								</div>
-								<div class="form-group col-sm-6">
-								<input type="password" class="form-control" id="conformpassword" name="conformpassword" onKeyUp="validate()" placeholder="Conform Password" pattern="(^[a-zA-Z_0-9!@#$%^&* ]{6,15}$)" required  >
-								</div>
-								</div>
-								
-								<div class="form-group">
-								<div class="col-sm-12 text-center">
-								<!-- <input type="checkbox" name="TermsOfService" onclick="agreeCondition()" id="TermsOfService"  > -->
-								<strong style="color:#444454;">By clicking Register button, you agree to Guided Gateway's <a target="_blank" id="TosLink" href="#">Terms of Service</a> and <a target="_blank" id="PrivacyLink" href="#">Privacy Policy</a></strong>
-								<br /><br />
-								<input class="col-md-8 col-md-offset-2 btn btn-warning" name="submitbutton" type="submit" id="registerUser" value="Register" style="font-size:17px; font-weight: bold;" class="form-control"><br><br><br>
-								</div>
-								</div>
-								<div class="text-center">
-								<span style="color:gray;">
-								Already a member? <a id="LinkSignIn" href="guide_login.php">Sign In</a>
-							</div>
-							
-							<div class="">
-							
-							</div>
+								<!-- END TAB CONTENT -->
 							</div>
 						
 						</div>

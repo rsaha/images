@@ -15,13 +15,13 @@ if(isset($_SESSION['userId']))
 		<meta charset="UTF-8">
 		
 		<!-- title -->
-		<title>User Profile</title>
+		<title>Guide Sign Up | Guided Gateway</title>
 		
 		<!-- meta description -->
-		<meta name="description" content="YOUR META DESCRIPTION GOES HERE" />
+		<meta name="description" content="Guided Gateway" />
 		
 		<!-- meta keywords -->
-		<meta name="keywords" content="YOUR META KEYWORDS GOES HERE" />
+		<meta name="keywords" content="Travel India Tourist Guide" />
 		
 		<!-- meta viewport -->
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
@@ -77,15 +77,27 @@ if(isset($_SESSION['userId']))
 					<div class="row">
 					
 						<!-- START #page -->
-						<div id="abc" class="col-md-5 text-center">		
-						<h1>Be great at what you do!</h1>
-						<h3>Get started - it's free.</h3><br />
-						<h2>No fees to join</h2>
-						<h2>No or Low booking charge*</h2>
-						<h2>Integrated lodging options for tourist*</h2>
-						<h2>On line, Email and social network promotions</h2>
-						<h2>Information about tourists preference and price</h2>
-						</div>
+                        <div id="page" class="col-md-5">
+					       <center>
+                        <div id="abc" class="col-md-7 text-center">
+						<!--div id="sidebar" class="col-md-3">
+                     <div
+						class="featured-dest"> <span class="fd-image">
+						<img class="img-circle"
+						src="http://placehold.it/150x150" alt="Featured
+						Destination" / --> 
+						<h1>Make tourists happier</h1>
+						<h3>Be great at what you do!</h3><br />
+						<h2>Attract More Tourists through our marketing programs</h2>
+						<h2>Make more from each tourist with our low commission</h2>
+						<h2>Provide complete tour package with our partners</h2>
+						<h2>Compensation for no-show or late cancellation</h2>
+                        <span
+						class="btn-center"><a class="btn btn-primary
+						text-upper" href="How it works"
+						title="Learn More">Learn More</a></span> </div>
+                        </div>
+                        </div>
 						<!-- END #page -->
 						
 						<!-- START #sidebar -->
@@ -95,7 +107,7 @@ if(isset($_SESSION['userId']))
 								<div class="text-center">
 								<p href="Index.html" style="color:#444454; ">
 								<span style="font-size:25px;">Welcome Guide </span>&nbsp;&nbsp;
-								<span style="font-size:15px;">Get started - it's free</span>
+								<span style="font-size:15px;">Get started - It's absolutely free</span>
 								</div>
 								</div>
 								
@@ -139,11 +151,13 @@ if(isset($_SESSION['userId']))
 								
 								<div class="form-group">
 								<div class="col-sm-12 text-center">
-								<!-- <input type="checkbox" name="TermsOfService" onclick="agreeCondition()" id="TermsOfService"  > -->
-								<strong style="color:#444454;">By clicking Register button, you agree to Guided Gateway's <a target="_blank" id="TosLink" href="#">Terms of Service</a> and <a target="_blank" id="PrivacyLink" href="#">Privacy Policy</a></strong>
+								<strong style="color:#444454;">By clicking Register button, you agree to Guided Gateway's <a target="_blank" id="TosLink" href="termsofuse.html">Terms of Service</a> and <a target="_blank" id="PrivacyLink" href="privacy.html">Privacy Policy</a></strong>
 								<br /><br />
 								<input class="col-md-8 col-md-offset-2 btn btn-warning" name="submitbutton" type="submit" id="registerUser" value="Register" style="font-size:17px; font-weight: bold;" class="form-control"><br><br><br>
 								</div>
+								</div>
+                                <div class="col-sm-12 text-center">
+								<strong style="color:#444454;">Or call us at 9830032920</strong>
 								</div>
 								<div class="text-center">
 								<span style="color:gray;">

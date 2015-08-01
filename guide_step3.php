@@ -1,6 +1,7 @@
 <?php
 	session_start();
-	
+	include("db.php");
+
 	if(isset($_SESSION['userId']))
 	{
 	if(isset($_POST['userid']))
@@ -9,7 +10,8 @@
 	}
 	if($_SESSION['userId']!=$userid)
 	{
-		header('Location:guide_registration_1.php');
+		session_destroy();
+        header('Location:guide_registration_1.php');
 	}
 	else
 	{

@@ -8,7 +8,8 @@ if(isset($_SESSION['userId']) && ($_SESSION['phase'] == "reg"))
 	}
 	if($_SESSION['userId']!=$userid)
 	{
-		header('Location:guide_registration_1.php');
+		session_destroy();
+        header('Location:guide_registration_1.php');
 		exit;
 	}
 	else
@@ -24,7 +25,8 @@ if(isset($_SESSION['userId']) && ($_SESSION['phase'] == "reg"))
 }
 else
 {
-	header('Location:guide_registration_1.php');
+	session_destroy();
+    header('Location:guide_registration_1.php');
 	exit;
 }
 
@@ -37,13 +39,13 @@ else
 		<meta charset="UTF-8">
 		
 		<!-- title -->
-		<title>User Profile | Travel Hub HTML5 Template</title>
+		<title>Guide Sign Up | Guided Gateway</title>
 		
 		<!-- meta description -->
-		<meta name="description" content="YOUR META DESCRIPTION GOES HERE" />
+		<meta name="description" content="Guided Gateway" />
 		
 		<!-- meta keywords -->
-		<meta name="keywords" content="YOUR META KEYWORDS GOES HERE" />
+		<meta name="keywords" content="Travel India Tourist Guide" />
 		
 		<!-- meta viewport -->
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />

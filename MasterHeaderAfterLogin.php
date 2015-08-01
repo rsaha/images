@@ -6,9 +6,9 @@
     <!--[if IE]><meta http-equiv="x-ua-compatible" content="IE=9" /><![endif]-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Guided Gateway</title>
-    <meta name="description" content="waltrump.com">
+    <meta name="description" content="Guided Gateway Website">
     <meta name="keywords" content="">
-    <meta name="author" content="Waltrump.com">
+    <meta name="author" content="GuidedGateway">
     
     <!-- Favicons
     ================================================== -->
@@ -78,13 +78,13 @@
 				<div class="row top-row"> 
 					<div class="col-md-6"> 
 						<div class="left-part alignleft">
-							<span class="contact-email small">support@xmapledatalab.com</span>
+							<span class="contact-email small">touchus@xmapledatalab.com</span>
 							<span class="contact-phone small">+1 510 938 2562</span> 
 							<ul class="social-media header-social"> 
 								<li><a class="sm-facebook" href="#"><span>Facebook</span></a></li> 
-								<li><a class="sm-flickr" href="#"><span>Pinterest</span></a></li> 
-								<li><a class="sm-windows" href="#"><span>Youtube</span></a></li> 
-								<li><a class="sm-stumble" href="#"><span>Twitter</span></a></li> 
+								<li><a class="sm-pinterest" href="#"><span>Pinterest</span></a></li> 
+								<li><a class="sm-youtube" href="#"><span>Youtube</span></a></li> 
+								<li><a class="sm-twitter" href="#"><span>Twitter</span></a></li> 
 							</ul> 
 						</div> 
 					</div> 
@@ -118,6 +118,8 @@
 				href="top-destinations-listview-sidebar.html" title="">Destinations</a> </li>
                 <li><a
 				href="top-themes-listview-sidebar.html" title="">Themes</a> </li>
+                <li><a
+				href="blog.html" title="blog">Travelogue</a> </li>
 
 									</ul> </nav> </div> </div> </div>
 									</div> <!-- END #main-header -->
