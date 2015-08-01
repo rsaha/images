@@ -59,10 +59,10 @@
 				//$mail->Username = "touchus@xmapledatalab.com";  // SMTP username
 				//$mail->Password = "xMaple123"; // SMTP password
 		
-				$mail->Username = "contact@waltrump.com"; 	// SMTP username
+				$mail->Username = "contact@Guided Gateway Website"; 	// SMTP username
 				$mail->Password = "tarzan567"; 			  	// SMTP password
 
-				$mail->From = "contact@waltrump.com";
+				$mail->From = "contact@Guided Gateway Website";
 				$mail->FromName = $username;
 				if($create1)
 				{

@@ -15,13 +15,13 @@ if(isset($_SESSION['userId']))
 		<meta charset="UTF-8">
 		
 		<!-- title -->
-		<title>Guide Sign Up</title>
+		<title>Guide Sign Up | Guided Gateway</title>
 		
 		<!-- meta description -->
-		<meta name="description" content="YOUR META DESCRIPTION GOES HERE" />
+		<meta name="description" content="Guided Gateway" />
 		
 		<!-- meta keywords -->
-		<meta name="keywords" content="YOUR META KEYWORDS GOES HERE" />
+		<meta name="keywords" content="Travel India Tourist Guide" />
 		
 		<!-- meta viewport -->
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
@@ -44,11 +44,11 @@ if(isset($_SESSION['userId']))
 		#abc {
 			border-radius: 25px;
 	padding: 80px 20px 80px 20px;
-	background: url(img/portfolio/07.jpg);
+	background: url(img/portfolio/05.jpg);
 }
 
 	#abc h1 {
-		font: 20px Georgia, Serif; color: #f2f0eb; letter-spacing: 2px; margin: 0 0 10px 0;
+		font: 20px Georgia, Serif; color: #f; letter-spacing: 2px; margin: 0 0 10px 0;
 		text-shadow: 0px 10px 10px #000000;
 	}
 	#abc h2 {
