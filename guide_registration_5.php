@@ -38,7 +38,7 @@ else
 		<meta charset="UTF-8">
 		
 		<!-- title -->
-		<title>User Profile | Travel Hub HTML5 Template</title>
+		<title>Guide Profile | Guided Gateway</title>
 		
 		<!-- meta description -->
 		<meta name="description" content="Guided Gateway" />

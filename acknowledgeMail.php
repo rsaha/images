@@ -25,13 +25,13 @@
 		$mail->IsSMTP();                                      // set mailer to use SMTP
 		$mail->Host = "199.168.191.130";  // specify main and backup server
 		$mail->SMTPAuth = true;     // turn on SMTP authentication
-		$mail->Username = "contact@waltrump.com";  // SMTP username
+		$mail->Username = "contact@Guided Gateway Website";  // SMTP username
 		$mail->Password = "tarzan567"; // SMTP password
 		
 		//$mail->Username = "touchus@xmapledatalab.com";  // SMTP username
 		//$mail->Password = "xMaple123"; // SMTP password
 
-		$mail->From = "contact@waltrump.com";
+		$mail->From = "contact@Guided Gateway Website";
 		$mail->FromName = $username;
 		$mail->AddAddress("ankitbhagat.ab@gmail.com", "Ankit Bhagat");
 
@@ -39,7 +39,7 @@
 		$mail->IsHTML(true);                                  // set email format to HTML
 
 		$mail->Subject = "Guide " . $username . "has envited his some friends";
-		$mail->Body    ="<b>". $username . " has invite his friends of following email id...<br />" . $emailaddresses . "</b><br /><br /> -----------------------------<br />Waltrump Technology<br>(www.waltrump.com)<br />Email: quote@waltrump.com<br /> Contact: +91 121 2708197, +91 93 6854 1767";
+		$mail->Body    ="<b>". $username . " has invite his friends of following email id...<br />" . $emailaddresses . "</b><br /><br /> -----------------------------<br />Waltrump Technology<br>(www.Guided Gateway Website)<br />Email: quote@Guided Gateway Website<br /> Contact: +91 121 2708197, +91 93 6854 1767";
 
 		if(!$mail->Send())
 		{
