@@ -77,7 +77,9 @@ if(isset($_SESSION['userId']))
 					<div class="row">
 					
 						<!-- START #page -->
-                        <div id="abc" class="col-md-5 text-center">
+                        <div id="page" class="col-md-5">
+					       <center>
+                        <div id="abc" class="col-md-7 text-center">
 						<!--div id="sidebar" class="col-md-3">
                      <div
 						class="featured-dest"> <span class="fd-image">

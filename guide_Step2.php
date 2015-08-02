@@ -10,6 +10,7 @@
 	}
 	if($_SESSION['userId']!=$userid)
 	{
+        session_destroy();
 		header('Location:guide_registration_1.php');
 	}
 	else
@@ -110,6 +111,7 @@
 	}
 	else
 	{
+        session_destroy();
 	header('Location:guide_registration_1.php');	
 	}
 ?>
