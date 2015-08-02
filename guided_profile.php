@@ -74,8 +74,6 @@
 		header('Location:guide_login.php');
 		exit;
 	}
-session_start();
-unset($_SESSION['userReg']);
 ?>
 <html lang="en" dir="ltr">
 
@@ -146,13 +144,8 @@ unset($_SESSION['userReg']);
 			
 			<form action="guide_Step2.php" method="post">
 			<!-- START #page-header -->
-			<div class="hovera" >
-					<input type="file" id="upload" name="coverpicture" style="visibility: hidden; width: 1px; height: 1px"/>
-					<a href="" onClick="document.getElementById('upload').click(); return false">
-					
-					<img src="img/Default.jpg" class="hover img-responsive" />
-						<p class="text">Click to Change</p>
-					</a>
+			<div class="" >
+					<img src="img/Default.jpg" class="img-responsive" /><br>
 					</div>
 					
 		<input type="hidden" name="userid" value="<?php echo $userid ?>" />
@@ -162,41 +155,29 @@ unset($_SESSION['userReg']);
 			<div class="main-contents">
 				<div class="container">
 				<div class="row">
-					<div id="page" class="col-md-2">
-					 <center>
-					   <div class="row">
-					    <div class="hovera" style="border: 0px solid black; height:201px">
-					      <input type="file" id="upload" name="profilepicture" style="visibility: hidden; width: 1px; height: 1px"/>
-					     <a href="" onClick="document.getElementById('upload').click(); return false">
-					
-					     <img src="img/aa.jpg" class="hover img-responsive" style="max-height:198px; max-width:198px;" />
-						    <p class="text">Click to Change</p>
-					    </a>
+					<div id="page" class="col-md-2 col-sm-12">
+					 
+					   <div class="row">					   
+					   <center>
+					    <div class="hovera" style="border: 0px solid black; height:250px">
+						<img src="img/aa.jpg" class="img-responsive" style="max-height:250px"/>
 					     </div>
+						 </center>
 					   </div>
-					</center>
+					
 					        <br /><br />
 					   <div class="row">
 					  <ul class="list-unstyled">
-							<li><span class="menu-text"> Lic. No.  <a ><?php echo $licenceNumber ?></a><br></li>
-							<li><span class="menu-text"> Valid upto  <a ><?php echo $licenceValidty ?></a></li>
-							</ul>
-					   </div>
-					   
-					   <div class="row"> 
-					    <div class="hovera" style="border: 0px solid black; height:201px">
-					      <input type="file" id="upload" name="profilepicture" style="visibility: hidden; width: 1px; height: 1px"/>
-					     <a href="" onClick="document.getElementById('upload').click(); return false">
-					
-					     <img src="img/PRcard.jpg" class="hover img-responsive" style="max-height:127px; max-width:200px;" />
-						    <p class="text">change image</p>
-					    </a>
-					     </div>
-					   </div>
-					    <div class="row">
-					   
-					  <ul class="list-unstyled">
-							<li><span class="menu-text"> Communication Mechanism  <a ><?php echo $communicationMechanism ?></a><br></li>
+							<li><span class="menu-text"> Lic. No. : <a ><?php echo $licenceNumber ?></a><br><br></li>
+							<li><span class="menu-text"> Valid upto : <a ><?php echo $licenceValidty ?></a><br><br></li>
+							
+					    <li><span class="menu-text"> Licence Image : 
+						<img src="img/PRcard.jpg" class="img-responsive" style="max-height:127px; max-width:200px;" />
+						<br></li>
+							<li><span class="menu-text"> Communication Mechanism : <a ><?php echo $communicationMechanism ?></a><br><br></li>
+							<li><span class="menu-text"> Best time to contact : <a ><?php echo $bestTimeToContace ?></a><br><br></li>
+							<li><span class="menu-text"> Payment Corrency : <a ><?php echo $paymentCurrency ?></a><br><br></li>
+							<li><span class="menu-text"> Payment Terms : <a ><?php echo $paymentTerm ?></a><br></li>
 							</ul>
 						   <?php/*  echo $username */ ?>
 						   <?php/*  echo $emailID */ ?>
@@ -221,8 +202,13 @@ unset($_SESSION['userReg']);
 									<div class="tab-pane active " id="userinfo">
 										<div class="booking gray clearfix box-shadow1">
 											<fieldset>
-												
-										<div > <a class="btn btn-default pull-right" style="background-color:#ffa98e"> <i class="fa fa-pencil"></i> Edit Profile </a> </div>      
+										<div >
+						<?php
+						echo '<a class="btn btn-default pull-right" style="background-color:#ffa98e" onclick="myFunction(' . $userid. ')"> 
+						<i class="fa fa-pencil"></i> Edit Profile 
+						</a>'
+						?>	
+										</div>      
 												<h3 class=" mgtp-10 font-semibold"><i class="icon-user mgr-10 profile-icon"></i> ABOUT</h3>
 												<div class="row">
 												  <div class="col-sm-6">
@@ -253,10 +239,31 @@ unset($_SESSION['userReg']);
 													  <!-- col-sm-10 --> 
 													</div>
 												  </div>
+												   <div class="col-sm-6">
+													<div class="row mgbt-xs-0">
+													  <label class="col-xs-5 control-label">Birthday:</label>
+													  <div class="col-xs-7 controls"><?php echo $birthdaay ?></div>
+													  <!-- col-sm-10 --> 
+													</div>
+												  </div>
+												   <div class="col-sm-6">
+													<div class="row mgbt-xs-0">
+													  <label class="col-xs-5 control-label">Landline Phone:</label>
+													  <div class="col-xs-7 controls"><?php echo $landLineNumber ?></div>
+													  <!-- col-sm-10 --> 
+													</div>
+												  </div>
 												  <div class="col-sm-6">
 													<div class="row mgbt-xs-0">
 													  <label class="col-xs-5 control-label">Street Address:</label>
-													  <div class="col-xs-7 controls"><?php echo $streetAddress . ', ' . $city ?></div>
+													  <div class="col-xs-7 controls"><?php echo $streetAddress ?></div>
+													  <!-- col-sm-10 --> 
+													</div>
+												  </div>
+												  <div class="col-sm-6">
+													<div class="row mgbt-xs-0">
+													  <label class="col-xs-5 control-label">Street Address:</label>
+													  <div class="col-xs-7 controls"><?php echo $city ?></div>
 													  <!-- col-sm-10 --> 
 													</div>
 												  </div>
@@ -274,41 +281,9 @@ unset($_SESSION['userReg']);
 													  <!-- col-sm-10 --> 
 													</div>
 												  </div>
-												  <div class="col-sm-6">
-													<div class="row mgbt-xs-0">
-													  <label class="col-xs-5 control-label">Birthday:</label>
-													  <div class="col-xs-7 controls"><?php echo $birthdaay ?></div>
-													  <!-- col-sm-10 --> 
-													</div>
-												  </div>
-												  <div class="col-sm-6">
-													<div class="row mgbt-xs-0">
-													  <label class="col-xs-5 control-label">Phone:</label>
-													  <div class="col-xs-7 controls"><?php echo $landLineNumber ?></div>
-													  <!-- col-sm-10 --> 
-													</div>
-												  </div>
-												   <div class="col-sm-6">
-													<div class="row mgbt-xs-0">
-													  <label class="col-xs-5 control-label">Best time to contact:</label>
-													  <div class="col-xs-7 controls"><?php echo $bestTimeToContace ?></div>
-													  <!-- col-sm-10 --> 
-													</div>
-												  </div>
-												   <div class="col-sm-6">
-													<div class="row mgbt-xs-0">
-													  <label class="col-xs-5 control-label">Payment Corrency:</label>
-													  <div class="col-xs-7 controls"><?php echo $paymentCurrency ?></div>
-													  <!-- col-sm-10 --> 
-													</div>
-												  </div>
-												   <div class="col-sm-6">
-													<div class="row mgbt-xs-0">
-													  <label class="col-xs-5 control-label">Payment Terms:</label>
-													  <div class="col-xs-7 controls"><?php echo $paymentTerm ?></div>
-													  <!-- col-sm-10 --> 
-													</div>
-												  </div>
+												 
+												 
+												   
 												</div>
 												<hr class="pd-10">
 												<div class="row">
@@ -697,6 +672,14 @@ unset($_SESSION['userReg']);
 
 			</script>
 			
+			<script>
+				function myFunction(id) 
+				{
+				window.location.href = "guide_profile_edit.php?id="+id;
+				return false;
+				}
+			</script>
+
 				<!-- javascripts -->
 		<script type="text/javascript" src="js/modernizr.custom.17475.js"></script>
 

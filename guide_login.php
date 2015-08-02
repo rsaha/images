@@ -14,7 +14,7 @@ session_start();
 		<meta charset="UTF-8">
 		
 		<!-- title -->
-		<title>User Profile | Travel Hub HTML5 Template</title>
+		<title>Guide Sign In | Guided Gateway</title>
 		
 		<!-- meta description -->
 		<meta name="description" content="Guided Gateway" />
@@ -72,7 +72,7 @@ session_start();
 											<div class="col-sm-12">
 												<form action="guide_login_code.php" method="POST">
 													<input type="text" class="form-control" id="username" name="username" placeholder="Email Address or Mobile Number" pattern="(([a-zA-Z0-9._%+-]+@[a-zA-Z0-9]+\.([a-zA-Z]{2,3}|([a-zA-Z]{2,3}\.[a-zA-Z]{2})))|([7-9]{1}\d{9}))" required >
-													<br /> <input type="password" class="form-control" id="password" name="password" placeholder="Password" pattern="(^[a-zA-Z_0-9!@#$%^&* ]{6,15}$)" required>
+													<br /> <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
 													<br /> <button class="btn  btn-sm btn-warning btn-block form-control" type="submit" style="font-size:17px; font-weight: bold;">Login</button>
 												</form>
 												<center><span style="color:gray;">Not a member? 
