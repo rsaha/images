@@ -44,11 +44,11 @@ if(isset($_SESSION['userId']))
 		#abc {
 			border-radius: 25px;
 	padding: 80px 20px 80px 20px;
-	background: url(img/divad.jpg);
+	background: url(img/portfolio/05.jpg);
 }
 
 	#abc h1 {
-		font: 20px Georgia, Serif; color: #f2f0eb; letter-spacing: 2px; margin: 0 0 10px 0;
+		font: 20px Georgia, Serif; color: #f; letter-spacing: 2px; margin: 0 0 10px 0;
 		text-shadow: 0px 10px 10px #000000;
 	}
 	#abc h2 {

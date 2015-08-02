@@ -10,7 +10,8 @@
 		}
 		if($_SESSION["userReg"]!=$userid)
 		{
-			header('Location:guide_registration_1.php');
+			session_destroy();
+            header('Location:guide_registration_1.php');
 		}
 		else
 		{
@@ -63,10 +64,10 @@
 				//$mail->Username = "touchus@xmapledatalab.com";  // SMTP username
 				//$mail->Password = "xMaple123"; // SMTP password
 		
-				$mail->Username = "contact@waltrump.com"; 	// SMTP username
+				$mail->Username = "touchus@xmapledatalab.com"; 	// SMTP username
 				$mail->Password = "tarzan567"; 			  	// SMTP password
 
-				$mail->From = "contact@waltrump.com";
+				$mail->From = "touchus@xmapledatalab.com";
 				$mail->FromName = $username;
 				if($create1)
 				{

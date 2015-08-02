@@ -60,6 +60,7 @@
 		{
 			$errormsg="Something went wrong, Try again";
 			echo "<script type='text/javascript'>alert('$errormsg');</script>";
+            session_destroy();
 			header('Location:guide_registration_1.php');
 		}
 ?>

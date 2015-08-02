@@ -157,8 +157,7 @@
 				<div class="row">
 					<div id="page" class="col-md-2 col-sm-12">
 					 
-					   <div class="row">
-					   
+					   <div class="row">					   
 					   <center>
 					    <div class="hovera" style="border: 0px solid black; height:250px">
 						<img src="img/aa.jpg" class="img-responsive" style="max-height:250px"/>
