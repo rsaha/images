@@ -8,12 +8,14 @@
 		}
 		if($_SESSION['userId']!=$userid)
 		{
+            session_destory();
 			header('Location:guide_login.php');
 			exit;
 		}
 		else
 		{
-			$_SESSION["signinCheck"]="signin";
+			$_SESSION['signinCheck']="signin";
+			$_SESSION['phase'] = "signin";
 				include('db.php');
 
 				$select1 = mysql_query("SELECT * FROM `tbl_user_profile` WHERE `user_id` = $userid");
@@ -71,6 +73,7 @@
 	}
 	else
 	{
+        session_destroy();
 		header('Location:guide_login.php');
 		exit;
 	}

@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(isset($_SESSION['userId']) && ($_SESSION['phase'] == "reg"))
+if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "reg"))
 {
 	if(isset($_GET['id']))
 	{
@@ -162,7 +162,7 @@ else
 														</div>
 														<div class="col-md-4">
 															<label>Mobile Number of your 1st friend</label>
-															<input type="tel" class="form-control" name="mobileFeiend1" maxlength="10" required pattern="([7-9]{1})(\d{9})" value=""/>
+															<input type="tel" class="form-control" name="mobileFeiend1" maxlength="10" pattern="([7-9]{1})(\d{9})" value=""/>
 														</div>
 														
 													</li>
@@ -178,7 +178,7 @@ else
 														</div>
 														<div class="col-md-4">
 															<label>Mobile Number of your 2nd friend</label>
-															<input type="tel" class="form-control" name="mobileFeiend2" maxlength="10" required pattern="([7-9]{1})(\d{9})" value="" />
+															<input type="tel" class="form-control" name="mobileFeiend2" maxlength="10" pattern="([7-9]{1})(\d{9})" value="" />
 														</div>
 														
 													</li>
@@ -194,7 +194,7 @@ else
 														</div>
 														<div class="col-md-4">
 															<label>Mobile Number of your 3rd friend</label>
-															<input type="tel" class="form-control" name="mobileFeiend3" value="" maxlength="10" required pattern="([7-9]{1})(\d{9})" value="" />
+															<input type="tel" class="form-control" name="mobileFeiend3" value="" maxlength="10" pattern="([7-9]{1})(\d{9})" value="" />
 														</div>
 														
 													</li>
@@ -204,12 +204,11 @@ else
 													</div>
 													<div class="col-md-4 pull-right" >
 														<?php
-														echo '<input type="button" class="btn btn-default form-control" onclick="myFunction()" value="Skip">'
+														echo '<input type="button" class="btn btn-default form-control" onclick="myFunction(' . $userid. ')" value="Skip">'
 														?>
 													</div>
 													</li>
 													</ul>
-													
 											</div>
 													
 									</form>
@@ -237,12 +236,11 @@ else
 		  });
 		  </script>
 		  <script>
-function myFunction(id) {
-	//window.location.href = "guide_profile.php?id="+id;
-	window.location.href = "guided_profile.php";
-	 return false;
- }
-</script>
+		function myFunction(id) {
+		window.location.href = "guided_profile.php?id="+id;
+		return false;
+		}
+		</script>
 				<!-- javascripts -->
 		<script type="text/javascript" src="js/modernizr.custom.17475.js"></script>
 
