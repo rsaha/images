@@ -52,16 +52,13 @@ session_start();
 	}
 
 	#abc h1 {
-		font: 20px Georgia, Serif; color: #f; letter-spacing: 2px; margin: 0 0 10px 0;
-		text-shadow: 0px 10px 10px #000000;
+		font: 30px Georgia, Serif; color: #444454; letter-spacing: 2px; margin: 0 0 10px 0;
 	}
 	#abc h2 {
-		font: 12px Georgia, Serif; color: #f2f0eb; letter-spacing: 2px; margin: 0 0 10px 0;
-		text-shadow: 0px 10px 10px #000000;
+		font: 12px Georgia, Serif; color: #444454; letter-spacing: 2px; margin: 0 0 10px 0;
 	}
 	#abc h3 {
-		font: 12px Georgia, Serif; color: #f2f0eb; letter-spacing: 2px; margin: 0 0 10px 0;
-		text-shadow: 0px 10px 10px #000000;
+		font: 12px Georgia, Serif; color: #444454; letter-spacing: 2px; margin: 0 0 10px 0;
 	}
 	
 		</style>
@@ -94,14 +91,14 @@ session_start();
 			<div id="page" class="col-md-5">
 				<div id="abc" class="text-center">
 
-                    <h1><strong style="color:#444454;">Make tourists happier</strong></h1>
-                    <h3><strong style="color:#444454;">Be great at what you do!</strong></h3><br/>
-                    <h2><strong style="color:#444454;">Attract More Tourists through our marketing programs</strong></h2>
-                        <h2><strong style="color:#444454;">Make more from each tourist with our low commission</strong></h2>
-                        <h2><strong style="color:#444454;">Provide complete tour package with our partners</strong></h2>
-                        <h2><strong style="color:#444454;">Compensation for no-show or late cancellation</strong></h2>
+                    <h1><strong>Make tourists happier and earn more</strong></h1>
+                    <h3><strong>Be great at what you do!</strong></h3><br/>
+                    <h2><strong>Attract More Tourists through our marketing programs</strong></h2>
+                        <h2><strong>Make more from each tourist with our low commission</strong></h2>
+                        <h2><strong>Provide complete tour package with our partners</strong></h2>
+                        <h2><strong>Compensation for no-show or late cancellation</strong></h2></br/>
 					<span class="btn-center">
-					<a class="btn btn-primary text-upper" href="How it works" title="Learn More">Learn More</a>
+					<a class="btn btn-primary text-upper" href="howitworks.html" title="Learn More">Learn More</a>
 					</span> 
 				</div>
 			</div>
