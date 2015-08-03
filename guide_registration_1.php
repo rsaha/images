@@ -49,9 +49,7 @@ session_start();
 		#abc {
 			border-radius: 25px;
 	padding: 80px 20px 80px 20px;
-	background: url(img/portfolio/02.jpg);
-
-}
+	}
 
 	#abc h1 {
 		font: 20px Georgia, Serif; color: #f; letter-spacing: 2px; margin: 0 0 10px 0;
@@ -96,12 +94,12 @@ session_start();
 			<div id="page" class="col-md-5">
 				<div id="abc" class="text-center">
 
-					<h1>Make tourists happier</h1>
-					<h3>Be great at what you do!</h3><br />
-					<h2>Attract More Tourists through our marketing programs</h2>
-					<h2>Make more from each tourist with our low commission</h2>
-					<h2>Provide complete tour package with our partners</h2>
-					<h2>Compensation for no-show or late cancellation</h2>
+                    <h1><strong style="color:#444454;">Make tourists happier</strong></h1>
+                    <h3><strong style="color:#444454;">Be great at what you do!</strong></h3><br/>
+                    <h2><strong style="color:#444454;">Attract More Tourists through our marketing programs</strong></h2>
+                        <h2><strong style="color:#444454;">Make more from each tourist with our low commission</strong></h2>
+                        <h2><strong style="color:#444454;">Provide complete tour package with our partners</strong></h2>
+                        <h2><strong style="color:#444454;">Compensation for no-show or late cancellation</strong></h2>
 					<span class="btn-center">
 					<a class="btn btn-primary text-upper" href="How it works" title="Learn More">Learn More</a>
 					</span> 
