@@ -263,20 +263,6 @@ CREATE TABLE IF NOT EXISTS `tbl_user_profile` (
   `datecreated` date NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COMMENT='Users Basic Profile';
 
---
--- Dumping data for table `tbl_user_profile`
---
-
-INSERT INTO `tbl_user_profile` (`user_id`, `user_type_id`, `user_password`, `f_name`, `l_name`, `email`, `mobileNo`, `gender`, `d_o_b`, `street_address`, `city`, `state`, `country`, `status`, `datecreated`) VALUES
-(11, 1, 'ANUPKR', 'ANUP KR', 'SAHA', 'rsaha@xmapledatalab.com', '9234567891', 'Male', '0000-00-00', '', '', '', '', 1, '2015-07-28'),
-(13, 1, 'KALLOL', 'KALLOL', 'BOSE', 'kal@xmapledatalab.com', '8234567891', 'Male', '0000-00-00', '', 'Delhi', 'Delhi', 'India', 1, '2015-07-28'),
-(14, 1, 'AMITAVA', 'AMITAVA', 'MUKHOPADHYAY', 'amit@xmaple.com', '7234567891', 'Male', '0000-00-00', 'old govind puri', 'Delhi', '', '', 1, '2015-07-28'),
-(18, 1, 'Ajay', 'Ajay', 'Sinha', 'ajay@xmaple.com', '7234560091', 'Male', '0000-00-00', '', '', '', 'India', 1, '2015-07-28'),
-(19, 1, 'ANINDIT A', 'ANINDIT A', 'SAR', 'annd@xmaple.com', '7234567812', 'Female', '0000-00-00', 'C/o Bholanath Sar, Saktipur, Pathak Para, Hospital More', 'Murshidabad', 'gurgaon', 'india', 1, '2015-07-28'),
-(20, 1, 'Bikash', 'Bikash', 'Mehera', 'Bil@xmaple.com', '9334567891', 'Male', '0000-00-00', 'Bidisha Housing, Flat no. A20/14, 134 C.S. Mukherjee Street', 'faridabad', '', '', 1, '2015-07-28'),
-(21, 1, 'Bratati ', 'Bratati ', 'Saha', 'brat@maple.com', '7234566491', 'Male', '0000-00-00', 'BRS 81', '', '', '', 1, '2015-07-28')
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8 COMMENT='Users Basic Profile';
-
 
 --
 -- Table structure for table `tbl_user_type`
