@@ -106,7 +106,7 @@ if(isset($_SESSION['userId']))
 								<div class="row">
 								<div class="text-center">
 								<p href="Index.html" style="color:#444454; ">
-								<span style="font-size:25px;">Welcome Guide </span>&nbsp;&nbsp;
+								<span style="font-size:25px;">Welcome  </span>&nbsp;&nbsp;
 								<span style="font-size:15px;">Get started - It's absolutely free</span>
 								</div>
 								</div>

@@ -1,16 +1,16 @@
 <?php
 session_start();
 
-	
 	if(isset($_SESSION['userId']))
 	{
 	if(isset($_POST['userid']))
 	{
-	$userid=mysql_real_escape_string($_POST['userid']);
+	  $userid=$_POST['userid'];
 	}
 	if($_SESSION['userId']!=$userid)
 	{
-		header('Location:guide_registration_1.php');
+		session_destroy();
+        header('Location:guide_registration_1.php');
 	}
 	else
 	{
@@ -57,19 +57,21 @@ session_start();
 			 if($update1)
 			{
 			$msg="Successfully Updated!!";
+            error_log("Guide '$emailID' Profile '$msg'");
 			echo "<script type='text/javascript'>alert('$msg');</script>";
 			//header('Location:guided_profile.php?id=' . $userid . '');
 			
 			} 
 			else{
-				$msg="Sorry! Something wrong happened!";
-			echo "<script type='text/javascript'>alert('$msg');</script>";
+				error_log("Guide '$emailID' Profile update failed");
+			    echo "<script type='text/javascript'>alert('$msg');</script>";
 			}
 	}
 	}
 	else
 	{
-	header('Location:guide_registration_1.php');
-	exit;
+        session_destroy();
+	    header('Location:guide_registration_1.php');
+	    exit;
 	}
 ?>

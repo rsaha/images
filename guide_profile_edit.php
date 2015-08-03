@@ -83,13 +83,13 @@
 		<meta charset="UTF-8">
 		
 		<!-- title -->
-		<title>User Profile | Travel Hub HTML5 Template</title>
+		<title>Guide Profile | Guided Gateway</title>
 		
 		<!-- meta description -->
-		<meta name="description" content="YOUR META DESCRIPTION GOES HERE" />
+		<meta name="description" content="Guided Gateway" />
 		
 		<!-- meta keywords -->
-		<meta name="keywords" content="YOUR META KEYWORDS GOES HERE" />
+		<meta name="keywords" content="Travel India Tourist Guide" />
 		
 		<!-- meta viewport -->
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
@@ -293,7 +293,7 @@
 												  <div class="col-sm-6 form-group">
 													<div class="row mgbt-xs-0">
 													  <label class="col-xs-5 control-label">Country:</label>
-													  <div class="col-xs-7 controls"><input name="country" class="form-control" type="text" style="background-color:#f7f7f7;" value="<?php echo $country ?>" /></div>
+													  <div class="col-xs-7 controls"><input name="country" class="form-control" type="text" style="background-color:#f7f7f7;" value="India" /></div>
 													  <!-- col-sm-10 --> 
 													</div>
 												  </div>
@@ -312,7 +312,7 @@
 												  <div class="col-sm-6">
 													<h3 class=" font-semibold"><i class="fa fa-trophy mgr-10 profile-icon"></i> INTREST</h3>
 													<div class="content-list content-menu  col-sm-12">
-														<span class="menu-text"><textarea name="intrest" class="form-control" rows="5" style="width:100%; background-color:#f7f7f7;"><?php echo $intrest ?></textarea></span>
+														<span class="menu-text"><textarea name="interest" class="form-control" rows="5" style="width:100%; background-color:#f7f7f7;"><?php echo $intrest ?></textarea></span>
 													</div>
 												  </div>
 												</div>

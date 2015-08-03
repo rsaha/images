@@ -44,24 +44,31 @@
 			 $Password = $Pass ;
 			 }
 		$create = mysql_query("INSERT INTO `tbl_user_profile`(`user_type_id`, `user_password`, `f_name`, `l_name`, `email`, `mobileNo`, `status`, `datecreated`) VALUES (1, '$Password', '$FirstName', '$LastName', '$EmailAddress', '$MobileNumber', 1, now())");
-		echo "<script type='text/javascript'>alert('$create');</script>";
+		
+echo "<script type='text/javascript'>alert('$create');</script>";
+
 		if($create)
 		{
 			$select = mysql_query("SELECT * FROM `tbl_user_profile` WHERE `email`='$EmailAddress' && `mobileNo`='$MobileNumber'");
 			$userid = mysql_result($select, 0, 0);
+            error_log(print_r($userid,true));
 			
 			$_SESSION["userReg"]=$userid;
 			
 			$msg="Successfully Updated!!";
+            error_log(print_r($msg,true));
 			echo "<script type='text/javascript'>alert('$msg');</script>";
 			header('Location:guide_registration_2.php?id=' . $userid . '');
+            exit;
 		}
 		else
 		{
-			$errormsg="Something went wrong, Try again";
+			$errormsg="User profile creation failed for '$EmailAdress'";
+            error_log(print_r($errormsg,true));
 			echo "<script type='text/javascript'>alert('$errormsg');</script>";
             session_destroy();
 			header('Location:guide_registration_1.php');
+            exit;
 		}
 ?>
 
