@@ -14,6 +14,8 @@ session_start();
 	}
 	else
 	{
+		include("db.php");
+		
 			$firstName=mysql_real_escape_string($_POST['firstName']);
 			$lastName=mysql_real_escape_string($_POST['lastName']);
 			$emailID = mysql_real_escape_string($_POST['emailID']);
@@ -24,6 +26,7 @@ session_start();
 			$city = mysql_real_escape_string($_POST['city']);
 			$state = mysql_real_escape_string($_POST['state']);
 			$country = mysql_real_escape_string($_POST['country']);
+			
 
 			//$profilePicture = mysql_real_escape_string($_POST['profilePicture']);
 			//$coverPicture = mysql_real_escape_string($_POST['coverPicture']);
@@ -40,30 +43,29 @@ session_start();
 			$communicationMechanism = mysql_real_escape_string($_POST['communicationMechanism']);
 			$remark = mysql_real_escape_string($_POST['remark']);
 
-			include("db.php");
+			
+			
+			
 			
 			$update1 = mysql_query("UPDATE `tbl_user_profile` SET `f_name`='$firstName', `l_name`='$lastName', `email`='$emailID', 
-			`mobileNo`='$mobileNumber, `gender`='$gender', `d_o_b`=$birthday, `street_address`='$streetAddress', `city`='$city', 
+			`mobileNo`='$mobileNumber', `gender`='$gender', `d_o_b`=$birthday, `street_address`='$streetAddress', `city`='$city', 
 			`state`='$state', `country`='$country', `datecreated`=now() WHERE `user_id` = $userid");
-			
-			if($update1)
-			{
-				echo "<script type='text/javascript'>alert('update1 run');</script>";
+				
 			$update2 = mysql_query("UPDATE `tbl_guide_detail_profile` SET `license_no`='$licenceNumber',`validity`=$licenceValidty,
 			`guide_summary`='$summary',`guide_experience`='$experiance',`guide_interest`='$intrest',`landline_no`='$landLineNumber',
 			`payment_currency`='$paymentCurrency',`payment_terms`='$paymentTerm',`Best_time_for_contact`='$bestTimeToContace',
 			`Communication_mechanism`='$communicationMechanism',`guide_Remarks`='$remark',`datecreated`=now() WHERE `user_id` = $userid");
-			}
-			 if($update1)
+			
+			 if($update1 && $update2)
 			{
 			$msg="Successfully Updated!!";
 			echo "<script type='text/javascript'>alert('$msg');</script>";
-			//header('Location:guided_profile.php?id=' . $userid . '');
+			header('Location:guided_profile.php?id=' . $userid . '');
 			
 			} 
 			else{
 				$msg="Sorry! Something wrong happened!";
-			echo "<script type='text/javascript'>alert('$msg');</script>";
+				echo "<script type='text/javascript'>alert('$msg');</script>";
 			}
 	}
 	}

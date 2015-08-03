@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <html lang="en" dir="ltr">
 
 	<!-- START head --> <head> <!-- Site meta charset --> <meta
@@ -49,7 +52,17 @@
 
 	<!-- START body --> <body> <!-- START #wrapper --> <div id="wrapper"> 
 	
-	<?php include("MasterHeader.php") ?>
+	<?php 
+	
+if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "signin"))
+			{
+				include('MasterHeaderAfterLogin.php'); 
+			}
+			else
+			{
+				include('MasterHeader.php'); 
+			}
+	?>
 
 			<div id="main-slider">
 				<div id="content-slider">

@@ -1,16 +1,19 @@
 <?php
 session_start();
-if(isset($_SESSION['userId']) && ($_SESSION['phase'] == "reg"))
+if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "reg"))
 {
+	//echo "<script type='text/javascript'>alert('in 1');</script>";
 	if(isset($_GET['id']))
 	{
 	$userid = $_GET['id'];
+	//echo "<script type='text/javascript'>alert('$userid');</script>";
 	}
 	if($_SESSION['userId']!=$userid)
 	{
-		session_destroy();
-        header('Location:guide_registration_1.php');
-		exit;
+		echo "<script type='text/javascript'>alert('out 1');</script>";
+		//session_destroy();
+        //header('Location:guide_registration_1.php');
+		//exit;
 	}
 	else
 	{
@@ -25,6 +28,7 @@ if(isset($_SESSION['userId']) && ($_SESSION['phase'] == "reg"))
 }
 else
 {
+	//echo "<script type='text/javascript'>alert('out 2');</script>";
 	session_destroy();
     header('Location:guide_registration_1.php');
 	exit;

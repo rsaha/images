@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(isset($_SESSION['userId']) && ($_SESSION['phase'] == "reg"))
+if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "reg"))
 {
 	if(isset($_GET['id']))
 	{

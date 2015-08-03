@@ -1,10 +1,29 @@
 <?php
-session_start();
-/* if(isset($_SESSION['userId']))
-{
-	unset($_SESSION['userId']);
-} */
 
+			$line = array();
+				foreach(file('email_host_address.txt') as $lines) 
+				{
+					$line[] = $lines;
+				}
+				
+				$hostAddress=$line[0];
+				$HostEmail=$line[1];
+				$HostPassword=$line[2];
+				echo "<script type='text/javascript'>alert('$hostAddress');</script>";
+				echo "<script type='text/javascript'>alert('$HostEmail');</script>";
+				echo "<script type='text/javascript'>alert('$HostPassword');</script>";
+				
+session_start();
+if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "signin"))
+{
+header('Location:guided_profile.php?id=' . $_SESSION['userId'] . '');
+exit;
+}
+if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "reg"))
+{
+header('Location:guide_registration_2.php?id=' . $_SESSION['userId'] . '');
+exit;
+}
 ?>
 <html lang="en" dir="ltr">
 
@@ -47,9 +66,9 @@ session_start();
 	<body>
 		<!-- START #wrapper -->
 		<div id="wrapper">
-			<?php include('MasterHeader.php'); ?>
-			
-			
+			<?php 
+			include('MasterHeader.php'); 
+			?>
 			
 			<!-- START .main-contents -->
 			<div class="main-contents" id="myDiv">
