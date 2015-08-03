@@ -1,21 +1,20 @@
 <?php
 session_start();
 
-	
 	if(isset($_SESSION['userId']))
 	{
 	if(isset($_POST['userid']))
 	{
-	$userid=mysql_real_escape_string($_POST['userid']);
+	  $userid=$_POST['userid'];
 	}
 	if($_SESSION['userId']!=$userid)
 	{
-		header('Location:guide_registration_1.php');
+		session_destroy();
+        header('Location:guide_registration_1.php');
 	}
 	else
 	{
-		include("db.php");
-		
+            include('db.php');
 			$firstName=mysql_real_escape_string($_POST['firstName']);
 			$lastName=mysql_real_escape_string($_POST['lastName']);
 			$emailID = mysql_real_escape_string($_POST['emailID']);
@@ -42,10 +41,13 @@ session_start();
 			$bestTimeToContace = mysql_real_escape_string($_POST['bestTimeToContace']);
 			$communicationMechanism = mysql_real_escape_string($_POST['communicationMechanism']);
 			$remark = mysql_real_escape_string($_POST['remark']);
+<<<<<<< HEAD
 
 			
 			
 			
+=======
+>>>>>>> master
 			
 			$update1 = mysql_query("UPDATE `tbl_user_profile` SET `f_name`='$firstName', `l_name`='$lastName', `email`='$emailID', 
 			`mobileNo`='$mobileNumber', `gender`='$gender', `d_o_b`=$birthday, `street_address`='$streetAddress', `city`='$city', 
@@ -59,19 +61,26 @@ session_start();
 			 if($update1 && $update2)
 			{
 			$msg="Successfully Updated!!";
+            error_log("Guide '$emailID' Profile '$msg'");
 			echo "<script type='text/javascript'>alert('$msg');</script>";
 			header('Location:guided_profile.php?id=' . $userid . '');
 			
 			} 
 			else{
+<<<<<<< HEAD
 				$msg="Sorry! Something wrong happened!";
 				echo "<script type='text/javascript'>alert('$msg');</script>";
+=======
+				error_log("Guide '$emailID' Profile update failed");
+			    echo "<script type='text/javascript'>alert('$msg');</script>";
+>>>>>>> master
 			}
 	}
 	}
 	else
 	{
-	header('Location:guide_registration_1.php');
-	exit;
+        session_destroy();
+	    header('Location:guide_registration_1.php');
+	    exit;
 	}
 ?>

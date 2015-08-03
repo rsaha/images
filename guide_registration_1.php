@@ -50,10 +50,11 @@ session_start();
 			border-radius: 25px;
 	padding: 80px 20px 80px 20px;
 	background: url(img/portfolio/02.jpg);
+
 }
 
 	#abc h1 {
-		font: 20px Georgia, Serif; color: #f2f0eb; letter-spacing: 2px; margin: 0 0 10px 0;
+		font: 20px Georgia, Serif; color: #f; letter-spacing: 2px; margin: 0 0 10px 0;
 		text-shadow: 0px 10px 10px #000000;
 	}
 	#abc h2 {
@@ -121,6 +122,43 @@ session_start();
 
 					<div class="row">
 						<form action="guide_Step1.php" method="post">
+						<!-- START #page -->
+                        <div id="page" class="col-md-5">
+					       <center>
+                        <div id="abc" class="col-md-7 text-center">
+						<!--div id="sidebar" class="col-md-3">
+                     <div
+						class="featured-dest"> <span class="fd-image">
+						<img class="img-circle"
+						src="http://placehold.it/150x150" alt="Featured
+						Destination" / --> 
+						<h1>Make tourists happier</h1>
+						<h3>Be great at what you do!</h3><br />
+						<h2>Attract More Tourists through our marketing programs</h2>
+						<h2>Make more from each tourist with our low commission</h2>
+						<h2>Provide complete tour package with our partners</h2>
+						<h2>Compensation for no-show or late cancellation</h2>
+                        <span
+						class="btn-center"><a class="btn btn-primary
+						text-upper" href="How it works"
+						title="Learn More">Learn More</a></span> </div>
+                        </div>
+                        </div>
+						<!-- END #page -->
+						
+						<!-- START #sidebar -->
+						<div id="sidebar" class="col-md-7">
+						<div id="DivSignUp" >
+								<div class="row">
+								<div class="text-center">
+								<p href="Index.html" style="color:#444454; ">
+								<span style="font-size:25px;">Welcome  </span>&nbsp;&nbsp;
+								<span style="font-size:15px;">Get started - It's absolutely free</span>
+								</div>
+								</div>
+								
+							<div class="row">
+							 <form action="guide_Step1.php" method="post">
 							<div class="col-sm-12">
 								<div class="row">
 									<div class="col-sm-12">

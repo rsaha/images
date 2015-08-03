@@ -15,6 +15,8 @@
 			echo "<script type='text/javascript'>alert('3');</script>";
 			/* header('Location:guide_registration_1.php');
 			exit; */
+			session_destroy();
+            header('Location:guide_registration_1.php');
 		}
 		else
 		{
@@ -86,10 +88,12 @@
 				$mail->IsSMTP();                  			// set mailer to use SMTP
 				$mail->Host =  "199.168.191.130";			// specify main and backup server
 				$mail->SMTPAuth = true;     	 			// turn on SMTP authentication
-				$mail->Username = "contact@waltrump.com"; 	// SMTP username
-				$mail->Password = "tarzan567"; 			  	// SMTP password
+				//$mail->Username = "touchus@xmapledatalab.com";  // SMTP username
+				//$mail->Password = "xMaple123"; // SMTP password
+				$mail->Username = "touchus@xmapledatalab.com"; 	// SMTP username
+				$mail->Password = "xMaple123"; 			  	// SMTP password
 
-				$mail->From = "contact@waltrump.com";
+				$mail->From = "touchus@xmapledatalab.com";
 				$mail->FromName = $username;
 				if($create1)
 				{
