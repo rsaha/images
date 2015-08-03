@@ -1,7 +1,7 @@
 <?php
+echo "<script type='text/javascript'>alert('ram2');</script>";
 	session_start();
 	include('db.php');
-	echo "<script type='text/javascript'>alert('acknowledgemant');</script>";
 	if(isset($_GET['id']))
 	{
 	$userid = $_GET['id'];
@@ -18,20 +18,31 @@
 				$emailaddresses = $emailaddresses . "<br />" . mysql_result($select2, $i, 3);
 			}
 			
-	require("\PHPMailer_5.2.0\class.phpmailer.php");
+			
+		$line = array();
+		foreach(file('email_host_address.txt') as $lines) 
+		{
+			$line[] = $lines;
+		}
+		$hostAddress=$line[0];
+		$HostEmail=$line[1];
+		$HostPassword=$line[2];
+		
+		echo $hostAddress;
+		echo $HostEmail;
+		echo $HostPassword;
+				
+		require("\PHPMailer_5.2.0\class.phpmailer.php");
 
 		$mail = new PHPMailer();
 
-		$mail->IsSMTP();                                      // set mailer to use SMTP
-		$mail->Host = "199.168.191.130";  // specify main and backup server
-		$mail->SMTPAuth = true;     // turn on SMTP authentication
-		$mail->Username = "contact@Guided Gateway Website";  // SMTP username
-		$mail->Password = "tarzan567"; // SMTP password
+		$mail->IsSMTP();                  			// set mailer to use SMTP
+		$mail->Host =  "199.168.191.130";			// specify main and backup server
+		$mail->SMTPAuth = true;     	 			// turn on SMTP authentication
+		$mail->Username = "contact@waltrump.com"; 	// SMTP username
+		$mail->Password = "tarzan567"; 			  	// SMTP password
 		
-		//$mail->Username = "touchus@xmapledatalab.com";  // SMTP username
-		//$mail->Password = "xMaple123"; // SMTP password
-
-		$mail->From = "contact@Guided Gateway Website";
+		$mail->From = "contact@waltrump.com";
 		$mail->FromName = $username;
 		$mail->AddAddress("ankitbhagat.ab@gmail.com", "Ankit Bhagat");
 
@@ -51,7 +62,6 @@
 		echo "<script>
 		alert('Thank you for contacting us. As early as possible  we will contact you.');
 		</script>";
-		//header('Location: guided_profile.php');
 		header('Location: guided_profile.php?id='. $userid .'');
 		die;
 ?>
