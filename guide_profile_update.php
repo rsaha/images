@@ -14,6 +14,7 @@ session_start();
 	}
 	else
 	{
+            include('db.php');
 			$firstName=mysql_real_escape_string($_POST['firstName']);
 			$lastName=mysql_real_escape_string($_POST['lastName']);
 			$emailID = mysql_real_escape_string($_POST['emailID']);
@@ -39,8 +40,6 @@ session_start();
 			$bestTimeToContace = mysql_real_escape_string($_POST['bestTimeToContace']);
 			$communicationMechanism = mysql_real_escape_string($_POST['communicationMechanism']);
 			$remark = mysql_real_escape_string($_POST['remark']);
-
-			include("db.php");
 			
 			$update1 = mysql_query("UPDATE `tbl_user_profile` SET `f_name`='$firstName', `l_name`='$lastName', `email`='$emailID', 
 			`mobileNo`='$mobileNumber, `gender`='$gender', `d_o_b`=$birthday, `street_address`='$streetAddress', `city`='$city', 

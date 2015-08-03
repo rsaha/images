@@ -8,6 +8,7 @@
 		}
 		if($_SESSION['userId']!=$userid)
 		{
+            session_destory();
 			header('Location:guide_login.php');
 			exit;
 		}
@@ -71,6 +72,7 @@
 	}
 	else
 	{
+        session_destroy();
 		header('Location:guide_login.php');
 		exit;
 	}
