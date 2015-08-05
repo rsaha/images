@@ -3,6 +3,10 @@
 var app = require('connect')();
 var http = require('http');
 var swaggerTools = require('swagger-tools');
+var marklogic = require('marklogic');
+var my = require('./my-ml-connection.js');
+var db = marklogic.createDatabaseClient(my.connInfo);
+var qb = marklogic.queryBuilder;
 
 var serverPort = 8080;
 
