@@ -159,7 +159,6 @@
 				<div class="container">
 				<div class="row">
 					<div id="page" class="col-md-2 col-sm-12">
-					 
 					   <center>
 					    <div class="row">
 						<?php 

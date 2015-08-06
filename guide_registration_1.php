@@ -48,8 +48,8 @@ session_start();
 		<style type="text/css" >
 		#abc {
 			border-radius: 25px;
-	padding: 25px 25px 25px 25px;
-	}
+	        padding: 25px 25px 25px 25px;
+	    }
 
 	#abc h1 {
 		font: 30px Georgia, Serif; color: #444454; letter-spacing: 2px; margin: 0 0 10px 0;
@@ -98,7 +98,11 @@ session_start();
                         <h2><strong>Provide complete tour package with our partners</strong></h2>
                         <h2><strong>Compensation for no-show or late cancellation</strong></h2></br/>
 					<span class="btn-center">
+<<<<<<< HEAD
 					<a class="btn btn-primary text-upper" href="howitworks.html" title="Learn More">Learn More</a>
+=======
+					<a class="btn btn-primary text-upper" href="howitworks_guide.html" title="Learn More">Learn More</a>
+>>>>>>> master
 					</span> 
 				</div>
 			</div>
@@ -161,7 +165,7 @@ session_start();
 									</div>
 								</div>
 								<div class="col-sm-12 text-center">
-									<strong style="color:#444454;">Or call us at 9830032920</strong>
+									<strong style="color:#444454;">Or call us at +91 9830032920</strong>
 								</div>
 								<div class="text-center">
 									<span style="color:gray;">

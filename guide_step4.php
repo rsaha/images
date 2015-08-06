@@ -12,8 +12,14 @@
 		}
 		if($_SESSION['userId']!=$userid)
 		{
+<<<<<<< HEAD
 			header('Location:guide_registration_1.php');
 			exit;
+=======
+			echo "<script type='text/javascript'>alert('3');</script>";
+			/* header('Location:guide_registration_1.php');
+			exit; */
+>>>>>>> master
 			session_destroy();
             header('Location:guide_registration_1.php');
 		}
@@ -94,10 +100,19 @@
 				$mail->IsSMTP();                  			// set mailer to use SMTP
 				$mail->Host =  $hostAddress;			// specify main and backup server
 				$mail->SMTPAuth = true;     	 			// turn on SMTP authentication
+<<<<<<< HEAD
 				$mail->Username = $HostEmail; 			// SMTP username
 				$mail->Password = $HostPassword; 			  	// SMTP password
 
 				$mail->From = $HostEmail;
+=======
+				//$mail->Username = "touchus@xmapledatalab.com";  // SMTP username
+				//$mail->Password = "xMaple123"; // SMTP password
+				$mail->Username = "touchus@xmapledatalab.com"; 	// SMTP username
+				$mail->Password = "xMaple123"; 			  	// SMTP password
+
+				$mail->From = "touchus@xmapledatalab.com";
+>>>>>>> master
 				$mail->FromName = $username;
 				if($create1)
 				{
