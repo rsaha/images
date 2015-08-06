@@ -8,6 +8,7 @@
 		}
 		if($_SESSION['userId']!=$userid)
 		{
+            session_destory();
 			header('Location:guide_login.php');
 			exit;
 		}
@@ -72,6 +73,7 @@
 	}
 	else
 	{
+        session_destroy();
 		header('Location:guide_login.php');
 		exit;
 	}
@@ -158,14 +160,31 @@
 				<div class="row">
 					<div id="page" class="col-md-2 col-sm-12">
 					 
-					   <div class="row">
-					   
 					   <center>
-					    <div class="hovera" style="border: 0px solid black; height:250px">
-						<img src="img/aa.jpg" class="img-responsive" style="max-height:250px"/>
-					     </div>
+					    <div class="row">
+						<?php 
+						$select4pic = mysql_query("SELECT * FROM `tbl_guide_detail_profile` WHERE `user_id` = $userid");
+						$count4pic = mysql_num_rows($select4pic);
+						if ($count4pic==0)
+						{
+							echo '<img style="max-height:200px; max-width:170px;" class="hover img-responsive" src="img/userDefaultIcon.png"/>';
+						}
+						else
+						{
+							$picVal = mysql_result($select4pic, 0, 2);
+							if($picVal==null)
+							{
+								echo '<img style="max-height:200px; max-width:170px;" class="hover img-responsive" src="img/userDefaultIcon.png"/>';
+							}
+							else
+							{
+								echo '<img style="max-height:200px; max-width:170px;" class="hover img-responsive" src="showImage.php?id=' . $userid . '"/>';
+							}
+						}
+							
+						?>
+						</div>
 						 </center>
-					   </div>
 					
 					        <br /><br />
 					   <div class="row">

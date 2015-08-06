@@ -32,19 +32,31 @@ echo "<script type='text/javascript'>alert('ram2');</script>";
 		echo $HostEmail;
 		echo $HostPassword;
 				
+		$line = array();
+		foreach(file('email_host_address.txt') as $lines) 
+		{
+			$line[] = $lines;
+		}
+		
+		$hostAddress=trim($line[0]);
+		$HostEmail=trim($line[1]);
+		$HostPassword=trim($line[2]);
+		
+		
 		require("\PHPMailer_5.2.0\class.phpmailer.php");
 
 		$mail = new PHPMailer();
 
 		$mail->IsSMTP();                  			// set mailer to use SMTP
-		$mail->Host =  "199.168.191.130";			// specify main and backup server
+		$mail->Host =  $hostAddress;			// specify main and backup server
 		$mail->SMTPAuth = true;     	 			// turn on SMTP authentication
-		$mail->Username = "contact@waltrump.com"; 	// SMTP username
-		$mail->Password = "tarzan567"; 			  	// SMTP password
-		
-		$mail->From = "contact@waltrump.com";
+		$mail->Username = $HostEmail; 	// SMTP username
+		$mail->Password = $HostPassword; 			  	// SMTP password
+
+		$mail->From = $HostEmail;
 		$mail->FromName = $username;
 		$mail->AddAddress("ankitbhagat.ab@gmail.com", "Ankit Bhagat");
+		$mail->AddAddress("touchus@xmapledatalab.com", "xmaple datalab");
 
 		$mail->WordWrap = 50;                               // set word wrap to 50 characters
 		$mail->IsHTML(true);                                  // set email format to HTML

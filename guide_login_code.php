@@ -3,17 +3,13 @@ session_start();
 
 include('db.php');
 
-if (isset($_POST['username']) and isset($_POST['password']))
+if (isset($_POST['username']) && isset($_POST['password']))
 {
 
-/* $tbxUsername = $_POST['username']; */
-   $UName=mysql_real_escape_string($_POST['username']);
-		/*$options =  array("options"=>array("regexp"=>"(([a-zA-Z0-9._%+-]+@[a-zA-Z0-9]+\.([a-zA-Z]{2,3}|([a-zA-Z]{2,3}\.[a-zA-Z]{2})))|([7-9]{1}\d{9}))"));*/
+$UName=mysql_real_escape_string($_POST['username']);
 		if(preg_match("/^(([a-zA-Z0-9._%+-]+@[a-zA-Z0-9]+\.([a-zA-Z]{2,3}|([a-zA-Z]{2,3}\.[a-zA-Z]{2})))|([7-9]{1}\d{9}))$/i",$UName)){
-		    /* if (filter_var($UName, FILTER_VALIDATE_REGEXP, $options) != FALSE)  {*/
 		    $tbxUsername = $UName ;
-			/*echo "<script type='text/javascript'>alert('$MobileNumber');</script>";
-*/			}
+			}
 
 $tbxPassword = $_POST['password'];
 $check = false;
@@ -30,8 +26,7 @@ if ($count==1)
 }
 else
 {	
-echo "<script type='text/javascript'>alert('1');</script>";
-	//header('location:guide_login.php');
+	header('location:guide_login.php');
 }
 }
 
