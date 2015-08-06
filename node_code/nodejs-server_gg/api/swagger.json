@@ -1,173 +1,179 @@
 {
-    "swagger": "2.0",
-    "info": {
-        "version": "1.0.0",
-        "title": "Guided Gateway API"
-    },
-    "paths": {
-        "/guides": {
-            "get": {
-                "description": "Gets `Guide` objects.\nOptional query param of **size** , **city**, **speciality** determines\nsize of returned guide list\n",
-                "parameters": [
-                    {
-                        "name": "size",
-                        "in": "query",
-                        "description": "Size of array",
-                        "required": false,
-                        "type": "number",
-                        "format": "double"
-                    },
-                    {
-                        "name": "city",
-                        "in": "query",
-                        "description": "city of tour",
-                        "required": false,
-                        "type": "string"
-                    },
-                    {
-                        "name": "theme",
-                        "in": "query",
-                        "description": "theme of guide",
-                        "required": false,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful response",
-                        "schema": {
-                            "title": "List of Guides",
-                            "type": "array",
-                            "items": {
-                                "title": "Guide",
-                                "type": "object",
-                                "properties": {
-                                    "name": {
-                                        "type": "string"
-                                    },
-                                    "id": {
-                                        "type": "number"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/guide": {
-            "get": {
-                "description": "Gets a specific `Guide` object.\nOptional query param of **id** determines\nindividual guide\n",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "query",
-                        "description": "id of guide",
-                        "required": false,
-                        "type": "number",
-                        "format": "double"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful response",
-                        "schema": {
-                            "title": "Guide",
-                            "type": "object",
-                            "properties": {
-                                "name": {
-                                    "type": "string"
-                                },
-                                "id": {
-                                    "type": "number"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/tours": {
-            "get": {
-                "description": "Gets `Tour` objects.\nOptional query param of **size**, **city** , **theme** determines\nsize, location and theme of returned tour list\n",
-                "parameters": [
-                    {
-                        "name": "size",
-                        "in": "query",
-                        "description": "Size of array",
-                        "required": false,
-                        "type": "number",
-                        "format": "double"
-                    },
-                    {
-                        "name": "city",
-                        "in": "query",
-                        "description": "city of tour",
-                        "required": false,
-                        "type": "string"
-                    },
-                    {
-                        "name": "theme",
-                        "in": "query",
-                        "description": "themes of tour",
-                        "required": false,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful response",
-                        "schema": {
-                            "title": "List of Tours",
-                            "type": "array",
-                            "items": {
-                                "title": "Tour",
-                                "type": "object",
-                                "properties": {
-                                    "name": {
-                                        "type": "string"
-                                    },
-                                    "single": {
-                                        "type": "boolean"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/tour": {
-            "get": {
-                "description": "Gets a specific `Tour` object.\nOptional query param of **city** determines\ndestination of returned object\n",
-                "parameters": [
-                    {
-                        "name": "tourid",
-                        "in": "query",
-                        "description": "ID of tour",
-                        "required": false,
-                        "type": "number",
-                        "format": "double"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful response",
-                        "schema": {
-                            "title": "Specific Tour",
-                            "type": "object",
-                            "properties": {
-                                "name": {
-                                    "type": "string"
-                                },
-                                "single": {
-                                    "type": "boolean"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
+  "swagger": "2.0",
+  "info": {
+    "title": "Guided Gateway API",
+    "description": "Move your app forward with the Sensors API",
+    "version": "1.0.0"
+  },
+  "produces": ["application/json"],
+  "host": "localhost:8080",
+  "basePath": "/",
+  "paths": {
+  
+  "/guide": {
+    "get": {
+      "summary": "",
+      "description":"Gets a specific `Guide` object.\nOptional query param of **id** determines\nindividual guide\n",
+      "x-swagger-router-controller": "Default",
+      "tags": ["Default"],
+      "operationId": "guideGet",
+      "parameters": [
+        {
+  "name" : "id",
+  "in" : "query",
+  "description" : "id of guide",
+  "required" : false,
+  "type" : "number",
+  "format" : "double"
+}
+        
+      ],
+      "responses": {
+        "200": {
+  "description" : "Successful response",
+  "schema" : {
+    "type" : "object",
+    "title" : "Guide"
+  }
+}
+        
+        
+      }
     }
+  } ,
+  
+  "/guides": {
+    "get": {
+      "summary": "",
+      "description":"Gets `Guide` objects.\nOptional query param of **size** , **city**, **speciality** determines\nsize of returned guide list\n",
+      "x-swagger-router-controller": "Default",
+      "tags": ["Default"],
+      "operationId": "guidesGet",
+      "parameters": [
+        {
+  "name" : "size",
+  "in" : "query",
+  "description" : "Size of array",
+  "required" : false,
+  "type" : "number",
+  "format" : "double"
+},
+        {
+  "name" : "city",
+  "in" : "query",
+  "description" : "city of tour",
+  "required" : false,
+  "type" : "string"
+},
+        {
+  "name" : "theme",
+  "in" : "query",
+  "description" : "theme of guide",
+  "required" : false,
+  "type" : "string"
+}
+        
+      ],
+      "responses": {
+        "200": {
+  "description" : "Successful response",
+  "schema" : {
+    "type" : "array",
+    "items" : {
+      "type" : "object",
+      "title" : "Guide"
+    }
+  }
+}
+        
+        
+      }
+    }
+  } ,
+  
+  "/tour": {
+    "get": {
+      "summary": "",
+      "description":"Gets a specific `Tour` object.\nOptional query param of **city** determines\ndestination of returned object\n",
+      "x-swagger-router-controller": "Default",
+      "tags": ["Default"],
+      "operationId": "tourGet",
+      "parameters": [
+        {
+  "name" : "tourid",
+  "in" : "query",
+  "description" : "ID of tour",
+  "required" : false,
+  "type" : "number",
+  "format" : "double"
+}
+        
+      ],
+      "responses": {
+        "200": {
+  "description" : "Successful response",
+  "schema" : {
+    "type" : "object",
+    "title" : "Specific Tour"
+  }
+}
+        
+        
+      }
+    }
+  } ,
+  
+  "/tours": {
+    "get": {
+      "summary": "",
+      "description":"Gets `Tour` objects.\nOptional query param of **size**, **city** , **theme** determines\nsize, location and theme of returned tour list\n",
+      "x-swagger-router-controller": "Default",
+      "tags": ["Default"],
+      "operationId": "toursGet",
+      "parameters": [
+        {
+  "name" : "size",
+  "in" : "query",
+  "description" : "Size of array",
+  "required" : false,
+  "type" : "number",
+  "format" : "double"
+},
+        {
+  "name" : "city",
+  "in" : "query",
+  "description" : "city of tour",
+  "required" : false,
+  "type" : "string"
+},
+        {
+  "name" : "theme",
+  "in" : "query",
+  "description" : "themes of tour",
+  "required" : false,
+  "type" : "string"
+}
+        
+      ],
+      "responses": {
+        "200": {
+  "description" : "Successful response",
+  "schema" : {
+    "type" : "array",
+    "items" : {
+      "type" : "object",
+      "title" : "Tour"
+    }
+  }
+}
+        
+        
+      }
+    }
+  } 
+  
+   
+  }, "definitions": {
+  
+  }
 }

@@ -1,5 +1,10 @@
 <?php
 	session_start();
+	if(isset($_SESSION['phase']) && ($_SESSION['phase'] == "signin"))
+			{
+				header('Location:guided_profile.php?id=' . $_SESSION['userId'] . '');
+				exit;
+			}
 	
 	include("db.php");
 	$FirstName=mysql_real_escape_string($_POST['FirstName']);

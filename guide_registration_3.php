@@ -113,12 +113,9 @@ else
 					<div id="page" class="col-md-2">
 					<center>
 					<div class="row">
-					
-					<div style="border: 0px solid black; height:201px">
-					<img src="img/userDefaultIcon.png" class="hover img-responsive"  style="max-height:198px; max-width:198px;"/>
-					</div>
-					
-					</div>
+<?php echo '<img style="max-height:200px; max-width:170px;" class="hover img-responsive" src="showImage.php?id=' . $userid . '"/>' ?>
+
+</div>
 					</center>
 					<br /><br />
 					<div class="row">
