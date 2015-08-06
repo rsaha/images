@@ -1,6 +1,11 @@
 <?php
 session_start();
-if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "reg"))
+if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "signin"))
+{
+	$i = $_SESSION['userId'];
+	header('Location:guided_profile.php?id='. $i .'');
+}
+else if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "reg"))
 {
 	//echo "<script type='text/javascript'>alert('in 1');</script>";
 	if(isset($_GET['id']))
@@ -69,6 +74,10 @@ else
 		<!-- color scheme -->
 		<link rel="stylesheet" type="text/css" href="css/colors/color1.css" title="color1" />
 		
+		<link href="style.css" rel="stylesheet">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="script.js"></script>
+
 		<style type="text/css" >
 		
 		.hovera a:hover
@@ -91,6 +100,19 @@ else
 		visibility:hidden;
 		}
 		
+		.uploadImg{
+		background-color:#ff845e;
+		border:1px solid #fff;
+		font-weight:700;
+		font-size:18px;
+		color:#fff;
+		width:170px;
+		height:30px;
+		border-radius:3px;
+		padding:0px;
+		box-shadow:0 1px 1px 0 #a9a9a9;
+		}
+		
 		</style>
 	</head>
 	<!-- END head -->
@@ -102,9 +124,10 @@ else
 		
 			<?php include('MasterHeaderAfterLogin.php'); ?>
 			
-			<form action="guide_Step2.php" method="post">
+			<form action="#"  enctype="multipart/form-data" method="post" >
 			<!-- START #page-header -->
 			<div class="hovera" >
+			<input type="hidden" name="userid" value="<?php echo $userid; ?>" />
 					<input type="file" id="upload" name="coverpicture" style="visibility: hidden; width: 1px; height: 1px"/>
 					<a href="" onclick="document.getElementById('upload').click(); return false">
 					
@@ -112,7 +135,7 @@ else
 						<p class="text">change image</p>
 					</a>
 					</div>
-					
+					</form>
 		<input type="hidden" name="userid" value="<?php echo $userid ?>" />
 			<!-- END #page-header -->
 			
@@ -122,18 +145,30 @@ else
 					<div class="row">
 					<div id="page" class="col-md-2">
 					<center>
-					<div class="row">
-					<div class="hovera" style="border: 0px solid black; height:201px">
-					<input type="file" id="upload" name="profilepicture" style="visibility: hidden; width: 1px; height: 1px"/>
-					<a href="" onclick="document.getElementById('upload').click(); return false">
-					
-					<img src="img/userDefaultIcon.png" class="hover img-responsive" style="max-height:198px; max-width:198px;" />
-						<p class="text">change image</p>
-					</a>
-					</div>
-					</div>
-					</center>
-					<br /><br />
+<div class="row">
+<div class="hovera text-center" style="border: 0px solid black;">
+<form action="uploadphp.php" enctype="multipart/form-data" id="form" method="post" name="form">
+	<table >
+	<tr style="">
+	<td>
+	<a href="" onclick="document.getElementById('file').click(); return false">
+	<?php echo '<img style="height100px; width:170px;" class="hover" src="showImage.php?id=' . $userid . '"/>' ?>
+	</a>
+	</td>
+	</tr>
+	<tr>
+	<td>
+	<input class="uploadImg" id="submit" name="submit" type="submit" value="Upload" >
+	</td>
+	</tr>
+	</table>
+<input type="hidden" name="userid" value="<?php echo $userid; ?>" />
+<input id="file" name="file" type="file" style="visibility: hidden;" />
+</form>
+</div>
+</div>
+</center>
+<br />
 					<div class="row">
 					Name - <?php echo $username ?><br /><br />
 					Email - <?php echo $emailID ?><br /><br />
@@ -153,9 +188,9 @@ else
 								
 								<!-- START TAB CONTENT -->
 								<div class="tab-content clearfix marb30">
-									<!-- START TAB 1 -->
+									<form action="guide_Step2.php" method="post">
 									<div class="tab-pane active mart20" id="userinfo">
-										
+										<input type="hidden" name="userid" value="<?php echo $userid; ?>" />
 											<fieldset>
 												<ul class="formFields list-unstyled">
 													<li class="row">
@@ -261,16 +296,15 @@ else
 													
 												</ul>
 											</fieldset>
-										
 									</div>
-									<!-- END TAB 1 -->
+									</form>
 								</div>
 								<!-- END TAB CONTENT -->
 							</div>
 						</div>
 			</div>
 			<!-- END .main-contents -->
-			</form>
+			
 			<?php include('MasterFooter.php'); ?>
 		</div>
 		<!-- END #wrapper -->

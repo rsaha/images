@@ -131,6 +131,19 @@
 		visibility:hidden;
 		}
 		
+		.uploadImg{
+		background-color:#ff845e;
+		border:1px solid #fff;
+		font-weight:700;
+		font-size:18px;
+		color:#fff;
+		width:170px;
+		height:30px;
+		border-radius:3px;
+		padding:0px;
+		box-shadow:0 1px 1px 0 #a9a9a9;
+		}
+		
 		</style>
 	</head>
 	<!-- END head -->
@@ -142,9 +155,10 @@
 			
 			<?php include('MasterHeaderAfterLogin.php'); ?>
 			
-			<form action="guide_profile_update.php" method="post">
+			<form action="#" method="post">
 			<!-- START #page-header -->
 			<div class="hovera" >
+			<input type="hidden" name="userid" value="<?php echo $userid; ?>" />
 					<input type="file" id="upload" name="coverpicture" style="visibility: hidden; width: 1px; height: 1px"/>
 					<a href="" onClick="document.getElementById('upload').click(); return false">
 					
@@ -152,8 +166,9 @@
 						<p class="text">change image</p>
 					</a>
 					</div>
+					</form>
 					
-		<input type="hidden" name="userid" value="<?php echo $userid ?>" />
+		
 			<!-- END #page-header -->
 			
 			<!-- START .main-contents -->
@@ -165,17 +180,58 @@
 					   <div class="row">
 					   
 					   <center>
-					    <div class="hovera" style="border: 0px solid black; height:250px">
-					      <input type="file" id="upload" name="profilepicture" style="visibility: hidden; width: 1px; height: 1px"/>
-					     <a href="" onClick="document.getElementById('upload').click(); return false">
-					     <img src="img/aa.jpg" class="hover img-responsive" style="max-height:250px"/>
-						    <p class="text">change image</p>
-					    </a>
-					     </div>
-						 </center>
+						<div class="row">
+						<div class="hovera text-center" style="border: 0px solid black;">
+						<form action="uploadphp.php" enctype="multipart/form-data" id="form" method="post" name="form">
+							<table >
+							<tr style="">
+							<td>
+							<a href="" onclick="document.getElementById('file').click(); return false">
+							
+							
+							<?php 
+							
+							$select4pic = mysql_query("SELECT * FROM `tbl_guide_detail_profile` WHERE `user_id` = $userid");
+						$count4pic = mysql_num_rows($select4pic);
+						if ($count4pic==0)
+						{
+							echo '<img style="max-height:200px; max-width:170px;" class="hover img-responsive" src="img/userDefaultIcon.png"/>';
+						}
+						else
+						{
+							$picVal = mysql_result($select4pic, 0, 2);
+							if($picVal==null)
+							{
+								echo '<img style="max-height:200px; max-width:170px;" class="hover img-responsive" src="img/userDefaultIcon.png"/>';
+							}
+							else
+							{
+								echo '<img style="height200px; width:170px;" class="hover img-responsive" src="showImage.php?id=' . $userid . '"/>';
+							}
+						}
+							
+							
+							
+							?>
+							</a>
+							</td>
+							</tr>
+							<tr>
+							<td>
+							<input class="uploadImg" id="submit" name="submit" type="submit" value="Upload" >
+							</td>
+							</tr>
+							</table>
+						<input type="hidden" name="userid" value="<?php echo $userid; ?>" />
+						<input id="file" name="file" type="file" style="visibility: hidden;" />
+						</form>
+						</div>
+						</div>
+						</center>
 					   </div>
 					
 					        <br /><br />
+				<form action="guide_profile_update.php" method="post">
 					   <div class="row">
 					  <ul class="list-unstyled">
 							<li><span class="menu-text"> Lic. No. : <input name="licenceNumber" class="form-control" type="text" value="<?php echo $licenceNumber ?>" /><br><br></li>
@@ -201,7 +257,7 @@
 							<div class="user-profile">
 								<!-- START TABS -->
 								<ul class="nav nav-tabs text-upper" style="background-color:#FFA98E;">
-									<li class="active"><a href="#userinfo" data-toggle="tab">Guide Profile</a></li>
+									<li class="active"><?php echo '<a href="guided_profile.php?id=' . $userid . '" data-toggle="tab">Guide Profile</a>' ?></li>
 								</ul>
 								<!-- END TABS -->
 								
@@ -217,7 +273,8 @@
 					<i class="fa fa-save"></i> Save Details	
 					</button>							
 										
-										</div>      
+										</div>   
+<input type="hidden" name="userid" value="<?php echo $userid; ?>" />										
 												<h3 class=" mgtp-10 font-semibold"><i class="icon-user mgr-10 profile-icon"></i> ABOUT</h3>
 												<div class="row">
 												  <div class="col-sm-6 form-group">
@@ -351,12 +408,13 @@
 							</div>
 						</div>
 						<!-- END #page -->
+						</form>
 					</div>
 					<!-- END .row -->
 				</div>
 			</div>
 			<!-- END .main-contents -->
-			</form>
+			
 			<?php include('MasterFooter.php'); ?>
 		</div>
 		<!-- END #wrapper -->

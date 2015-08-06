@@ -48,8 +48,8 @@ session_start();
 		<style type="text/css" >
 		#abc {
 			border-radius: 25px;
-	padding: 80px 20px 80px 20px;
-	}
+	        padding: 25px 25px 25px 25px;
+	    }
 
 	#abc h1 {
 		font: 30px Georgia, Serif; color: #444454; letter-spacing: 2px; margin: 0 0 10px 0;
@@ -98,7 +98,11 @@ session_start();
                         <h2><strong>Provide complete tour package with our partners</strong></h2>
                         <h2><strong>Compensation for no-show or late cancellation</strong></h2></br/>
 					<span class="btn-center">
+<<<<<<< HEAD
+					<a class="btn btn-primary text-upper" href="howitworks.html" title="Learn More">Learn More</a>
+=======
 					<a class="btn btn-primary text-upper" href="howitworks_guide.html" title="Learn More">Learn More</a>
+>>>>>>> master
 					</span> 
 				</div>
 			</div>
@@ -222,8 +226,6 @@ session_start();
 
 			</script>
 		<script type="text/javascript" src="js/modernizr.custom.17475.js"></script>
-		
-			
 			
 		<script type="text/javascript" src="js/jquery.min.js"></script>
 		<script type="text/javascript" src="bs3/js/bootstrap.min.js"></script>
@@ -232,6 +234,5 @@ session_start();
 		<!--[if lt IE 9]>
 			<script type="text/javascript" src="js/html5shiv.js"></script>
 		<![endif]-->
-
 	</body>
 </html>

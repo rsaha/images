@@ -12,9 +12,14 @@
 		}
 		if($_SESSION['userId']!=$userid)
 		{
+<<<<<<< HEAD
+			header('Location:guide_registration_1.php');
+			exit;
+=======
 			echo "<script type='text/javascript'>alert('3');</script>";
 			/* header('Location:guide_registration_1.php');
 			exit; */
+>>>>>>> master
 			session_destroy();
             header('Location:guide_registration_1.php');
 		}
@@ -78,22 +83,36 @@
 				$subject    = "Hi, I am " . $username . " inviting you to join for free"; 
 				$message    = "Hi, I am " . $username . " inviting you to join for free";
 				
+				$line = array();
+				foreach(file('email_host_address.txt') as $lines) 
+				{
+					$line[] = $lines;
+				}
 				
-				
+				$hostAddress=trim($line[0]);
+				$HostEmail=trim($line[1]);
+				$HostPassword=trim($line[2]);
 				
 				require("\PHPMailer_5.2.0\class.phpmailer.php");
 
 				$mail = new PHPMailer();
 
 				$mail->IsSMTP();                  			// set mailer to use SMTP
-				$mail->Host =  "199.168.191.130";			// specify main and backup server
+				$mail->Host =  $hostAddress;			// specify main and backup server
 				$mail->SMTPAuth = true;     	 			// turn on SMTP authentication
+<<<<<<< HEAD
+				$mail->Username = $HostEmail; 			// SMTP username
+				$mail->Password = $HostPassword; 			  	// SMTP password
+
+				$mail->From = $HostEmail;
+=======
 				//$mail->Username = "touchus@xmapledatalab.com";  // SMTP username
 				//$mail->Password = "xMaple123"; // SMTP password
 				$mail->Username = "touchus@xmapledatalab.com"; 	// SMTP username
 				$mail->Password = "xMaple123"; 			  	// SMTP password
 
 				$mail->From = "touchus@xmapledatalab.com";
+>>>>>>> master
 				$mail->FromName = $username;
 				if($create1)
 				{
@@ -119,7 +138,7 @@
 				unset($_SESSION['userId']);
 				$errormsg="Something went wrong, Try again";
 				echo "<script type='text/javascript'>alert('$errormsg');</script>";
-				//header('Location: guided_profile.php?id=' . $userid . '');
+				header('Location: guided_profile.php?id=' . $userid . '');
 				die;
 				exit;
 				}
@@ -128,23 +147,21 @@
 				//unset($_SESSION['userId']);
 				$msg="Successfully invited!!";
 				echo "<script type='text/javascript'>alert('$msg');</script>";
-				/* header('Location: acknowledgeMail.php?id=' . $userid . '');
+				header('Location: acknowledgeMail.php?id=' . $userid . '');
 				die;
-				exit; */
+				exit;
 				}
 			}
 			else
 			{
-				echo "<script type='text/javascript'>alert('5');</script>";
-			///header('Location: guided_profile.php?id=' . $userid . '');
-			exit;
+				header('Location: guided_profile.php?id=' . $userid . '');
+				exit;
 			}
 		}
 	}
 	else
 	{
-		echo "<script type='text/javascript'>alert('6');</script>";
-		//header('Location:guide_registration_1.php');
-		//exit;
+		header('Location:guide_registration_1.php');
+		exit;
 	}
 ?>
