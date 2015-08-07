@@ -14,6 +14,8 @@
 		{
 			header('Location:guide_registration_1.php');
 			exit;
+			session_destroy();
+            header('Location:guide_registration_1.php');
 		}
 		else
 		{
@@ -96,8 +98,6 @@
 				$mail->Password = $HostPassword; 			  	// SMTP password
 
 				$mail->From = $HostEmail;
-				//$mail->Username = "touchus@xmapledatalab.com";  // SMTP username
-				//$mail->Password = "xMaple123"; // SMTP password
 				$mail->FromName = $username;
 				if($create1)
 				{
