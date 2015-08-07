@@ -124,18 +124,47 @@ else
 		
 			<?php include('MasterHeaderAfterLogin.php'); ?>
 			
-			<form action="#"  enctype="multipart/form-data" method="post" >
-			<!-- START #page-header -->
-			<div class="hovera" >
-			<input type="hidden" name="userid" value="<?php echo $userid; ?>" />
-					<input type="file" id="upload" name="coverpicture" style="visibility: hidden; width: 1px; height: 1px"/>
-					<a href="" onclick="document.getElementById('upload').click(); return false">
-					
-					<img src="img/profilepic.jpg" class="hover img-responsive" />
-						<p class="text">change image</p>
-					</a>
-					</div>
-					</form>
+			<center>
+						<div class="row">
+						<div class="hovera text-center" style="border: 0px solid black;">
+						<form action="uploadphp.php" enctype="multipart/form-data" method="post" id="formCover" name="formCover">
+							<table>
+								<tr>
+									<td>
+										<a href="" onclick="document.getElementById('file1').click(); return false">
+										<?php 
+							
+							$select4pic = mysql_query("SELECT * FROM `tbl_guide_detail_profile` WHERE `user_id` = $userid");
+							$count4pic = mysql_num_rows($select4pic);
+							if ($count4pic==0)
+							{
+								echo '<img style="width:1400px; height:200px;" class="hover img-responsive" src="img/Default.jpg"/>';
+							}
+							else
+							{
+								$picVal = mysql_result($select4pic, 0, 2);
+								if($picVal==null)
+								{
+									echo '<img style="width:1400px; height:200px;" class="hover img-responsive" src="img/Default.jpg"/>';
+								}
+								else
+								{
+									echo '<img style="width:1400px; height:200px;" class="hover img-responsive" src="showCover.php?id=' . $userid . '"/>';
+								}
+							}
+							?>
+										</a>
+									</td>
+								</tr>
+								
+							</table>
+							<input type="hidden" name="cover_pic" value="cover_pic" />
+							<input type="hidden" name="userid" value="<?php echo $userid; ?>" />
+							<input id="file1" name="file1" type="file" style="visibility: hidden;" onchange="formCover.submit();"/>
+						</form>
+						</div>
+						</div>
+						</center>
 		<input type="hidden" name="userid" value="<?php echo $userid ?>" />
 			<!-- END #page-header -->
 			
@@ -145,29 +174,47 @@ else
 					<div class="row">
 					<div id="page" class="col-md-2">
 					<center>
-<div class="row">
-<div class="hovera text-center" style="border: 0px solid black;">
-<form action="uploadphp.php" enctype="multipart/form-data" id="form" method="post" name="form">
-	<table >
-	<tr style="">
-	<td>
-	<a href="" onclick="document.getElementById('file').click(); return false">
-	<?php echo '<img style="height100px; width:170px;" class="hover" src="showImage.php?id=' . $userid . '"/>' ?>
-	</a>
-	</td>
-	</tr>
-	<tr>
-	<td>
-	<input class="uploadImg" id="submit" name="submit" type="submit" value="Upload" >
-	</td>
-	</tr>
-	</table>
-<input type="hidden" name="userid" value="<?php echo $userid; ?>" />
-<input id="file" name="file" type="file" style="visibility: hidden;" />
-</form>
-</div>
-</div>
-</center>
+						<div class="row">
+						<div class="hovera text-center" style="border: 0px solid black;">
+						<form action="uploadphp.php" enctype="multipart/form-data" method="post"  id="formProfile" name="formProfile">
+							<table >
+							<tr style="">
+							<td>
+							<a href="" onclick="document.getElementById('file2').click(); return false">
+							
+							<?php 
+							
+							$select4pic = mysql_query("SELECT * FROM `tbl_guide_detail_profile` WHERE `user_id` = $userid");
+							$count4pic = mysql_num_rows($select4pic);
+							if ($count4pic==0)
+							{
+								echo '<img style="max-height:200px; max-width:170px;" class="hover img-responsive" src="img/userDefaultIcon.png"/>';
+							}
+							else
+							{
+								$picVal = mysql_result($select4pic, 0, 2);
+								if($picVal==null)
+								{
+									echo '<img style="max-height:200px; max-width:170px;" class="hover img-responsive" src="img/userDefaultIcon.png"/>';
+								}
+								else
+								{
+									echo '<img style="height200px; width:170px;" class="hover img-responsive" src="showImage.php?id=' . $userid . '"/>';
+								}
+							}
+							?>
+							</a>
+							</td>
+							</tr>
+							
+							</table>
+							<input type="hidden" name="profile_pic" value="profile_pic" />
+							<input type="hidden" name="userid" value="<?php echo $userid; ?>" />
+							<input id="file2" name="file2" type="file" style="visibility: hidden;"  onchange="formProfile.submit();"/>
+							</form>
+							</div>
+							</div>
+							</center>
 <br />
 					<div class="row">
 					Name - <?php echo $username ?><br /><br />
@@ -253,11 +300,19 @@ else
 														</div>
 														<div class="col-md-4">
 															<label>Best Time for Contact</label>
-															<input type="text" class="form-control" name="contacttime" value="" />
+															<select class="form-control" value="contacttime">
+															<option value="anytime" selected>ANY TIME</option>
+															<option value="08:00 AM - 12:00 PM">08:00 AM - 12:00 PM</option>
+															<option value="12:00 PM - 04:00 PM">12:00 PM - 04:00 PM</option>
+															<option value="04:00 PM - 08:00 PM">04:00 PM - 08:00 PM</option>
+															</select>
 														</div>
 														<div class="col-md-4">
-															<label>Payment Currency</label>
-															<input type="text " class="form-control" name="paymentcurrency" value="" />
+															<label>Communication Mechanism</label>
+															<select class="form-control" value="communicationmechanism">
+															<option value="Mobile" selected>Mobile</option>
+															<option value="Email">Email</option>
+															</select>
 														</div>
 														<div class="col-md-4">
 															
@@ -267,15 +322,12 @@ else
 														
 														<div class="col-md-12">
 															<label>Payment Terms</label>
+															
 															<textarea class="form-control" name="paymentterms" ></textarea>
 														</div>
 														</li>
 														<li class="row">
 														
-														<div class="col-md-12">
-															<label>Communication Mechanism</label>
-															<textarea class="form-control" name="communicationmechanism" ></textarea>
-														</div>
 														</li>
 														
 														<li class="row">

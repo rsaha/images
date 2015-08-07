@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 31, 2015 at 07:53 AM
+-- Generation Time: Aug 07, 2015 at 03:03 PM
 -- Server version: 5.6.24
 -- PHP Version: 5.6.8
 
@@ -21,6 +21,7 @@ SET time_zone = "+00:00";
 --
 
 -- --------------------------------------------------------
+
 --
 -- Table structure for table `tbl_guide_detail_profile`
 --
@@ -28,10 +29,10 @@ SET time_zone = "+00:00";
 CREATE TABLE IF NOT EXISTS `tbl_guide_detail_profile` (
   `guide_detail_id` bigint(20) NOT NULL,
   `user_id` bigint(20) NOT NULL,
-  `guide_profile_pic` blob,
-  `guide_Cover_pic` blob,
+  `guide_profile_pic` longblob,
+  `guide_Cover_pic` longblob,
   `nick_name` varchar(100) DEFAULT NULL,
-  `license_Image` blob,
+  `license_Image` longblob,
   `license_no` varchar(200) DEFAULT NULL,
   `validity` date DEFAULT NULL,
   `guide_summary` text,
@@ -49,7 +50,7 @@ CREATE TABLE IF NOT EXISTS `tbl_guide_detail_profile` (
   `guide_Remarks` text,
   `status` tinyint(4) NOT NULL,
   `datecreated` date NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COMMENT='Guide Detail Profile data';
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8 COMMENT='Guide Detail Profile data';
 
 --
 -- Table structure for table `tbl_guide_known_languages`
@@ -71,22 +72,6 @@ CREATE TABLE IF NOT EXISTS `tbl_guide_tour_locations` (
   `guide_tour_location_id` bigint(20) NOT NULL,
   `guide_detail_id` bigint(20) NOT NULL,
   `tour_location_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_referrals`
---
-
-CREATE TABLE IF NOT EXISTS `tbl_referrals` (
-  `referral_id` bigint(20) NOT NULL,
-  `referrer_id` bigint(20) NOT NULL,
-  `referral_name` int(11) NOT NULL,
-  `referral_email` varchar(50) ,
-  `referral_phone` varchar(50) ,
-  `referral_status` int(11) NOT NULL,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -132,7 +117,7 @@ CREATE TABLE IF NOT EXISTS `tbl_referrals` (
   `referral_phone` varchar(50) DEFAULT NULL,
   `referral_status` int(11) NOT NULL,
   `datecreated` date NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
 --
 -- Table structure for table `tbl_tours`
@@ -261,8 +246,7 @@ CREATE TABLE IF NOT EXISTS `tbl_user_profile` (
   `country` varchar(100) DEFAULT NULL,
   `status` tinyint(4) NOT NULL,
   `datecreated` date NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COMMENT='Users Basic Profile';
-
+) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8 COMMENT='Users Basic Profile';
 
 --
 -- Table structure for table `tbl_user_type`
@@ -377,17 +361,17 @@ ALTER TABLE `tbl_user_type`
 -- AUTO_INCREMENT for table `tbl_guide_detail_profile`
 --
 ALTER TABLE `tbl_guide_detail_profile`
-  MODIFY `guide_detail_id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1000;
+  MODIFY `guide_detail_id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=38;
 --
 -- AUTO_INCREMENT for table `tbl_referrals`
 --
 ALTER TABLE `tbl_referrals`
-  MODIFY `referral_id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1000;
+  MODIFY `referral_id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `tbl_user_profile`
 --
 ALTER TABLE `tbl_user_profile`
-  MODIFY `user_id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1000;
+  MODIFY `user_id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=53;
 --
 -- AUTO_INCREMENT for table `tbl_user_type`
 --

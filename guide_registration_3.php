@@ -99,8 +99,27 @@ else
 			
 			<!-- START #page-header -->
 			<div>
-					<img src="img/profilepic.jpg" class="hover img-responsive" />
-						<br /><br />
+					<?php 
+							
+							$select4pic = mysql_query("SELECT * FROM `tbl_guide_detail_profile` WHERE `user_id` = $userid");
+							$count4pic = mysql_num_rows($select4pic);
+							if ($count4pic==0)
+							{
+								echo '<img style="width:1400px; height:200px;" class="hover img-responsive" src="img/Default.jpg"/>';
+							}
+							else
+							{
+								$picVal = mysql_result($select4pic, 0, 2);
+								if($picVal==null)
+								{
+									echo '<img style="width:1400px; height:200px;" class="hover img-responsive" src="img/Default.jpg"/>';
+								}
+								else
+								{
+									echo '<img style="width:1400px; height:200px;" class="hover img-responsive" src="showCover.php?id=' . $userid . '"/>';
+								}
+							}
+							?><br><br />
 					</div>
 					
 		
@@ -113,8 +132,27 @@ else
 					<div id="page" class="col-md-2">
 					<center>
 					<div class="row">
-<?php echo '<img style="max-height:200px; max-width:170px;" class="hover img-responsive" src="showImage.php?id=' . $userid . '"/>' ?>
-
+<?php 
+						$select4pic = mysql_query("SELECT * FROM `tbl_guide_detail_profile` WHERE `user_id` = $userid");
+						$count4pic = mysql_num_rows($select4pic);
+						if ($count4pic==0)
+						{
+							echo '<img style="max-height:200px; max-width:170px;" class="hover img-responsive" src="img/userDefaultIcon.png"/>';
+						}
+						else
+						{
+							$picVal = mysql_result($select4pic, 0, 2);
+							if($picVal==null)
+							{
+								echo '<img style="max-height:200px; max-width:170px;" class="hover img-responsive" src="img/userDefaultIcon.png"/>';
+							}
+							else
+							{
+								echo '<img style="max-height:200px; max-width:170px;" class="hover img-responsive" src="showImage.php?id=' . $userid . '"/>';
+							}
+						}
+							
+						?>
 </div>
 					</center>
 					<br /><br />
@@ -174,25 +212,21 @@ else
 														</div>
 														
 														<div class="col-md-6">
-															<label>Guide Interest</label>
-															<textarea class="form-control" name="GuideInterest" ></textarea>
-														</div>
-														</li>
-														<li class="row">
-														
-														<div class="col-md-12">
-															<label>Guide Summary</label>
-															<textarea class="form-control" name="GuideSummary" ></textarea>
-														</div>
-														</li>
-														
-														<li class="row">
-														
-														<div class="col-md-12">
-															<label>Guide Remark</label>
+															<label>Note</label>
 															<textarea class="form-control" name="GuideRemark" ></textarea>
 														</div>
 														</li>
+														<li class="row">
+														<!--<div class="col-md-6">
+															<label>Guide Interest</label>
+															<textarea class="form-control" name="GuideInterest" ></textarea>
+														</div>
+														<div class="col-md-6">
+															<label>Guide Summary</label>
+															<textarea class="form-control" name="GuideSummary" ></textarea>
+														</div>
+														</li>-->
+														
 														<li class="row">
 														
 														<div class="form-group">

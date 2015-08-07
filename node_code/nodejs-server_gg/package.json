@@ -1,7 +1,7 @@
 {
   "name": "",
   "version": "1.0.0",
-  "description": "Move your app forward with the Sensors API",
+  "description": "Move your app forward with the Uber API",
   "main": "index.js",
   "keywords": [
     "swagger"
