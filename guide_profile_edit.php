@@ -153,22 +153,55 @@
 		<!-- START #wrapper -->
 		<div id="wrapper">
 			
+			
 			<?php include('MasterHeaderAfterLogin.php'); ?>
 			
-			<form action="#" method="post">
-			<!-- START #page-header -->
-			<div class="hovera" >
-			<input type="hidden" name="userid" value="<?php echo $userid; ?>" />
-					<input type="file" id="upload" name="coverpicture" style="visibility: hidden; width: 1px; height: 1px"/>
-					<a href="" onClick="document.getElementById('upload').click(); return false">
-					
-					<img src="img/Default.jpg" class="hover img-responsive" />
-						<p class="text">change image</p>
-					</a>
-					</div>
-					</form>
-					
-		
+			
+			
+			 <div class="row">
+					   <center>
+						<div class="row">
+						<div class="hovera text-center" style="border: 0px solid black;">
+						<form action="uploadphp.php" enctype="multipart/form-data" method="post" id="formCover" name="formCover">
+							<table>
+								<tr>
+									<td>
+										<a href="" onclick="document.getElementById('file1').click(); return false">
+										<?php 
+							
+							$select4pic = mysql_query("SELECT * FROM `tbl_guide_detail_profile` WHERE `user_id` = $userid");
+							$count4pic = mysql_num_rows($select4pic);
+							if ($count4pic==0)
+							{
+								echo '<img style="width:1400px; height:200px;" class="hover img-responsive" src="img/Default.jpg"/>';
+							}
+							else
+							{
+								$picVal = mysql_result($select4pic, 0, 2);
+								if($picVal==null)
+								{
+									echo '<img style="width:1400px; height:200px;" class="hover img-responsive" src="img/Default.jpg"/>';
+								}
+								else
+								{
+									echo '<img style="width:1400px; height:200px;" class="hover img-responsive" src="showCover.php?id=' . $userid . '"/>';
+								}
+							}
+							?>
+										</a>
+									</td>
+								</tr>
+								
+							</table>
+							<input type="hidden" name="cover_pic" value="cover_pic" />
+							<input type="hidden" name="userid" value="<?php echo $userid; ?>" />
+							<input id="file1" name="file1" type="file" style="visibility: hidden;" onchange="formCover.submit();"/>
+						</form>
+						</div>
+						</div>
+						</center>
+					   </div>
+			
 			<!-- END #page-header -->
 			
 			<!-- START .main-contents -->
@@ -182,53 +215,46 @@
 					   <center>
 						<div class="row">
 						<div class="hovera text-center" style="border: 0px solid black;">
-						<form action="uploadphp.php" enctype="multipart/form-data" id="form" method="post" name="form">
+						<form action="uploadphp.php" enctype="multipart/form-data" method="post"  id="formProfile" name="formProfile">
 							<table >
 							<tr style="">
 							<td>
-							<a href="" onclick="document.getElementById('file').click(); return false">
-							
+							<a href="" onclick="document.getElementById('file2').click(); return false">
 							
 							<?php 
 							
 							$select4pic = mysql_query("SELECT * FROM `tbl_guide_detail_profile` WHERE `user_id` = $userid");
-						$count4pic = mysql_num_rows($select4pic);
-						if ($count4pic==0)
-						{
-							echo '<img style="max-height:200px; max-width:170px;" class="hover img-responsive" src="img/userDefaultIcon.png"/>';
-						}
-						else
-						{
-							$picVal = mysql_result($select4pic, 0, 2);
-							if($picVal==null)
+							$count4pic = mysql_num_rows($select4pic);
+							if ($count4pic==0)
 							{
 								echo '<img style="max-height:200px; max-width:170px;" class="hover img-responsive" src="img/userDefaultIcon.png"/>';
 							}
 							else
 							{
-								echo '<img style="height200px; width:170px;" class="hover img-responsive" src="showImage.php?id=' . $userid . '"/>';
+								$picVal = mysql_result($select4pic, 0, 2);
+								if($picVal==null)
+								{
+									echo '<img style="max-height:200px; max-width:170px;" class="hover img-responsive" src="img/userDefaultIcon.png"/>';
+								}
+								else
+								{
+									echo '<img style="height200px; width:170px;" class="hover img-responsive" src="showImage.php?id=' . $userid . '"/>';
+								}
 							}
-						}
-							
-							
-							
 							?>
 							</a>
 							</td>
 							</tr>
-							<tr>
-							<td>
-							<input class="uploadImg" id="submit" name="submit" type="submit" value="Upload" >
-							</td>
-							</tr>
+							
 							</table>
-						<input type="hidden" name="userid" value="<?php echo $userid; ?>" />
-						<input id="file" name="file" type="file" style="visibility: hidden;" />
-						</form>
-						</div>
-						</div>
-						</center>
-					   </div>
+							<input type="hidden" name="profile_pic" value="profile_pic" />
+							<input type="hidden" name="userid" value="<?php echo $userid; ?>" />
+							<input id="file2" name="file2" type="file" style="visibility: hidden;"  onchange="formProfile.submit();"/>
+							</form>
+							</div>
+							</div>
+							</center>
+						   </div>
 					
 					        <br /><br />
 				<form action="guide_profile_update.php" method="post">
@@ -244,10 +270,6 @@
 						<p class="text">change image</p>
 					    </a>
 						<br></li>
-							<li><span class="menu-text"> Communication Mechanism : <input name="communicationMechanism" class="form-control" type="text" value="<?php echo $communicationMechanism ?>" /><br><br></li>
-							<li><span class="menu-text"> Best time to contact : <input name="bestTimeToContace" class="form-control" type="text" value="<?php echo $bestTimeToContace ?>" /><br><br></li>
-							<li><span class="menu-text"> Payment Corrency : <input name="paymentCurrency" class="form-control" type="text" value="<?php echo $paymentCurrency ?>" /><br><br></li>
-							<li><span class="menu-text"> Payment Terms : <textarea name="paymentTerm" class="form-control" rows="3" style="width:100%;" ><?php echo $paymentTerm ?></textarea><br></li>
 							</ul>
 					   </div>
 					    
@@ -269,10 +291,16 @@
 											<fieldset>
 												
 										<div >
-					<button type="submit " class="btn btn-default pull-right" style="background-color:#ffa98e"> 
+					
+<button type="submit " class="btn btn-default pull-right" style="background-color:#ffa98e"> 
 					<i class="fa fa-save"></i> Save Details	
-					</button>							
-										
+					</button>
+					
+					<?php
+					echo '<button type="button" onclick="myFunction(' . $userid. ')" class="btn btn-default pull-right" style="background-color:#ffa98e"> 
+					<i class="fa fa-times-circle"></i> Cancel
+					</button>';
+						?>				
 										</div>   
 <input type="hidden" name="userid" value="<?php echo $userid; ?>" />										
 												<h3 class=" mgtp-10 font-semibold"><i class="icon-user mgr-10 profile-icon"></i> ABOUT</h3>
@@ -298,20 +326,6 @@
 													  <!-- col-sm-10 --> 
 													</div>
 												  </div>
-												  <div class="col-sm-6 form-group">
-													<div class="row mgbt-xs-0">
-													  <label class="col-xs-5 control-label">Mobile Number:</label>
-													  <div class="col-xs-7 controls"><input name="mobileNumber" class="form-control" type="text" style="background-color:#f7f7f7;" value="<?php echo $mobileNumber ?>" /></div>
-													  <!-- col-sm-10 --> 
-													</div>
-												  </div>
-												  <div class="col-sm-6 form-group">
-													<div class="row mgbt-xs-0">
-													  <label class="col-xs-5 control-label">Email:</label>
-													  <div class="col-xs-7 controls"><input name="emailID" class="form-control" type="text" style="background-color:#f7f7f7;" value="<?php echo $emailID ?>" /></div>
-													  <!-- col-sm-10 --> 
-													</div>
-												  </div>
 												   <div class="col-sm-6 form-group">
 													<div class="row mgbt-xs-0">
 													  <label class="col-xs-5 control-label">Birthday:</label>
@@ -319,14 +333,13 @@
 													  <!-- col-sm-10 --> 
 													</div>
 												  </div>
-												   <div class="col-sm-6 form-group">
-													<div class="row mgbt-xs-0">
-													  <label class="col-xs-5 control-label">Landline Phone:</label>
-													  <div class="col-xs-7 controls"><input name="landLineNumber" class="form-control" type="text" style="background-color:#f7f7f7;" value="<?php echo $landLineNumber ?>" /></div>
-													  <!-- col-sm-10 --> 
-													</div>
-												  </div>
-												  <div class="col-sm-6 form-group">
+												  
+												  
+												</div>
+												
+												<h3 class=" mgtp-10 font-semibold"><i class="icon-user mgr-10 profile-icon"></i> ADDRESS</h3>
+												<div class="row">
+												<div class="col-sm-6 form-group">
 													<div class="row mgbt-xs-0">
 													  <label class="col-xs-5 control-label">Street Address:</label>
 													  <div class="col-xs-7 controls"><input name="streetAddress" class="form-control" type="text" style="background-color:#f7f7f7;" value="<?php echo $streetAddress ?>" /></div>
@@ -354,9 +367,52 @@
 													  <!-- col-sm-10 --> 
 													</div>
 												  </div>
-												 
-												 
-												   
+												</div>
+												
+												<h3 class=" mgtp-10 font-semibold"><i class="icon-user mgr-10 profile-icon"></i> CONTACT INFORMATION</h3>
+												<div class="row">
+												<div class="col-sm-6 form-group">
+													<div class="row mgbt-xs-0">
+													  <label class="col-xs-5 control-label">Mobile Number:</label>
+													  <div class="col-xs-7 controls"><input name="mobileNumber" class="form-control" type="text" style="background-color:#f7f7f7;" value="<?php echo $mobileNumber ?>" /></div>
+													  <!-- col-sm-10 --> 
+													</div>
+												  </div>
+												  <div class="col-sm-6 form-group">
+													<div class="row mgbt-xs-0">
+													  <label class="col-xs-5 control-label">Email:</label>
+													  <div class="col-xs-7 controls"><input name="emailID" class="form-control" type="text" style="background-color:#f7f7f7;" value="<?php echo $emailID ?>" /></div>
+													  <!-- col-sm-10 --> 
+													</div>
+												  </div>
+												  
+												   <div class="col-sm-6 form-group">
+													<div class="row mgbt-xs-0">
+													  <label class="col-xs-5 control-label">Landline Phone:</label>
+													  <div class="col-xs-7 controls"><input name="landLineNumber" class="form-control" type="text" style="background-color:#f7f7f7;" value="<?php echo $landLineNumber ?>" /></div>
+													  <!-- col-sm-10 --> 
+													</div>
+												  </div>
+												   <div class="col-sm-6 form-group">
+													<div class="row mgbt-xs-0">
+													  <label class="col-xs-5 control-label">Communication Mechanism:</label>
+													  <div class="col-xs-7 controls"><input name="communicationMechanism" class="form-control" style="background-color:#f7f7f7;" type="text" value="<?php echo $communicationMechanism ?>" /></div>
+													  <!-- col-sm-10 --> 
+													</div>
+												  </div>
+												   <div class="col-sm-6 form-group">
+													<div class="row mgbt-xs-0">
+													  <label class="col-xs-5 control-label">Best time to contact:</label>
+													  <div class="col-xs-7 controls"><input name="bestTimeToContace" class="form-control" style="background-color:#f7f7f7;" type="text" value="<?php echo $bestTimeToContace ?>" /></div>
+													  <!-- col-sm-10 --> 
+													</div>
+												  </div> 
+												</div>
+												<h3 class=" mgtp-10 font-semibold"><i class="icon-user mgr-10 profile-icon"></i> PAYMENT TERMS</h3>
+												<div class="row">
+												<div class="col-sm-12">
+												<textarea name="paymentTerm" class="form-control" style="background-color:#f7f7f7;" rows="2" style="width:100%;" ><?php echo $paymentTerm ?></textarea>
+												</div>
 												</div>
 												<hr class="pd-10">
 												<div class="row">
@@ -367,36 +423,13 @@
 													</div>
 												  </div>
 												  <div class="col-sm-6">
-													<h3 class=" font-semibold"><i class="fa fa-trophy mgr-10 profile-icon"></i> INTREST</h3>
+													<h3 class=" font-semibold"><i class="fa fa-trophy mgr-10 profile-icon"></i> NOTE</h3>
 													<div class="content-list content-menu  col-sm-12">
-														<span class="menu-text"><textarea name="interest" class="form-control" rows="5" style="width:100%; background-color:#f7f7f7;"><?php echo $intrest ?></textarea></span>
+														<span class="menu-text"><textarea name="remark" class="form-control" rows="5" style="width:100%; background-color:#f7f7f7;"><?php echo $remark ?></textarea></span>
 													</div>
 												  </div>
 												</div>
-												<!-- row -->
-												<hr class="pd-10">
-												<div class="row">
-												  <div class="col-sm-6">
-													<h3 class=" font-semibold"><i class="fa fa-globe mgr-10 profile-icon"></i> REMARK</h3>
-													<div class=" col-sm-12">
-													  <div class="content-list">
-														<div style="overflow: hidden;" class="mCustomScrollbar _mCS_6" data-rel="scroll"><div class="mCustomScrollBox mCS-light" id="mCSB_6" style="position: relative; height: 100%; overflow: hidden; max-width: 100%; max-height: 400px;"><div class="mCSB_container" style="position: relative; top: 0px;">
-														  <span class="menu-icon vd_yellow"><textarea name="remark" class="form-control" rows="5" style="width:100%; background-color:#f7f7f7;"><?php echo $remark ?> </textarea></span>
-														</div><div class="mCSB_scrollTools" style="position: absolute; display: block; opacity: 0;"><div class="mCSB_draggerContainer"><div class="mCSB_dragger" style="position: absolute; top: 0px; height: 352px;" oncontextmenu="return false;"><div class="mCSB_dragger_bar" style="position: relative; line-height: 352px;"></div></div><div class="mCSB_draggerRail"></div></div></div></div></div>
-													  </div>
-													</div>
-												  </div>
-												 <div class="col-sm-6">
-													<h3 class=" font-semibold"><i class="fa fa-flask mgr-10 profile-icon"></i> SUMMARY</h3>
-													<div class="col-sm-12">
-													 <div class="content-list">
-														<div style="overflow: hidden;" class="mCustomScrollbar _mCS_6" data-rel="scroll"><div class="mCustomScrollBox mCS-light" id="mCSB_6" style="position: relative; height: 100%; overflow: hidden; max-width: 100%; max-height: 400px;"><div class="mCSB_container" style="position: relative; top: 0px;">
-														  <span class="menu-icon vd_yellow"><textarea name="summary" class="form-control" rows="5" style="width:100%; background-color:#f7f7f7;"><?php echo $summary ?></textarea></span>
-														</div><div class="mCSB_scrollTools" style="position: absolute; display: block; opacity: 0;"><div class="mCSB_draggerContainer"><div class="mCSB_dragger" style="position: absolute; top: 0px; height: 352px;" oncontextmenu="return false;"><div class="mCSB_dragger_bar" style="position: relative; line-height: 352px;"></div></div><div class="mCSB_draggerRail"></div></div></div></div></div>
-													  </div>				
-												  </div>
-												  </div>
-												</div>
+												
 												<!-- row --> 
 												</fieldset>
 											</div>
@@ -433,6 +466,12 @@
 			});
 
 			</script>
+			<script>
+		function myFunction(id) {
+		window.location.href = "guided_profile.php?id="+id;
+		return false;
+		}
+		</script>
 			
 				<!-- javascripts -->
 		<script type="text/javascript" src="js/modernizr.custom.17475.js"></script>
