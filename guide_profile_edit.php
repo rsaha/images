@@ -257,19 +257,50 @@
 						   </div>
 					
 					        <br /><br />
-				<form action="guide_profile_update.php" method="post">
+				<form action="guide_profile_update.php" enctype="multipart/form-data" method="post">
 					   <div class="row">
 					  <ul class="list-unstyled">
-							<li><span class="menu-text"> Lic. No. : <input name="licenceNumber" class="form-control" type="text" value="<?php echo $licenceNumber ?>" /><br><br></li>
-							<li><span class="menu-text"> Valid upto : <input name="licenceValidty" class="form-control" type="text" value="<?php echo $licenceValidty ?>" /><br><br></li>
+							<li><span class="menu-text"> Lic. No. : <br><input name="licenceNumber" class="form-control" type="text" value="<?php echo $licenceNumber ?>" /><br><br></li>
+							<li><span class="menu-text"> Valid upto : <br><input name="licenceValidty" class="form-control" type="text" value="<?php echo $licenceValidty ?>" /><br><br></li>
 							
-					    <li><span class="menu-text"> Licence Image : 
-						<input type="file" id="upload" name="licenceImage" style="visibility: hidden; width: 1px; height: 1px"/>
-						<a href="" onClick="document.getElementById('upload').click(); return false">
-						<img src="img/PRcard.jpg" class="hover img-responsive" style="max-height:127px; max-width:200px;" />
-						<p class="text">change image</p>
-					    </a>
-						<br></li>
+					    <li><span class="menu-text"> Licence Image : <br>
+						
+						<div class="hovera text-center" style="border: 0px solid black;">
+						<table >
+							<tr style="">
+							<td>
+							<a href="" onclick="document.getElementById('licenceImage').click(); return false">
+							
+							<?php 
+							
+							$select4pic = mysql_query("SELECT * FROM `tbl_guide_detail_profile` WHERE `user_id` = $userid");
+							$count4pic = mysql_num_rows($select4pic);
+							if ($count4pic==0)
+							{
+								echo '<img style="max-height:127px; max-width:200px;" class="hover img-responsive" src="img/PRcard.jpg"/>';
+							}
+							else
+							{
+								$picVal = mysql_result($select4pic, 0, 5);
+								if($picVal==null)
+								{
+									echo '<img style="max-height:127px; max-width:200px;" class="hover img-responsive" src="img/PRcard.jpg"/>';
+								}
+								else
+								{
+									echo '<img style="max-height:127px; max-width:200px;" class="hover img-responsive" src="showLicence.php?id=' . $userid . '"/>';
+								}
+							}
+							?>
+							</a>
+							</td>
+							</tr>
+							</table>
+							<input id="licenceImage" name="licenceImage" type="file" style="visibility: hidden;"/>
+							</div>
+							
+						<br>
+						</li>
 							</ul>
 					   </div>
 					    
@@ -302,7 +333,7 @@
 					</button>';
 						?>				
 										</div>   
-<input type="hidden" name="userid" value="<?php echo $userid; ?>" />										
+											<input type="hidden" name="userid" value="<?php echo $userid; ?>" />										
 												<h3 class=" mgtp-10 font-semibold"><i class="icon-user mgr-10 profile-icon"></i> ABOUT</h3>
 												<div class="row">
 												  <div class="col-sm-6 form-group">
@@ -356,14 +387,20 @@
 												  <div class="col-sm-6 form-group">
 													<div class="row mgbt-xs-0">
 													  <label class="col-xs-5 control-label">State</label>
-													  <div class="col-xs-7 controls"><input name="state" class="form-control" type="text" style="background-color:#f7f7f7;" value="<?php echo $state ?>" /></div>
+													  
+													  <div class="col-xs-7 controls">
+													  <select name="state" id="state" class="form-control" style="background-color:#f7f7f7;"></select>
+													  </div>
 													  <!-- col-sm-10 --> 
 													</div>
 												  </div>
 												  <div class="col-sm-6 form-group">
 													<div class="row mgbt-xs-0">
 													  <label class="col-xs-5 control-label">Country:</label>
-													  <div class="col-xs-7 controls"><input name="country" class="form-control" type="text" style="background-color:#f7f7f7;" value="India" /></div>
+													  
+													  <div class="col-xs-7 controls">
+													  <select id="country" name="country" selected="India" class="form-control" style="background-color:#f7f7f7;" ></select>
+													  </div>
 													  <!-- col-sm-10 --> 
 													</div>
 												  </div>
@@ -396,18 +433,31 @@
 												   <div class="col-sm-6 form-group">
 													<div class="row mgbt-xs-0">
 													  <label class="col-xs-5 control-label">Communication Mechanism:</label>
-													  <div class="col-xs-7 controls"><input name="communicationMechanism" class="form-control" style="background-color:#f7f7f7;" type="text" value="<?php echo $communicationMechanism ?>" /></div>
+													  <div class="col-xs-7 controls">
+													  <select class="form-control"  style="background-color:#f7f7f7;" name="communicationmechanism" id="communicationmechanism">
+														<option value="Mobile">Mobile</option>
+														<option value="Email">Email</option>
+														</select>
+													  </div>
 													  <!-- col-sm-10 --> 
 													</div>
 												  </div>
 												   <div class="col-sm-6 form-group">
 													<div class="row mgbt-xs-0">
 													  <label class="col-xs-5 control-label">Best time to contact:</label>
-													  <div class="col-xs-7 controls"><input name="bestTimeToContace" class="form-control" style="background-color:#f7f7f7;" type="text" value="<?php echo $bestTimeToContace ?>" /></div>
+													  <div class="col-xs-7 controls">
+													  <select class="form-control" style="background-color:#f7f7f7;" name="bestTimeToContace" id="bestTimeToContace">
+															<option value="anytime">ANY TIME</option>
+															<option value="08:00 AM - 12:00 PM">08:00 AM - 12:00 PM</option>
+															<option value="12:00 PM - 04:00 PM">12:00 PM - 04:00 PM</option>
+															<option value="04:00 PM - 08:00 PM">04:00 PM - 08:00 PM</option>
+															</select>
+													  </div>
 													  <!-- col-sm-10 --> 
 													</div>
 												  </div> 
 												</div>
+
 												<h3 class=" mgtp-10 font-semibold"><i class="icon-user mgr-10 profile-icon"></i> PAYMENT TERMS</h3>
 												<div class="row">
 												<div class="col-sm-12">
@@ -465,6 +515,17 @@
 			});
 			});
 
+			</script>
+			
+			<script>
+			document.getElementById("state").value = "<?php echo $state ?>";
+			document.getElementById("country").value = "India";
+			document.getElementById("bestTimeToContace").value = "<?php echo $bestTimeToContace ?>";
+			document.getElementById("communicationmechanism").value = "<?php echo $communicationMechanism ?>";
+			</script>
+			<script type="text/javascript" src="js/country_state.js"></script>
+			<script language="javascript">
+				populateCountries("country", "state");
 			</script>
 			<script>
 		function myFunction(id) {

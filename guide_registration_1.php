@@ -5,10 +5,14 @@ session_start();
 				header('Location:guided_profile.php?id=' . $_SESSION['userId'] . '');
 				exit;
 			}
-			if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "reg"))
+			else if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "reg"))
 			{
 				header('Location:guide_registration_2.php?id=' . $_SESSION['userId'] . '');
 				exit;
+			}
+			else
+			{
+				header('Location:signOut.php');
 			}
 ?>
 
@@ -98,7 +102,7 @@ session_start();
                         <h2><strong>Provide complete tour package with our partners</strong></h2>
                         <h2><strong>Compensation for no-show or late cancellation</strong></h2></br/>
 					<span class="btn-center">
-					<a class="btn btn-primary text-upper" href="howitworks.html" title="Learn More">Learn More</a>
+					<a class="btn btn-primary text-upper" href="howitworks_guide.html" title="Learn More">Learn More</a>
 					</span> 
 				</div>
 			</div>
@@ -186,27 +190,6 @@ session_start();
 
 				<!-- javascripts -->
 			<script type="text/javascript">
-			/* function agreeCondition()
-			{
-				var password1 = $("#Password").val();
-				var password2 = $("#conformpassword").val();
-				if(password1 == password2) {
-				if ($('#TermsOfService').is(':checked')) {
-				$('#registerUser').removeAttr('disabled'); 
-				} else {
-				$('#registerUser').attr('disabled', true); 
-				}
-			
-			}
-			else {
-					alert("Sorry, Password do not match");
-					document.getElementById("Password").value = "";
-					document.getElementById("conformpassword").value = "";
-					document.getElementById('conformpassword').style.border='';
-					document.getElementById("TermsOfService").checked = false;
-			}
-			} */
-			
 			function validate() {
 			var password1 = $("#Password").val();
 			var password2 = $("#conformpassword").val();

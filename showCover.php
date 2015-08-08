@@ -1,4 +1,5 @@
 <?php
+
 	$userid=$_GET['id'];
 	include('db.php');
 $select = mysql_query("SELECT * FROM `tbl_guide_detail_profile` WHERE `user_id` = $userid");

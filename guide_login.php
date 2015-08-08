@@ -10,6 +10,10 @@ if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "reg"))
 header('Location:guide_registration_2.php?id=' . $_SESSION['userId'] . '');
 exit;
 }
+else
+{
+	header('Location:signOut.php');
+}
 ?>
 <html lang="en" dir="ltr">
 

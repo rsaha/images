@@ -35,45 +35,80 @@ session_start();
 			$experiance = mysql_real_escape_string($_POST['experiance']);
 			$remark = mysql_real_escape_string($_POST['remark']);
 			
+			
 			$update1 = mysql_query("UPDATE `tbl_user_profile` SET `f_name`='$firstName', `l_name`='$lastName', `email`='$emailID', 
 			`mobileNo`='$mobileNumber', `gender`='$gender', `d_o_b`=$birthday, `street_address`='$streetAddress', `city`='$city', 
 			`state`='$state', `country`='$country', `datecreated`=now() WHERE `user_id` = $userid");
-				
-							
+			
+			
+			$validextensions = array("jpeg", "jpg", "png");
+			$temporary = explode(".", $_FILES["licenceImage"]["name"]);
+			$file_extension = end($temporary);
+			if (
+			(
+			($_FILES["licenceImage"]["type"] == "image/png") || 
+			($_FILES["licenceImage"]["type"] == "image/jpg") || 
+			($_FILES["licenceImage"]["type"] == "image/jpeg")
+			) && 
+			($_FILES["licenceImage"]["size"] < 10000000) && 
+			in_array($file_extension, $validextensions)
+			)
+			{
+				if ($_FILES["licenceImage"]["error"] > 0)
+				{
+				echo "Return Code: " . $_FILES["licenceImage"]["error"] . "<br/><br/>";
+				} 
+				else 
+				{
+					echo "hello";
+					$newName=date("dmYHms") . "_img." . $file_extension;
+					move_uploaded_file($_FILES["licenceImage"]["tmp_name"], "upload/" . $newName);
+					$bin_string = file_get_contents( "upload/" . $newName);
+					$hex_string = base64_encode($bin_string);
+					$imgFullpath = "http://".$_SERVER['SERVER_NAME'].dirname($_SERVER["REQUEST_URI"].'?').'/'. "upload/" . $newName;
+				}
+			} 
+			else 
+			{
+			echo "<script type='text/javascript'>alert('Could not upload the licence attachment');</script>";
+			}
+			
 			$select4exval = mysql_query("SELECT * FROM `tbl_guide_detail_profile` WHERE `user_id` = $userid");
 			$count4exval = mysql_num_rows($select4exval);
 			if ($count4exval==0)
 			{
 				$insert2 = mysql_query("INSERT INTO `tbl_guide_detail_profile` (
-	`user_id`, 
-	`license_no`, 
-	`validity`, 
-	`landline_no`, 
-	`Best_time_for_contact`,
-	`payment_terms`, 
-	`Communication_mechanism`,
-	`guide_Remarks`,
-	`guide_experience`,
-	`status`, 
-	`datecreated`
-	) VALUES (
-	$userid, 
-	'$licenceNumber',
-	$licenceValidty,
-	'$landLineNumber',
-	'$bestTimeToContace',
-	'$paymentTerm',
-	'$communicationMechanism',
-	'$remark'
-	'$experiance'
-	1, 
-	now()
-	)");
+				`user_id`, 
+				`license_no`,
+				`license_Image`, 
+				`validity`, 
+				`landline_no`, 
+				`Best_time_for_contact`,
+				`payment_terms`, 
+				`Communication_mechanism`,
+				`guide_Remarks`,
+				`guide_experience`,
+				`status`, 
+				`datecreated`
+				) VALUES (
+				$userid, 
+				'$licenceNumber',
+				'$hex_string',
+				$licenceValidty,
+				'$landLineNumber',
+				'$bestTimeToContace',
+				'$paymentTerm',
+				'$communicationMechanism',
+				'$remark'
+				'$experiance'
+				1, 
+				now()
+				)");
 			}
 			else
 			{
 			$update2 = mysql_query("UPDATE `tbl_guide_detail_profile` SET `guide_experience` = '$experiance', `license_no`='$licenceNumber',`validity`=$licenceValidty,
-			`landline_no`='$landLineNumber', `payment_terms`='$paymentTerm',
+			`license_Image` = '$hex_string',`landline_no`='$landLineNumber', `payment_terms`='$paymentTerm',
 			`Best_time_for_contact`='$bestTimeToContace', `Communication_mechanism`='$communicationMechanism',
 			`guide_Remarks`='$remark',`datecreated`=now() WHERE `user_id` = $userid");
 			}
