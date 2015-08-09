@@ -77,7 +77,7 @@
 				<!-- START #ex-footer --> <div id="#ex-footer"> <div
 				class="container"> <div class="row"> <nav
 				class="col-md-12"> <ul class="footer-menu"> 
-                <li><a href="#">How it works</a></li> 
+                <li><a href="howitworks_guide.html">How it works</a></li> 
                 <li><a href="#">Cancellation Policy</a>
                 </li> <li><a href="termofuse.html">Website Terms of
 				Use</a></li> <li><a href="privacy.html">Privacy Statement</a></li>
@@ -96,7 +96,7 @@
 							foot-box-md col-md-4"> <span
 							class="contact-email">
 							touchus@guidedgateway.com</span> <span
-							class="contact-phone"> +1 510 938 2562</span> </div> <div class="foot-box
+							class="contact-phone">+91 9830032920</span> </div> <div class="foot-box
 							col-md-4"> <span class="">&copy; 2015 GuideGateway. All Rights Reserved.</span>
 							</div> </div> </div> </div> </div> <!-- END #ex-footer --> 
 				</footer> <!-- END footer -->
