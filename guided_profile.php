@@ -47,7 +47,7 @@
 				$landLineNumber = mysql_result($select2, 0, 15);
 				$paymentCurrency = mysql_result($select2, 0, 16);
 				$paymentTerm = mysql_result($select2, 0, 17);
-				$bestTimeToContace = mysql_result($select2, 0, 18);
+				$bestTimeToContact = mysql_result($select2, 0, 18);
 				$communicationMechanism = mysql_result($select2, 0, 19);
 				$remark = mysql_result($select2, 0, 20);
 				}
@@ -65,7 +65,7 @@
 				$landLineNumber = "";
 				$paymentCurrency = "";
 				$paymentTerm = "";
-				$bestTimeToContace = "";
+				$bestTimeToContact = "";
 				$communicationMechanism = "";
 				$remark = "";
 				}
@@ -341,7 +341,7 @@
 												  <div class="col-sm-6">
 													<div class="row mgbt-xs-0">
 													  <label class="col-xs-5 control-label">Best time to contact:</label>
-													  <div class="col-xs-7 controls"><?php echo $bestTimeToContace ?></div>
+													  <div class="col-xs-7 controls"><?php echo $bestTimeToContact ?></div>
 													  <!-- col-sm-10 --> 
 													</div>
 												  </div>
@@ -374,26 +374,6 @@
 												</div>
 												<!-- row -->
 												<hr class="pd-10">
-												<!--<div class="row">
-												  
-												  <div class="col-sm-6">
-													<h3 class=" font-semibold"><i class="fa fa-trophy mgr-10 profile-icon"></i> INTREST</h3>
-													<div class="content-list content-menu  col-sm-11">
-														<span class="menu-text"><?php echo $intrest ?></span>
-													</div>
-												  </div>
-												 <div class="col-sm-6">
-													<h3 class=" font-semibold"><i class="fa fa-flask mgr-10 profile-icon"></i> SUMMARY</h3>
-													<div class="col-sm-11">
-													 <div class="content-list">
-														<div style="overflow: hidden;" class="mCustomScrollbar _mCS_6" data-rel="scroll"><div class="mCustomScrollBox mCS-light" id="mCSB_6" style="position: relative; height: 100%; overflow: hidden; max-width: 100%; max-height: 400px;"><div class="mCSB_container" style="position: relative; top: 0px;">
-														  <span class="menu-icon vd_yellow"><?php echo $summery ?></span>
-														</div><div class="mCSB_scrollTools" style="position: absolute; display: block; opacity: 0;"><div class="mCSB_draggerContainer"><div class="mCSB_dragger" style="position: absolute; top: 0px; height: 352px;" oncontextmenu="return false;"><div class="mCSB_dragger_bar" style="position: relative; line-height: 352px;"></div></div><div class="mCSB_draggerRail"></div></div></div></div></div>
-													  </div>				
-												  </div>
-												  </div>
-												</div>-->
-												<!-- row --> 
 												</fieldset>
 											</div>
 											</div>
@@ -416,7 +396,7 @@
 								</div>
 								<div class="ft-foot-ex">
 									<span class="ft-date text-upper alignleft">**** 4020 reviews</span>
-									<span class="ft-temp alignright">Female</span>
+									<span class="ft-temp alignright">Sample</span>
 								</div>
 							</div>
 						</div>
@@ -425,18 +405,6 @@
 								<span class="ft-image">
 									<img alt="featured Scroller" src="img/newTour.jpg" draggable="false">
 								</span>
-								<div class="ft-data2">
-									<a href="#" class="ft-hotel text-upper">Lodging</a>
-									<a href="#" class="ft-tea text-upper">Custom</a>
-								</div>
-								<div class="ft-foot">
-									<span class="ft-title text-upper"><a href="#">Kolkata, WB</a></span>
-									<span class="ft-offer text-upper">Tour Price in Rupees</span>
-								</div>
-								<div class="ft-foot-ex">
-									<span class="ft-date text-upper alignleft">***</span>
-									<span class="ft-temp alignright"></span>
-								</div>
 							</div>
 						</div>
 						
@@ -473,8 +441,8 @@
 														<a class="ft-tea text-upper" href="#">Break Fast</a>
 													</div>
 													<div class="ft-foot">
-														<h4 class="ft-title text-upper"><a href="#">Colosseum</a></h4>
-														<span class="ft-offer text-upper">Starting From 250 $</span>
+														<h4 class="ft-title text-upper"><a href="#">Place</a></h4>
+														<span class="ft-offer text-upper">Starting Price</span>
 													</div>
 												</div>
 											</div>

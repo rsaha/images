@@ -62,7 +62,7 @@
 				$HostEmail=trim($line[1]);
 				$HostPassword=trim($line[2]);
 				
-				require("/PHPMailer_5.2.0/class.phpmailer.php");
+				require("PHPMailer_5.2.0/class.phpmailer.php");
 
 				$mail = new PHPMailer();
 
@@ -81,7 +81,6 @@
 
 				$mail->Subject = "Mail from " . $from . " - " . $subject . ".";
 				$mail->Body    ="Email : " . $from . "<br />Subject : <b>" . $subject . "</b><br /><br />" . $message . ".";
-
 				if(!$mail->Send())
 				{
 				$errormsg="Something went wrong, Try again";
