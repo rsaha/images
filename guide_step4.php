@@ -98,7 +98,7 @@
 				$HostEmail=trim($line[1]);
 				$HostPassword=trim($line[2]);
 				
-				require("\PHPMailer_5.2.0\class.phpmailer.php");
+				require("PHPMailer_5.2.0/class.phpmailer.php");
 
 				$mail = new PHPMailer();
 

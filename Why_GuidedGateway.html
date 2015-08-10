@@ -15,54 +15,6 @@
 
     <!-- Custom styles for this template -->
     <link href="css/style_how.css" rel="stylesheet">
-    
-    <style type="text/css">
-    body { padding-top: 60px; }
-.nav.nav-justified > li > a { position: relative; }
-.nav.nav-justified > li > a:hover,
-.nav.nav-justified > li > a:focus { background-color: transparent; }
-.nav.nav-justified > li > a > .quote {
-    position: absolute;
-    left: 0px;
-    top: 0;
-    opacity: 0;
-    width: 30px;
-    height: 30px;
-    padding: 5px;
-    background-color: #13c0ba;
-    border-radius: 15px;
-    color: #fff;  
-}
-.nav.nav-justified > li.active > a > .quote { opacity: 1; }
-.nav.nav-justified > li > a > img { box-shadow: 0 0 0 5px #13c0ba; }
-.nav.nav-justified > li > a > img { 
-    max-width: 100%; 
-    opacity: .3; 
-    -webkit-transform: scale(.8,.8);
-            transform: scale(.8,.8);
-    -webkit-transition: all 0.3s 0s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            transition: all 0.3s 0s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-.nav.nav-justified > li.active > a > img,
-.nav.nav-justified > li:hover > a > img,
-.nav.nav-justified > li:focus > a > img { 
-    opacity: 1; 
-    -webkit-transform: none;
-            transform: none;
-    -webkit-transition: all 0.3s 0s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            transition: all 0.3s 0s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-.tab-pane .tab-inner { padding: 30px 0 20px; }
-
-@media (min-width: 768px) {
-    .nav.nav-justified > li > a > .quote {
-        left: auto;
-        top: auto;
-        right: 20px;
-        bottom: 0px;
-    }  
-}
-    </style>
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -107,7 +59,7 @@
                 <div class="col-md-11">
                     <h1 class="title" style="color: #444454">Guided <span>Gateway</span></h1>
 
-                    <p style="color: #444454">Guided Gateway is a marketplace for guides. <br/>We connect national and international toursists with <bold>GUIDES</bold>.</p>
+                    <p style="color: #444454">Guided Gateway is a marketplace for guides. </br/>We connect national and international toursists with <bold>GUIDES</bold>.</p>
 
                     <p style="color: #444454"><a class="btn btn-success btn-lg" href="guide_registration_1.php">Sign Up <i class="icon icon-angle-right"></i></a></p>
                 </div>
@@ -116,32 +68,7 @@
     </div>
 </div>
 
-<div class="[ container text-center ]">
-	<div class="[ row ]">
-		<div class="[ col-xs-4 col-sm-12 ]" role="tabpanel">
-            <div class="[ col-xs-4 col-sm-12 ]">
-                <!-- Nav tabs -->
-                <ul class="[ nav nav-justified ]" id="nav-tabs" role="tablist">
-                    <li role="presentation" class="active">
-                        <a href="#dustin" aria-controls="dustin" role="tab" data-toggle="tab">
-                            <img class="img-circle" src="img/icons/why-us-250x250.jpg" />
-                            <span class="quote"><i class="fa fa-quote-left">Why join Guided Gateway</i></span>
-                        </a>
-                    </li>
-                    <li role="presentation" class="">
-                        <a href="#anna" aria-controls="anna" role="tab" data-toggle="tab">
-                            <img class="img-circle" src="img/icons/icon_gear.png" />
-                            <span class="quote"><i class="fa fa-quote-left">How it Works</i></span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <div class="[ col-xs-8 col-sm-12 ]">
-                <!-- Tab panes -->
-                <div class="tab-content" id="tabs-collapse">            
-                    <div role="tabpanel" class="tab-pane fade in active" id="dustin">
-                        <div class="tab-inner">                    
-                             <div class="container" id="services">
+<div class="container" id="services">
     <!-- Example row of columns -->
     <div class="row features">
         <div class="col-lg-4 text-center">
@@ -190,82 +117,184 @@
     </div>
 
 
-</div>                
+</div>
+
+
+<section class="slider" id="features">
+    <div class="container">
+        <div class="inner-page">
+            <h2 class="page-headline large text-center">We offer following services for you</h2>
+
+            <p class="text-center">This list will continue to grow as we expand our partnership with travel businesses</p>
+        </div>
+        <div class="row inner-page">
+            <div class="col-md-8 col-md-push-4 lazy-container loaded">
+                <!--<img data-original="images/mockup.png" src="images/mockup.png" alt="Looks great on every device"-->
+                <!--class="lazy">-->
+
+                <h2>Our <strong>Features</strong></h2>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="feature-box">
+                            <div class="feature-box-icon">
+                                <i class="icon-group"></i>
+                            </div>
+                            <div class="feature-box-info">
+                                <h4 class="shorter">Customer Support</h4>
+
+                                <p class="tall">24/7 Phone and online support to you and your tourists</p>
+                            </div>
+                        </div>
+                        <div class="feature-box">
+                            <div class="feature-box-icon">
+                                <i class="icon-file"></i>
+                            </div>
+                            <div class="feature-box-info">
+                                <h4 class="shorter">Lodging</h4>
+
+                                <p class="tall">We can arrange lodging facilities for you and your tourists for multi-day tours</p>
+                            </div>
                         </div>
                     </div>
-                    
-                    <div role="tabpanel" class="tab-pane fade" id="anna">
-                        <div class="tab-inner">
-                            <div class="container">
-    
-        <div class="container" id="services">
-    <!-- Example row of columns -->
-    <div class="row features">
-        <div class="col-lg-4 text-center">
-            <div class="single-fet">
-                <div>
-                <span class="icon-stack icon-4x">
-  <i class="icon-circle icon-stack-base"></i>
-  <i class="icon-ok icon-light"></i>
-</span>
-                </div>
-                <h2>Join our growing list of local guides</h2>
+                    <div class="col-md-6">
+                        <div class="feature-box">
+                            <div class="feature-box-icon">
+                                <i class="icon-film"></i>
+                            </div>
+                            <div class="feature-box-info">
+                                <h4 class="shorter">Transport</h4>
 
-                <p>Easy sign up</p>
-
-            </div>
-        </div>
-        <div class="col-lg-4 text-center">
-            <div class="single-fet">
-                <div>
-                <span class="icon-stack icon-4x">
-  <i class="icon-circle icon-stack-base"></i>
-  <i class="icon-laptop icon-light"></i>
-</span>
-                </div>
-                <h2>Tourists select you for local sightseeing service</h2>
-
-                <p>They directly purchase from us through credit card or pay you cash after service delivery</p>
-
-            </div>
-        </div>
-        <div class="col-lg-4 text-center">
-            <div class="single-fet">
-                <div>
-                <span class="icon-stack icon-4x">
-  <i class="icon-circle icon-stack-base"></i>
-  <i class="icon-download-alt icon-light"></i>
-</span>
-                </div>
-                <h2>We pay you after our commison</h2>
-                <p>We pay for any no-show or late cancellation.</p>
-
-            </div>
-        </div>
-
-    </div>
-
-
-                                </div>
-                    
-                    <!-- div role="tabpanel" class="tab-pane fade" id="wafer">
-                        <div class="tab-inner">
-                            <p class="lead"> Fusce erat libero, fermentum quis sollicitudin id, venenatis nec felis. Morbi sollicitudin gravida finibus.</p>
-                            <hr>
-                            <p><strong class="text-uppercase">Wafer Baby</strong></p>
-                            <p><em class="text-capitalize"> Web designer</em> at <a href="#">Microsoft</a></p>
+                                <p class="tall">We can arrange transport through our partners for you and your tourists.</p>
+                            </div>
                         </div>
-                    </div -->
+                        <div class="feature-box">
+                            <div class="feature-box-icon">
+                                <i class="icon-magic small user"></i>
+                            </div>
+                            <div class="feature-box-info">
+                                <h4 class="shorter">Marketing</h4>
+                                <p class="tall">Our content writer will setup your profile based on your raw input.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>        
-        </div>
-	</div>
-</div>
+
+            </div>
+            <div class="col-md-4 col-md-pull-8">
+                <div class="list-group">
+                    <a href="#" class="list-group-item active">
+                        <h4 class="list-group-item-heading">List group item heading</h4>
+
+                        <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Fusce dapibus,
+                            tellus ac cursus commodo, tortor </p>
+                    </a>
+                    <a href="#" class="list-group-item">
+                        <h4 class="list-group-item-heading">List group item heading</h4>
+
+                        <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Fusce dapibus,
+                            tellus ac cursus commodo, tortor </p>
+                    </a>
+                    <a href="#" class="list-group-item">
+                        <h4 class="list-group-item-heading">List group item heading</h4>
+
+                        <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Fusce dapibus,
+                            tellus ac cursus commodo, tortor </p>
+                    </a>
+                    <a href="#" class="list-group-item">
+                        <h4 class="list-group-item-heading">List group item heading</h4>
+
+                        <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Fusce dapibus,
+                            tellus ac cursus commodo, tortor </p>
+                    </a>
+
+                </div>
+
+
+            </div>
         </div>
     </div>
+</section>
+
+<!-- section class="pricing" id="pricing">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 pricing-intro">
+                <h2 class="page-headline large text-center">Tell your projects awesome story.</h2>
+
+                <p class="text-center">Tell your projects awesome story. Tell your projects awesome story. Tell your
+                    projects awesome story. Tell your projects awesome story.</p>
+            </div>
+        </div>
     </div>
 
 
+    <div class="container">
+
+        <div class="row pricing-table">
+            <div class="col-md-4">
+                <div class="panel panel-danger">
+                    <div class="panel-heading"><h3 class="text-center">Basic PLAN</h3></div>
+                    <div class="panel-body text-center">
+                        <p class="lead" style="font-size:40px"><strong>INR</strong></p>
+                    </div>
+                    <ul class="list-group list-group-flush text-center">
+                        <li class="list-group-item"><i class="icon-ok text-danger"></i> Personal use</li>
+                        <li class="list-group-item"><i class="icon-ok text-danger"></i> Unlimited projects</li>
+                        <li class="list-group-item"><i class="icon-ok text-danger"></i> 27/7 support</li>
+                    </ul>
+                    <div class="panel-footer">
+                        <a class="btn btn-lg btn-block btn-danger"
+                           href="https://creativemarket.com/artlabs/12114-Bootstrap-3.0.-pricing-tables-flat">BUY
+                            NOW!</a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-info">
+                    <div class="panel-heading"><h3 class="text-center">PRO PLAN</h3></div>
+                    <div class="panel-body text-center">
+                        <p class="lead" style="font-size:40px"><strong>$10 / month</strong></p>
+                    </div>
+                    <ul class="list-group list-group-flush text-center">
+                        <li class="list-group-item"><i class="icon-ok text-danger"></i> Personal use</li>
+                        <li class="list-group-item"><i class="icon-ok text-danger"></i> Unlimited projects</li>
+                        <li class="list-group-item"><i class="icon-ok text-danger"></i> 27/7 support</li>
+                    </ul>
+                    <div class="panel-footer">
+                        <a class="btn btn-lg btn-block btn-info"
+                           href="https://creativemarket.com/artlabs/12114-Bootstrap-3.0.-pricing-tables-flat">BUY
+                            NOW!</a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-success">
+                    <div class="panel-heading"><h3 class="text-center">FREE PLAN</h3></div>
+                    <div class="panel-body text-center">
+                        <p class="lead" style="font-size:40px"><strong>$10 / month</strong></p>
+                    </div>
+                    <ul class="list-group list-group-flush text-center">
+                        <li class="list-group-item"><i class="icon-ok text-danger"></i> Personal use</li>
+                        <li class="list-group-item"><i class="icon-ok text-danger"></i> Unlimited projects</li>
+                        <li class="list-group-item"><i class="icon-ok text-danger"></i> 27/7 support</li>
+                    </ul>
+                    <div class="panel-footer">
+                        <a class="btn btn-lg btn-block btn-success"
+                           href="https://creativemarket.com/artlabs/12114-Bootstrap-3.0.-pricing-tables-flat">BUY
+                            NOW!</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+</section -->
 <section class="gray">
     <div class="container">
         <div class="row">

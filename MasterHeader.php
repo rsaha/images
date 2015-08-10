@@ -79,7 +79,7 @@
 					<div class="col-md-6"> 
 						<div class="left-part alignleft">
 							<span class="contact-email small">touchus@xmapledatalab.com</span>
-							<span class="contact-phone small">+1 510 938 2562</span> 
+							<span class="contact-phone small">+91 9830032920</span> 
 							<ul class="social-media header-social"> 
 								<li><a class="sm-facebook" href="#"><span>Facebook</span></a></li> 
 								<li><a class="sm-pinterest" href="#"><span>Pinterest</span></a></li> 
