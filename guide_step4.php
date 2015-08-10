@@ -1,21 +1,25 @@
 <?php
 	session_start();
-	echo "<script type='text/javascript'>alert('ram1');</script>";
 	include("db.php");
-	if(isset($_SESSION['userId']))
+	if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "signin"))
 	{
-		echo "<script type='text/javascript'>alert('1');</script>";
+		$i = $_SESSION['userId'];
+		header('Location:guide_profile.php?id='. $i .'');
+		exit;
+	}
+	else if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "reg"))
+	{
 		if(isset($_POST['userid']))
 		{
-			echo "<script type='text/javascript'>alert('2');</script>";
 			$userid=mysql_real_escape_string($_POST['userid']);
 		}
 		if($_SESSION['userId']!=$userid)
 		{
+			$errormsg="Unauthenticated access to the step 4 page, Registraion Step 1 is not done";
+				error_log($errormsg,0);
+			include("signOut.php");
 			header('Location:guide_registration_1.php');
 			exit;
-			session_destroy();
-            header('Location:guide_registration_1.php');
 		}
 		else
 		{
@@ -32,38 +36,45 @@
 				echo "<script type='text/javascript'>alert('$HostEmail');</script>";
 				echo "<script type='text/javascript'>alert('$HostPassword');</script>";
 			
+			$nameFriend1=mysql_real_escape_string($_POST['nameFriend1']);
+			$nameFriend2=mysql_real_escape_string($_POST['nameFriend2']);
+			$nameFriend3=mysql_real_escape_string($_POST['nameFriend3']);
 			
 			$emailFriend1=mysql_real_escape_string($_POST['emailFriend1']);
 			$emailFriend2=mysql_real_escape_string($_POST['emailFriend2']);
 			$emailFriend3=mysql_real_escape_string($_POST['emailFriend3']);
 			
+			$mobileFeiend1=mysql_real_escape_string($_POST['mobileFeiend1']);
+			$mobileFeiend2=mysql_real_escape_string($_POST['mobileFeiend2']);
+			$mobileFeiend3=mysql_real_escape_string($_POST['mobileFeiend3']);
+			
 		/* $EA1=mysql_real_escape_string($_POST['emailFriend1']);
 		  if(preg_match("/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9]+\.(([a-zA-Z]{2,3})|([a-zA-Z]{2,3}\.[a-zA-Z]{2}))$/i", $EA1)) {
 		    $emailFriend1 = $EA1 ;
-			$create1 = mysql_query("INSERT INTO `tbl_referrals`(`referrer_id`, `referral_name`, `referral_email`, `referral_phone`, `referral_status`, `datecreated`) VALUES ($userid, '', '$emailFriend1', '', 1, now())");
+			$create1 = mysql_query("INSERT INTO `tbl_referrals`(`referrer_id`, `referral_name`, `referral_email`, `referral_phone`, `referral_status`, `datecreated`) VALUES ($userid, '$nameFriend1', '$emailFriend1', '$mobileFeiend1', 1, now())");
 			}
 		$EA2=mysql_real_escape_string($_POST['emailFriend2']);
 		if(preg_match("/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9]+\.(([a-zA-Z]{2,3})|([a-zA-Z]{2,3}\.[a-zA-Z]{2}))$/i", $EA2)) {
 		    $emailFriend2 = $EA2 ;
-			$create2 = mysql_query("INSERT INTO `tbl_referrals`(`referrer_id`, `referral_name`, `referral_email`, `referral_phone`, `referral_status`, `datecreated`) VALUES ($userid, '', '$emailFriend1', '', 1, now())");
+			$create2 = mysql_query("INSERT INTO `tbl_referrals`(`referrer_id`, `referral_name`, `referral_email`, `referral_phone`, `referral_status`, `datecreated`) VALUES ($userid, '$nameFriend2', '$emailFriend1', '$mobileFeiend2', 1, now())");
 			}
 		$EA3=mysql_real_escape_string($_POST['emailFriend3']);
 		if(preg_match("/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9]+\.(([a-zA-Z]{2,3})|([a-zA-Z]{2,3}\.[a-zA-Z]{2}))$/i", $EA3)) {
 		    $emailFriend3 = $EA3 ;
-			$create3 = mysql_query("INSERT INTO `tbl_referrals`(`referrer_id`, `referral_name`, `referral_email`, `referral_phone`, `referral_status`, `datecreated`) VALUES ($userid, '', '$emailFriend1', '', 1, now())");
+			$create3 = mysql_query("INSERT INTO `tbl_referrals`(`referrer_id`, `referral_name`, `referral_email`, `referral_phone`, `referral_status`, `datecreated`) VALUES ($userid, '$nameFriend3', '$emailFriend1', '$mobileFeiend3', 1, now())");
 			} */
 			
 			if($emailFriend1!="" || $emailFriend1!=NULL)
 			{
-			$create1 = mysql_query("INSERT INTO `tbl_referrals`(`referrer_id`, `referral_name`, `referral_email`, `referral_phone`, `referral_status`, `datecreated`) VALUES ($userid, '', '$emailFriend1', '', 1, now())");
+			$create1 = mysql_query("INSERT INTO `tbl_referrals`(`referrer_id`, `referral_name`, `referral_email`, `referral_phone`, `referral_status`, `datecreated`) VALUES ($userid, '$nameFriend1', '$emailFriend1', '$mobileFeiend1', 1, now())");
 			}
 			if($emailFriend2!="" || $emailFriend2!=NULL)
 			{
-			$create2 = mysql_query("INSERT INTO `tbl_referrals`(`referrer_id`, `referral_name`, `referral_email`, `referral_phone`, `referral_status`, `datecreated`) VALUES ($userid, '', '$emailFriend2', '', 1, now())");
+			$create2 = mysql_query("INSERT INTO `tbl_referrals`(`referrer_id`, `referral_name`, `referral_email`, `referral_phone`, `referral_status`, `datecreated`) VALUES ($userid, '$nameFriend2', '$emailFriend2', '$mobileFeiend2', 1, now())");
 			}
 			if($emailFriend3!="" || $emailFriend3!=NULL)
 			{
-			$create3 = mysql_query("INSERT INTO `tbl_referrals`(`referrer_id`, `referral_name`, `referral_email`, `referral_phone`, `referral_status`, `datecreated`) VALUES ($userid, '', '$emailFriend3', '', 1, now())");
+			$create3 = mysql_query("INSERT INTO `tbl_referrals`(`referrer_id`, `referral_name`, `referral_email`, `referral_phone`, `referral_status`, `datecreated`) VALUES ($userid, '$nameFriend3', '$emailFriend3', '$mobileFeiend3', 1, now())");
 			}
 			
 			if($create1 || $create2 || $create3)
@@ -121,15 +132,19 @@
 				if(!$mail->Send())
 				{
 				unset($_SESSION['userId']);
-				$errormsg="Something went wrong, Try again";
-				echo "<script type='text/javascript'>alert('$errormsg');</script>";
-				header('Location: guided_profile.php?id=' . $userid . '');
+				$errormsg="Referring to the friend email could not be send.";
+				error_log($errormsg,0);
+				$msg="Something Went Wrong!!";
+				echo "<script type='text/javascript'>alert('$msg');</script>";
+				header('Location: guide_profile.php?id=' . $userid . '');
 				die;
 				exit;
 				}
 				else
 				{
 				//unset($_SESSION['userId']);
+				$errormsg="Referring to friend Email Sent.";
+				error_log($errormsg,0);
 				$msg="Successfully invited!!";
 				echo "<script type='text/javascript'>alert('$msg');</script>";
 				header('Location: acknowledgeMail.php?id=' . $userid . '');
@@ -139,13 +154,16 @@
 			}
 			else
 			{
-				header('Location: guided_profile.php?id=' . $userid . '');
+				header('Location: guide_profile.php?id=' . $userid . '');
 				exit;
 			}
 		}
 	}
 	else
 	{
+		$errormsg="Unauthenticated access to the step 4 page, Registraion Step 1 is not done";
+				error_log($errormsg,0);
+		include("signOut.php");
 		header('Location:guide_registration_1.php');
 		exit;
 	}

@@ -1,10 +1,16 @@
 <?php
 	session_start();
-	if(isset($_SESSION['userId']))
-	{
-		unset($_SESSION['userId']);
-		$_SESSION['phase']="";
-		unset($_SESSION['phase']);
-	}
+	unset($_SESSION['userId']);
+		
+	$_SESSION['phase']="";
+	unset($_SESSION['phase']);
+	
+	$_SESSION['signin']="";
+	unset($_SESSION['signin']);
+	
+	session_unset();
+	
+	session_destroy();
+	
 	header('Location:guide_login.php');
 ?>

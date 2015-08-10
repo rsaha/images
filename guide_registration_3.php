@@ -8,8 +8,8 @@ if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "reg"))
 	}
 	if($_SESSION['userId']!=$userid)
 	{
-		session_destroy();
-        header('Location:guide_registration_1.php');
+		include("signOut.php");
+		header('Location:guide_registration_1.php');
 		exit;
 	}
 	else
@@ -25,8 +25,8 @@ if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "reg"))
 }
 else
 {
-	session_destroy();
-    header('Location:guide_registration_1.php');
+	include("signOut.php");
+	header('Location:guide_registration_1.php');
 	exit;
 }
 
@@ -157,9 +157,18 @@ else
 					</center>
 					<br /><br />
 					<div class="row">
-					Name - <?php echo $username ?><br /><br />
-					Email - <?php echo $emailID ?><br /><br />
-					Mobile - <?php echo $mobileNumber ?>
+					<div class="col-md-11">
+					<label style="font-size:14px;">Name :</label><br><br />
+					<span style="font-size:18px;font-weight:bold;"><?php echo $username ?></span><br />
+					<hr>
+					<label style="font-size:14px;">Mobile :</label><br><br />
+					<span style="font-size:18px;font-weight:bold;"><?php echo $mobileNumber ?></span><br />
+					<hr>
+					<label style="font-size:14px;">Email :</label><br><br />
+					<span style="font-size:14px;font-weight:bold;"><?php echo $emailID ?></span><br /><br />
+					
+					</div>
+					
 					</div>
 					
 					</div>
@@ -184,22 +193,22 @@ else
 												<ul class="formFields list-unstyled">
 													<li class="row">
 														<div class="col-md-6">
-															<label>Guide Facebook Profile</label>
+															<label style="font-size:14px; font-weight:bold">Guide Facebook Profile</label>
 															<input type="text" class="form-control" name="GuideFacebookProfile" value="" />
 														</div>
 														<div class="col-md-6">
-															<label>Guide Linkedin Profile</label>
+															<label style="font-size:14px; font-weight:bold">Guide Linkedin Profile</label>
 															<input type="text" class="form-control" name="GuideLinkedinProfile" value="" />
 														</div>
 														
 													</li>
 													<li class="row">
 														<div class="col-md-6">
-															<label>Guide Pinterest Profile</label>
+															<label style="font-size:14px; font-weight:bold">Guide Pinterest Profile</label>
 															<input type="text" class="form-control" name="GuidePinterestProfile" value="" />
 														</div>
 														<div class="col-md-6">
-															<label>Guide Skype Address</label>
+															<label style="font-size:14px; font-weight:bold">Guide Skype Address</label>
 															<input type="text" class="form-control" name="GuideSkypeAddress" pattern="[a-z0-9A-Z_-.]+"  value="" />
 														</div>
 													</li>
@@ -207,25 +216,16 @@ else
 													<li class="row">
 														
 														<div class="col-md-6">
-															<label>Guide Experience</label>
+															<label style="font-size:14px; font-weight:bold">Guide Experience</label>
 															<textarea class="form-control" name="GuideExperience" ></textarea>
 														</div>
 														
 														<div class="col-md-6">
-															<label>Note</label>
+															<label style="font-size:14px; font-weight:bold">Note</label>
 															<textarea class="form-control" name="GuideRemark" ></textarea>
 														</div>
 														</li>
 														<li class="row">
-														<!--<div class="col-md-6">
-															<label>Guide Interest</label>
-															<textarea class="form-control" name="GuideInterest" ></textarea>
-														</div>
-														<div class="col-md-6">
-															<label>Guide Summary</label>
-															<textarea class="form-control" name="GuideSummary" ></textarea>
-														</div>
-														</li>-->
 														
 														<li class="row">
 														

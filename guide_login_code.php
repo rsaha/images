@@ -19,13 +19,17 @@ $count = mysql_num_rows($result1);
 
 if ($count==1)
 {
+	$errormsg="Login successfull";
+		error_log($errormsg,0);
 	$userid=mysql_result($result1, 0, 0);
 	$_SESSION['userId'] = $userid;
 	$_SESSION['phase'] = "signin";
-	header('Location: guided_profile.php?id='. $userid .'');
+	header('Location: guide_profile.php?id='. $userid .'');
 }
 else
 {	
+$errormsg="login fail.";
+		error_log($errormsg,0);
 	header('location:guide_login.php');
 }
 }

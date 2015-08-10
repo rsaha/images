@@ -3,22 +3,20 @@ session_start();
 if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "signin"))
 {
 	$i = $_SESSION['userId'];
-	header('Location:guided_profile.php?id='. $i .'');
+	header('Location:guide_profile.php?id='. $i .'');
+	exit;
 }
 else if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "reg"))
 {
-	//echo "<script type='text/javascript'>alert('in 1');</script>";
 	if(isset($_GET['id']))
 	{
 	$userid = $_GET['id'];
-	//echo "<script type='text/javascript'>alert('$userid');</script>";
 	}
 	if($_SESSION['userId']!=$userid)
 	{
-		echo "<script type='text/javascript'>alert('out 1');</script>";
-		//session_destroy();
-        //header('Location:guide_registration_1.php');
-		//exit;
+		include('signOut.php');
+		header('Location:guide_registration_1.php');
+		exit;
 	}
 	else
 	{
@@ -33,9 +31,8 @@ else if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "reg"))
 }
 else
 {
-	//echo "<script type='text/javascript'>alert('out 2');</script>";
-	session_destroy();
-    header('Location:guide_registration_1.php');
+	include("signOut.php");
+	header('Location:guide_registration_1.php');
 	exit;
 }
 
@@ -123,7 +120,6 @@ else
 		<div id="wrapper">
 		
 			<?php include('MasterHeaderAfterLogin.php'); ?>
-			
 			<center>
 						<div class="row">
 						<div class="hovera text-center" style="border: 0px solid black;">
@@ -134,18 +130,18 @@ else
 										<a href="" onclick="document.getElementById('file1').click(); return false">
 										<?php 
 							
-							$select4pic = mysql_query("SELECT * FROM `tbl_guide_detail_profile` WHERE `user_id` = $userid");
-							$count4pic = mysql_num_rows($select4pic);
-							if ($count4pic==0)
+							$select4CovPic = mysql_query("SELECT * FROM `tbl_guide_detail_profile` WHERE `user_id` = $userid");
+							$count4CovPic = mysql_num_rows($select4CovPic);
+							if ($count4CovPic == 0)
 							{
-								echo '<img style="width:1400px; height:200px;" class="hover img-responsive" src="img/Default.jpg"/>';
+								echo '<img style="width:1400px; height:200px;" class="hover img-responsive" src="img/Default.jpg" />';
 							}
 							else
 							{
-								$picVal = mysql_result($select4pic, 0, 2);
-								if($picVal==null)
+								$CovPicVal = mysql_result($select4CovPic, 0, 3);
+								if($CovPicVal == NULL)
 								{
-									echo '<img style="width:1400px; height:200px;" class="hover img-responsive" src="img/Default.jpg"/>';
+									echo '<img style="width:1400px; height:200px;" class="hover img-responsive" src="img/Default.jpg" />';
 								}
 								else
 								{
@@ -184,16 +180,16 @@ else
 							
 							<?php 
 							
-							$select4pic = mysql_query("SELECT * FROM `tbl_guide_detail_profile` WHERE `user_id` = $userid");
-							$count4pic = mysql_num_rows($select4pic);
-							if ($count4pic==0)
+							$select4ProPic = mysql_query("SELECT * FROM `tbl_guide_detail_profile` WHERE `user_id` = $userid");
+							$count4ProPic = mysql_num_rows($select4ProPic);
+							if ($count4ProPic == 0)
 							{
 								echo '<img style="max-height:200px; max-width:170px;" class="hover img-responsive" src="img/userDefaultIcon.png"/>';
 							}
 							else
 							{
-								$picVal = mysql_result($select4pic, 0, 2);
-								if($picVal==null)
+								$ProPicVal = mysql_result($select4ProPic, 0, 2);
+								if($ProPicVal == NULL)
 								{
 									echo '<img style="max-height:200px; max-width:170px;" class="hover img-responsive" src="img/userDefaultIcon.png"/>';
 								}
@@ -215,11 +211,20 @@ else
 							</div>
 							</div>
 							</center>
-<br />
+					<br />
 					<div class="row">
-					Name - <?php echo $username ?><br /><br />
-					Email - <?php echo $emailID ?><br /><br />
-					Mobile - <?php echo $mobileNumber ?>
+					<div class="col-md-11">
+					<label style="font-size:14px;">Name :</label><br><br />
+					<span style="font-size:18px;font-weight:bold;"><?php echo $username ?></span><br />
+					<hr>
+					<label style="font-size:14px;">Mobile :</label><br><br />
+					<span style="font-size:18px;font-weight:bold;"><?php echo $mobileNumber ?></span><br />
+					<hr>
+					<label style="font-size:14px;">Email :</label><br><br />
+					<span style="font-size:14px;font-weight:bold;"><?php echo $emailID ?></span><br /><br />
+					
+					</div>
+					
 					</div>
 					</div>
 						<!-- START #page -->
@@ -235,18 +240,18 @@ else
 								
 								<!-- START TAB CONTENT -->
 								<div class="tab-content clearfix marb30">
-									<form action="guide_Step2.php" method="post">
+									<form action="guide_Step2.php" enctype="multipart/form-data" method="post">
 									<div class="tab-pane active mart20" id="userinfo">
 										<input type="hidden" name="userid" value="<?php echo $userid; ?>" />
 											<fieldset>
 												<ul class="formFields list-unstyled">
 													<li class="row">
 														<div class="col-md-4">
-															<label>Nick Name</label>
+															<label style="font-size:14px; font-weight:bold">Nick Name</label>
 															<input type="text" class="form-control" name="nickname" value="" pattern="[a-z A-Z]+" />
 														</div>
 														<div class="col-md-4">
-															<label>Gender</label>
+															<label style="font-size:14px; font-weight:bold">Gender</label>
 															 <select class="form-control" name="Gender">
 															  <option value="SELECT">Select</option>
 															  <option value="Male">Male</option>
@@ -254,63 +259,64 @@ else
 															</select>
 														</div>
 														<div class="col-md-4">
-															<label>Date Of Birth</label>
+															<label style="font-size:14px; font-weight:bold">Date Of Birth</label>
 															<input type="date" class="form-control" name="DOB" placeholder="yyyy-mm-dd" id="DOB" value=""  />
 														</div>
 													</li>
 													<li class="row">
 														<div class="col-md-12">
-															<label>Street Address</label>
+															<label style="font-size:14px; font-weight:bold">Street Address</label>
 															<input type="text" class="form-control" name="streetaddress" pattern="[a-z0-9A-Z -.]+" value="" />
 														</div>
 														
 													</li>
 													<li class="row">
 														<div class="col-md-4">
-															<label>City</label>
+															<label style="font-size:14px; font-weight:bold">City</label>
 															<input type="text" class="form-control" name="city" value="" pattern="[a-z A-Z]+" />
 														</div>
 														<div class="col-md-4">
-															<label>State</label>
+															<label style="font-size:14px; font-weight:bold">State</label>
 															<select name="state" id="state" class="form-control"></select>
 														</div>
 														<div class="col-md-4">
-															<label>Country</label>
+															<label style="font-size:14px; font-weight:bold">Country</label>
 															<select id="country" name="country" selected="India" class="form-control"></select>
 														</div>
 													</li>
 													<li class="row">
 														<div class="col-md-4">
-															<label>Licence Number</label>
+															<label style="font-size:14px; font-weight:bold">Licence Number</label>
 															<input type="text" class="form-control" name="licencenumber" maxlength="20" value="" pattern="[a-z0-9A-Z]+" />
 														</div>
 														<div class="col-md-4">
-															<label>Licence Expiry</label>
-															<input type="text" id="LicenceExpiry" placeholder="yyyy-mm-dd" class="form-control" name="licenceexpiry" value="" />
+															<label style="font-size:14px; font-weight:bold">Licence Expiry</label>
+															<input type="date" id="LicenceExpiry" placeholder="yyyy-mm-dd" class="form-control" name="licenceexpiry" value="" />
 														</div>
 														<div class="col-md-4">
-															<label>Licence Image</label>
+															<label style="font-size:14px; font-weight:bold">Licence Image</label>
 															<input type="file" class="form-control" name="licenceImage" value="" style="padding:0px 0px " />
 														</div>
 														</li>
 													<li class="row">
 														<div class="col-md-4">
-															<label>Landline Number</label>
+															<label style="font-size:14px; font-weight:bold">Landline Number</label>
 															<input type="tel" class="form-control" name="landlinenumber" value="" maxlength="15" pattern="\d{15}"/>
 														</div>
 														<div class="col-md-4">
-															<label>Best Time for Contact</label>
-															<select class="form-control" value="contacttime">
-															<option value="anytime" selected>ANY TIME</option>
+														
+															<label style="font-size:14px; font-weight:bold">Best Time for Contact</label>
+															<select class="form-control" name="contacttime">
+															<option value="anytime">ANY TIME</option>
 															<option value="08:00 AM - 12:00 PM">08:00 AM - 12:00 PM</option>
 															<option value="12:00 PM - 04:00 PM">12:00 PM - 04:00 PM</option>
 															<option value="04:00 PM - 08:00 PM">04:00 PM - 08:00 PM</option>
 															</select>
 														</div>
 														<div class="col-md-4">
-															<label>Communication Mechanism</label>
-															<select class="form-control" value="communicationmechanism">
-															<option value="Mobile" selected>Mobile</option>
+															<label style="font-size:14px; font-weight:bold">Communication Mechanism</label>
+															<select class="form-control" name="communicationmechanism">
+															<option value="Mobile">Mobile</option>
 															<option value="Email">Email</option>
 															</select>
 														</div>
@@ -321,7 +327,7 @@ else
 													<li class="row">
 														
 														<div class="col-md-12">
-															<label>Payment Terms</label>
+															<label style="font-size:14px; font-weight:bold">Payment Terms</label>
 															
 															<textarea class="form-control" name="paymentterms" ></textarea>
 														</div>
@@ -366,16 +372,7 @@ else
 			</script>
 		
 			<script>
-			$(function() {
-			$('#DOB').datepicker({
-			numberOfMonths: 3,
-			showButtonPanel: true
-			});
-			$('#LicenceExpiry').datepicker({
-			numberOfMonths: 3,
-			showButtonPanel: true
-			});
-			});
+			
 
 			</script>
 
