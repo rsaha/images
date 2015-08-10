@@ -8,8 +8,7 @@
 		}
 		if($_SESSION['userId']!=$userid)
 		{
-            session_destory();
-			header('Location:guide_login.php');
+            header('Location:guide_login.php');
 			exit;
 		}
 		else
@@ -73,8 +72,7 @@
 	}
 	else
 	{
-        session_destroy();
-		header('Location:guide_login.php');
+        header('Location:guide_login.php');
 		exit;
 	}
 ?>
@@ -213,7 +211,26 @@
 							<li><span class="menu-text"> Licence Expiry Date : <a ><?php echo $licenceValidty ?></a><br><br></li>
 							
 					    <li><span class="menu-text"> Licence Image : 
-						<img src="img/PRcard.jpg" class="img-responsive" style="max-height:127px; max-width:200px;" />
+						<?php 
+							$select4pic = mysql_query("SELECT * FROM `tbl_guide_detail_profile` WHERE `user_id` = $userid");
+							$count4pic = mysql_num_rows($select4pic);
+							if ($count4pic==0)
+							{
+								echo '<img style="max-height:127px; max-width:200px;" class="hover img-responsive" src="img/PRcard.jpg"/>';
+							}
+							else
+							{
+								$picVal = mysql_result($select4pic, 0, 5);
+								if($picVal==null)
+								{
+									echo '<img style="max-height:127px; max-width:200px;" class="hover img-responsive" src="img/PRcard.jpg"/>';
+								}
+								else
+								{
+									echo '<img style="max-height:127px; max-width:200px;" class="hover img-responsive" src="showLicence.php?id=' . $userid . '"/>';
+								}
+							}
+							?>
 						<br></li>
 							
 							</ul>

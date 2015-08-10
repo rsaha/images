@@ -8,8 +8,8 @@ if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "reg"))
 	}
 	if($_SESSION['userId']!=$userid)
 	{
-		session_destroy();
-        header('Location:guide_registration_1.php');
+		include("signOut.php");
+		header('Location:guide_registration_1.php');
 		exit;
 	}
 	else
@@ -25,8 +25,8 @@ if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "reg"))
 }
 else
 {
-	session_destroy();
-    header('Location:guide_registration_1.php');
+	include("signOut.php");
+	header('Location:guide_registration_1.php');
 	exit;
 }
 
@@ -157,9 +157,18 @@ else
 					</center>
 					<br /><br />
 					<div class="row">
-					Name - <?php echo $username ?><br /><br />
-					Email - <?php echo $emailID ?><br /><br />
-					Mobile - <?php echo $mobileNumber ?>
+					<div class="col-md-11">
+					<label style="font-size:14px;">Name :</label><br><br />
+					<span style="font-size:18px;font-weight:bold;"><?php echo $username ?></span><br />
+					<hr>
+					<label style="font-size:14px;">Mobile :</label><br><br />
+					<span style="font-size:18px;font-weight:bold;"><?php echo $mobileNumber ?></span><br />
+					<hr>
+					<label style="font-size:14px;">Email :</label><br><br />
+					<span style="font-size:14px;font-weight:bold;"><?php echo $emailID ?></span><br /><br />
+					
+					</div>
+					
 					</div>
 					
 					</div>
@@ -188,15 +197,15 @@ else
 											<ul  class="formFields list-unstyled">
 											<li class="row">
 											<div class="col-md-4">
-															<label>Name of your 1st friend</label>
+															<label style="font-size:13px; font-weight:bold">Name of your 1st friend</label>
 															<input type="text" class="form-control" name="nameFriend1" value=""  pattern="[a-z A-Z]+" />
 														</div>
 														<div class="col-md-4">
-															<label>Email Id of your 1st friend</label>
+															<label style="font-size:13px; font-weight:bold">Email Id of your 1st friend</label>
 															<input type="email" class="form-control" name="emailFriend1" value=""  pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,5}(\.[a-zA-Z]{2,5}){0,1}"/>
 														</div>
 														<div class="col-md-4">
-															<label>Mobile Number of your 1st friend</label>
+															<label style="font-size:13px; font-weight:bold">Mobile Number of your 1st friend</label>
 															<input type="tel" class="form-control" name="mobileFeiend1" maxlength="10" pattern="([7-9]{1})(\d{9})" value=""/>
 														</div>
 														
@@ -204,15 +213,15 @@ else
 													<hr>
 													<li class="row">
 														<div class="col-md-4">
-															<label>Name of your 2nd friend</label>
+															<label style="font-size:13px; font-weight:bold">Name of your 2nd friend</label>
 															<input type="text" class="form-control" name="nameFriend2" value=""  pattern="[a-z A-Z]+" />
 														</div>
 														<div class="col-md-4">
-															<label>Email Id of your 2nd friend</label>
+															<label style="font-size:13px; font-weight:bold">Email Id of your 2nd friend</label>
 															<input type="email" class="form-control" name="emailFriend2" value=""  pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,5}(\.[a-zA-Z]{2,5}){0,1}"/>
 														</div>
 														<div class="col-md-4">
-															<label>Mobile Number of your 2nd friend</label>
+															<label style="font-size:13px; font-weight:bold">Mobile Number of your 2nd friend</label>
 															<input type="tel" class="form-control" name="mobileFeiend2" maxlength="10" pattern="([7-9]{1})(\d{9})" value="" />
 														</div>
 														
@@ -220,15 +229,15 @@ else
 													<hr>
 													<li class="row">
 														<div class="col-md-4">
-															<label>Name of your 3rd friend</label>
+															<label style="font-size:13px; font-weight:bold">Name of your 3rd friend</label>
 															<input type="text" class="form-control" name="nameFriend3" value=""  pattern="[a-z A-Z]+"/>
 														</div>
 														<div class="col-md-4">
-															<label>Email Id of your 3rd friend</label>
+															<label style="font-size:13px; font-weight:bold">Email Id of your 3rd friend</label>
 															<input type="email" class="form-control" name="emailFriend3" value="" pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,5}(\.[a-zA-Z]{2,5}){0,1}"/>
 														</div>
 														<div class="col-md-4">
-															<label>Mobile Number of your 3rd friend</label>
+															<label style="font-size:13px; font-weight:bold">Mobile Number of your 3rd friend</label>
 															<input type="tel" class="form-control" name="mobileFeiend3" value="" maxlength="10" pattern="([7-9]{1})(\d{9})" value="" />
 														</div>
 														
@@ -272,7 +281,7 @@ else
 		  </script>
 		  <script>
 		function myFunction(id) {
-		window.location.href = "guided_profile.php?id="+id;
+		window.location.href = "guide_profile.php?id="+id;
 		return false;
 		}
 		</script>
