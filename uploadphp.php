@@ -1,5 +1,6 @@
 <?php
 session_start();
+$upload_dir = "/tmp/upload/";
 if((isset($_SESSION['userId'])) && (($_SESSION['phase'] == "signin") || ($_SESSION['phase'] == "reg")))
 {
 	$userid=$_SESSION['userId'];
@@ -22,10 +23,10 @@ if((isset($_SESSION['userId'])) && (($_SESSION['phase'] == "signin") || ($_SESSI
 			{
 				
 				$newName=date("dmYHms") . "_img." . $file_extension;
-				move_uploaded_file($_FILES["file1"]["tmp_name"], "upload/" . $newName);
-					 $bin_string = file_get_contents( "upload/" . $newName);
+				move_uploaded_file($_FILES["file1"]["tmp_name"], $upload_dir . $newName);
+					 $bin_string = file_get_contents( $upload_dir . $newName);
 					 $hex_string = base64_encode($bin_string);
-					 $imgFullpath = "http://".$_SERVER['SERVER_NAME'].dirname($_SERVER["REQUEST_URI"].'?').'/'. "upload/" . $newName;
+					 #$imgFullpath = "http://".$_SERVER['SERVER_NAME'].dirname($_SERVER["REQUEST_URI"].'?').'/'. "upload/" . $newName;
 					include("db.php");
 					$upl=0;
 					$select=mysql_query("SELECT * FROM `tbl_guide_detail_profile` WHERE `user_id` = $userid");
@@ -83,10 +84,10 @@ if((isset($_SESSION['userId'])) && (($_SESSION['phase'] == "signin") || ($_SESSI
 				{
 					
 					$newName=date("dmYHms") . "_img." . $file_extension;
-					move_uploaded_file($_FILES["file2"]["tmp_name"], "upload/" . $newName);
-				 $bin_string = file_get_contents( "upload/" . $newName);
+					move_uploaded_file($_FILES["file2"]["tmp_name"], $upload_dir . $newName);
+				 $bin_string = file_get_contents( $upload_dir . $newName);
 				 $hex_string = base64_encode($bin_string);
-				 $imgFullpath = "http://".$_SERVER['SERVER_NAME'].dirname($_SERVER["REQUEST_URI"].'?').'/'. "upload/" . $newName;
+				 #$imgFullpath = "http://".$_SERVER['SERVER_NAME'].dirname($_SERVER["REQUEST_URI"].'?').'/'. "upload/" . $newName;
 				include("db.php");
 				$upl=0;
 				$select=mysql_query("SELECT * FROM `tbl_guide_detail_profile` WHERE `user_id` = $userid");
@@ -143,10 +144,10 @@ if((isset($_SESSION['userId'])) && (($_SESSION['phase'] == "signin") || ($_SESSI
 				else 
 				{
 					$newName=date("dmYHms") . "_img." . $file_extension;
-					move_uploaded_file($_FILES["file3"]["tmp_name"], "upload/" . $newName);
-					 $bin_string = file_get_contents( "upload/" . $newName);
+					move_uploaded_file($_FILES["file3"]["tmp_name"], $upload_dir . $newName);
+					 $bin_string = file_get_contents( $upload_dir. $newName);
 					 $hex_string = base64_encode($bin_string);
-					$imgFullpath = "http://".$_SERVER['SERVER_NAME'].dirname($_SERVER["REQUEST_URI"].'?').'/'. "upload/" . $newName;
+					#$imgFullpath = "http://".$_SERVER['SERVER_NAME'].dirname($_SERVER["REQUEST_URI"].'?').'/'. "upload/" . $newName;
 					include("db.php");
 					$upl=0;
 					$select=mysql_query("SELECT * FROM `tbl_guide_detail_profile` WHERE `user_id` = $userid");

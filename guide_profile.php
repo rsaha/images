@@ -236,8 +236,6 @@
 						<br></li>
 							
 							</ul>
-						   <?php/*  echo $username */ ?>
-						   <?php/*  echo $emailID */ ?>
 					   </div>
 					    
 			      </div>
