@@ -8,6 +8,7 @@ if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "reg"))
 	}
 	if($_SESSION['userId']!=$userid)
 	{
+		include("signOut.php");
 		header('Location:guide_registration_1.php');
 		exit;
 	}
@@ -24,6 +25,7 @@ if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "reg"))
 }
 else
 {
+	include("signOut.php");
 	header('Location:guide_registration_1.php');
 	exit;
 }

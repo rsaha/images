@@ -11,6 +11,7 @@ $userid = $_GET['id'];
 }
 if($_SESSION['userId']!=$userid)
 {
+	include("signOut.php");
 	header('Location:guide_registration_1.php');
 }
 else
@@ -27,6 +28,7 @@ $mobileNumber = mysql_result($select, 0, 6);
 }
 else
 {
+	include("signOut.php");
 	header('Location:guide_registration_1.php');
 }*/
 ?>

@@ -2,7 +2,13 @@
 	session_start();
 	include("db.php");
 
-	if(isset($_SESSION['userId']))
+	if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "signin"))
+	{
+		$i = $_SESSION['userId'];
+		header('Location:guide_profile.php?id='. $i .'');
+		exit;
+	}
+	else if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "reg"))
 	{
 	if(isset($_POST['userid']))
 	{
@@ -10,7 +16,11 @@
 	}
 	if($_SESSION['userId']!=$userid)
 	{
+		$errormsg="Unauthenticated access to the step 3 page, Registration Step 1 is not done";
+				error_log($errormsg,0);
+		include("signOut.php");
 		header('Location:guide_registration_1.php');
+		exit;
 	}
 	else
 	{
@@ -58,6 +68,8 @@
 			}
 		if($insert || $update)
 		{
+			$errormsg="Registration Step 3 completed.";
+				error_log($errormsg,0);
 			$_session['login']="true";
 			$msg="Successfully Updated!!";
 			echo "<script type='text/javascript'>alert('$msg');</script>";
@@ -65,13 +77,18 @@
 		}
 		else
 		{
-			$errormsg="Something went wrong, Try again";
-			echo "<script type='text/javascript'>alert('$errormsg');</script>";
+			$errormsg="Something went wrong in registration step 3, Try again";
+				error_log($errormsg,0);
+			$msg="Something went wrong!!";
+			echo "<script type='text/javascript'>alert('$msg');</script>";
 		}
 		}
 	}
 	else
 	{
+		$errormsg="Unauthenticated access to the step 3 page, Registration Step 1 is not done";
+		error_log($errormsg,0);
+		include("signOut.php");
 	header('Location:guide_registration_1.php');
 exit;	
 	}

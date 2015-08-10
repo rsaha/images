@@ -3,7 +3,8 @@ session_start();
 if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "signin"))
 {
 	$i = $_SESSION['userId'];
-	header('Location:guided_profile.php?id='. $i .'');
+	header('Location:guide_profile.php?id='. $i .'');
+	exit;
 }
 else if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "reg"))
 {
@@ -13,6 +14,7 @@ else if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "reg"))
 	}
 	if($_SESSION['userId']!=$userid)
 	{
+		include('signOut.php');
 		header('Location:guide_registration_1.php');
 		exit;
 	}
@@ -29,6 +31,7 @@ else if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "reg"))
 }
 else
 {
+	include("signOut.php");
 	header('Location:guide_registration_1.php');
 	exit;
 }

@@ -310,7 +310,7 @@
 							<div class="user-profile">
 								<!-- START TABS -->
 								<ul class="nav nav-tabs text-upper" style="background-color:#FFA98E;">
-									<li class="active"><?php echo '<a href="guided_profile.php?id=' . $userid . '" data-toggle="tab">Guide Profile</a>' ?></li>
+									<li class="active"><?php echo '<a href="guide_profile.php?id=' . $userid . '" data-toggle="tab">Guide Profile</a>' ?></li>
 								</ul>
 								<!-- END TABS -->
 								
@@ -353,7 +353,14 @@
 												  <div class="col-sm-6 form-group">
 													<div class="row mgbt-xs-0">
 													  <label class="col-xs-5 control-label">Gender:</label>
-													  <div class="col-xs-7 controls"><input name="gender" class="form-control" type="text" style="background-color:#f7f7f7;" value="<?php echo $gender ?>" /></div>
+													  
+													  <div class="col-xs-7 controls">
+													  <select class="form-control" name="gender" style="background-color:#f7f7f7;">
+														  <option value="SELECT">Select</option>
+														  <option value="Male">Male</option>
+														  <option value="Female">Female</option>
+														</select>
+													  </div>
 													  <!-- col-sm-10 --> 
 													</div>
 												  </div>
@@ -434,7 +441,7 @@
 													<div class="row mgbt-xs-0">
 													  <label class="col-xs-5 control-label">Communication Mechanism:</label>
 													  <div class="col-xs-7 controls">
-													  <select class="form-control"  style="background-color:#f7f7f7;" name="communicationmechanism" id="communicationmechanism">
+													  <select class="form-control"  style="background-color:#f7f7f7;" name="communicationMechanism" id="communicationMechanism">
 														<option value="Mobile">Mobile</option>
 														<option value="Email">Email</option>
 														</select>
@@ -518,10 +525,11 @@
 			</script>
 			
 			<script>
+			document.getElementById("gender").value = "<?php echo $gender ?>";
 			document.getElementById("state").value = "<?php echo $state ?>";
 			document.getElementById("country").value = "India";
 			document.getElementById("bestTimeToContace").value = "<?php echo $bestTimeToContace ?>";
-			document.getElementById("communicationmechanism").value = "<?php echo $communicationMechanism ?>";
+			document.getElementById("communicationMechanism").value = "<?php echo $communicationMechanism ?>";
 			</script>
 			<script type="text/javascript" src="js/country_state.js"></script>
 			<script language="javascript">
@@ -529,7 +537,7 @@
 			</script>
 			<script>
 		function myFunction(id) {
-		window.location.href = "guided_profile.php?id="+id;
+		window.location.href = "guide_profile.php?id="+id;
 		return false;
 		}
 		</script>

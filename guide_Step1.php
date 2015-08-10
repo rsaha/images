@@ -1,10 +1,12 @@
 <?php
 	session_start();
-	if(isset($_SESSION['phase']) && ($_SESSION['phase'] == "signin"))
+	if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "signin"))
 	{
-		header('Location:guided_profile.php?id=' . $_SESSION['userId'] . '');
+		$i = $_SESSION['userId'];
+		header('Location:guide_profile.php?id='. $i .'');
 		exit;
 	}
+
 	
 	include("db.php");
 	$FirstName=mysql_real_escape_string($_POST['FirstName']);
@@ -35,15 +37,15 @@
 	{
 		$select = mysql_query("SELECT * FROM `tbl_user_profile` WHERE `email`='$EmailAddress' && `mobileNo`='$MobileNumber'");
 		$userid = mysql_result($select, 0, 0);
-		
-		$_SESSION['userId']=$userid;
 		$username =  mysql_result($select, 0, 3) . " " . mysql_result($select, 0, 4);
 		$from=mysql_result($select, 0, 5);
 		$mobileNumber = mysql_result($select, 0, 6);
 		
+		$_SESSION['userId']=$userid;
 		$_SESSION['phase'] = "reg";
 		
-		
+		$errormsg="Guide registered with basic details in registration step 1.";
+		error_log($errormsg,0);
 		$msg="Successfully Updated!!";
 		echo "<script type='text/javascript'>alert('$msg');</script>";
 		
@@ -84,7 +86,8 @@
 
 				if(!$mail->Send())
 				{
-				$errormsg="Something went wrong, Try again";
+				$errormsg="Registration conformation email could not be send.";
+				error_log($errormsg,0);
 				echo "<script type='text/javascript'>alert('$errormsg');</script>";
 				header('Location:guide_registration_2.php?id=' . $userid . '');
 				die;
@@ -92,7 +95,8 @@
 				}
 				else
 				{
-				//unset($_SESSION['userId']);
+				$errormsg="Registration Conformation Email Sent.";
+				error_log($errormsg,0);
 				$msg="Successfully invited!!";
 				echo "<script type='text/javascript'>alert('$msg');</script>";
 				header('Location:guide_registration_2.php?id=' . $userid . '');
@@ -102,7 +106,8 @@
 	}
 	else
 	{
-		$errormsg="Something went wrong, Try again";
+		$errormsg="Something went wrong, Could Not Register. Try again";
+		error_log($errormsg,0);
 		echo "<script type='text/javascript'>alert('$errormsg');</script>";
 		header('Location:guide_registration_1.php');
 	}

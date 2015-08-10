@@ -8,6 +8,7 @@ if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "reg"))
 	}
 	if($_SESSION['userId']!=$userid)
 	{
+		include("signOut.php");
 		header('Location:guide_registration_1.php');
 		exit;
 	}
@@ -24,6 +25,7 @@ if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "reg"))
 }
 else
 {
+	include("signOut.php");
 	header('Location:guide_registration_1.php');
 	exit;
 }
@@ -279,7 +281,7 @@ else
 		  </script>
 		  <script>
 		function myFunction(id) {
-		window.location.href = "guided_profile.php?id="+id;
+		window.location.href = "guide_profile.php?id="+id;
 		return false;
 		}
 		</script>

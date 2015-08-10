@@ -1,19 +1,22 @@
 <?php
 session_start();
-			if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "signin"))
-			{
-				header('Location:guided_profile.php?id=' . $_SESSION['userId'] . '');
-				exit;
-			}
-			else if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "reg"))
-			{
-				header('Location:guide_registration_2.php?id=' . $_SESSION['userId'] . '');
-				exit;
-			}
-			else
-			{
-				header('Location:signOut.php');
-			}
+	if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "signin"))
+	{
+		header('Location:guide_profile.php?id=' . $_SESSION['userId'] . '');
+		exit;
+	}
+	else if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "reg"))
+	{
+		header('Location:guide_registration_2.php?id=' . $_SESSION['userId'] . '');
+		exit;
+	}
+	else
+	{
+		session_unset();
+		session_destroy();
+		session_write_close();
+	}
+	//$_SESSION['notification'] = "user already exist.";
 ?>
 
 <html lang="en" dir="ltr">
@@ -66,6 +69,19 @@ session_start();
 	}
 	
 		</style>
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+		
+<script>
+var app = angular.module('myApp', []);
+app.controller('validateCtrl', function($scope) {
+    $scope.FirstName = '';
+    $scope.LastName = '';
+	 $scope.EmailAddress = '';
+	  $scope.MobileNumber = '';
+	   $scope.Password = '';
+	    $scope.conformpassword = '';
+});
+</script>
 	</head>
 	<!-- END head -->
 
@@ -120,16 +136,22 @@ session_start();
 					</div>
 
 					<div class="row">
-						<form action="guide_Step1.php" method="post">
+						<form action="guide_Step1.php" method="post" ng-app="myApp"  ng-controller="validateCtrl" name="myForm"  novalidate>
 							<div class="col-sm-12">
 								<div class="row">
 									<div class="col-sm-12">
 										<div class="form-group">
 											<div class="form-group col-sm-6">
-												<input type="text" value="" name="FirstName" id="FirstName" placeholder="First Name" class="form-control" required pattern="[a-z A-Z]+" > 
+												<input type="text" value="" name="FirstName" ng-model="FirstName" id="FirstName" placeholder="First Name" class="form-control" required pattern="[a-z A-Z]+" > 
+											 <span style="color:red" ng-show="myForm.FirstName.$dirty && myForm.FirstName.$invalid">
+											  <span ng-show="myForm.FirstName.$error.required">*Firstname is required.</span>
+											  </span>
 											</div>
 											<div class="form-group col-sm-6">
-												<input type="text" value="" name="LastName" id="LastName" placeholder="Last Name" class="form-control" required pattern="[a-z A-Z]+">
+												<input type="text" value="" name="LastName" ng-model="LastName" id="LastName" placeholder="Last Name" class="form-control" required pattern="[a-z A-Z]+">
+											     <span style="color:red" ng-show="myForm.LastName.$dirty && myForm.LastName.$invalid">
+											  <span ng-show="myForm.LastName.$error.required">*Lastname is required.</span>
+											  </span>
 											</div>
 										</div>
 									</div>
@@ -137,23 +159,43 @@ session_start();
 
 								<div class="form-group">
 									<div class="form-group col-sm-12">
-										<input type="email" value="" name="EmailAddress" id="EmailAddress" placeholder="Email Address" class="form-control" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9]+\.([a-zA-Z]{2,3}|([a-zA-Z]{2,3}\.[a-zA-Z]{2}))" required >
+										<input type="email" value="" name="EmailAddress" id="EmailAddress" ng-model="EmailAddress" onblur="checkEmail(this.value)"  placeholder="Email Address" class="form-control" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9]+\.([a-zA-Z]{2,3}|([a-zA-Z]{2,3}\.[a-zA-Z]{2}))" required >
+										<span style="color:red" ng-show="myForm.EmailAddress.$dirty && myForm.EmailAddress.$invalid">
+									  <span ng-show="myForm.EmailAddress.$error.required">*Email is required.</span>
+									  <span ng-show="myForm.EmailAddress.$error.email">*Invalid email address.</span>
+									  </span>								
 									</div>
 								</div>
-
+                               <div class="form-group">
+									<div class="form-group col-sm-12">
+										<input type="hidden" value="" name="emailmessage" id="emailmessage"  >
+									</div>
+								</div>
 								<div class="form-group">
 									<div class="form-group col-sm-12">
-										<input type="tel" value="" name="MobileNumber" id="MobileNumber" placeholder="Mobile Number" class="form-control" maxlength="10" required pattern="(^[7-9]{1}\d{9}$)">
+										<input type="tel" value="" name="MobileNumber" ng-model="MobileNumber" id="MobileNumber" placeholder="Mobile Number" class="form-control" maxlength="10" required pattern="(^[7-9]{1}\d{9}$)">
+									<span style="color:red" ng-show="myForm.MobileNumber.$dirty && myForm.MobileNumber.$invalid">
+									  <span ng-show="myForm.MobileNumber.$error.required">*MobileNumber is required.</span>
+									  <span ng-show="myForm.MobileNumber.$error.email">*Invalid MobileNumber address.</span>
+									  </span>
 									</div>
 								</div>
 
 
 								<div class="form-group">
 									<div class="form-group col-sm-6">
-										<input type="password" class="form-control" id="Password" maxlength="15" name="Password" placeholder="Password" pattern="(^[a-zA-Z_0-9!@#$%^&* ]{6,15}$)" required >
+										<input type="password" class="form-control" id="Password" ng-model="Password" maxlength="15" name="Password" placeholder="Password" pattern="(^[a-zA-Z_0-9!@#$%^&* ]{6,15}$)" required >
+									<span style="color:red" ng-show="myForm.Password.$dirty && myForm.Password.$invalid">
+									  <span ng-show="myForm.Password.$error.required">*Password is required.</span>
+									  <span ng-show="myForm.Password.$error.email">*Invalid Password address.</span>
+									  </span>
 									</div>
 									<div class="form-group col-sm-6">
-										<input type="password" class="form-control" id="conformpassword" name="conformpassword" onKeyUp="validate()" placeholder="Confirm Password" pattern="(^[a-zA-Z_0-9!@#$%^&* ]{6,15}$)" required  >
+										<input type="password" class="form-control" id="conformpassword" ng-model="conformpassword" name="conformpassword" onKeyUp="validate()" placeholder="Confirm Password" pattern="(^[a-zA-Z_0-9!@#$%^&* ]{6,15}$)" required  >
+									<span style="color:red" ng-show="myForm.conformpassword.$dirty && myForm.conformpassword.$invalid">
+									  <span ng-show="myForm.conformpassword.$error.required">*password is required.</span>
+									  <span ng-show="myForm.conformpassword.$error.email">*Invalid password address.</span>
+									  </span>
 									</div>
 								</div>
 
@@ -161,7 +203,8 @@ session_start();
 									<div class="col-sm-12 text-center">
 										<strong style="color:#444454;">By clicking Register button, you agree to Guided Gateway's <a target="_blank" id="TosLink" href="termsofuse.html">Terms of Service</a> and <a target="_blank" id="PrivacyLink" href="privacy.html">Privacy Policy</a></strong>
 										<br /><br />
-										<input class="col-md-8 col-md-offset-2 btn btn-warning" name="submitbutton" type="submit" id="registerUser" value="Register" style="font-size:17px; font-weight: bold;" class="form-control"><br><br><br>
+										<input class="col-md-8 col-md-offset-2 btn btn-warning" name="submitbutton" type="submit" id="registerUser" value="Register" style="font-size:17px; font-weight: bold;" class="form-control" ng-disabled="myForm.FirstName.$dirty && myForm.FirstName.$invalid || myForm.LastName.$dirty && myForm.LastName.$invalid ||
+  myForm.EmailAddress.$dirty && myForm.email.$invalid"><br><br><br>
 									</div>
 								</div>
 								<div class="col-sm-12 text-center">

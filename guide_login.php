@@ -2,7 +2,7 @@
 session_start();
 if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "signin"))
 {
-header('Location:guided_profile.php?id=' . $_SESSION['userId'] . '');
+header('Location:guide_profile.php?id=' . $_SESSION['userId'] . '');
 exit;
 }
 if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "reg"))
@@ -12,7 +12,9 @@ exit;
 }
 else
 {
-	header('Location:signOut.php');
+	session_unset();
+    session_destroy();
+    session_write_close();
 }
 ?>
 <html lang="en" dir="ltr">
