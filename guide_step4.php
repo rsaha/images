@@ -77,6 +77,7 @@
 			$create3 = mysql_query("INSERT INTO `tbl_referrals`(`referrer_id`, `referral_name`, `referral_email`, `referral_phone`, `referral_status`, `datecreated`) VALUES ($userid, '$nameFriend3', '$emailFriend3', '$mobileFeiend3', 1, now())");
 			}
 			
+            #This step needs to be repeated for each invite friend - can't invite all of them in smae email
 			if($create1 || $create2 || $create3)
 			{
 				
@@ -85,9 +86,8 @@
 				$from=mysql_result($select, 0, 5);
 				$mobileNumber = mysql_result($select, 0, 6);
 				
-				$subject    = "Hi, I am " . $username . " inviting you to join for free"; 
-				$message    = "Hi, I am " . $username . " inviting you to join for free";
-				
+				$subject    = $username . " invited you to register with Guided Gateway - online marketplace for Guides in India"; 
+								
 				$line = array();
 				foreach(file('email_host_address.txt') as $lines) 
 				{
@@ -123,6 +123,8 @@
 				$mail->AddAddress($emailFriend3, $emailFriend3);
 				}
 				
+                $message    = "Hi ".$nameFriend1.",<br/> You guide friend ".$username." registered with Guided Gateway and also inviting you to <a href=http://guide.guidedgateway.com>register</a> with it for a better earning potential from tourists through an integrated service offering. This is absolutely free. <br/>br/>. <a href=http://guide.guidedgateway.com/howitworks_guide.html>Learn more</a>.<br/><br/> Thanks,<br/> Guided Gateway Team - online service just for you";
+                
 				$mail->WordWrap = 50;                   // set word wrap to 50 characters
 				$mail->IsHTML(true);                     // set email format to HTML
 
