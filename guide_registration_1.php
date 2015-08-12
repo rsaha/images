@@ -1,5 +1,14 @@
 <?php
-session_start();
+
+	session_start();
+	
+	if(isset($_SESSION['notification']))
+	{
+		echo '<script> alert("' . $_SESSION['notification'] . '"); </script>';
+		$_SESSION['notification']="";
+		unset($_SESSION['notification']);
+	}
+	
 	if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "signin"))
 	{
 		header('Location:guide_profile.php?id=' . $_SESSION['userId'] . '');
@@ -16,7 +25,7 @@ session_start();
 		session_destroy();
 		session_write_close();
 	}
-	//$_SESSION['notification'] = "user already exist.";
+	
 ?>
 
 <html lang="en" dir="ltr">
@@ -69,19 +78,9 @@ session_start();
 	}
 	
 		</style>
-		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
-		
-<script>
-var app = angular.module('myApp', []);
-app.controller('validateCtrl', function($scope) {
-    $scope.FirstName = '';
-    $scope.LastName = '';
-	 $scope.EmailAddress = '';
-	  $scope.MobileNumber = '';
-	   $scope.Password = '';
-	    $scope.conformpassword = '';
-});
-</script>
+		<script type="text/javascript" src="js/bootbox.min.js"></script>
+		<script type="text/javascript" src="js/bootbox.js"></script>
+
 	</head>
 	<!-- END head -->
 
@@ -136,22 +135,16 @@ app.controller('validateCtrl', function($scope) {
 					</div>
 
 					<div class="row">
-						<form action="guide_Step1.php" method="post" ng-app="myApp"  ng-controller="validateCtrl" name="myForm"  novalidate>
+						<form action="guide_Step1.php" method="post">
 							<div class="col-sm-12">
 								<div class="row">
 									<div class="col-sm-12">
 										<div class="form-group">
 											<div class="form-group col-sm-6">
-												<input type="text" value="" name="FirstName" ng-model="FirstName" id="FirstName" placeholder="First Name" class="form-control" required pattern="[a-z A-Z]+" > 
-											 <span style="color:red" ng-show="myForm.FirstName.$dirty && myForm.FirstName.$invalid">
-											  <span ng-show="myForm.FirstName.$error.required">*Firstname is required.</span>
-											  </span>
+												<input type="text" value="" name="FirstName" id="FirstName" placeholder="First Name" class="form-control" required pattern="[a-z A-Z]+" > 
 											</div>
 											<div class="form-group col-sm-6">
-												<input type="text" value="" name="LastName" ng-model="LastName" id="LastName" placeholder="Last Name" class="form-control" required pattern="[a-z A-Z]+">
-											     <span style="color:red" ng-show="myForm.LastName.$dirty && myForm.LastName.$invalid">
-											  <span ng-show="myForm.LastName.$error.required">*Lastname is required.</span>
-											  </span>
+												<input type="text" value="" name="LastName" id="LastName" placeholder="Last Name" class="form-control" pattern="[a-z A-Z]+">
 											</div>
 										</div>
 									</div>
@@ -159,43 +152,23 @@ app.controller('validateCtrl', function($scope) {
 
 								<div class="form-group">
 									<div class="form-group col-sm-12">
-										<input type="email" value="" name="EmailAddress" id="EmailAddress" ng-model="EmailAddress" onblur="checkEmail(this.value)"  placeholder="Email Address" class="form-control" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9]+\.([a-zA-Z]{2,3}|([a-zA-Z]{2,3}\.[a-zA-Z]{2}))" required >
-										<span style="color:red" ng-show="myForm.EmailAddress.$dirty && myForm.EmailAddress.$invalid">
-									  <span ng-show="myForm.EmailAddress.$error.required">*Email is required.</span>
-									  <span ng-show="myForm.EmailAddress.$error.email">*Invalid email address.</span>
-									  </span>								
+										<input type="email" value="" name="EmailAddress" id="EmailAddress" placeholder="Email Address" class="form-control" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9]+\.([a-zA-Z]{2,3}|([a-zA-Z]{2,3}\.[a-zA-Z]{2}))" required >
 									</div>
 								</div>
-                               <div class="form-group">
-									<div class="form-group col-sm-12">
-										<input type="hidden" value="" name="emailmessage" id="emailmessage"  >
-									</div>
-								</div>
+
 								<div class="form-group">
 									<div class="form-group col-sm-12">
-										<input type="tel" value="" name="MobileNumber" ng-model="MobileNumber" id="MobileNumber" placeholder="Mobile Number" class="form-control" maxlength="10" required pattern="(^[7-9]{1}\d{9}$)">
-									<span style="color:red" ng-show="myForm.MobileNumber.$dirty && myForm.MobileNumber.$invalid">
-									  <span ng-show="myForm.MobileNumber.$error.required">*MobileNumber is required.</span>
-									  <span ng-show="myForm.MobileNumber.$error.email">*Invalid MobileNumber address.</span>
-									  </span>
+										<input type="tel" value="" name="MobileNumber" id="MobileNumber" placeholder="Mobile Number" class="form-control" maxlength="10" required pattern="(^[7-9]{1}\d{9}$)">
 									</div>
 								</div>
 
 
 								<div class="form-group">
 									<div class="form-group col-sm-6">
-										<input type="password" class="form-control" id="Password" ng-model="Password" maxlength="15" name="Password" placeholder="Password" pattern="(^[a-zA-Z_0-9!@#$%^&* ]{6,15}$)" required >
-									<span style="color:red" ng-show="myForm.Password.$dirty && myForm.Password.$invalid">
-									  <span ng-show="myForm.Password.$error.required">*Password is required.</span>
-									  <span ng-show="myForm.Password.$error.email">*Invalid Password address.</span>
-									  </span>
+										<input type="password" class="form-control" id="Password" maxlength="15" name="Password" placeholder="Password" pattern="(^[a-zA-Z_0-9!@#$%^&* ]{6,15}$)" required >
 									</div>
 									<div class="form-group col-sm-6">
-										<input type="password" class="form-control" id="conformpassword" ng-model="conformpassword" name="conformpassword" onKeyUp="validate()" placeholder="Confirm Password" pattern="(^[a-zA-Z_0-9!@#$%^&* ]{6,15}$)" required  >
-									<span style="color:red" ng-show="myForm.conformpassword.$dirty && myForm.conformpassword.$invalid">
-									  <span ng-show="myForm.conformpassword.$error.required">*password is required.</span>
-									  <span ng-show="myForm.conformpassword.$error.email">*Invalid password address.</span>
-									  </span>
+										<input type="password" class="form-control" id="conformpassword" name="conformpassword" onKeyUp="validate()" placeholder="Confirm Password" pattern="(^[a-zA-Z_0-9!@#$%^&* ]{6,15}$)" required  >
 									</div>
 								</div>
 
@@ -203,8 +176,7 @@ app.controller('validateCtrl', function($scope) {
 									<div class="col-sm-12 text-center">
 										<strong style="color:#444454;">By clicking Register button, you agree to Guided Gateway's <a target="_blank" id="TosLink" href="termsofuse.html">Terms of Service</a> and <a target="_blank" id="PrivacyLink" href="privacy.html">Privacy Policy</a></strong>
 										<br /><br />
-										<input class="col-md-8 col-md-offset-2 btn btn-warning" name="submitbutton" type="submit" id="registerUser" value="Register" style="font-size:17px; font-weight: bold;" class="form-control" ng-disabled="myForm.FirstName.$dirty && myForm.FirstName.$invalid || myForm.LastName.$dirty && myForm.LastName.$invalid ||
-  myForm.EmailAddress.$dirty && myForm.email.$invalid"><br><br><br>
+										<input class="col-md-8 col-md-offset-2 btn btn-warning" name="submitbutton" type="submit" id="registerUser" value="Register" style="font-size:17px; font-weight: bold;" class="form-control"><br><br><br>
 									</div>
 								</div>
 								<div class="col-sm-12 text-center">
@@ -229,6 +201,45 @@ app.controller('validateCtrl', function($scope) {
 			
 			<?php include('MasterFooter.php'); ?>
 		</div>
+		
+		<!-- set up the modal to start hidden and fade in and out -->
+<div id="myModal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- dialog body -->
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        Hello world!
+      </div>
+      <!-- dialog buttons -->
+      <div class="modal-footer"><button type="button" class="btn btn-primary">OK</button></div>
+    </div>
+  </div>
+</div>
+ 
+<!-- sometime later, probably inside your on load event callback -->
+<script>
+    $("#myModal").on("show", function() {    // wire up the OK button to dismiss the modal when shown
+        $("#myModal a.btn").on("click", function(e) {
+            console.log("button pressed");   // just as an example...
+            $("#myModal").modal('hide');     // dismiss the dialog
+        });
+    });
+ 
+    $("#myModal").on("hide", function() {    // remove the event listeners when the dialog is dismissed
+        $("#myModal a.btn").off("click");
+    });
+    
+    $("#myModal").on("hidden", function() {  // remove the actual elements from the DOM when fully hidden
+        $("#myModal").remove();
+    });
+    
+    $("#myModal").modal({                    // wire up the actual modal functionality and show the dialog
+      "backdrop"  : "static",
+      "keyboard"  : true,
+      "show"      : true                     // ensure the modal is shown immediately
+    });
+</script>
 		<!-- END #wrapper -->
 
 				<!-- javascripts -->
@@ -253,6 +264,8 @@ app.controller('validateCtrl', function($scope) {
 		<script type="text/javascript" src="bs3/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="js/check-radio-box.js"></script>
 		<script type="text/javascript" src="js/script.js"></script>
+		
+			
 		<!--[if lt IE 9]>
 			<script type="text/javascript" src="js/html5shiv.js"></script>
 		<![endif]-->

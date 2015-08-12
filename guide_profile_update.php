@@ -16,7 +16,8 @@ session_start();
 	}
 	else
 	{
-		$flag=0;
+		$flag1=0;
+		$flag2=0;
 			include('db.php');
 			$firstName=mysql_real_escape_string($_POST['firstName']);
 			$lastName=mysql_real_escape_string($_POST['lastName']);
@@ -44,7 +45,11 @@ session_start();
 			`state`='$state', `country`='$country', `datecreated`=now() WHERE `user_id` = $userid");
 			if($update1)
 			{
-				$flag=1;
+				$flag1=1;
+			}
+			else
+			{
+				$flag1=0;
 			}
 			if(file_exists($_FILES["licenceImage"]["tmp_name"]))
 			{
@@ -73,7 +78,7 @@ session_start();
 						$hex_string = base64_encode($bin_string);
 						$imgFullpath = "http://".$_SERVER['SERVER_NAME'].dirname($_SERVER["REQUEST_URI"].'?').'/'. "upload/" . $newName;
 					}
-				} 
+				}
 				else 
 				{
 					echo "<script type='text/javascript'>alert('Could not upload the licence attachment');</script>";
@@ -116,7 +121,11 @@ session_start();
 					)");
 					if($insert2)
 					{
-						$flag=1;
+						$flag2=1;
+					}
+					else
+					{
+						$flag2=0;
 					}
 				}
 				else
@@ -148,7 +157,11 @@ session_start();
 					)");
 					if($insert2)
 					{
-						$flag=1;
+						$flag2=1;
+					}
+					else
+					{
+						$flag2=0;
 					}
 				}
 			}
@@ -157,29 +170,37 @@ session_start();
 				
 				if(isset($hex_string))
 				{
-			$update2 = mysql_query("UPDATE `tbl_guide_detail_profile` SET `guide_experience` = '$experiance', `license_no`='$licenceNumber',`validity`=$licenceValidty,
-			`license_Image` = '$hex_string',`landline_no`='$landLineNumber', `payment_terms`='$paymentTerm',
-			`Best_time_for_contact`='$bestTimeToContace', `Communication_mechanism`='$communicationMechanism',
-			`guide_Remarks`='$remark',`datecreated`=now() WHERE `user_id` = $userid");
-			if($update2)
-			{
-				$flag=1;
-			}
+					$update2 = mysql_query("UPDATE `tbl_guide_detail_profile` SET `guide_experience` = '$experiance', `license_no`='$licenceNumber',`validity`=$licenceValidty,
+					`license_Image` = '$hex_string',`landline_no`='$landLineNumber', `payment_terms`='$paymentTerm',
+					`Best_time_for_contact`='$bestTimeToContace', `Communication_mechanism`='$communicationMechanism',
+					`guide_Remarks`='$remark',`datecreated`=now() WHERE `user_id` = $userid");
+					if($update2)
+					{
+						$flag2=1;
+					}
+					else
+					{
+						$flag2=0;
+					}
 				}
 				else
 				{
 					$update2 = mysql_query("UPDATE `tbl_guide_detail_profile` SET `guide_experience` = '$experiance', `license_no`='$licenceNumber',`validity`=$licenceValidty,
-			`landline_no`='$landLineNumber', `payment_terms`='$paymentTerm',
-			`Best_time_for_contact`='$bestTimeToContace', `Communication_mechanism`='$communicationMechanism',
-			`guide_Remarks`='$remark',`datecreated`=now() WHERE `user_id` = $userid");
-			if($update2)
-			{
-				$flag=1;
-			}
+					`landline_no`='$landLineNumber', `payment_terms`='$paymentTerm',
+					`Best_time_for_contact`='$bestTimeToContace', `Communication_mechanism`='$communicationMechanism',
+					`guide_Remarks`='$remark',`datecreated`=now() WHERE `user_id` = $userid");
+					if($update2)
+					{
+						$flag2=1;
+					}
+					else
+					{
+						$flag2=0;
+					}
 				}
 			}
 			
-			if($flag==1)
+			if($flag1==1 && $flag2==1)
 			{
 			$msg = "Guide '$emailID' Profile Successfully Updated!!";
 			error_log($msg,0);
