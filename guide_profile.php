@@ -1,5 +1,6 @@
 <?php
 	session_start();
+	
 	if(isset($_SESSION['userId']))
 	{
 		if(isset($_GET['id']))
@@ -619,6 +620,17 @@
 			<!-- END .main-contents -->
 			</form>
 			<?php include('MasterFooter.php'); ?>
+			
+			<?php
+			
+			if(isset($_SESSION['notification']))
+			{
+				echo '<script> alert("' . $_SESSION['notification'] . '"); </script>';
+				$_SESSION['notification']="";
+				unset($_SESSION['notification']);
+			}
+			
+			?>
 		</div>
 		<!-- END #wrapper -->
 			

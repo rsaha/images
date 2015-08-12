@@ -62,7 +62,7 @@ echo "<script type='text/javascript'>alert('ram2');</script>";
 		$mail->IsHTML(true);                                  // set email format to HTML
 
 		$mail->Subject = "Guide " . $username . "has envited his some friends";
-		$mail->Body    ="<b>". $username . " has invite his friends of following email id...<br />" . $emailaddresses . "</b><br /><br /> -----------------------------<br />Waltrump Technology<br>(www.Guided Gateway Website)<br />Email: quote@Guided Gateway Website<br /> Contact: +91 121 2708197, +91 93 6854 1767";
+		$mail->Body    ="<b>". $username . " has invited his friends of following email id...<br />" . $emailaddresses . "</b><br /><br /> -----------------------------<br />";
 
 		if(!$mail->Send())
 		{
