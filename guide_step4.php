@@ -144,7 +144,7 @@
 				}
 				else
 				{
-				//unset($_SESSION['userId']);
+				$_SESSION['notification']="Congratulation! welcome to your profile, you are now registered with us.";
 				$errormsg="Referring to friend Email Sent.";
 				error_log($errormsg,0);
 				$msg="Successfully invited!!";
@@ -156,6 +156,7 @@
 			}
 			else
 			{
+				$_SESSION['notification']="Congratulation! welcome to your profile, you are now registered with us.";
 				header('Location: guide_profile.php?id=' . $userid . '');
 				exit;
 			}
@@ -164,7 +165,7 @@
 	else
 	{
 		$errormsg="Unauthenticated access to the step 4 page, Registraion Step 1 is not done";
-				error_log($errormsg,0);
+		error_log($errormsg,0);
 		include("signOut.php");
 		header('Location:guide_registration_1.php');
 		exit;

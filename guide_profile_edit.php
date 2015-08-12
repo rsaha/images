@@ -355,7 +355,7 @@
 													  <label class="col-xs-5 control-label">Gender:</label>
 													  
 													  <div class="col-xs-7 controls">
-													  <select class="form-control" name="gender" style="background-color:#f7f7f7;">
+													  <select class="form-control" id="gender" name="gender" style="background-color:#f7f7f7;">
 														  <option value="SELECT">Select</option>
 														  <option value="Male">Male</option>
 														  <option value="Female">Female</option>
@@ -525,11 +525,11 @@
 			</script>
 			
 			<script>
-			document.getElementById("gender").value = "<?php echo $gender ?>";
-			document.getElementById("state").value = "<?php echo $state ?>";
-			document.getElementById("country").value = "India";
-			document.getElementById("bestTimeToContace").value = "<?php echo $bestTimeToContace ?>";
-			document.getElementById("communicationMechanism").value = "<?php echo $communicationMechanism ?>";
+				document.getElementById("gender").value = "<?php echo $gender ?>";
+				document.getElementById("state").value = "<?php echo $state ?>";
+				document.getElementById("country").value = "India";
+				document.getElementById("bestTimeToContace").value = "<?php echo $bestTimeToContace ?>";
+				document.getElementById("communicationMechanism").value = "<?php echo $communicationMechanism ?>";
 			</script>
 			<script type="text/javascript" src="js/country_state.js"></script>
 			<script language="javascript">

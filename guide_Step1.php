@@ -73,7 +73,10 @@
 				$mail->SMTPAuth = true;     	 			// turn on SMTP authentication
 				$mail->Username = $HostEmail; 			// SMTP username
 				$mail->Password = $HostPassword; 			  	// SMTP password
-
+				
+				//$mail->SMTPSecure = 'tls';
+				//$mail->Port = 587;
+				
 				$mail->From = $HostEmail;
 				$mail->FromName = "Guided Gateway";
 				$mail->AddAddress($from, $username);
@@ -105,6 +108,7 @@
 	}
 	else
 	{
+		$_SESSION['notification']="Email or Mobile Number already Exist.";
 		$errormsg="Something went wrong, Could Not Register. Try again";
 		error_log($errormsg,0);
 		echo "<script type='text/javascript'>alert('$errormsg');</script>";
