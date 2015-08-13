@@ -209,7 +209,7 @@ fieldset[disabled] .btn-primary.active {
 }
 
 .jumbotron{
-    background: url(images/intro-bg.jpg);
+    background: url(img/tour_1.jpg);
     color: #ffffff;
     background-attachment: fixed;
 }
@@ -219,17 +219,17 @@ fieldset[disabled] .btn-primary.active {
 }
 
 .jumbotron .media{
-    margin: 50px 0;
+    margin: 20px 0;
 }
 .jumbotron .media-body h1{
-    margin-top: 100px;
+    margin-top: 150px;
 }
 
 section.slider{
     color: #ffffff;
     background: #52AD81;
     margin: 40px 0;
-    padding: 40px 0;
+    padding: 20px 0;
 }
 
 section.slider h2{
