@@ -15,9 +15,8 @@
 
     <!-- Custom styles for this template -->
     <link href="css/style_how.css" rel="stylesheet">
-
     <style type="text/css">
-    body { padding-top: 60px; }
+    body { padding-top: 10px; }
 .nav.nav-justified > li > a { position: relative; }
 .nav.nav-justified > li > a:hover,
 .nav.nav-justified > li > a:focus { background-color: transparent; }
@@ -52,9 +51,9 @@
     -webkit-transition: all 0.3s 0s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             transition: all 0.3s 0s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
-.tab-pane .tab-inner { padding: 30px 0 20px; }
+.tab-pane .tab-inner { padding: 10px 0 10px; }
 
-@media (min-width: 768px) {
+@media (min-width: 400px) {
     .nav.nav-justified > li > a > .quote {
         left: auto;
         top: auto;
@@ -69,6 +68,19 @@
     <script src="bootstrap/js/html5shiv.js"></script>
     <script src="bootstrap/js/respond.min.js"></script>
     <![endif]-->
+    
+    <!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-64862528-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+    
 </head>
 
 <body data-spy="scroll" data-target="#topnav">
@@ -85,11 +97,9 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="index.html">Home</a></li>
-                <li><a href="guide_login.php">Guide Home</a></li>
-                <li><a href="guide_registration_1.php">Guide Sign Up</a></li>
-                <li><a href="#contact">Contact</a></li>
-
+                <li class="active"><a href="http://www.guidedgateway.com">Home</a></li>
+                <li><a href="http://www.guidedgateway.com/guide_login.php">Guide Home</a></li>
+                <li><a href="http://www.guidedgateway.com/guide_registration_1.php">Guide Sign Up</a></li>
             </ul>
 
         </div>
@@ -114,6 +124,7 @@
     </div>
 </div>
 
+    
 <div class="[ container text-center ]">
     <div class="[ row ]">
         <div class="[ col-xs-4 col-sm-12 ]" role="tabpanel">
@@ -122,24 +133,24 @@
                 <ul class="[ nav nav-justified ]" id="nav-tabs" role="tablist">
                     <li role="presentation" class="active">
                         <a href="#dustin" aria-controls="dustin" role="tab" data-toggle="tab">
-                            <img class="img-circle" src="img/icons/why-us-250x250.jpg" />
-                            <span class="quote"><i class="fa fa-quote-left">Why join Guided Gateway</i></span>
+                            <img class="img-circle" src="img/why-us.jpg" />
                         </a>
                     </li>
                     <li role="presentation" class="">
                         <a href="#anna" aria-controls="anna" role="tab" data-toggle="tab">
-                            <img class="img-circle" src="img/icons/icon_gear.png" />
-                            <span class="quote"><i class="fa fa-quote-left">How it Works</i></span>
+                            <img class="img-circle" src="img/icon_gear.jpg" />
                         </a>
                     </li>
                 </ul>
             </div>
             <div class="[ col-xs-8 col-sm-12 ]">
                 <!-- Tab panes -->
-                <div class="tab-content" id="tabs-collapse">            
+                <div class="tab-content" id="tabs-collapse">  
+                    
                     <div role="tabpanel" class="tab-pane fade in active" id="dustin">
                         <div class="tab-inner">                    
                              <div class="container" id="services">
+                                 <h2>Why join Guided Gateway</h2>
     <!-- Example row of columns -->
     <div class="row features">
         <div class="col-lg-4 text-center">
@@ -197,6 +208,7 @@
                             <div class="container">
 
         <div class="container" id="services">
+            <h2>How it Works</h2>
     <!-- Example row of columns -->
     <div class="row features">
         <div class="col-lg-4 text-center">
@@ -207,9 +219,8 @@
   <i class="icon-ok icon-light"></i>
 </span>
                 </div>
-                <h2>Join our growing list of local guides</h2>
-
-                <p>Easy sign up</p>
+                <h2>We build , promote your profile and tours</h2>
+                <p>Social, Online , Offline</p>
 
             </div>
         </div>
@@ -221,9 +232,8 @@
   <i class="icon-laptop icon-light"></i>
 </span>
                 </div>
-                <h2>Tourists select you for local sightseeing service</h2>
-
-                <p>They directly purchase from us through credit card or pay you by cash after service delivery</p>
+                <h2>Tourists book packaged or custom tours </h2>
+                <p>Either through credit card or cash-on-delivery</p>
 
             </div>
         </div>
@@ -235,9 +245,8 @@
   <i class="icon-download-alt icon-light"></i>
 </span>
                 </div>
-                <h2>We pay you after our commison</h2>
-                <p>We pay for any no-show or late cancellation.</p>
-
+                <h2>We pay you after service delivery</h2>
+                <p>We compensate for no-show or late cancellation.</p>
             </div>
         </div>
 
@@ -294,37 +303,37 @@
                                             <div class="item active">
                                                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 item animate_afc d1 animate_start">
                                                     <div class="item-inner"><a style="cursor: pointer;"><img
-                                                            src="https://storage.googleapis.com/guidedgateway_media/guide_1.jpg" alt="Upportdash"></a></div>
+                                                            src="https://storage.googleapis.com/guidedgateway_media/guide_1.jpg" alt="guide_1"></a></div>
                                                 </div>
                                                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 item animate_afc d2 animate_start">
                                                     <div class="item-inner"><a style="cursor: pointer;"><img
-                                                            src="https://storage.googleapis.com/guidedgateway_media/guide_2.jpg" alt="Upportdash"></a></div>
+                                                            src="https://storage.googleapis.com/guidedgateway_media/guide_2.jpg" alt="guide_2"></a></div>
                                                 </div>
                                                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 item animate_afc d3 animate_start">
                                                     <div class="item-inner"><a style="cursor: pointer;"><img
-                                                            src="https://storage.googleapis.com/guidedgateway_media/guide_3.jpg" alt="Upportdash"></a></div>
+                                                            src="https://storage.googleapis.com/guidedgateway_media/guide_3.jpg" alt="guide_3"></a></div>
                                                 </div>
                                                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 item animate_afc d4 animate_start">
                                                     <div class="item-inner"><a style="cursor: pointer;"><img
-                                                            src="https://storage.googleapis.com/guidedgateway_media/guide_4.jpg" alt="Upportdash"></a></div>
+                                                            src="https://storage.googleapis.com/guidedgateway_media/guide_4.jpg" alt="guide_4"></a></div>
                                                 </div>
                                             </div>
                                             <div class="item">
                                                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 item">
                                                     <div class="item-inner"><a style="cursor: pointer;"><img
-                                                            src="images/https://storage.googleapis.com/guidedgateway_media/guide_1.jpg" alt="Upportdash"></a></div>
+                                                            src="https://storage.googleapis.com/guidedgateway_media/guide_1.jpg" alt="guide_1"></a></div>
                                                 </div>
                                                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 item">
                                                     <div class="item-inner"><a style="cursor: pointer;"><img
-                                                            src="https://storage.googleapis.com/guidedgateway_media/guide_2.jpg" alt="Upportdash"></a></div>
+                                                            src="https://storage.googleapis.com/guidedgateway_media/guide_2.jpg" alt="guide_2"></a></div>
                                                 </div>
                                                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 item">
                                                     <div class="item-inner"><a style="cursor: pointer;"><img
-                                                            src="https://storage.googleapis.com/guidedgateway_media/guide_3.jpg" alt="Upportdash"></a></div>
+                                                            src="https://storage.googleapis.com/guidedgateway_media/guide_3.jpg" alt="guide_3"></a></div>
                                                 </div>
                                                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 item">
                                                     <div class="item-inner"><a style="cursor: pointer;"><img
-                                                            src="https://storage.googleapis.com/guidedgateway_media/guide_4.jpg" alt="Upportdash"></a></div>
+                                                            src="https://storage.googleapis.com/guidedgateway_media/guide_4.jpg" alt="guide_4"></a></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -427,7 +436,7 @@
 
     <div class="container">
          <h4 class="pull-top">Get in <strong>touch</strong></h4>
-                <p>Need some more details or want us to contact to explain our services.</p>
+                <p>for more details</p>
         <div class="row">
 
             <div class="col-md-6">
