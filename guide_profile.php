@@ -159,7 +159,7 @@
 							}
 							else
 							{
-								$picVal = mysql_result($select4pic, 0, 2);
+								$picVal = mysql_result($select4pic, 0, 3);
 								if($picVal==null)
 								{
 									echo '<img style="width:1400px; height:200px;" class="hover img-responsive" src="img/Default.jpg"/>';
