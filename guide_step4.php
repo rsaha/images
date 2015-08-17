@@ -36,6 +36,8 @@
 				echo "<script type='text/javascript'>alert('$HostEmail');</script>";
 				echo "<script type='text/javascript'>alert('$HostPassword');</script>";
 			
+			
+			
 			$nameFriend1=mysql_real_escape_string($_POST['nameFriend1']);
 			$nameFriend2=mysql_real_escape_string($_POST['nameFriend2']);
 			$nameFriend3=mysql_real_escape_string($_POST['nameFriend3']);
@@ -48,21 +50,8 @@
 			$mobileFeiend2=mysql_real_escape_string($_POST['mobileFeiend2']);
 			$mobileFeiend3=mysql_real_escape_string($_POST['mobileFeiend3']);
 			
-		/* $EA1=mysql_real_escape_string($_POST['emailFriend1']);
-		  if(preg_match("/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9]+\.(([a-zA-Z]{2,3})|([a-zA-Z]{2,3}\.[a-zA-Z]{2}))$/i", $EA1)) {
-		    $emailFriend1 = $EA1 ;
-			$create1 = mysql_query("INSERT INTO `tbl_referrals`(`referrer_id`, `referral_name`, `referral_email`, `referral_phone`, `referral_status`, `datecreated`) VALUES ($userid, '$nameFriend1', '$emailFriend1', '$mobileFeiend1', 1, now())");
-			}
-		$EA2=mysql_real_escape_string($_POST['emailFriend2']);
-		if(preg_match("/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9]+\.(([a-zA-Z]{2,3})|([a-zA-Z]{2,3}\.[a-zA-Z]{2}))$/i", $EA2)) {
-		    $emailFriend2 = $EA2 ;
-			$create2 = mysql_query("INSERT INTO `tbl_referrals`(`referrer_id`, `referral_name`, `referral_email`, `referral_phone`, `referral_status`, `datecreated`) VALUES ($userid, '$nameFriend2', '$emailFriend1', '$mobileFeiend2', 1, now())");
-			}
-		$EA3=mysql_real_escape_string($_POST['emailFriend3']);
-		if(preg_match("/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9]+\.(([a-zA-Z]{2,3})|([a-zA-Z]{2,3}\.[a-zA-Z]{2}))$/i", $EA3)) {
-		    $emailFriend3 = $EA3 ;
-			$create3 = mysql_query("INSERT INTO `tbl_referrals`(`referrer_id`, `referral_name`, `referral_email`, `referral_phone`, `referral_status`, `datecreated`) VALUES ($userid, '$nameFriend3', '$emailFriend1', '$mobileFeiend3', 1, now())");
-			} */
+			
+		
 			
 			if($emailFriend1!="" || $emailFriend1!=NULL)
 			{
@@ -98,61 +87,89 @@
 				$HostEmail=trim($line[1]);
 				$HostPassword=trim($line[2]);
 				
-				require("PHPMailer_5.2.0/class.phpmailer.php");
-
-				$mail = new PHPMailer();
-
-				$mail->IsSMTP();                  			// set mailer to use SMTP
-				$mail->Host =  $hostAddress;			// specify main and backup server
-				$mail->SMTPAuth = true;     	 			// turn on SMTP authentication
-				$mail->Username = $HostEmail; 			// SMTP username
-				$mail->Password = $HostPassword; 			  	// SMTP password
-
-				$mail->From = $HostEmail;
-				$mail->FromName = $username;
+				$nameFriend=array();
+				$emailFriend=array();
+				$mobileFeiend=array();
+				
 				if($create1)
 				{
-				$mail->AddAddress($emailFriend1, $emailFriend1);
+					array_push($nameFriend, $nameFriend1);
+					array_push($emailFriend, $emailFriend1);
+					array_push($mobileFeiend, $mobileFeiend1);
 				}
 				if($create2)
 				{
-				$mail->AddAddress($emailFriend2, $emailFriend2);
+					array_push($nameFriend, $nameFriend2);
+					array_push($emailFriend, $emailFriend2);
+					array_push($mobileFeiend, $mobileFeiend2);
 				}
 				if($create3)
 				{
-				$mail->AddAddress($emailFriend3, $emailFriend3);
+					array_push($nameFriend, $nameFriend3);
+					array_push($emailFriend, $emailFriend3);
+					array_push($mobileFeiend, $mobileFeiend3);
 				}
 				
-                $message    = "Hi ".$nameFriend1.",<br/> You guide friend ".$username." registered with Guided Gateway and also inviting you to <a href=http://guide.guidedgateway.com>register</a> with it for a better earning potential from tourists through an integrated service offering. This is absolutely free. <br/>br/>. <a href=http://guide.guidedgateway.com/howitworks_guide.html>Learn more</a>.<br/><br/> Thanks,<br/> Guided Gateway Team - online service just for you";
-                
-				$mail->WordWrap = 50;                   // set word wrap to 50 characters
-				$mail->IsHTML(true);                     // set email format to HTML
-
-				$mail->Subject = "Mail from " . $from . " - " . $subject . ".";
-				$mail->Body    ="Email : " . $from . "<br />Subject : <b>" . $subject . "</b><br /><br />" . $message . ".";
-
-				if(!$mail->Send())
+				$sentSuccess=0;
+				require("PHPMailer_5.2.0/class.phpmailer.php");
+				for ($x=0 ; $x<=count($emailFriend) ; $x++)
 				{
-				unset($_SESSION['userId']);
-				$errormsg="Referring to the friend email could not be send.";
-				error_log($errormsg,0);
-				$msg="Something Went Wrong!!";
-				echo "<script type='text/javascript'>alert('$msg');</script>";
-				header('Location: guide_profile.php?id=' . $userid . '');
-				die;
-				exit;
+					$mail = new PHPMailer();
+
+					$mail->IsSMTP();                  			// set mailer to use SMTP
+					$mail->Host =  $hostAddress;			// specify main and backup server
+					$mail->SMTPAuth = true;     	 			// turn on SMTP authentication
+					$mail->Username = $HostEmail; 			// SMTP username
+					$mail->Password = $HostPassword; 			  	// SMTP password
+
+					$mail->From = $HostEmail;
+					$mail->FromName = $username;
+					$mail->AddAddress($emailFriend[$x], $emailFriend[$x]);
+					
+					
+					$message    = "Hi ".$nameFriend[$x].",<br/> You guide friend ".$username." registered with Guided Gateway and also inviting you to <a href=http://guide.guidedgateway.com>register</a> with it for a better earning potential from tourists through an integrated service offering. This is absolutely free. <br/><br/>. <a href=http://guide.guidedgateway.com/howitworks_guide.html>Learn more</a>.<br/><br/> Thanks,<br/> Guided Gateway Team - online service just for you";
+					
+					$mail->WordWrap = 50;                   // set word wrap to 50 characters
+					$mail->IsHTML(true);                     // set email format to HTML
+
+					$mail->Subject = "Mail from " . $from . " - " . $subject . ".";
+					$mail->Body    ="Email : " . $from . "<br />Subject : <b>" . $subject . "</b><br /><br />" . $message . ".";
+
+					if(!$mail->Send())
+					{
+						if($sentSuccess==0)
+						{
+						$sentSuccess=0;
+						}
+					}
+					else
+					{
+						$sentSuccess=1;
+					}
 				}
-				else
+				if($sentSuccess==0)
 				{
-				$_SESSION['notification']="Congratulation! welcome to your profile, you are now registered with us.";
-				$errormsg="Referring to friend Email Sent.";
-				error_log($errormsg,0);
-				$msg="Successfully invited!!";
-				echo "<script type='text/javascript'>alert('$msg');</script>";
-				header('Location: acknowledgeMail.php?id=' . $userid . '');
-				die;
-				exit;
+					unset($_SESSION['userId']);
+					$errormsg="Referring to the friend email could not be send.";
+					error_log($errormsg,0);
+					$msg="Something Went Wrong!!";
+					echo "<script type='text/javascript'>alert('$msg');</script>";
+					header('Location: guide_profile.php?id=' . $userid . '');
+					die;
+					exit;
 				}
+				if($sentSuccess==1)
+				{
+					$_SESSION['notification']="Congratulation! welcome to your profile, you are now registered with us.";
+					$errormsg="Referring to friend Email Sent.";
+					error_log($errormsg,0);
+					$msg="Successfully invited!!";
+					echo "<script type='text/javascript'>alert('$msg');</script>";
+					header('Location: acknowledgeMail.php?id=' . $userid . '');
+					die;
+					exit;
+				}
+				
 			}
 			else
 			{

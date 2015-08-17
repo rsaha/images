@@ -111,6 +111,8 @@ else
 		}
 		
 		</style>
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+		<script src="App.js"></script>
 	</head>
 	<!-- END head -->
 
@@ -240,7 +242,7 @@ else
 								
 								<!-- START TAB CONTENT -->
 								<div class="tab-content clearfix marb30">
-									<form action="guide_Step2.php" enctype="multipart/form-data" method="post">
+									<form action="guide_Step2.php" enctype="multipart/form-data" method="post" ng-app="myApp"  ng-controller="validateCtrl2" name="myForm"  novalidate>
 									<div class="tab-pane active mart20" id="userinfo">
 										<input type="hidden" name="userid" value="<?php echo $userid; ?>" />
 											<fieldset>
@@ -248,7 +250,11 @@ else
 													<li class="row">
 														<div class="col-md-4">
 															<label style="font-size:14px; font-weight:bold">Nick Name</label>
-															<input type="text" class="form-control" name="nickname" value="" pattern="[a-z A-Z]+" />
+															<input type="text" class="form-control" name="nickname" ng-model="nickname" value="" ng-pattern="/^[a-z A-Z]+$/" />
+															 <span style="color:red" ng-show="myForm.nickname.$dirty && myForm.nickname.$invalid">
+											
+											   <span ng-show="myForm.nickname.$error.pattern">*Invalid nick Name ...</span>
+											  </span>
 														</div>
 														<div class="col-md-4">
 															<label style="font-size:14px; font-weight:bold">Gender</label>
@@ -266,14 +272,21 @@ else
 													<li class="row">
 														<div class="col-md-12">
 															<label style="font-size:14px; font-weight:bold">Street Address</label>
-															<input type="text" class="form-control" name="streetaddress" pattern="[a-z0-9A-Z -.]+" value="" />
+															<input type="text" class="form-control" name="streetaddress" ng-model="streetaddress" ng-pattern="/^[a-z0-9A-Z -.]+$/" value="" />
+															 <span style="color:red" ng-show="myForm.streetaddress.$dirty && myForm.streetaddress.$invalid">
+											 
+											   <span ng-show="myForm.streetaddress.$error.pattern">*Invalid street address ...</span>
+											  </span>
 														</div>
 														
 													</li>
 													<li class="row">
 														<div class="col-md-4">
 															<label style="font-size:14px; font-weight:bold">City</label>
-															<input type="text" class="form-control" name="city" value="" pattern="[a-z A-Z]+" />
+															<input type="text" class="form-control" name="city" ng-model="city" value="" ng-pattern="/^[a-z A-Z]+$/" />
+															 <span style="color:red" ng-show="myForm.city.$dirty && myForm.city.$invalid">
+											   <span ng-show="myForm.city.$error.pattern">*Invalid city ...</span>
+											  </span>
 														</div>
 														<div class="col-md-4">
 															<label style="font-size:14px; font-weight:bold">State</label>
@@ -287,7 +300,11 @@ else
 													<li class="row">
 														<div class="col-md-4">
 															<label style="font-size:14px; font-weight:bold">Licence Number</label>
-															<input type="text" class="form-control" name="licencenumber" maxlength="20" value="" pattern="[a-z0-9A-Z]+" />
+															<input type="text" class="form-control" name="licencenumber" maxlength="20" ng-model="licencenumber" value="" ng-pattern="/^[a-z0-9A-Z]+$/" />
+															 <span style="color:red" ng-show="myForm.licencenumber.$dirty && myForm.licencenumber.$invalid">
+											  
+											   <span ng-show="myForm.licencenumber.$error.pattern">*Invalid licence number ...</span>
+											  </span>
 														</div>
 														<div class="col-md-4">
 															<label style="font-size:14px; font-weight:bold">Licence Expiry</label>
@@ -301,7 +318,11 @@ else
 													<li class="row">
 														<div class="col-md-4">
 															<label style="font-size:14px; font-weight:bold">Landline Number</label>
-															<input type="tel" class="form-control" name="landlinenumber" value="" maxlength="15" pattern="\d{15}"/>
+															<input type="tel" class="form-control" name="landlinenumber" value="" ng-model="landlinenumber" maxlength="15" ng-pattern="/^\d{15}$/"/>
+															 <span style="color:red" ng-show="myForm.landlinenumber.$dirty && myForm.landlinenumber.$invalid">
+											 
+											   <span ng-show="myForm.landlinenumber.$error.pattern">*Invalid landline number ...</span>
+											  </span>
 														</div>
 														<div class="col-md-4">
 														
@@ -340,7 +361,8 @@ else
 														
 														<div class="form-group">
 														<div class="col-md-3 pull-right" >
-															<button type="submit" class="btn btn-warning form-control">Next</button>
+															<button type="submit" class="btn btn-warning form-control" ng-disabled="myForm.nickname.$dirty && myForm.nickname.$invalid || myForm.streetaddress.$dirty && myForm.streetaddress.$invalid ||
+  myForm.city.$dirty && myForm.city.$invalid || myForm.licencenumber.$dirty && myForm.licencenumber.$invalid || myForm.landlinenumber.$dirty && myForm.landlinenumber.$invalid" >Next</button>
 														
 														</div>
 														<div class="col-md-3 pull-right" >
