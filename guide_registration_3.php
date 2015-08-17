@@ -64,7 +64,7 @@ else
 		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Karla:400,700,400italic,700italic" />
 		<!-- color scheme -->
 		<link rel="stylesheet" type="text/css" href="css/colors/color1.css" title="color1" />
-		
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
 		<style type="text/css" >
 		
 		.hovera a:hover
@@ -88,6 +88,7 @@ else
 		}
 		
 		</style>
+			<script src="App.js"></script>
 	</head>
 	<!-- END head -->
 
@@ -109,7 +110,7 @@ else
 							}
 							else
 							{
-								$picVal = mysql_result($select4pic, 0, 2);
+								$picVal = mysql_result($select4pic, 0, 3);
 								if($picVal==null)
 								{
 									echo '<img style="width:1400px; height:200px;" class="hover img-responsive" src="img/Default.jpg"/>';
@@ -187,29 +188,45 @@ else
 								<div class="tab-content clearfix marb30">
 									<!-- START TAB 1 -->
 									<div class="tab-pane active mart20" id="userinfo">
-										<form action="guide_Step3.php" method="post">
+										<form action="guide_Step3.php" method="post" ng-app="myApp"  ng-controller="validateCtrl3" name="myForm"  novalidate>
 										<input type="hidden" name="userid" value="<?php echo $userid ?>" />
 											<fieldset>
 												<ul class="formFields list-unstyled">
 													<li class="row">
 														<div class="col-md-6">
 															<label style="font-size:14px; font-weight:bold">Guide Facebook Profile</label>
-															<input type="text" class="form-control" name="GuideFacebookProfile" value="" />
+															<input type="text" class="form-control" name="GuideFacebookProfile" ng-model="GuideFacebookProfile" value="" ng-pattern="[a-z0-9A-Z_-.]+"/>
+															<span style="color:red" ng-show="myForm.GuideFacebookProfile.$dirty && myForm.GuideFacebookProfile.$invalid">
+											 
+											   <span ng-show="myForm.GuideFacebookProfile.$error.pattern">*Invalid Facebook Profile Name ...</span>
+											  </span>
 														</div>
 														<div class="col-md-6">
 															<label style="font-size:14px; font-weight:bold">Guide Linkedin Profile</label>
-															<input type="text" class="form-control" name="GuideLinkedinProfile" value="" />
+															<input type="text" class="form-control" name="GuideLinkedinProfile" ng-model="GuideLinkedinProfile" value="" ng-pattern="[a-z0-9A-Z_-.]+" />
+															<span style="color:red" ng-show="myForm.GuideLinkedinProfile.$dirty && myForm.GuideLinkedinProfile.$invalid">
+											 
+											   <span ng-show="myForm.GuideLinkedinProfile.$error.pattern">*Invalid Linkedin Profile Name ...</span>
+											  </span>
 														</div>
 														
 													</li>
 													<li class="row">
 														<div class="col-md-6">
 															<label style="font-size:14px; font-weight:bold">Guide Pinterest Profile</label>
-															<input type="text" class="form-control" name="GuidePinterestProfile" value="" />
+															<input type="text" class="form-control" name="GuidePinterestProfile" ng-model="GuidePinterestProfile" value="" ng-pattern="[a-z0-9A-Z_-.]+" />
+															<span style="color:red" ng-show="myForm.GuidePinterestProfile.$dirty && myForm.GuidePinterestProfile.$invalid">
+											  
+											   <span ng-show="myForm.GuidePinterestProfile.$error.pattern">*Invalid Pinterest Profile Name ...</span>
+											  </span>
 														</div>
 														<div class="col-md-6">
 															<label style="font-size:14px; font-weight:bold">Guide Skype Address</label>
-															<input type="text" class="form-control" name="GuideSkypeAddress" pattern="[a-z0-9A-Z_-.]+"  value="" />
+															<input type="text" class="form-control" name="GuideSkypeAddress" ng-model="GuideSkypeAddress" ng-pattern="[a-z0-9A-Z_-.]+"  value="" />
+															<span style="color:red" ng-show="myForm.GuideSkypeAddress.$dirty && myForm.GuideSkypeAddress.$invalid">
+											 
+											   <span ng-show="myForm.GuideSkypeAddress.$error.pattern">*Invalid Skype Address ...</span>
+											  </span>
 														</div>
 													</li>
 													
@@ -231,7 +248,7 @@ else
 														
 														<div class="form-group">
 														<div class="col-md-3 pull-right" >
-															<button type="submit" class="btn btn-warning form-control">Next</button>
+															<button type="submit" class="btn btn-warning form-control" ng-disabled="myForm.GuideFacebookProfile.$dirty && myForm.GuideFacebookProfile.$invalid || myForm.GuideLinkedinProfile.$dirty && myForm.GuideLinkedinProfile.$invalid || myForm.GuidePinterestProfile.$dirty && myForm.GuidePinterestProfile.$invalid || myForm.GuideSkypeAddress.$dirty && myForm.GuideSkypeAddress.$invalid ">Next</button>
 														
 														</div>
 														<div class="col-md-3 pull-right" >
