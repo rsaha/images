@@ -88,16 +88,7 @@ else
 		}
 		
 		</style>
-		<script>
-var app = angular.module('myApp', []);
-app.controller('validateCtrl', function($scope) {
-    $scope.GuideFacebookProfile = '';
-    $scope.GuideLinkedinProfile = '';
-	 $scope.GuidePinterestProfile = '';
-	  $scope.GuideFacebookProfile = '';
-	   
-});
-</script>
+			<script src="App.js"></script>
 	</head>
 	<!-- END head -->
 
@@ -119,7 +110,7 @@ app.controller('validateCtrl', function($scope) {
 							}
 							else
 							{
-								$picVal = mysql_result($select4pic, 0, 2);
+								$picVal = mysql_result($select4pic, 0, 3);
 								if($picVal==null)
 								{
 									echo '<img style="width:1400px; height:200px;" class="hover img-responsive" src="img/Default.jpg"/>';
@@ -197,7 +188,7 @@ app.controller('validateCtrl', function($scope) {
 								<div class="tab-content clearfix marb30">
 									<!-- START TAB 1 -->
 									<div class="tab-pane active mart20" id="userinfo">
-										<form action="guide_Step3.php" method="post" ng-app="myApp"  ng-controller="validateCtrl" name="myForm"  novalidate>
+										<form action="guide_Step3.php" method="post" ng-app="myApp"  ng-controller="validateCtrl3" name="myForm"  novalidate>
 										<input type="hidden" name="userid" value="<?php echo $userid ?>" />
 											<fieldset>
 												<ul class="formFields list-unstyled">

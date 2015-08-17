@@ -112,17 +112,7 @@ else
 		
 		</style>
 		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
-		<script>
-var app = angular.module('myApp', []);
-app.controller('validateCtrl', function($scope) {
-    $scope.nickname = '';
-    $scope.streetaddress = '';
-	 $scope.city = '';
-	  $scope.licencenumber = '';
-	   $scope.landlinenumber = '';
-	    
-});
-</script>
+		<script src="App.js"></script>
 	</head>
 	<!-- END head -->
 
@@ -252,7 +242,7 @@ app.controller('validateCtrl', function($scope) {
 								
 								<!-- START TAB CONTENT -->
 								<div class="tab-content clearfix marb30">
-									<form action="guide_Step2.php" enctype="multipart/form-data" method="post" ng-app="myApp"  ng-controller="validateCtrl" name="myForm"  novalidate>
+									<form action="guide_Step2.php" enctype="multipart/form-data" method="post" ng-app="myApp"  ng-controller="validateCtrl2" name="myForm"  novalidate>
 									<div class="tab-pane active mart20" id="userinfo">
 										<input type="hidden" name="userid" value="<?php echo $userid; ?>" />
 											<fieldset>

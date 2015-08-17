@@ -88,20 +88,7 @@ else
 		}
 		
 		</style>
-		<script>
-var app = angular.module('myApp', []);
-app.controller('validateCtrl', function($scope) {
-    $scope.nameFriend1 = '';
-    $scope.emailFriend1 = '';
-	 $scope.mobileFeiend1 = '';
-	  $scope.nameFriend2 = '';
-	   $scope.emailFriend2 = '';
-	    $scope.mobileFeiend2 = '';
-		 $scope.nameFriend3 = '';
-	   $scope.emailFriend3 = '';
-	    $scope.mobileFeiend3 = '';
-});
-</script>
+		<script src="App.js"></script>
 	</head>
 	<!-- END head -->
 
@@ -123,7 +110,7 @@ app.controller('validateCtrl', function($scope) {
 							}
 							else
 							{
-								$picVal = mysql_result($select4pic, 0, 2);
+								$picVal = mysql_result($select4pic, 0, 3);
 								if($picVal==null)
 								{
 									echo '<img style="width:1400px; height:200px;" class="hover img-responsive" src="img/Default.jpg"/>';
@@ -203,7 +190,7 @@ app.controller('validateCtrl', function($scope) {
 									<!-- START TAB 1 -->
 									<div class="tab-pane active mart20" id="inviteGuide">
 									<center><h3>Invite 3 Guide Friends and get some exciting referal rewards when your friend register with us...</h3></center><br />
-										<form action="guide_step4.php" method="post" ng-app="myApp"  ng-controller="validateCtrl" name="myForm"  novalidate>
+										<form action="guide_step4.php" method="post" ng-app="myApp"  ng-controller="validateCtrl4" name="myForm"  novalidate>
 										<input type="hidden" name="userid" value="<?php echo $userid ?>" />
 										
 											<div class="col-md-12">

@@ -57,18 +57,7 @@
 
 </script>
 <script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
-<script>
-var app = angular.module('myApp', []);
-app.controller('customersCtrl',['$scope','$http', function($scope, $http) {
-    $http.get("tourinfo.php")
-    .success(function (response) {
-		$scope.names = response;
-		})
-	.error(function() {
-				$scope.data = "error in fetching data";
-			});
-}]);
-</script>
+<script src="App.js"></script>
 	</head> <!-- END head -->
 
 	<!-- START body --> <body> <!-- START #wrapper --> <div
@@ -157,16 +146,15 @@ app.controller('customersCtrl',['$scope','$http', function($scope, $http) {
 								<a class="ft-plane text-upper" href="#">Guide</a>
 								<a class="ft-tea text-upper" href="#">Meals</a>
 						   </div> 
-						   <div class="ft-foot"> <h4 class="ft-title text-upper"><a href="#">{{ x.tour_title }}</a></h4> 
-						   <span class="ft-offer text-upper">{{ x.tour_price }}	</span> 
+						   <div class="ft-foot"> <h4 class="ft-title text-upper"><a href="#">{{ x.Name }}</a></h4> 
+						   <span class="ft-offer text-upper">{{ x.City }}</span> 
 						   </div>
 						   <div class="ft-foot-ex"> 
-						   <span	class="ft-date text-upper alignleft">{{ x.start_point }} <span>-</span> {{ x.end_point }}</span>
+						   <span	class="ft-date text-upper alignleft">{{ x.Country }} </span>
 						   <span class="ft-temp	alignright">17&#730;c</span> 
 						   </div> 
-					
-				      </div>
-				 </div> 
+						  </div>
+					 </div> 
 				 
 					</div> 					 
 										 
