@@ -61,7 +61,15 @@ else
   ga('send', 'pageview');
 
 </script>
-        
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+		<script>
+var app = angular.module('myApp', []);
+app.controller('validateCtrl', function($scope) {
+    $scope.username = '';
+    $scope.password = '';
+	
+});
+</script>
 	</head>
 	<!-- END head -->
 
@@ -92,10 +100,16 @@ else
 										<br /><br />
 										<div class="row">
 											<div class="col-sm-12">
-												<form action="guide_login_code.php" method="POST">
-													<input type="text" class="form-control" id="username" name="username" placeholder="Email Address or Mobile Number" pattern="(([a-zA-Z0-9._%+-]+@[a-zA-Z0-9]+\.([a-zA-Z]{2,3}|([a-zA-Z]{2,3}\.[a-zA-Z]{2})))|([7-9]{1}\d{9}))" required >
-													<br /> <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
-													<br /> <button class="btn  btn-sm btn-warning btn-block form-control" type="submit" style="font-size:17px; font-weight: bold;">Login</button>
+													<form action="guide_login_code.php" method="POST" ng-app="myApp"  ng-controller="validateCtrl" name="myForm"  novalidate>
+													<input type="text" class="form-control" id="username" name="username" ng-model="username" placeholder="Email Address or Mobile Number" ng-pattern="/^([a-zA-Z0-9._%+-]+@[a-zA-Z0-9]+\.([a-zA-Z]{2,3}|([a-zA-Z]{2,3}\.[a-zA-Z]{2})))|([7-9]{1}\d{9})$/" required >
+													 <span style="color:red" ng-show="myForm.username.$dirty && myForm.username.$invalid">
+														  <span ng-show="myForm.username.$error.required">*username is required.</span>
+														   <span ng-show="myForm.username.$error.pattern">*Invalid username Name ...</span>
+													</span>
+													<br /> <input type="password" class="form-control" id="password" name="password" ng-model="password" placeholder="Password" required>
+													 <span style="color:red" ng-show="myForm.password.$dirty && myForm.password.$invalid">
+														  <span ng-show="myForm.password.$error.required">*password is required.</span>
+													<br /> <button class="btn  btn-sm btn-warning btn-block form-control" type="submit" style="font-size:17px; font-weight: bold;" ng-disabled="myForm.username.$dirty && myForm.username.$invalid || myForm.password.$dirty && myForm.password.$invalid ">Login</button>
 												</form>
 												<center><span style="color:gray;">Not a member? 
 												<a id="LinkSignUp" href="guide_registration_1.php">Join now</a>
