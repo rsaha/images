@@ -187,7 +187,7 @@ else
 								<div class="tab-content clearfix marb30">
 									<!-- START TAB 1 -->
 									<div class="tab-pane active mart20" id="userinfo">
-										<form action="guide_Step3.php" method="post">
+										<form action="guide_step3.php" method="post">
 										<input type="hidden" name="userid" value="<?php echo $userid ?>" />
 											<fieldset>
 												<ul class="formFields list-unstyled">
