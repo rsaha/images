@@ -30,6 +30,7 @@ module.exports.guidesGet = function guidesGet (req, res, next) {
 
   if(typeof result !== 'undefined') {
     res.setHeader('Content-Type', 'application/json');
+    console.log(JSON.stringify(result || {}, null, 2);
     res.end(JSON.stringify(result || {}, null, 2));
   }
   else
