@@ -136,6 +136,9 @@
 		}
 		
 		</style>
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+		
+		<script src="App.js"></script>
 	</head>
 	<!-- END head -->
 
@@ -245,8 +248,9 @@
 							<div class="user-profile">
 								<!-- START TABS -->
 								<ul class="nav nav-tabs text-upper" style="background-color:#FFA98E;">
-									<li class="active"><a href="#userinfo" data-toggle="tab">Guide Profile</a></li>
-									<li><a href="#tourList" data-toggle="tab">Tours</a></li>
+									<li><a href="#userinfo" data-toggle="tab">Guide Profile</a></li>
+									<li class="active"><a href="#tourList" data-toggle="tab">Tours</a></li>
+									<li><a href="#inviteGuide" data-toggle="tab">Invite Guides</a></li>
 									<!--<li><a href="#createTour" data-toggle="tab">Create Tour</a></li>-->
 									<!--<li><a href="#licenceDetail" data-toggle="tab">Licence Detail</a></li>-->
 								</ul>
@@ -255,15 +259,15 @@
 								<!-- START TAB CONTENT -->
 								<div class="tab-content clearfix ">
 									<!-- START TAB 1 -->
-									<div class="tab-pane active " id="userinfo">
+									<div class="tab-pane" id="userinfo">
 										<div class="booking gray clearfix box-shadow1">
 											<fieldset>
 										<div >
-						<?php
-						echo '<a class="btn btn-default pull-right" style="background-color:#ffa98e" onclick="myFunction(' . $userid. ')"> 
-						<i class="fa fa-pencil"></i> Edit Profile 
-						</a>'
-						?>	
+										<?php
+										echo '<a class="btn btn-default pull-right" style="background-color:#ffa98e" onclick="myFunction(' . $userid. ')"> 
+										<i class="fa fa-pencil"></i> Edit Profile 
+										</a>'
+										?>	
 										</div>      
 												<h3 class=" mgtp-10 font-semibold"><i class="icon-user mgr-10 profile-icon"></i> ABOUT</h3>
 												<div class="row">
@@ -390,66 +394,56 @@
 													</div>
 												  </div>
 												</div>
-												<!-- row -->
-												<hr class="pd-10">
-												<!--<div class="row">
-												  
-												  <div class="col-sm-6">
-													<h3 class=" font-semibold"><i class="fa fa-trophy mgr-10 profile-icon"></i> INTREST</h3>
-													<div class="content-list content-menu  col-sm-11">
-														<span class="menu-text"><?php echo $intrest ?></span>
-													</div>
-												  </div>
-												 <div class="col-sm-6">
-													<h3 class=" font-semibold"><i class="fa fa-flask mgr-10 profile-icon"></i> SUMMARY</h3>
-													<div class="col-sm-11">
-													 <div class="content-list">
-														<div style="overflow: hidden;" class="mCustomScrollbar _mCS_6" data-rel="scroll"><div class="mCustomScrollBox mCS-light" id="mCSB_6" style="position: relative; height: 100%; overflow: hidden; max-width: 100%; max-height: 400px;"><div class="mCSB_container" style="position: relative; top: 0px;">
-														  <span class="menu-icon vd_yellow"><?php echo $summery ?></span>
-														</div><div class="mCSB_scrollTools" style="position: absolute; display: block; opacity: 0;"><div class="mCSB_draggerContainer"><div class="mCSB_dragger" style="position: absolute; top: 0px; height: 352px;" oncontextmenu="return false;"><div class="mCSB_dragger_bar" style="position: relative; line-height: 352px;"></div></div><div class="mCSB_draggerRail"></div></div></div></div></div>
-													  </div>				
-												  </div>
-												  </div>
-												</div>-->
-												<!-- row --> 
+												
 												</fieldset>
 											</div>
 											</div>
-											<!-- START TAB 2 -->
-									<div class="tab-pane " id="tourList">
+									<!-- START TAB 2 -->
+									<div class="tab-pane active" id="tourList">
 										<div class="booking gray clearfix box-shadow1">
 											<div class="row">
-						<div class="col-md-3">
-							<div class="ft-item">
-								<span class="ft-image">
-									<img alt="featured Scroller" src="img/custom1.jpg" draggable="false">
-								</span>
-								<div class="ft-data2">
-									<a href="#" class="ft-hotel text-upper">Lodging</a>
-									<a href="#" class="ft-tea text-upper">Custom</a>
-								</div>
-								<div class="ft-foot">
-									<span class="ft-title text-upper"><a href="#">Kolkata, WB</a></span>
-									<span class="ft-offer text-upper">Starting From INR 2500</span>
-								</div>
-								<div class="ft-foot-ex">
-									<span class="ft-date text-upper alignleft">**** 4020 reviews</span>
-									<span class="ft-temp alignright">Female</span>
-								</div>
-							</div>
-						</div>
+
+											<?php 
+											$sql1 = mysql_query("SELECT `tour_id`, `tour_category_id`, `tour_title`, `tour_description`, `tour_duration`, `tour_price`, `start_point`, `end_point`, `inclusive`, `exclusive`, `cancelation_policy`, `restrictions`, `notes`, `status`, `datecreated` FROM `tbl_tours` WHERE (`user_id` = $userid and `status` = 1)");
+											while ($row1 = mysql_fetch_array($sql1))
+											{
+											?>
+												<div class="col-md-3">
+													<div class="ft-item">
+														<span class="ft-image">
+															<img alt="featured Scroller" src="img/custom1.jpg" draggable="false">
+														</span>
+														<div class="ft-data2">
+															<a href="#" class="ft-hotel text-upper"><?php echo $row1['tour_title'] ?></a>
+														</div>
+														<div class="ft-foot">
+															<span class="ft-title text-upper"><a href="#"><?php echo $row1['tour_title'] ?></a></span>
+															<span class="ft-offer text-upper"><?php echo $row1['tour_price'] ?></span>
+														</div>
+														<div class="ft-foot-ex">
+															<span class="ft-date text-upper alignleft"><?php echo $row1['tour_duration'] ?></span>
+															<span class="ft-temp alignright"><?php echo $row1['start_point'] . " - " . $row1['end_point'] ?></span>
+														</div>
+													</div>
+												</div>
+											<?php 
+											}
+											?>
+
+						<!-- ############################################################################ -->
+						<a href="#createTour" data-toggle="tab">
 						<div class="col-md-3">
 							<div class="ft-item">
 								<span class="ft-image">
 									<img alt="featured Scroller" src="img/newTour.jpg" draggable="false">
 								</span>
 								<div class="ft-data2">
-									<a href="#" class="ft-hotel text-upper">Lodging</a>
-									<a href="#" class="ft-tea text-upper">Custom</a>
+									<span class="ft-hotel text-upper">Lodging</span>
+									<span class="ft-tea text-upper">Custom</span>
 								</div>
 								<div class="ft-foot">
-									<span class="ft-title text-upper"><a href="#">Kolkata, WB</a></span>
-									<span class="ft-offer text-upper">Tour Price in Rupees</span>
+									<span style="color:white" class="ft-title text-upper">Tour Title</span>
+									<span class="ft-offer text-upper">Tour Price (In Rs)</span>
 								</div>
 								<div class="ft-foot-ex">
 									<span class="ft-date text-upper alignleft">***</span>
@@ -457,6 +451,8 @@
 								</div>
 							</div>
 						</div>
+						</a>
+						<!-- ############################################################################ -->
 						
 						
 						<div class="clearfix"></div>
@@ -476,138 +472,170 @@
 											
 										</div>
 									</div>
-												<!-- START TAB 3 -->
+									<!-- START TAB 3 -->
+									<div class="tab-pane" id="inviteGuide">
+										<div class="booking gray clearfix box-shadow1">
+									<center><h3>Invite Guide Friends and get some exciting referral rewards when your friend register with us...</h3></center><br />
+										<form action="guide_step4.php" method="post" ng-app="myApp"  ng-controller="validateCtrl4" name="myForm"  novalidate>
+										<input type="hidden" name="userid" value="<?php echo $userid ?>" />
+										
+											<div class="col-md-12">
+											
+											<ul  class="formFields list-unstyled">
+											<li class="row">
+											<div class="col-md-6">
+															<label style="font-size:13px; font-weight:bold">Name of your friend</label>
+															<input type="text" class="form-control" name="nameFriend1" value="" ng-model="nameFriend1" style="background-color:#f7f7f7;" ng-pattern="/^[a-z A-Z]+$/" />
+															 <span style="color:red" ng-show="myForm.nameFriend1.$dirty && myForm.nameFriend1.$invalid">
+											
+											   <span ng-show="myForm.nameFriend1.$error.pattern">*Invalid Name ...</span>
+											  </span>
+														</div>
+														</li>
+														<li class="row">
+														<div class="col-md-6">
+															<label style="font-size:13px; font-weight:bold">Email Id of your friend</label>
+															<input type="email" class="form-control" name="emailFriend1" value="" ng-model="emailFriend1" style="background-color:#f7f7f7;" ng-pattern="/^[a-zA-Z0-9._-]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,5}(\.[a-zA-Z]{2,5}){0,1}$/"/>
+														 <span style="color:red" ng-show="myForm.emailFriend1.$dirty && myForm.emailFriend1.$invalid">
+											  
+											   <span ng-show="myForm.emailFriend1.$error.pattern">*Invalid Email ID ...</span>
+											  </span>
+														</div>
+														</li>
+														<li class="row">
+														<div class="col-md-6">
+															<label style="font-size:13px; font-weight:bold">Mobile Number of your friend</label>
+															<input type="tel" class="form-control" name="mobileFeiend1" ng-model="mobileFeiend1" style="background-color:#f7f7f7;" maxlength="10" ng-pattern="/^([7-9]{1})(\d{9})$/" value=""/>
+														 <span style="color:red" ng-show="myForm.mobileFeiend1.$dirty && myForm.mobileFeiend1.$invalid">
+											
+											   <span ng-show="myForm.mobileFeiend1.$error.pattern">*Invalid Mobile Number ...</span>
+											  </span>
+														</div>
+														
+													</li>
+													
+													<li class="row">
+													<div class="col-md-3 col-md-offset-3" >
+														<button type="submit" class="btn btn-warning form-control">Send Invitation</button>
+													</div>
+													</li>
+													</ul>
+											</div>
+													
+									</form>
+										</div>
+									</div>
+									
+									<!-- START TAB 3 -->
 									<div class="tab-pane" id="createTour">
 										<div class="booking gray clearfix box-shadow1">
+										
+										
 											<div class="col-sm-6">
 												<h2 class="">Set a picture for your tour</h2><br>
-												<div class="ft-item">
-													<span class="ft-image">
-														<img src="img/ft-img-1.jpg" alt="featured Scroller" />
+												<span class="ft-image">
+														<img src="img/ft-img-1.jpg" class="img-responsive" alt="featured Scroller" />
 													</span>
-													<div class="ft-data">
-														<a class="ft-hotel text-upper" href="#">Hotel</a>
-														<a class="ft-plane text-upper" href="#">Air Ticket</a>
-														<a class="ft-tea text-upper" href="#">Break Fast</a>
-													</div>
-													<div class="ft-foot">
-														<h4 class="ft-title text-upper"><a href="#">Colosseum</a></h4>
-														<span class="ft-offer text-upper">Starting From 250 $</span>
-													</div>
-												</div>
+											</div>
+											<form method="post" action="tour_Create.php">
+											<input type="hidden" name="userid" value="<?php echo $userid ?>" />
+											<div class="col-sm-6">
+											<div class="form-group">
+												<strong> Tour Type:</strong>
+												<select class="form-control" name="tourType" style="background-color:white">
+												<?php 
+												$sql = mysql_query("SELECT `tour_category_id`, `tour_category_title` FROM `tbl_tour_category` WHERE `status` = 1");
+												while ($row = mysql_fetch_array($sql)){
+												echo '<option value="' . $row['tour_category_id'] . '">' . $row['tour_category_title'] . '</option>';
+												}
+												?>
+												</select>
+											</div>
 											</div>
 											<div class="col-sm-6">
 											<div class="form-group">
 												<strong> Tour Name:</strong>
-												<input type="text" class="form-control" placeholder="tour name" name="tourNmae" style="background-color:white" />
+												<input type="text" class="form-control" placeholder="Tour name" name="tourName" style="background-color:white" required />
 											</div>
 											</div>
 											<div class="col-sm-6">
 											<div class="form-group">
 												<strong> Description:</strong>
-												<input type="text" class="form-control" placeholder="tour name" name="tourNmae" style="background-color:white" />
+												<textarea class="form-control" placeholder="Tour Discription" name="tourDiscription" style="background-color:white" required ></textarea>
+												<!--<input type="text" class="form-control" placeholder="tour name" name="tourDiscription" style="background-color:white" />-->
 											</div>
 											</div>
 											<div class="col-sm-6">
 											<div class="form-group">
 												<strong> Duration:</strong>
-												<input type="text" class="form-control" placeholder="tour name" name="tourNmae" style="background-color:white" />
+												<input type="text" class="form-control" placeholder="Tour Duration" name="tourDuration" style="background-color:white" required  />
 											</div>
 											</div>
 											<div class="col-sm-6">
 											<div class="form-group">
 												<strong> Tour Price:</strong>
-												<input type="text" class="form-control" placeholder="tour name" name="tourNmae" style="background-color:white" />
+												<input type="text" class="form-control" placeholder="Tour Price" name="tourPrice" style="background-color:white" required  />
 											</div>
 											</div>
 											<div class="col-sm-6">
 											<div class="form-group">
 												<strong> Start Point:</strong>
-												<input type="text" class="form-control" placeholder="tour name" name="tourNmae" style="background-color:white" />
+												<input type="text" class="form-control" placeholder="Starting Point" name="startingPoint" style="background-color:white" required  />
 											</div>
 											</div>
 											<div class="col-sm-6">
 											<div class="form-group">
 												<strong> End Pont:</strong>
-												<input type="text" class="form-control" placeholder="tour name" name="tourNmae" style="background-color:white" />
+												<input type="text" class="form-control" placeholder="End Point" name="endPoint" style="background-color:white" required  />
 											</div>
 											</div>
 											<div class="col-sm-6">
 											<div class="form-group">
 												<strong> Inclusive:</strong>
-												<input type="text" class="form-control" placeholder="tour name" name="tourNmae" style="background-color:white" />
+												<textarea class="form-control" placeholder="Inclusive" name="inclusive" style="background-color:white" required ></textarea>
+												<!--<input type="text" class="form-control" placeholder="Inclusive" name="inclusive" style="background-color:white" />-->
 											</div>
 											</div>
 											<div class="col-sm-6">
 											<div class="form-group">
 												<strong> Exclusive:</strong>
-												<input type="text" class="form-control" placeholder="tour name" name="tourNmae" style="background-color:white" />
+												<textarea class="form-control" placeholder="Exclusive" name="exclusive" style="background-color:white" required ></textarea>
+												<!--<input type="text" class="form-control" placeholder="Exclusive" name="exclusive" style="background-color:white" />-->
 											</div>
 											</div>
 											<div class="col-sm-6">
 											<div class="form-group">
-												<strong> Cancelation Policy:</strong>
-												<input type="text" class="form-control" placeholder="tour name" name="tourNmae" style="background-color:white" />
+												<strong> Cancellation Policy:</strong>
+												<textarea class="form-control" placeholder="Cancellation Policy" name="cancellationPolicy" style="background-color:white" required ></textarea>
+												<!--<input type="text" class="form-control" placeholder="Cancellation Policy" name="cancellationPolicy" style="background-color:white" />-->
 											</div>
 											</div>
 											<div class="col-sm-6">
 											<div class="form-group">
 												<strong> Restriction:</strong>
-												<input type="text" class="form-control" placeholder="tour name" name="tourNmae" style="background-color:white" />
-											</div>
-											</div>
-											<div class="col-sm-6">
-											<div class="form-group">
-												<strong> Notes:</strong>
-												<input type="text" class="form-control" placeholder="tour name" name="tourNmae" style="background-color:white" />
+												<textarea class="form-control" placeholder="Restriction" name="restriction" style="background-color:white" required ></textarea>
+												<!--<input type="text" class="form-control" placeholder="Restriction" name="restriction" style="background-color:white" />-->
 											</div>
 											</div>
 											<div class="col-sm-12">
-											
-												<div class="col-sm-4 col-sm-offset-4">
-												<input type="submit" class="form-control btn btn-warning"  name="tourNmae" />
-											
+											<div class="form-group">
+												<strong> Notes:</strong>
+												<textarea class="form-control" placeholder="Notes" name="notes" style="background-color:white" ></textarea>
+												<!--<input type="text" class="form-control" placeholder="Notes" name="notes" style="background-color:white" />-->
 											</div>
 											</div>
-										</div>
-									</div>
-											<!-- START TAB 4 -->
-									<div class="tab-pane" id="licenceDetail">
-										<div class="booking gray clearfix box-shadow1">
-											<div class="selected-deal">
-												<h2 class="">Selected Deal</h2>
-												<div class="ft-item">
-													<span class="ft-image">
-														<img src="img/ft-img-1.jpg" alt="featured Scroller" />
-													</span>
-													<div class="ft-data">
-														<a class="ft-hotel text-upper" href="#">Hotel</a>
-														<a class="ft-plane text-upper" href="#">Air Ticket</a>
-														<a class="ft-tea text-upper" href="#">Break Fast</a>
-													</div>
-													<div class="ft-foot">
-														<h4 class="ft-title text-upper"><a href="#">Colosseum</a></h4>
-														<span class="ft-offer text-upper">Starting From 250 $</span>
-													</div>
-													<div class="ft-foot-ex">
-														<span class="ft-date text-upper alignleft">28 December 2013</span>
-														<span class="ft-temp alignright">17&#730;c</span>
-													</div>
+											<div class="col-sm-12">
+												<div class="col-sm-3 col-sm-offset-3">
+													<a href="#tourList" data-toggle="tab"><button class="form-control btn btn-default">Cancel</button></a>
+												</div>
+												<div class="col-sm-3">
+													<input type="submit" class="form-control btn btn-warning" value="Create Tour"  name="tourNmae" />
 												</div>
 											</div>
-											<div class="booking-status">
-												<h2 class="marb20">Booking Status</h2>
-												<p>Amet turpis tristique, nec in aliquet dis amet, proin egestas in tempor, cras et dapibus.</p>
-												<span class="checkbox-container">
-													<label><input type="radio" name="radio" class="styled"  checked="checked" /> First Choice</label>
-													<label><input type="radio" name="radio" class="styled" /> Second Choice</label>
-													<label><input type="radio" name="radio" class="styled" /> Third Choice</label>
-												</span>
-											</div>
-											
+											</form>
 										</div>
 									</div>
-									<!-- END TAB 1 -->
+
 								</div>
 								<!-- END TAB CONTENT -->
 							</div>
