@@ -15,6 +15,8 @@
 		}
 		else
 		{
+			
+			$_SESSION['photo'] = array();
 			$_SESSION['signinCheck']="signin";
 			$_SESSION['phase'] = "signin";
 				include('db.php');
@@ -108,10 +110,36 @@
 		<link rel="stylesheet" type="text/css" href="css/styles.css" media="all" />
 		<!-- responsive stylesheet -->
 		<link rel="stylesheet" type="text/css" href="css/responsive.css" media="all" />
+		
+		<link rel="stylesheet" type="text/css" href="css/quiker1.js" media="all" />
+		
 		<!-- Load Fonts via Google Fonts API -->
 		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Karla:400,700,400italic,700italic" />
 		<!-- color scheme -->
 		<link rel="stylesheet" type="text/css" href="css/colors/color1.css" title="color1" />
+		
+		
+
+			<style>
+
+			body
+			{
+			font-family:arial;
+			}
+			.preview
+			{
+			width:92%;
+			height:92%;
+			border:solid 1px #dedede;
+			padding:5px;
+			}
+			#preview
+			{
+			color:#cc0000;
+			font-size:12px
+			}
+
+			</style>
 		
 		<style type="text/css" >
 		
@@ -405,28 +433,52 @@
 
 											<?php 
 											$sql1 = mysql_query("SELECT `tour_id`, `tour_category_id`, `tour_title`, `tour_description`, `tour_duration`, `tour_price`, `start_point`, `end_point`, `inclusive`, `exclusive`, `cancelation_policy`, `restrictions`, `notes`, `status`, `datecreated` FROM `tbl_tours` WHERE (`user_id` = $userid and `status` = 1)");
-											while ($row1 = mysql_fetch_array($sql1))
+											if(mysql_num_rows($sql1) < 1)
 											{
 											?>
 												<div class="col-md-3">
 													<div class="ft-item">
 														<span class="ft-image">
-															<img alt="featured Scroller" src="img/custom1.jpg" draggable="false">
+															<img alt="featured Scroller" src="img/newTour.jpg" draggable="false">
 														</span>
 														<div class="ft-data2">
-															<a href="#" class="ft-hotel text-upper"><?php echo $row1['tour_title'] ?></a>
+														<span style="color:white" class="ft-title text-upper">Tour Title</span>
+															<span class="ft-offer text-upper">Price (Rs)</span>
 														</div>
 														<div class="ft-foot">
-															<span class="ft-title text-upper"><a href="#"><?php echo $row1['tour_title'] ?></a></span>
-															<span class="ft-offer text-upper"><?php echo $row1['tour_price'] ?></span>
-														</div>
-														<div class="ft-foot-ex">
-															<span class="ft-date text-upper alignleft"><?php echo $row1['tour_duration'] ?></span>
-															<span class="ft-temp alignright"><?php echo $row1['start_point'] . " - " . $row1['end_point'] ?></span>
+															<span style="font-size:12px" class="ft-date text-upper alignleft">Tour Duration</span>
+															<span style="font-size:11px" class="ft-temp alignright">Start - End</span>
 														</div>
 													</div>
 												</div>
-											<?php 
+											<?php
+											}
+											else
+											{
+											while ($row1 = mysql_fetch_array($sql1))
+											{
+												echo '<a href="" data-toggle="tab" onclick="editTour(' . $userid . ',' . $row1['tour_id'] . ')" >';
+											?>
+													<div class="col-md-3">
+														<input type="hidden" name="tourid" id="tourid" value=" <?php echo $row1['tour_id'] ?> " />
+														<div class="ft-item">
+															<span class="ft-image">
+																<img alt="featured Scroller" src="img/custom1.jpg" draggable="false">
+															</span>
+															<div class="ft-data2">
+																<span style="color:white" class="ft-title text-upper"><?php echo $row1['tour_title'] ?></span>
+																<span class="ft-offer text-upper"><?php echo $row1['tour_price'] ?></span>
+															</div>
+															<div class="ft-foot">
+																<span class="ft-date text-upper alignleft"><?php echo $row1['tour_duration'] ?></span>
+																<span class="ft-temp alignright"><?php echo $row1['start_point'] . " - " . $row1['end_point'] ?></span>
+															</div>
+														</div>
+													</div>
+												<?php 
+												echo '</a>';
+											
+											}
 											}
 											?>
 
@@ -438,16 +490,12 @@
 									<img alt="featured Scroller" src="img/newTour.jpg" draggable="false">
 								</span>
 								<div class="ft-data2">
-									<span class="ft-hotel text-upper">Lodging</span>
-									<span class="ft-tea text-upper">Custom</span>
+								<span style="color:white" class="ft-title text-upper">Tour Title</span>
+									<span class="ft-offer text-upper">Price (Rs)</span>
 								</div>
 								<div class="ft-foot">
-									<span style="color:white" class="ft-title text-upper">Tour Title</span>
-									<span class="ft-offer text-upper">Tour Price (In Rs)</span>
-								</div>
-								<div class="ft-foot-ex">
-									<span class="ft-date text-upper alignleft">***</span>
-									<span class="ft-temp alignright"></span>
+									<span style="font-size:12px" class="ft-date text-upper alignleft">Tour Duration</span>
+									<span style="font-size:11px" class="ft-temp alignright">Start - End</span>
 								</div>
 							</div>
 						</div>
@@ -524,14 +572,7 @@
 									<!-- START TAB 3 -->
 									<div class="tab-pane" id="createTour">
 										<div class="booking gray clearfix box-shadow1">
-										
-										
-											<div class="col-sm-6">
-												<h2 class="">Set a picture for your tour</h2><br>
-												<span class="ft-image">
-														<img src="img/ft-img-1.jpg" class="img-responsive" alt="featured Scroller" />
-													</span>
-											</div>
+											
 											<form method="post" action="tour_Create.php">
 											<input type="hidden" name="userid" value="<?php echo $userid ?>" />
 											<div class="col-sm-6">
@@ -556,7 +597,7 @@
 											<div class="col-sm-6">
 											<div class="form-group">
 												<strong> Description:</strong>
-												<textarea class="form-control" placeholder="Tour Discription" name="tourDiscription" style="background-color:white" required ></textarea>
+												<textarea class="form-control" placeholder="Tour Discription" name="tourDiscription" style="height:115px; background-color:white" required ></textarea>
 												<!--<input type="text" class="form-control" placeholder="tour name" name="tourDiscription" style="background-color:white" />-->
 											</div>
 											</div>
@@ -619,6 +660,9 @@
 												<!--<input type="text" class="form-control" placeholder="Notes" name="notes" style="background-color:white" />-->
 											</div>
 											</div>
+											
+											
+											
 											<div class="col-sm-12">
 												<div class="col-sm-3 col-sm-offset-3">
 													<a href="#tourList" data-toggle="tab"><button class="form-control btn btn-default">Cancel</button></a>
@@ -627,7 +671,10 @@
 													<input type="submit" class="form-control btn btn-warning" value="Create Tour"  name="tourNmae" />
 												</div>
 											</div>
+											
+											
 											</form>
+											
 										</div>
 									</div>
 
@@ -656,30 +703,25 @@
 			?>
 		</div>
 		<!-- END #wrapper -->
-			
-			<script>
-			$(function() {
-			$('#DOB').datepicker({
-			numberOfMonths: 3,
-			showButtonPanel: true
-			});
-			
-			$('#LicenceExpiry').datepicker({
-			numberOfMonths: 3,
-			showButtonPanel: true
-			});
-			});
-
-			</script>
-			
+		 
+			<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.wallform.js"></script>
 			<script>
 				function myFunction(id) 
 				{
 				window.location.href = "guide_profile_edit.php?id="+id;
 				return false;
 				}
+				
+				function editTour(id,id2) 
+				{
+				window.location.href = "edit_Tour.php?user="+id+"&tour="+id2+"";
+				return false;
+				}
 			</script>
 
+
+	
 				<!-- javascripts -->
 		<script type="text/javascript" src="js/modernizr.custom.17475.js"></script>
 
