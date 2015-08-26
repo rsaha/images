@@ -2,9 +2,9 @@
 
 exports.guideGet = function(id) {
 
-  var examples = {};
+  var examples = require("./data/guides.json");
   
-  examples['application/json'] = "{}";
+  //examples['application/json'] = "{}";
   
 
   
@@ -14,14 +14,15 @@ exports.guideGet = function(id) {
 }
 exports.guidesGet = function(size, city, theme) {
 
-  var examples = {};
+  var examples = require("./data/guides.json");
   
-  examples['application/json'] = [ "{}" ];
+  //examples['application/json'] = [ "{}" ];
   
 
   
-  if(Object.keys(examples).length > 0)
-    return examples[Object.keys(examples)[0]];
+  //if(Object.keys(examples).length > 0)
+    //return examples[Object.keys(examples)[0]];
+  return examples;
   
 }
 exports.tourGet = function(tourid) {

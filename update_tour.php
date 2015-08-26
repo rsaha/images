@@ -3,9 +3,10 @@ session_start();
 $upload_dir = "img/";
 	if(isset($_SESSION['userId']))
 	{
-		if(isset($_POST['userid']))
+		if(isset($_POST['userid']) && isset($_POST['tourID']))
 		{
 		  $userid=$_POST['userid'];
+		  $tourID=$_POST['tourID'];
 		}
 		if($_SESSION['userId']!=$userid)
 		{
@@ -19,13 +20,7 @@ $upload_dir = "img/";
 			$flag1=0;
 			include('db.php');
             
-            var tourType = "Generic";
-            
-            if(!isset($_POST['tourType']))
-            {
-                tourType = $_POST['tourType'];
-            }
-			$tourType = mysql_real_escape_string(tourType);
+			$tourType = mysql_real_escape_string($_POST['tourType']);
 			$tourName = mysql_real_escape_string($_POST['tourName']);
 			$tourDiscription = mysql_real_escape_string($_POST['tourDiscription']);
 			$tourDuration = mysql_real_escape_string($_POST['tourDuration']);
@@ -38,41 +33,23 @@ $upload_dir = "img/";
 			$restriction = mysql_real_escape_string($_POST['restriction']);
 			$notes = mysql_real_escape_string($_POST['notes']);
 			
+			$update = mysql_query("UPDATE `tbl_tours` SET 
+			`tour_category_id`=1,
+			`tour_title`='$tourName',
+			`tour_description`='$tourDiscription',
+			`tour_duration`='$tourDuration',
+			`tour_price`='$tourPrice',
+			`start_point`='$startingPoint',
+			`end_point`='$endPoint',
+			`inclusive`='$inclusive',
+			`exclusive`='$exclusive',
+			`cancelation_policy`='$cancellationPolicy',
+			`restrictions`='$restriction',
+			`notes`='$notes',
+			`datecreated`=now()
+			WHERE `tour_id`=$tourID && `user_id`=$userid");
 			
-			$insert = mysql_query("INSERT INTO `tbl_tours`(
-			`user_id`, 
-			`tour_category_id`, 
-			`tour_title`, 
-			`tour_description`, 
-			`tour_duration`, 
-			`tour_price`, 
-			`start_point`, 
-			`end_point`, 
-			`inclusive`, 
-			`exclusive`, 
-			`cancelation_policy`, 
-			`restrictions`, 
-			`notes`, 
-			`status`, 
-			`datecreated`
-			) VALUES (
-			$userid,
-			$tourType,
-			'$tourName',
-			'$tourDiscription',
-			'$tourDuration',
-			'$tourPrice',
-			'$startingPoint',
-			'$endPoint',
-			'$inclusive',
-			'$exclusive',
-			'$cancellationPolicy',
-			'$restriction',
-			'$notes',
-			1,
-			now()
-			)");
-			if($insert)
+			if($update)
 			{
 				$flag1 = 1;
 			}
@@ -83,15 +60,14 @@ $upload_dir = "img/";
 			
 			if($flag1 == 1)
 			{
-			$msg = "Tour '$tourName' created Successfully !!";
+				$msg = "Tour '$tourName' updated Successfully !!";
 			error_log($msg,0);
 			echo "<script type='text/javascript'>alert('$msg');</script>";
 			header('Location:guide_profile.php?id=' . $userid . '');
 			
-			} 
+			}
 			else
 			{
-				
 				$msg="Tour '$tourName' creation failed!";
 				echo "<script type='text/javascript'>alert('$msg');</script>";
 				error_log($msg, 0);
@@ -101,6 +77,7 @@ $upload_dir = "img/";
 	}
 	else
 	{
+		echo "<script type='text/javascript'>alert('7');</script>";
 		$errormsg="Unauthenticated access to the Guide edit page, Registration Step 1 is not done";
 		error_log($errormsg,0);
 		include("signOut.php");

@@ -1,6 +1,6 @@
 module.exports = {
   connInfo: {
-    host: 'localhost',
+    host: '130.211.123.212',
     port: 8000,
     user: 'dbadmin',
     password: 'xMapleAdmin123'
