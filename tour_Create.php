@@ -23,7 +23,7 @@ $upload_dir = "img/";
             
             if(!isset($_POST['tourType']))
             {
-                tourType = $_POST['tourType'];
+                $tourType = $_POST['tourType'];
             }
 			$tourType = mysql_real_escape_string(tourType);
 			$tourName = mysql_real_escape_string($_POST['tourName']);
