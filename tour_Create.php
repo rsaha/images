@@ -19,7 +19,7 @@ $upload_dir = "img/";
 			$flag1=0;
 			include('db.php');
             
-            var tourType = "Generic";
+            $tourType = "Generic";
             
             if(!isset($_POST['tourType']))
             {

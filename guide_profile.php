@@ -597,7 +597,7 @@
 											<div class="col-sm-6">
 											<div class="form-group">
 												<strong> Description:</strong>
-												<textarea class="form-control" placeholder="Tour Discription" name="tourDiscription" style="height:115px; background-color:white" required ></textarea>
+												<textarea class="form-control" placeholder="Tour Discription" name="tourDiscription" style="height:115px; background-color:white" ></textarea>
 												<!--<input type="text" class="form-control" placeholder="tour name" name="tourDiscription" style="background-color:white" />-->
 											</div>
 											</div>
@@ -635,21 +635,21 @@
 											<div class="col-sm-6">
 											<div class="form-group">
 												<strong> Exclusive:</strong>
-												<textarea class="form-control" placeholder="Exclusive" name="exclusive" style="background-color:white" required ></textarea>
+												<textarea class="form-control" placeholder="Exclusive" name="exclusive" style="background-color:white" ></textarea>
 												<!--<input type="text" class="form-control" placeholder="Exclusive" name="exclusive" style="background-color:white" />-->
 											</div>
 											</div>
 											<div class="col-sm-6">
 											<div class="form-group">
 												<strong> Cancellation Policy:</strong>
-												<textarea class="form-control" placeholder="Cancellation Policy" name="cancellationPolicy" style="background-color:white" required ></textarea>
+												<textarea class="form-control" placeholder="Cancellation Policy" name="cancellationPolicy" style="background-color:white" required></textarea>
 												<!--<input type="text" class="form-control" placeholder="Cancellation Policy" name="cancellationPolicy" style="background-color:white" />-->
 											</div>
 											</div>
 											<div class="col-sm-6">
 											<div class="form-group">
 												<strong> Restriction:</strong>
-												<textarea class="form-control" placeholder="Restriction" name="restriction" style="background-color:white" required ></textarea>
+												<textarea class="form-control" placeholder="Restriction" name="restriction" style="background-color:white" ></textarea>
 												<!--<input type="text" class="form-control" placeholder="Restriction" name="restriction" style="background-color:white" />-->
 											</div>
 											</div>
