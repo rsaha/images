@@ -19,13 +19,7 @@ $upload_dir = "img/";
 			$flag1=0;
 			include('db.php');
             
-            var tourType = "Generic";
-            
-            if(!isset($_POST['tourType']))
-            {
-                tourType = $_POST['tourType'];
-            }
-			$tourType = mysql_real_escape_string(tourType);
+			$tourType = mysql_real_escape_string($_POST['tourType']);
 			$tourName = mysql_real_escape_string($_POST['tourName']);
 			$tourDiscription = mysql_real_escape_string($_POST['tourDiscription']);
 			$tourDuration = mysql_real_escape_string($_POST['tourDuration']);
