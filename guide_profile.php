@@ -591,58 +591,57 @@
 											<div class="col-sm-6">
 											<div class="form-group">
 												<strong> Tour Name:</strong>
-												<input type="text" class="form-control" placeholder="Tour name" name="tourName" style="background-color:white" required />
+												<input type="text" class="form-control" placeholder="Attractive tour name. ex. 2 days in Agra" name="tourName" style="background-color:white" required />
 											</div>
 											</div>
 											<div class="col-sm-6">
 											<div class="form-group">
 												<strong> Description:</strong>
-												<textarea class="form-control" placeholder="Tour Discription" name="tourDiscription" style="height:115px; background-color:white" ></textarea>
-												<!--<input type="text" class="form-control" placeholder="tour name" name="tourDiscription" style="background-color:white" />-->
+												<textarea class="form-control" placeholder="Short description of the tour in 10 sentences" name="tourDiscription" style="height:115px; background-color:white" ></textarea>
 											</div>
 											</div>
 											<div class="col-sm-6">
 											<div class="form-group">
 												<strong> Duration:</strong>
-												<input type="text" class="form-control" placeholder="Tour Duration" name="tourDuration" style="background-color:white" required  />
+												<input type="text" class="form-control" placeholder="Duration. ex. 2 days" name="tourDuration" style="background-color:white" required  />
 											</div>
 											</div>
 											<div class="col-sm-6">
 											<div class="form-group">
 												<strong> Tour Price:</strong>
-												<input type="text" class="form-control" placeholder="Tour Price" name="tourPrice" style="background-color:white" required  />
+												<input type="text" class="form-control" placeholder="Price per person or tail price. ex. INR 1500 per person" name="tourPrice" style="background-color:white" required  />
 											</div>
 											</div>
 											<div class="col-sm-6">
 											<div class="form-group">
-												<strong> Start Point:</strong>
-												<input type="text" class="form-control" placeholder="Starting Point" name="startingPoint" style="background-color:white" required  />
+												<strong> Pickup Point:</strong>
+												<input type="text" class="form-control" placeholder="Pickup Point. i.e. Delhi Airport" name="startingPoint" style="background-color:white" required  />
 											</div>
 											</div>
 											<div class="col-sm-6">
 											<div class="form-group">
 												<strong> End Pont:</strong>
-												<input type="text" class="form-control" placeholder="End Point" name="endPoint" style="background-color:white" required  />
+												<input type="text" class="form-control" placeholder="Drop Off. i.e. Delhi Central" name="endPoint" style="background-color:white" required  />
 											</div>
 											</div>
 											<div class="col-sm-6">
 											<div class="form-group">
 												<strong> Inclusive:</strong>
-												<textarea class="form-control" placeholder="Inclusive" name="inclusive" style="background-color:white" required ></textarea>
+												<textarea class="form-control" placeholder="Tour price includes. ex. Transport , All meals, entree fees" name="inclusive" style="background-color:white" required ></textarea>
 												<!--<input type="text" class="form-control" placeholder="Inclusive" name="inclusive" style="background-color:white" />-->
 											</div>
 											</div>
 											<div class="col-sm-6">
 											<div class="form-group">
 												<strong> Exclusive:</strong>
-												<textarea class="form-control" placeholder="Exclusive" name="exclusive" style="background-color:white" ></textarea>
+												<textarea class="form-control" placeholder="Tour prices excludes ex. shopping, drinks" name="exclusive" style="background-color:white" ></textarea>
 												<!--<input type="text" class="form-control" placeholder="Exclusive" name="exclusive" style="background-color:white" />-->
 											</div>
 											</div>
 											<div class="col-sm-6">
 											<div class="form-group">
 												<strong> Cancellation Policy:</strong>
-												<textarea class="form-control" placeholder="Cancellation Policy" name="cancellationPolicy" style="background-color:white" required></textarea>
+												<textarea class="form-control" placeholder="Cancellation Policy. ex. full-refund if cancelled 7 days before tour begins" name="cancellationPolicy" style="background-color:white" required></textarea>
 												<!--<input type="text" class="form-control" placeholder="Cancellation Policy" name="cancellationPolicy" style="background-color:white" />-->
 											</div>
 											</div>
@@ -656,7 +655,7 @@
 											<div class="col-sm-12">
 											<div class="form-group">
 												<strong> Notes:</strong>
-												<textarea class="form-control" placeholder="Notes" name="notes" style="background-color:white" ></textarea>
+												<textarea class="form-control" placeholder="Any other special notes" name="notes" style="background-color:white" ></textarea>
 												<!--<input type="text" class="form-control" placeholder="Notes" name="notes" style="background-color:white" />-->
 											</div>
 											</div>
