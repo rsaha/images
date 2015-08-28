@@ -3,10 +3,10 @@
 	
 	if(isset($_SESSION['userId']))
 	{
-		if(isset($_GET['user']) && isset($_GET['tour']))
+		if(isset($_GET['id1']) && isset($_GET['id2']))
 		{
-		$userid = $_GET['user'];
-		$tourID = $_GET['tour'];
+		$userid = $_GET['id1'];
+		$tourID = $_GET['id2'];
 		}
 		if($_SESSION['userId']!=$userid)
 		{

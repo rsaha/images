@@ -3,9 +3,9 @@
 	
 	if(isset($_SESSION['userId']))
 	{
-		if(isset($_GET['tour']))
+		if(isset($_GET['id']))
 		{
-		$tourID = $_GET['tour'];
+		$tourID = $_GET['id'];
 		}
 		include('db.php');
 
@@ -87,69 +87,7 @@
 		<!-- START #wrapper -->
 		<div id="wrapper">
 			<!-- START header -->
-			<header>
-				<!-- START #top-header -->
-				<div id="top-header">
-					<div class="container">
-						<div class="row top-row">
-							<div class="col-md-6">
-								<div class="left-part alignleft">
-									<span class="contact-email small">touchus@travelhub.com</span>
-									<span class="contact-phone small">+1 125 496 0999</span>
-									<ul class="social-media header-social">
-										<li><a class="sm-yahoo" href="#"><span>Yahoo</span></a></li>
-										<li><a class="sm-facebook" href="#"><span>Facebook</span></a></li>
-										<li><a class="sm-rss" href="#"><span>RSS</span></a></li>
-										<li><a class="sm-flickr" href="#"><span>Flicker</span></a></li>
-										<li><a class="sm-windows" href="#"><span>Windows</span></a></li>
-										<li><a class="sm-stumble" href="#"><span>Stumbleupon</span></a></li>
-									</ul>
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="right-part alignright">
-									<form action="#" method="get">
-										<fieldset class="alignright">
-											<input type="text" name="s" class="search-input" value="Search..." onfocus="if (this.value == 'Search...') { this.value = ''; }" onblur="if (this.value == '') { this.value = 'Search...'; }" />
-											<input type="submit" name="submit" class="search-submit" value="" />
-										</fieldset>
-									</form>
-									<span class="top-link small">Tell a Friend</span>
-									<span class="top-link small">Bookmark</span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- END #top-header -->
-				
-				<!-- START #main-header --> <div id="main-header"> <div
-				class="container"> <div class="row"> <div
-				class="col-md-3"> <a id="site-logo" href="#"> <img
-				src="img/logo.png" alt="Guided Gateway" /> </a> </div> <div
-				class="col-md-9"> <nav class="main-nav">
-				<span>MENU</span> <ul id="main-menu"> <li><a href="index.html"
-				title="">HOME</a> <!-- ul> <li><a href="index.html"
-				title="">HOME PAGE 1</a></li> <li><a href="home.html"
-				title="">HOME PAGE 2</a></li> </ul --> </li> <li><a
-				href="guides.html" title="">Guides</a> <!-- ul> <li><a
-				href="deals.html" title="">DEALS PAGE</a></li> <li><a
-				href="deals-sidebar.html" title="">DEALS PAGE WITH
-				SIDEBAR</a></li> <li><a href="deals-detail.html"
-				title="">DEALS DETAIL</a></li> <li><a
-				href="deals-detail-sidebar.html" title="">DEALS DETAIL
-				SIDEBAR</a></li> <li><a href="deals-listview.html"
-				title="">LIST VIEW</a></li> <li><a
-				href="deals-listview-sidebar.html" title="">LIST VIEW
-				SIDEBAR</a></li> </ul--> </li> <li><a
-				href="top-destinations-listview-sidebar.html" title="">Destinations</a> </li>
-                <li><a
-				href="#" title="">Themed Tours</a> </li>
-		
-									</ul> </nav> </div> </div> </div>
-									</div> <!-- END #main-header -->
-			</header>
-			<!-- END header -->
+			<?php include('MasterHeaderAfterLogin.php'); ?>
 			
 			<!-- START #page-header -->
 			<div id="header-banner">
@@ -157,17 +95,17 @@
 					<div class="container">
 						<div class="row">
 							<section class="col-sm-6">
-								<h1 class="text-upper">Three days in Historic Agra</h1>
+								<h1 class="text-upper"><?php echo $tour_duration . ' in ' . $tour_title ; ?></h1>
 							</section>
 							
-							<!-- breadcrumbs -->
+							<!-- breadcrumbs 
 							<section class="col-sm-6">
 								<ol class="breadcrumb">
 									<li class="home"><a href="#">Home</a></li>
 									<li><a href="#">Tour #2</a></li>
 									<li class="active">Agra, UP</li>
 								</ol>
-							</section>
+							</section>-->
 						</div>
 					</div>
 				</div>
@@ -183,30 +121,42 @@
 							<!-- START .tour-plans -->
 							<div class="tour-plans">
 								<div class="plan-image">
-									<img class="img-responsive" src="img/custom2.jpg" alt="TajMahal" />
+								<?php
+								$select4Tpic = mysql_query("SELECT * FROM `tbl_tour_media_pictures` WHERE `tour_id` = $tourID");
+								$count4Tpic = mysql_num_rows($select4Tpic);
+								if ($count4Tpic==0)
+								{
+									echo '<img class="img-responsive" alt="featured Scroller" draggable="false" style="width:800px; height:400px;" src="img/custom1.jpg"/>';
+								}
+								else
+								{
+									echo '<img class="img-responsive" alt="featured Scroller" draggable="false" style="width:800px; height:400px;" src="showMediaPicture.php?id=' . mysql_result($select4Tpic, 0, 0) . '"/>';
+								}
+								?>
+									<!--<img class="img-responsive" src="img/custom2.jpg" alt="TajMahal" />-->
 									<div class="offer-box">
 										<div class="offer-top">
 											<span class="ft-temp alignright">19&#730;c</span>
-											<span class="featured-cr text-upper">Agra</span>
-											<h2 class="featured-cy text-upper">UP</h2>
+											<span class="featured-cr text-upper"><?php echo $tour_title ; ?></span>
+											<h2 class="featured-cy text-upper"><?php echo $start_point . ' - ' . $end_point ; ?></h2>
 										</div>
 										
 										<div class="offer-bottom">
 											<span class="featured-stf">Per Person </span>
-											<span class="featured-spe">INR 15000</span>
+											<span class="featured-spe"><?php echo $tour_price; ?></span>
 										</div>
 									</div>
 								</div>
 								
 								<div class="featured-btm box-shadow1">
-									<a class="ft-hotel text-upper" href="#">2 days</a>
-									<a class="ft-plane text-upper" href="#">Historic</a>
-									<a class="ft-tea text-upper" href="#">Complimentary Break Fast</a>
+									<a class="ft-hotel text-upper" href="#"><?php echo $tour_duration; ?></a>
+									<a class="ft-plane text-upper" href="#"><?php $select2 = mysql_query("SELECT `tour_category_title` FROM `tbl_tour_category` WHERE `tour_category_id` = $tour_category_id && `status` = 1"); echo mysql_result($select2, 0, 0); ?></a>
+									<a class="ft-tea text-upper" href="#"><?php echo $inclusive; ?></a>
                                     <a class="ft-tea text-upper" href="booking-form.html">Book the Tour</a>
 								</div>
 								
 								<h2 class="text-upper">Tour Information</h2>
-								<p>Amet turpis tristique, nec in aliquet dis amet, proin egestas in tempor, cras et dapibus, lectus pellentesque enim odio elementum eu tincidunt diam a et. Dapibus sed cum, aliquam cras egestas enim elit in mattis? Scelerisque, ultrices mid! Lorem. Scelerisque? Pid cras, mattis vel, porta, quis! Porttitor turpis cras, odio ultricies parturient pulvinar tempor, eu turpis enim dapibus diam tristique cursus egestas quis phasellus montes! Parturient porta purus quis scelerisque? Vel proin, ac odio cras penatibus magnis non? Aliquam elementum, dis? Elementum ac.</p>
+								<p><?php echo $tour_description; ?></p>
 							</div>
 							<!-- END .tour-plans -->
 							

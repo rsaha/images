@@ -455,7 +455,7 @@
 												<div class="col-md-3">
 													<div class="ft-item">
 														<span class="ft-image">
-															<img alt="featured Scroller" src="img/newTour.jpg" draggable="false">
+															<img alt="featured Scroller" src="img/custom1.jpg" draggable="false">
 														</span>
 														<div class="ft-data2">
 														<span style="color:white" class="ft-title text-upper">Tour Title</span>
@@ -479,12 +479,25 @@
 													<?php
 													echo '<a id="editButton" style="height:20px" class="btn btn-xs btn-default" data-toggle="tab" onclick="editTour(' . $userid . ',' . $row1['tour_id'] . ');" >EDIT</a>';
 														echo '<a style="cursor: pointer;" onclick="detailTour(' . $row1['tour_id'] . ');" >';
+														$tour_id = $row1['tour_id'];
 														?>
 														<input type="hidden" name="tourid" id="tourid" value=" <?php echo $row1['tour_id'] ?> " />
 														<div class="ft-item">
 														
 															<span class="ft-image">
-																<img alt="featured Scroller" src="img/custom1.jpg" draggable="false">
+																<?php
+																$select4Tpic = mysql_query("SELECT * FROM `tbl_tour_media_pictures` WHERE `tour_id` = $tour_id");
+																$count4Tpic = mysql_num_rows($select4Tpic);
+																if ($count4Tpic==0)
+																{
+																	echo '<img alt="featured Scroller" draggable="false" style="width:207px; height:105px;" src="img/custom1.jpg"/>';
+																}
+																else
+																{
+																	echo '<img alt="featured Scroller" draggable="false" style="width:207px; height:105px;" src="showMediaPicture.php?id=' . mysql_result($select4Tpic, 0, 0) . '"/>';
+																}
+																?>
+																
 															</span>
 															<div class="ft-data2">
 																<span style="color:white" class="ft-title text-upper"><?php echo $row1['tour_title'] ?></span>
@@ -505,7 +518,7 @@
 											?>
 
 						<!-- ############################################################################ -->
-						<a href="#createTour" data-toggle="tab">
+						<a style="cursor: pointer;" onclick="createTour(<?php echo $userid; ?>);" >
 						<div class="col-md-3">
 							<div class="ft-item">
 								<span class="ft-image">
@@ -590,137 +603,7 @@
 									</form>
 										</div>
 									</div>
-									<!-- START TAB 3 -->
-									<div class="tab-pane" id="createTour">
-										<div class="booking gray clearfix box-shadow1">
-											
-											<form method="post" action="tour_Create.php">
-											<input type="hidden" name="userid" value="<?php echo $userid ?>" />
-											<div class="col-sm-6">
-											<div class="form-group">
-												<strong> Tour Type:</strong><a class="pull-right" tabindex="0" data-toggle="popover"  data-placement="bottom" data-trigger="focus" data-content="Please select tour type.">
-																<i class='fa fa-info-circle' style="color:gray"></i>
-															</a>
-												<select class="form-control" name="tourType" style="background-color:white">
-												<?php 
-												$sql = mysql_query("SELECT `tour_category_id`, `tour_category_title` FROM `tbl_tour_category` WHERE `status` = 1");
-												while ($row = mysql_fetch_array($sql)){
-												echo '<option value="' . $row['tour_category_id'] . '">' . $row['tour_category_title'] . '</option>';
-												}
-												?>
-												</select>
-											</div>
-											</div>
-											<div class="col-sm-6">
-											<div class="form-group">
-												<strong> Tour Name:</strong><a class="pull-right" tabindex="0" data-toggle="popover"  data-placement="bottom" data-trigger="focus" data-content="Enter your name here">
-																<i class='fa fa-info-circle' style="color:gray"></i>
-															</a>
-												<input type="text" class="form-control" placeholder="Attractive tour name. ex. 2 days in Agra" name="tourName" style="background-color:white" required />
-											</div>
-											</div>
-											<div class="col-sm-6">
-											<div class="form-group">
-												<strong> Description:</strong><a class="pull-right" tabindex="0" data-toggle="popover"  data-placement="bottom" data-trigger="focus" data-content="Short description of the tour in 10 sentences">
-																<i class='fa fa-info-circle' style="color:gray"></i>
-															</a>
-												<textarea class="form-control" placeholder="Short description of the tour in 10 sentences" name="tourDiscription" style="height:115px; background-color:white" ></textarea>
-											</div>
-											</div>
-											<div class="col-sm-6">
-											<div class="form-group">
-												<strong> Duration:</strong><a class="pull-right" tabindex="0" data-toggle="popover"  data-placement="bottom" data-trigger="focus" data-content="Duration. ex. 2 days">
-																<i class='fa fa-info-circle' style="color:gray"></i>
-															</a>
-												<input type="text" class="form-control" placeholder="Duration. ex. 2 days" name="tourDuration" style="background-color:white" required  />
-											</div>
-											</div>
-											<div class="col-sm-6">
-											<div class="form-group">
-												<strong> Tour Price:</strong><a class="pull-right" tabindex="0" data-toggle="popover"  data-placement="bottom" data-trigger="focus" data-content="Price per person or tail price. ex. INR 1500 per person">
-																<i class='fa fa-info-circle' style="color:gray"></i>
-															</a>
-												<input type="text" class="form-control" placeholder="Price per person or tail price. ex. INR 1500 per person" name="tourPrice" style="background-color:white" required  />
-											</div>
-											</div>
-											<div class="col-sm-6">
-											<div class="form-group">
-												<strong> Pickup Point:</strong><a class="pull-right" tabindex="0" data-toggle="popover"  data-placement="bottom" data-trigger="focus" data-content="Pickup Point. i.e. Delhi Airport">
-																<i class='fa fa-info-circle' style="color:gray"></i>
-															</a>
-												<input type="text" class="form-control" placeholder="Pickup Point. i.e. Delhi Airport" name="startingPoint" style="background-color:white" required  />
-											</div>
-											</div>
-											<div class="col-sm-6">
-											<div class="form-group">
-												<strong> End Pont:</strong><a class="pull-right" tabindex="0" data-toggle="popover"  data-placement="bottom" data-trigger="focus" data-content="Drop Off. i.e. Delhi Central">
-																<i class='fa fa-info-circle' style="color:gray"></i>
-															</a>
-												<input type="text" class="form-control" placeholder="Drop Off. i.e. Delhi Central" name="endPoint" style="background-color:white" required  />
-											</div>
-											</div>
-											<div class="col-sm-6">
-											<div class="form-group">
-												<strong> Inclusive:</strong><a class="pull-right" tabindex="0" data-toggle="popover"  data-placement="bottom" data-trigger="focus" data-content="Tour price includes. ex. Transport , All meals, entree fees">
-																<i class='fa fa-info-circle' style="color:gray"></i>
-															</a>
-												<textarea class="form-control" placeholder="Tour price includes. ex. Transport , All meals, entree fees" name="inclusive" style="background-color:white" required ></textarea>
-												<!--<input type="text" class="form-control" placeholder="Inclusive" name="inclusive" style="background-color:white" />-->
-											</div>
-											</div>
-											<div class="col-sm-6">
-											<div class="form-group">
-												<strong> Exclusive:</strong><a class="pull-right" tabindex="0" data-toggle="popover"  data-placement="bottom" data-trigger="focus" data-content="Tour prices excludes ex. shopping, drinks">
-																<i class='fa fa-info-circle' style="color:gray"></i>
-															</a>
-												<textarea class="form-control" placeholder="Tour prices excludes ex. shopping, drinks" name="exclusive" style="background-color:white" ></textarea>
-												<!--<input type="text" class="form-control" placeholder="Exclusive" name="exclusive" style="background-color:white" />-->
-											</div>
-											</div>
-											<div class="col-sm-6">
-											<div class="form-group">
-												<strong> Cancellation Policy:</strong><a class="pull-right" tabindex="0" data-toggle="popover"  data-placement="bottom" data-trigger="focus" data-content="Cancellation Policy. ex. full-refund if cancelled 7 days before tour begins">
-																<i class='fa fa-info-circle' style="color:gray"></i>
-															</a>
-												<textarea class="form-control" placeholder="Cancellation Policy. ex. full-refund if cancelled 7 days before tour begins" name="cancellationPolicy" style="background-color:white" required></textarea>
-												<!--<input type="text" class="form-control" placeholder="Cancellation Policy" name="cancellationPolicy" style="background-color:white" />-->
-											</div>
-											</div>
-											<div class="col-sm-6">
-											<div class="form-group">
-												<strong> Restriction:</strong><a class="pull-right" tabindex="0" data-toggle="popover"  data-placement="bottom" data-trigger="focus" data-content="Mention Restriction if any.">
-																<i class='fa fa-info-circle' style="color:gray"></i>
-															</a>
-												<textarea class="form-control" placeholder="Restriction" name="restriction" style="background-color:white" ></textarea>
-												<!--<input type="text" class="form-control" placeholder="Restriction" name="restriction" style="background-color:white" />-->
-											</div>
-											</div>
-											<div class="col-sm-12">
-											<div class="form-group">
-												<strong> Notes:</strong><a class="pull-right" tabindex="0" data-toggle="popover"  data-placement="bottom" data-trigger="focus" data-content="Any other special notes">
-																<i class='fa fa-info-circle' style="color:gray"></i>
-															</a>
-												<textarea class="form-control" placeholder="Any other special notes" name="notes" style="background-color:white" ></textarea>
-												<!--<input type="text" class="form-control" placeholder="Notes" name="notes" style="background-color:white" />-->
-											</div>
-											</div>
-											
-											
-											
-											<div class="col-sm-12">
-												<div class="col-sm-3 col-sm-offset-3">
-													<a href="#tourList" data-toggle="tab"><button class="form-control btn btn-default">Cancel</button></a>
-												</div>
-												<div class="col-sm-3">
-													<input type="submit" class="form-control btn btn-warning" value="Create Tour"  name="tourNmae" />
-												</div>
-											</div>
-											
-											
-											</form>
-											
-										</div>
-									</div>
+									
 
 								</div>
 								<!-- END TAB CONTENT -->
@@ -769,15 +652,21 @@
 					return false;
 				}
 				
-				function editTour(id,id2) 
+				function createTour(id) 
 				{
-					window.location.href = "edit_Tour.php?user="+id+"&tour="+id2+"";
+					window.location.href = "tour_Create.php?id="+id+"";
+					return false;
+				}
+				
+				function editTour(id1,id2) 
+				{
+					window.location.href = "edit_Tour.php?id1="+id1+"&id2="+id2+"";
 					return false;
 				}
 				
 				function detailTour(id) 
 				{
-					window.location.href = "tour_detail_sidebar.php?tour="+id+"";
+					window.location.href = "tour_detail_sidebar.php?id="+id+"";
 					return false;
 				}
 			</script>

@@ -111,7 +111,7 @@
 				class="col-md-3"> <a id="site-logo" href="#"> <img
 				src="img/logo.png" alt="Guided Gateway" /> </a> </div> <div
 				class="col-md-9"> <nav class="main-nav">
-				<span>MENU</span> <ul id="main-menu"> <li><a href="index.php"
+				<span>MENU</span> <ul id="main-menu"> <li><a href="guide_login.php"
 				title="">HOME</a> 
 				</li> <li><a
 				href="guides.html" title="">Guides</a></li> <li><a
