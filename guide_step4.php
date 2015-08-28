@@ -1,13 +1,7 @@
 <?php
 	session_start();
 	include("db.php");
-	if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "signin"))
-	{
-		$i = $_SESSION['userId'];
-		header('Location:guide_profile.php?id='. $i .'');
-		exit;
-	}
-	else if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "reg"))
+	if((isset($_SESSION['userId'])) && (($_SESSION['phase'] == "reg")||($_SESSION['phase'] == "signin")))
 	{
 		if(isset($_POST['userid']))
 		{
@@ -37,18 +31,44 @@
 				echo "<script type='text/javascript'>alert('$HostPassword');</script>";
 			
 			
+			if(isset($_POST['nameFriend1']))
+			{
+				$nameFriend1=mysql_real_escape_string($_POST['nameFriend1']);
+			}
+			if(isset($_POST['nameFriend2']))
+			{
+				$nameFriend2=mysql_real_escape_string($_POST['nameFriend2']);
+			}
+			if(isset($_POST['nameFriend3']))
+			{
+				$nameFriend3=mysql_real_escape_string($_POST['nameFriend3']);
+			}
 			
-			$nameFriend1=mysql_real_escape_string($_POST['nameFriend1']);
-			$nameFriend2=mysql_real_escape_string($_POST['nameFriend2']);
-			$nameFriend3=mysql_real_escape_string($_POST['nameFriend3']);
+			if(isset($_POST['emailFriend1']))
+			{
+				$emailFriend1=mysql_real_escape_string($_POST['emailFriend1']);
+			}
+			if(isset($_POST['emailFriend2']))
+			{
+				$emailFriend2=mysql_real_escape_string($_POST['emailFriend2']);
+			}
+			if(isset($_POST['emailFriend3']))
+			{
+				$emailFriend3=mysql_real_escape_string($_POST['emailFriend3']);
+			}
 			
-			$emailFriend1=mysql_real_escape_string($_POST['emailFriend1']);
-			$emailFriend2=mysql_real_escape_string($_POST['emailFriend2']);
-			$emailFriend3=mysql_real_escape_string($_POST['emailFriend3']);
-			
-			$mobileFeiend1=mysql_real_escape_string($_POST['mobileFeiend1']);
-			$mobileFeiend2=mysql_real_escape_string($_POST['mobileFeiend2']);
-			$mobileFeiend3=mysql_real_escape_string($_POST['mobileFeiend3']);
+			if(isset($_POST['mobileFeiend1']))
+			{
+				$mobileFeiend1=mysql_real_escape_string($_POST['mobileFeiend1']);
+			}
+			if(isset($_POST['mobileFeiend2']))
+			{
+				$mobileFeiend2=mysql_real_escape_string($_POST['mobileFeiend2']);
+			}
+			if(isset($_POST['mobileFeiend3']))
+			{
+				$mobileFeiend3=mysql_real_escape_string($_POST['mobileFeiend3']);
+			}
 			
 			
 		

@@ -56,7 +56,7 @@ echo "<script type='text/javascript'>alert('ram2');</script>";
 		$mail->From = $HostEmail;
 		$mail->FromName = $username;
 		$mail->AddAddress("ankitbhagat.ab@gmail.com", "Ankit Bhagat");
-		//$mail->AddAddress("touchus@xmapledatalab.com", "xmaple datalab");
+		$mail->AddAddress("touchus@xmapledatalab.com", "xmaple datalab");
 
 		$mail->WordWrap = 50;                               // set word wrap to 50 characters
 		$mail->IsHTML(true);                                  // set email format to HTML
