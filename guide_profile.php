@@ -469,16 +469,7 @@
 											else
 											{
 											while ($row1 = mysql_fetch_array($sql1))
-											{
-<<<<<<< HEAD
-												echo '<a href="" data-toggle="tab" onclick="editTour(' . $userid . ',' . $row1['tour_id'] . ')" >';
-											?>
-													<div class="col-md-3">
-														<input type="hidden" name="tourid" id="tourid" value=" <?php echo $row1['tour_id'] ?> " />
-														<div class="ft-item">
-=======
-											?>
-											
+											{								
 													<div class="col-md-3">
 													<?php
 													echo '<a id="editButton" style="height:20px" class="btn btn-xs btn-default" data-toggle="tab" onclick="editTour(' . $userid . ',' . $row1['tour_id'] . ');" >EDIT</a>';
@@ -487,7 +478,6 @@
 														<input type="hidden" name="tourid" id="tourid" value=" <?php echo $row1['tour_id'] ?> " />
 														<div class="ft-item">
 														
->>>>>>> 721c78c4fdf3dec76b39e856c5f4717254386ac7
 															<span class="ft-image">
 																<img alt="featured Scroller" src="img/custom1.jpg" draggable="false">
 															</span>
@@ -500,16 +490,8 @@
 																<span class="ft-temp alignright"><?php echo $row1['start_point'] . " - " . $row1['end_point'] ?></span>
 															</div>
 														</div>
-<<<<<<< HEAD
-													</div>
-												<?php 
-												echo '</a>';
-=======
-														<?php echo '</a>'; ?>
-													</div>
-													
-												<?php 
->>>>>>> 721c78c4fdf3dec76b39e856c5f4717254386ac7
+									</div>
+
 											
 											}
 											}
@@ -624,137 +606,93 @@
 											</div>
 											<div class="col-sm-6">
 											<div class="form-group">
-<<<<<<< HEAD
-												<strong> Tour Name:</strong>
-=======
-												<strong> Tour Name:</strong><a class="pull-right" tabindex="0" data-toggle="popover"  data-placement="bottom" data-trigger="focus" data-content="Enter your name here">
+								<strong> Tour Name:</strong><a class="pull-right" tabindex="0" data-toggle="popover"  data-placement="bottom" data-trigger="focus" data-content="Enter your name here">
 																<i class='fa fa-info-circle' style="color:gray"></i>
 															</a>
->>>>>>> 721c78c4fdf3dec76b39e856c5f4717254386ac7
 												<input type="text" class="form-control" placeholder="Attractive tour name. ex. 2 days in Agra" name="tourName" style="background-color:white" required />
 											</div>
 											</div>
 											<div class="col-sm-6">
 											<div class="form-group">
-<<<<<<< HEAD
-												<strong> Description:</strong>
-=======
 												<strong> Description:</strong><a class="pull-right" tabindex="0" data-toggle="popover"  data-placement="bottom" data-trigger="focus" data-content="Short description of the tour in 10 sentences">
 																<i class='fa fa-info-circle' style="color:gray"></i>
 															</a>
->>>>>>> 721c78c4fdf3dec76b39e856c5f4717254386ac7
 												<textarea class="form-control" placeholder="Short description of the tour in 10 sentences" name="tourDiscription" style="height:115px; background-color:white" ></textarea>
 											</div>
 											</div>
 											<div class="col-sm-6">
 											<div class="form-group">
-<<<<<<< HEAD
-												<strong> Duration:</strong>
-=======
 												<strong> Duration:</strong><a class="pull-right" tabindex="0" data-toggle="popover"  data-placement="bottom" data-trigger="focus" data-content="Duration. ex. 2 days">
 																<i class='fa fa-info-circle' style="color:gray"></i>
 															</a>
->>>>>>> 721c78c4fdf3dec76b39e856c5f4717254386ac7
 												<input type="text" class="form-control" placeholder="Duration. ex. 2 days" name="tourDuration" style="background-color:white" required  />
 											</div>
 											</div>
 											<div class="col-sm-6">
 											<div class="form-group">
-<<<<<<< HEAD
-												<strong> Tour Price:</strong>
-=======
-												<strong> Tour Price:</strong><a class="pull-right" tabindex="0" data-toggle="popover"  data-placement="bottom" data-trigger="focus" data-content="Price per person or tail price. ex. INR 1500 per person">
+												<strong> Tour Price:</strong><a class="pull-right" tabindex="0" data-toggle="popover"  data-placement="bottom" data-trigger="focus" data-content="Price per person or total price. ex. INR 1500 per person">
 																<i class='fa fa-info-circle' style="color:gray"></i>
 															</a>
->>>>>>> 721c78c4fdf3dec76b39e856c5f4717254386ac7
 												<input type="text" class="form-control" placeholder="Price per person or tail price. ex. INR 1500 per person" name="tourPrice" style="background-color:white" required  />
 											</div>
 											</div>
 											<div class="col-sm-6">
 											<div class="form-group">
-<<<<<<< HEAD
-												<strong> Pickup Point:</strong>
-=======
 												<strong> Pickup Point:</strong><a class="pull-right" tabindex="0" data-toggle="popover"  data-placement="bottom" data-trigger="focus" data-content="Pickup Point. i.e. Delhi Airport">
 																<i class='fa fa-info-circle' style="color:gray"></i>
 															</a>
->>>>>>> 721c78c4fdf3dec76b39e856c5f4717254386ac7
 												<input type="text" class="form-control" placeholder="Pickup Point. i.e. Delhi Airport" name="startingPoint" style="background-color:white" required  />
 											</div>
 											</div>
 											<div class="col-sm-6">
 											<div class="form-group">
-<<<<<<< HEAD
-												<strong> End Pont:</strong>
-=======
 												<strong> End Pont:</strong><a class="pull-right" tabindex="0" data-toggle="popover"  data-placement="bottom" data-trigger="focus" data-content="Drop Off. i.e. Delhi Central">
 																<i class='fa fa-info-circle' style="color:gray"></i>
 															</a>
->>>>>>> 721c78c4fdf3dec76b39e856c5f4717254386ac7
 												<input type="text" class="form-control" placeholder="Drop Off. i.e. Delhi Central" name="endPoint" style="background-color:white" required  />
 											</div>
 											</div>
 											<div class="col-sm-6">
 											<div class="form-group">
-<<<<<<< HEAD
-												<strong> Inclusive:</strong>
-=======
 												<strong> Inclusive:</strong><a class="pull-right" tabindex="0" data-toggle="popover"  data-placement="bottom" data-trigger="focus" data-content="Tour price includes. ex. Transport , All meals, entree fees">
 																<i class='fa fa-info-circle' style="color:gray"></i>
 															</a>
->>>>>>> 721c78c4fdf3dec76b39e856c5f4717254386ac7
 												<textarea class="form-control" placeholder="Tour price includes. ex. Transport , All meals, entree fees" name="inclusive" style="background-color:white" required ></textarea>
 												<!--<input type="text" class="form-control" placeholder="Inclusive" name="inclusive" style="background-color:white" />-->
 											</div>
 											</div>
 											<div class="col-sm-6">
 											<div class="form-group">
-<<<<<<< HEAD
-												<strong> Exclusive:</strong>
-=======
 												<strong> Exclusive:</strong><a class="pull-right" tabindex="0" data-toggle="popover"  data-placement="bottom" data-trigger="focus" data-content="Tour prices excludes ex. shopping, drinks">
 																<i class='fa fa-info-circle' style="color:gray"></i>
 															</a>
->>>>>>> 721c78c4fdf3dec76b39e856c5f4717254386ac7
 												<textarea class="form-control" placeholder="Tour prices excludes ex. shopping, drinks" name="exclusive" style="background-color:white" ></textarea>
 												<!--<input type="text" class="form-control" placeholder="Exclusive" name="exclusive" style="background-color:white" />-->
 											</div>
 											</div>
 											<div class="col-sm-6">
 											<div class="form-group">
-<<<<<<< HEAD
-												<strong> Cancellation Policy:</strong>
-=======
 												<strong> Cancellation Policy:</strong><a class="pull-right" tabindex="0" data-toggle="popover"  data-placement="bottom" data-trigger="focus" data-content="Cancellation Policy. ex. full-refund if cancelled 7 days before tour begins">
 																<i class='fa fa-info-circle' style="color:gray"></i>
 															</a>
->>>>>>> 721c78c4fdf3dec76b39e856c5f4717254386ac7
 												<textarea class="form-control" placeholder="Cancellation Policy. ex. full-refund if cancelled 7 days before tour begins" name="cancellationPolicy" style="background-color:white" required></textarea>
 												<!--<input type="text" class="form-control" placeholder="Cancellation Policy" name="cancellationPolicy" style="background-color:white" />-->
 											</div>
 											</div>
 											<div class="col-sm-6">
 											<div class="form-group">
-<<<<<<< HEAD
-												<strong> Restriction:</strong>
-=======
 												<strong> Restriction:</strong><a class="pull-right" tabindex="0" data-toggle="popover"  data-placement="bottom" data-trigger="focus" data-content="Mention Restriction if any.">
 																<i class='fa fa-info-circle' style="color:gray"></i>
 															</a>
->>>>>>> 721c78c4fdf3dec76b39e856c5f4717254386ac7
 												<textarea class="form-control" placeholder="Restriction" name="restriction" style="background-color:white" ></textarea>
 												<!--<input type="text" class="form-control" placeholder="Restriction" name="restriction" style="background-color:white" />-->
 											</div>
 											</div>
 											<div class="col-sm-12">
 											<div class="form-group">
-<<<<<<< HEAD
-												<strong> Notes:</strong>
-=======
 												<strong> Notes:</strong><a class="pull-right" tabindex="0" data-toggle="popover"  data-placement="bottom" data-trigger="focus" data-content="Any other special notes">
 																<i class='fa fa-info-circle' style="color:gray"></i>
 															</a>
->>>>>>> 721c78c4fdf3dec76b39e856c5f4717254386ac7
 												<textarea class="form-control" placeholder="Any other special notes" name="notes" style="background-color:white" ></textarea>
 												<!--<input type="text" class="form-control" placeholder="Notes" name="notes" style="background-color:white" />-->
 											</div>
@@ -806,9 +744,6 @@
 			<script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/jquery.wallform.js"></script>
 			<script>
-<<<<<<< HEAD
-=======
-			
  
 			$(function () {
 			  $('[data-toggle="tooltip"]').tooltip();
@@ -820,8 +755,7 @@
 			
 			$("a.my-tool-tip").tooltip();
 			
->>>>>>> 721c78c4fdf3dec76b39e856c5f4717254386ac7
-				function myFunction(id) 
+function myFunction(id) 
 				{
 					window.location.href = "guide_profile_edit.php?id="+id;
 					return false;
