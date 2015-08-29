@@ -469,7 +469,8 @@
 											else
 											{
 											while ($row1 = mysql_fetch_array($sql1))
-											{								
+											{		
+                                            ?>
 													<div class="col-md-3">
 													<?php
 													echo '<a id="editButton" style="height:20px" class="btn btn-xs btn-default" data-toggle="tab" onclick="editTour(' . $userid . ',' . $row1['tour_id'] . ');" >EDIT</a>';
