@@ -138,7 +138,14 @@
 			color:#cc0000;
 			font-size:12px
 			}
+<<<<<<< HEAD
         </style>
+=======
+
+			
+
+			</style>
+>>>>>>> 721c78c4fdf3dec76b39e856c5f4717254386ac7
 		
 		<style type="text/css" >
 		
@@ -469,8 +476,8 @@
 											else
 											{
 											while ($row1 = mysql_fetch_array($sql1))
-											{		
-                                            ?>
+											{
+											?>
 													<div class="col-md-3">
 													<?php
 													echo '<a id="editButton" style="height:20px" class="btn btn-xs btn-default" data-toggle="tab" onclick="editTour(' . $userid . ',' . $row1['tour_id'] . ');" >EDIT</a>';
@@ -491,9 +498,10 @@
 																<span class="ft-temp alignright"><?php echo $row1['start_point'] . " - " . $row1['end_point'] ?></span>
 															</div>
 														</div>
-									</div>
-
-											
+														<?php echo '</a>'; ?>
+													</div>
+													
+												<?php 
 											}
 											}
 											?>
@@ -607,7 +615,7 @@
 											</div>
 											<div class="col-sm-6">
 											<div class="form-group">
-								<strong> Tour Name:</strong><a class="pull-right" tabindex="0" data-toggle="popover"  data-placement="bottom" data-trigger="focus" data-content="Enter your name here">
+												<strong> Tour Name:</strong><a class="pull-right" tabindex="0" data-toggle="popover"  data-placement="bottom" data-trigger="focus" data-content="Enter your name here">
 																<i class='fa fa-info-circle' style="color:gray"></i>
 															</a>
 												<input type="text" class="form-control" placeholder="Attractive tour name. ex. 2 days in Agra" name="tourName" style="background-color:white" required />
@@ -631,7 +639,7 @@
 											</div>
 											<div class="col-sm-6">
 											<div class="form-group">
-												<strong> Tour Price:</strong><a class="pull-right" tabindex="0" data-toggle="popover"  data-placement="bottom" data-trigger="focus" data-content="Price per person or total price. ex. INR 1500 per person">
+												<strong> Tour Price:</strong><a class="pull-right" tabindex="0" data-toggle="popover"  data-placement="bottom" data-trigger="focus" data-content="Price per person or tail price. ex. INR 1500 per person">
 																<i class='fa fa-info-circle' style="color:gray"></i>
 															</a>
 												<input type="text" class="form-control" placeholder="Price per person or tail price. ex. INR 1500 per person" name="tourPrice" style="background-color:white" required  />
@@ -749,7 +757,6 @@
 			$(function () {
 			  $('[data-toggle="tooltip"]').tooltip();
 			});
-			
 			$(function () {
 			  $('[data-toggle="popover"]').popover();
 			});
@@ -776,8 +783,14 @@ function myFunction(id)
 				
 				function editTour(id,id2) 
 				{
-				window.location.href = "edit_Tour.php?user="+id+"&tour="+id2+"";
-				return false;
+					window.location.href = "edit_Tour.php?user="+id+"&tour="+id2+"";
+					return false;
+				}
+				
+				function detailTour(id) 
+				{
+					window.location.href = "tour_detail_sidebar.php?tour="+id+"";
+					return false;
 				}
 			</script>
 
