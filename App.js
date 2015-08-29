@@ -54,4 +54,9 @@ app.controller('validateCtrl4', function($scope) {
 	   $scope.emailFriend3 = '';
 	    $scope.mobileFeiend3 = '';
 });
+app.controller('validateCtrl5', function($scope) {
+    $scope.nameFriend1 = '';
+    $scope.emailFriend1 = '';
+	 $scope.mobileFeiend1 = '';
+});
 })();
