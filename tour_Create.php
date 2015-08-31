@@ -437,7 +437,9 @@
 											<div class="row">
 
 											<?php 
-											$sql1 = mysql_query("SELECT `tour_id`, `tour_category_id`, `tour_title`, `tour_description`, `tour_duration`, `tour_price`, `start_point`, `end_point`, `inclusive`, `exclusive`, `cancelation_policy`, `restrictions`, `notes`, `status`, `datecreated` FROM `tbl_tours` WHERE (`user_id` != $userid and `status` = 1)");
+											$sql1 = mysql_query("SELECT `tour_id`, `tour_category_id`, `tour_title`, `tour_description`, `tour_duration`, `tour_price`, `start_point`, `end_point`,
+											`inclusive`, `exclusive`, `cancelation_policy`, `restrictions`, `notes`, `status`, `datecreated` 
+											FROM `tbl_tours` WHERE (`user_id` != $userid and `status` = 1)");
 											if(mysql_num_rows($sql1) >= 1)
 											{
 											while ($row1 = mysql_fetch_array($sql1))

@@ -116,12 +116,14 @@
 			<div class="main-contents">
 				<div class="container">
 					<div class="row">
+					<div class="row">
 						<!-- START #page -->
 						<div id="page" class="col-md-8">
 							<!-- START .tour-plans -->
 							<div class="tour-plans">
 								<div class="plan-image">
 								<?php
+								$select4Tvid = mysql_query("SELECT * FROM `tbl_tour_media_videos` WHERE `tour_id` = $tourID");
 								$select4Tpic = mysql_query("SELECT * FROM `tbl_tour_media_pictures` WHERE `tour_id` = $tourID");
 								$count4Tpic = mysql_num_rows($select4Tpic);
 								if ($count4Tpic==0)
@@ -155,12 +157,57 @@
                                     <a class="ft-tea text-upper" href="booking-form.html">Book the Tour</a>
 								</div>
 								
-								<h2 class="text-upper">Tour Information</h2>
-								<p><?php echo $tour_description; ?></p>
 							</div>
 							<!-- END .tour-plans -->
 							
-							<!-- START TABS -->
+							
+						</div>
+						<!-- END #page -->
+						<!-- START #sidebar -->
+						<aside id="sidebar" class="col-md-4">
+							
+							
+							
+							<div class="sidebar-widget">
+								<!-- Sidebar Newsletter -->
+								<div class="styled-box gray">
+									<h3 class="text-upper">Tour Information</h3>
+									<p><?php echo $tour_description; ?></p>
+								</div>
+							</div>
+							<?php
+							$select4Tpic2 = mysql_query("SELECT * FROM `tbl_tour_media_pictures` WHERE `tour_id` = $tourID");
+							$count4Tpic2 = mysql_num_rows($select4Tpic2);
+							?>	
+							<div class="sidebar-widget">
+								<!-- Sidebar Flickr Gallery -->
+								<h3 class="text-upper">Tour Gallery</h3>
+								<ul class="flickr-gal list-unstyled">
+									<?php
+									if($count4Tpic2 > 0)
+									{
+										while($row1 = mysql_fetch_array($select4Tpic2))
+										{
+											echo '<li><img style="height:62px; width:85px;" src="showMediaPicture.php?id=' . $row1['picture_media_id'] . '" alt="Flickr Photo" /></li>';
+										}
+										/* while($row2 = mysql_fetch_array($select4Tvid))
+										{
+											echo '<li><img class="img-responsive" style="height:62px; width:85px;" src="showMediaPicture.php?id=' . $row2['video_media_id'] . '" alt="Flickr Photo" /></li>';
+										} */
+									}
+									else
+									{
+										echo '<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>';
+									}
+									?>
+									
+								</ul>
+							</div>
+						</aside>
+						</div>
+						<!-- END #sidebar -->
+						<div class="row">
+						<!-- START TABS -->
 							<ul class="nav nav-tabs text-upper">
 								<li class="active"><a href="#tourPlan" data-toggle="tab">Tour Plan</a></li>
 								<li><a href="#flightSchedule" data-toggle="tab">Places Covered</a></li>
@@ -266,136 +313,6 @@
 							</div>
 							<!-- END TAB CONTENT -->
 						</div>
-						<!-- END #page -->
-						<!-- START #sidebar -->
-						<aside id="sidebar" class="col-md-4">
-							<div class="sidebar-widget">
-								<!-- Sidebar recent popular posts -->
-								<!-- START TABS -->
-								<ul class="nav nav-tabs text-upper">
-									<li class="active"><a href="#popular-posts" data-toggle="tab">Guides</a></li>
-									<li><a href="#recent-posts" data-toggle="tab">Reviws</a></li>
-									<li><a href="#recent-comments" data-toggle="tab">Tips</a></li>
-								</ul>
-								<!-- END TABS -->
-								
-								<!-- START TAB CONTENT -->
-								<div class="tab-content gray box-shadow1 clearfix marb30">
-									<!-- START TAB 1 -->
-									<div class="tab-pane active" id="popular-posts">
-										<ul class="rc-posts-list list-unstyled">
-											<li>
-												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 2" />
-												</span>
-												<h5><a href="#">Limbaugh: Does 'Dark Knight Rise have it Bomb Found...</a></h5>
-												<span class="rc-post-date small">January 18, 2014</span>
-											</li>
-											<li>
-												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 4" />
-												</span>
-												<h5><a href="#">Shares suspende am Bankiaid 'Gloomy Forecast'</a></h5>
-												<span class="rc-post-date small">January 11, 2014</span>
-											</li>
-											<li>
-												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 3" />
-												</span>
-												<h5><a href="#">Shares suspende am Bankiaid 'Gloomy Forecast'</a></h5>
-												<span class="rc-post-date small">January 15, 2014</span>
-											</li>
-											<li class="last-rc-post">
-												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 1" />
-												</span>
-												<h5><a href="#">Apple Fails to Fix iPhone Daylight Saving Time Alarm Bug</a></h5>
-												<span class="rc-post-date small">January 20, 2014</span>
-											</li>
-										</ul>
-									</div>
-									<!-- END TAB 1 -->
-									
-									<!-- START TAB 2 -->
-									<div class="tab-pane" id="recent-posts">
-										<ul class="rc-posts-list list-unstyled">
-											<li>
-												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 1" />
-												</span>
-												<h5><a href="#">Apple Fails to Fix iPhone Daylight Saving Time Alarm Bug</a></h5>
-												<span class="rc-post-date small">January 20, 2014</span>
-											</li>
-											<li>
-												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 2" />
-												</span>
-												<h5><a href="#">Limbaugh: Does 'Dark Knight Rise have it Bomb Found...</a></h5>
-												<span class="rc-post-date small">January 18, 2014</span>
-											</li>
-											<li>
-												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 3" />
-												</span>
-												<h5><a href="#">Shares suspende am Bankiaid 'Gloomy Forecast'</a></h5>
-												<span class="rc-post-date small">January 15, 2014</span>
-											</li>
-											<li class="last-rc-post">
-												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 4" />
-												</span>
-												<h5><a href="#">Shares suspende am Bankiaid 'Gloomy Forecast'</a></h5>
-												<span class="rc-post-date small">January 11, 2014</span>
-											</li>
-										</ul>
-									</div>
-									<!-- END TAB 2 -->
-									
-									<!-- START TAB 3 -->
-									<div class="tab-pane" id="recent-comments">
-										<div class="inside-pane">
-											<p>Amet turpis tristique, nec in aliquet dis amet, proin egestas in tempor, cras et dapibus, lectus pellentesque enim odio elementum eu tincidunt diam a et. Dapibus sed cum, aliquam cras egestas enim elit in mattis? Scelerisque, ultrices mid! Lorem. Scelerisque? Pid cras, mattis vel, porta, quis! Porttitor turpis cras, odio ultricies parturient pulvinar tempor.</p>
-											<p>eu turpis enim dapibus diam tristique cursus egestas quis phasellus montes! Parturient porta purus quis scelerisque? Vel proin, ac odio cras penatibus magnis non? Aliquam elementum, dis? Elementum ac.</p>
-										</div>
-									</div>
-									<!-- END TAB 3 -->
-								</div>
-								<!-- END TAB CONTENT -->
-							</div>
-							
-							
-							<div class="sidebar-widget">
-								<!-- Sidebar Newsletter -->
-								<div class="styled-box gray">
-									<h3 class="text-upper">Broadcast for Custom Price</h3>
-									<form action="#" method="post">
-										<label>Email Address</label>
-										<input type="text" name="email" class="form-control input-style1 marb20" value="Enter Email Address" onfocus="if (this.value == 'Enter Email Address') { this.value = ''; }" onblur="if (this.value == '') { this.value = 'Enter Email Address'; }" />
-										<input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Send" />
-									</form>
-								</div>
-							</div>
-							
-							<div class="sidebar-widget">
-								<!-- Sidebar Flickr Gallery -->
-								<h3 class="text-upper">Tour Gallery</h3>
-								<ul class="flickr-gal list-unstyled">
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-								</ul>
-							</div>
-						</aside>
-						<!-- END #sidebar -->
 					</div>
 					<!-- END .row -->
 				</div>

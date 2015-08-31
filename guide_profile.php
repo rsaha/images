@@ -193,7 +193,6 @@
 			
 			<?php include('MasterHeaderAfterLogin.php'); ?>
 			
-			<form action="guide_Step2.php" method="post">
 			<!-- START #page-header -->
 			<div class="" >
 			<?php 
@@ -615,7 +614,7 @@
 				</div>
 			</div>
 			<!-- END .main-contents -->
-			</form>
+			
 			<?php include('MasterFooter.php'); ?>
 			
 			<?php
@@ -623,9 +622,10 @@
 			if(isset($_SESSION['notification']))
 			{
 				echo '<script> alert("' . $_SESSION['notification'] . '"); </script>';
-				$_SESSION['notification']="";
-				unset($_SESSION['notification']);
+				
 			}
+			$_SESSION['notification']="";
+				unset($_SESSION['notification']);
 			
 			?>
 		</div>
