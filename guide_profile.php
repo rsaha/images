@@ -138,14 +138,7 @@
 			color:#cc0000;
 			font-size:12px
 			}
-<<<<<<< HEAD
-        </style>
-=======
-
-			
-
 			</style>
->>>>>>> 721c78c4fdf3dec76b39e856c5f4717254386ac7
 		
 		<style type="text/css" >
 		
@@ -763,21 +756,9 @@
 			
 			$("a.my-tool-tip").tooltip();
 			
-function myFunction(id) 
+                function myFunction(id) 
 				{
 					window.location.href = "guide_profile_edit.php?id="+id;
-					return false;
-				}
-				
-				function editTour(id,id2) 
-				{
-					window.location.href = "edit_Tour.php?user="+id+"&tour="+id2+"";
-					return false;
-				}
-				
-				function detailTour(id) 
-				{
-					window.location.href = "tour_detail_sidebar.php?tour="+id+"";
 					return false;
 				}
 				

@@ -1,0 +1,139 @@
+{
+    "results":[
+    {
+        "tours": [
+        {
+          "id":"5001",
+          "category": "History",
+          "title": "Delhi 1 day history tour",
+          "guide": "Sujay Kar",
+          "location": "Delhi",
+          "duration": "1 days",
+          "price": "5000 INR",
+          "start_point": "Indian Parliament",
+          "end_point": "Jan Path",
+          "inclusive": "Meals , Cab , Guide",
+          "media": {
+            "image": [
+              "gs://blah"
+            ]
+          },
+          "reviews": {
+            "overall_rating": 3,
+            "review_count": 3
+          }
+        },
+        {
+          "id":"5002",
+          "category": "History",
+          "title": "Agra 1 day history tour",
+          "guide": "Prasun Ghosh",
+          "location": "Agra",
+          "duration": "2 days",
+          "price": "15000 INR",
+          "start_point": "Delhi Airport",
+          "end_point": "Delhi Airport",
+          "inclusive": "Meals , Cab , Guide",
+          "media": {
+            "image": [
+              "gs://blah"
+            ]
+          },
+          "reviews": {
+            "overall_rating": 5,
+            "review_count": 2
+          }
+        }
+        ]
+      },
+      { 
+        "guide_results": [
+        {
+          "Id": "1001",
+          "Name": "ANUPKR.SAHA",
+          "Photo": "https://storage.googleapis.com/guidedgateway_media/guide_1.jpg",
+          "Gender": "M",
+          "Email": "anupsaha808@gmail.com",
+          "LanguageKnown": [
+            "SPANISH",
+            "JAPANESE",
+            "ENGLISH"
+          ],
+          "Territory": "ALLOVERINDIA",
+          "Speciality": "ANCIENTINDIA",
+          "Transport": "No",
+          "Review": {
+            "Count": "4",
+            "Star": 4,
+            "TopReviewComment": "Heisspecialguy"
+          },
+          "Tours": {
+            "Count": "2",
+            "Type": "Historic",
+            "StartingPrice": 5000
+          }
+        },
+        {
+          "Id": "1002",
+          "Name": "KALLOLBOSE",
+          "Photo": "https://storage.googleapis.com/guidedgateway_media/guide_2.jpg",
+          "Gender": "M",
+          "Email": "bose@kallol.org",
+          "LanguageKnown": [
+            "JAPANEASE",
+            "ENGLISH"
+          ],
+          "Territory": "EASTERNREGION",
+          "Speciality": "Generic",
+          "Transport": "Yes",
+          "Review": {
+            "Count": "1",
+            "Star": 4,
+            "TopReviewComment": "Heisfunguy"
+          },
+          "Tours": {
+            "Count": "1",
+            "Type": "Generic",
+            "StartingPrice": 1500
+          }
+        }
+     ]
+    },
+    {
+        "place_results":[
+        {
+          "category": "History",
+          "name": "Delhi",
+          "state": "Delhi",
+          "description": "Delhi is capital of India. It is located in northeren part of country",
+          "best_time_to_visit": "Fall",
+          "travel_index": "High",
+          "wikipedia_link": "http://",
+          "attractions": ["Jan Path","Parliament","Rasthrapati Bhavan","Qutub Minar","Humauns tomb","Red Fort"],
+          "transport": ["Airport" ,"Rail" , "Road"],
+          "media": {
+            "image": [
+              "gs://blah"
+            ]
+          }
+        },
+        {
+          "category": "Art",
+          "name": "Kolkata",
+          "state": "West Bengal",
+          "description": "Kolkata is Food and Art of capital of India. It is located in eastern part of country",
+          "best_time_to_visit": "Fall",
+          "travel_index": "Moderate",
+          "wikipedia_link": "",
+          "attractions": ["Victoria Memorial","K.C.Das","Book Fair","Musueum"],
+          "transport": ["Airport" ,"Rail"],
+          "media": {
+            "image": [
+              "gs://blah"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

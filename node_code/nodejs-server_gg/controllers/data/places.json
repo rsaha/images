@@ -1,0 +1,36 @@
+{
+  "places": [
+    {
+      "category": "History",
+      "name": "Delhi",
+      "state": "Delhi",
+      "description": "Delhi is capital of India. It is located in northeren part of country",
+      "best_time_to_visit": "Fall",
+      "travel_index": "High",
+      "wikipedia_link": "http://",
+      "attractions": ["Jan Path","Parliament","Rasthrapati Bhavan","Qutub Minar","Humauns tomb","Red Fort"],
+      "transport": ["Airport" ,"Rail" , "Road"],
+      "media": {
+        "image": [
+          "gs://blah"
+        ]
+      }
+    },
+    {
+      "category": "Art",
+      "name": "Kolkata",
+      "state": "West Bengal",
+      "description": "Kolkata is Food and Art of capital of India. It is located in eastern part of country",
+      "best_time_to_visit": "Fall",
+      "travel_index": "Moderate",
+      "wikipedia_link": "",
+      "attractions": ["Victoria Memorial","K.C.Das","Book Fair","Musueum"],
+      "transport": ["Airport" ,"Rail"],
+      "media": {
+        "image": [
+          "gs://blah"
+        ]
+      }
+    }
+  ]
+}

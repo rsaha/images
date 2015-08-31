@@ -323,7 +323,7 @@
 												
 										<div >
 					
-<button type="submit " class="btn btn-default pull-right" style="background-color:#ffa98e"> 
+<button type="submit" class="btn btn-default pull-right" style="background-color:#ffa98e"> 
 					<i class="fa fa-save"></i> Save Details	
 					</button>
 					
@@ -418,14 +418,14 @@
 												<div class="col-sm-6 form-group">
 													<div class="row mgbt-xs-0">
 													  <label class="col-xs-5 control-label">Mobile Number:</label>
-													  <div class="col-xs-7 controls"><input name="mobileNumber" class="form-control" type="text" style="background-color:#f7f7f7;" value="<?php echo $mobileNumber ?>" /></div>
+													  <div class="col-xs-7 controls"><input name="mobileNumber" class="form-control" type="text" style="background-color:#f7f7f7;" value="<?php echo $mobileNumber ?>" readonly/></div>
 													  <!-- col-sm-10 --> 
 													</div>
 												  </div>
 												  <div class="col-sm-6 form-group">
 													<div class="row mgbt-xs-0">
 													  <label class="col-xs-5 control-label">Email:</label>
-													  <div class="col-xs-7 controls"><input name="emailID" class="form-control" type="text" style="background-color:#f7f7f7;" value="<?php echo $emailID ?>" /></div>
+													  <div class="col-xs-7 controls"><input name="emailID" class="form-control" type="text" style="background-color:#f7f7f7;" value="<?php echo $emailID ?>" readonly/></div>
 													  <!-- col-sm-10 --> 
 													</div>
 												  </div>
