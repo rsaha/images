@@ -1,6 +1,6 @@
 <?php
 session_start();
-$upload_dir = "img/";
+$upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 if((isset($_SESSION['userId'])) && (($_SESSION['phase'] == "signin") || ($_SESSION['phase'] == "reg")))
 {
 	$userid=$_SESSION['userId'];
@@ -26,8 +26,8 @@ if((isset($_SESSION['userId'])) && (($_SESSION['phase'] == "signin") || ($_SESSI
 				move_uploaded_file($_FILES["file1"]["tmp_name"], $upload_dir . $newName);
 					 $bin_string = file_get_contents( $upload_dir . $newName);
 					 $hex_string = base64_encode($bin_string);
-					 unlink('img/' . $newName);
-					 #$imgFullpath = "http://".$_SERVER['SERVER_NAME'].dirname($_SERVER["REQUEST_URI"].'?').'/'. "img/" . $newName;
+					 unlink(parse_ini_file('config.ini',true)['imagePath'] . $newName);
+					 #$imgFullpath = "http://".$_SERVER['SERVER_NAME'].dirname($_SERVER["REQUEST_URI"].'?'). parse_ini_file('config.ini',true)['imagePath'] . $newName;
 					include("db.php");
 					$upl=0;
 					$select=mysql_query("SELECT * FROM `tbl_guide_detail_profile` WHERE `user_id` = $userid");
@@ -88,8 +88,8 @@ if((isset($_SESSION['userId'])) && (($_SESSION['phase'] == "signin") || ($_SESSI
 					move_uploaded_file($_FILES["file2"]["tmp_name"], $upload_dir . $newName);
 				 $bin_string = file_get_contents( $upload_dir . $newName);
 				 $hex_string = base64_encode($bin_string);
-				 unlink('img/' . $newName);
-				 #$imgFullpath = "http://".$_SERVER['SERVER_NAME'].dirname($_SERVER["REQUEST_URI"].'?').'/'. "img/" . $newName;
+				 unlink(parse_ini_file('config.ini',true)['imagePath'] . $newName);
+				 #$imgFullpath = "http://".$_SERVER['SERVER_NAME'].dirname($_SERVER["REQUEST_URI"].'?'). parse_ini_file('config.ini',true)['imagePath'] . $newName;
 				include("db.php");
 				$upl=0;
 				$select=mysql_query("SELECT * FROM `tbl_guide_detail_profile` WHERE `user_id` = $userid");
@@ -149,8 +149,8 @@ if((isset($_SESSION['userId'])) && (($_SESSION['phase'] == "signin") || ($_SESSI
 					move_uploaded_file($_FILES["file3"]["tmp_name"], $upload_dir . $newName);
 					 $bin_string = file_get_contents( $upload_dir. $newName);
 					 $hex_string = base64_encode($bin_string);
-					 unlink('img/' . $newName);
-					#$imgFullpath = "http://".$_SERVER['SERVER_NAME'].dirname($_SERVER["REQUEST_URI"].'?').'/'. "img/" . $newName;
+					 unlink(parse_ini_file('config.ini',true)['imagePath'] . $newName);
+					#$imgFullpath = "http://".$_SERVER['SERVER_NAME'].dirname($_SERVER["REQUEST_URI"].'?'). parse_ini_file('config.ini',true)['imagePath'] . $newName;
 					include("db.php");
 					$upl=0;
 					$select=mysql_query("SELECT * FROM `tbl_guide_detail_profile` WHERE `user_id` = $userid");

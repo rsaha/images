@@ -54,22 +54,16 @@
 				$subject    = "Hi " . $username . " , We Welcome you in Guided Gateway"; 
 				$message    = "Hi, " . $username . " Thankyou for joining our group, We will open gate of opportunity for you.";
 				
-				$line = array();
-				foreach(file('email_host_address.txt') as $lines) 
-				{
-					$line[] = $lines;
-				}
-				
-				$hostAddress=trim($line[0]);
-				$HostEmail=trim($line[1]);
-				$HostPassword=trim($line[2]);
+				$smtpAddress = parse_ini_file('config.ini',true)['smtpAddress'];
+				$HostEmail = parse_ini_file('config.ini',true)['email'];
+				$HostPassword = parse_ini_file('config.ini',true)['password'];
 				
 				require("PHPMailer_5.2.0/class.phpmailer.php");
 
 				$mail = new PHPMailer();
 
 				$mail->IsSMTP();                  			// set mailer to use SMTP
-				$mail->Host =  $hostAddress;			// specify main and backup server
+				$mail->Host =  $smtpAddress;			// specify main and backup server
 				$mail->SMTPAuth = true;     	 			// turn on SMTP authentication
 				$mail->Username = $HostEmail; 			// SMTP username
 				$mail->Password = $HostPassword; 			  	// SMTP password

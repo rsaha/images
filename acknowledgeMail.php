@@ -1,5 +1,4 @@
 <?php
-echo "<script type='text/javascript'>alert('ram2');</script>";
 	session_start();
 	include('db.php');
 	if(isset($_GET['id']))
@@ -13,34 +12,22 @@ echo "<script type='text/javascript'>alert('ram2');</script>";
 			$emailaddresses="";
 			$select2 = mysql_query("SELECT * FROM `tbl_referrals` WHERE `referrer_id` = $userid");
 			$num_rows = mysql_num_rows($select2);
-			for($i=0;$i<$num_rows;$i++)
+			if($_SESSION['phase'] == "reg")
 			{
-				$emailaddresses = $emailaddresses . "<br />" . mysql_result($select2, $i, 3);
+				for($i=0;$i<$num_rows;$i++)
+				{
+					$emailaddresses = $emailaddresses . "<br />" . mysql_result($select2, $i, 3);
+				}
+			}
+			if($_SESSION['phase'] == "signin")
+			{
+				$emailaddresses = $emailaddresses . "<br />" . mysql_result($select2, ($num_rows-1), 3);
 			}
 			
-			
-		$line = array();
-		foreach(file('email_host_address.txt') as $lines) 
-		{
-			$line[] = $lines;
-		}
-		$hostAddress=$line[0];
-		$HostEmail=$line[1];
-		$HostPassword=$line[2];
 		
-		echo $hostAddress;
-		echo $HostEmail;
-		echo $HostPassword;
-				
-		$line = array();
-		foreach(file('email_host_address.txt') as $lines) 
-		{
-			$line[] = $lines;
-		}
-		
-		$hostAddress=trim($line[0]);
-		$HostEmail=trim($line[1]);
-		$HostPassword=trim($line[2]);
+		$smtpAddress = parse_ini_file('config.ini',true)['smtpAddress'];
+		$HostEmail = parse_ini_file('config.ini',true)['email'];
+		$HostPassword = parse_ini_file('config.ini',true)['password'];
 		
 		
 		require("\PHPMailer_5.2.0\class.phpmailer.php");
@@ -48,7 +35,7 @@ echo "<script type='text/javascript'>alert('ram2');</script>";
 		$mail = new PHPMailer();
 
 		$mail->IsSMTP();                  			// set mailer to use SMTP
-		$mail->Host =  $hostAddress;			// specify main and backup server
+		$mail->Host =  $smtpAddress;			// specify main and backup server
 		$mail->SMTPAuth = true;     	 			// turn on SMTP authentication
 		$mail->Username = $HostEmail; 	// SMTP username
 		$mail->Password = $HostPassword; 			  	// SMTP password
@@ -56,7 +43,7 @@ echo "<script type='text/javascript'>alert('ram2');</script>";
 		$mail->From = $HostEmail;
 		$mail->FromName = $username;
 		$mail->AddAddress("ankitbhagat.ab@gmail.com", "Ankit Bhagat");
-		$mail->AddAddress("touchus@xmapledatalab.com", "xmaple datalab");
+		//$mail->AddAddress("rsaha@xmapledatalab.com", "Rakesh Saha");
 
 		$mail->WordWrap = 50;                               // set word wrap to 50 characters
 		$mail->IsHTML(true);                                  // set email format to HTML

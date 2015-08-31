@@ -1,6 +1,6 @@
 <?php
 	session_start();
-$upload_dir = "/tmp/upload/";
+$upload_dir = parse_ini_file('config.ini',true)['imagePath'];
     include("db.php");
 	
 	if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "signin"))
@@ -86,7 +86,8 @@ $upload_dir = "/tmp/upload/";
 					move_uploaded_file($_FILES["licenceImage"]["tmp_name"], $upload_dir . $newName);
 					$bin_string = file_get_contents( $upload_dir . $newName);
 					$hex_string = base64_encode($bin_string);
-					#$imgFullpath = "http://".$_SERVER['SERVER_NAME'].dirname($_SERVER["REQUEST_URI"].'?').'/'. "upload/" . $newName;
+					unlink(parse_ini_file('config.ini',true)['imagePath'] . $newName);
+					#$imgFullpath = "http://".$_SERVER['SERVER_NAME'].dirname($_SERVER["REQUEST_URI"].'?'). parse_ini_file('config.ini',true)['imagePath'] . $newName;
 				}
 			} 
 			else 
