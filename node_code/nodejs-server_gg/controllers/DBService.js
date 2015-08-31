@@ -40,3 +40,33 @@ exports.toursGet = function(size, city, theme, callback) {
       });
     });
 }
+
+exports.placesGet = function(size, city, theme, callback) {
+  
+  db.documents.read("/tmp/places.json").
+    result(function(documents){
+      documents.forEach(function(document) {
+        callback(document.content);
+      });
+    });
+}
+
+exports.tourGet = function(placeid, callback) {
+  
+  db.documents.read("/tmp/place.json").
+    result(function(documents){
+      documents.forEach(function(document) {
+        callback(document.content);
+      });
+    });
+}
+
+exports.searchGet = function(size, keyword, criteria, callback) {
+  
+  db.documents.read("/tmp/search.json").
+    result(function(documents){
+      documents.forEach(function(document) {
+        callback(document.content);
+      });
+    });
+}
