@@ -3,9 +3,9 @@
 	
 	if(isset($_SESSION['userId']))
 	{
-		if(isset($_GET['tour']))
+		if(isset($_GET['id']))
 		{
-		$tourID = $_GET['tour'];
+		$tourID = $_GET['id'];
 		}
 		include('db.php');
 
@@ -87,69 +87,7 @@
 		<!-- START #wrapper -->
 		<div id="wrapper">
 			<!-- START header -->
-			<header>
-				<!-- START #top-header -->
-				<div id="top-header">
-					<div class="container">
-						<div class="row top-row">
-							<div class="col-md-6">
-								<div class="left-part alignleft">
-									<span class="contact-email small">touchus@travelhub.com</span>
-									<span class="contact-phone small">+1 125 496 0999</span>
-									<ul class="social-media header-social">
-										<li><a class="sm-yahoo" href="#"><span>Yahoo</span></a></li>
-										<li><a class="sm-facebook" href="#"><span>Facebook</span></a></li>
-										<li><a class="sm-rss" href="#"><span>RSS</span></a></li>
-										<li><a class="sm-flickr" href="#"><span>Flicker</span></a></li>
-										<li><a class="sm-windows" href="#"><span>Windows</span></a></li>
-										<li><a class="sm-stumble" href="#"><span>Stumbleupon</span></a></li>
-									</ul>
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="right-part alignright">
-									<form action="#" method="get">
-										<fieldset class="alignright">
-											<input type="text" name="s" class="search-input" value="Search..." onfocus="if (this.value == 'Search...') { this.value = ''; }" onblur="if (this.value == '') { this.value = 'Search...'; }" />
-											<input type="submit" name="submit" class="search-submit" value="" />
-										</fieldset>
-									</form>
-									<span class="top-link small">Tell a Friend</span>
-									<span class="top-link small">Bookmark</span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- END #top-header -->
-				
-				<!-- START #main-header --> <div id="main-header"> <div
-				class="container"> <div class="row"> <div
-				class="col-md-3"> <a id="site-logo" href="#"> <img
-				src="img/logo.png" alt="Guided Gateway" /> </a> </div> <div
-				class="col-md-9"> <nav class="main-nav">
-				<span>MENU</span> <ul id="main-menu"> <li><a href="index.html"
-				title="">HOME</a> <!-- ul> <li><a href="index.html"
-				title="">HOME PAGE 1</a></li> <li><a href="home.html"
-				title="">HOME PAGE 2</a></li> </ul --> </li> <li><a
-				href="guides.html" title="">Guides</a> <!-- ul> <li><a
-				href="deals.html" title="">DEALS PAGE</a></li> <li><a
-				href="deals-sidebar.html" title="">DEALS PAGE WITH
-				SIDEBAR</a></li> <li><a href="deals-detail.html"
-				title="">DEALS DETAIL</a></li> <li><a
-				href="deals-detail-sidebar.html" title="">DEALS DETAIL
-				SIDEBAR</a></li> <li><a href="deals-listview.html"
-				title="">LIST VIEW</a></li> <li><a
-				href="deals-listview-sidebar.html" title="">LIST VIEW
-				SIDEBAR</a></li> </ul--> </li> <li><a
-				href="top-destinations-listview-sidebar.html" title="">Destinations</a> </li>
-                <li><a
-				href="#" title="">Themed Tours</a> </li>
-		
-									</ul> </nav> </div> </div> </div>
-									</div> <!-- END #main-header -->
-			</header>
-			<!-- END header -->
+			<?php include('MasterHeaderAfterLogin.php'); ?>
 			
 			<!-- START #page-header -->
 			<div id="header-banner">
@@ -157,17 +95,17 @@
 					<div class="container">
 						<div class="row">
 							<section class="col-sm-6">
-								<h1 class="text-upper">Three days in Historic Agra</h1>
+								<h1 class="text-upper"><?php echo $tour_duration . ' in ' . $tour_title ; ?></h1>
 							</section>
 							
-							<!-- breadcrumbs -->
+							<!-- breadcrumbs 
 							<section class="col-sm-6">
 								<ol class="breadcrumb">
 									<li class="home"><a href="#">Home</a></li>
 									<li><a href="#">Tour #2</a></li>
 									<li class="active">Agra, UP</li>
 								</ol>
-							</section>
+							</section>-->
 						</div>
 					</div>
 				</div>
@@ -178,39 +116,98 @@
 			<div class="main-contents">
 				<div class="container">
 					<div class="row">
+					<div class="row">
 						<!-- START #page -->
 						<div id="page" class="col-md-8">
 							<!-- START .tour-plans -->
 							<div class="tour-plans">
 								<div class="plan-image">
-									<img class="img-responsive" src="img/custom2.jpg" alt="TajMahal" />
+								<?php
+								$select4Tvid = mysql_query("SELECT * FROM `tbl_tour_media_videos` WHERE `tour_id` = $tourID");
+								$select4Tpic = mysql_query("SELECT * FROM `tbl_tour_media_pictures` WHERE `tour_id` = $tourID");
+								$count4Tpic = mysql_num_rows($select4Tpic);
+								if ($count4Tpic==0)
+								{
+									echo '<img class="img-responsive" alt="featured Scroller" draggable="false" style="width:800px; height:400px;" src="img/custom1.jpg"/>';
+								}
+								else
+								{
+									echo '<img class="img-responsive" alt="featured Scroller" draggable="false" style="width:800px; height:400px;" src="showMediaPicture.php?id=' . mysql_result($select4Tpic, 0, 0) . '"/>';
+								}
+								?>
+									<!--<img class="img-responsive" src="img/custom2.jpg" alt="TajMahal" />-->
 									<div class="offer-box">
 										<div class="offer-top">
 											<span class="ft-temp alignright">19&#730;c</span>
-											<span class="featured-cr text-upper">Agra</span>
-											<h2 class="featured-cy text-upper">UP</h2>
+											<span class="featured-cr text-upper"><?php echo $tour_title ; ?></span>
+											<h2 class="featured-cy text-upper"><?php echo $start_point . ' - ' . $end_point ; ?></h2>
 										</div>
 										
 										<div class="offer-bottom">
 											<span class="featured-stf">Per Person </span>
-											<span class="featured-spe">INR 15000</span>
+											<span class="featured-spe"><?php echo $tour_price; ?></span>
 										</div>
 									</div>
 								</div>
 								
 								<div class="featured-btm box-shadow1">
-									<a class="ft-hotel text-upper" href="#">2 days</a>
-									<a class="ft-plane text-upper" href="#">Historic</a>
-									<a class="ft-tea text-upper" href="#">Complimentary Break Fast</a>
+									<a class="ft-hotel text-upper" href="#"><?php echo $tour_duration; ?></a>
+									<a class="ft-plane text-upper" href="#"><?php $select2 = mysql_query("SELECT `tour_category_title` FROM `tbl_tour_category` WHERE `tour_category_id` = $tour_category_id && `status` = 1"); echo mysql_result($select2, 0, 0); ?></a>
+									<a class="ft-tea text-upper" href="#"><?php echo $inclusive; ?></a>
                                     <a class="ft-tea text-upper" href="booking-form.html">Book the Tour</a>
 								</div>
 								
-								<h2 class="text-upper">Tour Information</h2>
-								<p>Amet turpis tristique, nec in aliquet dis amet, proin egestas in tempor, cras et dapibus, lectus pellentesque enim odio elementum eu tincidunt diam a et. Dapibus sed cum, aliquam cras egestas enim elit in mattis? Scelerisque, ultrices mid! Lorem. Scelerisque? Pid cras, mattis vel, porta, quis! Porttitor turpis cras, odio ultricies parturient pulvinar tempor, eu turpis enim dapibus diam tristique cursus egestas quis phasellus montes! Parturient porta purus quis scelerisque? Vel proin, ac odio cras penatibus magnis non? Aliquam elementum, dis? Elementum ac.</p>
 							</div>
 							<!-- END .tour-plans -->
 							
-							<!-- START TABS -->
+							
+						</div>
+						<!-- END #page -->
+						<!-- START #sidebar -->
+						<aside id="sidebar" class="col-md-4">
+							
+							
+							
+							<div class="sidebar-widget">
+								<!-- Sidebar Newsletter -->
+								<div class="styled-box gray">
+									<h3 class="text-upper">Tour Information</h3>
+									<p><?php echo $tour_description; ?></p>
+								</div>
+							</div>
+							<?php
+							$select4Tpic2 = mysql_query("SELECT * FROM `tbl_tour_media_pictures` WHERE `tour_id` = $tourID");
+							$count4Tpic2 = mysql_num_rows($select4Tpic2);
+							?>	
+							<div class="sidebar-widget">
+								<!-- Sidebar Flickr Gallery -->
+								<h3 class="text-upper">Tour Gallery</h3>
+								<ul class="flickr-gal list-unstyled">
+									<?php
+									if($count4Tpic2 > 0)
+									{
+										while($row1 = mysql_fetch_array($select4Tpic2))
+										{
+											echo '<li><img style="height:62px; width:85px;" src="showMediaPicture.php?id=' . $row1['picture_media_id'] . '" alt="Flickr Photo" /></li>';
+										}
+										/* while($row2 = mysql_fetch_array($select4Tvid))
+										{
+											echo '<li><img class="img-responsive" style="height:62px; width:85px;" src="showMediaPicture.php?id=' . $row2['video_media_id'] . '" alt="Flickr Photo" /></li>';
+										} */
+									}
+									else
+									{
+										echo '<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>';
+									}
+									?>
+									
+								</ul>
+							</div>
+						</aside>
+						</div>
+						<!-- END #sidebar -->
+						<div class="row">
+						<!-- START TABS -->
 							<ul class="nav nav-tabs text-upper">
 								<li class="active"><a href="#tourPlan" data-toggle="tab">Tour Plan</a></li>
 								<li><a href="#flightSchedule" data-toggle="tab">Places Covered</a></li>
@@ -316,136 +313,6 @@
 							</div>
 							<!-- END TAB CONTENT -->
 						</div>
-						<!-- END #page -->
-						<!-- START #sidebar -->
-						<aside id="sidebar" class="col-md-4">
-							<div class="sidebar-widget">
-								<!-- Sidebar recent popular posts -->
-								<!-- START TABS -->
-								<ul class="nav nav-tabs text-upper">
-									<li class="active"><a href="#popular-posts" data-toggle="tab">Guides</a></li>
-									<li><a href="#recent-posts" data-toggle="tab">Reviws</a></li>
-									<li><a href="#recent-comments" data-toggle="tab">Tips</a></li>
-								</ul>
-								<!-- END TABS -->
-								
-								<!-- START TAB CONTENT -->
-								<div class="tab-content gray box-shadow1 clearfix marb30">
-									<!-- START TAB 1 -->
-									<div class="tab-pane active" id="popular-posts">
-										<ul class="rc-posts-list list-unstyled">
-											<li>
-												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 2" />
-												</span>
-												<h5><a href="#">Limbaugh: Does 'Dark Knight Rise have it Bomb Found...</a></h5>
-												<span class="rc-post-date small">January 18, 2014</span>
-											</li>
-											<li>
-												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 4" />
-												</span>
-												<h5><a href="#">Shares suspende am Bankiaid 'Gloomy Forecast'</a></h5>
-												<span class="rc-post-date small">January 11, 2014</span>
-											</li>
-											<li>
-												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 3" />
-												</span>
-												<h5><a href="#">Shares suspende am Bankiaid 'Gloomy Forecast'</a></h5>
-												<span class="rc-post-date small">January 15, 2014</span>
-											</li>
-											<li class="last-rc-post">
-												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 1" />
-												</span>
-												<h5><a href="#">Apple Fails to Fix iPhone Daylight Saving Time Alarm Bug</a></h5>
-												<span class="rc-post-date small">January 20, 2014</span>
-											</li>
-										</ul>
-									</div>
-									<!-- END TAB 1 -->
-									
-									<!-- START TAB 2 -->
-									<div class="tab-pane" id="recent-posts">
-										<ul class="rc-posts-list list-unstyled">
-											<li>
-												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 1" />
-												</span>
-												<h5><a href="#">Apple Fails to Fix iPhone Daylight Saving Time Alarm Bug</a></h5>
-												<span class="rc-post-date small">January 20, 2014</span>
-											</li>
-											<li>
-												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 2" />
-												</span>
-												<h5><a href="#">Limbaugh: Does 'Dark Knight Rise have it Bomb Found...</a></h5>
-												<span class="rc-post-date small">January 18, 2014</span>
-											</li>
-											<li>
-												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 3" />
-												</span>
-												<h5><a href="#">Shares suspende am Bankiaid 'Gloomy Forecast'</a></h5>
-												<span class="rc-post-date small">January 15, 2014</span>
-											</li>
-											<li class="last-rc-post">
-												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 4" />
-												</span>
-												<h5><a href="#">Shares suspende am Bankiaid 'Gloomy Forecast'</a></h5>
-												<span class="rc-post-date small">January 11, 2014</span>
-											</li>
-										</ul>
-									</div>
-									<!-- END TAB 2 -->
-									
-									<!-- START TAB 3 -->
-									<div class="tab-pane" id="recent-comments">
-										<div class="inside-pane">
-											<p>Amet turpis tristique, nec in aliquet dis amet, proin egestas in tempor, cras et dapibus, lectus pellentesque enim odio elementum eu tincidunt diam a et. Dapibus sed cum, aliquam cras egestas enim elit in mattis? Scelerisque, ultrices mid! Lorem. Scelerisque? Pid cras, mattis vel, porta, quis! Porttitor turpis cras, odio ultricies parturient pulvinar tempor.</p>
-											<p>eu turpis enim dapibus diam tristique cursus egestas quis phasellus montes! Parturient porta purus quis scelerisque? Vel proin, ac odio cras penatibus magnis non? Aliquam elementum, dis? Elementum ac.</p>
-										</div>
-									</div>
-									<!-- END TAB 3 -->
-								</div>
-								<!-- END TAB CONTENT -->
-							</div>
-							
-							
-							<div class="sidebar-widget">
-								<!-- Sidebar Newsletter -->
-								<div class="styled-box gray">
-									<h3 class="text-upper">Broadcast for Custom Price</h3>
-									<form action="#" method="post">
-										<label>Email Address</label>
-										<input type="text" name="email" class="form-control input-style1 marb20" value="Enter Email Address" onfocus="if (this.value == 'Enter Email Address') { this.value = ''; }" onblur="if (this.value == '') { this.value = 'Enter Email Address'; }" />
-										<input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Send" />
-									</form>
-								</div>
-							</div>
-							
-							<div class="sidebar-widget">
-								<!-- Sidebar Flickr Gallery -->
-								<h3 class="text-upper">Tour Gallery</h3>
-								<ul class="flickr-gal list-unstyled">
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-								</ul>
-							</div>
-						</aside>
-						<!-- END #sidebar -->
 					</div>
 					<!-- END .row -->
 				</div>

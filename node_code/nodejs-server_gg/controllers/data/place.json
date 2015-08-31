@@ -1,0 +1,16 @@
+{
+  "category": "History",
+  "name": "Delhi",
+  "state": "Delhi",
+  "description": "Delhi is capital of India. It is located in northeren part of country",
+  "best_time_to_visit": "Fall",
+  "travel_index": "High",
+  "wikipedia_link": "http://",
+  "attractions": ["Jan Path","Parliament","Rasthrapati Bhavan","Qutub Minar","Humauns tomb","Red Fort"],
+  "transport": ["Airport" ,"Rail" , "Road"],
+  "media": {
+    "image": [
+      "gs://blah"
+    ]
+  }
+}
