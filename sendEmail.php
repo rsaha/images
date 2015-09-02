@@ -1,7 +1,7 @@
 <?php
 function SendMail($fromAddress, $fromName, $toAddress, $toName, $subject, $message)
 {
-	require_once("/sendgrid-php/sendgrid-php.php");
+	require_once("./sendgrid-php/sendgrid-php.php");
 	$apiKey = parse_ini_file('config.ini',true)['emailApiKey'];
 	
 	$sendgrid = new SendGrid($apiKey); //New API

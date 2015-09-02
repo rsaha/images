@@ -50,7 +50,7 @@
 		echo "<script type='text/javascript'>alert('$msg');</script>";
 		
 		//$smtpAddress = parse_ini_file('config.ini',true)['smtpAddress'];
-		//$HostEmail = parse_ini_file('config.ini',true)['email'];
+		$HostEmail = parse_ini_file('config.ini',true)['email'];
 		//$HostPassword = parse_ini_file('config.ini',true)['password'];
 		$apiKey = parse_ini_file('config.ini',true)['emailApiKey'];
 		
@@ -59,7 +59,7 @@
 		
 		include('sendEmail.php');
 		//function SendMail(apiKey, fromAddress, fromName, toAddress, toName, subject, message)
-		if(SendMail($apiKey, $HostEmail, 'Guided Gateway', $from, $username, $subject, $message))
+		if(SendMail($HostEmail, 'Guided Gateway', $from, $username, $subject, $message))
 		{
 			$errormsg="Registration Conformation Email Sent.";
 			error_log($errormsg,0);

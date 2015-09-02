@@ -95,6 +95,8 @@
 				$mobileFeiend=array(); */
 				include('sendEmail.php');
 				
+				$HostEmail = parse_ini_file('config.ini',true)['email'];
+				
 				if($create1)
 				{
 					/* array_push($nameFriend, $nameFriend1);
