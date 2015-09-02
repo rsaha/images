@@ -54,17 +54,18 @@
 		//$HostPassword = parse_ini_file('config.ini',true)['password'];
 		$apiKey = parse_ini_file('config.ini',true)['emailApiKey'];
 		
-		$subject = "Mail from " . $from . " - Hi " . $username . " , We Welcome you in Guided Gateway";
-		$message = 	"<br />Hi, " . $username . " Thankyou for joining our group, We will open gate of opportunity for you.";
+		$subject = $username . " , welcome to GuidedGateway - online marketplace for you";
+		$message = 	"<br />Hi, " . $username . " Thank you for joining our group. We will open gate of opportunity for you.";
 		
 		include('sendEmail.php');
 		//function SendMail(apiKey, fromAddress, fromName, toAddress, toName, subject, message)
-		if(SendMail($HostEmail, 'Guided Gateway', $from, $username, $subject, $message))
+		$emailSuccess = SendMail($HostEmail, 'Guided Gateway', $from, $username, $subject, $message)
+		if($emailSuccess)
 		{
 			$errormsg="Registration Conformation Email Sent.";
 			error_log($errormsg,0);
 			$msg="Conformation Email Sent!!";
-			echo "<script type='text/javascript'>alert('$msg');</script>";
+			//echo "<script type='text/javascript'>alert('$msg');</script>";
 			header('Location:guide_registration_2.php?id=' . $userid . '');
 			die;
 			exit;
@@ -73,7 +74,7 @@
 		{
 			$errormsg="Registration conformation email could not be send.";
 			error_log($errormsg,0);
-			echo "<script type='text/javascript'>alert('$errormsg');</script>";
+			//echo "<script type='text/javascript'>alert('$errormsg');</script>";
 			header('Location:guide_registration_2.php?id=' . $userid . '');
 			die;
 			exit;
@@ -85,7 +86,7 @@
 		$_SESSION['notification']="Email or Mobile Number already Exist.";
 		$errormsg="Something went wrong, Could Not Register. Try again";
 		error_log($errormsg,0);
-		echo "<script type='text/javascript'>alert('$errormsg');</script>";
+		//echo "<script type='text/javascript'>alert('$errormsg');</script>";
 		header('Location:guide_registration_1.php');
 	}
 ?>
