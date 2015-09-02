@@ -138,9 +138,6 @@
 			color:#cc0000;
 			font-size:12px
 			}
-
-			
-
 			</style>
 		
 		<style type="text/css" >
@@ -473,7 +470,6 @@
 											while ($row1 = mysql_fetch_array($sql1))
 											{
 											?>
-											
 													<div class="col-md-3">
 													<?php
 													echo '<a id="editButton" style="height:20px" class="btn btn-xs btn-default" data-toggle="tab" onclick="editTour(' . $userid . ',' . $row1['tour_id'] . ');" >EDIT</a>';
@@ -511,7 +507,6 @@
 													</div>
 													
 												<?php 
-											
 											}
 											}
 											?>
@@ -634,19 +629,17 @@
 			<script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/jquery.wallform.js"></script>
 			<script>
-			
  
 			$(function () {
 			  $('[data-toggle="tooltip"]').tooltip();
 			});
-			
 			$(function () {
 			  $('[data-toggle="popover"]').popover();
 			});
 			
 			$("a.my-tool-tip").tooltip();
 			
-				function myFunction(id) 
+                function myFunction(id) 
 				{
 					window.location.href = "guide_profile_edit.php?id="+id;
 					return false;

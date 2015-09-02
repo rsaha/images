@@ -142,6 +142,25 @@ CREATE TABLE IF NOT EXISTS `tbl_tours` (
   `datecreated` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tour Master repository';
 
+--
+-- Table structure for table `tbl_tours`
+--
+
+CREATE TABLE IF NOT EXISTS `tbl_tours_catalog` (
+  `tour_catalog_id` bigint(20) NOT NULL,
+  `tour_category_title` varchar(200) NOT NULL,
+  `tour_title` varchar(100) NOT NULL,
+  `tour_description` varchar(500) NOT NULL,
+  `tour_duration` varchar(100) NOT NULL,
+  `tour_estimate_price` varchar(100),
+  `start_point` varchar(200) NOT NULL,
+  `end_point` varchar(200) NOT NULL,
+  `suggested_inclusive` varchar(200),
+  `suggested_exclusive` varchar(200),
+  `notes` text,
+  `datecreated` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tour Catalog repository';
+
 -- --------------------------------------------------------
 
 --
