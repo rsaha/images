@@ -49,56 +49,36 @@
 		$msg="Successfully Updated!!";
 		echo "<script type='text/javascript'>alert('$msg');</script>";
 		
+		$smtpAddress = parse_ini_file('config.ini',true)['smtpAddress'];
+		$HostEmail = parse_ini_file('config.ini',true)['email'];
+		$HostPassword = parse_ini_file('config.ini',true)['password'];
+		$apiKey = parse_ini_file('config.ini',true)['apiKey'];
 		
-				
-				$subject    = "Hi " . $username . " , We Welcome you in Guided Gateway"; 
-				$message    = "Hi, " . $username . " Thankyou for joining our group, We will open gate of opportunity for you.";
-				
-				$smtpAddress = parse_ini_file('config.ini',true)['smtpAddress'];
-				$HostEmail = parse_ini_file('config.ini',true)['email'];
-				$HostPassword = parse_ini_file('config.ini',true)['password'];
-				
-				require("PHPMailer_5.2.0/class.phpmailer.php");
-
-				$mail = new PHPMailer();
-
-				$mail->IsSMTP();                  			// set mailer to use SMTP
-				$mail->Host =  $smtpAddress;			// specify main and backup server
-				$mail->SMTPAuth = true;     	 			// turn on SMTP authentication
-				$mail->Username = $HostEmail; 			// SMTP username
-				$mail->Password = $HostPassword; 			  	// SMTP password
-				
-				//$mail->SMTPSecure = 'tls';
-				//$mail->Port = 587;
-				
-				$mail->From = $HostEmail;
-				$mail->FromName = "Guided Gateway";
-				$mail->AddAddress($from, $username);
-				
-				$mail->WordWrap = 50;                   // set word wrap to 50 characters
-				$mail->IsHTML(true);                     // set email format to HTML
-
-				$mail->Subject = "Mail from " . $from . " - " . $subject . ".";
-				$mail->Body    ="Email : " . $from . "<br />Subject : <b>" . $subject . "</b><br /><br />" . $message . ".";
-				if(!$mail->Send())
-				{
-				$errormsg="Registration conformation email could not be send.";
-				error_log($errormsg,0);
-				echo "<script type='text/javascript'>alert('$errormsg');</script>";
-				header('Location:guide_registration_2.php?id=' . $userid . '');
-				die;
-				exit;
-				}
-				else
-				{
-				$errormsg="Registration Conformation Email Sent.";
-				error_log($errormsg,0);
-				$msg="Successfully invited!!";
-				echo "<script type='text/javascript'>alert('$msg');</script>";
-				header('Location:guide_registration_2.php?id=' . $userid . '');
-				die;
-				exit;
-				}
+		$subject = "Mail from " . $from . " - Hi " . $username . " , We Welcome you in Guided Gateway";
+		$message = 	"<br />Hi, " . $username . " Thankyou for joining our group, We will open gate of opportunity for you.";
+		
+		include('sendEmail.php');
+		//function SendMail(apiKey, fromAddress, fromName, toAddress, toName, subject, message)
+		if(SendMail($apiKey, $HostEmail, 'Guided Gateway', $from, $username, $subject, $message))
+		{
+			$errormsg="Registration Conformation Email Sent.";
+			error_log($errormsg,0);
+			$msg="Conformation Email Sent!!";
+			echo "<script type='text/javascript'>alert('$msg');</script>";
+			header('Location:guide_registration_2.php?id=' . $userid . '');
+			die;
+			exit;
+		}
+		else
+		{
+			$errormsg="Registration conformation email could not be send.";
+			error_log($errormsg,0);
+			echo "<script type='text/javascript'>alert('$errormsg');</script>";
+			header('Location:guide_registration_2.php?id=' . $userid . '');
+			die;
+			exit;
+		}
+		
 	}
 	else
 	{

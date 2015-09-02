@@ -28,30 +28,24 @@
 		$smtpAddress = parse_ini_file('config.ini',true)['smtpAddress'];
 		$HostEmail = parse_ini_file('config.ini',true)['email'];
 		$HostPassword = parse_ini_file('config.ini',true)['password'];
+		$apiKey = parse_ini_file('config.ini',true)['apiKey'];
 		
+		include('sendEmail.php');
+		$subject = "Guide " . $username . "has envited his some friends";
+		$message    = "<b>". $username . "</b> has invited his friends of following email id...<b><br />" . $emailaddresses . "</b><br /><br /> -----------------------------<br />";
 		
-		require("\PHPMailer_5.2.0\class.phpmailer.php");
-
-		$mail = new PHPMailer();
-
-		$mail->IsSMTP();                  			// set mailer to use SMTP
-		$mail->Host =  $smtpAddress;			// specify main and backup server
-		$mail->SMTPAuth = true;     	 			// turn on SMTP authentication
-		$mail->Username = $HostEmail; 	// SMTP username
-		$mail->Password = $HostPassword; 			  	// SMTP password
-
-		$mail->From = $HostEmail;
-		$mail->FromName = $username;
-		$mail->AddAddress("ankitbhagat.ab@gmail.com", "Ankit Bhagat");
-		//$mail->AddAddress("rsaha@xmapledatalab.com", "Rakesh Saha");
-
-		$mail->WordWrap = 50;                               // set word wrap to 50 characters
-		$mail->IsHTML(true);                                  // set email format to HTML
-
-		$mail->Subject = "Guide " . $username . "has envited his some friends";
-		$mail->Body    ="<b>". $username . " has invited his friends of following email id...<br />" . $emailaddresses . "</b><br /><br /> -----------------------------<br />";
-
-		if(!$mail->Send())
+		//function SendMail(apiKey, fromAddress, fromName, toAddress, toName, subject, message)
+		if((SendMail($apiKey, $HostEmail, 'Guided Gateway', 'ankitbhagat.ab@gmail.com', 'Ankit Bhagat', $subject, $message))&& (SendMail($apiKey, $HostEmail, 'Guided GateWay', 'rshah@xmapledatalab.com', 'Rakesh Shah', $subject, $message)))
+		{
+			$errormsg="Acknowledgement email sent.";
+			error_log($errormsg,0);
+			echo "<script>
+			alert('Thank you for contacting us. As early as possible  we will contact you.');
+			</script>";
+			header('Location: guide_profile.php?id='. $userid .'');
+			die;
+		}
+		else
 		{
 			$errormsg="Acknowledgement email could not be send.";
 			echo "<script>
@@ -59,16 +53,6 @@
 			</script>";
 			header('Location: guide_profile.php?id='. $userid .'');
 			exit;
-		}
-		else
-		{
-			$errormsg="Acknowledgement email sent.";
-				error_log($errormsg,0);
-			echo "<script>
-			alert('Thank you for contacting us. As early as possible  we will contact you.');
-			</script>";
-			header('Location: guide_profile.php?id='. $userid .'');
-			die;
 		}
 ?>
 
