@@ -56,20 +56,28 @@
 				$mobileFeiend3=mysql_real_escape_string($_POST['mobileFeiend3']);
 			}
 			
-			
+			$create1 = $create2 = $create3 = 0;
 		
-			
-			if($emailFriend1!="" || $emailFriend1!=NULL)
+			if(isset($emailFriend1))
 			{
-			$create1 = mysql_query("INSERT INTO `tbl_referrals`(`referrer_id`, `referral_name`, `referral_email`, `referral_phone`, `referral_status`, `datecreated`) VALUES ($userid, '$nameFriend1', '$emailFriend1', '$mobileFeiend1', 1, now())");
+				if($emailFriend1!="" || $emailFriend1!=NULL)
+				{
+					$create1 = mysql_query("INSERT INTO `tbl_referrals`(`referrer_id`, `referral_name`, `referral_email`, `referral_phone`, `referral_status`, `datecreated`) VALUES ($userid, '$nameFriend1', '$emailFriend1', '$mobileFeiend1', 1, now())");
+				}
 			}
-			if($emailFriend2!="" || $emailFriend2!=NULL)
+			if(isset($emailFriend2))
 			{
-			$create2 = mysql_query("INSERT INTO `tbl_referrals`(`referrer_id`, `referral_name`, `referral_email`, `referral_phone`, `referral_status`, `datecreated`) VALUES ($userid, '$nameFriend2', '$emailFriend2', '$mobileFeiend2', 1, now())");
+				if($emailFriend2!="" || $emailFriend2!=NULL)
+				{
+					$create2 = mysql_query("INSERT INTO `tbl_referrals`(`referrer_id`, `referral_name`, `referral_email`, `referral_phone`, `referral_status`, `datecreated`) VALUES ($userid, '$nameFriend2', '$emailFriend2', '$mobileFeiend2', 1, now())");
+				}
 			}
-			if($emailFriend3!="" || $emailFriend3!=NULL)
+			if(isset($emailFriend3))
 			{
-			$create3 = mysql_query("INSERT INTO `tbl_referrals`(`referrer_id`, `referral_name`, `referral_email`, `referral_phone`, `referral_status`, `datecreated`) VALUES ($userid, '$nameFriend3', '$emailFriend3', '$mobileFeiend3', 1, now())");
+				if($emailFriend3!="" || $emailFriend3!=NULL)
+				{
+					$create3 = mysql_query("INSERT INTO `tbl_referrals`(`referrer_id`, `referral_name`, `referral_email`, `referral_phone`, `referral_status`, `datecreated`) VALUES ($userid, '$nameFriend3', '$emailFriend3', '$mobileFeiend3', 1, now())");
+				}
 			}
 			
             #This step needs to be repeated for each invite friend - can't invite all of them in smae email
@@ -81,71 +89,99 @@
 				$from=mysql_result($select, 0, 5);
 				$mobileNumber = mysql_result($select, 0, 6);
 				
-				$subject    = $username . " invited you to register with Guided Gateway - online marketplace for Guides in India"; 
-								
 				$smtpAddress = parse_ini_file('config.ini',true)['smtpAddress'];
 				$HostEmail = parse_ini_file('config.ini',true)['email'];
 				$HostPassword = parse_ini_file('config.ini',true)['password'];
+				$apiKey = parse_ini_file('config.ini',true)['apiKey'];
 				
-				$nameFriend=array();
+				$sentSuccess=0;
+				/* $nameFriend=array();
 				$emailFriend=array();
-				$mobileFeiend=array();
+				$mobileFeiend=array(); */
+				include('sendEmail.php');
 				
 				if($create1)
 				{
-					array_push($nameFriend, $nameFriend1);
+					/* array_push($nameFriend, $nameFriend1);
 					array_push($emailFriend, $emailFriend1);
-					array_push($mobileFeiend, $mobileFeiend1);
-				}
-				if($create2)
-				{
-					array_push($nameFriend, $nameFriend2);
-					array_push($emailFriend, $emailFriend2);
-					array_push($mobileFeiend, $mobileFeiend2);
-				}
-				if($create3)
-				{
-					array_push($nameFriend, $nameFriend3);
-					array_push($emailFriend, $emailFriend3);
-					array_push($mobileFeiend, $mobileFeiend3);
-				}
-				
-				$sentSuccess=0;
-				require("PHPMailer_5.2.0/class.phpmailer.php");
-				for ($x=0 ; $x<=count($emailFriend) ; $x++)
-				{
-					$mail = new PHPMailer();
-
-					$mail->IsSMTP();                  			// set mailer to use SMTP
-					$mail->Host =  $smtpAddress;			// specify main and backup server
-					$mail->SMTPAuth = true;     	 			// turn on SMTP authentication
-					$mail->Username = $HostEmail; 			// SMTP username
-					$mail->Password = $HostPassword; 			  	// SMTP password
-
-					$mail->From = $HostEmail;
-					$mail->FromName = $username;
-					$mail->AddAddress($emailFriend[$x], $nameFriend[$x]);
+					array_push($mobileFeiend, $mobileFeiend1); */
 					
-					$message    = "Hi ".$nameFriend[$x].",<br/> You guide friend ".$username." registered with Guided Gateway and also inviting you to <a href=http://guide.guidedgateway.com>register</a> with it for a better earning potential from tourists through an integrated service offering. This is absolutely free. <br/><br/>. <a href=http://guide.guidedgateway.com/howitworks_guide.html>Learn more</a>.<br/><br/> Thanks,<br/> Guided Gateway Team - online service just for you";
+					$subject = "Mail from " . $from . " - " . $username . " invited you to register with Guided Gateway - online marketplace for Guides in India";
+					$message = "Hi <b>" . $nameFriend1 . "</b>,<br/> Your guide friend <b>" . $username . "</b> registered with <b>Guided Gateway</b> and also 
+					inviting you to <a href=http://guide.guidedgateway.com>register</a> with it for a better earning 
+					potential from tourists through an integrated service offering. This is absolutely free. <br/><br/>. 
+					<a href=http://guide.guidedgateway.com/howitworks_guide.html>Learn more</a>.<br/><br/> Thanks,<br/> 
+					Guided Gateway Team - online service just for you";
 					
-					$mail->WordWrap = 50;                   // set word wrap to 50 characters
-					$mail->IsHTML(true);                     // set email format to HTML
-
-					$mail->Subject = "Mail from " . $from . " - " . $subject . ".";
-					$mail->Body    ="Email : " . $from . "<br />Subject : <b>" . $subject . "</b><br /><br />" . $message . ".";
-
-					if(!$mail->Send())
+					//function SendMail(apiKey, fromAddress, fromName, toAddress, toName, subject, message)
+					$susx1 = SendMail($apiKey, $HostEmail, 'Guided Gateway', $emailFriend1, $nameFriend1, $subject, $message);
+					if($susx1)
+					{
+						$sentSuccess=1;
+					}
+					else
 					{
 						if($sentSuccess==0)
 						{
 						$sentSuccess=0;
 						}
 					}
-					else
+				}
+				if($create2)
+				{
+					/* array_push($nameFriend, $nameFriend2);
+					array_push($emailFriend, $emailFriend2);
+					array_push($mobileFeiend, $mobileFeiend2); */
+					
+					$subject = "Mail from " . $from . " - " . $username . " invited you to register with Guided Gateway - online marketplace for Guides in India";
+					$message = "Hi <b>" . $nameFriend2 . "</b>,<br/> Your guide friend <b>" . $username . "</b> registered with <b>Guided Gateway</b> and also 
+					inviting you to <a href=http://guide.guidedgateway.com>register</a> with it for a better earning 
+					potential from tourists through an integrated service offering. This is absolutely free. <br/><br/>. 
+					<a href=http://guide.guidedgateway.com/howitworks_guide.html>Learn more</a>.<br/><br/> Thanks,<br/> 
+					Guided Gateway Team - online service just for you";
+					
+					//function SendMail(apiKey, fromAddress, fromName, toAddress, toName, subject, message)
+					$susx1 = SendMail($apiKey, $HostEmail, 'Guided Gateway', $emailFriend2, $nameFriend2, $subject, $message);
+					if($susx1)
 					{
 						$sentSuccess=1;
 					}
+					else
+					{
+						if($sentSuccess==0)
+						{
+						$sentSuccess=0;
+						}
+					}
 				}
+				if($create3)
+				{
+					/* array_push($nameFriend, $nameFriend3);
+					array_push($emailFriend, $emailFriend3);
+					array_push($mobileFeiend, $mobileFeiend3); */
+					
+					$subject = "Mail from " . $from . " - " . $username . " invited you to register with Guided Gateway - online marketplace for Guides in India";
+					$message = "Hi <b>" . $nameFriend3 . "</b>,<br/> Your guide friend <b>" . $username . "</b> registered with <b>Guided Gateway</b> and also 
+					inviting you to <a href=http://guide.guidedgateway.com>register</a> with it for a better earning 
+					potential from tourists through an integrated service offering. This is absolutely free. <br/><br/>. 
+					<a href=http://guide.guidedgateway.com/howitworks_guide.html>Learn more</a>.<br/><br/> Thanks,<br/> 
+					Guided Gateway Team - online service just for you";
+					
+					//function SendMail(apiKey, fromAddress, fromName, toAddress, toName, subject, message)
+					$susx1 = SendMail($apiKey, $HostEmail, 'Guided Gateway', $emailFriend3, $nameFriend3, $subject, $message);
+					if($susx1)
+					{
+						$sentSuccess=1;
+					}
+					else
+					{
+						if($sentSuccess==0)
+						{
+						$sentSuccess=0;
+						}
+					}
+				}
+				
 				if($sentSuccess==0)
 				{
 					unset($_SESSION['userId']);
