@@ -49,10 +49,10 @@
 		$msg="Successfully Updated!!";
 		echo "<script type='text/javascript'>alert('$msg');</script>";
 		
-		$smtpAddress = parse_ini_file('config.ini',true)['smtpAddress'];
-		$HostEmail = parse_ini_file('config.ini',true)['email'];
-		$HostPassword = parse_ini_file('config.ini',true)['password'];
-		$apiKey = parse_ini_file('config.ini',true)['apiKey'];
+		//$smtpAddress = parse_ini_file('config.ini',true)['smtpAddress'];
+		//$HostEmail = parse_ini_file('config.ini',true)['email'];
+		//$HostPassword = parse_ini_file('config.ini',true)['password'];
+		$apiKey = parse_ini_file('config.ini',true)['emailApiKey'];
 		
 		$subject = "Mail from " . $from . " - Hi " . $username . " , We Welcome you in Guided Gateway";
 		$message = 	"<br />Hi, " . $username . " Thankyou for joining our group, We will open gate of opportunity for you.";

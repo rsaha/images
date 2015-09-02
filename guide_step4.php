@@ -89,11 +89,6 @@
 				$from=mysql_result($select, 0, 5);
 				$mobileNumber = mysql_result($select, 0, 6);
 				
-				$smtpAddress = parse_ini_file('config.ini',true)['smtpAddress'];
-				$HostEmail = parse_ini_file('config.ini',true)['email'];
-				$HostPassword = parse_ini_file('config.ini',true)['password'];
-				$apiKey = parse_ini_file('config.ini',true)['apiKey'];
-				
 				$sentSuccess=0;
 				/* $nameFriend=array();
 				$emailFriend=array();
@@ -114,7 +109,7 @@
 					Guided Gateway Team - online service just for you";
 					
 					//function SendMail(apiKey, fromAddress, fromName, toAddress, toName, subject, message)
-					$susx1 = SendMail($apiKey, $HostEmail, 'Guided Gateway', $emailFriend1, $nameFriend1, $subject, $message);
+					$susx1 = SendMail($HostEmail, 'Guided Gateway', $emailFriend1, $nameFriend1, $subject, $message);
 					if($susx1)
 					{
 						$sentSuccess=1;
@@ -141,7 +136,7 @@
 					Guided Gateway Team - online service just for you";
 					
 					//function SendMail(apiKey, fromAddress, fromName, toAddress, toName, subject, message)
-					$susx1 = SendMail($apiKey, $HostEmail, 'Guided Gateway', $emailFriend2, $nameFriend2, $subject, $message);
+					$susx1 = SendMail($HostEmail, 'Guided Gateway', $emailFriend2, $nameFriend2, $subject, $message);
 					if($susx1)
 					{
 						$sentSuccess=1;
@@ -168,7 +163,7 @@
 					Guided Gateway Team - online service just for you";
 					
 					//function SendMail(apiKey, fromAddress, fromName, toAddress, toName, subject, message)
-					$susx1 = SendMail($apiKey, $HostEmail, 'Guided Gateway', $emailFriend3, $nameFriend3, $subject, $message);
+					$susx1 = SendMail($HostEmail, 'Guided Gateway', $emailFriend3, $nameFriend3, $subject, $message);
 					if($susx1)
 					{
 						$sentSuccess=1;
