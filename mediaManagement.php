@@ -165,7 +165,7 @@
 		}
 		
 		</style>
-		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+		<script src="js/angular.min.js"></script>
 		
 		<script src="App.js"></script>
 	</head>

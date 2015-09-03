@@ -80,21 +80,23 @@
 				{
 				$tour_category_id = mysql_result($select3, 0, 2);
 				$tour_title = mysql_result($select3, 0, 3);
-				$tour_description = mysql_result($select3, 0, 4);
-				$tour_duration = mysql_result($select3, 0, 5);
-				$tour_price = mysql_result($select3, 0, 6);
-				$start_point = mysql_result($select3, 0, 7);
-				$end_point = mysql_result($select3, 0, 8);
-				$inclusive = mysql_result($select3, 0, 9);
-				$exclusive = mysql_result($select3, 0, 10);
-				$cancelation_policy = mysql_result($select3, 0, 11);
-				$restrictions = mysql_result($select3, 0, 12);
-				$notes = mysql_result($select3, 0, 13);
+				$tour_location = mysql_result($select3, 0, 4);
+				$tour_description = mysql_result($select3, 0, 5);
+				$tour_duration = mysql_result($select3, 0, 6);
+				$tour_price = mysql_result($select3, 0, 7);
+				$start_point = mysql_result($select3, 0, 8);
+				$end_point = mysql_result($select3, 0, 9);
+				$inclusive = mysql_result($select3, 0, 10);
+				$exclusive = mysql_result($select3, 0, 11);
+				$cancelation_policy = mysql_result($select3, 0, 12);
+				$restrictions = mysql_result($select3, 0, 13);
+				$notes = mysql_result($select3, 0, 14);
 				}
 				else
 				{
 				$tour_category_id = "";
 				$tour_title = "";
+				$tour_location = "";
 				$tour_description = "";
 				$tour_duration = "";
 				$tour_price = "";
@@ -198,7 +200,7 @@
 		}
 		
 		</style>
-		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+		<script src="js/angular.min.js"></script>
 		
 		<script src="App.js"></script>
 	</head>
@@ -330,7 +332,7 @@
 											<form method="post" action="update_tour.php">
 											<input type="hidden" name="userid" value="<?php echo $userid ?>" />
 											<input type="hidden" name="tourID" value="<?php echo $tourID ?>" />
-											<div class="col-sm-6">
+											<div class="col-sm-3">
 											<div class="form-group">
 												<strong> Tour Type:</strong>
 												<select class="form-control" name="tourType" id="tourType" style="background-color:white">
@@ -341,6 +343,12 @@
 												}
 												?>
 												</select>
+											</div>
+											</div>
+											<div class="col-sm-3">
+											<div class="form-group">
+												<strong> Location:</strong>
+												<input type="text" class="form-control" value="<?php echo $tour_location; ?>" id="tourLocation" name="tourLocation" style="background-color:white" autocomplete="on" required />
 											</div>
 											</div>
 											
@@ -457,6 +465,21 @@
 		</div>
 		<!-- END #wrapper -->
 		 
+		 <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places" type="text/javascript"></script>
+			<script type="text/javascript">
+			function initialize() {
+
+			 var options = {
+			  types: ['(cities)'],
+			  componentRestrictions: {country: "in"}
+			 };
+
+			 var input = document.getElementById('tourLocation');
+			 var autocomplete = new google.maps.places.Autocomplete(input, options);
+			}
+			google.maps.event.addDomListener(window, 'load', initialize);
+			</script>
+			
 			<script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/jquery.wallform.js"></script>
 			<script>

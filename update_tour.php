@@ -22,6 +22,9 @@ $upload_dir = "img/";
             
 			$tourType = mysql_real_escape_string($_POST['tourType']);
 			$tourName = mysql_real_escape_string($_POST['tourName']);
+			$tourLocationTemp = mysql_real_escape_string($_POST['tourLocation']);
+			$city = explode(", ", $tourLocationTemp);
+			$tourLocation = $city[0];
 			$tourDiscription = mysql_real_escape_string($_POST['tourDiscription']);
 			$tourDuration = mysql_real_escape_string($_POST['tourDuration']);
 			$tourPrice = mysql_real_escape_string($_POST['tourPrice']);
@@ -36,6 +39,7 @@ $upload_dir = "img/";
 			$update = mysql_query("UPDATE `tbl_tours` SET 
 			`tour_category_id`=1,
 			`tour_title`='$tourName',
+			`tour_location`='$tourLocation',
 			`tour_description`='$tourDiscription',
 			`tour_duration`='$tourDuration',
 			`tour_price`='$tourPrice',
@@ -77,7 +81,6 @@ $upload_dir = "img/";
 	}
 	else
 	{
-		echo "<script type='text/javascript'>alert('7');</script>";
 		$errormsg="Unauthenticated access to the Guide edit page, Registration Step 1 is not done";
 		error_log($errormsg,0);
 		include("signOut.php");

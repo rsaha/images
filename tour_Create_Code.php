@@ -20,6 +20,10 @@ $upload_dir = "img/";
 			include('db.php');
             
 			$tourType = mysql_real_escape_string($_POST['tourType']);
+			$tourLocation = 
+			$tourLocationTemp = mysql_real_escape_string($_POST['tourLocation']);
+			$city = explode(", ", $tourLocationTemp);
+			$tourLocation = $city[0];
 			$tourName = mysql_real_escape_string($_POST['tourName']);
 			$tourDiscription = mysql_real_escape_string($_POST['tourDiscription']);
 			$tourDuration = mysql_real_escape_string($_POST['tourDuration']);
@@ -32,27 +36,28 @@ $upload_dir = "img/";
 			$restriction = mysql_real_escape_string($_POST['restriction']);
 			$notes = mysql_real_escape_string($_POST['notes']);
 			
-			
 			$insert = mysql_query("INSERT INTO `tbl_tours`(
-			`user_id`, 
-			`tour_category_id`, 
-			`tour_title`, 
-			`tour_description`, 
-			`tour_duration`, 
-			`tour_price`, 
-			`start_point`, 
-			`end_point`, 
-			`inclusive`, 
-			`exclusive`, 
-			`cancelation_policy`, 
-			`restrictions`, 
-			`notes`, 
-			`status`, 
+			`user_id`,
+			`tour_category_id`,
+			`tour_title`,
+			`tour_location`,
+			`tour_description`,
+			`tour_duration`,
+			`tour_price`,
+			`start_point`,
+			`end_point`,
+			`inclusive`,
+			`exclusive`,
+			`cancelation_policy`,
+			`restrictions`,
+			`notes`,
+			`status`,
 			`datecreated`
 			) VALUES (
 			$userid,
 			$tourType,
 			'$tourName',
+			'$tourLocation',
 			'$tourDiscription',
 			'$tourDuration',
 			'$tourPrice',
@@ -66,12 +71,15 @@ $upload_dir = "img/";
 			1,
 			now()
 			)");
+			
 			if($insert)
 			{
+				echo "<script type='text/javascript'>alert('3');</script>";
 				$flag1 = 1;
 			}
 			else
 			{
+				echo "<script type='text/javascript'>alert('4');</script>";
 				$flag1 = 0;
 			}
 			
