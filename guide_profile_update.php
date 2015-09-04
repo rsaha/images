@@ -26,7 +26,9 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 			$gender = mysql_real_escape_string($_POST['gender']);
 			$birthday = mysql_real_escape_string($_POST['birthday']);
 			$streetAddress = mysql_real_escape_string($_POST['streetAddress']);
-			$city = mysql_real_escape_string($_POST['city']);
+			$cityTemp = mysql_real_escape_string($_POST['city']);
+			$cityArray = explode(", ", $cityTemp);
+			$city = $cityArray[0];
 			$state = mysql_real_escape_string($_POST['state']);
 			$country = mysql_real_escape_string($_POST['country']);
 			

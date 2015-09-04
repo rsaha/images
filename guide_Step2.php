@@ -35,7 +35,9 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 			
 			$streetaddress=mysql_real_escape_string($_POST['streetaddress']);
 			
-			$city=mysql_real_escape_string($_POST['city']);
+			$cityTemp = mysql_real_escape_string($_POST['city']);
+			$cityArray = explode(", ", $cityTemp);
+			$city = $cityArray[0];
 			
 			$state=mysql_real_escape_string($_POST['state']);
 			

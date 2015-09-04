@@ -11,18 +11,19 @@
 
 		$select1 = mysql_query("SELECT * FROM `tbl_tours` WHERE `tour_id` = $tourID && `status` = 1");
 		$user_id=mysql_result($select1, 0, 1);
-		$tour_category_id=mysql_result($select1, 0, 2);
-		$tour_title=mysql_result($select1, 0, 3);
-		$tour_description = mysql_result($select1, 0, 4);
-		$tour_duration = mysql_result($select1, 0, 5);
-		$tour_price = mysql_result($select1, 0, 6);
-		$start_point = mysql_result($select1, 0, 7);
-		$end_point = mysql_result($select1, 0, 8);
-		$inclusive = mysql_result($select1, 0, 9);
-		$exclusive = mysql_result($select1, 0, 10);
-		$cancelation_policy = mysql_result($select1, 0, 11);
-		$restrictions = mysql_result($select1, 0, 12);
-		$notes = mysql_result($select1, 0, 13);
+		$tour_category_id = mysql_result($select1, 0, 2);
+		$tour_title = mysql_result($select1, 0, 3);
+		$tour_location = mysql_result($select1, 0, 4);
+		$tour_description = mysql_result($select1, 0, 5);
+		$tour_duration = mysql_result($select1, 0, 6);
+		$tour_price = mysql_result($select1, 0, 7);
+		$start_point = mysql_result($select1, 0, 8);
+		$end_point = mysql_result($select1, 0, 9);
+		$inclusive = mysql_result($select1, 0, 10);
+		$exclusive = mysql_result($select1, 0, 11);
+		$cancelation_policy = mysql_result($select1, 0, 12);
+		$restrictions = mysql_result($select1, 0, 13);
+		$notes = mysql_result($select1, 0, 14);
 
 		$select2 = mysql_query("SELECT * FROM `tbl_tour_media_pictures` WHERE `tour_id` = $tourID");
 		if(mysql_num_rows($select2) > 0 )
@@ -31,8 +32,8 @@
 			$tour_picture = mysql_result($select2, 0, 2);
 		}
 		
-		$select3 = mysql_query("SELECT * FROM `tbl_tour_media_videos` WHERE `tour_id` = $tourID");
-		if(mysql_num_rows($select3) > 0 )
+		$select1 = mysql_query("SELECT * FROM `tbl_tour_media_videos` WHERE `tour_id` = $tourID");
+		if(mysql_num_rows($select1) > 0 )
 		{
 			$video_media_id = mysql_result($select2, 0, 0);
 			$tour_video = mysql_result($select2, 0, 2);
@@ -128,7 +129,7 @@
 								$count4Tpic = mysql_num_rows($select4Tpic);
 								if ($count4Tpic==0)
 								{
-									echo '<img class="img-responsive" alt="featured Scroller" draggable="false" style="width:800px; height:400px;" src="img/custom1.jpg"/>';
+									echo '<img class="img-responsive" alt="featured Scroller" draggable="false" style="width:800px; height:400px;" src="img/custom11.jpg"/>';
 								}
 								else
 								{
@@ -138,9 +139,9 @@
 									<!--<img class="img-responsive" src="img/custom2.jpg" alt="TajMahal" />-->
 									<div class="offer-box">
 										<div class="offer-top">
-											<span class="ft-temp alignright">19&#730;c</span>
-											<span class="featured-cr text-upper"><?php echo $tour_title ; ?></span>
-											<h2 class="featured-cy text-upper"><?php echo $start_point . ' - ' . $end_point ; ?></h2>
+											<!--<span class="ft-temp alignright">19&#730;c</span>-->
+											<span class="featured-cr text-upper"><?php echo $tour_location ; ?></span>
+											<h2 class="featured-cy text-upper"><?php echo $tour_title; ?></h2>
 										</div>
 										
 										<div class="offer-bottom">
@@ -167,6 +168,27 @@
 						<aside id="sidebar" class="col-md-4">
 							
 							
+							<div class="sidebar-widget">
+								<!-- Sidebar Newsletter -->
+								<div class="styled-box gray">
+									<h3 class="text-upper">Start-End Details</h3>
+									<p><b>
+									<div class="row">
+										<div class="col-md-4 col-md-offset-1">Starting Point:
+										</div>
+										<div class="col-md-7"><?php echo $start_point; ?>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-4 col-md-offset-1">Ending Point:
+										</div>
+										<div class="col-md-7"><?php echo $end_point ?>
+										</div>
+									</div>
+									 </b>	
+									</p>
+								</div>
+							</div>
 							
 							<div class="sidebar-widget">
 								<!-- Sidebar Newsletter -->
