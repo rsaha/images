@@ -111,7 +111,7 @@ else
 		}
 		
 		</style>
-		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+		<script src="js/angular.min.js"></script>
 		<script src="App.js"></script>
 	</head>
 	<!-- END head -->
@@ -283,8 +283,8 @@ else
 													<li class="row">
 														<div class="col-md-4">
 															<label style="font-size:14px; font-weight:bold">City</label>
-															<input type="text" class="form-control" name="city" ng-model="city" value="" ng-pattern="/^[a-z A-Z]+$/" />
-															 <span style="color:red" ng-show="myForm.city.$dirty && myForm.city.$invalid">
+															<input type="text" class="form-control" name="city" id="guideCity" autocomplete="on" ng-model="city" value="" ng-pattern="/^[a-z A-Z]+$/" />
+															<span style="color:red" ng-show="myForm.city.$dirty && myForm.city.$invalid">
 											   <span ng-show="myForm.city.$error.pattern">*Invalid city ...</span>
 											  </span>
 														</div>
@@ -318,7 +318,7 @@ else
 													<li class="row">
 														<div class="col-md-4">
 															<label style="font-size:14px; font-weight:bold">Landline Number</label>
-															<input type="tel" class="form-control" name="landlinenumber" value="" ng-model="landlinenumber" maxlength="15" ng-pattern="/^\d{15}$/"/>
+															<input type="tel" class="form-control" name="landlinenumber" value="" ng-model="landlinenumber" maxlength="15" ng-pattern="/^\d{11}$/"/>
 															 <span style="color:red" ng-show="myForm.landlinenumber.$dirty && myForm.landlinenumber.$invalid">
 											 
 											   <span ng-show="myForm.landlinenumber.$error.pattern">*Invalid landline number ...</span>
@@ -393,10 +393,21 @@ else
 				populateCountries("country", "state");
 			</script>
 		
-			<script>
-			
+			<script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places" type="text/javascript"></script>
+			<script type="text/javascript">
+			function initialize() {
 
+			 var options = {
+			  types: ['(cities)'],
+			  componentRestrictions: {country: "in"}
+			 };
+
+			 var input = document.getElementById('guideCity');
+			 var autocomplete = new google.maps.places.Autocomplete(input, options);
+			}
+			google.maps.event.addDomListener(window, 'load', initialize);
 			</script>
+			
 
 			<script>
 		function myFunction(id) {

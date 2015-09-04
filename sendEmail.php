@@ -1,4 +1,5 @@
 <?php
+//Need to send welcome email with template header
 function SendMail($fromAddress, $fromName, $toAddress, $toName, $subject, $message)
 {
 	require_once("./sendgrid-php/sendgrid-php.php");

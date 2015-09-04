@@ -387,7 +387,9 @@
 												  <div class="col-sm-6 form-group">
 													<div class="row mgbt-xs-0">
 													  <label class="col-xs-5 control-label">City:</label>
-													  <div class="col-xs-7 controls"><input name="city" class="form-control" type="text" style="background-color:#f7f7f7;" value="<?php echo $city ?>" /></div>
+													  <div class="col-xs-7 controls">
+													  <input name="city" class="form-control" type="text" id="guideCity" style="background-color:#f7f7f7;" value="<?php echo $city ?>"  autocomplete="on"/>
+													  </div>
 													  <!-- col-sm-10 --> 
 													</div>
 												  </div>
@@ -508,6 +510,20 @@
 			<?php include('MasterFooter.php'); ?>
 		</div>
 		<!-- END #wrapper -->
+			<script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places" type="text/javascript"></script>
+			<script type="text/javascript">
+			function initialize() {
+
+			 var options = {
+			  types: ['(cities)'],
+			  componentRestrictions: {country: "in"}
+			 };
+
+			 var input = document.getElementById('guideCity');
+			 var autocomplete = new google.maps.places.Autocomplete(input, options);
+			}
+			google.maps.event.addDomListener(window, 'load', initialize);
+			</script>
 			
 			<script>
 			$(function() {

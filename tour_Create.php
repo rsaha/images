@@ -180,7 +180,7 @@
 }
 		
 		</style>
-		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+		<script src="js/angular.min.js"></script>
 		
 		<script src="App.js"></script>
 	</head>
@@ -305,7 +305,7 @@
 											
 											<form method="post" action="tour_Create_Code.php">
 											<input type="hidden" name="userid" value="<?php echo $userid ?>" />
-											<div class="col-sm-6">
+											<div class="col-sm-4">
 											<div class="form-group">
 												<strong> Tour Type:</strong><a class="pull-right" tabindex="0" data-toggle="popover"  data-placement="bottom" data-trigger="focus" data-content="Please select tour type.">
 																<i class='fa fa-info-circle' style="color:gray"></i>
@@ -320,12 +320,21 @@
 												</select>
 											</div>
 											</div>
-											<div class="col-sm-6">
+											<div class="col-sm-4">
+											<div class="form-group">
+												<strong> Location:</strong><a class="pull-right" tabindex="0" data-toggle="popover"  data-placement="bottom" data-trigger="focus" data-content="Location">
+																<i class='fa fa-info-circle' style="color:gray"></i>
+															</a>
+												<input id="tourLocation" tabindex="1" type="text" class="form-control" placeholder="Tour Location" name="tourLocation" style="background-color:white" autocomplete="on" required />
+												
+											</div>
+											</div>
+											<div class="col-sm-4">
 											<div class="form-group">
 												<strong> Tour Name:</strong><a class="pull-right" tabindex="0" data-toggle="popover"  data-placement="bottom" data-trigger="focus" data-content="Enter your name here">
 																<i class='fa fa-info-circle' style="color:gray"></i>
 															</a>
-												<input type="text" class="form-control" placeholder="Attractive tour name. ex. 2 days in Agra" name="tourName" style="background-color:white" required />
+												<input type="text" tabindex="2" class="form-control" placeholder="Attractive tour name. ex. 2 days in Agra" name="tourName" style="background-color:white" required />
 											</div>
 											</div>
 											<div class="col-sm-6">
@@ -333,7 +342,7 @@
 												<strong> Description:</strong><a class="pull-right" tabindex="0" data-toggle="popover"  data-placement="bottom" data-trigger="focus" data-content="Short description of the tour in 10 sentences">
 																<i class='fa fa-info-circle' style="color:gray"></i>
 															</a>
-												<textarea class="form-control" placeholder="Short description of the tour in 10 sentences" name="tourDiscription" style="height:115px; background-color:white" ></textarea>
+												<textarea class="form-control" tabindex="3" placeholder="Short description of the tour in 10 sentences" name="tourDiscription" style="height:115px; background-color:white" ></textarea>
 											</div>
 											</div>
 											<div class="col-sm-6">
@@ -341,7 +350,7 @@
 												<strong> Duration:</strong><a class="pull-right" tabindex="0" data-toggle="popover"  data-placement="bottom" data-trigger="focus" data-content="Duration. ex. 2 days">
 																<i class='fa fa-info-circle' style="color:gray"></i>
 															</a>
-												<input type="text" class="form-control" placeholder="Duration. ex. 2 days" name="tourDuration" style="background-color:white" required  />
+												<input type="text" tabindex="4" class="form-control" placeholder="Duration. ex. 2 days" name="tourDuration" style="background-color:white" required  />
 											</div>
 											</div>
 											<div class="col-sm-6">
@@ -349,7 +358,7 @@
 												<strong> Tour Price:</strong><a class="pull-right" tabindex="0" data-toggle="popover"  data-placement="bottom" data-trigger="focus" data-content="Price per person or tail price. ex. INR 1500 per person">
 																<i class='fa fa-info-circle' style="color:gray"></i>
 															</a>
-												<input type="text" class="form-control" placeholder="Price per person or tail price. ex. INR 1500 per person" name="tourPrice" style="background-color:white" required  />
+												<input type="text" tabindex="5" class="form-control" placeholder="Price per person or tail price. ex. INR 1500 per person" name="tourPrice" style="background-color:white" required  />
 											</div>
 											</div>
 											<div class="col-sm-6">
@@ -357,7 +366,7 @@
 												<strong> Pickup Point:</strong><a class="pull-right" tabindex="0" data-toggle="popover"  data-placement="bottom" data-trigger="focus" data-content="Pickup Point. i.e. Delhi Airport">
 																<i class='fa fa-info-circle' style="color:gray"></i>
 															</a>
-												<input type="text" class="form-control" placeholder="Pickup Point. i.e. Delhi Airport" name="startingPoint" style="background-color:white" required  />
+												<input type="text" tabindex="6" class="form-control" placeholder="Pickup Point. i.e. Delhi Airport" name="startingPoint" style="background-color:white" required  />
 											</div>
 											</div>
 											<div class="col-sm-6">
@@ -365,7 +374,7 @@
 												<strong> End Pont:</strong><a class="pull-right" tabindex="0" data-toggle="popover"  data-placement="bottom" data-trigger="focus" data-content="Drop Off. i.e. Delhi Central">
 																<i class='fa fa-info-circle' style="color:gray"></i>
 															</a>
-												<input type="text" class="form-control" placeholder="Drop Off. i.e. Delhi Central" name="endPoint" style="background-color:white" required  />
+												<input type="text" tabindex="7" class="form-control" placeholder="Drop Off. i.e. Delhi Central" name="endPoint" style="background-color:white" required  />
 											</div>
 											</div>
 											<div class="col-sm-6">
@@ -373,7 +382,7 @@
 												<strong> Inclusive:</strong><a class="pull-right" tabindex="0" data-toggle="popover"  data-placement="bottom" data-trigger="focus" data-content="Tour price includes. ex. Transport , All meals, entree fees">
 																<i class='fa fa-info-circle' style="color:gray"></i>
 															</a>
-												<textarea class="form-control" placeholder="Tour price includes. ex. Transport , All meals, entree fees" name="inclusive" style="background-color:white" required ></textarea>
+												<textarea class="form-control" tabindex="8" placeholder="Tour price includes. ex. Transport , All meals, entree fees" name="inclusive" style="background-color:white" required ></textarea>
 												<!--<input type="text" class="form-control" placeholder="Inclusive" name="inclusive" style="background-color:white" />-->
 											</div>
 											</div>
@@ -382,7 +391,7 @@
 												<strong> Exclusive:</strong><a class="pull-right" tabindex="0" data-toggle="popover"  data-placement="bottom" data-trigger="focus" data-content="Tour prices excludes ex. shopping, drinks">
 																<i class='fa fa-info-circle' style="color:gray"></i>
 															</a>
-												<textarea class="form-control" placeholder="Tour prices excludes ex. shopping, drinks" name="exclusive" style="background-color:white" ></textarea>
+												<textarea class="form-control" tabindex="9" placeholder="Tour prices excludes ex. shopping, drinks" name="exclusive" style="background-color:white" ></textarea>
 												<!--<input type="text" class="form-control" placeholder="Exclusive" name="exclusive" style="background-color:white" />-->
 											</div>
 											</div>
@@ -391,7 +400,7 @@
 												<strong> Cancellation Policy:</strong><a class="pull-right" tabindex="0" data-toggle="popover"  data-placement="bottom" data-trigger="focus" data-content="Cancellation Policy. ex. full-refund if cancelled 7 days before tour begins">
 																<i class='fa fa-info-circle' style="color:gray"></i>
 															</a>
-												<textarea class="form-control" placeholder="Cancellation Policy. ex. full-refund if cancelled 7 days before tour begins" name="cancellationPolicy" style="background-color:white" required></textarea>
+												<textarea class="form-control" tabindex="10" placeholder="Cancellation Policy. ex. full-refund if cancelled 7 days before tour begins" name="cancellationPolicy" style="background-color:white" required></textarea>
 												<!--<input type="text" class="form-control" placeholder="Cancellation Policy" name="cancellationPolicy" style="background-color:white" />-->
 											</div>
 											</div>
@@ -400,7 +409,7 @@
 												<strong> Restriction:</strong><a class="pull-right" tabindex="0" data-toggle="popover"  data-placement="bottom" data-trigger="focus" data-content="Mention Restriction if any.">
 																<i class='fa fa-info-circle' style="color:gray"></i>
 															</a>
-												<textarea class="form-control" placeholder="Restriction" name="restriction" style="background-color:white" ></textarea>
+												<textarea class="form-control" tabindex="11" placeholder="Restriction" name="restriction" style="background-color:white" ></textarea>
 												<!--<input type="text" class="form-control" placeholder="Restriction" name="restriction" style="background-color:white" />-->
 											</div>
 											</div>
@@ -409,7 +418,7 @@
 												<strong> Notes:</strong><a class="pull-right" tabindex="0" data-toggle="popover"  data-placement="bottom" data-trigger="focus" data-content="Any other special notes">
 																<i class='fa fa-info-circle' style="color:gray"></i>
 															</a>
-												<textarea class="form-control" placeholder="Any other special notes" name="notes" style="background-color:white" ></textarea>
+												<textarea class="form-control" tabindex="12" placeholder="Any other special notes" name="notes" style="background-color:white" ></textarea>
 												<!--<input type="text" class="form-control" placeholder="Notes" name="notes" style="background-color:white" />-->
 											</div>
 											</div>
@@ -418,10 +427,10 @@
 											
 											<div class="col-sm-12">
 												<div class="col-sm-3 col-sm-offset-3">
-													<a onclick="myFunction(<?php echo $userid; ?>)"><button class="form-control btn btn-default">Cancel</button></a>
+													<a onclick="myFunction(<?php echo $userid; ?>)"><button tabindex="14" class="form-control btn btn-default">Cancel</button></a>
 												</div>
 												<div class="col-sm-3">
-													<input type="submit" class="form-control btn btn-warning" value="Create Tour"  name="tourNmae" />
+													<input type="submit" tabindex="13" class="form-control btn btn-warning" value="Create Tour"  name="tourNmae" />
 												</div>
 											</div>
 											
@@ -437,9 +446,10 @@
 											<div class="row">
 
 											<?php 
-											$sql1 = mysql_query("SELECT `tour_id`, `tour_category_id`, `tour_title`, `tour_description`, `tour_duration`, `tour_price`, `start_point`, `end_point`,
-											`inclusive`, `exclusive`, `cancelation_policy`, `restrictions`, `notes`, `status`, `datecreated` 
-											FROM `tbl_tours` WHERE (`user_id` != $userid and `status` = 1)");
+											$sql2 = mysql_query("SELECT `street_address`, `city`, `state`, `country` FROM `tbl_user_profile` WHERE (`user_id` = $userid and `status` = 1)");
+											$guideCity = mysql_result($sql2, 0, 1);
+											
+											$sql1 = mysql_query("SELECT `tour_id`, `tour_category_id`, `tour_title`, `tour_location`, `tour_description`, `tour_duration`, `tour_price`, `start_point`, `end_point`, `inclusive`, `exclusive`, `cancelation_policy`, `restrictions`, `notes`, `status`, `datecreated` FROM `tbl_tours` WHERE (`user_id` != $userid and `tour_location` = '$guideCity' and `status` = 1)");
 											if(mysql_num_rows($sql1) >= 1)
 											{
 											while ($row1 = mysql_fetch_array($sql1))
@@ -448,22 +458,34 @@
 											
 													<div class="col-md-3">
 													<?php
+													$tour_id = $row1['tour_id'];
 													echo '<a id="editButton" style="height:20px" class="btn btn-xs btn-default" data-toggle="tab" onclick="addTour(' . $userid . ',' . $row1['tour_id'] . ');" >ADD</a>';
-														echo '<a style="cursor: pointer;" onclick="detailTour(' . $row1['tour_id'] . ');" >';
+														echo '<a style="cursor: pointer;" onclick="detailTour(' . $tour_id . ');" >';
 														?>
-														<input type="hidden" name="tourid" id="tourid" value=" <?php echo $row1['tour_id'] ?> " />
+														<input type="hidden" name="tourid" id="tourid" value=" <?php echo $tour_id; ?> " />
 														<div class="ft-item">
 														
 															<span class="ft-image">
-																<img alt="featured Scroller" src="img/custom1.jpg" draggable="false">
+																<?php
+																$select4Tpic = mysql_query("SELECT * FROM `tbl_tour_media_pictures` WHERE `tour_id` = $tour_id");
+																$count4Tpic = mysql_num_rows($select4Tpic);
+																if ($count4Tpic==0)
+																{
+																	echo '<img alt="featured Scroller" draggable="false" style="width:207px; height:105px;" src="img/custom11.jpg"/>';
+																}
+																else
+																{
+																	echo '<img alt="featured Scroller" draggable="false" style="width:207px; height:105px;" src="showMediaPicture.php?id=' . mysql_result($select4Tpic, 0, 0) . '"/>';
+																}
+																?>
 															</span>
 															<div class="ft-data2">
 																<span style="color:white" class="ft-title text-upper"><?php echo $row1['tour_title'] ?></span>
 																<span class="ft-offer text-upper"><?php echo $row1['tour_price'] ?></span>
 															</div>
 															<div class="ft-foot">
-																<span class="ft-date text-upper alignleft"><?php echo $row1['tour_duration'] ?></span>
-																<span class="ft-temp alignright"><?php echo $row1['start_point'] . " - " . $row1['end_point'] ?></span>
+																<span class="ft-date text-upper alignleft"><?php echo $row1['tour_location'] ?></span>
+																<span class="ft-temp alignright"><?php echo $row1['tour_duration'] ?></span>
 															</div>
 														</div>
 														<?php echo '</a>'; ?>
@@ -553,6 +575,20 @@
 				}
 			</script>
 
+			<script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places" type="text/javascript"></script>
+			<script type="text/javascript">
+			function initialize() {
+
+			 var options = {
+			  types: ['(cities)'],
+			  componentRestrictions: {country: "in"}
+			 };
+
+			 var input = document.getElementById('tourLocation');
+			 var autocomplete = new google.maps.places.Autocomplete(input, options);
+			}
+			google.maps.event.addDomListener(window, 'load', initialize);
+			</script>
 
 	
 				<!-- javascripts -->

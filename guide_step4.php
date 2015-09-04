@@ -158,11 +158,12 @@
 					array_push($mobileFeiend, $mobileFeiend3); */
 					
 					$subject = "Mail from " . $from . " - " . $username . " invited you to register with Guided Gateway - online marketplace for Guides in India";
-					$message = "Hi <b>" . $nameFriend3 . "</b>,<br/> Your guide friend <b>" . $username . "</b> registered with <b>Guided Gateway</b> and also 
-					inviting you to <a href=http://guide.guidedgateway.com>register</a> with it for a better earning 
-					potential from tourists through an integrated service offering. This is absolutely free. <br/><br/>. 
-					<a href=http://guide.guidedgateway.com/howitworks_guide.html>Learn more</a>.<br/><br/> Thanks,<br/> 
-					Guided Gateway Team - online service just for you";
+					$message = "Hi <b>" . $nameFriend3 . "</b>,<br/> Your guide friend <b>" . $username . "</b> registered with <b>Guided Gateway</b>. He is also 
+					inviting you to register with this guided tour marketplace for a better earning 
+					potential from tourists. <br/>This is absolutely free. <br/><br/>. 
+					<a href=http://guide.guidedgateway.com>Learn more</a>.<br/><br/> 
+					Thanks,<br/> 
+					Guided Gateway Team";
 					
 					//function SendMail(apiKey, fromAddress, fromName, toAddress, toName, subject, message)
 					$susx1 = SendMail($HostEmail, 'Guided Gateway', $emailFriend3, $nameFriend3, $subject, $message);
