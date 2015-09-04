@@ -31,11 +31,12 @@
 		$apiKey = parse_ini_file('config.ini',true)['apiKey'];
 		
 		include('sendEmail.php');
-		$subject = "Guide " . $username . "has envited his some friends";
+		$subject = "Guide " . $username . " has envited his some friends";
 		$message    = "<b>". $username . "</b> has invited his friends of following email id...<b><br />" . $emailaddresses . "</b><br /><br /> -----------------------------<br />";
 		
 		//function SendMail(apiKey, fromAddress, fromName, toAddress, toName, subject, message)
 		if((SendMail($apiKey, $HostEmail, 'Guided Gateway', 'ankitbhagat.ab@gmail.com', 'Ankit Bhagat', $subject, $message))&& (SendMail($apiKey, $HostEmail, 'Guided GateWay', 'rshah@xmapledatalab.com', 'Rakesh Shah', $subject, $message)))
+		//if(SendMail($apiKey, $HostEmail, 'Guided Gateway', 'ankitbhagat.ab@gmail.com', 'Ankit Bhagat', $subject, $message))
 		{
 			$errormsg="Acknowledgement email sent.";
 			error_log($errormsg,0);

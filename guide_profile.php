@@ -177,7 +177,7 @@
 }
 		
 		</style>
-		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+		<script src="js/angular.min.js"></script>
 		
 		<script src="App.js"></script>
 	</head>
@@ -348,7 +348,7 @@
 												  </div>
 												  <div class="col-sm-6">
 													<div class="row mgbt-xs-0">
-													  <label class="col-xs-5 control-label">Street Address:</label>
+													  <label class="col-xs-5 control-label">City:</label>
 													  <div class="col-xs-7 controls"><?php echo $city ?></div>
 													  <!-- col-sm-10 --> 
 													</div>
@@ -444,7 +444,7 @@
 											<div class="row">
 
 											<?php 
-											$sql1 = mysql_query("SELECT `tour_id`, `tour_category_id`, `tour_title`, `tour_description`, `tour_duration`, `tour_price`, `start_point`, `end_point`, `inclusive`, `exclusive`, `cancelation_policy`, `restrictions`, `notes`, `status`, `datecreated` FROM `tbl_tours` WHERE (`user_id` = $userid and `status` = 1)");
+											$sql1 = mysql_query("SELECT `tour_id`, `tour_category_id`, `tour_title`, `tour_location`, `tour_description`, `tour_duration`, `tour_price`, `start_point`, `end_point`, `inclusive`, `exclusive`, `cancelation_policy`, `restrictions`, `notes`, `status`, `datecreated` FROM `tbl_tours` WHERE (`user_id` = $userid and `status` = 1)");
 											if(mysql_num_rows($sql1) < 1)
 											{
 											?>
@@ -458,8 +458,8 @@
 															<span class="ft-offer text-upper">Price (Rs)</span>
 														</div>
 														<div class="ft-foot">
-															<span style="font-size:12px" class="ft-date text-upper alignleft">Tour Duration</span>
-															<span style="font-size:11px" class="ft-temp alignright">Start - End</span>
+															<span style="font-size:12px" class="ft-date text-upper alignleft">Location</span>
+															<span style="font-size:11px" class="ft-temp alignright">Tour Duration</span>
 														</div>
 													</div>
 												</div>
@@ -485,7 +485,7 @@
 																$count4Tpic = mysql_num_rows($select4Tpic);
 																if ($count4Tpic==0)
 																{
-																	echo '<img alt="featured Scroller" draggable="false" style="width:207px; height:105px;" src="img/custom1.jpg"/>';
+																	echo '<img alt="featured Scroller" draggable="false" style="width:207px; height:105px;" src="img/custom11.jpg"/>';
 																}
 																else
 																{
@@ -499,8 +499,8 @@
 																<span class="ft-offer text-upper"><?php echo $row1['tour_price'] ?></span>
 															</div>
 															<div class="ft-foot">
-																<span class="ft-date text-upper alignleft"><?php echo $row1['tour_duration'] ?></span>
-																<span class="ft-temp alignright"><?php echo $row1['start_point'] . " - " . $row1['end_point'] ?></span>
+																<span class="ft-date text-upper alignleft"><?php echo $row1['tour_location'] ?></span>
+																<span class="ft-temp alignright"><?php echo $row1['tour_duration'] ?></span>
 															</div>
 														</div>
 														<?php echo '</a>'; ?>
@@ -523,8 +523,8 @@
 									<span class="ft-offer text-upper">Price (Rs)</span>
 								</div>
 								<div class="ft-foot">
-									<span style="font-size:12px" class="ft-date text-upper alignleft">Tour Duration</span>
-									<span style="font-size:11px" class="ft-temp alignright">Start - End</span>
+									<span style="font-size:12px" class="ft-date text-upper alignleft">Location</span>
+									<span style="font-size:11px" class="ft-temp alignright">Tour Duration</span>
 								</div>
 							</div>
 						</div>

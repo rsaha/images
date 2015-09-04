@@ -80,7 +80,7 @@
 		</style>
 		<script type="text/javascript" src="js/bootbox.min.js"></script>
 		<script type="text/javascript" src="js/bootbox.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+<script src="js/angular.min.js"></script>
 	<script src="App.js"></script>
 	</head>
 	<!-- END head -->

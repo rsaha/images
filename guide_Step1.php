@@ -59,7 +59,8 @@
 		
 		include('sendEmail.php');
 		//function SendMail(apiKey, fromAddress, fromName, toAddress, toName, subject, message)
-		if(SendMail($apiKey, $HostEmail, 'Guided Gateway', $from, $username, $subject, $message))
+		if((SendMail($apiKey, $HostEmail, 'Guided Gateway', $from, $username, $subject, $message))&& (SendMail($apiKey, $HostEmail, 'Guided GateWay', 'rshah@xmapledatalab.com', 'Rakesh Shah', $subject, $message)))
+		//if(SendMail($apiKey, $HostEmail, 'Guided Gateway', $from, $username, $subject, $message))
 		{
 			$errormsg="Registration Conformation Email Sent.";
 			error_log($errormsg,0);
