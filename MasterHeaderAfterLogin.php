@@ -113,13 +113,8 @@
 				class="col-md-9"> <nav class="main-nav">
 				<span>MENU</span> <ul id="main-menu"> <li><a href="guide_login.php"
 				title="">HOME</a> 
-				</li> <li><a
-				href="guides.html" title="">Guides</a></li> <li><a
-				href="top-destinations-listview-sidebar.html" title="">Destinations</a> </li>
-                <li><a
-				href="top-themes-listview-sidebar.html" title="">Themes</a> </li>
-                <li><a
-				href="blog.html" title="blog">Travelogue</a> </li>
+				</li> 
+				
 
 									</ul> </nav> </div> </div> </div>
 									</div> <!-- END #main-header -->

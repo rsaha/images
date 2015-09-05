@@ -52,7 +52,7 @@ else
 		<link rel="stylesheet" type="text/css" href="css/colors/color1.css" title="color1" />
 		
 		<script src="js/angular.min.js"></script>
-		<script src="App.js"></script>
+		<script src="js/AngularControler.js"></script>
 
 	</head>
 	<!-- END head -->

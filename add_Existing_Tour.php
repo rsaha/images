@@ -73,23 +73,24 @@
 				}
 				
 				
-				$select3 = mysql_query("SELECT * FROM `tbl_tours` WHERE `user_id` = $userid && `tour_id` = $tourID");
+				$select3 = mysql_query("SELECT * FROM `tbl_tours` WHERE `tour_id` = $tourID");
 				$row33 = mysql_fetch_assoc($select3);
 				if(mysql_num_rows($select3) > 0 )
 				{
-				$tour_category_id = $row33["tour_category_id"];
-				$tour_title = $row33["tour_title"];
-				$tour_location = $row33["tour_location"];
-				$tour_description = $row33["tour_description"];
-				$tour_duration = $row33["tour_duration"];
-				$tour_price = $row33["tour_price"];
-				$start_point = $row33["start_point"];
-				$end_point = $row33["end_point"];
-				$inclusive = $row33["inclusive"];
-				$exclusive = $row33["exclusive"];
-				$cancelation_policy = $row33["cancelation_policy"];
-				$restrictions = $row33["restrictions"];
-				$notes = $row33["notes"];
+					$oldTourId = $row33["tour_id"];
+					$tour_category_id = $row33["tour_category_id"];
+					$tour_title = $row33["tour_title"];
+					$tour_location = $row33["tour_location"];
+					$tour_description = $row33["tour_description"];
+					$tour_duration = $row33["tour_duration"];
+					$tour_price = $row33["tour_price"];
+					$start_point = $row33["start_point"];
+					$end_point = $row33["end_point"];
+					$inclusive = $row33["inclusive"];
+					$exclusive = $row33["exclusive"];
+					$cancelation_policy = $row33["cancelation_policy"];
+					$restrictions = $row33["restrictions"];
+					$notes = $row33["notes"];
 				}
 				else
 				{
@@ -270,7 +271,9 @@
 					        <br /><br />
 					   <div class="row">
 					<div class="col-md-11">
-					<a href="guide_login.php" style="color:#5a5a5a;" title=""><center><u><span style="font-size:18px;font-weight:bold;"><?php echo strtoupper($username) ?></span></u></center></a>
+					<a href="guide_login.php" style="color:#5a5a5a;" title="">
+					<center><u><span style="font-color:black; font-size:18px;font-weight:bold;"><?php echo strtoupper($username) ?></span></u></center>
+					</a>
 					<br /><br />
 					<label style="font-size:14px;">Licence Number. :</label><br><br />
 					<span style="font-size:18px;font-weight:bold;"><?php echo $licenceNumber ?></span><br />
@@ -309,7 +312,7 @@
 							<div class="user-profile">
 								<!-- START TABS -->
 								<ul class="nav nav-tabs text-upper" style="background-color:#FFA98E;">
-									<li class="active"><a href="" data-toggle="tab">Tours Edit</a></li>
+									<li class="active"><a href="" data-toggle="tab">Add Existing Tour</a></li>
 									<!--<li><a href="#createTour" data-toggle="tab">Create Tour</a></li>-->
 									<!--<li><a href="#licenceDetail" data-toggle="tab">Licence Detail</a></li>-->
 								</ul>
@@ -321,15 +324,9 @@
 									
 									<div class="tab-pane active" id="createTour">
 										<div class="booking gray clearfix box-shadow1">
-											<div class="col-sm-6">
-												<h2 class="">Upload your tour media here</h2><br>
-												<?php
-												echo '<input type="button" style="background-color:#ffa98e; height:100px" class="btn btn-default form-control" onclick="mediaManagement(' . $userid . ',' . $tourID . ')" value="Click Here">';
-												?>
-											</div>
-											<form method="post" action="update_tour.php">
+											<form method="post" action="add_Existing_Tour_Code.php">
 											<input type="hidden" name="userid" value="<?php echo $userid ?>" />
-											<input type="hidden" name="tourID" value="<?php echo $tourID ?>" />
+											<input type="hidden" name="oldTourId" value="<?php echo $oldTourId ?>" />
 											<div class="col-sm-3">
 											<div class="form-group">
 												<strong> Tour Type:</strong>
@@ -430,7 +427,7 @@
 												?>
 												</div>
 												<div class="col-sm-3">
-													<input type="submit" class="form-control btn btn-warning" value="Update Tour"  name="tourNmae" />
+													<input type="submit" class="form-control btn btn-warning" value="Create Tour"  name="tourNmae" />
 												</div>
 											</div>
 											</form>

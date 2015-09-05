@@ -43,7 +43,7 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 			
 			
 			$update1 = mysql_query("UPDATE `tbl_user_profile` SET `f_name`='$firstName', `l_name`='$lastName', `email`='$emailID', 
-			`mobileNo`='$mobileNumber', `gender`='$gender', `d_o_b`=$birthday, `street_address`='$streetAddress', `city`='$city', 
+			`mobileNo`='$mobileNumber', `gender`='$gender', `d_o_b`='$birthday', `street_address`='$streetAddress', `city`='$city', 
 			`state`='$state', `country`='$country', `datecreated`=now() WHERE `user_id` = $userid");
 			if($update1)
 			{
@@ -112,7 +112,7 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 					$userid, 
 					'$licenceNumber',
 					'$hex_string',
-					$licenceValidty,
+					'$licenceValidty',
 					'$landLineNumber',
 					'$bestTimeToContace',
 					'$paymentTerm',
@@ -148,7 +148,7 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 					) VALUES (
 					$userid, 
 					'$licenceNumber',
-					$licenceValidty,
+					'$licenceValidty',
 					'$landLineNumber',
 					'$bestTimeToContace',
 					'$paymentTerm',
@@ -173,7 +173,7 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 				
 				if(isset($hex_string))
 				{
-					$update2 = mysql_query("UPDATE `tbl_guide_detail_profile` SET `guide_experience` = '$experiance', `license_no`='$licenceNumber',`validity`=$licenceValidty,
+					$update2 = mysql_query("UPDATE `tbl_guide_detail_profile` SET `guide_experience` = '$experiance', `license_no`='$licenceNumber',`validity`='$licenceValidty',
 					`license_Image` = '$hex_string',`landline_no`='$landLineNumber', `payment_terms`='$paymentTerm',
 					`Best_time_for_contact`='$bestTimeToContace', `Communication_mechanism`='$communicationMechanism',
 					`guide_Remarks`='$remark',`datecreated`=now() WHERE `user_id` = $userid");
@@ -188,7 +188,7 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 				}
 				else
 				{
-					$update2 = mysql_query("UPDATE `tbl_guide_detail_profile` SET `guide_experience` = '$experiance', `license_no`='$licenceNumber',`validity`=$licenceValidty,
+					$update2 = mysql_query("UPDATE `tbl_guide_detail_profile` SET `guide_experience` = '$experiance', `license_no`='$licenceNumber',`validity`='$licenceValidty',
 					`landline_no`='$landLineNumber', `payment_terms`='$paymentTerm',
 					`Best_time_for_contact`='$bestTimeToContace', `Communication_mechanism`='$communicationMechanism',
 					`guide_Remarks`='$remark',`datecreated`=now() WHERE `user_id` = $userid");

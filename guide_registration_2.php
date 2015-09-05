@@ -22,11 +22,12 @@ else if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "reg"))
 	{
 		include('db.php');
 		$select = mysql_query("SELECT * FROM `tbl_user_profile` WHERE `user_id` = $userid");
-		$firstName=mysql_result($select, 0, 3);
-		$secondName=mysql_result($select, 0, 4);
-		$username =  $firstName . " " . $secondName;
-		$emailID = mysql_result($select, 0, 5);
-		$mobileNumber = mysql_result($select, 0, 6); 
+		$row = mysql_fetch_assoc($select);
+		$firstName =  $row["f_name"];
+		$lastName =  $row["l_name"];
+		$username =  $firstName . " " . $lastName;
+		$emailID=$row["email"];
+		$mobileNumber = $row["mobileNo"];
 	}
 }
 else
@@ -112,7 +113,7 @@ else
 		
 		</style>
 		<script src="js/angular.min.js"></script>
-		<script src="App.js"></script>
+		<script src="js/AngularControler.js"></script>
 	</head>
 	<!-- END head -->
 
@@ -272,7 +273,7 @@ else
 													<li class="row">
 														<div class="col-md-12">
 															<label style="font-size:14px; font-weight:bold">Street Address</label>
-															<input type="text" class="form-control" name="streetaddress" ng-model="streetaddress" ng-pattern="/^[a-z0-9A-Z -.]+$/" value="" />
+															<input type="text" class="form-control" name="streetaddress" ng-model="streetaddress" ng-pattern="/^[a-z0-9A-Z -./]+$/" value="" />
 															 <span style="color:red" ng-show="myForm.streetaddress.$dirty && myForm.streetaddress.$invalid">
 											 
 											   <span ng-show="myForm.streetaddress.$error.pattern">*Invalid street address ...</span>
@@ -308,7 +309,7 @@ else
 														</div>
 														<div class="col-md-4">
 															<label style="font-size:14px; font-weight:bold">Licence Expiry</label>
-															<input type="date" id="LicenceExpiry" placeholder="yyyy-mm-dd" class="form-control" name="licenceexpiry" value="" />
+															<input type="date" id="LicenceExpiry" class="form-control" name="licenceexpiry" value="" />
 														</div>
 														<div class="col-md-4">
 															<label style="font-size:14px; font-weight:bold">Licence Image</label>

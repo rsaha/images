@@ -36,10 +36,13 @@
 	if($create)
 	{
 		$select = mysql_query("SELECT * FROM `tbl_user_profile` WHERE `email`='$EmailAddress' && `mobileNo`='$MobileNumber'");
-		$userid = mysql_result($select, 0, 0);
-		$username =  mysql_result($select, 0, 3) . " " . mysql_result($select, 0, 4);
-		$from=mysql_result($select, 0, 5);
-		$mobileNumber = mysql_result($select, 0, 6);
+		$row = mysql_fetch_assoc($select);
+		$userid = $row["user_id"];
+		$firstName =  $row["f_name"];
+		$lastName =  $row["l_name"];
+		$username =  $firstName . " " . $lastName;
+		$from=$row["email"];
+		$mobileNumber = $row["mobileNo"];
 		
 		$_SESSION['userId']=$userid;
 		$_SESSION['phase'] = "reg";
@@ -59,9 +62,11 @@
 		
 		include('sendEmail.php');
 		//function SendMail(apiKey, fromAddress, fromName, toAddress, toName, subject, message)
-		if((SendMail($apiKey, $HostEmail, 'Guided Gateway', $from, $username, $subject, $message))&& (SendMail($apiKey, $HostEmail, 'Guided GateWay', 'rshah@xmapledatalab.com', 'Rakesh Shah', $subject, $message)))
-		//if(SendMail($apiKey, $HostEmail, 'Guided Gateway', $from, $username, $subject, $message))
+		if(SendMail($apiKey, $HostEmail, 'Guided Gateway', $from, $username, $subject, $message))
 		{
+			$tempSub = 'New Guide "' . $username . '" Registered in Guidedgateway';
+			$tempMsg = 'Hiii Admin<br>New guide with the following details registered just now... <br><br>Name : ' . $username . ' <br>Email : ' . $from . '<br>Mobile Number : ' . $mobileNumber . '';
+			$s = SendMail($apiKey, $HostEmail, 'Guided GateWay', 'ankitbhagat.ab@gmail.com', 'Ankit Bhagat', $tempSub, $tempMsg);
 			$errormsg="Registration Conformation Email Sent.";
 			error_log($errormsg,0);
 			$msg="Conformation Email Sent!!";

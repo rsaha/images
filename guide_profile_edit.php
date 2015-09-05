@@ -17,47 +17,45 @@
 				include('db.php');
 
 				$select1 = mysql_query("SELECT * FROM `tbl_user_profile` WHERE `user_id` = $userid");
-
-				$firstName=mysql_result($select1, 0, 3);
-				$lastName=mysql_result($select1, 0, 4);
+				$row11 = mysql_fetch_assoc($select1);
+				$firstName=$row11["f_name"];
+				$lastName=$row11["l_name"];
 				$username =  $firstName . " " . $lastName;
-				$emailID = mysql_result($select1, 0, 5);
-				$mobileNumber = mysql_result($select1, 0, 6);
-				$gender = mysql_result($select1, 0, 7);
-				$birthday = mysql_result($select1, 0, 8);
-				$streetAddress = mysql_result($select1, 0, 9);
-				$city = mysql_result($select1, 0, 10);
-				$state = mysql_result($select1, 0, 11);
-				$country = mysql_result($select1, 0, 12);
+				$emailID = $row11["email"];
+				$mobileNumber = $row11["mobileNo"];
+				$gender = $row11["gender"];
+				$birthday = $row11["d_o_b"];
+				$streetAddress = $row11["street_address"];
+				$city = $row11["city"];
+				$state = $row11["state"];
+				$country = $row11["country"];
 
 				$select2 = mysql_query("SELECT * FROM `tbl_guide_detail_profile` WHERE `user_id` = $userid");
+				$row22 = mysql_fetch_assoc($select2);
 				if(mysql_num_rows($select2) > 0 )
 				{
-				$profilePicture = mysql_result($select2, 0, 2);
-				$coverPicture = mysql_result($select2, 0, 3);
-				$nickName = mysql_result($select2, 0, 4);
-				$licenceImage = mysql_result($select2, 0, 5);
-				$licenceNumber = mysql_result($select2, 0, 6);
-				$licenceValidty = mysql_result($select2, 0, 7);
-				$summary = mysql_result($select2, 0, 8);
-				$experiance = mysql_result($select2, 0, 9);
-				$intrest = mysql_result($select2, 0, 10);
-				$landLineNumber = mysql_result($select2, 0, 15);
-				$paymentCurrency = mysql_result($select2, 0, 16);
-				$paymentTerm = mysql_result($select2, 0, 17);
-				$bestTimeToContace = mysql_result($select2, 0, 18);
-				$communicationMechanism = mysql_result($select2, 0, 19);
-				$remark = mysql_result($select2, 0, 20);
+				$profilePicture = $row22["guide_profile_pic"];
+				$coverPicture = $row22["guide_Cover_pic"];
+				$nickName = $row22["nick_name"];
+				$LicenceImage = $row22["license_Image"];
+				$licenceNumber = $row22["license_no"];
+				$licenceValidty = $row22["validity"];
+				$summery = $row22["guide_summary"];
+				$experiance = $row22["guide_experience"];
+				$intrest = $row22["guide_interest"];
+				$landLineNumber = $row22["landline_no"];
+				$paymentCurrency = $row22["payment_currency"];
+				$paymentTerm = $row22["payment_terms"];
+				$bestTimeToContace = $row22["Best_time_for_contact"];
+				$communicationMechanism = $row22["Communication_mechanism"];
+				$remark = $row22["guide_Remarks"];
 				}
 				else
 				{
-				$profilePicture = "";
-				$coverPicture = "";
 				$nickName = "";
-				$licenceImage = "";
 				$licenceNumber = "";
 				$licenceValidty = "";
-				$summary = "";
+				$summery = "";
 				$experiance = "";
 				$intrest = "";
 				$landLineNumber = "";
@@ -167,27 +165,24 @@
 								<tr>
 									<td>
 										<a href="" onclick="document.getElementById('file1').click(); return false">
-										<?php 
-							
-							$select4pic = mysql_query("SELECT * FROM `tbl_guide_detail_profile` WHERE `user_id` = $userid");
-							$count4pic = mysql_num_rows($select4pic);
-							if ($count4pic==0)
-							{
-								echo '<img style="width:1400px; height:200px;" class="hover img-responsive" src="img/Default.jpg"/>';
-							}
-							else
-							{
-								$picVal = mysql_result($select4pic, 0, 3);
-								if($picVal==null)
-								{
-									echo '<img style="width:1400px; height:200px;" class="hover img-responsive" src="img/Default.jpg"/>';
-								}
-								else
-								{
-									echo '<img style="width:1400px; height:200px;" class="hover img-responsive" src="showCover.php?id=' . $userid . '"/>';
-								}
-							}
-							?>
+										<?php 		
+											$count4pic = mysql_num_rows($select2);
+											if ($count4pic==0)
+											{
+												echo '<img style="width:1400px; height:200px;" class="hover img-responsive" src="img/Default.jpg"/>';
+											}
+											else
+											{
+												if($coverPicture==null)
+												{
+													echo '<img style="width:1400px; height:200px;" class="hover img-responsive" src="img/Default.jpg"/>';
+												}
+												else
+												{
+													echo '<img style="width:1400px; height:200px;" class="hover img-responsive" src="showCover.php?id=' . $userid . '"/>';
+												}
+											}
+											?><br>
 										</a>
 									</td>
 								</tr>
@@ -213,40 +208,32 @@
 					   <div class="row">
 					   
 					   <center>
-						<div class="row">
+						<div class="col-md-11">
 						<div class="hovera text-center" style="border: 0px solid black;">
 						<form action="uploadphp.php" enctype="multipart/form-data" method="post"  id="formProfile" name="formProfile">
-							<table >
-							<tr style="">
-							<td>
+							
 							<a href="" onclick="document.getElementById('file2').click(); return false">
 							
 							<?php 
-							
-							$select4pic = mysql_query("SELECT * FROM `tbl_guide_detail_profile` WHERE `user_id` = $userid");
-							$count4pic = mysql_num_rows($select4pic);
-							if ($count4pic==0)
+						$count4pic = mysql_num_rows($select2);
+						if ($count4pic==0)
+						{
+							echo '<img style="max-height:200px; max-width:170px;" class="hover img-responsive" src="img/userDefaultIcon.png"/>';
+						}
+						else
+						{
+							if($profilePicture==null)
 							{
 								echo '<img style="max-height:200px; max-width:170px;" class="hover img-responsive" src="img/userDefaultIcon.png"/>';
 							}
 							else
 							{
-								$picVal = mysql_result($select4pic, 0, 2);
-								if($picVal==null)
-								{
-									echo '<img style="max-height:200px; max-width:170px;" class="hover img-responsive" src="img/userDefaultIcon.png"/>';
-								}
-								else
-								{
-									echo '<img style="height200px; width:170px;" class="hover img-responsive" src="showImage.php?id=' . $userid . '"/>';
-								}
+								echo '<img style="max-height:200px; max-width:170px;" class="hover img-responsive" src="showImage.php?id=' . $userid . '"/>';
 							}
-							?>
-							</a>
-							</td>
-							</tr>
+						}
 							
-							</table>
+						?>
+							</a>
 							<input type="hidden" name="profile_pic" value="profile_pic" />
 							<input type="hidden" name="userid" value="<?php echo $userid; ?>" />
 							<input id="file2" name="file2" type="file" style="visibility: hidden;"  onchange="formProfile.submit();"/>
@@ -259,30 +246,32 @@
 					        <br /><br />
 				<form action="guide_profile_update.php" enctype="multipart/form-data" method="post">
 					   <div class="row">
-					  <ul class="list-unstyled">
-							<li><span class="menu-text"> Lic. No. : <br><input name="licenceNumber" class="form-control" type="text" value="<?php echo $licenceNumber ?>" /><br><br></li>
-							<li><span class="menu-text"> Valid upto : <br><input name="licenceValidty" class="form-control" type="text" value="<?php echo $licenceValidty ?>" /><br><br></li>
+					   <div class="col-md-11">
+					   <a href="guide_login.php" style="color:#5a5a5a;" title=""><center><u><span style="font-size:18px;font-weight:bold;"><?php echo strtoupper($username) ?></span></u></center></a>
+					<br /><br />
+					<label style="font-size:14px;">Licence Number. :</label><br><br />
+					<input name="licenceNumber" class="form-control" type="text" value="<?php echo $licenceNumber ?>" /><br />
+					  <hr>
+					<label style="font-size:14px;">Licence Expiry Date :</label><br><br />
+					<input name="licenceValidty" class="form-control" type="date" value="<?php echo $licenceValidty ?>" />
+					<hr>
+					<label style="font-size:14px;">Licence Image :</label><br><br />
 							
-					    <li><span class="menu-text"> Licence Image : <br>
-						
-						<div class="hovera text-center" style="border: 0px solid black;">
+					    <div class="hovera text-center" style="border: 0px solid black;">
 						<table >
 							<tr style="">
 							<td>
 							<a href="" onclick="document.getElementById('licenceImage').click(); return false">
 							
 							<?php 
-							
-							$select4pic = mysql_query("SELECT * FROM `tbl_guide_detail_profile` WHERE `user_id` = $userid");
-							$count4pic = mysql_num_rows($select4pic);
+							$count4pic = mysql_num_rows($select2);
 							if ($count4pic==0)
 							{
 								echo '<img style="max-height:127px; max-width:200px;" class="hover img-responsive" src="img/PRcard.jpg"/>';
 							}
 							else
 							{
-								$picVal = mysql_result($select4pic, 0, 5);
-								if($picVal==null)
+								if($LicenceImage==null)
 								{
 									echo '<img style="max-height:127px; max-width:200px;" class="hover img-responsive" src="img/PRcard.jpg"/>';
 								}
@@ -300,10 +289,9 @@
 							</div>
 							
 						<br>
-						</li>
-							</ul>
+							
 					   </div>
-					    
+					    </div>
 			      </div>
 						<!-- START #page -->
 						<div id="page" class="col-md-10">
@@ -367,7 +355,7 @@
 												   <div class="col-sm-6 form-group">
 													<div class="row mgbt-xs-0">
 													  <label class="col-xs-5 control-label">Birthday:</label>
-													  <div class="col-xs-7 controls"><input name="birthday" class="form-control" type="text" style="background-color:#f7f7f7;" value="<?php echo $birthday ?>" /></div>
+													  <div class="col-xs-7 controls"><input name="birthday" class="form-control" type="date" style="background-color:#f7f7f7;" value="<?php echo $birthday ?>" /></div>
 													  <!-- col-sm-10 --> 
 													</div>
 												  </div>

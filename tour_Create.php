@@ -22,44 +22,42 @@
 				include('db.php');
 
 				$select1 = mysql_query("SELECT * FROM `tbl_user_profile` WHERE `user_id` = $userid");
-
-				$firstName=mysql_result($select1, 0, 3);
-				$secondName=mysql_result($select1, 0, 4);
-				$username =  $firstName . " " . $secondName;
-				$emailID = mysql_result($select1, 0, 5);
-				$mobileNumber = mysql_result($select1, 0, 6);
-				$gender = mysql_result($select1, 0, 7);
-				$birthdaay = mysql_result($select1, 0, 8);
-				$streetAddress = mysql_result($select1, 0, 9);
-				$city = mysql_result($select1, 0, 10);
-				$state = mysql_result($select1, 0, 11);
-				$country = mysql_result($select1, 0, 12);
+				$row11 = mysql_fetch_assoc($select1);
+				$firstName=$row11["f_name"];
+				$lastName=$row11["l_name"];
+				$username =  $firstName . " " . $lastName;
+				$emailID = $row11["email"];
+				$mobileNumber = $row11["mobileNo"];
+				$gender = $row11["gender"];
+				$birthday = $row11["d_o_b"];
+				$streetAddress = $row11["street_address"];
+				$city = $row11["city"];
+				$state = $row11["state"];
+				$country = $row11["country"];
 
 				$select2 = mysql_query("SELECT * FROM `tbl_guide_detail_profile` WHERE `user_id` = $userid");
+				$row22 = mysql_fetch_assoc($select2);
 				if(mysql_num_rows($select2) > 0 )
 				{
-				$profilePicture = mysql_result($select2, 0, 2);
-				$coverPicture = mysql_result($select2, 0, 3);
-				$nickName = mysql_result($select2, 0, 4);
-				$LicenceImage = mysql_result($select2, 0, 5);
-				$licenceNumber = mysql_result($select2, 0, 6);
-				$licenceValidty = mysql_result($select2, 0, 7);
-				$summery = mysql_result($select2, 0, 8);
-				$experiance = mysql_result($select2, 0, 9);
-				$intrest = mysql_result($select2, 0, 10);
-				$landLineNumber = mysql_result($select2, 0, 15);
-				$paymentCurrency = mysql_result($select2, 0, 16);
-				$paymentTerm = mysql_result($select2, 0, 17);
-				$bestTimeToContace = mysql_result($select2, 0, 18);
-				$communicationMechanism = mysql_result($select2, 0, 19);
-				$remark = mysql_result($select2, 0, 20);
+				$profilePicture = $row22["guide_profile_pic"];
+				$coverPicture = $row22["guide_Cover_pic"];
+				$nickName = $row22["nick_name"];
+				$LicenceImage = $row22["license_Image"];
+				$licenceNumber = $row22["license_no"];
+				$licenceValidty = $row22["validity"];
+				$summery = $row22["guide_summary"];
+				$experiance = $row22["guide_experience"];
+				$intrest = $row22["guide_interest"];
+				$landLineNumber = $row22["landline_no"];
+				$paymentCurrency = $row22["payment_currency"];
+				$paymentTerm = $row22["payment_terms"];
+				$bestTimeToContace = $row22["Best_time_for_contact"];
+				$communicationMechanism = $row22["Communication_mechanism"];
+				$remark = $row22["guide_Remarks"];
 				}
 				else
 				{
-				$profilePicture = "";
-				$coverPicture = "";
 				$nickName = "";
-				$LicenceImage = "";
 				$licenceNumber = "";
 				$licenceValidty = "";
 				$summery = "";
@@ -182,7 +180,7 @@
 		</style>
 		<script src="js/angular.min.js"></script>
 		
-		<script src="App.js"></script>
+		<script src="js/AngularControler.js"></script>
 	</head>
 	<!-- END head -->
 
@@ -197,16 +195,14 @@
 			<div class="" >
 			<?php 
 							
-							$select4pic = mysql_query("SELECT * FROM `tbl_guide_detail_profile` WHERE `user_id` = $userid");
-							$count4pic = mysql_num_rows($select4pic);
+							$count4pic = mysql_num_rows($select2);
 							if ($count4pic==0)
 							{
 								echo '<img style="width:1400px; height:200px;" class="hover img-responsive" src="img/Default.jpg"/>';
 							}
 							else
 							{
-								$picVal = mysql_result($select4pic, 0, 3);
-								if($picVal==null)
+								if($coverPicture==null)
 								{
 									echo '<img style="width:1400px; height:200px;" class="hover img-responsive" src="img/Default.jpg"/>';
 								}
@@ -230,16 +226,14 @@
 					   <center>
 					    <div class="row">
 						<?php 
-						$select4pic = mysql_query("SELECT * FROM `tbl_guide_detail_profile` WHERE `user_id` = $userid");
-						$count4pic = mysql_num_rows($select4pic);
+						$count4pic = mysql_num_rows($select2);
 						if ($count4pic==0)
 						{
 							echo '<img style="max-height:200px; max-width:170px;" class="hover img-responsive" src="img/userDefaultIcon.png"/>';
 						}
 						else
 						{
-							$picVal = mysql_result($select4pic, 0, 2);
-							if($picVal==null)
+							if($profilePicture==null)
 							{
 								echo '<img style="max-height:200px; max-width:170px;" class="hover img-responsive" src="img/userDefaultIcon.png"/>';
 							}
@@ -255,22 +249,27 @@
 					
 					        <br /><br />
 					   <div class="row">
-					  <ul class="list-unstyled">
-							<li><span class="menu-text"> Licence No. : <a ><?php echo $licenceNumber ?></a><br><br></li>
-							<li><span class="menu-text"> Licence Expiry Date : <a ><?php echo $licenceValidty ?></a><br><br></li>
-							
-					    <li><span class="menu-text"> Licence Image : 
-						<?php 
-							$select4pic = mysql_query("SELECT * FROM `tbl_guide_detail_profile` WHERE `user_id` = $userid");
-							$count4pic = mysql_num_rows($select4pic);
+					<div class="col-md-11">
+					<a href="guide_login.php" style="color:#5a5a5a;" title="">
+					<center><u><span style="font-size:18px;font-weight:bold;"><?php echo strtoupper($username) ?></span></u></center>
+					</a> 
+					<br /><br />
+					<label style="font-size:14px;">Licence Number. :</label><br><br />
+					<span style="font-size:18px;font-weight:bold;"><?php echo $licenceNumber ?></span><br />
+					<hr>
+					<label style="font-size:14px;">Licence Expiry Date :</label><br><br />
+					<span style="font-size:18px;font-weight:bold;"><?php echo $licenceValidty ?></span><br />
+					<hr>
+					<label style="font-size:14px;">Licence Image :</label><br><br />
+					<?php 
+							$count4pic = mysql_num_rows($select2);
 							if ($count4pic==0)
 							{
 								echo '<img style="max-height:127px; max-width:200px;" class="hover img-responsive" src="img/PRcard.jpg"/>';
 							}
 							else
 							{
-								$licVal = mysql_result($select4pic, 0, 5);
-								if($licVal==null)
+								if($LicenceImage==null)
 								{
 									echo '<img style="max-height:127px; max-width:200px;" class="hover img-responsive" src="img/PRcard.jpg"/>';
 								}
@@ -280,14 +279,15 @@
 								}
 							}
 							?>
-						<br></li>
-							
-							</ul>
-					   </div>
+						<br>
+					
+					</div>
+					
+					</div>
 					    
 			      </div>
 						<!-- START #page -->
-						<div id="page" class="col-md-10">
+						<div id="page" class="col-md-10 col-sm-12 col-xs-12">
 							<div class="user-profile">
 								<!-- START TABS -->
 								<ul class="nav nav-tabs text-upper" style="background-color:#FFA98E;">
@@ -449,7 +449,9 @@
 											$sql2 = mysql_query("SELECT `street_address`, `city`, `state`, `country` FROM `tbl_user_profile` WHERE (`user_id` = $userid and `status` = 1)");
 											$guideCity = mysql_result($sql2, 0, 1);
 											
-											$sql1 = mysql_query("SELECT `tour_id`, `tour_category_id`, `tour_title`, `tour_location`, `tour_description`, `tour_duration`, `tour_price`, `start_point`, `end_point`, `inclusive`, `exclusive`, `cancelation_policy`, `restrictions`, `notes`, `status`, `datecreated` FROM `tbl_tours` WHERE (`user_id` != $userid and `tour_location` = '$guideCity' and `status` = 1)");
+											$sql1 = mysql_query("SELECT `tour_id`, `tour_category_id`, `tour_title`, `tour_location`, `tour_description`, `tour_duration`, `tour_price`, `start_point`, `end_point`, `inclusive`, `exclusive`, `cancelation_policy`, `restrictions`, `notes`, `status`, `datecreated` FROM `tbl_tours` WHERE ( `user_id` != $userid AND (`tour_id` NOT IN (select `created_added` from `tbl_tours` WHERE `user_id`= $userid and `created_added` != 0)) and `tour_location` = '$guideCity' and `status` = 1 )");
+											
+										  //$sql1 = mysql_query("SELECT `tour_id`, `tour_category_id`, `tour_title`, `tour_location`, `tour_description`, `tour_duration`, `tour_price`, `start_point`, `end_point`, `inclusive`, `exclusive`, `cancelation_policy`, `restrictions`, `notes`, `status`, `datecreated` FROM `tbl_tours` WHERE (`user_id` != $userid and `tour_location` = '$guideCity' and `status` = 1)");
 											if(mysql_num_rows($sql1) >= 1)
 											{
 											while ($row1 = mysql_fetch_array($sql1))
@@ -459,7 +461,7 @@
 													<div class="col-md-3">
 													<?php
 													$tour_id = $row1['tour_id'];
-													echo '<a id="editButton" style="height:20px" class="btn btn-xs btn-default" data-toggle="tab" onclick="addTour(' . $userid . ',' . $row1['tour_id'] . ');" >ADD</a>';
+													echo '<a id="editButton" style="height:20px" class="btn btn-xs btn-default" data-toggle="tab" onclick="addTour(' . $userid . ',' . $tour_id . ');" >ADD</a>';
 														echo '<a style="cursor: pointer;" onclick="detailTour(' . $tour_id . ');" >';
 														?>
 														<input type="hidden" name="tourid" id="tourid" value=" <?php echo $tour_id; ?> " />
@@ -543,8 +545,6 @@
 			<script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/jquery.wallform.js"></script>
 			<script>
-			
- 
 			$(function () {
 			  $('[data-toggle="tooltip"]').tooltip();
 			});
@@ -561,10 +561,10 @@
 					return false;
 				}
 				
+				
 				function addTour(id,id2) 
 				{
-					alert("hi");
-					//window.location.href = "edit_Tour.php?id1="+id+"&id2="+id2+"";
+					window.location.href = "add_Existing_Tour.php?id1="+id+"&id2="+id2+"";
 					return false;
 				}
 				

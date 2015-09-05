@@ -14,13 +14,14 @@ if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "reg"))
 	}
 	else
 	{
-	include('db.php');
-	$select = mysql_query("SELECT * FROM `tbl_user_profile` WHERE `user_id` = $userid");
-	$firstName=mysql_result($select, 0, 3);
-	$secondName=mysql_result($select, 0, 4);
-	$username =  $firstName . " " . $secondName;
-	$emailID = mysql_result($select, 0, 5);
-	$mobileNumber = mysql_result($select, 0, 6); 
+		include('db.php');
+		$select = mysql_query("SELECT * FROM `tbl_user_profile` WHERE `user_id` = $userid");
+		$row = mysql_fetch_assoc($select);
+		$firstName =  $row["f_name"];
+		$lastName =  $row["l_name"];
+		$username =  $firstName . " " . $lastName;
+		$emailID=$row["email"];
+		$mobileNumber = $row["mobileNo"];
 	}
 }
 else
@@ -88,7 +89,7 @@ else
 		}
 		
 		</style>
-		<script src="App.js"></script>
+		<script src="js/AngularControler.js"></script>
 	</head>
 	<!-- END head -->
 
