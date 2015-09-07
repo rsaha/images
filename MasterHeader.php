@@ -109,24 +109,42 @@
 			</div> 
 		</div> <!-- END #top-header -->
 
-				<!-- START #main-header --> <div id="main-header"> <div
-				class="container"> <div class="row"> <div
-				class="col-md-3"> <a id="site-logo" href="#"> <img
-				src="img/logo.png" alt="Guided Gateway" /> </a> </div> <div
-				class="col-md-9"> <nav class="main-nav">
-				<span>MENU</span> <ul id="main-menu"> <li><a href="index.html"
-				title="">HOME</a> 
-				</li> <li><a
-				href="guides.html" title="">Guides</a></li> <li><a
-				href="top-destinations-listview-sidebar.html" title="">Destinations</a> </li>
-                <li><a
-				href="top-themes-listview-sidebar.html" title="">Themes</a> </li>
-                <li><a
-				href="blog.html" title="blog">Travelogue</a> </li>
+				<!-- START #main-header --> <div id="main-header">
+				<div class="container">
+				<div class="row">
+				<div class="col-md-3">
+				<a id="site-logo" href="#">
+				<img src="img/logo.png" alt="Guided Gateway" />
+				</a>
+				</div>
+				<div class="col-md-9">
+				<nav class="main-nav">
+				<span>MENU</span>
+				<ul id="main-menu">
+				<li><a href="index.php" title="">HOME</a>
+				</li> 
+				<li>
+				<a href="guides.html" title="">Guides</a></li>
+				<li><a href="top-destinations-listview-sidebar.html" title="">Destinations</a> </li>
+                <li><a href="top-themes-listview-sidebar.html" title="">Themes</a> </li>
+                <li><a href="blog.html" title="blog">Travelogue</a> </li>
+				
+				<li><a href="#" onclick="return false;" title="">SIGN IN</a>
+				
+				<ul> 
+				<li><a href="#" title="">Touriest SIGN IN</a></li>
+				<li><a href="guide_login.php" title="">Guide SIGN IN</a></li>
+				</ul>
+				
+				</li>
 
-									</ul> </nav> </div> </div> </div>
-									</div> <!-- END #main-header -->
-									</header> <!-- END header -->
+				</ul>
+				</nav>
+				</div>
+				</div>
+				</div>
+				</div> <!-- END #main-header -->
+				</header> <!-- END header -->
 	<!-- START #wrapper --> </div> 
 	</body>
 	</html>

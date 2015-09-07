@@ -65,7 +65,6 @@ else
 		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Karla:400,700,400italic,700italic" />
 		<!-- color scheme -->
 		<link rel="stylesheet" type="text/css" href="css/colors/color1.css" title="color1" />
-		<script src="js/angular.min.js"></script>
 		<style type="text/css" >
 		
 		.hovera a:hover
@@ -89,7 +88,8 @@ else
 		}
 		
 		</style>
-			<script src="js/AngularControler.js"></script>
+		<script type="text/javascript" src="js/angular.min.js"></script>
+			<script type="text/javascript" src="js/AngularControler.js"></script>
 	</head>
 	<!-- END head -->
 

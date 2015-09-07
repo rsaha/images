@@ -176,6 +176,7 @@
 		
 		</style>
 		
+		
 	</head>
 	<!-- END head -->
 
@@ -280,15 +281,13 @@
 					    
 			      </div>
 						<!-- START #page -->
-						<div id="page" class="col-md-10">
+						<div id="page" class="col-md-10 col-sm-12 col-xs-12">
 							<div class="user-profile">
 								<!-- START TABS -->
 								<ul class="nav nav-tabs text-upper" style="background-color:#FFA98E;">
 									<li><a href="#userinfo" data-toggle="tab">Guide Profile</a></li>
 									<li class="active"><a href="#tourList" data-toggle="tab">Tours</a></li>
 									<li><a href="#inviteGuide" data-toggle="tab">Invite Guides</a></li>
-									<!--<li><a href="#createTour" data-toggle="tab">Create Tour</a></li>-->
-									<!--<li><a href="#licenceDetail" data-toggle="tab">Licence Detail</a></li>-->
 								</ul>
 								<!-- END TABS -->
 								
@@ -304,30 +303,30 @@
 										<i class="fa fa-pencil"></i> Edit Profile 
 										</a>'
 										?>	
-										</div>      
-												<h3 class=" mgtp-10 font-semibold"><i class="icon-user mgr-10 profile-icon"></i> ABOUT</h3>
+										</div>      <br>
+												<h3 class="font-semibold"><i class="icon-user profile-icon"></i> ABOUT</h3>
 												<div class="row">
-												  <div class="col-sm-6">
-													<div class="row mgbt-xs-0">
-													  <label class="col-xs-5 control-label">Name:</label>
-													  <div class="col-xs-7 controls"><?php echo $username ?></div>
+												  <div class="col-sm-6 col-xs-12">
+													  <div class="form-group">
+													  <label class="col-md-5 control-label" style="font-size:14px; font-weight:bold">Name:</label>
+													  <div class="col-md-7 controls"><?php echo $username ?></div>
+													  </div>
 													  <!-- col-sm-10 --> 
-													</div>
 												  </div>
-												  <div class="col-sm-6">
-													<div class="row mgbt-xs-0">
-													  <label class="col-xs-5 control-label">Gender:</label>
-													  <div class="col-xs-7 controls"><?php echo $gender ?></div>
+												  <div class="col-sm-6 col-xs-12">
+													  <div class="form-group">
+													  <label class="col-md-5 control-label" style="font-size:14px; font-weight:bold">Gender:</label>
+													  <div class="col-md-7 controls"><?php echo $gender ?></div>
+												  </div>
 													  <!-- col-sm-10 --> 
-													</div>
 												  </div>
 												  
-												   <div class="col-sm-6">
-													<div class="row mgbt-xs-0">
-													  <label class="col-xs-5 control-label">Birthday:</label>
-													  <div class="col-xs-7 controls"><?php echo $birthday ?></div>
+												   <div class="col-sm-6 col-xs-12">
+													  <div class="form-group">
+													  <label class="col-md-5 control-label" style="font-size:14px; font-weight:bold">Birthday:</label>
+													  <div class="col-md-7 controls"><?php echo $birthday ?></div>
+												  </div>
 													  <!-- col-sm-10 --> 
-													</div>
 												  </div>
 												   
 												  
@@ -335,99 +334,105 @@
 												
 												<h3 class=" mgtp-10 font-semibold"><i class="icon-user mgr-10 profile-icon"></i> ADDREDSS</h3>
 												<div class="row">
-												<div class="col-sm-6">
-													<div class="row mgbt-xs-0">
-													  <label class="col-xs-5 control-label">Street Address:</label>
-													  <div class="col-xs-7 controls"><?php echo $streetAddress ?></div>
-													  <!-- col-sm-10 --> 
-													</div>
+												<div class="col-sm-6 col-xs-12">
+													  <div class="form-group">
+													  <label class="col-md-5 control-label" style="font-size:14px; font-weight:bold">Street Address:</label>
+													  <div class="col-md-7 controls"><?php echo $streetAddress ?></div>
 												  </div>
-												  <div class="col-sm-6">
-													<div class="row mgbt-xs-0">
-													  <label class="col-xs-5 control-label">City:</label>
-													  <div class="col-xs-7 controls"><?php echo $city ?></div>
 													  <!-- col-sm-10 --> 
-													</div>
 												  </div>
-												  <div class="col-sm-6">
-													<div class="row mgbt-xs-0">
-													  <label class="col-xs-5 control-label">State</label>
-													  <div class="col-xs-7 controls"><?php echo $state ?></div>
-													  <!-- col-sm-10 --> 
-													</div>
+												  <div class="col-sm-6 col-xs-12">
+													  <div class="form-group">
+													  <label class="col-md-5 control-label" style="font-size:14px; font-weight:bold">City:</label>
+													  <div class="col-md-7 controls"><?php echo $city ?></div>
 												  </div>
-												  <div class="col-sm-6">
-													<div class="row mgbt-xs-0">
-													  <label class="col-xs-5 control-label">Country:</label>
-													  <div class="col-xs-7 controls"><?php echo $country ?></div>
 													  <!-- col-sm-10 --> 
-													</div>
+												  </div>
+												  <div class="col-sm-6 col-xs-12">
+													  <div class="form-group">
+													  <label class="col-md-5 control-label" style="font-size:14px; font-weight:bold">State</label>
+													  <div class="col-md-7 controls"><?php echo $state ?></div>
+												  </div>
+													  <!-- col-sm-10 --> 
+												  </div>
+												  <div class="col-sm-6 col-xs-12">
+													  <div class="form-group">
+													  <label class="col-md-5 control-label" style="font-size:14px; font-weight:bold">Country:</label>
+													  <div class="col-md-7 controls"><?php echo $country ?></div>
+												  </div>
+													  <!-- col-sm-10 --> 
 												  </div>
 												</div>
 												
 												<h3 class=" mgtp-10 font-semibold"><i class="icon-user mgr-10 profile-icon"></i> CONTACT INFORMATION</h3>
 												<div class="row">
-												<div class="col-sm-6">
-													<div class="row mgbt-xs-0">
-													  <label class="col-xs-5 control-label">Mobile Number:</label>
-													  <div class="col-xs-7 controls"><?php echo $mobileNumber ?></div>
-													  <!-- col-sm-10 --> 
-													</div>
+												<div class="col-sm-6 col-xs-12">
+													  <div class="form-group">
+													  <label class="col-md-5 control-label" style="font-size:14px; font-weight:bold">Mobile Number:</label>
+													  <div class="col-md-7 controls"><?php echo $mobileNumber ?></div>
 												  </div>
-												  <div class="col-sm-6">
-													<div class="row mgbt-xs-0">
-													  <label class="col-xs-5 control-label">Email:</label>
-													  <div class="col-xs-7 controls"><?php echo $emailID ?></div>
 													  <!-- col-sm-10 --> 
-													</div>
 												  </div>
-												  <div class="col-sm-6">
-													<div class="row mgbt-xs-0">
-													  <label class="col-xs-5 control-label">Landline Phone:</label>
-													  <div class="col-xs-7 controls"><?php echo $landLineNumber ?></div>
-													  <!-- col-sm-10 --> 
-													</div>
+												  <div class="col-sm-6 col-xs-12">
+													  <div class="form-group">
+													  <label class="col-md-5 control-label" style="font-size:14px; font-weight:bold">Email:</label>
+													  <div class="col-md-7 controls"><?php echo $emailID ?></div>
 												  </div>
-												  <div class="col-sm-6">
-													<div class="row mgbt-xs-0">
-													  <label class="col-xs-5 control-label">Communication Mechanism:</label>
-													  <div class="col-xs-7 controls"><?php echo $communicationMechanism ?></div>
 													  <!-- col-sm-10 --> 
-													</div>
+												  </div>
+												  <div class="col-sm-6 col-xs-12">
+													  <div class="form-group">
+													  <label class="col-md-5 control-label" style="font-size:14px; font-weight:bold">Landline Phone:</label>
+													  <div class="col-md-7 controls"><?php echo $landLineNumber ?></div>
+												  </div>
+													  <!-- col-sm-10 --> 
+												  </div>
+												  <div class="col-sm-6 col-xs-12">
+													  <div class="form-group">
+													  <label class="col-md-5 control-label" style="font-size:14px; font-weight:bold">Communication Mechanism:</label>
+													  <div class="col-md-7 controls"><?php echo $communicationMechanism ?></div>
+												  </div>
+													  <!-- col-sm-10 --> 
 												  </div>
 												  
-												  <div class="col-sm-6">
-													<div class="row mgbt-xs-0">
-													  <label class="col-xs-5 control-label">Best time to contact:</label>
-													  <div class="col-xs-7 controls"><?php echo $bestTimeToContace ?></div>
+												  <div class="col-sm-6 col-xs-12">
+													  <div class="form-group">
+													  <label class="col-md-5 control-label" style="font-size:14px; font-weight:bold">Best time to contact:</label>
+													  <div class="col-md-7 controls"><?php echo $bestTimeToContace ?></div>
+												  </div>
 													  <!-- col-sm-10 --> 
-													</div>
 												  </div>
 												</div>
 												
 												<hr class="pd-10">
 												<div class="row">
-												 <div class="col-sm-12">
-													<h3 class=" font-semibold">PAYMENT TERMS</h3>
+												 <div class="col-sm-12 col-xs-12">
+													<div class="form-group">
+													  <h3 class=" font-semibold">PAYMENT TERMS</h3>
 													<div class="content-list content-menu col-sm-11">
 													   <span class="menu-text"><?php echo $paymentTerm ?></span>
 													</div>
 												  </div>
 												  </div>
+												  </div>
 												  
 												<hr class="pd-10">
 												<div class="row">
-												  <div class="col-sm-6">
-													<h3 class=" font-semibold"><i class="fa fa-file-text-o mgr-10 profile-icon"></i> EXPERIENCE</h3>
+												  <div class="col-sm-6 col-xs-12">
+													<div class="form-group">
+													  <h3 class=" font-semibold"><i class="fa fa-file-text-o mgr-10 profile-icon"></i> EXPERIENCE</h3>
 													<div class="content-list content-menu col-sm-11">
 													   <span class="menu-text"><?php echo $experiance ?></span>
 													</div>
 												  </div>
-												  <div class="col-sm-6">
-													<h3 class=" font-semibold"><i class="fa fa-file-text-o mgr-10 profile-icon"></i> NOTE</h3>
+												  </div>
+												  <div class="col-sm-6 col-xs-12">
+													<div class="form-group">
+													  <h3 class=" font-semibold"><i class="fa fa-file-text-o mgr-10 profile-icon"></i> NOTE</h3>
 													<div class="content-list content-menu col-sm-11">
 													   <span class="menu-text"><?php echo $remark ?></span>
 													</div>
+												  </div>
 												  </div>
 												</div>
 												
@@ -444,10 +449,10 @@
 											if(mysql_num_rows($sql1) < 1)
 											{
 											?>
-												<div class="col-md-3">
+												<div class="col-lg-3 col-md-4 col-sm-6 col-xs-10">
 													<div class="ft-item">
 														<span class="ft-image">
-															<img alt="featured Scroller" src="img/custom1.jpg" draggable="false">
+															<img alt="featured Scroller" class="img-responsive" src="img/custom1.jpg" draggable="false">
 														</span>
 														<div class="ft-data2">
 														<span style="color:white" class="ft-title text-upper">Tour Title</span>
@@ -466,7 +471,7 @@
 											while ($row1 = mysql_fetch_array($sql1))
 											{
 											?>
-													<div class="col-md-3">
+													<div class="col-lg-3 col-md-4 col-sm-6 col-xs-10">
 													<?php
 													echo '<a id="editButton" style="height:20px" class="btn btn-xs btn-default" data-toggle="tab" onclick="editTour(' . $userid . ',' . $row1['tour_id'] . ');" >EDIT</a>';
 														echo '<a style="cursor: pointer;" onclick="detailTour(' . $row1['tour_id'] . ');" >';
@@ -481,11 +486,11 @@
 																$count4Tpic = mysql_num_rows($select4Tpic);
 																if ($count4Tpic==0)
 																{
-																	echo '<img alt="featured Scroller" draggable="false" style="width:207px; height:105px;" src="img/custom11.jpg"/>';
+																	echo '<img alt="featured Scroller" class="img-responsive" draggable="false" src="img/custom11.jpg"/>';
 																}
 																else
 																{
-																	echo '<img alt="featured Scroller" draggable="false" style="width:207px; height:105px;" src="showMediaPicture.php?id=' . mysql_result($select4Tpic, 0, 0) . '"/>';
+																	echo '<img alt="featured Scroller" class="img-responsive" draggable="false" style="width:207px; height:105px;" src="showMediaPicture.php?id=' . mysql_result($select4Tpic, 0, 0) . '"/>';
 																}
 																?>
 																
@@ -509,10 +514,10 @@
 
 						<!-- ############################################################################ -->
 						<a style="cursor: pointer;" onclick="createTour(<?php echo $userid; ?>);" >
-						<div class="col-md-3">
+						<div class="col-lg-3 col-md-4 col-sm-6 col-xs-10">
 							<div class="ft-item">
 								<span class="ft-image">
-									<img alt="featured Scroller" src="img/newTour.jpg" draggable="false">
+									<img alt="featured Scroller" class="img-responsive" src="img/newTour.jpg" draggable="false">
 								</span>
 								<div class="ft-data2">
 								<span style="color:white" class="ft-title text-upper">Tour Title</span>
@@ -552,39 +557,37 @@
 											<ul  class="formFields list-unstyled">
 											<li class="row">
 											<div class="col-md-6">
-															<label style="font-size:13px; font-weight:bold">Name of your friend</label>
-															<input type="text" class="form-control" name="nameFriend1" value="" ng-model="nameFriend1" style="background-color:#f7f7f7;" ng-pattern="/^[a-z A-Z]+$/" />
-															 <span style="color:red" ng-show="myForm.nameFriend1.$dirty && myForm.nameFriend1.$invalid">
-											
-											   <span ng-show="myForm.nameFriend1.$error.pattern">*Invalid Name ...</span>
-											  </span>
-														</div>
-														</li>
-														<li class="row">
-														<div class="col-md-6">
-															<label style="font-size:13px; font-weight:bold">Email Id of your friend</label>
-															<input type="email" class="form-control" name="emailFriend1" value="" ng-model="emailFriend1" style="background-color:#f7f7f7;" ng-pattern="/^[a-zA-Z0-9._-]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,5}(\.[a-zA-Z]{2,5}){0,1}$/"/>
-														 <span style="color:red" ng-show="myForm.emailFriend1.$dirty && myForm.emailFriend1.$invalid">
-											  
+												<label style="font-size:13px; font-weight:bold">Name of your friend</label>
+												<input type="text" class="form-control" id="nameFriend1" name="nameFriend1" value="" ng-model="nameFriend1" style="background-color:#f7f7f7;" ng-pattern="/^[a-z A-Z]+$/" required />
+												 <span style="color:red" ng-show="myForm.nameFriend1.$dirty && myForm.nameFriend1.$invalid">
+												<span ng-show="myForm.nameFriend1.$error.required">*Friend's Name is required.</span>
+												   <span ng-show="myForm.nameFriend1.$error.pattern">*Invalid Name ...</span>
+												  </span>
+											</div>
+											</li>
+											<li class="row">
+											<div class="col-md-6">
+												<label style="font-size:13px; font-weight:bold">Email Id of your friend</label>
+												<input type="email" class="form-control" id="emailFriend1" name="emailFriend1" value="" ng-model="emailFriend1" style="background-color:#f7f7f7;" ng-pattern="/^[a-zA-Z0-9._-]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,5}(\.[a-zA-Z]{2,5}){0,1}$/" required />
+											 <span style="color:red" ng-show="myForm.emailFriend1.$dirty && myForm.emailFriend1.$invalid">
+											  <span ng-show="myForm.emailFriend1.$error.required">*Friend's Email ID is required.</span>
 											   <span ng-show="myForm.emailFriend1.$error.pattern">*Invalid Email ID ...</span>
 											  </span>
-														</div>
-														</li>
-														<li class="row">
-														<div class="col-md-6">
-															<label style="font-size:13px; font-weight:bold">Mobile Number of your friend</label>
-															<input type="tel" class="form-control" name="mobileFeiend1" ng-model="mobileFeiend1" style="background-color:#f7f7f7;" maxlength="10" ng-pattern="/^([7-9]{1})(\d{9})$/" value=""/>
-														 <span style="color:red" ng-show="myForm.mobileFeiend1.$dirty && myForm.mobileFeiend1.$invalid">
-											
-											   <span ng-show="myForm.mobileFeiend1.$error.pattern">*Invalid Mobile Number ...</span>
+											</div>
+											</li>
+											<li class="row">
+											<div class="col-md-6">
+												<label style="font-size:13px; font-weight:bold">Mobile Number of your friend</label>
+												<input type="tel" class="form-control" id="mobileFeiend1" name="mobileFeiend1" ng-model="mobileFeiend1" style="background-color:#f7f7f7;" maxlength="10" ng-pattern="/^([7-9]{1})(\d{9})$/" value="" />
+											 <span style="color:red" ng-show="myForm.mobileFeiend1.$dirty && myForm.mobileFeiend1.$invalid">
+												<span ng-show="myForm.mobileFeiend1.$error.pattern">*Invalid Mobile Number ...</span>
 											  </span>
 														</div>
 														
 													</li>
-													
 													<li class="row">
 													<div class="col-md-3 col-md-offset-3" >
-														<button type="submit" class="btn btn-warning form-control">Send Invitation</button>
+														<button type="submit" class="btn btn-warning form-control"  ng-disabled="myForm.nameFriend1.$dirty && myForm.nameFriend1.$invalid || myForm.emailFriend1.$dirty && myForm.emailFriend1.$invalid ">Send Invitation</button>
 													</div>
 													</li>
 													</ul>
@@ -622,25 +625,17 @@
 		</div>
 		<!-- END #wrapper -->
 		 
-		 <script src="js/angular.min.js"></script>
-		<script src="js/AngularControler.js"></script>
+		<!-- javascripts -->
+		<script type="text/javascript" src="js/angular.min.js"></script>
+		<script type="text/javascript" src="js/AngularControler.js"></script>
 		
-			<script type="text/javascript" src="js/jquery.min.js"></script>
-			<script type="text/javascript" src="js/jquery.wallform.js"></script>
-			<script>
- 
-			$(function () {
-			  $('[data-toggle="tooltip"]').tooltip();
-			});
+		<script>
+
 			$(function () {
 			  $('[data-toggle="popover"]').popover();
 			});
 			
-			$("a.my-tool-tip").tooltip();
-			
-			
-			
-                function myFunction(id) 
+				function myFunction(id) 
 				{
 					window.location.href = "guide_profile_edit.php?id="+id;
 					return false;
@@ -663,9 +658,9 @@
 					window.location.href = "tour_detail_sidebar.php?id="+id+"";
 					return false;
 				}
-			</script>
+		</script>
 
-				<!-- javascripts -->
+				
 		<script type="text/javascript" src="js/modernizr.custom.17475.js"></script>
 
 		<script type="text/javascript" src="js/jquery.min.js"></script>

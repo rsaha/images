@@ -112,8 +112,7 @@ else
 		}
 		
 		</style>
-		<script src="js/angular.min.js"></script>
-		<script src="js/AngularControler.js"></script>
+		
 	</head>
 	<!-- END head -->
 
@@ -267,7 +266,7 @@ else
 														</div>
 														<div class="col-md-4">
 															<label style="font-size:14px; font-weight:bold">Date Of Birth</label>
-															<input type="date" class="form-control" name="DOB" placeholder="yyyy-mm-dd" id="DOB" value=""  />
+															<input type="date" class="form-control" name="DOB" id="DOB" value=""  />
 														</div>
 													</li>
 													<li class="row">
@@ -286,8 +285,8 @@ else
 															<label style="font-size:14px; font-weight:bold">City</label>
 															<input type="text" class="form-control" name="city" id="guideCity" autocomplete="on" ng-model="city" value="" ng-pattern="/^[a-z A-Z]+$/" />
 															<span style="color:red" ng-show="myForm.city.$dirty && myForm.city.$invalid">
-											   <span ng-show="myForm.city.$error.pattern">*Invalid city ...</span>
-											  </span>
+														   <span ng-show="myForm.city.$error.pattern">*Invalid city ...</span>
+														  </span>
 														</div>
 														<div class="col-md-4">
 															<label style="font-size:14px; font-weight:bold">State</label>
@@ -319,7 +318,7 @@ else
 													<li class="row">
 														<div class="col-md-4">
 															<label style="font-size:14px; font-weight:bold">Landline Number</label>
-															<input type="tel" class="form-control" name="landlinenumber" value="" ng-model="landlinenumber" maxlength="15" ng-pattern="/^\d{15}$/"/>
+															<input type="tel" class="form-control" name="landlinenumber" value="" ng-model="landlinenumber" maxlength="15" ng-pattern="/^\d{10,15}$/"/>
 															 <span style="color:red" ng-show="myForm.landlinenumber.$dirty && myForm.landlinenumber.$invalid">
 											 
 											   <span ng-show="myForm.landlinenumber.$error.pattern">*Invalid landline number ...</span>
@@ -389,6 +388,11 @@ else
 			<?php include('MasterFooter.php'); ?>
 		</div>
 		<!-- END #wrapper -->
+		
+		<!-- javascripts -->
+		<script type="text/javascript" src="js/angular.min.js"></script>
+		<script type="text/javascript" src="js/AngularControler.js"></script>
+		
 			<script type="text/javascript" src="js/country_state.js"></script>
 			<script language="javascript">
 				populateCountries("country", "state");
@@ -416,11 +420,8 @@ else
 		return false;
 		}
 		</script>
-
-
-				<!-- javascripts -->
+		
 		<script type="text/javascript" src="js/modernizr.custom.17475.js"></script>
-
 		<script type="text/javascript" src="js/jquery.min.js"></script>
 		<script type="text/javascript" src="bs3/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="js/check-radio-box.js"></script>

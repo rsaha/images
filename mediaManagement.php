@@ -163,9 +163,8 @@
 		}
 		
 		</style>
-		<script src="js/angular.min.js"></script>
-		
-		<script src="js/AngularControler.js"></script>
+		<script type="text/javascript" src="js/angular.min.js"></script>
+		<script type="text/javascript" src="js/AngularControler.js"></script>
 	</head>
 	<!-- END head -->
 

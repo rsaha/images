@@ -200,9 +200,8 @@
 		}
 		
 		</style>
-		<script src="js/angular.min.js"></script>
-		
-		<script src="js/AngularControler.js"></script>
+		<script type="text/javascript" src="js/angular.min.js"></script>
+		<script type="text/javascript" src="js/AngularControler.js"></script>
 	</head>
 	<!-- END head -->
 
@@ -308,7 +307,7 @@
 					    
 			      </div>
 						<!-- START #page -->
-						<div id="page" class="col-md-10">
+						<div id="page" class="col-md-10 col-sm-12 col-xs-12">
 							<div class="user-profile">
 								<!-- START TABS -->
 								<ul class="nav nav-tabs text-upper" style="background-color:#FFA98E;">

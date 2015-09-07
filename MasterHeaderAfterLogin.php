@@ -106,19 +106,36 @@
 			</div> 
 		</div> <!-- END #top-header -->
 
-				<!-- START #main-header --> <div id="main-header"> <div
-				class="container"> <div class="row"> <div
-				class="col-md-3"> <a id="site-logo" href="#"> <img
-				src="img/logo.png" alt="Guided Gateway" /> </a> </div> <div
-				class="col-md-9"> <nav class="main-nav">
-				<span>MENU</span> <ul id="main-menu"> <li><a href="guide_login.php"
-				title="">HOME</a> 
-				</li> 
-				
+		<div id="main-header">
+				<div class="container">
+				<div class="row">
+				<div class="col-md-3">
+				<a id="site-logo" href="#">
+				<img src="img/logo.png" alt="Guided Gateway" />
+				</a>
+				</div>
+				<div class="col-md-9">
+				<nav class="main-nav">
+				<span>MENU</span>
+				<ul style="width:100%" id="main-menu">
+				<li class="pull-right"><a href="signOut.php" title="">Sign Out</a></li>
+				<li class="pull-right" ><a href="guide_login.php" title="">HOME</a></li>
+                <!--li><a href="" title=""> </a></li> 
+				<li><a href="" title=""> </a></li>
+				<li><a href="" title=""> </a></li> 
+				<li><a href="" title=""> </a></li>
+				<li><a href="" title=""> </a></li> 
+				<li><a href="" title=""> </a></li>
+				<li><a href="" title=""> </a></li>
+				<li><a href="" title=""> </a></li-->
 
-									</ul> </nav> </div> </div> </div>
-									</div> <!-- END #main-header -->
-									</header> <!-- END header -->
+				</ul>
+				</nav>
+				</div>
+				</div>
+				</div>
+				</div> <!-- END #main-header -->
+				</header> <!-- END header -->
 	<!-- START #wrapper --> </div> 
 	</body>
 	</html>

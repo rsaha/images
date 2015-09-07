@@ -178,9 +178,8 @@
 }
 		
 		</style>
-		<script src="js/angular.min.js"></script>
-		
-		<script src="js/AngularControler.js"></script>
+		<script type="text/javascript" src="js/angular.min.js"></script>
+		<script type="text/javascript" src="js/AngularControler.js"></script>
 	</head>
 	<!-- END head -->
 
@@ -458,7 +457,7 @@
 											{
 											?>
 											
-													<div class="col-md-3">
+													<div class="col-lg-3 col-md-4 col-sm-6 col-xs-10">
 													<?php
 													$tour_id = $row1['tour_id'];
 													echo '<a id="editButton" style="height:20px" class="btn btn-xs btn-default" data-toggle="tab" onclick="addTour(' . $userid . ',' . $tour_id . ');" >ADD</a>';
@@ -473,11 +472,11 @@
 																$count4Tpic = mysql_num_rows($select4Tpic);
 																if ($count4Tpic==0)
 																{
-																	echo '<img alt="featured Scroller" draggable="false" style="width:207px; height:105px;" src="img/custom11.jpg"/>';
+																	echo '<img alt="featured Scroller" draggable="false"  class="img-responsive" src="img/custom11.jpg"/>';
 																}
 																else
 																{
-																	echo '<img alt="featured Scroller" draggable="false" style="width:207px; height:105px;" src="showMediaPicture.php?id=' . mysql_result($select4Tpic, 0, 0) . '"/>';
+																	echo '<img alt="featured Scroller" draggable="false"  class="img-responsive" src="showMediaPicture.php?id=' . mysql_result($select4Tpic, 0, 0) . '"/>';
 																}
 																?>
 															</span>
@@ -543,17 +542,10 @@
 		<!-- END #wrapper -->
 		 
 			<script type="text/javascript" src="js/jquery.min.js"></script>
-<script type="text/javascript" src="js/jquery.wallform.js"></script>
 			<script>
-			$(function () {
-			  $('[data-toggle="tooltip"]').tooltip();
-			});
-			
 			$(function () {
 			  $('[data-toggle="popover"]').popover();
 			});
-			
-			$("a.my-tool-tip").tooltip();
 			
 				function myFunction(id) 
 				{
