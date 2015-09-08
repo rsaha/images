@@ -85,9 +85,12 @@
 			{
 				
 				$select = mysql_query("SELECT * FROM `tbl_user_profile` WHERE `user_id` = $userid");
-				$username =  mysql_result($select, 0, 3) . " " . mysql_result($select, 0, 4);
-				$from=mysql_result($select, 0, 5);
-				$mobileNumber = mysql_result($select, 0, 6);
+				$row = mysql_fetch_assoc($select);
+				$firstName =  $row["f_name"];
+				$lastName =  $row["l_name"];
+				$username =  $firstName . " " . $lastName;
+				$from=$row["email"];
+				$mobileNumber = $row["mobileNo"];
 				
 				$sentSuccess=0;
 				/* $nameFriend=array();

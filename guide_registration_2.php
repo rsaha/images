@@ -22,11 +22,12 @@ else if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "reg"))
 	{
 		include('db.php');
 		$select = mysql_query("SELECT * FROM `tbl_user_profile` WHERE `user_id` = $userid");
-		$firstName=mysql_result($select, 0, 3);
-		$secondName=mysql_result($select, 0, 4);
-		$username =  $firstName . " " . $secondName;
-		$emailID = mysql_result($select, 0, 5);
-		$mobileNumber = mysql_result($select, 0, 6); 
+		$row = mysql_fetch_assoc($select);
+		$firstName =  $row["f_name"];
+		$lastName =  $row["l_name"];
+		$username =  $firstName . " " . $lastName;
+		$emailID=$row["email"];
+		$mobileNumber = $row["mobileNo"];
 	}
 }
 else
@@ -111,8 +112,7 @@ else
 		}
 		
 		</style>
-		<script src="js/angular.min.js"></script>
-		<script src="App.js"></script>
+		
 	</head>
 	<!-- END head -->
 
@@ -266,13 +266,13 @@ else
 														</div>
 														<div class="col-md-4">
 															<label style="font-size:14px; font-weight:bold">Date Of Birth</label>
-															<input type="date" class="form-control" name="DOB" placeholder="yyyy-mm-dd" id="DOB" value=""  />
+															<input type="date" class="form-control" name="DOB" id="DOB" value=""  />
 														</div>
 													</li>
 													<li class="row">
 														<div class="col-md-12">
 															<label style="font-size:14px; font-weight:bold">Street Address</label>
-															<input type="text" class="form-control" name="streetaddress" ng-model="streetaddress" ng-pattern="/^[a-z0-9A-Z -.]+$/" value="" />
+															<input type="text" class="form-control" name="streetaddress" ng-model="streetaddress" ng-pattern="/^[a-z0-9A-Z -./]+$/" value="" />
 															 <span style="color:red" ng-show="myForm.streetaddress.$dirty && myForm.streetaddress.$invalid">
 											 
 											   <span ng-show="myForm.streetaddress.$error.pattern">*Invalid street address ...</span>
@@ -285,8 +285,8 @@ else
 															<label style="font-size:14px; font-weight:bold">City</label>
 															<input type="text" class="form-control" name="city" id="guideCity" autocomplete="on" ng-model="city" value="" ng-pattern="/^[a-z A-Z]+$/" />
 															<span style="color:red" ng-show="myForm.city.$dirty && myForm.city.$invalid">
-											   <span ng-show="myForm.city.$error.pattern">*Invalid city ...</span>
-											  </span>
+														   <span ng-show="myForm.city.$error.pattern">*Invalid city ...</span>
+														  </span>
 														</div>
 														<div class="col-md-4">
 															<label style="font-size:14px; font-weight:bold">State</label>
@@ -308,7 +308,7 @@ else
 														</div>
 														<div class="col-md-4">
 															<label style="font-size:14px; font-weight:bold">Licence Expiry</label>
-															<input type="date" id="LicenceExpiry" placeholder="yyyy-mm-dd" class="form-control" name="licenceexpiry" value="" />
+															<input type="date" id="LicenceExpiry" class="form-control" name="licenceexpiry" value="" />
 														</div>
 														<div class="col-md-4">
 															<label style="font-size:14px; font-weight:bold">Licence Image</label>
@@ -318,7 +318,7 @@ else
 													<li class="row">
 														<div class="col-md-4">
 															<label style="font-size:14px; font-weight:bold">Landline Number</label>
-															<input type="tel" class="form-control" name="landlinenumber" value="" ng-model="landlinenumber" maxlength="15" ng-pattern="/^\d{11}$/"/>
+															<input type="tel" class="form-control" name="landlinenumber" value="" ng-model="landlinenumber" maxlength="15" ng-pattern="/^\d{10,15}$/"/>
 															 <span style="color:red" ng-show="myForm.landlinenumber.$dirty && myForm.landlinenumber.$invalid">
 											 
 											   <span ng-show="myForm.landlinenumber.$error.pattern">*Invalid landline number ...</span>
@@ -388,6 +388,11 @@ else
 			<?php include('MasterFooter.php'); ?>
 		</div>
 		<!-- END #wrapper -->
+		
+		<!-- javascripts -->
+		<script type="text/javascript" src="js/angular.min.js"></script>
+		<script type="text/javascript" src="js/AngularControler.js"></script>
+		
 			<script type="text/javascript" src="js/country_state.js"></script>
 			<script language="javascript">
 				populateCountries("country", "state");
@@ -415,11 +420,8 @@ else
 		return false;
 		}
 		</script>
-
-
-				<!-- javascripts -->
+		
 		<script type="text/javascript" src="js/modernizr.custom.17475.js"></script>
-
 		<script type="text/javascript" src="js/jquery.min.js"></script>
 		<script type="text/javascript" src="bs3/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="js/check-radio-box.js"></script>

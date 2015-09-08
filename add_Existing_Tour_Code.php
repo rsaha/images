@@ -1,11 +1,12 @@
 <?php
-session_start();
-if(isset($_SESSION['userId']))
+	session_start();
+	if(isset($_SESSION['userId']))
 	{
-		if(isset($_POST['userid']) && isset($_POST['tourID']))
+		if(isset($_POST['userid']))
 		{
 		  $userid=$_POST['userid'];
-		  $tourID=$_POST['tourID'];
+		  
+		  
 		}
 		if($_SESSION['userId']!=$userid)
 		{
@@ -20,10 +21,10 @@ if(isset($_SESSION['userId']))
 			include('db.php');
             
 			$tourType = mysql_real_escape_string($_POST['tourType']);
-			$tourName = mysql_real_escape_string($_POST['tourName']);
 			$tourLocationTemp = mysql_real_escape_string($_POST['tourLocation']);
 			$city = explode(", ", $tourLocationTemp);
 			$tourLocation = $city[0];
+			$tourName = mysql_real_escape_string($_POST['tourName']);
 			$tourDiscription = mysql_real_escape_string($_POST['tourDiscription']);
 			$tourDuration = mysql_real_escape_string($_POST['tourDuration']);
 			$tourPrice = mysql_real_escape_string($_POST['tourPrice']);
@@ -34,25 +35,48 @@ if(isset($_SESSION['userId']))
 			$cancellationPolicy = mysql_real_escape_string($_POST['cancellationPolicy']);
 			$restriction = mysql_real_escape_string($_POST['restriction']);
 			$notes = mysql_real_escape_string($_POST['notes']);
+			$oldTourId = mysql_real_escape_string($_POST['oldTourId']);
+			echo "<script type='text/javascript'>alert('$oldTourId');</script>";
 			
-			$update = mysql_query("UPDATE `tbl_tours` SET 
-			`tour_category_id`=1,
-			`tour_title`='$tourName',
-			`tour_location`='$tourLocation',
-			`tour_description`='$tourDiscription',
-			`tour_duration`='$tourDuration',
-			`tour_price`='$tourPrice',
-			`start_point`='$startingPoint',
-			`end_point`='$endPoint',
-			`inclusive`='$inclusive',
-			`exclusive`='$exclusive',
-			`cancelation_policy`='$cancellationPolicy',
-			`restrictions`='$restriction',
-			`notes`='$notes',
-			`datecreated`=now()
-			WHERE `tour_id`=$tourID && `user_id`=$userid");
+			$insert = mysql_query("INSERT INTO `tbl_tours`(
+			`user_id`,
+			`tour_category_id`,
+			`tour_title`,
+			`tour_location`,
+			`tour_description`,
+			`tour_duration`,
+			`tour_price`,
+			`start_point`,
+			`end_point`,
+			`inclusive`,
+			`exclusive`,
+			`cancelation_policy`,
+			`restrictions`,
+			`notes`,
+			`status`,
+			`datecreated`,
+			`created_added`
+			) VALUES (
+			$userid,
+			$tourType,
+			'$tourName',
+			'$tourLocation',
+			'$tourDiscription',
+			'$tourDuration',
+			'$tourPrice',
+			'$startingPoint',
+			'$endPoint',
+			'$inclusive',
+			'$exclusive',
+			'$cancellationPolicy',
+			'$restriction',
+			'$notes',
+			1,
+			now(),
+			$oldTourId
+			)");
 			
-			if($update)
+			if($insert)
 			{
 				$flag1 = 1;
 			}
@@ -63,14 +87,15 @@ if(isset($_SESSION['userId']))
 			
 			if($flag1 == 1)
 			{
-				$msg = "Tour '$tourName' updated Successfully !!";
-			error_log($msg,0);
+			$msg = "Tour '$tourName' created Successfully !!";
 			echo "<script type='text/javascript'>alert('$msg');</script>";
+			error_log($msg,0);
 			header('Location:guide_profile.php?id=' . $userid . '');
 			
-			}
+			} 
 			else
 			{
+				
 				$msg="Tour '$tourName' creation failed!";
 				echo "<script type='text/javascript'>alert('$msg');</script>";
 				error_log($msg, 0);

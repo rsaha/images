@@ -14,13 +14,14 @@ if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "reg"))
 	}
 	else
 	{
-	include('db.php');
-	$select = mysql_query("SELECT * FROM `tbl_user_profile` WHERE `user_id` = $userid");
-	$firstName=mysql_result($select, 0, 3);
-	$secondName=mysql_result($select, 0, 4);
-	$username =  $firstName . " " . $secondName;
-	$emailID = mysql_result($select, 0, 5);
-	$mobileNumber = mysql_result($select, 0, 6); 
+		include('db.php');
+		$select = mysql_query("SELECT * FROM `tbl_user_profile` WHERE `user_id` = $userid");
+		$row = mysql_fetch_assoc($select);
+		$firstName =  $row["f_name"];
+		$lastName =  $row["l_name"];
+		$username =  $firstName . " " . $lastName;
+		$emailID=$row["email"];
+		$mobileNumber = $row["mobileNo"];
 	}
 }
 else
@@ -64,7 +65,6 @@ else
 		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Karla:400,700,400italic,700italic" />
 		<!-- color scheme -->
 		<link rel="stylesheet" type="text/css" href="css/colors/color1.css" title="color1" />
-		<script src="js/angular.min.js"></script>
 		<style type="text/css" >
 		
 		.hovera a:hover
@@ -88,7 +88,8 @@ else
 		}
 		
 		</style>
-			<script src="App.js"></script>
+		<script type="text/javascript" src="js/angular.min.js"></script>
+			<script type="text/javascript" src="js/AngularControler.js"></script>
 	</head>
 	<!-- END head -->
 
