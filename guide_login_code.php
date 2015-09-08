@@ -14,14 +14,15 @@ $UName=mysql_real_escape_string($_POST['username']);
 $tbxPassword = $_POST['password'];
 $check = false;
 $result1 = mysql_query("SELECT * FROM `tbl_user_profile` WHERE ((email = '$tbxUsername' || mobileNo = '$tbxUsername')&& user_password = '$tbxPassword')");
-
+$row = mysql_fetch_assoc($result1);
 $count = mysql_num_rows($result1);
 
 if ($count==1)
 {
 	$errormsg="Login successfull";
-		error_log($errormsg,0);
-	$userid=mysql_result($result1, 0, 0);
+	error_log($errormsg,0);
+		
+	$userid=$row["user_id"];
 	$_SESSION['userId'] = $userid;
 	$_SESSION['phase'] = "signin";
 	header('Location: guide_profile.php?id='. $userid .'');

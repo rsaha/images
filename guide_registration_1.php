@@ -80,8 +80,9 @@
 		</style>
 		<script type="text/javascript" src="js/bootbox.min.js"></script>
 		<script type="text/javascript" src="js/bootbox.js"></script>
-<script src="js/angular.min.js"></script>
-	<script src="App.js"></script>
+		
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script type="text/javascript" src="js/AngularControler.js"></script>
 	</head>
 	<!-- END head -->
 

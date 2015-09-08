@@ -62,7 +62,7 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 			$communicationmechanism= mysql_real_escape_string($_POST['communicationmechanism']);
 			
 			include("db.php");
-			$update = mysql_query("UPDATE `tbl_user_profile` SET `gender`='$Gender', `d_o_b`=$DOB, `street_address`='$streetaddress', `city`='$city', `state`='$state', `country`='$country', `datecreated`=now() WHERE `user_id`=$userid");
+			$update = mysql_query("UPDATE `tbl_user_profile` SET `gender`='$Gender', `d_o_b`='$DOB', `street_address`='$streetaddress', `city`='$city', `state`='$state', `country`='$country', `datecreated`=now() WHERE `user_id`=$userid");
 		
 			$validextensions = array("jpeg", "jpg", "png");
 			$temporary = explode(".", $_FILES["licenceImage"]["name"]);
@@ -120,7 +120,7 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 				'$nickname', 
 				'$licencenumber',
 				'$hex_string',
-				$licenceexpiry,
+				'$licenceexpiry',
 				'$landlinenumber',
 				'$contacttime',
 				'$paymentterms',
@@ -139,7 +139,7 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 				`nick_name` = '$nickname', 
 				`license_no` = '$licencenumber',
 				`license_Image` = '$hex_string',	
-				`validity` = $licenceexpiry, 
+				`validity` = '$licenceexpiry', 
 				`landline_no` = '$landlinenumber', 
 				`Best_time_for_contact` = '$contacttime',
 				`payment_terms` = '$paymentterms', 

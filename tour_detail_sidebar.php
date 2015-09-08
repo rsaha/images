@@ -10,33 +10,36 @@
 		include('db.php');
 
 		$select1 = mysql_query("SELECT * FROM `tbl_tours` WHERE `tour_id` = $tourID && `status` = 1");
-		$user_id=mysql_result($select1, 0, 1);
-		$tour_category_id = mysql_result($select1, 0, 2);
-		$tour_title = mysql_result($select1, 0, 3);
-		$tour_location = mysql_result($select1, 0, 4);
-		$tour_description = mysql_result($select1, 0, 5);
-		$tour_duration = mysql_result($select1, 0, 6);
-		$tour_price = mysql_result($select1, 0, 7);
-		$start_point = mysql_result($select1, 0, 8);
-		$end_point = mysql_result($select1, 0, 9);
-		$inclusive = mysql_result($select1, 0, 10);
-		$exclusive = mysql_result($select1, 0, 11);
-		$cancelation_policy = mysql_result($select1, 0, 12);
-		$restrictions = mysql_result($select1, 0, 13);
-		$notes = mysql_result($select1, 0, 14);
-
+		$row1 = mysql_fetch_assoc($select1);
+		$user_id=$row1["user_id"];
+		$tour_category_id = $row1["tour_category_id"];
+		$tour_title = $row1["tour_title"];
+		$tour_location = $row1["tour_location"];
+		$tour_description = $row1["tour_description"];
+		$tour_duration = $row1["tour_duration"];
+		$tour_price = $row1["tour_price"];
+		$start_point = $row1["start_point"];
+		$end_point = $row1["end_point"];
+		$inclusive = $row1["inclusive"];
+		$exclusive = $row1["exclusive"];
+		$cancelation_policy = $row1["cancelation_policy"];
+		$restrictions = $row1["restrictions"];
+		$notes = $row1["notes"];
+			
 		$select2 = mysql_query("SELECT * FROM `tbl_tour_media_pictures` WHERE `tour_id` = $tourID");
+		$row2 = mysql_fetch_assoc($select2);
 		if(mysql_num_rows($select2) > 0 )
 		{
-			$picture_media_id = mysql_result($select2, 0, 0);
-			$tour_picture = mysql_result($select2, 0, 2);
+			$picture_media_id = $row2["picture_media_id"];
+			$tour_picture = $row2["tour_picture"];
 		}
 		
-		$select1 = mysql_query("SELECT * FROM `tbl_tour_media_videos` WHERE `tour_id` = $tourID");
-		if(mysql_num_rows($select1) > 0 )
+		$select3 = mysql_query("SELECT * FROM `tbl_tour_media_videos` WHERE `tour_id` = $tourID");
+		$row3 = mysql_fetch_assoc($select3);
+		if(mysql_num_rows($select3) > 0 )
 		{
-			$video_media_id = mysql_result($select2, 0, 0);
-			$tour_video = mysql_result($select2, 0, 2);
+			$video_media_id = $row3["video_media_id"];
+			$tour_video = $row3["tour_video"];
 		}
 		
 	}

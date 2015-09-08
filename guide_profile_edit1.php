@@ -244,16 +244,20 @@
 						   </div>
 					
 					        <br /><br />
-				<form action="guide_profile_update.php" enctype="multipart/form-data" method="post">
+				<form action="guide_profile_update.php" enctype="multipart/form-data" method="post" ng-app="myApp"  ng-controller="profileEditValidateCtrl" name="myForm" id="myForm" novalidate>
 					   <div class="row">
 					   <div class="col-md-11">
 					   <a href="guide_login.php" style="color:#5a5a5a;" title=""><center><u><span style="font-size:18px;font-weight:bold;"><?php echo strtoupper($username) ?></span></u></center></a>
 					<br /><br />
 					<label style="font-size:14px;">Licence Number. :</label><br><br />
-					<input name="licenceNumber" class="form-control" type="text" value="<?php echo $licenceNumber ?>" /><br />
-					  <hr>
+					<input name="licenceNumber" class="form-control" type="text" value="<?php echo $licenceNumber ?>" ng-model="licenceNumber" id="licenceNumber" ng-pattern="/^[a-z0-9A-Z]+$/" /><br />
+					 <span style="color:red" ng-show="myForm.licencenumber.$dirty && myForm.licencenumber.$invalid">
+					<span ng-show="myForm.licencenumber.$error.pattern">*Invalid licence number ...</span>
+				  </span>
+				  <hr>
 					<label style="font-size:14px;">Licence Expiry Date :</label><br><br />
 					<input name="licenceValidty" class="form-control" type="date" value="<?php echo $licenceValidty ?>" />
+					
 					<hr>
 					<label style="font-size:14px;">Licence Image :</label><br><br />
 							
@@ -294,7 +298,7 @@
 					    </div>
 			      </div>
 						<!-- START #page -->
-						<div id="page" class="col-md-10">
+						<div id="page" class="col-md-10 col-sm-12 col-xs-12">
 							<div class="user-profile">
 								<!-- START TABS -->
 								<ul class="nav nav-tabs text-upper" style="background-color:#FFA98E;">
@@ -309,9 +313,9 @@
 										<div class="booking gray clearfix box-shadow1">
 											<fieldset>
 												
-										<div >
+										<div>
 					
-<button type="submit" class="btn btn-default pull-right" style="background-color:#ffa98e"> 
+<button type="submit" class="btn btn-default pull-right" style="background-color:#ffa98e" ng-disabled="myForm.firstName.$dirty && myForm.firstName.$invalid || myForm.lastName.$dirty && myForm.lastName.$invalid || myForm.streetaddress.$dirty && myForm.streetaddress.$invalid ||  myForm.city.$dirty && myForm.city.$invalid || myForm.licencenumber.$dirty && myForm.licencenumber.$invalid || myForm.landlinenumber.$dirty && myForm.landlinenumber.$invalid" > 
 					<i class="fa fa-save"></i> Save Details	
 					</button>
 					
@@ -320,21 +324,33 @@
 					<i class="fa fa-times-circle"></i> Cancel
 					</button>';
 						?>				
-										</div> <br> 
+										</div>   
 											<input type="hidden" name="userid" value="<?php echo $userid; ?>" />										
 												<h3 class=" mgtp-10 font-semibold"><i class="icon-user mgr-10 profile-icon"></i> ABOUT</h3>
 												<div class="row">
 												  <div class="col-sm-6 form-group">
 													<div class="row mgbt-xs-0">
 													  <label class="col-xs-5 control-label">First Name:</label>
-													  <div class="col-xs-7 controls"><input name="firstName" class="form-control" type="text" style="background-color:#f7f7f7;" value="<?php echo $firstName ?>" /></div>
+													  <div class="col-xs-7 controls">
+													  <input name="firstName" ng-model="firstName" id="firstName" class="form-control" type="text" style="background-color:#f7f7f7;" value="<?php echo $firstName ?>" ng-pattern="/^[a-z A-Z]+$/" required />
+													   <span style="color:red" ng-show="myForm.firstName.$dirty && myForm.firstName.$invalid">
+													  <span ng-show="myForm.firstName.$error.required">*First Name is required.</span>
+													   <span ng-show="myForm.firstName.$error.pattern">*Invalid First Name ...</span>
+													  </span>
+													  </div>
 													  <!-- col-sm-10 --> 
 													</div>
 												  </div>
 												   <div class="col-sm-6 form-group">
 													<div class="row mgbt-xs-0">
 													  <label class="col-xs-5 control-label">Last Name:</label>
-													  <div class="col-xs-7 controls"><input name="lastName" class="form-control" type="text" style="background-color:#f7f7f7;" value="<?php echo $lastName ?>" /></div>
+													  <div class="col-xs-7 controls">
+													  <input name="lastName" ng-model="lastName" id="lastName" class="form-control" type="text" style="background-color:#f7f7f7;" value="<?php echo $lastName ?>" ng-pattern="/^[a-z A-Z]+$/" required />
+													  <span style="color:red" ng-show="myForm.lastName.$dirty && myForm.lastName.$invalid">
+														<span ng-show="myForm.lastName.$error.required">*Last Name is required.</span>
+													   <span ng-show="myForm.lastName.$error.pattern">*Invalid Last Name ...</span>
+													  </span>
+													  </div>
 													  <!-- col-sm-10 --> 
 													</div>
 												  </div>
@@ -368,7 +384,12 @@
 												<div class="col-sm-6 form-group">
 													<div class="row mgbt-xs-0">
 													  <label class="col-xs-5 control-label">Street Address:</label>
-													  <div class="col-xs-7 controls"><input name="streetAddress" class="form-control" type="text" style="background-color:#f7f7f7;" value="<?php echo $streetAddress ?>" /></div>
+													  <div class="col-xs-7 controls">
+													  <input name="streetAddress" ng-model="streetAddress" id="streetAddress" class="form-control" type="text" style="background-color:#f7f7f7;" value="<?php echo $streetAddress ?>" ng-pattern="/^[a-z0-9A-Z -./]+$/" />
+													  <span style="color:red" ng-show="myForm.streetaddress.$dirty && myForm.streetaddress.$invalid">
+														<span ng-show="myForm.streetaddress.$error.pattern">*Invalid street address ...</span>
+													  </span>
+													  </div>
 													  <!-- col-sm-10 --> 
 													</div>
 												  </div>
@@ -376,8 +397,11 @@
 													<div class="row mgbt-xs-0">
 													  <label class="col-xs-5 control-label">City:</label>
 													  <div class="col-xs-7 controls">
-													  <input name="city" class="form-control" type="text" id="guideCity" style="background-color:#f7f7f7;" value="<?php echo $city ?>"  autocomplete="on"/>
-													  </div>
+													  <input name="city" ng-model="city" id="city" class="form-control" type="text" id="guideCity" style="background-color:#f7f7f7;" value="<?php echo $city ?>"  autocomplete="on" ng-pattern="/^[a-z A-Z]+$/" />
+													  <span style="color:red" ng-show="myForm.city.$dirty && myForm.city.$invalid">
+														   <span ng-show="myForm.city.$error.pattern">*Invalid city ...</span>
+														  </span>
+														  </div>
 													  <!-- col-sm-10 --> 
 													</div>
 												  </div>
@@ -408,14 +432,14 @@
 												<div class="col-sm-6 form-group">
 													<div class="row mgbt-xs-0">
 													  <label class="col-xs-5 control-label">Mobile Number:</label>
-													  <div class="col-xs-7 controls"><input name="mobileNumber" class="form-control" type="text" style="background-color:#f7f7f7;" value="<?php echo $mobileNumber ?>" readonly/></div>
+													  <div class="col-xs-7 controls"><input name="mobileNumber" class="form-control" type="tel" style="background-color:#f7f7f7;" value="<?php echo $mobileNumber ?>" readonly/></div>
 													  <!-- col-sm-10 --> 
 													</div>
 												  </div>
 												  <div class="col-sm-6 form-group">
 													<div class="row mgbt-xs-0">
 													  <label class="col-xs-5 control-label">Email:</label>
-													  <div class="col-xs-7 controls"><input name="emailID" class="form-control" type="text" style="background-color:#f7f7f7;" value="<?php echo $emailID ?>" readonly/></div>
+													  <div class="col-xs-7 controls"><input name="emailID" class="form-control" type="text" maxlength="11" style="background-color:#f7f7f7;" value="<?php echo $emailID ?>" readonly/></div>
 													  <!-- col-sm-10 --> 
 													</div>
 												  </div>
@@ -423,7 +447,13 @@
 												   <div class="col-sm-6 form-group">
 													<div class="row mgbt-xs-0">
 													  <label class="col-xs-5 control-label">Landline Phone:</label>
-													  <div class="col-xs-7 controls"><input name="landLineNumber" class="form-control" type="tel" maxlength="15" style="background-color:#f7f7f7;" value="<?php echo $landLineNumber ?>" /></div>
+													  <div class="col-xs-7 controls">
+													  <input name="landLineNumber" ng-model="landLineNumber" id="landLineNumber" class="form-control" type="tel" maxlength="15" style="background-color:#f7f7f7;" value="<?php echo $landLineNumber ?>" ng-pattern="/^\d{10,15}$/" />
+													  <span style="color:red" ng-show="myForm.landlinenumber.$dirty && myForm.landlinenumber.$invalid">
+											 
+											   <span ng-show="myForm.landlinenumber.$error.pattern">*Invalid landline number ...</span>
+											  </span>
+													  </div>
 													  <!-- col-sm-10 --> 
 													</div>
 												  </div>
@@ -498,57 +528,61 @@
 			<?php include('MasterFooter.php'); ?>
 		</div>
 		<!-- END #wrapper -->
-			<script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places" type="text/javascript"></script>
-			<script type="text/javascript">
-			function initialize() {
+		
+		
+		<!-- javascripts -->
+		
+		<script type="text/javascript" src="js/angular.min.js"></script>
+		<script type="text/javascript" src="js/AngularControler.js"></script>
+		
+		<script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places" type="text/javascript"></script>
+		<script type="text/javascript">
+		function initialize() {
 
-			 var options = {
-			  types: ['(cities)'],
-			  componentRestrictions: {country: "in"}
-			 };
+		 var options = {
+		  types: ['(cities)'],
+		  componentRestrictions: {country: "in"}
+		 };
 
-			 var input = document.getElementById('guideCity');
-			 var autocomplete = new google.maps.places.Autocomplete(input, options);
-			}
-			google.maps.event.addDomListener(window, 'load', initialize);
-			</script>
-			
-			<script>
-			$(function() {
-			$('#DOB').datepicker({
-			numberOfMonths: 3,
-			showButtonPanel: true
-			});
-			
-			$('#LicenceExpiry').datepicker({
-			numberOfMonths: 3,
-			showButtonPanel: true
-			});
-			});
-
-			</script>
-			
-			<script>
-				document.getElementById("gender").value = "<?php echo $gender ?>";
-				document.getElementById("state").value = "<?php echo $state ?>";
-				document.getElementById("country").value = "India";
-				document.getElementById("bestTimeToContace").value = "<?php echo $bestTimeToContace ?>";
-				document.getElementById("communicationMechanism").value = "<?php echo $communicationMechanism ?>";
-			</script>
-			<script type="text/javascript" src="js/country_state.js"></script>
-			<script language="javascript">
-				populateCountries("country", "state");
-			</script>
-			<script>
+		 var input = document.getElementById('guideCity');
+		 var autocomplete = new google.maps.places.Autocomplete(input, options);
+		}
+		google.maps.event.addDomListener(window, 'load', initialize);
+		</script>
+		
+		<script>
+		$(function() {
+		$('#DOB').datepicker({
+		numberOfMonths: 3,
+		showButtonPanel: true
+		});
+		
+		$('#LicenceExpiry').datepicker({
+		numberOfMonths: 3,
+		showButtonPanel: true
+		});
+		});
+		</script>
+		
+		<script>
+			document.getElementById("gender").value = "<?php echo $gender ?>";
+			document.getElementById("state").value = "<?php echo $state ?>";
+			document.getElementById("country").value = "India";
+			document.getElementById("bestTimeToContace").value = "<?php echo $bestTimeToContace ?>";
+			document.getElementById("communicationMechanism").value = "<?php echo $communicationMechanism ?>";
+		</script>
+		<script type="text/javascript" src="js/country_state.js"></script>
+		<script language="javascript">
+			populateCountries("country", "state");
+		</script>
+		<script>
 		function myFunction(id) {
 		window.location.href = "guide_profile.php?id="+id;
 		return false;
 		}
 		</script>
-			
-				<!-- javascripts -->
+				
 		<script type="text/javascript" src="js/modernizr.custom.17475.js"></script>
-
 		<script type="text/javascript" src="js/jquery.min.js"></script>
 		<script type="text/javascript" src="bs3/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="js/check-radio-box.js"></script>
