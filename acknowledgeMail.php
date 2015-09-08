@@ -6,9 +6,13 @@
 	$userid = $_GET['id'];
 	}
 	$select1 = mysql_query("SELECT * FROM `tbl_user_profile` WHERE `user_id` = $userid");
-			$username =  mysql_result($select1, 0, 3) . " " . mysql_result($select1, 0, 4);
-			$from=mysql_result($select1, 0, 5);
-			$mobileNumber = mysql_result($select1, 0, 6);
+	$row = mysql_fetch_assoc($select1);
+		
+			$firstName =  $row["f_name"];
+		$lastName =  $row["l_name"];
+		$username =  $firstName . " " . $lastName;
+			$from=$row["email"];
+			$mobileNumber = $row["mobileNo"];
 			$emailaddresses="";
 			$select2 = mysql_query("SELECT * FROM `tbl_referrals` WHERE `referrer_id` = $userid");
 			$num_rows = mysql_num_rows($select2);

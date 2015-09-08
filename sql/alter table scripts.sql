@@ -1,3 +1,10 @@
+ALTER TABLE `tbl_tours`
+ADD COLUMN `tour_location` varchar(100) NULL AFTER `tour_title`,
+ADD COLUMN `created_added` bigint(20) NOT NULL DEFAULT '0' AFTER `datecreated`;
+
+ALTER TABLE `tbl_guide_detail_profile`
+ADD COLUMN `guide_territory` varchar(100) NULL AFTER `guide_interest`;
+
 --
 -- AUTO_INCREMENT for dumped tables
 --

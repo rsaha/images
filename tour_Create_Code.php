@@ -1,6 +1,6 @@
 <?php
 session_start();
-$upload_dir = "img/";
+
 	if(isset($_SESSION['userId']))
 	{
 		if(isset($_POST['userid']))
@@ -20,7 +20,6 @@ $upload_dir = "img/";
 			include('db.php');
             
 			$tourType = mysql_real_escape_string($_POST['tourType']);
-			$tourLocation = 
 			$tourLocationTemp = mysql_real_escape_string($_POST['tourLocation']);
 			$city = explode(", ", $tourLocationTemp);
 			$tourLocation = $city[0];
@@ -74,12 +73,10 @@ $upload_dir = "img/";
 			
 			if($insert)
 			{
-				echo "<script type='text/javascript'>alert('3');</script>";
 				$flag1 = 1;
 			}
 			else
 			{
-				echo "<script type='text/javascript'>alert('4');</script>";
 				$flag1 = 0;
 			}
 			

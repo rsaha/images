@@ -51,9 +51,6 @@ else
 		<!-- color scheme -->
 		<link rel="stylesheet" type="text/css" href="css/colors/color1.css" title="color1" />
 		
-		<script src="js/angular.min.js"></script>
-		<script src="App.js"></script>
-
 	</head>
 	<!-- END head -->
 
@@ -125,14 +122,10 @@ else
 		</div>
 		<!-- END #wrapper -->
 
-				<!-- javascripts -->
-				
-			
-			
+		<!-- javascripts -->
+		<script type="text/javascript" src="js/angular.min.js"></script>
+		<script type="text/javascript" src="js/AngularControler.js"></script>
 		<script type="text/javascript" src="js/modernizr.custom.17475.js"></script>
-		
-			
-			
 		<script type="text/javascript" src="js/jquery.min.js"></script>
 		<script type="text/javascript" src="bs3/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="js/check-radio-box.js"></script>
