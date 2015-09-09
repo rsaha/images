@@ -108,7 +108,7 @@
 					array_push($emailFriend, $emailFriend1);
 					array_push($mobileFeiend, $mobileFeiend1); */
 					
-					$message = "Hi " . $nameFriend1 . ",<br/> Your friend <i>" . $username . "</i> registered with <a href=\"www.guidedgateway.com\">Guided Gateway</a>. <br/>He is inviting you to join so that you can also :<br/><ul><li><b>Attract more tourists</b></li><br/><li>Make more from each tourists</li><br/><br/>
+					$message = "Hi " . $nameFriend1 . ",<br/> Your friend <i>" . $username . "</i> registered with <a href=\"www.guidedgateway.com\">Guided Gateway</a>. <br/>He is inviting you to join so that you can also :<br/><ul><li><b>Attract more tourists</b></li><br/><li>Make more from each tourists</li><br/><br/></ul>
                     The registration is totally free and will take only 10 mins<br/><br/> 
 					<a href=http://www.guidedgateway.com>Learn more</a> or contact us at support@guidedgateway.com.<br/><br/> 
 					Thanks,<br/> 
@@ -188,7 +188,7 @@
 					$errormsg="Referring to the friend email could not be send.";
 					error_log($errormsg,0);
 					$msg="Something Went Wrong!!";
-					echo "<script type='text/javascript'>alert('$msg');</script>";
+					//echo "<script type='text/javascript'>alert('$msg');</script>";
 					header('Location: guide_profile.php?id=' . $userid . '');
 					die;
 					exit;
@@ -197,7 +197,7 @@
 				{
 					if($_SESSION['phase'] == "reg")
 					{
-						$_SESSION['notification']="Congratulation! welcome to your profile, you are now registered with us.";
+						$_SESSION['notification']="Congratulation! Welcome to your profile, you are now member of #1 online marketplace for tour guides.Sent you a verification email to your registered email address";
 					}
 					else
 					{
@@ -207,7 +207,7 @@
 					$errormsg="Referring to friend Email Sent.";
 					error_log($errormsg,0);
 					$msg="Successfully invited!!";
-					echo "<script type='text/javascript'>alert('$msg');</script>";
+					//echo "<script type='text/javascript'>alert('$msg');</script>";
 					header('Location: acknowledgeMail.php?id=' . $userid . '');
 					die;
 					exit;
@@ -218,7 +218,7 @@
 			{
 				if($_SESSION['phase'] == "reg")
 				{
-					$_SESSION['notification']="Congratulation! welcome to your profile, you are now registered with us.";
+					$_SESSION['notification']="Congratulation! Welcome to your profile, you are now member of #1 online marketplace for tour guides.";
 				}
 				else
 				{

@@ -31,7 +31,7 @@
 			
 		include('sendEmail.php');
 		$HostEmail = parse_ini_file('config.ini',true)['email'];
-		$subject = "Guide " . $username . "has envited his some friends";
+		$subject = "Guide " . $username . " has envited his some friends";
 		$message    = "<b>". $username . "</b> has invited his friends :<b><br />" . $emailaddresses . "</b><br /><br /> -----------------------------<br />";
 		
 		//function SendMail(apiKey, fromAddress, fromName, toAddress, toName, subject, message)
@@ -39,18 +39,13 @@
 		{
 			$errormsg="Acknowledgement email sent.";
 			error_log($errormsg,0);
-			echo "<script>
-			alert('Thank you for contacting us. As early as possible  we will contact you.');
-			</script>";
 			header('Location: guide_profile.php?id='. $userid .'');
 			die;
 		}
 		else
 		{
 			$errormsg="Acknowledgement email could not be send.";
-			echo "<script>
-			alert('Sorry! mail could not be sent at this moment. Please try again!');
-			</script>";
+			error_log($errormsg,0);
 			header('Location: guide_profile.php?id='. $userid .'');
 			exit;
 		}
