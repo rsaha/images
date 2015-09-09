@@ -50,23 +50,25 @@
 		$errormsg="Guide registered with basic details in registration step 1.";
 		error_log($errormsg,0);
 		$msg="Successfully Updated!!";
-		echo "<script type='text/javascript'>alert('$msg');</script>";
+		//echo "<script type='text/javascript'>alert('$msg');</script>";
 		
 		//$smtpAddress = parse_ini_file('config.ini',true)['smtpAddress'];
 		$HostEmail = parse_ini_file('config.ini',true)['email'];
 		//$HostPassword = parse_ini_file('config.ini',true)['password'];
 		$apiKey = parse_ini_file('config.ini',true)['emailApiKey'];
+        $templateId = parse_ini_file('config.ini',true)['welcomeTemplateId'];
 		
 		$subject = $username . " , welcome to GuidedGateway - online marketplace for you";
-		$message = 	"<br />Hi, " . $username . " Thank you for joining our group. We will open gate of opportunity for you.";
+		
 		
 		include('sendEmail.php');
-		//function SendMail(apiKey, fromAddress, fromName, toAddress, toName, subject, message)
-		$emailSuccess = SendMail($HostEmail, 'Guided Gateway', $from, $username, $subject, $message)
+
+		$emailSuccess = SendMailTemplate($HostEmail, 'Guided Gateway', $from, $username, $subject, );
+        
 		if($emailSuccess)
 		{
 			$tempSub = 'New Guide "' . $username . '" Registered in Guidedgateway';
-			$tempMsg = 'Hiii Admin<br>New guide with the following details registered just now... <br><br>Name : ' . $username . ' <br>Email : ' . $from . '<br>Mobile Number : ' . $mobileNumber . '';
+			$tempMsg = 'Hi Admin<br>New guide with the following details registered just now... <br><br>Name : ' . $username . ' <br>Email : ' . $from . '<br>Mobile Number : ' . $mobileNumber . '';
 			//$s = SendMail($apiKey, $HostEmail, 'Guided GateWay', 'ankitbhagat.ab@gmail.com', 'Ankit Bhagat', $tempSub, $tempMsg);
 			$s = SendMail($HostEmail, 'Guided GateWay', 'support@guidedgateway.com', 'Rakesh Saha', $tempSub, $tempMsg);
 			$errormsg="Registration Conformation Email Sent.";

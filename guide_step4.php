@@ -99,6 +99,8 @@
 				include('sendEmail.php');
 				
 				$HostEmail = parse_ini_file('config.ini',true)['email'];
+                
+                $subject = $username . " invited you to join Guided Gateway - online marketplace for Guides";
 				
 				if($create1)
 				{
@@ -106,12 +108,11 @@
 					array_push($emailFriend, $emailFriend1);
 					array_push($mobileFeiend, $mobileFeiend1); */
 					
-					$subject = "Mail from " . $from . " - " . $username . " invited you to register with Guided Gateway - online marketplace for Guides in India";
-					$message = "Hi <b>" . $nameFriend1 . "</b>,<br/> Your guide friend <b>" . $username . "</b> registered with <b>Guided Gateway</b> and also 
-					inviting you to <a href=http://guide.guidedgateway.com>register</a> with it for a better earning 
-					potential from tourists through an integrated service offering. This is absolutely free. <br/><br/>. 
-					<a href=http://guide.guidedgateway.com/howitworks_guide.html>Learn more</a>.<br/><br/> Thanks,<br/> 
-					Guided Gateway Team - online service just for you";
+					$message = "Hi " . $nameFriend1 . ",<br/> Your friend <i>" . $username . "</i> registered with <a href=\"www.guidedgateway.com\">Guided Gateway</a>. <br/>He is inviting you to join so that you can also :<br/><ul><li><b>Attract more tourists</b></li><br/><li>Make more from each tourists</li><br/><br/>
+                    The registration is totally free and will take only 10 mins<br/><br/> 
+					<a href=http://www.guidedgateway.com>Learn more</a> or contact us at support@guidedgateway.com.<br/><br/> 
+					Thanks,<br/> 
+					Guided Gateway Team <br/>";
 					
 					//function SendMail(apiKey, fromAddress, fromName, toAddress, toName, subject, message)
 					$susx1 = SendMail($HostEmail, 'Guided Gateway', $emailFriend1, $nameFriend1, $subject, $message);
@@ -134,11 +135,11 @@
 					array_push($mobileFeiend, $mobileFeiend2); */
 					
 					$subject = "Mail from " . $from . " - " . $username . " invited you to register with Guided Gateway - online marketplace for Guides in India";
-					$message = "Hi <b>" . $nameFriend2 . "</b>,<br/> Your guide friend <b>" . $username . "</b> registered with <b>Guided Gateway</b> and also 
-					inviting you to <a href=http://guide.guidedgateway.com>register</a> with it for a better earning 
-					potential from tourists through an integrated service offering. This is absolutely free. <br/><br/>. 
-					<a href=http://guide.guidedgateway.com/howitworks_guide.html>Learn more</a>.<br/><br/> Thanks,<br/> 
-					Guided Gateway Team - online service just for you";
+					$message = "Hi " . $nameFriend2 . ",<br/> Your friend <i>" . $username . "</i> registered with <a href=\"www.guidedgateway.com\">Guided Gateway</a>. <br/>He is inviting you to join so that you can also :<br/><ul><li><b>Attract more tourists</b></li><br/><li>Make more from each tourists</li><br/><br/>
+                    The registration is totally free and will take only 10 mins<br/><br/> 
+					<a href=http://www.guidedgateway.com>Learn more</a> or contact us at support@guidedgateway.com.<br/><br/> 
+					Thanks,<br/> 
+					Guided Gateway Team <br/>";
 					
 					//function SendMail(apiKey, fromAddress, fromName, toAddress, toName, subject, message)
 					$susx1 = SendMail($HostEmail, 'Guided Gateway', $emailFriend2, $nameFriend2, $subject, $message);
@@ -160,13 +161,11 @@
 					array_push($emailFriend, $emailFriend3);
 					array_push($mobileFeiend, $mobileFeiend3); */
 					
-					$subject = "Mail from " . $from . " - " . $username . " invited you to register with Guided Gateway - online marketplace for Guides in India";
-					$message = "Hi <b>" . $nameFriend3 . "</b>,<br/> Your guide friend <b>" . $username . "</b> registered with <b>Guided Gateway</b>. He is also 
-					inviting you to register with this guided tour marketplace for a better earning 
-					potential from tourists. <br/>This is absolutely free. <br/><br/>. 
-					<a href=http://guide.guidedgateway.com>Learn more</a>.<br/><br/> 
+					$message = "Hi " . $nameFriend3 . ",<br/> Your friend <i>" . $username . "</i> registered with <a href=\"www.guidedgateway.com\">Guided Gateway</a>. <br/>He is inviting you to join so that you can also :<br/><ul><li><b>Attract more tourists</b></li><br/><li>Make more from each tourists</li><br/><br/>
+                    The registration is totally free and will take only 10 mins<br/><br/> 
+					<a href=http://www.guidedgateway.com>Learn more</a> or contact us at support@guidedgateway.com.<br/><br/> 
 					Thanks,<br/> 
-					Guided Gateway Team";
+					Guided Gateway Team <br/>";
 					
 					//function SendMail(apiKey, fromAddress, fromName, toAddress, toName, subject, message)
 					$susx1 = SendMail($HostEmail, 'Guided Gateway', $emailFriend3, $nameFriend3, $subject, $message);
