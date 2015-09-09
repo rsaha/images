@@ -42,7 +42,7 @@
 				$mail->AddAddress($emailFriend, $nameFriend);
 				
 				
-                $message    = "Hi ".$nameFriend.",<br/> You guide friend ".$username." registered with Guided Gateway and also inviting you to <a href=http://guide.guidedgateway.com>register</a> with it for a better earning potential from tourists through an integrated service offering. This is absolutely free. <br/>br/>. <a href=http://guide.guidedgateway.com/howitworks_guide.html>Learn more</a>.<br/><br/> Thanks,<br/> Guided Gateway Team - online service just for you";
+                $message    = "Hi ".$nameFriend.",<br/> You guide friend ".$username." registered with Guided Gateway and also inviting you to <a href=http://www.guidedgateway.com>register</a> with it for a better earning potential from tourists through an integrated service offering. This is absolutely free. <br/>br/>. <a href=http://guide.guidedgateway.com/howitworks_guide.html>Learn more</a>.<br/><br/> Thanks,<br/> Guided Gateway Team - online service just for you";
                 
 				$mail->WordWrap = 50;                   // set word wrap to 50 characters
 				$mail->IsHTML(true);                     // set email format to HTML

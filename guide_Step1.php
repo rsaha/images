@@ -58,12 +58,12 @@
 		$apiKey = parse_ini_file('config.ini',true)['emailApiKey'];
         $templateId = parse_ini_file('config.ini',true)['welcomeTemplateId'];
 		
-		$subject = $username . " , welcome to GuidedGateway - online marketplace for you";
+		$subject = $username . " : Welcome to Guided Gateway - online marketplace for you";
 		
 		
 		include('sendEmail.php');
 
-		$emailSuccess = SendMailTemplate($HostEmail, 'Guided Gateway', $from, $username, $subject, );
+		$emailSuccess = SendMailTemplate($HostEmail, 'Guided Gateway', $from, $username, $subject, $templateId);
         
 		if($emailSuccess)
 		{
@@ -71,9 +71,9 @@
 			$tempMsg = 'Hi Admin<br>New guide with the following details registered just now... <br><br>Name : ' . $username . ' <br>Email : ' . $from . '<br>Mobile Number : ' . $mobileNumber . '';
 			//$s = SendMail($apiKey, $HostEmail, 'Guided GateWay', 'ankitbhagat.ab@gmail.com', 'Ankit Bhagat', $tempSub, $tempMsg);
 			$s = SendMail($HostEmail, 'Guided GateWay', 'support@guidedgateway.com', 'Rakesh Saha', $tempSub, $tempMsg);
-			$errormsg="Registration Conformation Email Sent.";
+			$errormsg="Registration Confirmation Email Sent.";
 			error_log($errormsg,0);
-			$msg="Conformation Email Sent!!";
+			$msg="Confirmation Email Sent!!";
 			//echo "<script type='text/javascript'>alert('$msg');</script>";
 			header('Location:guide_registration_2.php?id=' . $userid . '');
 			die;
@@ -81,7 +81,7 @@
 		}
 		else
 		{
-			$errormsg="Registration conformation email could not be send.";
+			$errormsg="Registration confirmation email could not be send.";
 			error_log($errormsg,0);
 			//echo "<script type='text/javascript'>alert('$errormsg');</script>";
 			header('Location:guide_registration_2.php?id=' . $userid . '');
