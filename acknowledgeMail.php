@@ -35,7 +35,7 @@
 		$message    = "<b>". $username . "</b> has invited his friends of following email id...<b><br />" . $emailaddresses . "</b><br /><br /> -----------------------------<br />";
 		
 		//function SendMail(apiKey, fromAddress, fromName, toAddress, toName, subject, message)
-		if(SendMail($HostEmail, 'GuidedGateway', 'touchus@xmapledatalab.com', 'Guided Gateway Support', $subject, $message))
+		if(SendMail($HostEmail, 'GuidedGateway', 'support@guidedgateway.com', 'Guided Gateway Support', $subject, $message))
 		{
 			$errormsg="Acknowledgement email sent.";
 			error_log($errormsg,0);
