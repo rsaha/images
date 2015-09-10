@@ -85,7 +85,7 @@ else
 											<form action="guide_login_code.php" method="POST" ng-app="myApp"  ng-controller="validateLogin" name="myForm"  novalidate>
 													<input type="text" class="form-control" id="username" name="username" ng-model="username" placeholder="Email Address or Mobile Number" ng-pattern="/^([a-zA-Z0-9._%+-]+@[a-zA-Z0-9]+\.([a-zA-Z]{2,3}|([a-zA-Z]{2,3}\.[a-zA-Z]{2})))|([7-9]{1}\d{9})$/" required >
 													 <span style="color:red" ng-show="myForm.username.$dirty && myForm.username.$invalid">
-														  <span ng-show="myForm.username.$error.required">*username is required.</span>
+														  <span ng-show="myForm.username.$error.required">*username is required - mobile no or email.</span>
 														   <span ng-show="myForm.username.$error.pattern">*Invalid username Name ...</span>
 													</span>
 													<br /> <input type="password" class="form-control" id="password" name="password" ng-model="password" placeholder="Password" required>
@@ -97,7 +97,10 @@ else
 												
 												<center><span style="color:gray;">Not a member? 
 												<a id="LinkSignUp" href="guide_registration_1.php">Join now</a>
-												</span></center><br />
+												</span></center>
+                                                <center><span style="color:gray;">Forgot Password ? email support@guidedgateway.com 
+												</span></center>
+                                                <br />
 											</div>
 										</div>
 									</div>
