@@ -30,8 +30,16 @@
 	{
 		$Password = $Pass ;
 	}
+	$Sel = mysql_query("SELECT * FROM `tbl_user_type` WHERE `user_type_name`='GUIDE'");
+	$counter = mysql_num_rows($Sel);
+	if($counter == 1)
+	{
+		$row4 = mysql_fetch_array($Sel);
+		$user_type_id = $row4["user_type_id"];
+		echo '<script>alert(' . $user_type_id . ')</script>';
+	}
 	
-	$create = mysql_query("INSERT INTO tbl_user_profile(user_type_id, user_password, f_name, l_name, email, mobileNo, status, datecreated) VALUES (1, '$Password', '$FirstName', '$LastName', '$EmailAddress', '$MobileNumber', 1, now())");
+	$create = mysql_query("INSERT INTO tbl_user_profile(user_type_id, user_password, f_name, l_name, email, mobileNo, status, datecreated) VALUES ($user_type_id, '$Password', '$FirstName', '$LastName', '$EmailAddress', '$MobileNumber', 1, now())");
 	
 	if($create)
 	{

@@ -94,8 +94,10 @@ else
 														  </span>
 													<br /> <button class="btn  btn-sm btn-warning btn-block form-control" type="submit" style="font-size:17px; font-weight: bold;" ng-disabled="myForm.username.$dirty && myForm.username.$invalid || myForm.password.$dirty && myForm.password.$invalid ">Login</button>
 												</form>
-												
-												<center><span style="color:gray;">Not a member? 
+												<center>
+												<span style="color:gray;"><a href="EmailSendCode.php">Forgot Your Password? </a>
+												</span><br>
+												<span style="color:gray;">Not a member? 
 												<a id="LinkSignUp" href="guide_registration_1.php">Join now</a>
 												</span></center>
                                                 <center><span style="color:gray;">Forgot Password ? email support@guidedgateway.com 
