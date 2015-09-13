@@ -317,11 +317,11 @@ else
 														</li>
 													<li class="row">
 														<div class="col-md-4">
-															<label style="font-size:14px; font-weight:bold">Landline Number</label>
+															<label style="font-size:14px; font-weight:bold">Alternative Contact Number</label>
 															<input type="tel" class="form-control" name="landlinenumber" value="" ng-model="landlinenumber" maxlength="15" ng-pattern="/^\d{10,15}$/"/>
 															 <span style="color:red" ng-show="myForm.landlinenumber.$dirty && myForm.landlinenumber.$invalid">
 											 
-											   <span ng-show="myForm.landlinenumber.$error.pattern">*Invalid landline number ...</span>
+											   <span ng-show="myForm.landlinenumber.$error.pattern">*Invalid Alternate number ...</span>
 											  </span>
 														</div>
 														<div class="col-md-4">

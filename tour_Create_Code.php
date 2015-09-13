@@ -73,6 +73,7 @@ session_start();
 			
 			if($insert)
 			{
+				$trId = mysql_insert_id();
 				$flag1 = 1;
 			}
 			else
@@ -85,7 +86,7 @@ session_start();
 			$msg = "Tour '$tourName' created Successfully !!";
 			error_log($msg,0);
 			echo "<script type='text/javascript'>alert('$msg');</script>";
-			header('Location:guide_profile.php?id=' . $userid . '');
+			header('Location:tour_Create_Step2.php?id1=' . $userid . '&id2='. $trId .'');
 			
 			} 
 			else

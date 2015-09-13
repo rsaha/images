@@ -245,82 +245,92 @@
 								<!-- START TAB 1 -->
 								<div class="tab-pane active" id="tourPlan">
 									<ul class="plans-list list-unstyled">
-										<li>
-											<img class="img-responsive" src="img/custom2.jpg" alt="Day 1" />
-											<div class="plan-info">
-												<h4 class="text-upper">Day 1</h4>
-												<p>Amet turpis tristique, nec in aliquet dis amet, proin egestas in tempor, cras et dapibus.</p>
-											</div>
-										</li>
+										<?php
+										for($p=1; $p<=$tour_duration; $p++)
+										{
+											$select5 = mysql_query("SELECT * FROM `tbl_tour_itinerary` WHERE `tour_id` = $tourID and `day` = $p");
+											$count5 = mysql_num_rows($select5);
+											?>
+											<li>
+												<img class="img-responsive" src="img/custom2.jpg" alt="Day 1" />
+												<div class="plan-info">
+													<h4 class="text-upper">Day <?php echo $p; ?></h4>
+													<?php
+													if($count5 > 0)
+													{
+														echo "<p>";
+														while($row5 = mysql_fetch_array($select5))
+														{
+															echo $row5["description"].". ";
+														}
+														echo "</p>";
+													}
+													else
+													{
+														echo "<p>Nothing to display</p>";
+													}
+													?>
+												</div>
+											</li>
+											<?php
+										}
 										
-										<li>
-											<img class="img-responsive" src="img/custom2.jpg" alt="Day 2" />
-											<div class="plan-info">
-												<h4 class="text-upper">Day 2</h4>
-												<p>Amet turpis tristique, nec in aliquet dis amet, proin egestas in tempor, cras et dapibus.</p>
-											</div>
-										</li>
+										?>
 										
-										<li>
-											<img class="img-responsive" src="img/custom2.jpg" alt="Day 3" />
-											<div class="plan-info">
-												<h4 class="text-upper">Day 3</h4>
-												<p>Amet turpis tristique, nec in aliquet dis amet, proin egestas in tempor, cras et dapibus.</p>
-											</div>
-										</li>
 									</ul>
 								</div>
 								<!-- END TAB 1 -->
 								
 								<!-- START TAB 2 -->
+								<?php
+								$select4 = mysql_query("SELECT * FROM `tbl_tour_itinerary` WHERE `tour_id` = $tourID");
+								
+								$count4 = mysql_num_rows($select4);
+							
+									
+								?>
 								<div class="tab-pane" id="flightSchedule">
 									<div class="table-responsive">
 										<table class="table">
 											<thead>
 												<tr>
 													<th>Place</th>
-													<th>Type</th>
-													<th>DATE</th>
-													<th>DEPARTS</th>
-													<th>ARRIVES</th>
+													<th>Day</th>
+													<th>Time</th>
+													<th>Description</th>
+													<th>Transport</th>
 												</tr>
 											</thead>
 											<tbody>
-												<tr class="dark-gray">
-													<td>Taj Mahal</td>
-													<td>Monument</td>
-													<td>20 DEC 2013</td>
-													<td>10:00</td>
-													<td>12:00</td>
+											<?php
+											if($count4 > 0)
+									{
+										while($row4 = mysql_fetch_array($select4))
+										{
+											?>
+											<tr class="dark-gray">
+													<td><?php echo $row4["tourist_spot"]; ?></td>
+													<td>Day <?php echo $row4["day"]; ?></td>
+													<td><?php echo $row4["intraday"]; ?></td>
+													<td><?php echo $row4["description"]; ?></td>
+													<td><?php echo $row4["transport"]; ?></td>
 												</tr>
-												<tr>
-													<td>Yamuna River</td>
-													<td>Nature</td>
-													<td>21 DEC 2013</td>
-													<td>09:00</td>
-													<td>10:00</td>
+										<?php
+										}
+									}
+									else
+									{
+										?>
+										<tr class="dark-gray">
+													<td></td>
+													<td></td>
+													<td></td>
+													<td></td>
+													<td></td>
 												</tr>
-												<tr class="dark-gray">
-													<td>Kabob Corner</td>
-													<td>Food</td>
-													<td>22 DEC 2013</td>
-													<td>05:00</td>
-													<td>06:30</td>
-												</tr>
-												<tr>
-													<td>Taj Mahal Garden</td>
-													<td>Romance</td>
-													<td>23 DEC 2013</td>
-													<td>08:15</td>
-													<td>09:30</td>
-												</tr>
-												<tr class="dark-gray">
-													<td>Rafting</td>
-													<td>Adventure</td>
-													<td>24 DEC 2013</td>
-													<td>10:00</td>
-													<td>03:40</td>
-												</tr>
+												<?php
+									}
+									?>
 											</tbody>
 										</table>
 									</div>
@@ -330,8 +340,10 @@
 								<!-- START TAB 3 -->
 								<div class="tab-pane" id="additionalInfo">
 									<div class="inside-pane">
-										<p>Amet turpis tristique, nec in aliquet dis amet, proin egestas in tempor, cras et dapibus, lectus pellentesque enim odio elementum eu tincidunt diam a et. Dapibus sed cum, aliquam cras egestas enim elit in mattis? Scelerisque, ultrices mid! Lorem. Scelerisque? Pid cras, mattis vel, porta, quis! Porttitor turpis cras, odio ultricies parturient pulvinar tempor.</p>
-										<p>eu turpis enim dapibus diam tristique cursus egestas quis phasellus montes! Parturient porta purus quis scelerisque? Vel proin, ac odio cras penatibus magnis non? Aliquam elementum, dis? Elementum ac.</p>
+										<p><b>Inclusive : </b> <?php echo $inclusive; ?></p>
+										<p><b>Exclusive : </b> <?php echo $exclusive; ?></p>
+										<p><b>Cancelation Policy : </b> <?php echo $cancelation_policy; ?></p>
+										<p><b>Restriction : </b> <?php echo $restrictions; ?></p>
 									</div>
 								</div>
 								<!-- END TAB 3 -->
