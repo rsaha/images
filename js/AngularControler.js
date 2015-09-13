@@ -68,4 +68,10 @@
 		$scope.licencenumber = '';
 		$scope.landlinenumber = '';
 	});
+	
+	app.controller('forgetPasswordValidateCtrl', function($scope) {
+		$scope.username = '';
+		$scope.emailid = '';
+		$scope.monileno = '';
+	});
 })();

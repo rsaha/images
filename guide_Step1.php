@@ -30,8 +30,16 @@
 	{
 		$Password = $Pass ;
 	}
+	$Sel = mysql_query("SELECT * FROM `tbl_user_type` WHERE `user_type_name`='GUIDE'");
+	$counter = mysql_num_rows($Sel);
+	if($counter == 1)
+	{
+		$row4 = mysql_fetch_array($Sel);
+		$user_type_id = $row4["user_type_id"];
+		echo '<script>alert(' . $user_type_id . ')</script>';
+	}
 	
-	$create = mysql_query("INSERT INTO tbl_user_profile(user_type_id, user_password, f_name, l_name, email, mobileNo, status, datecreated) VALUES (1, '$Password', '$FirstName', '$LastName', '$EmailAddress', '$MobileNumber', 1, now())");
+	$create = mysql_query("INSERT INTO tbl_user_profile(user_type_id, user_password, f_name, l_name, email, mobileNo, status, datecreated) VALUES ($user_type_id, '$Password', '$FirstName', '$LastName', '$EmailAddress', '$MobileNumber', 1, now())");
 	
 	if($create)
 	{
@@ -50,37 +58,40 @@
 		$errormsg="Guide registered with basic details in registration step 1.";
 		error_log($errormsg,0);
 		$msg="Successfully Updated!!";
-		echo "<script type='text/javascript'>alert('$msg');</script>";
+		//echo "<script type='text/javascript'>alert('$msg');</script>";
 		
-		$smtpAddress = parse_ini_file('config.ini',true)['smtpAddress'];
+		//$smtpAddress = parse_ini_file('config.ini',true)['smtpAddress'];
 		$HostEmail = parse_ini_file('config.ini',true)['email'];
-		$HostPassword = parse_ini_file('config.ini',true)['password'];
-		$apiKey = parse_ini_file('config.ini',true)['apiKey'];
+		//$HostPassword = parse_ini_file('config.ini',true)['password'];
+		$apiKey = parse_ini_file('config.ini',true)['emailApiKey'];
+        $templateId = parse_ini_file('config.ini',true)['welcomeTemplateId'];
 		
-		$subject = "Mail from " . $from . " - Hi " . $username . " , We Welcome you in Guided Gateway";
-		$message = 	"<br />Hi, " . $username . " Thankyou for joining our group, We will open gate of opportunity for you.";
+		$subject = $username . " : Welcome to Guided Gateway - online marketplace for you";
+		
 		
 		include('sendEmail.php');
-		//function SendMail(apiKey, fromAddress, fromName, toAddress, toName, subject, message)
-		if(SendMail($apiKey, $HostEmail, 'Guided Gateway', $from, $username, $subject, $message))
+
+		$emailSuccess = SendMailTemplate($HostEmail, 'Guided Gateway', $from, $username, $subject, $templateId);
+        
+		if($emailSuccess)
 		{
 			$tempSub = 'New Guide "' . $username . '" Registered in Guidedgateway';
-			$tempMsg = 'Hiii Admin<br>New guide with the following details registered just now... <br><br>Name : ' . $username . ' <br>Email : ' . $from . '<br>Mobile Number : ' . $mobileNumber . '';
+			$tempMsg = 'Hi Admin<br>New guide with the following details registered just now... <br><br>Name : ' . $username . ' <br>Email : ' . $from . '<br>Mobile Number : ' . $mobileNumber . '';
 			//$s = SendMail($apiKey, $HostEmail, 'Guided GateWay', 'ankitbhagat.ab@gmail.com', 'Ankit Bhagat', $tempSub, $tempMsg);
-			$s = SendMail($apiKey, $HostEmail, 'Guided GateWay', 'rshsh@xmapledatalab.com', 'Rakesh Shah', $tempSub, $tempMsg);
-			$errormsg="Registration Conformation Email Sent.";
+			$s = SendMail($HostEmail, 'Guided GateWay', 'support@guidedgateway.com', 'Rakesh Saha', $tempSub, $tempMsg);
+			$errormsg="Registration Confirmation Email Sent.";
 			error_log($errormsg,0);
-			$msg="Conformation Email Sent!!";
-			echo "<script type='text/javascript'>alert('$msg');</script>";
+			$msg="Confirmation Email Sent!!";
+			//echo "<script type='text/javascript'>alert('$msg');</script>";
 			header('Location:guide_registration_2.php?id=' . $userid . '');
 			die;
 			exit;
 		}
 		else
 		{
-			$errormsg="Registration conformation email could not be send.";
+			$errormsg="Registration confirmation email could not be send.";
 			error_log($errormsg,0);
-			echo "<script type='text/javascript'>alert('$errormsg');</script>";
+			//echo "<script type='text/javascript'>alert('$errormsg');</script>";
 			header('Location:guide_registration_2.php?id=' . $userid . '');
 			die;
 			exit;
@@ -92,7 +103,7 @@
 		$_SESSION['notification']="Email or Mobile Number already Exist.";
 		$errormsg="Something went wrong, Could Not Register. Try again";
 		error_log($errormsg,0);
-		echo "<script type='text/javascript'>alert('$errormsg');</script>";
+		//echo "<script type='text/javascript'>alert('$errormsg');</script>";
 		header('Location:guide_registration_1.php');
 	}
 ?>

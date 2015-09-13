@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 05, 2015 at 02:05 PM
+-- Generation Time: Sep 13, 2015 at 05:12 AM
 -- Server version: 5.6.24
 -- PHP Version: 5.6.8
 
@@ -38,6 +38,7 @@ CREATE TABLE IF NOT EXISTS `tbl_guide_detail_profile` (
   `guide_summary` text,
   `guide_experience` text,
   `guide_interest` text,
+  `guide_territory` varchar(100) DEFAULT NULL,
   `guide_facebook_profile` varchar(200) DEFAULT NULL,
   `guide_linkedin_profile` varchar(200) DEFAULT NULL,
   `guide_pinterest_profile` varchar(200) DEFAULT NULL,
@@ -50,7 +51,10 @@ CREATE TABLE IF NOT EXISTS `tbl_guide_detail_profile` (
   `guide_Remarks` text,
   `status` tinyint(4) NOT NULL,
   `datecreated` date NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='Guide Detail Profile data';
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='Guide Detail Profile data';
+
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `tbl_guide_known_languages`
@@ -119,6 +123,8 @@ CREATE TABLE IF NOT EXISTS `tbl_referrals` (
   `datecreated` date NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
 --
 -- Table structure for table `tbl_tours`
 --
@@ -128,7 +134,7 @@ CREATE TABLE IF NOT EXISTS `tbl_tours` (
   `user_id` bigint(20) NOT NULL,
   `tour_category_id` int(11) NOT NULL,
   `tour_title` varchar(100) NOT NULL,
-  `tour_location` varchar(100) NOT NULL,
+  `tour_location` varchar(100) DEFAULT NULL,
   `tour_description` varchar(500) NOT NULL,
   `tour_duration` varchar(100) NOT NULL,
   `tour_price` varchar(100) NOT NULL,
@@ -142,7 +148,30 @@ CREATE TABLE IF NOT EXISTS `tbl_tours` (
   `status` tinyint(4) NOT NULL,
   `datecreated` date NOT NULL,
   `created_added` bigint(20) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COMMENT='Tour Master repository';
+) ENGINE=InnoDB AUTO_INCREMENT=50033 DEFAULT CHARSET=utf8 COMMENT='Tour Master repository';
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_tours_catalog`
+--
+
+CREATE TABLE IF NOT EXISTS `tbl_tours_catalog` (
+  `tour_catalog_id` bigint(20) NOT NULL,
+  `tour_category_title` varchar(200) NOT NULL,
+  `tour_title` varchar(100) NOT NULL,
+  `tour_description` varchar(500) NOT NULL,
+  `tour_duration` varchar(100) NOT NULL,
+  `tour_estimate_price` varchar(100) DEFAULT NULL,
+  `start_point` varchar(200) NOT NULL,
+  `end_point` varchar(200) NOT NULL,
+  `suggested_inclusive` varchar(200) DEFAULT NULL,
+  `suggested_exclusive` varchar(200) DEFAULT NULL,
+  `notes` text,
+  `datecreated` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tour Catalog repository';
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `tbl_tours_location`
@@ -186,6 +215,8 @@ CREATE TABLE IF NOT EXISTS `tbl_tour_category` (
   `datecreated` date NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='Tour Category Master Table';
 
+-- --------------------------------------------------------
+
 --
 -- Table structure for table `tbl_tour_experiences`
 --
@@ -201,6 +232,22 @@ CREATE TABLE IF NOT EXISTS `tbl_tour_experiences` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_tour_itinerary`
+--
+
+CREATE TABLE IF NOT EXISTS `tbl_tour_itinerary` (
+  `tour_Itinerary_id` bigint(20) NOT NULL,
+  `tour_id` bigint(20) NOT NULL,
+  `day` int(10) NOT NULL,
+  `intraday` varchar(20) DEFAULT NULL,
+  `description` text,
+  `transport` varchar(100) DEFAULT NULL,
+  `tourist_spot` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_tour_media_pictures`
 --
 
@@ -208,7 +255,7 @@ CREATE TABLE IF NOT EXISTS `tbl_tour_media_pictures` (
   `picture_media_id` bigint(20) NOT NULL,
   `tour_id` bigint(20) NOT NULL,
   `tour_picture` longblob NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -244,7 +291,10 @@ CREATE TABLE IF NOT EXISTS `tbl_user_profile` (
   `country` varchar(100) DEFAULT NULL,
   `status` tinyint(4) NOT NULL,
   `datecreated` date NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8 COMMENT='Users Basic Profile';
+) ENGINE=InnoDB AUTO_INCREMENT=10003 DEFAULT CHARSET=utf8 COMMENT='Users Basic Profile';
+
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `tbl_user_type`
@@ -256,6 +306,16 @@ CREATE TABLE IF NOT EXISTS `tbl_user_type` (
   `status` tinyint(4) NOT NULL,
   `datecreated` date NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='User Type Master Table';
+
+--
+-- Dumping data for table `tbl_user_type`
+--
+
+INSERT INTO `tbl_user_type` (`user_type_id`, `user_type_name`, `status`, `datecreated`) VALUES
+(1, 'GUIDE', 1, '2015-07-27'),
+(2, 'Agent', 1, '2015-08-19'),
+(3, 'Touriest', 1, '2015-08-19'),
+(4, 'Admin', 1, '2015-08-19');
 
 --
 -- Indexes for dumped tables
@@ -304,6 +364,12 @@ ALTER TABLE `tbl_tours`
   ADD PRIMARY KEY (`tour_id`);
 
 --
+-- Indexes for table `tbl_tours_catalog`
+--
+ALTER TABLE `tbl_tours_catalog`
+  ADD PRIMARY KEY (`tour_catalog_id`);
+
+--
 -- Indexes for table `tbl_tours_location`
 --
 ALTER TABLE `tbl_tours_location`
@@ -326,6 +392,12 @@ ALTER TABLE `tbl_tour_category`
 --
 ALTER TABLE `tbl_tour_experiences`
   ADD PRIMARY KEY (`experience_id`);
+
+--
+-- Indexes for table `tbl_tour_itinerary`
+--
+ALTER TABLE `tbl_tour_itinerary`
+  ADD PRIMARY KEY (`tour_Itinerary_id`);
 
 --
 -- Indexes for table `tbl_tour_media_pictures`
@@ -359,17 +431,17 @@ ALTER TABLE `tbl_user_type`
 -- AUTO_INCREMENT for table `tbl_guide_detail_profile`
 --
 ALTER TABLE `tbl_guide_detail_profile`
-  MODIFY `guide_detail_id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+  MODIFY `guide_detail_id` bigint(20) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `tbl_referrals`
 --
 ALTER TABLE `tbl_referrals`
-  MODIFY `referral_id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
+  MODIFY `referral_id` bigint(20) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `tbl_tours`
 --
 ALTER TABLE `tbl_tours`
-  MODIFY `tour_id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
+  MODIFY `tour_id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=50001;
 --
 -- AUTO_INCREMENT for table `tbl_tours_location`
 --
@@ -379,12 +451,17 @@ ALTER TABLE `tbl_tours_location`
 -- AUTO_INCREMENT for table `tbl_tour_category`
 --
 ALTER TABLE `tbl_tour_category`
-  MODIFY `tour_category_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+  MODIFY `tour_category_id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `tbl_tour_itinerary`
+--
+ALTER TABLE `tbl_tour_itinerary`
+  MODIFY `tour_Itinerary_id` bigint(20) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `tbl_tour_media_pictures`
 --
 ALTER TABLE `tbl_tour_media_pictures`
-  MODIFY `picture_media_id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+  MODIFY `picture_media_id` bigint(20) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `tbl_tour_media_videos`
 --
@@ -394,7 +471,7 @@ ALTER TABLE `tbl_tour_media_videos`
 -- AUTO_INCREMENT for table `tbl_user_profile`
 --
 ALTER TABLE `tbl_user_profile`
-  MODIFY `user_id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
+  MODIFY `user_id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10001;
 --
 -- AUTO_INCREMENT for table `tbl_user_type`
 --
