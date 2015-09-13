@@ -349,7 +349,23 @@
 												<strong> Duration:</strong><a class="pull-right" tabindex="0" data-toggle="popover"  data-placement="bottom" data-trigger="focus" data-content="Duration. ex. 2 days">
 																<i class='fa fa-info-circle' style="color:gray"></i>
 															</a>
-												<input type="text" tabindex="4" class="form-control" placeholder="Duration. ex. 2 days" name="tourDuration" style="background-color:white" required  />
+												<select tabindex="4" class="form-control" name="tourDuration" style="background-color:white">
+												<option value="1">1 Day</option>
+												<option value="2">2 Days</option>
+												<option value="3">3 Days</option>
+												<option value="4">4 Days</option>
+												<option value="5">5 Days</option>
+												<option value="6">6 Days</option>
+												<option value="7">7 Days</option>
+												<option value="8">8 Days</option>
+												<option value="9">9 Days</option>
+												<option value="10">10 Days</option>
+												<option value="11">11 Days</option>
+												<option value="12">12 Days</option>
+												<option value="13">13 Days</option>
+												<option value="14">14 Days</option>
+												<option value="15">15 Days</option>
+												</select>
 											</div>
 											</div>
 											<div class="col-sm-6">
@@ -429,7 +445,7 @@
 													<a onclick="myFunction(<?php echo $userid; ?>)"><button tabindex="14" class="form-control btn btn-default">Cancel</button></a>
 												</div>
 												<div class="col-sm-3">
-													<input type="submit" tabindex="13" class="form-control btn btn-warning" value="Create Tour"  name="tourNmae" />
+													<input type="submit" tabindex="13" class="form-control btn btn-warning" value="Next"  name="tourNmae" />
 												</div>
 											</div>
 											

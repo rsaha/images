@@ -108,7 +108,7 @@
 					array_push($emailFriend, $emailFriend1);
 					array_push($mobileFeiend, $mobileFeiend1); */
 					
-					$message = "Hi " . $nameFriend1 . ",<br/> Your friend <i>" . $username . "</i> registered with <a href=\"www.guidedgateway.com\">Guided Gateway</a>. <br/>He is inviting you to join so that you can also :<br/><ul><li><b>Attract more tourists</b></li><br/><li>Make more from each tourists</li><br/><br/></ul>
+					$message = "Hi " . $nameFriend1 . ",<br/> Your friend <i>" . $username . "</i> registered with <a href=\"www.guidedgateway.com\">Guided Gateway</a>. <br/>".$username." is also inviting you to join so that you can :<br/><ul><li><b>Attract more tourists</b></li><br/><li>Make more from each tourists</li><br/><br/></ul>
                     The registration is totally free and will take only 10 mins<br/><br/> 
 					<a href=http://www.guidedgateway.com>Learn more</a> or contact us at support@guidedgateway.com.<br/><br/> 
 					Thanks,<br/> 
@@ -218,7 +218,7 @@
 			{
 				if($_SESSION['phase'] == "reg")
 				{
-					$_SESSION['notification']="Congratulation! Welcome to your profile, you are now member of #1 online marketplace for tour guides.";
+					$_SESSION['notification']="Congratulation! Welcome to Guided Gateway, you are now member of #1 online marketplace for tour guides.";
 				}
 				else
 				{
