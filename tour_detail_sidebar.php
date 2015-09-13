@@ -148,7 +148,6 @@
 										</div>
 										
 										<div class="offer-bottom">
-											<span class="featured-stf">Per Person </span>
 											<span class="featured-spe"><?php echo $tour_price; ?></span>
 										</div>
 									</div>

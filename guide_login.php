@@ -100,8 +100,6 @@ else
 												<span style="color:gray;">Not a member? 
 												<a id="LinkSignUp" href="guide_registration_1.php">Join now</a>
 												</span></center>
-                                                <center><span style="color:gray;">Forgot Password ? email support@guidedgateway.com 
-												</span></center>
                                                 <br />
 											</div>
 										</div>
