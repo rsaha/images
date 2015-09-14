@@ -378,7 +378,7 @@
 			<script>
 				function myFunction(id,id2) 
 				{
-				window.location.href ="edit_Tour.php?user="+id+"&tour="+id2;
+				window.location.href ="edit_Tour.php?id1="+id+"&tour="+id2;
 				return false;
 				}
 			</script>
