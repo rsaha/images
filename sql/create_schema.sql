@@ -218,6 +218,18 @@ CREATE TABLE IF NOT EXISTS `tbl_tour_category` (
 -- --------------------------------------------------------
 
 --
+-- Dumping data for table `tbl_tour_category`
+--
+
+INSERT INTO `tbl_tour_category` (`tour_category_id`, `user_id`, `tour_category_title`, `status`, `datecreated`) VALUES
+(1, 4, 'General', 1, '2015-08-20'),
+(2, 4, 'Adventure', 1, '2015-08-20'),
+(3, 4, 'Religious', 1, '2015-08-20'),
+(4, 4, 'Art', 1, '2015-08-20'),
+(5, 4, 'History', 1, '2015-08-20'),
+(6, 4, 'Custom', 1, '2015-08-20');
+
+--
 -- Table structure for table `tbl_tour_experiences`
 --
 
@@ -312,10 +324,10 @@ CREATE TABLE IF NOT EXISTS `tbl_user_type` (
 --
 
 INSERT INTO `tbl_user_type` (`user_type_id`, `user_type_name`, `status`, `datecreated`) VALUES
-(1, 'GUIDE', 1, '2015-07-27'),
-(2, 'Agent', 1, '2015-08-19'),
-(3, 'Touriest', 1, '2015-08-19'),
-(4, 'Admin', 1, '2015-08-19');
+(1, 'GUIDE', 1, '2015-08-20'),
+(2, 'AGENT', 1, '2015-08-20'),
+(3, 'TOURIST', 1, '2015-08-20'),
+(4, 'ADMIN', 1, '2015-08-20');
 
 --
 -- Indexes for dumped tables
