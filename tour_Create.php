@@ -54,6 +54,7 @@
 				$bestTimeToContace = $row22["Best_time_for_contact"];
 				$communicationMechanism = $row22["Communication_mechanism"];
 				$remark = $row22["guide_Remarks"];
+                $guide_territory = $row22["guide_territory"];
 				}
 				else
 				{
@@ -464,7 +465,7 @@
 											$sql2 = mysql_query("SELECT `street_address`, `city`, `state`, `country` FROM `tbl_user_profile` WHERE (`user_id` = $userid and `status` = 1)");
 											$guideCity = mysql_result($sql2, 0, 1);
 											
-											$sql1 = mysql_query("SELECT `tour_id`, `tour_category_id`, `tour_title`, `tour_location`, `tour_description`, `tour_duration`, `tour_price`, `start_point`, `end_point`, `inclusive`, `exclusive`, `cancelation_policy`, `restrictions`, `notes`, `status`, `datecreated` FROM `tbl_tours` WHERE ( `user_id` != $userid AND (`tour_id` NOT IN (select `created_added` from `tbl_tours` WHERE `user_id`= $userid and `created_added` != 0)) and `tour_location` = '$guideCity' and `status` = 1 )");
+											$sql1 = mysql_query("SELECT `tour_id`, `tour_category_id`, `tour_title`, `tour_location`, `tour_description`, `tour_duration`, `tour_price`, `start_point`, `end_point`, `inclusive`, `exclusive`, `cancelation_policy`, `restrictions`, `notes`, `status`, `datecreated` FROM `tbl_tours` WHERE `user_id` = 10000");
 											
 										  //$sql1 = mysql_query("SELECT `tour_id`, `tour_category_id`, `tour_title`, `tour_location`, `tour_description`, `tour_duration`, `tour_price`, `start_point`, `end_point`, `inclusive`, `exclusive`, `cancelation_policy`, `restrictions`, `notes`, `status`, `datecreated` FROM `tbl_tours` WHERE (`user_id` != $userid and `tour_location` = '$guideCity' and `status` = 1)");
 											if(mysql_num_rows($sql1) >= 1)
