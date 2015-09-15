@@ -119,7 +119,7 @@
 				<span>MENU</span>
 				<ul style="width:100%" id="main-menu">
 				<li class="pull-right"><a href="signOut.php" title="">Sign Out</a></li>
-				<li class="pull-right" ><a href="guide_login.php" title="">HOME</a></li>
+				<li class="pull-right" ><a href="guide_login.php" title="">Guide Home</a></li>
                 <!--li><a href="" title=""> </a></li> 
 				<li><a href="" title=""> </a></li>
 				<li><a href="" title=""> </a></li> 
