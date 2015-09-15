@@ -103,7 +103,7 @@
 							</section>
                             <div >
 										<?php
-										echo '<a class="btn btn-default pull-right" style="background-color:#ffa98e" onclick="edit_tour(' . $userid.','.$tour_id.')"> 
+										echo '<a class="btn btn-default pull-right" style="background-color:#ffa98e" onclick="editTour(' . $user_id.','.$tourID.')"> 
 										<i class="fa fa-pencil"></i> Edit Tour 
 										</a>'
 										?>	
