@@ -5,8 +5,6 @@
 		if(isset($_POST['userid']))
 		{
 		  $userid=$_POST['userid'];
-		  
-		  
 		}
 		if($_SESSION['userId']!=$userid)
 		{
@@ -79,6 +77,10 @@
 			if($insert)
 			{
 				$flag1 = 1;
+				$trId = mysql_insert_id();
+				$insert2 = mysql_query("INSERT INTO `tbl_tour_itinerary` (`tour_id`, `day`, `intraday`, `description`, `transport`, `tourist_spot`)
+				SELECT $trId, `day`, `intraday`, `description`, `transport`, `tourist_spot` FROM `tbl_tour_itinerary`
+				WHERE `tour_id`=$oldTourId");
 			}
 			else
 			{

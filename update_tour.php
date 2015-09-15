@@ -2,10 +2,11 @@
 session_start();
 if(isset($_SESSION['userId']))
 	{
-		if(isset($_POST['userid']) && isset($_POST['tourID']))
+		if(isset($_POST['userid']) && isset($_POST['tourID']) && isset($_POST['tourOldDuration']))
 		{
 		  $userid=$_POST['userid'];
 		  $tourID=$_POST['tourID'];
+		  $tourOldDuration=$_POST['tourOldDuration'];
 		}
 		if($_SESSION['userId']!=$userid)
 		{
@@ -66,8 +67,7 @@ if(isset($_SESSION['userId']))
 				$msg = "Tour '$tourName' updated Successfully !!";
 			error_log($msg,0);
 			echo "<script type='text/javascript'>alert('$msg');</script>";
-			header('Location:guide_profile.php?id=' . $userid . '');
-			
+			header('Location:edit_Tour_Step2.php?id1=' . $userid . '&id2=' . $tourID . '&id3=' . $tourOldDuration . '');
 			}
 			else
 			{
