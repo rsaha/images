@@ -58,7 +58,7 @@
 		<meta charset="UTF-8">
 		
 		<!-- title -->
-		<title>Kolkata, WB | Guided Gateway</title>
+		<title><?php echo $tour_title."| Guided Gateway"; ?></title>
 		
 		<!-- meta description -->
 		<meta name="description" content="Guided Gateway" />
@@ -101,6 +101,13 @@
 							<section class="col-sm-6">
 								<h1 class="text-upper"><?php echo $tour_duration . ' in ' . $tour_title ; ?></h1>
 							</section>
+                            <div >
+										<?php
+										echo '<a class="btn btn-default pull-right" style="background-color:#ffa98e" onclick="edit_tour(' . $userid.','.$tour_id.')"> 
+										<i class="fa fa-pencil"></i> Edit Tour 
+										</a>'
+										?>	
+										</div>
 							
 							<!-- breadcrumbs 
 							<section class="col-sm-6">
@@ -266,7 +273,7 @@
 													}
 													else
 													{
-														echo "<p>Nothing to display</p>";
+														echo "<p>Description is not provided</p>";
 													}
 													?>
 												</div>
@@ -366,6 +373,37 @@
 		<script type="text/javascript" src="js/jquery.min.js"></script>
 		<script type="text/javascript" src="bs3/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="js/script.js"></script>
+        <script>
+
+			$(function () {
+			  $('[data-toggle="popover"]').popover();
+			});
+			
+				function myFunction(id) 
+				{
+					window.location.href = "guide_profile_edit.php?id="+id;
+					return false;
+				}
+				
+				function createTour(id) 
+				{
+					window.location.href = "tour_Create.php?id="+id+"";
+					return false;
+				}
+				
+				function editTour(id1,id2) 
+				{
+					window.location.href = "edit_Tour.php?id1="+id1+"&id2="+id2+"";
+					return false;
+				}
+				
+				function detailTour(id) 
+				{
+					window.location.href = "tour_detail_sidebar.php?id="+id+"";
+					return false;
+				}
+		</script>
+
 		<!--[if lt IE 9]>
 			<script type="text/javascript" src="js/html5shiv.js"></script>
 		<![endif]-->
