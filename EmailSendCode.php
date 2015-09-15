@@ -40,7 +40,6 @@ if((isset($_POST['username'])) && (isset($_POST['emailid'])) && (isset($_POST['m
     <!-- Bootstrap core CSS -->
     <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
-
     <!-- Custom styles for this template -->
     <link href="css/style_how.css" rel="stylesheet">
     <style type="text/css">
@@ -126,8 +125,8 @@ if((isset($_POST['username'])) && (isset($_POST['emailid'])) && (isset($_POST['m
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="http://www.guidedgateway.com">Home</a></li>
-                <li><a href="http://www.guidedgateway.com/guide_login.php">Guide Home</a></li>
-                <li><a href="http://www.guidedgateway.com/guide_registration_1.php">Guide Sign Up</a></li>
+                <li><a href="guide_login.php">Guide Home</a></li>
+                <li><a href="guide_registration_1.php">Guide Sign Up</a></li>
             </ul>
 
         </div>
@@ -143,8 +142,8 @@ if((isset($_POST['username'])) && (isset($_POST['emailid'])) && (isset($_POST['m
                 <div class="col-md-6">
                     <h1 class="title" style="color: #444454">Guided <span>Gateway</span></h1>
 
-                    <p style="color: #444454">Forget your password?? Don't worry!! <br>
-					We are here for you.<br/>Send us email with your basis details we will sure help you.</p>
+                    <p style="color: #444454">Forgot your password?? Don't worry!! <br>
+					Send us an emai.We will reset your password and you will receive securedly over an email</p>
                 </div>
 				<div class="col-md-6"><br>
 					<form action="EmailSendCode.php" method="POST" ng-app="myApp"  ng-controller="forgetPasswordValidateCtrl" name="myForm"  novalidate>
@@ -197,7 +196,7 @@ if((isset($_POST['username'])) && (isset($_POST['emailid'])) && (isset($_POST['m
                     <li><i class="icon-map-marker"></i> <strong>Address:</strong> Kalighat , Kolkata , West Bengal
                     </li>
                     <li><i class="icon-phone"></i> <strong>Phone:</strong> +91 9830032920</li>
-                    <li><i class="icon-envelope"></i> <strong>Email:</strong> <a href="mailto:support@guidedgateway.com">touchus@guidedgateway.com</a>
+                    <li><i class="icon-envelope"></i> <strong>Email:</strong> <a href="mailto:support@guidedgateway.com">support@guidedgateway.com</a>
                     </li>
                 </ul>
             </div>

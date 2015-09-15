@@ -376,9 +376,9 @@
 			<script type="text/javascript" src="js/jquery.min.js"></script>
 			<script type="text/javascript" src="js/jquery.wallform.js"></script>
 			<script>
-				function myFunction(id,id2) 
+				function myFunction(id1,id2) 
 				{
-				window.location.href ="edit_Tour.php?user="+id+"&tour="+id2;
+				window.location.href ="edit_Tour.php?id1="+id1+"&id2="+id2;
 				return false;
 				}
 			</script>

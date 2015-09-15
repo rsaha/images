@@ -5,8 +5,10 @@
 	{
 		if(isset($_GET['id1']) && isset($_GET['id2']))
 		{
-		$userid = $_GET['id1'];
-		$tourID = $_GET['id2'];
+		  $userid = $_GET['id1'];
+		  $tourID = $_GET['id2'];
+        error_log("User id in GET".$_GET['id1']. " and session :"+$_SESSION['userId']);
+
 		}
 		if($_SESSION['userId']!=$userid)
 		{
@@ -329,6 +331,7 @@
 											<form method="post" action="update_tour.php">
 											<input type="hidden" name="userid" value="<?php echo $userid ?>" />
 											<input type="hidden" name="tourID" value="<?php echo $tourID ?>" />
+											<input type="hidden" name="tourOldDuration" value="<?php echo $tour_duration ?>" />
 											<div class="col-sm-3">
 											<div class="form-group">
 												<strong> Tour Type:</strong>
@@ -365,8 +368,24 @@
 											<div class="col-sm-6">
 											<div class="form-group">
 												<strong> Duration:</strong>
-												<input type="text" class="form-control" value="<?php echo $tour_duration; ?>" placeholder="Tour Duration" name="tourDuration" style="background-color:white" required  />
-											</div>
+												<select class="form-control" id="tourDuration" name="tourDuration" style="background-color:white">
+												<option value="1">1 Day</option>
+												<option value="2">2 Days</option>
+												<option value="3">3 Days</option>
+												<option value="4">4 Days</option>
+												<option value="5">5 Days</option>
+												<option value="6">6 Days</option>
+												<option value="7">7 Days</option>
+												<option value="8">8 Days</option>
+												<option value="9">9 Days</option>
+												<option value="10">10 Days</option>
+												<option value="11">11 Days</option>
+												<option value="12">12 Days</option>
+												<option value="13">13 Days</option>
+												<option value="14">14 Days</option>
+												<option value="15">15 Days</option>
+												</select>
+												</div>
 											</div>
 											<div class="col-sm-6">
 											<div class="form-group">
@@ -429,7 +448,7 @@
 												?>
 												</div>
 												<div class="col-sm-3">
-													<input type="submit" class="form-control btn btn-warning" value="Update Tour"  name="tourNmae" />
+													<input type="submit" class="form-control btn btn-warning" value="Next"  name="tourNmae" />
 												</div>
 											</div>
 											</form>
@@ -495,6 +514,7 @@
 			
 			<script>
 				document.getElementById("tourType").value = "<?php echo $tour_category_id ?>";
+				document.getElementById("tourDuration").value = "<?php echo $tour_duration ?>";
 			</script>
 			
 				<!-- javascripts -->
