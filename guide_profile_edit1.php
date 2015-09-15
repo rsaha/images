@@ -473,7 +473,7 @@
 													<div class="row mgbt-xs-0">
 													  <label class="col-xs-5 control-label">Best time to contact:</label>
 													  <div class="col-xs-7 controls">
-													  <select class="form-control" style="background-color:#f7f7f7;" name="bestTimeToContace" id="bestTimeToContace">
+													  <select class="form-control" style="background-color:#f7f7f7;" name="bestTimeToContact" id="bestTimeToContact">
 															<option value="anytime">ANY TIME</option>
 															<option value="08:00 AM - 12:00 PM">08:00 AM - 12:00 PM</option>
 															<option value="12:00 PM - 04:00 PM">12:00 PM - 04:00 PM</option>

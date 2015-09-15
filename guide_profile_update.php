@@ -36,7 +36,7 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 			$licenceValidty = mysql_real_escape_string($_POST['licenceValidty']);
 			$landLineNumber = mysql_real_escape_string($_POST['landLineNumber']);
 			$paymentTerm = mysql_real_escape_string($_POST['paymentTerm']);
-			$bestTimeToContace = mysql_real_escape_string($_POST['bestTimeToContace']);
+			$bestTimeToContact = mysql_real_escape_string($_POST['bestTimeToContact']);
 			$communicationMechanism = mysql_real_escape_string($_POST['communicationMechanism']);
 			$experiance = mysql_real_escape_string($_POST['experiance']);
 			$remark = mysql_real_escape_string($_POST['remark']);
@@ -114,7 +114,7 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 					'$hex_string',
 					'$licenceValidty',
 					'$landLineNumber',
-					'$bestTimeToContace',
+					'$bestTimeToContact',
 					'$paymentTerm',
 					'$communicationMechanism',
 					'$remark'
@@ -133,7 +133,7 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 				}
 				else
 				{
-					$insert2 = mysql_query("INSERT INTO `tbl_guide_detail_profile` (
+                    $insert_stmt = "INSERT INTO `tbl_guide_detail_profile` (
 					`user_id`, 
 					`license_no`,
 					`validity`, 
@@ -150,14 +150,17 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 					'$licenceNumber',
 					'$licenceValidty',
 					'$landLineNumber',
-					'$bestTimeToContace',
+					'$bestTimeToContact',
 					'$paymentTerm',
 					'$communicationMechanism',
-					'$remark'
-					'$experiance'
+					'$remark',
+					'$experiance',
 					1, 
 					now()
-					)");
+					)";
+					
+                    $insert2 = mysql_query($insert_stmt) or die('Error : ' . mysql_error());
+                    
 					if($insert2)
 					{
 						$flag2=1;
@@ -165,6 +168,8 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 					else
 					{
 						$flag2=0;
+                        error_log("insert guide detail profile stmt".$insert_stmt);
+                        error_log("insert guide detail profile stmt".mysql_error());
 					}
 				}
 			}
@@ -175,7 +180,7 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 				{
 					$update2 = mysql_query("UPDATE `tbl_guide_detail_profile` SET `guide_experience` = '$experiance', `license_no`='$licenceNumber',`validity`='$licenceValidty',
 					`license_Image` = '$hex_string',`landline_no`='$landLineNumber', `payment_terms`='$paymentTerm',
-					`Best_time_for_contact`='$bestTimeToContace', `Communication_mechanism`='$communicationMechanism',
+					`Best_time_for_contact`='$bestTimeToContact', `Communication_mechanism`='$communicationMechanism',
 					`guide_Remarks`='$remark',`datecreated`=now() WHERE `user_id` = $userid");
 					if($update2)
 					{
@@ -190,7 +195,7 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 				{
 					$update2 = mysql_query("UPDATE `tbl_guide_detail_profile` SET `guide_experience` = '$experiance', `license_no`='$licenceNumber',`validity`='$licenceValidty',
 					`landline_no`='$landLineNumber', `payment_terms`='$paymentTerm',
-					`Best_time_for_contact`='$bestTimeToContace', `Communication_mechanism`='$communicationMechanism',
+					`Best_time_for_contact`='$bestTimeToContact', `Communication_mechanism`='$communicationMechanism',
 					`guide_Remarks`='$remark',`datecreated`=now() WHERE `user_id` = $userid");
 					if($update2)
 					{
