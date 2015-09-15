@@ -46,7 +46,7 @@
 				$landLineNumber = $row22["landline_no"];
 				$paymentCurrency = $row22["payment_currency"];
 				$paymentTerm = $row22["payment_terms"];
-				$bestTimeToContace = $row22["Best_time_for_contact"];
+				$bestTimeToContact = $row22["Best_time_for_contact"];
 				$communicationMechanism = $row22["Communication_mechanism"];
 				$remark = $row22["guide_Remarks"];
 				}
@@ -61,7 +61,7 @@
 				$landLineNumber = "";
 				$paymentCurrency = "";
 				$paymentTerm = "";
-				$bestTimeToContace = "";
+				$bestTimeToContact = "";
 				$communicationMechanism = "";
 				$remark = "";
 				}
@@ -344,7 +344,6 @@
 													  
 													  <div class="col-xs-7 controls">
 													  <select class="form-control" id="gender" name="gender" style="background-color:#f7f7f7;">
-														  <option value="SELECT">Select</option>
 														  <option value="Male">Male</option>
 														  <option value="Female">Female</option>
 														</select>
@@ -422,7 +421,7 @@
 												  
 												   <div class="col-sm-6 form-group">
 													<div class="row mgbt-xs-0">
-													  <label class="col-xs-5 control-label">Landline Phone:</label>
+													  <label class="col-xs-5 control-label">Alternate Phone:</label>
 													  <div class="col-xs-7 controls"><input name="landLineNumber" class="form-control" type="tel" maxlength="15" style="background-color:#f7f7f7;" value="<?php echo $landLineNumber ?>" /></div>
 													  <!-- col-sm-10 --> 
 													</div>
@@ -432,7 +431,8 @@
 													  <label class="col-xs-5 control-label">Communication Mechanism:</label>
 													  <div class="col-xs-7 controls">
 													  <select class="form-control"  style="background-color:#f7f7f7;" name="communicationMechanism" id="communicationMechanism">
-														<option value="Mobile">Mobile</option>
+														<option value="Any">Mobile &amp; Email</option>
+                                                        <option value="Mobile">Mobile</option>
 														<option value="Email">Email</option>
 														</select>
 													  </div>
@@ -443,8 +443,8 @@
 													<div class="row mgbt-xs-0">
 													  <label class="col-xs-5 control-label">Best time to contact:</label>
 													  <div class="col-xs-7 controls">
-													  <select class="form-control" style="background-color:#f7f7f7;" name="bestTimeToContace" id="bestTimeToContace">
-															<option value="anytime">ANY TIME</option>
+													  <select class="form-control" style="background-color:#f7f7f7;" name="bestTimeToContact" id="bestTimeToContact">
+															<option value="Any">ANY TIME</option>
 															<option value="08:00 AM - 12:00 PM">08:00 AM - 12:00 PM</option>
 															<option value="12:00 PM - 04:00 PM">12:00 PM - 04:00 PM</option>
 															<option value="04:00 PM - 08:00 PM">04:00 PM - 08:00 PM</option>
@@ -532,7 +532,7 @@
 				document.getElementById("gender").value = "<?php echo $gender ?>";
 				document.getElementById("state").value = "<?php echo $state ?>";
 				document.getElementById("country").value = "India";
-				document.getElementById("bestTimeToContace").value = "<?php echo $bestTimeToContace ?>";
+				document.getElementById("bestTimeToContact").value = "<?php echo $bestTimeToContact ?>";
 				document.getElementById("communicationMechanism").value = "<?php echo $communicationMechanism ?>";
 			</script>
 			<script type="text/javascript" src="js/country_state.js"></script>

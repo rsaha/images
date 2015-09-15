@@ -5,8 +5,10 @@
 	{
 		if(isset($_GET['id1']) && isset($_GET['id2']))
 		{
-		$userid = $_GET['id1'];
-		$tourID = $_GET['id2'];
+		  $userid = $_GET['id1'];
+		  $tourID = $_GET['id2'];
+        error_log("User id in GET".$_GET['id1']. " and session :"+$_SESSION['userId']);
+
 		}
 		if($_SESSION['userId']!=$userid)
 		{
