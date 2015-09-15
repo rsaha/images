@@ -382,7 +382,7 @@
 												  </div>
 												  <div class="col-sm-6 col-xs-12">
 													  <div class="form-group">
-													  <label class="col-md-5 control-label" style="font-size:14px; font-weight:bold">Landline Phone:</label>
+													  <label class="col-md-5 control-label" style="font-size:14px; font-weight:bold">Alternate Contact Number:</label>
 													  <div class="col-md-7 controls"><?php echo $landLineNumber ?></div>
 												  </div>
 													  <!-- col-sm-10 --> 
