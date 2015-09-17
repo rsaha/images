@@ -28,7 +28,7 @@
 	$Pass=mysql_real_escape_string($_POST['Password']);
 	if(preg_match("/^[a-zA-Z_0-9!@#$%^&* ]{6,15}$/i",$Pass))
 	{
-		$Password = $Pass ;
+		$Password = md5($Pass) ;
 	}
 	$Sel = mysql_query("SELECT * FROM `tbl_user_type` WHERE `user_type_name`='GUIDE'");
 	$counter = mysql_num_rows($Sel);
@@ -77,7 +77,7 @@
 		{
 			$tempSub = 'New Guide "' . $username . '" Registered in Guidedgateway';
 			$tempMsg = 'Hi Admin<br>New guide with the following details registered just now... <br><br>Name : ' . $username . ' <br>Email : ' . $from . '<br>Mobile Number : ' . $mobileNumber . '';
-			//$s = SendMail($apiKey, $HostEmail, 'Guided GateWay', 'ankitbhagat.ab@gmail.com', 'Ankit Bhagat', $tempSub, $tempMsg);
+			//$s = SendMail($HostEmail, 'Guided GateWay', 'ankitbhagat.ab@gmail.com', 'Ankit Bhagat', $tempSub, $tempMsg);
 			$s = SendMail($HostEmail, 'Guided GateWay', 'support@guidedgateway.com', 'Rakesh Saha', $tempSub, $tempMsg);
 			$errormsg="Registration Confirmation Email Sent.";
 			error_log($errormsg,0);

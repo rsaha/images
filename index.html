@@ -1,4 +1,5 @@
-<!DOCTYPE html> <html lang="en" dir="ltr">
+<!DOCTYPE html> 
+<html lang="en" dir="ltr">
 
 	<!-- START head --> <head> <!-- Site meta charset --> <meta
 	charset="UTF-8">
@@ -60,46 +61,41 @@
 
 </script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
-	<script type="text/javascript">
-	
-	$(function() {
-    $('span.stars').stars();
-});
-					$.fn.stars = function() {
-				return $(this).each(function() {
-					// Get the value
-					var val = parseFloat($(this).html());
-					// Make sure that the value is in 0 - 5 range, multiply to get width
-					var size = Math.max(0, (Math.min(5, val))) * 16;
-					// Create stars holder
-					var $span = $('<span />').width(size);
-					// Replace the numerical value with stars
-					$(this).html($span);
-				});
-			}
-	</script>
-	<style type="text/css">
-		span.stars, span.stars span {
-    display: block;
-    background: url(stars.png) 0 8px repeat-x;
-    width: 40px;
-    height: 16px;
-}
+	 
 
-span.stars span {
-    background-position: 0 0;
-}
+		
+	<style type="text/css">
+	#searchDiv{
+	top: 130px;
+	position: absolute;
+	left:20px;
+	z-index: 2;
+	}
+	
+		span.stars, span.stars span {
+			display: block;
+			background: url(stars.png) 0 -8px repeat-x;
+			width: 40px;
+			height: 8px;
+			
+		}
+	
+		span.stars span {
+			background-position: 0 0;
+		}
 	</style>
+	
 	</head> <!-- END head -->
 
 	<!-- START body --> <body>
+		
 	<!-- START #wrapper --> <div id="wrapper"> <!-- START header --> 
 	
 	
 	<header> <!-- START #top-header
 	--> <div id="top-header"> <div class="container"> <div class="row
 	top-row"> <div class="col-md-6"> <div class="left-part alignleft">
-	<span class="contact-email small">touchus@guidedgateway.com</span>
+	<span class="contact-email small">touchus@xmapledatalab.com</span>
 	<span class="contact-phone small">+1 510 938 2562</span> <ul
 	class="social-media header-social"> <li><a class="sm-facebook"
 	href="#"><span>Facebook</span></a></li> <li><a class="sm-flickr"
@@ -113,8 +109,8 @@ span.stars span {
 	onblur="if (this.value == '') { this.value = 'Search...'; }" />
 	<input type="submit" name="submit" class="search-submit" value="" />
 	</fieldset> </form> <span class="top-link small"><a
-										href="http://www.guidedgateway.com/Why_GuidedGateway.html" title="">Guide
-										Sign-up</a></span> <span class="top-link small"><a href="sign-in.html"
+										href="guide_login.php" title="">Guide
+										Sign-in</a></span> <span class="top-link small"><a href="sign-in.html"
 										title="">SIGN IN</a></span> </div>
 	</div> </div> </div> </div> <!-- END #top-header -->
 
@@ -124,77 +120,62 @@ span.stars span {
 				src="img/logo.png" alt="Guided Gateway" /> </a> </div> <div
 				class="col-md-9"> <nav class="main-nav">
 				<span>MENU</span> <ul id="main-menu"> <li><a href="index.html"
-				title="">HOME</a> <!-- ul> <li><a href="index.html"
-				title="">HOME PAGE 1</a></li> <li><a href="home.html"
-				title="">HOME PAGE 2</a></li> </ul --> </li> <li><a
-				href="guides.html" title="">Guides</a> 
-				
-				
-				<!-- ul> <li><a
-				href="deals.html" title="">DEALS PAGE</a></li> <li><a
-				href="deals-sidebar.html" title="">DEALS PAGE WITH
-				SIDEBAR</a></li> <li><a href="deals-detail.html"
-				title="">DEALS DETAIL</a></li> <li><a
-				href="deals-detail-sidebar.html" title="">DEALS DETAIL
-				SIDEBAR</a></li> <li><a href="deals-listview.html"
-				title="">LIST VIEW</a></li> <li><a
-				href="deals-listview-sidebar.html" title="">LIST VIEW SIDEBAR</a></li> </ul-->
-				
-				
-				</li> <li><a
+				title="">HOME</a></li> <li><a
+				href="guides.html" title="">Guides</a></li> <li><a
 				href="top-destinations-listview-sidebar.html" title="">Destinations</a> </li>
                 <li><a
 				href="#" title="">Themed Tours</a> </li>
-				<li><a href="#" onclick="return false;" title="">SIGN IN</a>
-				
-				<ul> 
-				<li><a href="#" title="">Touriest SIGN IN</a></li>
-				<li><a href="guide_login.php" title="">Guide SIGN IN</a></li>
-				</ul>
-				
-				</li>
 		
 									</ul> </nav> </div> </div> </div>
+					<div class="main-contents col-md-8 col-md-offset-2" id="searchDiv">
+					 <div class=""  class="col-md-12">
+					<form class="plan-tour">
+						<div class="top-fields" class="col-md-12">
+						<div class="row">								
+						<div class="col-md-8 col-md-offset-1">
+						<input type="text" class="form-control" style="background-color:white;" placeholder="Where to go?" />
+						</div> 
+						<div class="col-md-2" >
+						<input type="submit" class="form-control" style="background-color:#ff845e;" class="btn btn-primary" value="Search" /> 
+						</div> 
+						</div>
+						<div class="row">
+						<div class="col-md-7 col-md-offset-1"> <br>
+						<label >Search via</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<label><input class="input-cb"	type="checkbox" name="inc_Tour" value="1"	checked="checked" /> Tours</label>&nbsp;&nbsp;&nbsp;&nbsp;
+						<label><input class="input-cb" type="checkbox" name="inc_Guide" value="1" checked="checked" /> Guides </label>&nbsp;&nbsp;&nbsp;&nbsp;
+						<label><input class="input-cb" type="checkbox"	name="inc_Destination" value="1" checked="checked"/> Destinations</label>&nbsp;&nbsp; 
+						</div> 
+						</div>
+						</div>
+					</form>
+				</div>
+				</div>
+					 <div>
+		        <div id="slider">
+					<img src="img/tour_1.jpg" data-src-2x="img/tour_1.jpg" alt="Slide 1" />
+					<img data-src="img/tour_2.jpg" data-src-2x="img/tour_2.jpg" src="" alt="Slide 2" />
+					<img data-src="img/tour_3.jpg" data-src-2x="img/tour_3.jpg" src="" alt="Slide 3" />
+					<img data-src="img/tour_4.jpg" data-src-2x="img/tour_4.jpg" src="" alt="Slide 4" />
+				</div>
+				 <script>
+					var slider = new IdealImageSlider.Slider('#slider');
+						slider.start();
+				</script> 
+			</div>
+				
 									</div> <!-- END #main-header -->
 									</header> <!-- END header -->
 									
-
-			<div>
-        <div id="slider">
-		<img src="img/tour_1.jpg" data-src-2x="img/tour_1.jpg" alt="Slide 1" />
-		<img data-src="img/tour_2.jpg" data-src-2x="img/tour_2.jpg" src="" alt="Slide 2" />
-		<img data-src="img/tour_3.jpg" data-src-2x="img/tour_3.jpg" src="" alt="Slide 3" />
-		<img data-src="img/tour_4.jpg" data-src-2x="img/tour_4.jpg" src="" alt="Slide 4" />
-	</div>
-<script>
-	var slider = new IdealImageSlider.Slider('#slider');
-    slider.start();
-	</script>
-    </div>
-
-
+	
+ 
 			<!-- START .main-contents --> 
         <div class="main-contents">
 			<div class="container" id="home-page" ng-app="myDestinations">
                <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-					<!-- START .tour-plan --> 
-                   	<!-- START .tour-plan --> <form class="plan-tour">
-					<!-- div class="plan-banner"><span>WHERE WHAT</span></div -->
-					<div class="top-fields"> 
-					<div class="input-field	col-md-3">
-					<input type="text" placeholder="1. Where to go?" /></div> 
-					<!-- <div class="input-field	col-md-3">
-					<input type="text" placeholder="2. What to do?" /></div> -->
-					<div class="input-field col-md-4"> 
-					<label><input class="input-cb"	type="checkbox" name="inc_hotel" value="1"	checked="checked" /> Places</label> 
-					<label><input class="input-cb" type="checkbox" name="inc_flight" value="1" checked="checked" /> Tours </label>
-					<label><input class="input-cb" type="checkbox"	name="inc_car" value="1" />Guides</label> </div> 
-					<div class="submit-btn col-md-2"> <input type="submit"	value="Search" /> </div> 
-					</div>
-					</form> <!-- END
-					.tour-plan -->
-                    
-                <!-- END .tour-plan -->
+					<!-- START Search Container --> 
+                  
+					<!-- END Search Container -->
 
 				<h2 class="ft-heading text-upper">Popular Tours</h2>
 
@@ -202,27 +183,30 @@ span.stars span {
 					  <ul class="slides">
 					  <li > 
 					    <div class="row"  ng-controller="destinationCtrl"> 
+						
 					<div class="col-md-3"  ng-repeat="x in names"> 
-							
+							<a href="top-destinations-listview-sidebar.html">
 							<div class="ft-item"> 
-							<span class="ft-image"><a href="top-destinations-listview-sidebar.html"> <img src="{{x.Photo}}" alt="featured Scroller" /> </span> 
+							<span class="ft-image"><img src="{{x.Photo}}" alt="featured Scroller" /> </span> 
 							   <div class="ft-data">
-								   <!-- <i class="fa fa-pagelines"></i> --><span style="color:black;"><a  style="color:black;" class="text-upper fa fa-pagelines" href="#">&nbsp;&nbsp;{{x.Tours.Type}}</a></span> &nbsp;&nbsp;&nbsp;
-								 <span style="color:black;"><a  style="color:black;" class="fa fa-plane text-upper" href="#">&nbsp;&nbsp;Transport</a></span> &nbsp;&nbsp;
-								  <span><i  style="color:black;" class="fa fa-glass"></i><a  style="color:black;" class=" text-upper" href="#">&nbsp;&nbsp;{{x.Transport}}</a></span>
+								   <!-- <i class="fa fa-pagelines"></i> --><span  style="color:black;" class="text-upper fa fa-pagelines" href="#">&nbsp;&nbsp;{{x.Tours.Type}}</span> &nbsp;&nbsp;&nbsp;
+								 <span style="color:black;" class="fa fa-plane text-upper">&nbsp;&nbsp;Transport</span> &nbsp;&nbsp;
+								  <span style="color:black;" class=" text-upper"><i  style="color:black;" class="fa fa-glass"></i>&nbsp;&nbsp;{{x.Transport}}</span>
 							   </div> 
-								<div class="ft-foot"> <h4 class="ft-title text-upper"><a href="#">{{x.Name}}, RJ</a></h4> 
+								<div class="ft-foot"> <h4 class="ft-title text-upper" style="color:#686868">{{x.Name}}, RJ</h4> 
 								<span class="ft-offer text-upper">Starting INR {{x.Tours.StartingPrice}}</span> 
 								</div>
 								<div class="ft-foot-ex"> 
 								<span class="fa fa-image text-upper alignleft">&nbsp;&nbsp;100 tours&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;
-								<span class="stars alignleft" style="padding-left:50px;">{{x.Review.Star}}</span><span class="alignright fa fa-eye">&nbsp;&nbsp;{{x.Review.Count}} reviews</span> 
-								</div> 
-							
+								<span class="alignleft stars" style="padding-left:50px;">{{x.Review.Star}}</span>								
+								<span class="alignright fa fa-eye">&nbsp;&nbsp;{{x.Review.Count}} reviews</span> 
+								</div> 							
 							</div>
 							</a>
-
 					 </div> 
+					 
+					 
+					 
 					 </div>	
 						</li>
 						</ul> 
@@ -256,10 +240,13 @@ span.stars span {
 							<div class="ft-foot-ex"> 
 								<span class="fa fa-shield text-upper alignleft">&nbsp;&nbsp;Experience&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;
 								<span class="stars alignleft" style="padding-left:50px;">{{x.Review.Star}}</span><span class="alignright fa fa-eye">&nbsp;&nbsp;{{x.Review.Count}} reviews</span> 
+								
+								
 								</div> 
 					</div>
 					 </div>
 				</div>
+				
 				</li> 
 				</ul>
 				</div>
@@ -426,9 +413,44 @@ span.stars span {
 	    });
 	    }
 	    }	    }
-		</script> <script> $(document).ready(function(){
-		$("#adults").minimalect({ theme: "bubble", placeholder: "Select"
-		}); $("#kids").minimalect({ theme: "bubble", placeholder:
-		"Select" });
+		</script>
+		 <script type="text/javascript">
+			$(document).ready((function() {
+	 
+			$('span.stars').stars();
+		}));
+	
+   		$.fn.stars = function() {
+		return $(this).each(function() {
+        // Get the value
+		 var val = parseFloat($(this).html());
+		        // Make sure that the value is in 0 - 5 range, multiply to get width
+			var size = Math.max(0, (Math.min(5, val))) * 8;
+			// Create stars holder
+			var $span = $('<span />').width(size);
+			// Replace the numerical value with stars
+			$(this).html($span);
 		});
-		</script><!--- SELECT BOX --> </bosdy> </html>
+	}
+	</script>
+		<!--- SELECT BOX -->
+		<!-- <script type="text/javascript">
+   		$(function() {    	
+                
+					$('span.stars').stars();	
+		});
+
+		$.fn.stars = function() {
+			return $(this).each(function() {
+				$(this).html($('<span />').width(Math.max(0, (Math.min(5, parseFloat($(this).html())))) * 8));
+			});
+		}
+	  </script> -->
+	
+	<!-- <span class="stars alignleft">1</span> -->
+	<script>
+					var slider = new IdealImageSlider.Slider('#slider');
+						slider.start();
+				</script>
+		</body> 
+		</html>

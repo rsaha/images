@@ -342,7 +342,7 @@
 												  </div>
 												  <div class="col-sm-6">
 													<div class="row mgbt-xs-0">
-													  <label class="col-xs-5 control-label">Landline Phone:</label>
+													  <label class="col-xs-5 control-label">Alternate Number:</label>
 													  <div class="col-xs-7 controls"><?php echo $landLineNumber ?></div>
 													  <!-- col-sm-10 --> 
 													</div>
