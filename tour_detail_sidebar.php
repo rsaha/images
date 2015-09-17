@@ -25,6 +25,7 @@
 		$cancelation_policy = $row1["cancelation_policy"];
 		$restrictions = $row1["restrictions"];
 		$notes = $row1["notes"];
+		$userid=$user_id;
 			
 		$select2 = mysql_query("SELECT * FROM `tbl_tour_media_pictures` WHERE `tour_id` = $tourID");
 		$row2 = mysql_fetch_assoc($select2);
@@ -99,7 +100,7 @@
 					<div class="container">
 						<div class="row">
 							<section class="col-sm-6">
-								<h1 class="text-upper"><?php echo $tour_duration . ' in ' . $tour_title ; ?></h1>
+								<h1 class="text-upper"><?php echo $tour_duration . ' Days in ' . $tour_title ; ?></h1>
 							</section>
                             <div >
 										<?php
@@ -161,7 +162,7 @@
 								</div>
 								
 								<div class="featured-btm box-shadow1">
-									<a class="ft-hotel text-upper" href="#"><?php echo $tour_duration; ?></a>
+									<a class="ft-hotel text-upper" href="#"><?php echo $tour_duration; ?> Day Tour</a>
 									<a class="ft-plane text-upper" href="#"><?php $select2 = mysql_query("SELECT `tour_category_title` FROM `tbl_tour_category` WHERE `tour_category_id` = $tour_category_id && `status` = 1"); echo mysql_result($select2, 0, 0); ?></a>
 									<a class="ft-tea text-upper" href="#"><?php echo $inclusive; ?></a>
                                     <a class="ft-tea text-upper" href="booking-form.html">Book the Tour</a>

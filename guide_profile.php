@@ -382,7 +382,7 @@
 												  </div>
 												  <div class="col-sm-6 col-xs-12">
 													  <div class="form-group">
-													  <label class="col-md-5 control-label" style="font-size:14px; font-weight:bold">Alternate Contact Number:</label>
+													  <label class="col-md-5 control-label" style="font-size:14px; font-weight:bold">Alternate Number:</label>
 													  <div class="col-md-7 controls"><?php echo $landLineNumber ?></div>
 												  </div>
 													  <!-- col-sm-10 --> 
@@ -501,7 +501,7 @@
 															</div>
 															<div class="ft-foot">
 																<span class="ft-date text-upper alignleft"><?php echo $row1['tour_location'] ?></span>
-																<span class="ft-temp alignright"><?php echo $row1['tour_duration'] ?></span>
+																<span class="ft-temp alignright"><?php echo $row1['tour_duration'] ?> Days</span>
 															</div>
 														</div>
 														<?php echo '</a>'; ?>

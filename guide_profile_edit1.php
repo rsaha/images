@@ -451,7 +451,7 @@
 													  <input name="landLineNumber" ng-model="landLineNumber" id="landLineNumber" class="form-control" type="tel" maxlength="15" style="background-color:#f7f7f7;" value="<?php echo $landLineNumber ?>" ng-pattern="/^\d{10,15}$/" />
 													  <span style="color:red" ng-show="myForm.landlinenumber.$dirty && myForm.landlinenumber.$invalid">
 											 
-											   <span ng-show="myForm.landlinenumber.$error.pattern">*Invalid landline number ...</span>
+											   <span ng-show="myForm.landlinenumber.$error.pattern">*Invalid Alternate number ...</span>
 											  </span>
 													  </div>
 													  <!-- col-sm-10 --> 

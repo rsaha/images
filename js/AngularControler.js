@@ -31,7 +31,6 @@
 		$scope.nickname = '';
 		$scope.streetaddress = '';
 		$scope.city = '';
-		$scope.licencenumber = '';
 		$scope.landlinenumber = '';
 	});
 	
@@ -73,5 +72,11 @@
 		$scope.username = '';
 		$scope.emailid = '';
 		$scope.monileno = '';
+	});
+	
+	app.controller('resetPswrdvalidateCtrl', function($scope) {
+		$scope.oldPassword = '';
+		$scope.newPassword = '';
+		$scope.conformpassword = '';
 	});
 })();
