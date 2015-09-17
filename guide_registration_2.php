@@ -300,11 +300,8 @@ else
 													<li class="row">
 														<div class="col-md-4">
 															<label style="font-size:14px; font-weight:bold">Licence Number</label>
-															<input type="text" class="form-control" name="licencenumber" maxlength="20" ng-model="licencenumber" value="" ng-pattern="/^[a-z0-9A-Z]+$/" />
-															 <span style="color:red" ng-show="myForm.licencenumber.$dirty && myForm.licencenumber.$invalid">
-											  
-											   <span ng-show="myForm.licencenumber.$error.pattern">*Invalid licence number ...</span>
-											  </span>
+															<input type="text" class="form-control" name="licencenumber" maxlength="20" value="" />
+															
 														</div>
 														<div class="col-md-4">
 															<label style="font-size:14px; font-weight:bold">Licence Expiry</label>
@@ -317,11 +314,11 @@ else
 														</li>
 													<li class="row">
 														<div class="col-md-4">
-															<label style="font-size:14px; font-weight:bold">Alternate Contact Number</label>
+															<label style="font-size:14px; font-weight:bold">Alternate Number</label>
 															<input type="tel" class="form-control" name="landlinenumber" value="" ng-model="landlinenumber" maxlength="15" ng-pattern="/^\d{10,15}$/"/>
 															 <span style="color:red" ng-show="myForm.landlinenumber.$dirty && myForm.landlinenumber.$invalid">
 											 
-											   <span ng-show="myForm.landlinenumber.$error.pattern">*Invalid Alternate number ...</span>
+											   <span ng-show="myForm.landlinenumber.$error.pattern">*Invalid Alternate Number ...</span>
 											  </span>
 														</div>
 														<div class="col-md-4">
@@ -362,7 +359,7 @@ else
 														<div class="form-group">
 														<div class="col-md-3 pull-right" >
 															<button type="submit" class="btn btn-warning form-control" ng-disabled="myForm.nickname.$dirty && myForm.nickname.$invalid || myForm.streetaddress.$dirty && myForm.streetaddress.$invalid ||
-  myForm.city.$dirty && myForm.city.$invalid || myForm.licencenumber.$dirty && myForm.licencenumber.$invalid || myForm.landlinenumber.$dirty && myForm.landlinenumber.$invalid" >Next</button>
+  myForm.city.$dirty && myForm.city.$invalid || myForm.landlinenumber.$dirty && myForm.landlinenumber.$invalid" >Next</button>
 														
 														</div>
 														<div class="col-md-3 pull-right" >

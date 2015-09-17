@@ -118,8 +118,9 @@
 				<nav class="main-nav">
 				<span>MENU</span>
 				<ul style="width:100%" id="main-menu">
-				<li class="pull-right"><a href="signOut.php" title="">Sign Out</a></li>
-				<li class="pull-right" ><a href="guide_login.php" title="">HOME</a></li>
+				<li class="pull-right"><a href="signOut.php" title=""><i class="fa fa-lock"></i> Sign Out</a></li>
+				<li class="pull-right"><a  onclick="myFunctionSetting(<?php echo $userid; ?>)" title=""><i class="fa fa-cog"></i> Setting</a></li>
+				<li class="pull-right" ><a href="guide_login.php" title=""><i class="fa fa-home"></i> Guide Home</a></li>
                 <!--li><a href="" title=""> </a></li> 
 				<li><a href="" title=""> </a></li>
 				<li><a href="" title=""> </a></li> 
@@ -137,5 +138,18 @@
 				</div> <!-- END #main-header -->
 				</header> <!-- END header -->
 	<!-- START #wrapper --> </div> 
+	
+	<script>
+			$(function () {
+			  $('[data-toggle="popover"]').popover();
+			});
+			
+				function myFunctionSetting(id) 
+				{
+					window.location.href = "guide_profile_setting.php?id="+id;
+					return false;
+				}
+			</script>
+			
 	</body>
 	</html>

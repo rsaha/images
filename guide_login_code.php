@@ -12,8 +12,9 @@ $UName=mysql_real_escape_string($_POST['username']);
 			}
 
 $tbxPassword = $_POST['password'];
+$pass_secure=md5($tbxPassword);
 $check = false;
-$result1 = mysql_query("SELECT * FROM `tbl_user_profile` WHERE ((email = '$tbxUsername' || mobileNo = '$tbxUsername')&& user_password = '$tbxPassword')");
+$result1 = mysql_query("SELECT * FROM `tbl_user_profile` WHERE ((email = '$tbxUsername' || mobileNo = '$tbxUsername')&& user_password = '$pass_secure')");
 $row = mysql_fetch_assoc($result1);
 $count = mysql_num_rows($result1);
 

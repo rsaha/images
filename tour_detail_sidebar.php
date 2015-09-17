@@ -25,6 +25,7 @@
 		$cancelation_policy = $row1["cancelation_policy"];
 		$restrictions = $row1["restrictions"];
 		$notes = $row1["notes"];
+		$userid=$user_id;
 			
 		$select2 = mysql_query("SELECT * FROM `tbl_tour_media_pictures` WHERE `tour_id` = $tourID");
 		$row2 = mysql_fetch_assoc($select2);
@@ -58,7 +59,7 @@
 		<meta charset="UTF-8">
 		
 		<!-- title -->
-		<title>Kolkata, WB | Guided Gateway</title>
+		<title><?php echo $tour_title."| Guided Gateway"; ?></title>
 		
 		<!-- meta description -->
 		<meta name="description" content="Guided Gateway" />
@@ -99,8 +100,15 @@
 					<div class="container">
 						<div class="row">
 							<section class="col-sm-6">
-								<h1 class="text-upper"><?php echo $tour_duration . ' in ' . $tour_title ; ?></h1>
+								<h1 class="text-upper"><?php echo $tour_duration . ' Days in ' . $tour_title ; ?></h1>
 							</section>
+                            <div >
+										<?php
+										echo '<a class="btn btn-default pull-right" style="background-color:#ffa98e" onclick="editTour(' . $user_id.','.$tourID.')"> 
+										<i class="fa fa-pencil"></i> Edit Tour 
+										</a>'
+										?>	
+										</div>
 							
 							<!-- breadcrumbs 
 							<section class="col-sm-6">
@@ -154,7 +162,7 @@
 								</div>
 								
 								<div class="featured-btm box-shadow1">
-									<a class="ft-hotel text-upper" href="#"><?php echo $tour_duration; ?></a>
+									<a class="ft-hotel text-upper" href="#"><?php echo $tour_duration; ?> Day Tour</a>
 									<a class="ft-plane text-upper" href="#"><?php $select2 = mysql_query("SELECT `tour_category_title` FROM `tbl_tour_category` WHERE `tour_category_id` = $tour_category_id && `status` = 1"); echo mysql_result($select2, 0, 0); ?></a>
 									<a class="ft-tea text-upper" href="#"><?php echo $inclusive; ?></a>
                                     <a class="ft-tea text-upper" href="booking-form.html">Book the Tour</a>
@@ -266,7 +274,7 @@
 													}
 													else
 													{
-														echo "<p>Nothing to display</p>";
+														echo "<p>Description is not provided</p>";
 													}
 													?>
 												</div>
@@ -366,6 +374,37 @@
 		<script type="text/javascript" src="js/jquery.min.js"></script>
 		<script type="text/javascript" src="bs3/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="js/script.js"></script>
+        <script>
+
+			$(function () {
+			  $('[data-toggle="popover"]').popover();
+			});
+			
+				function myFunction(id) 
+				{
+					window.location.href = "guide_profile_edit.php?id="+id;
+					return false;
+				}
+				
+				function createTour(id) 
+				{
+					window.location.href = "tour_Create.php?id="+id+"";
+					return false;
+				}
+				
+				function editTour(id1,id2) 
+				{
+					window.location.href = "edit_Tour.php?id1="+id1+"&id2="+id2+"";
+					return false;
+				}
+				
+				function detailTour(id) 
+				{
+					window.location.href = "tour_detail_sidebar.php?id="+id+"";
+					return false;
+				}
+		</script>
+
 		<!--[if lt IE 9]>
 			<script type="text/javascript" src="js/html5shiv.js"></script>
 		<![endif]-->
