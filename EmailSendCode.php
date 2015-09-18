@@ -120,7 +120,7 @@ if((isset($_POST['username'])) && (isset($_POST['emailid'])) && (isset($_POST['m
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#"><img src="img/logo.png" alt="GuideGateway" height="17px" /> </a>
+            <a class="navbar-brand" href="#"><img src="images/logo.png" alt="GuideGateway" height="17px" /> </a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
@@ -235,7 +235,7 @@ if((isset($_POST['username'])) && (isset($_POST['emailid'])) && (isset($_POST['m
             <div class="row">
                 <div class="col-md-2">
                     <a class="logo" href="index.html">
-                        <img src="img/logo.png" alt="Guided Gateway" height="30px">
+                        <img src="images/logo.png" alt="Guided Gateway" height="30px">
                     </a>
                 </div>
                 <div class="col-md-5">

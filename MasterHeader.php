@@ -114,7 +114,7 @@
 				<div class="row">
 				<div class="col-md-3">
 				<a id="site-logo" href="#">
-				<img src="img/logo.png" alt="Guided Gateway" />
+				<img src="images/logo.png" alt="Guided Gateway" />
 				</a>
 				</div>
 				<div class="col-md-9">
