@@ -3,6 +3,11 @@
 function SendMail($fromAddress, $fromName, $toAddress, $toName, $subject, $message)
 {
 	require_once("./sendgrid-php/sendgrid-php.php");
+    $env = parse_ini_file('config.ini',true)['env'];
+    if($env == "development"){
+      error_log("Development stage so not sending any email");
+      return 1;
+    }
 	$apiKey = parse_ini_file('config.ini',true)['emailApiKey'];
 	
 	$sendgrid = new SendGrid($apiKey); //New API
@@ -36,6 +41,12 @@ function SendMail($fromAddress, $fromName, $toAddress, $toName, $subject, $messa
 function SendMailTemplate($fromAddress, $fromName, $toAddress, $toName, $subject, $templateId)
 {
 	require_once("./sendgrid-php/sendgrid-php.php");
+    $env = parse_ini_file('config.ini',true)['env'];
+    if($env == "development"){
+      error_log("Development stage so not sending any email");
+      return 1;
+    }
+    
 	$apiKey = parse_ini_file('config.ini',true)['emailApiKey'];
 	
 	$sendgrid = new SendGrid($apiKey); //New API
