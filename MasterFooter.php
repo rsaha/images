@@ -95,7 +95,7 @@
 							</ul> </div> <div class="foot-box
 							foot-box-md col-md-4"> <span
 							class="contact-email">
-							touchus@guidedgateway.com</span> <span
+							support@guidedgateway.com</span> <span
 							class="contact-phone">+91 9830032920</span> </div> <div class="foot-box
 							col-md-4"> <span class="">&copy; 2015 GuideGateway. All Rights Reserved.</span>
 							</div> </div> </div> </div> </div> <!-- END #ex-footer --> 
