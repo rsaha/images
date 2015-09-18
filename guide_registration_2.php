@@ -290,11 +290,15 @@ else
 														</div>
 														<div class="col-md-4">
 															<label style="font-size:14px; font-weight:bold">State</label>
-															<select name="state" id="state" class="form-control"></select>
+															<select name="state" id="state" class="form-control">
+													  <?php include('state.php'); ?>
+														</select>
 														</div>
 														<div class="col-md-4">
 															<label style="font-size:14px; font-weight:bold">Country</label>
-															<select id="country" name="country" selected="India" class="form-control"></select>
+															<select id="country" name="country" class="form-control">
+															<option value="India" selected>India</option>
+															</select>
 														</div>
 													</li>
 													<li class="row">
@@ -389,11 +393,6 @@ else
 		<!-- javascripts -->
 		<script type="text/javascript" src="js/angular.min.js"></script>
 		<script type="text/javascript" src="js/AngularControler.js"></script>
-		
-			<script type="text/javascript" src="js/country_state.js"></script>
-			<script language="javascript">
-				populateCountries("country", "state");
-			</script>
 		
 			<script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places" type="text/javascript"></script>
 			<script type="text/javascript">

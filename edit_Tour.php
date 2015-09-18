@@ -82,6 +82,7 @@
 				$tour_category_id = $row33["tour_category_id"];
 				$tour_title = $row33["tour_title"];
 				$tour_location = $row33["tour_location"];
+				$tour_territory = $row33["tour_territory"];
 				$tour_description = $row33["tour_description"];
 				$tour_duration = $row33["tour_duration"];
 				$tour_price = $row33["tour_price"];
@@ -98,6 +99,7 @@
 				$tour_category_id = "";
 				$tour_title = "";
 				$tour_location = "";
+				$tour_territory = "";
 				$tour_description = "";
 				$tour_duration = "";
 				$tour_price = "";
@@ -335,7 +337,7 @@
 											<div class="col-sm-3">
 											<div class="form-group">
 												<strong> Tour Type:</strong>
-												<select class="form-control" name="tourType" id="tourType" style="background-color:white">
+												<select class="form-control" tabindex="1" name="tourType" id="tourType" style="background-color:white">
 												<?php 
 												$sql = mysql_query("SELECT `tour_category_id`, `tour_category_title` FROM `tbl_tour_category` WHERE `status` = 1");
 												while ($row = mysql_fetch_array($sql)){
@@ -348,27 +350,35 @@
 											<div class="col-sm-3">
 											<div class="form-group">
 												<strong> Location:</strong>
-												<input type="text" class="form-control" value="<?php echo $tour_location; ?>" id="tourLocation" name="tourLocation" style="background-color:white" autocomplete="on" required />
+												<input type="text" class="form-control" tabindex="2" value="<?php echo $tour_location; ?>" id="tourLocation" name="tourLocation" style="background-color:white" autocomplete="on" required />
 											</div>
 											</div>
 											
 											<div class="col-sm-6">
 											<div class="form-group">
 												<strong> Tour Name:</strong>
-												<input type="text" class="form-control" value="<?php echo $tour_title; ?>" name="tourName" style="background-color:white" required />
+												<input type="text" class="form-control" tabindex="3" value="<?php echo $tour_title; ?>" name="tourName" style="background-color:white" required />
 											</div>
 											</div>
 											<div class="col-sm-6">
 											<div class="form-group">
 												<strong> Description:</strong>
-												<textarea class="form-control" placeholder="Tour Discription" name="tourDiscription" style="height:115px; background-color:white" required ><?php echo $tour_description; ?></textarea>
+												<textarea class="form-control" tabindex="4" placeholder="Tour Discription" name="tourDiscription" style="height:115px; background-color:white" required ><?php echo $tour_description; ?></textarea>
 												<!--<input type="text" class="form-control" placeholder="tour name" name="tourDiscription" style="background-color:white" />-->
 											</div>
 											</div>
-											<div class="col-sm-6">
+											<div class="col-sm-4">
+											<div class="form-group">
+												<strong> Tour Territory:</strong><a class="pull-right" tabindex="0" data-toggle="popover"  data-placement="bottom" data-trigger="focus" data-content="Enter your name here">
+																<i class='fa fa-info-circle' style="color:gray"></i>
+															</a>
+												<input type="text" tabindex="5" class="form-control" value="<?php echo $tour_territory; ?>" placeholder="Tour Territory" name="tourTerritory" style="background-color:white" required />
+											</div>
+											</div>
+											<div class="col-sm-2">
 											<div class="form-group">
 												<strong> Duration:</strong>
-												<select class="form-control" id="tourDuration" name="tourDuration" style="background-color:white">
+												<select class="form-control" tabindex="6" id="tourDuration" name="tourDuration" style="background-color:white">
 												<option value="1">1 Day</option>
 												<option value="2">2 Days</option>
 												<option value="3">3 Days</option>
@@ -390,53 +400,53 @@
 											<div class="col-sm-6">
 											<div class="form-group">
 												<strong> Tour Price:</strong>
-												<input type="text" class="form-control" value="<?php echo $tour_price; ?>" placeholder="Tour Price" name="tourPrice" style="background-color:white" required  />
+												<input type="text" class="form-control" tabindex="7" value="<?php echo $tour_price; ?>" placeholder="Tour Price" name="tourPrice" style="background-color:white" required  />
 											</div>
 											</div>
 											<div class="col-sm-6">
 											<div class="form-group">
 												<strong> Start Point:</strong>
-												<input type="text" class="form-control" value="<?php echo $start_point; ?>" placeholder="Starting Point" name="startingPoint" style="background-color:white" required  />
+												<input type="text" class="form-control" tabindex="8" value="<?php echo $start_point; ?>" placeholder="Starting Point" name="startingPoint" style="background-color:white" required  />
 											</div>
 											</div>
 											<div class="col-sm-6">
 											<div class="form-group">
 												<strong> End Pont:</strong>
-												<input type="text" class="form-control" value="<?php echo $end_point; ?>" placeholder="End Point" name="endPoint" style="background-color:white" required  />
+												<input type="text" class="form-control" tabindex="9" value="<?php echo $end_point; ?>" placeholder="End Point" name="endPoint" style="background-color:white" required  />
 											</div>
 											</div>
 											<div class="col-sm-6">
 											<div class="form-group">
 												<strong> Inclusive:</strong>
-												<textarea class="form-control" placeholder="Inclusive" name="inclusive" style="background-color:white" required ><?php echo $inclusive; ?></textarea>
+												<textarea class="form-control" tabindex="10" placeholder="Inclusive" name="inclusive" style="background-color:white" required ><?php echo $inclusive; ?></textarea>
 												<!--<input type="text" class="form-control" placeholder="Inclusive" name="inclusive" style="background-color:white" />-->
 											</div>
 											</div>
 											<div class="col-sm-6">
 											<div class="form-group">
 												<strong> Exclusive:</strong>
-												<textarea class="form-control" placeholder="Exclusive" name="exclusive" style="background-color:white" required ><?php echo $exclusive; ?></textarea>
+												<textarea class="form-control" tabindex="11" placeholder="Exclusive" name="exclusive" style="background-color:white" required ><?php echo $exclusive; ?></textarea>
 												<!--<input type="text" class="form-control" placeholder="Exclusive" name="exclusive" style="background-color:white" />-->
 											</div>
 											</div>
 											<div class="col-sm-6">
 											<div class="form-group">
 												<strong> Cancellation Policy:</strong>
-												<textarea class="form-control" placeholder="Cancellation Policy" name="cancellationPolicy" style="background-color:white" required ><?php echo $cancelation_policy; ?></textarea>
+												<textarea class="form-control" tabindex="12" placeholder="Cancellation Policy" name="cancellationPolicy" style="background-color:white" required ><?php echo $cancelation_policy; ?></textarea>
 												<!--<input type="text" class="form-control" placeholder="Cancellation Policy" name="cancellationPolicy" style="background-color:white" />-->
 											</div>
 											</div>
 											<div class="col-sm-6">
 											<div class="form-group">
 												<strong> Restriction:</strong>
-												<textarea class="form-control" placeholder="Restriction" name="restriction" style="background-color:white" required ><?php echo $restrictions; ?></textarea>
+												<textarea class="form-control" tabindex="13" placeholder="Restriction" name="restriction" style="background-color:white" required ><?php echo $restrictions; ?></textarea>
 												<!--<input type="text" class="form-control" placeholder="Restriction" name="restriction" style="background-color:white" />-->
 											</div>
 											</div>
 											<div class="col-sm-12">
 											<div class="form-group">
 												<strong> Notes:</strong>
-												<textarea class="form-control" placeholder="Notes" name="notes" style="background-color:white" ><?php echo $notes; ?></textarea>
+												<textarea class="form-control" tabindex="14" placeholder="Notes" name="notes" style="background-color:white" ><?php echo $notes; ?></textarea>
 												<!--<input type="text" class="form-control" placeholder="Notes" name="notes" style="background-color:white" />-->
 											</div>
 											</div>
@@ -444,11 +454,11 @@
 											<div class="col-sm-12">
 												<div class="col-sm-3 col-sm-offset-3">
 													<?php
-												echo '<input type="button" class="btn btn-default form-control" onclick="myFunction(' . $userid. ')" value="Cancel">';
+												echo '<input type="button" tabindex="16" class="btn btn-default form-control" onclick="backtoProfile(' . $userid. ')" value="Cancel">';
 												?>
 												</div>
 												<div class="col-sm-3">
-													<input type="submit" class="form-control btn btn-warning" value="Next"  name="tourNmae" />
+													<input type="submit" class="form-control btn btn-warning" tabindex="15" value="Next"  name="tourNmae" />
 												</div>
 											</div>
 											</form>
@@ -499,7 +509,13 @@
 			<script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/jquery.wallform.js"></script>
 			<script>
-				function myFunction(id) 
+				function editProfile(id) 
+				{
+				window.location.href = "guide_profile_edit.php?id="+id;
+				return false;
+				}
+				
+				function backtoProfile(id) 
 				{
 				window.location.href = "guide_profile.php?id="+id;
 				return false;
