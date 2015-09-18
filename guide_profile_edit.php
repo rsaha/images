@@ -385,7 +385,9 @@
 													  <label class="col-xs-5 control-label">State</label>
 													  
 													  <div class="col-xs-7 controls">
-													  <select name="state" id="state" class="form-control" style="background-color:#f7f7f7;"></select>
+													  <select name="state" id="state" class="form-control" style="background-color:#f7f7f7;">
+													  <?php include('state.php'); ?>
+														</select>
 													  </div>
 													  <!-- col-sm-10 --> 
 													</div>
@@ -395,7 +397,9 @@
 													  <label class="col-xs-5 control-label">Country:</label>
 													  
 													  <div class="col-xs-7 controls">
-													  <select id="country" name="country" selected="India" class="form-control" style="background-color:#f7f7f7;" ></select>
+													  <select id="country" name="country" class="form-control" style="background-color:#f7f7f7;" >
+													  <option value="India" selected>India</option>
+													  </select>
 													  </div>
 													  <!-- col-sm-10 --> 
 													</div>
@@ -535,10 +539,7 @@
 				document.getElementById("bestTimeToContact").value = "<?php echo $bestTimeToContact ?>";
 				document.getElementById("communicationMechanism").value = "<?php echo $communicationMechanism ?>";
 			</script>
-			<script type="text/javascript" src="js/country_state.js"></script>
-			<script language="javascript">
-				populateCountries("country", "state");
-			</script>
+			
 			<script>
 		function myFunction(id) {
 		window.location.href = "guide_profile.php?id="+id;

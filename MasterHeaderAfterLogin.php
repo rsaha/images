@@ -119,7 +119,13 @@
 				<span>MENU</span>
 				<ul style="width:100%" id="main-menu">
 				<li class="pull-right"><a href="signOut.php" title=""><i class="fa fa-lock"></i> Sign Out</a></li>
-				<li class="pull-right"><a  onclick="myFunctionSetting(<?php echo $userid; ?>)" title=""><i class="fa fa-cog"></i> Setting</a></li>
+				<li class="pull-right"><a href="#" title=""><i class="fa fa-cog"></i> Setting</a>
+				
+				<ul> 
+				<li><a onclick="editProfile(<?php echo $userid; ?>)" title="">Edit Profile</a></li>
+				<li><a onclick="myFunctionSetting(<?php echo $userid; ?>)" title="">Change Password</a></li>
+				</ul>
+				</li>
 				<li class="pull-right" ><a href="guide_login.php" title=""><i class="fa fa-home"></i> Guide Home</a></li>
                 <!--li><a href="" title=""> </a></li> 
 				<li><a href="" title=""> </a></li>
