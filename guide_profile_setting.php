@@ -381,7 +381,7 @@
 			  $('[data-toggle="popover"]').popover();
 			});
 			
-				function myFunction(id) 
+				function editProfile(id) 
 				{
 					window.location.href = "guide_profile_edit.php?id="+id;
 					return false;

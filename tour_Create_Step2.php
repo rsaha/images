@@ -544,9 +544,9 @@ var visit = "2";
 			  $('[data-toggle="popover"]').popover();
 			});
 			
-				function myFunction(id) 
+				function editProfile(id) 
 				{
-					window.location.href = "guide_profile.php?id="+id;
+					window.location.href = "guide_profile_edit.php?id="+id;
 					return false;
 				}
 				

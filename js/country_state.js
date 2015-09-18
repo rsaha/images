@@ -298,3 +298,9 @@ function populateCountries(countryElementId, stateElementId) {
         };
     } */
 }
+
+
+/* <script type="text/javascript" src="js/country_state.js"></script>
+			<script language="javascript">
+				populateCountries("country", "state");
+			</script> */

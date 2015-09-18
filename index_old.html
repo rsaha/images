@@ -3,17 +3,18 @@
 	<!-- START head --> <head> <!-- Site meta charset --> <meta
 	charset="UTF-8">
 
-		<!-- title --> <title>Home | Guided Gateway - Authentic
-		Affordable Travel</title>
+		<!-- title --> 
+        <title>Home | Guided Gateway - Authentic Affordable Travel</title>
 
-		<!-- meta description --> <meta name="description" content="Authentic Afordable Travel in India" />
+		<!-- meta description --> 
+        <meta name="description" content="Authentic Afordable Travel in India" />
 
-		<!-- meta keywords --> <meta name="keywords" content="travel
-		guide tourism india" />
+		<!-- meta keywords --> 
+        <meta name="keywords" content="travel guide tourism india" />
 
-		<!-- meta viewport --> <meta name="viewport"
-		content="width=device-width, initial-scale=1, maximum-scale=1"
-		/>
+		<!-- meta viewport --> 
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+        <meta name="google-site-verification" content="97KdXLMw3XyVYxOKnUXPHKQDz0CTdasQNkgxbkF7KHw" />
 		<!-- favicon --> <link rel="icon" href="favicon.ico"
 		type="image/x-icon" /> <link rel="shortcut icon"
 		href="favicon.ico" type="image/x-icon" />
@@ -35,6 +36,18 @@
 		rel="stylesheet" type="text/css" href="css/colors/color3.css"
 		title="color3" />
 
+ <link rel="stylesheet" href="css/ideal-image-slider.css">
+    <style media="screen">
+    #slider {
+        max-width: 100%;
+        margin: auto;
+    }
+    </style>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+	<script src= "js/angular.min.js"></script>
+    <script src="js/ideal-image-slider.js"></script>
+<script src="myDestination.js"></script>
+<!-- <script src="myGuideDetail.js"></script> -->
 <!-- Google Analytics -->
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -46,11 +59,51 @@
   ga('send', 'pageview');
 
 </script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+	<style type="text/css">
+	#searchDiv{
+	top: 230px;
+	position: absolute;
+	left:20px;
+	z-index: 2;
+	}
 
+<script type="text/javascript">
+	$(function() {
+    $('span.stars').stars();
+});
+					$.fn.stars = function() {
+				return $(this).each(function() {
+					// Get the value
+					var val = parseFloat($(this).html());
+					// Make sure that the value is in 0 - 5 range, multiply to get width
+					var size = Math.max(0, (Math.min(5, val))) * 16;
+					// Create stars holder
+					var $span = $('<span />').width(size);
+					// Replace the numerical value with stars
+					$(this).html($span);
+				});
+			}
+	</script>
+	<style type="text/css">
+		span.stars, span.stars span {
+    display: block;
+    background: url(stars.png) 0 8px repeat-x;
+    width: 40px;
+    height: 16px;
+}
+
+span.stars span {
+    background-position: 0 0;
+}
+	</style>
 	</head> <!-- END head -->
 
-	<!-- START body --> <body> <!-- START #wrapper --> <div
-	id="wrapper"> <!-- START header --> <header> <!-- START #top-header
+	<!-- START body --> <body>
+	<!-- START #wrapper --> <div id="wrapper"> <!-- START header --> 
+	
+	
+	<header> <!-- START #top-header
 	--> <div id="top-header"> <div class="container"> <div class="row
 	top-row"> <div class="col-md-6"> <div class="left-part alignleft">
 	<span class="contact-email small">touchus@guidedgateway.com</span>
@@ -67,21 +120,24 @@
 	onblur="if (this.value == '') { this.value = 'Search...'; }" />
 	<input type="submit" name="submit" class="search-submit" value="" />
 	</fieldset> </form> <span class="top-link small"><a
-										href="guide_login.php" title="">Guide
-										Sign-in</a></span> <span class="top-link small"><a href="sign-in.html"
+										href="http://www.guidedgateway.com/Why_GuidedGateway.html" title="">Guide
+										Sign-up</a></span> <span class="top-link small"><a href="sign-in.html"
 										title="">SIGN IN</a></span> </div>
 	</div> </div> </div> </div> <!-- END #top-header -->
 
 				<!-- START #main-header --> <div id="main-header"> <div
 				class="container"> <div class="row"> <div
 				class="col-md-3"> <a id="site-logo" href="#"> <img
-				src="img/logo.png" alt="Guided Gateway" /> </a> </div> <div
+				src="images/logo.png" alt="Guided Gateway" /> </a> </div> <div
 				class="col-md-9"> <nav class="main-nav">
 				<span>MENU</span> <ul id="main-menu"> <li><a href="index.html"
 				title="">HOME</a> <!-- ul> <li><a href="index.html"
 				title="">HOME PAGE 1</a></li> <li><a href="home.html"
 				title="">HOME PAGE 2</a></li> </ul --> </li> <li><a
-				href="guides.html" title="">Guides</a> <!-- ul> <li><a
+				href="guides.html" title="">Guides</a> 
+				
+				
+				<!-- ul> <li><a
 				href="deals.html" title="">DEALS PAGE</a></li> <li><a
 				href="deals-sidebar.html" title="">DEALS PAGE WITH
 				SIDEBAR</a></li> <li><a href="deals-detail.html"
@@ -89,432 +145,141 @@
 				href="deals-detail-sidebar.html" title="">DEALS DETAIL
 				SIDEBAR</a></li> <li><a href="deals-listview.html"
 				title="">LIST VIEW</a></li> <li><a
-				href="deals-listview-sidebar.html" title="">LIST VIEW
-				SIDEBAR</a></li> </ul--> </li> <li><a
+				href="deals-listview-sidebar.html" title="">LIST VIEW SIDEBAR</a></li> </ul-->
+				
+				
+				</li> <li><a
 				href="top-destinations-listview-sidebar.html" title="">Destinations</a> </li>
                 <li><a
 				href="#" title="">Themed Tours</a> </li>
-
-										<!-- li><a
-										title="">BLOG</a> <ul>
-										<li><a href="blog.html"
-										title="">BLOG PAGE</a></li>
-										<li><a href="blog-sidebar.html"
-										title="">BLOG PAGE WITH
-										SIDEBAR</a></li> <li><a
-										href="blog-detail.html"
-										title="">BLOG DETAIL</a></li>
-										<li><a
-										href="blog-detail-sidebar.html"
-										title="">BLOG DETAIL
-										SIDEBAR</a></li> <li><a
-										href="blog-listview.html"
-										title="">LIST VIEW</a></li>
-										<li><a
-										href="blog-listview-sidebar.html
-										" title="">LIST VIEW
-										SIDEBAR</a></li> <li><a
-										href="single.html"
-										title="">SINGLE POST</a></li>
-										</ul> </li -->
-
-										<!-- li><a
-										title="">GALLERY</a> <ul> <li><a
-										href="gallery.html"
-										title="">GALLERY
-										COLUMNS</a></li> <li><a
-										href="gallery-slideshow.html"
-										title="">GALLERY
-										SLIDESHOW</a></li> </ul> </li>
-										<li><a title="">PAGES</a> <ul>
-										<li><a href="widget.html"
-										title="">WIDGETS</a></li> <li><a
-										href="shortcodes.html"
-										title="">SHORTCODES</a></li>
-										<li><a href="404page.html"
-										title="">404 ERROR PAGE</a></li>
-										<li><a href="booking-form.html"
-										title="">BOOKING FORM</a></li>
-										<li><a
-										href="order-confirmation.html"
-										title="">ORDER
-										CONFIRMATION</a></li> <li><a
-										href="price-table.html"
-										title="">PRICE TABLES</a></li>
-										<li><a href="sign-in.html"
-										title="">SIGN IN</a></li> <li><a
-										href="sign-up.html"
-										title="">SIGN UP</a></li> <li><a
-										href="tour-plan.html"
-										title="">TOUR PLAN</a></li>
-										<li><a href="user-profile.html"
-										title="">USER PROFILE</a></li>
-										</ul> </li -->
-
+				<li><a href="#" onclick="return false;" title="">SIGN IN</a>
+				
+				<ul> 
+				<li><a href="#" title="">Touriest SIGN IN</a></li>
+				<li><a href="guide_login.php" title="">Guide SIGN IN</a></li>
+				</ul>
+				
+				</li>
+		
 									</ul> </nav> </div> </div> </div>
+					<div class="main-contents col-md-8 col-md-offset-2" id="searchDiv">
+					 <div class=""  class="col-md-12">
+					<form class="plan-tour">
+						<div class="top-fields" class="col-md-12">
+						<div class="row">								
+						<div class="col-md-8 col-md-offset-1">
+						<input type="text" class="form-control" style="background-color:white;" placeholder="What's in your mind" />
+						</div> 
+						<div class="col-md-2" >
+						<input type="submit" class="form-control" style="background-color:#ff845e;" class="btn btn-primary" value="Search" /> 
+						</div> 
+						</div>
+						<div class="row">
+						<div class="col-md-7 col-md-offset-1"> <br>
+						<label >Search only</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<label><input class="input-cb"	type="checkbox" name="inc_Tour" value="1"	checked="checked" /> Tours</label>&nbsp;&nbsp;&nbsp;&nbsp;
+						<label><input class="input-cb" type="checkbox" name="inc_Guide" value="1" checked="checked" /> Guides </label>&nbsp;&nbsp;&nbsp;&nbsp;
+						<label><input class="input-cb" type="checkbox"	name="inc_Destination" value="1" checked="checked"/> Places</label>&nbsp;&nbsp; 
+						</div> 
+						</div>
+						</div>
+					</form>
+				</div>
+				</div>
+					 <div>
+		        <div id="slider">
+					<img src="img/tour_1.jpg" data-src-2x="img/tour_1.jpg" alt="Slide 1" />
+					<img data-src="img/tour_2.jpg" data-src-2x="img/tour_2.jpg" src="" alt="Slide 2" />
+					<img data-src="img/tour_3.jpg" data-src-2x="img/tour_3.jpg" src="" alt="Slide 3" />
+					<img data-src="img/tour_4.jpg" data-src-2x="img/tour_4.jpg" src="" alt="Slide 4" />
+				</div>
+				 <script>
+					var slider = new IdealImageSlider.Slider('#slider');
+						slider.start();
+				</script> 
+			</div>
+				
+
 									</div> <!-- END #main-header -->
 									</header> <!-- END header -->
 
-			<div id="main-slider">
-				<div id="content-slider">
-					<ul>
-						<!-- START Slide 1 -->
-						<li data-transition="fade" data-slotamount="5" data-masterspeed="700">
-							<img src="img/tour_1.jpg" alt="Slider Image 1" data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat" />
-							
-							<!-- LAYER NR. 1 -->
-							<div class="caption caption-yellow sft stt headline text-upper"
-								data-x="20"
-								data-y="150"
-								data-speed="600"
-								data-start="2000"
-								data-easing="Power3.easeOut"
-								data-endspeed="400"
-								data-endeasing="Power4.easeIn"
-								data-captionhidden="off"
-								style="z-index:6;font-size:18px;">Starting From 1200 $ Only
-							</div>
-							
-							<!-- LAYER NR. 2 -->
-							<div class="caption caption-white sfr stl slider-heading text-upper"
-								data-x="20"
-								data-y="185"
-								data-speed="1000"
-								data-start="1800"
-								data-easing="Power2.easeOut"
-								data-endspeed="600"
-								data-endeasing="Power3.easeIn"
-								data-captionhidden="off"
-								style="z-index:6;font-size:48px; ">Luxury Journeys
-							</div>
-							
-							<!-- LAYER NR. 3 -->
-							<div class="caption caption-black sfb stb headline text-upper"
-								data-x="20"
-								data-y="263"
-								data-speed="600"
-								data-start="1500"
-								data-easing="Power4.easeOut"
-								data-endspeed="500"
-								data-endeasing="Power1.easeIn"
-								data-captionhidden="off"
-								style="z-index:6">Crafting individual and unique itineraries to every corner of Japan.<br />
-								Peruse the possibilities here.
-							</div>
-						</li>
-						<!-- END Slide 1 -->
-						
-						<!-- START Slide 2 -->
-						<li data-transition="fade" data-slotamount="7" data-masterspeed="1000">
-							<img src="img/tour_2.jpg" alt="Slider Image 2"  data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat" />
-							
-							<!-- LAYER NR. 1 -->
-							<div class="caption caption-yellow sfl str headline text-upper"
-								data-x="20"
-								data-y="150"
-								data-speed="600"
-								data-start="2000"
-								data-easing="Bounce.easeInOut"
-								data-endspeed="400"
-								data-endeasing="Bounce.easeOut"
-								data-captionhidden="off"
-								style="z-index:6;font-size:18px;">Starting From 1200 $ Only
-							</div>
-							
-							<!-- LAYER NR. 2 -->
-							<div class="caption caption-white sft stb slider-heading text-upper"
-								data-x="20"
-								data-y="185"
-								data-speed="500"
-								data-start="800"
-								data-easing="Expo.easeIn"
-								data-endspeed="600"
-								data-endeasing="Expo.easeInOut"
-								data-captionhidden="off"
-								style="z-index:6;font-size:48px; ">Luxury Journeys
-							</div>
-							
-							<!-- LAYER NR. 3 -->
-							<div class="caption caption-black sfr stl headline text-upper"
-								data-x="20"
-								data-y="263"
-								data-speed="600"
-								data-start="1500"
-								data-easing="Power0.easeOut"
-								data-endspeed="500"
-								data-endeasing="Back.easeOut"
-								data-captionhidden="off"
-								style="z-index:6">Crafting individual and unique itineraries to every corner of Japan.<br />
-								Peruse the possibilities here.
-							</div>
-						</li>
-						
-						<!-- START Slide 3 -->
-						<li data-transition="fade" data-slotamount="6" data-masterspeed="800">
-							<img src="img/tour_1.jpg" alt="Slider Image 3"  data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat" />
-							
-							<!-- LAYER NR. 1 -->
-							<div class="caption caption-yellow sft stt headline text-upper"
-								data-x="20"
-								data-y="150"
-								data-speed="600"
-								data-start="2000"
-								data-easing="Power3.easeOut"
-								data-endspeed="400"
-								data-endeasing="Power4.easeIn"
-								data-captionhidden="off"
-								style="z-index:6;font-size:18px;">Starting From 1200 $ Only
-							</div>
-							
-							<!-- LAYER NR. 2 -->
-							<div class="caption caption-white sfr stl slider-heading text-upper"
-								data-x="20"
-								data-y="185"
-								data-speed="1000"
-								data-start="1800"
-								data-easing="Power2.easeOut"
-								data-endspeed="600"
-								data-endeasing="Power3.easeIn"
-								data-captionhidden="off"
-								style="z-index:6;font-size:48px; ">Luxury Journeys
-							</div>
-							
-							<!-- LAYER NR. 3 -->
-							<div class="caption caption-black sfb stb headline text-upper"
-								data-x="20"
-								data-y="263"
-								data-speed="600"
-								data-start="1500"
-								data-easing="Power4.easeOut"
-								data-endspeed="500"
-								data-endeasing="Power1.easeIn"
-								data-captionhidden="off"
-								style="z-index:6">Crafting individual and unique itineraries to every corner of Japan.<br />
-								Peruse the possibilities here.
-							</div>
-						</li>
-						<!-- END Slide 3 -->
-					</ul>
-				</div>
-				<div id="slider-overlay"></div>
-			</div>
-			<!-- END #main-slider -->
 
-
-			<!-- START .main-contents --> <div class="main-contents">
-			<div class="container" id="home-page">
-
-					<!-- START .tour-plan --> 
-                    <form class="plan-tour">
-					<div class="top-fields"> <div class="input-field
-					col-md-3"><input type="text" placeholder="Where
-					" /></div> 
-                    <div class="submit-btn col-md-2"> <input type="submit"
-					value="Search" /> </div><br/>
-                    <a href="https://tourbuilder.withgoogle.com/#create" style="color:#ff845e">Create a custom tour with Google</a>
-                    </div> </form> 
-                    
+			<!-- START .main-contents --> 
+        <div class="main-contents">
+			<div class="container" id="home-page" ng-app="myDestinations">
+               <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+					
                 <!-- END .tour-plan -->
 
-					<h2 class="ft-heading text-upper">Popular
-					Destinations</h2>
+				<h2 class="ft-heading text-upper">Popular Tours</h2>
 
-					<div class="carousel"> <ul class="slides"> <li> <div
-					class="row"> <div class="col-md-3"> <div
-					class="ft-item"> <span class="ft-image"> <img
-					src="https://storage.googleapis.com/
-						guidedgateway_media/top_dest_1.jpg" alt="featured
-					Scroller" /> </span> <div class="ft-data"> <a
-					class="ft-hotel text-upper" href="#">Hotel</a> <a
-					class="ft-plane text-upper" href="#">Guide</a>
-					<a class="ft-tea text-upper" href="#">Meals</a>
-					</div> <div class="ft-foot"> <h4 class="ft-title
-					text-upper"><a href="#">Pushkar, RJ</a></h4> <span
-					class="ft-offer text-upper">Starting From INR 5000
-					</span> </div> <div class="ft-foot-ex"> <span
-					class="ft-date text-upper alignleft">28 October
-					2015</span> <span class="ft-temp
-					alignright">17&#730;c</span> </div> </div>
+					<div class="carousel"> 
+					  <ul class="slides">
+					  <li > 
+					    <div class="row"  ng-controller="destinationCtrl"> 
+					<div class="col-md-3"  ng-repeat="x in names"> 
+							
+							<div class="ft-item"> 
+							<span class="ft-image"><a href="top-destinations-listview-sidebar.html"> <img src="{{x.Photo}}" alt="featured Scroller" /> </span> 
+							   <div class="ft-data">
+								   <!-- <i class="fa fa-pagelines"></i> --><span style="color:black;"><a  style="color:black;" class="text-upper fa fa-pagelines" href="#">&nbsp;&nbsp;{{x.Tours.Type}}</a></span> &nbsp;&nbsp;&nbsp;
+								 <span style="color:black;"><a  style="color:black;" class="fa fa-plane text-upper" href="#">&nbsp;&nbsp;Transport</a></span> &nbsp;&nbsp;
+								  <span><i  style="color:black;" class="fa fa-glass"></i><a  style="color:black;" class=" text-upper" href="#">&nbsp;&nbsp;{{x.Transport}}</a></span>
+							   </div> 
+								<div class="ft-foot"> <h4 class="ft-title text-upper"><a href="#">{{x.Name}}, RJ</a></h4> 
+								<span class="ft-offer text-upper">Starting INR {{x.Tours.StartingPrice}}</span> 
+								</div>
+								<div class="ft-foot-ex"> 
+								<span class="fa fa-image text-upper alignleft">&nbsp;&nbsp;100 tours&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;
+								<span class="stars alignleft" style="padding-left:50px;">{{x.Review.Star}}</span><span class="alignright fa fa-eye">&nbsp;&nbsp;{{x.Review.Count}} reviews</span> 
+								</div> 
+							
+							</div>
+							</a>
 
-										 </div> <div
-										class="col-md-3"> <div
-										class="ft-item"> <span
-										class="ft-image"> <img
-										src="https://storage.googleapis.com/
-						guidedgateway_media/top_dest_2.jpg
-										" alt="featured Scroller" />
-										</span> <div class="ft-data"> <a
-										class="ft-hotel text-upper"
-										href="#">Hotel</a> <a
-										class="ft-plane text-upper"
-										href="#">Guide</a> <a
-										class="ft-tea text-upper"
-										href="#">Meals</a> </div>
-										<div class="ft-foot"> <h4
-										class="ft-title text-upper"><a
-										href="#">Konark, OR</a></h4>
-										<span class="ft-offer
-										text-upper">Starting From 250
-										$</span> </div> <div
-										class="ft-foot-ex"> <span
-										class="ft-date text-upper
-										alignleft">28 December
-										2013</span> <span class="ft-temp
-										alignright">17&#730;c</span>
-										</div> </div>
-
-										 </div> <div
-										class="col-md-3"> <div
-										class="ft-item"> <span
-										class="ft-image"> <img
-										src="http://storage.googleapis.com/
-						guidedgateway_media/top_dest_3.jpg
-										" alt="featured Scroller" />
-										</span> <div class="ft-data"> <a
-										class="ft-hotel text-upper"
-										href="#">Hotel</a> <a
-										class="ft-plane text-upper"
-										href="#">Guide</a> <a
-										class="ft-tea text-upper"
-										href="#">Meals</a> </div>
-										<div class="ft-foot"> <h4
-										class="ft-title text-upper"><a
-										href="#">Agra, UP</a></h4>
-										<span class="ft-offer
-										text-upper">Starting From INR 1000
-										</span> </div> <div
-										class="ft-foot-ex"> <span
-										class="ft-date text-upper
-										alignleft">28 December
-										2015</span> <span class="ft-temp
-										alignright">17&#730;c</span>
-                        </div> </div></div><div
-										class="col-md-3"> <div
-										class="ft-item"> <span
-										class="ft-image"> <img
-										src="https://storage.googleapis.com/
-						guidedgateway_media/top_dest_4.jpg
-										" alt="featured Scroller" />
-										</span> <div class="ft-data"> <a
-										class="ft-hotel text-upper"
-										href="#">Hotel</a> <a
-										class="ft-plane text-upper"
-										href="#">Guide</a> <a
-										class="ft-tea text-upper"
-										href="#">Meals</a> </div>
-										<div class="ft-foot"> <h4
-										class="ft-title text-upper"><a
-										href="#">Aleppy, KE</a></h4>
-										<span class="ft-offer
-										text-upper">Starting From 250
-										$</span> </div> <div
-										class="ft-foot-ex"> <span
-										class="ft-date text-upper
-										alignleft">28 November
-										2015</span> <span class="ft-temp
-										alignright">17&#730;c</span>
-
-                        </div></div></div> </li> </ul> </div>
-                
-<h2 class="ft-heading text-upper">Featured
-					Guides</h2>
-                <div class="carousel"> <ul class="slides"> <li> <div
-					class="row"> <div class="col-md-3"> <div
-					class="ft-item"> <span class="ft-image"> <img
-					src="https://storage.googleapis.com/
-						guidedgateway_media/guide_1.jpg" alt="featured
-					Scroller" /> </span> <div class="ft-data"> <a
-					class="ft-hotel text-upper" href="#">Hotel</a> <a
-					class="ft-plane text-upper" href="#">Guide</a>
-					<a class="ft-tea text-upper" href="#">Meals</a>
-					</div> <div class="ft-foot"> <h4 class="ft-title
-					text-upper"><a href="#">Rakesh, RJ</a></h4> <span
-					class="ft-offer text-upper">Starting From INR 5000
-					</span> </div> <div class="ft-foot-ex"> <span
-					class="ft-date text-upper alignleft">28 October
-					2015</span> <span class="ft-temp
-					alignright">17&#730;c</span> </div> </div>
-
-										 </div> <div
-										class="col-md-3"> <div
-										class="ft-item"> <span
-										class="ft-image"> <img
-										src="https://storage.googleapis.com/
-						guidedgateway_media/guide_2.jpg
-										" alt="featured Scroller" />
-										</span> <div class="ft-data"> <a
-										class="ft-hotel text-upper"
-										href="#">Hotel</a> <a
-										class="ft-plane text-upper"
-										href="#">Guide</a> <a
-										class="ft-tea text-upper"
-										href="#">Meals</a> </div>
-										<div class="ft-foot"> <h4
-										class="ft-title text-upper"><a
-										href="#">Sujoy, WB</a></h4>
-										<span class="ft-offer
-										text-upper">Starting From 250
-										$</span> </div> <div
-										class="ft-foot-ex"> <span
-										class="ft-date text-upper
-										alignleft">28 December
-										2013</span> <span class="ft-temp
-										alignright">17&#730;c</span>
-										</div> </div>
-
-										 </div> <div
-										class="col-md-3"> <div
-										class="ft-item"> <span
-										class="ft-image"> <img
-										src="https://storage.googleapis.com/
-						guidedgateway_media/guide_3.jpg
-										" alt="featured Scroller" />
-										</span> <div class="ft-data"> <a
-										class="ft-hotel text-upper"
-										href="#">Hotel</a> <a
-										class="ft-plane text-upper"
-										href="#">Guide</a> <a
-										class="ft-tea text-upper"
-										href="#">Meals</a> </div>
-										<div class="ft-foot"> <h4
-										class="ft-title text-upper"><a
-										href="#">Suraj, Or</a></h4>
-										<span class="ft-offer
-										text-upper">Starting From INR 1250
-										</span> </div> <div
-										class="ft-foot-ex"> <span
-										class="ft-date text-upper
-										alignleft">28 December
-										2013</span> <span class="ft-temp
-										alignright">17&#730;c</span>
-                        </div> </div></div><div
-										class="col-md-3"> <div
-										class="ft-item"> <span
-										class="ft-image"> <img
-										src="https://storage.googleapis.com/
-						guidedgateway_media/guide_4.jpg
-										" alt="featured Scroller" />
-										</span> <div class="ft-data"> <a
-										class="ft-hotel text-upper"
-										href="#">Hotel</a> <a
-										class="ft-plane text-upper"
-										href="#">Guide</a> <a
-										class="ft-tea text-upper"
-										href="#">Meals</a> </div>
-										<div class="ft-foot"> <h4
-										class="ft-title text-upper"><a
-										href="#">Prasun, Ke</a></h4>
-										<span class="ft-offer
-										text-upper">Starting From INR 25000
-										</span> </div> <div
-										class="ft-foot-ex"> <span
-										class="ft-date text-upper
-										alignleft">28 December
-										2013</span> <span class="ft-temp
-										alignright">17&#730;c</span>
-
-                        </div></div></div> </li> </ul> </div>
-				</div> </div> <!-- END .main-contents -->
+					 </div> 
+					 </div>	
+						</li>
+						</ul> 
+						
+				</div>
+               
+          <h2 class="ft-heading text-upper">Featured Guides</h2>
+                <div class="carousel"> 
+				<ul class="slides">
+				<li> 
+				<div class="row"  ng-controller="guideCtrl">
+				
+				   <div class="col-md-3" ng-repeat="x in allguides"> 
+				   
+				      <div	class="ft-item"> 
+						  <span class="ft-image">
+							 <img src="{{x.Photo}}" alt="featured Scroller" /> 
+						  </span>
+					  
+								<div class="ft-data">
+							  <a style="color:black;" class="fa fa-odnoklassniki text-upper" href="#">&nbsp;&nbsp;{{x.Gender}}</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							  <a style="color:black;" class="fa fa-book text-upper" href="#">&nbsp;&nbsp;History</a>&nbsp;&nbsp;&nbsp;&nbsp;
+							  <a style="color:black;" class="fa fa-plane text-upper" href="#">&nbsp;&nbsp;{{x.Transport}}</a>
+								</div> 
+					
+							<div class="ft-foot">
+							<h4 class="ft-title text-upper"><a href="#">{{x.Name}}<span>,</span>REGION</a></h4> 
+							<span class="ft-offer text-upper">{{x.Tours.Count}} Tours</span> 
+							</div> 
+					
+							<div class="ft-foot-ex"> 
+								<span class="fa fa-shield text-upper alignleft">&nbsp;&nbsp;Experience&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;
+								<span class="stars alignleft" style="padding-left:50px;">{{x.Review.Star}}</span><span class="alignright fa fa-eye">&nbsp;&nbsp;{{x.Review.Count}} reviews</span> 
+								</div> 
+					</div>
+					 </div>
+				</div>
+				</li> 
+				</ul>
+				</div>
+				</div>
+				</div> <!-- END .main-contents -->
 
 			<!-- START .main-contents .bom-contents --> <div
 			class="main-contents bom-contents"> <div class="container">
@@ -527,10 +292,7 @@
 					class="img-circle" src="http://placehold.it/150x150"
 					alt="Featured Destination" /> </span> <h3
 					class="text-center text-upper">Beach</h3> <p
-					class="text-center">Egestas dignissim a enim lorem a
-					mus egestas risus porta? Sed. Scelerisque, in nec
-					velit augue aenean a, vut velit nec! Phasellus
-					aliquam odio.</p> <span class="btn-center"><a
+					class="text-center">Beach destinations and tour packages in India</p> <span class="btn-center"><a
 					class="btn btn-primary text-upper" href="#"
 					title="Search">Search</a></span> </div> </section>
 					<!-- END featured destination 1 -->
@@ -542,10 +304,7 @@
 						src="http://placehold.it/150x150" alt="Featured
 						Destination" /> </span> <h3 class="text-center
 						text-upper">Romantic</h3> <p
-						class="text-center">Egestas dignissim a enim
-						lorem a mus egestas risus porta? Sed.
-						Scelerisque, in nec velit augue aenean a, vut
-						velit nec! Phasellus aliquam odio.</p> <span
+						class="text-center">Romantic destinations and tour packages in India</p> <span
 						class="btn-center"><a class="btn btn-primary
 						text-upper" href="#"
 						title="Search">Search</a></span> </div>
@@ -558,10 +317,7 @@
 						src="http://placehold.it/150x150" alt="Featured
 						Destination" /> </span> <h3 class="text-center
 						text-upper">Adventure</h3> <p
-						class="text-center">Egestas dignissim a enim
-						lorem a mus egestas risus porta? Sed.
-						Scelerisque, in nec velit augue aenean a, vut
-						velit nec! Phasellus aliquam odio.</p> <span
+						class="text-center">Adventure tour packages from different parts of India</p> <span
 						class="btn-center"><a class="btn btn-primary
 						text-upper" href="#"
 						title="Search">Search</a></span> </div>
@@ -574,10 +330,7 @@
 						src="http://placehold.it/150x150" alt="Featured
 						Destination" /> </span> <h3 class="text-center
 						text-upper">Eco</h3> <p
-						class="text-center">Egestas dignissim a enim
-						lorem a mus egestas risus porta? Sed.
-						Scelerisque, in nec velit augue aenean a, vut
-						velit nec! Phasellus aliquam odio.</p> <span
+						class="text-center">Ecological tours and destinations from different parts of India</p> <span
 						class="btn-center"><a class="btn btn-primary
 						text-upper" href="#"
 						title="Search">Search</a></span> </div>
