@@ -122,6 +122,7 @@ else
 			<!-- END .main-contents -->
 			
 			<?php include('MasterFooter.php'); ?>
+			
 		</div>
 		<!-- END #wrapper -->
 
@@ -137,5 +138,17 @@ else
 			<script type="text/javascript" src="js/html5shiv.js"></script>
 		<![endif]-->
 
+		
+		<?php
+			
+			if(isset($_SESSION['notification']))
+			{
+				echo '<script> alert("' . $_SESSION['notification'] . '"); </script>';
+				
+			}
+			$_SESSION['notification']="";
+			unset($_SESSION['notification']);
+			
+			?>
 	</body>
 </html>

@@ -44,7 +44,7 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 			
 			$update1 = mysql_query("UPDATE `tbl_user_profile` SET `f_name`='$firstName', `l_name`='$lastName', `email`='$emailID', 
 			`mobileNo`='$mobileNumber', `gender`='$gender', `d_o_b`='$birthday', `street_address`='$streetAddress', `city`='$city', 
-			`state`='$state', `country`='$country', `datecreated`=now() WHERE `user_id` = $userid");
+			`state`='$state', `country`='$country', `datecreated`=now() WHERE `user_id` = $userid") or die('Error : ' . mysql_error());
 			if($update1)
 			{
 				$flag1=1;
@@ -52,6 +52,7 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 			else
 			{
 				$flag1=0;
+				error_log($update1);
 			}
 			if(file_exists($_FILES["licenceImage"]["tmp_name"]))
 			{
@@ -121,7 +122,7 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 					'$experiance'
 					1, 
 					now()
-					)");
+					)") or die('Error : ' . mysql_error());
 					if($insert2)
 					{
 						$flag2=1;
@@ -129,6 +130,7 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 					else
 					{
 						$flag2=0;
+						error_log($insert_stmt);
 					}
 				}
 				else
@@ -169,7 +171,6 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 					{
 						$flag2=0;
                         error_log("insert guide detail profile stmt".$insert_stmt);
-                        error_log("insert guide detail profile stmt".mysql_error());
 					}
 				}
 			}
@@ -181,7 +182,7 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 					$update2 = mysql_query("UPDATE `tbl_guide_detail_profile` SET `guide_experience` = '$experiance', `license_no`='$licenceNumber',`validity`='$licenceValidty',
 					`license_Image` = '$hex_string',`landline_no`='$landLineNumber', `payment_terms`='$paymentTerm',
 					`Best_time_for_contact`='$bestTimeToContact', `Communication_mechanism`='$communicationMechanism',
-					`guide_Remarks`='$remark',`datecreated`=now() WHERE `user_id` = $userid");
+					`guide_Remarks`='$remark',`datecreated`=now() WHERE `user_id` = $userid") or die('Error : ' . mysql_error());
 					if($update2)
 					{
 						$flag2=1;
@@ -189,6 +190,7 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 					else
 					{
 						$flag2=0;
+						error_log($insert_stmt);
 					}
 				}
 				else
@@ -196,7 +198,7 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 					$update2 = mysql_query("UPDATE `tbl_guide_detail_profile` SET `guide_experience` = '$experiance', `license_no`='$licenceNumber',`validity`='$licenceValidty',
 					`landline_no`='$landLineNumber', `payment_terms`='$paymentTerm',
 					`Best_time_for_contact`='$bestTimeToContact', `Communication_mechanism`='$communicationMechanism',
-					`guide_Remarks`='$remark',`datecreated`=now() WHERE `user_id` = $userid");
+					`guide_Remarks`='$remark',`datecreated`=now() WHERE `user_id` = $userid") or die('Error : ' . mysql_error());
 					if($update2)
 					{
 						$flag2=1;
@@ -204,6 +206,8 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 					else
 					{
 						$flag2=0;
+						error_log($insert_stmt);
+						
 					}
 				}
 			}

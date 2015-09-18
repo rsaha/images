@@ -24,6 +24,7 @@ session_start();
 			$city = explode(", ", $tourLocationTemp);
 			$tourLocation = $city[0];
 			$tourName = mysql_real_escape_string($_POST['tourName']);
+			$tourTerritory = mysql_real_escape_string($_POST['tourTerritory']);
 			$tourDiscription = mysql_real_escape_string($_POST['tourDiscription']);
 			$tourDuration = mysql_real_escape_string($_POST['tourDuration']);
 			$tourPrice = mysql_real_escape_string($_POST['tourPrice']);
@@ -40,6 +41,7 @@ session_start();
 			`tour_category_id`,
 			`tour_title`,
 			`tour_location`,
+			`tour_territory`,
 			`tour_description`,
 			`tour_duration`,
 			`tour_price`,
@@ -57,6 +59,7 @@ session_start();
 			$tourType,
 			'$tourName',
 			'$tourLocation',
+			'$tourTerritory',
 			'$tourDiscription',
 			'$tourDuration',
 			'$tourPrice',

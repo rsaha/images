@@ -19,12 +19,12 @@ if(isset($_SESSION['userId']))
 		{
 			$flag1=0;
 			include('db.php');
-            
-			$tourType = mysql_real_escape_string($_POST['tourType']);
+            $tourType = mysql_real_escape_string($_POST['tourType']);
 			$tourName = mysql_real_escape_string($_POST['tourName']);
 			$tourLocationTemp = mysql_real_escape_string($_POST['tourLocation']);
 			$city = explode(", ", $tourLocationTemp);
 			$tourLocation = $city[0];
+			$tourTerritory = mysql_real_escape_string($_POST['tourTerritory']);
 			$tourDiscription = mysql_real_escape_string($_POST['tourDiscription']);
 			$tourDuration = mysql_real_escape_string($_POST['tourDuration']);
 			$tourPrice = mysql_real_escape_string($_POST['tourPrice']);
@@ -40,6 +40,7 @@ if(isset($_SESSION['userId']))
 			`tour_category_id`=1,
 			`tour_title`='$tourName',
 			`tour_location`='$tourLocation',
+			`tour_territory`='$tourTerritory',
 			`tour_description`='$tourDiscription',
 			`tour_duration`='$tourDuration',
 			`tour_price`='$tourPrice',
