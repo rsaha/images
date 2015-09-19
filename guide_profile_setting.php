@@ -294,7 +294,7 @@
 									<!-- START TAB 1 -->
 									<div class="tab-pane active" id="profileSetting">
 										<div class="booking gray clearfix box-shadow1">
-									<div class="col-md-6"><center><h2>Reset your Password Here</h2></center><br /></div>
+									<div class="col-md-6"><center><h2>CHange your Password Here</h2></center><br /></div>
 										<form action="reset_Password.php" method="post" ng-app="myApp"  ng-controller="resetPswrdvalidateCtrl" name="myForm"  novalidate>
 										<input type="hidden" name="userid" value="<?php echo $userid ?>" />
 											<div class="col-md-12">

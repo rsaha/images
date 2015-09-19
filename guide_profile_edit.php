@@ -253,7 +253,7 @@
 					<input name="licenceNumber" class="form-control" type="text" value="<?php echo $licenceNumber ?>" /><br />
 					  <hr>
 					<label style="font-size:14px;">Licence Expiry Date :</label><br><br />
-					<input name="licenceValidty" class="form-control" type="date" value="<?php echo $licenceValidty ?>" />
+					<input name="licenceValidty" class="form-control" min="2015-01-01" type="date" value="<?php echo $licenceValidty ?>" />
 					<hr>
 					<label style="font-size:14px;">Licence Image :</label><br><br />
 							
@@ -354,7 +354,7 @@
 												   <div class="col-sm-6 form-group">
 													<div class="row mgbt-xs-0">
 													  <label class="col-xs-5 control-label">Birthday:</label>
-													  <div class="col-xs-7 controls"><input name="birthday" class="form-control" type="date" style="background-color:#f7f7f7;" value="<?php echo $birthday ?>" /></div>
+													  <div class="col-xs-7 controls"><input name="birthday" class="form-control" type="date" max="1999-12-31" style="background-color:#f7f7f7;" value="<?php echo $birthday ?>" /></div>
 													  <!-- col-sm-10 --> 
 													</div>
 												  </div>

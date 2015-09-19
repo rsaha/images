@@ -60,8 +60,15 @@
 
 </script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
-	<script type="text/javascript">
-	
+<style type="text/css">
+	#searchDiv{
+	top: 230px;
+	position: absolute;
+	left:20px;
+	z-index: 2;
+	}
+
+<script type="text/javascript">	
 	$(function() {
     $('span.stars').stars();
 });
@@ -113,7 +120,7 @@ span.stars span {
 	onblur="if (this.value == '') { this.value = 'Search...'; }" />
 	<input type="submit" name="submit" class="search-submit" value="" />
 	</fieldset> </form> <span class="top-link small"><a
-										href="http://www.guidedgateway.com/Why_GuidedGateway.html" title="">Guide
+										href="Why_GuidedGateway.html" title="">Guide
 										Sign-up</a></span> <span class="top-link small"><a href="sign-in.html"
 										title="">SIGN IN</a></span> </div>
 	</div> </div> </div> </div> <!-- END #top-header -->
@@ -121,7 +128,7 @@ span.stars span {
 				<!-- START #main-header --> <div id="main-header"> <div
 				class="container"> <div class="row"> <div
 				class="col-md-3"> <a id="site-logo" href="#"> <img
-				src="img/logo.png" alt="Guided Gateway" /> </a> </div> <div
+				src="images/logo.png" alt="Guided Gateway" /> </a> </div> <div
 				class="col-md-9"> <nav class="main-nav">
 				<span>MENU</span> <ul id="main-menu"> <li><a href="index.html"
 				title="">HOME</a> <!-- ul> <li><a href="index.html"
@@ -155,6 +162,7 @@ span.stars span {
 				</li>
 		
 									</ul> </nav> </div> </div> </div>
+
 									</div> <!-- END #main-header -->
 									</header> <!-- END header -->
 									
@@ -196,7 +204,7 @@ span.stars span {
                     
                 <!-- END .tour-plan -->
 
-				<h2 class="ft-heading text-upper">Popular Tours</h2>
+				<!-- h2 class="ft-heading text-upper">Popular Tours</h2 -->
 
 					<div class="carousel"> 
 					  <ul class="slides">

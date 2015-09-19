@@ -266,7 +266,7 @@ else
 														</div>
 														<div class="col-md-4">
 															<label style="font-size:14px; font-weight:bold">Date Of Birth</label>
-															<input type="date" class="form-control" name="DOB" id="DOB" value=""  />
+															<input type="date" class="form-control"  name="DOB" max="1999-12-31" id="DOB" value=""  />
 														</div>
 													</li>
 													<li class="row">
@@ -309,7 +309,7 @@ else
 														</div>
 														<div class="col-md-4">
 															<label style="font-size:14px; font-weight:bold">Licence Expiry</label>
-															<input type="date" id="LicenceExpiry" class="form-control" name="licenceexpiry" value="" />
+															<input type="date" id="LicenceExpiry" min="2015-01-01" class="form-control" name="licenceexpiry" value="" />
 														</div>
 														<div class="col-md-4">
 															<label style="font-size:14px; font-weight:bold">Licence Image</label>

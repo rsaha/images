@@ -78,7 +78,7 @@
 				<div class="row top-row"> 
 					<div class="col-md-6"> 
 						<div class="left-part alignleft">
-							<span class="contact-email small">touchus@guidedgateway.com</span>
+							<span class="contact-email small">support@guidedgateway.com</span>
 							<span class="contact-phone small">+91 9830032920</span> 
 							<ul class="social-media header-social"> 
 								<li><a class="sm-facebook" href="#"><span>Facebook</span></a></li> 
@@ -114,7 +114,7 @@
 				<div class="row">
 				<div class="col-md-3">
 				<a id="site-logo" href="#">
-				<img src="img/logo.png" alt="Guided Gateway" />
+				<img src="images/logo.png" alt="Guided Gateway" />
 				</a>
 				</div>
 				<div class="col-md-9">

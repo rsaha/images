@@ -369,10 +369,10 @@
 											</div>
 											<div class="col-sm-4">
 											<div class="form-group">
-												<strong> Tour Territory:</strong><a class="pull-right" tabindex="0" data-toggle="popover"  data-placement="bottom" data-trigger="focus" data-content="Enter your name here">
+												<strong> Tour Territory:</strong><a class="pull-right" tabindex="0" data-toggle="popover"  data-placement="bottom" data-trigger="focus" data-content="Enter region of tour">
 																<i class='fa fa-info-circle' style="color:gray"></i>
 															</a>
-												<input type="text" tabindex="5" class="form-control" value="<?php echo $tour_territory; ?>" placeholder="Tour Territory" name="tourTerritory" style="background-color:white" required />
+												<input type="text" tabindex="5" class="form-control" value="<?php echo $tour_territory; ?>" placeholder="Tour Territory" name="tourTerritory" style="background-color:white"/>
 											</div>
 											</div>
 											<div class="col-sm-2">
@@ -439,7 +439,7 @@
 											<div class="col-sm-6">
 											<div class="form-group">
 												<strong> Restriction:</strong>
-												<textarea class="form-control" tabindex="13" placeholder="Restriction" name="restriction" style="background-color:white" required ><?php echo $restrictions; ?></textarea>
+												<textarea class="form-control" tabindex="13" placeholder="Restriction" name="restriction" style="background-color:white" ><?php echo $restrictions; ?></textarea>
 												<!--<input type="text" class="form-control" placeholder="Restriction" name="restriction" style="background-color:white" />-->
 											</div>
 											</div>
