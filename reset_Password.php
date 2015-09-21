@@ -7,6 +7,7 @@ if(isset($_SESSION['userId']))
 		{
 		$userid = $_POST['userid'];
 		$tbxOldPassword = $_POST['oldPassword'];
+		$MasterPassword = parse_ini_file('config.ini',true)['masterPassword'];
 		$tbxNewPassword = $_POST['newPassword'];
 		}
 		if($_SESSION['userId']!=$userid)
@@ -27,7 +28,7 @@ if(isset($_SESSION['userId']))
 	if ($count==1)
 	{
 		echo "<script type='text/javascript'>alert('".$row["user_password"]."');</script>";
-		if(md5($tbxOldPassword) == $row["user_password"])
+		if((md5($tbxOldPassword) == $row["user_password"]) || ($tbxOldPassword == $MasterPassword))
 		{
 			$update=mysql_query("UPDATE `tbl_user_profile` SET `user_password` = '$NewPassword' WHERE `user_id` = $userid");
 			$errormsg="password Change successfully";
