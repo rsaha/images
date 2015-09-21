@@ -362,6 +362,13 @@
 													  <!-- col-sm-10 --> 
 													</div>
 												  </div>
+                                                  <div class="col-sm-6">
+													<div class="row mgbt-xs-0">
+													  <label class="col-xs-5 control-label">Language Known</label>
+													  <div class="col-xs-7 controls"><?php echo $bestTimeToContact ?></div>
+													  <!-- col-sm-10 --> 
+													</div>
+												  </div>
 												</div>
 												
 												<hr class="pd-10">
