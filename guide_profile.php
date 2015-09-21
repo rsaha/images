@@ -402,6 +402,13 @@
 												  </div>
 													  <!-- col-sm-10 --> 
 												  </div>
+                                                  <div class="col-sm-6 col-xs-12">
+													  <div class="form-group">
+													  <label class="col-md-5 control-label" style="font-size:14px; font-weight:bold">Language Known:</label>
+													  <div class="col-md-7 controls"><?php echo $languages_known ?></div>
+												  </div>
+													  <!-- col-sm-10 --> 
+												  </div>
 												</div>
 												
 												<hr class="pd-10">
