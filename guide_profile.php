@@ -402,13 +402,27 @@
 												  </div>
 													  <!-- col-sm-10 --> 
 												  </div>
-                                                  <div class="col-sm-6 col-xs-12">
-													  <div class="form-group">
-													  <label class="col-md-5 control-label" style="font-size:14px; font-weight:bold">Language Known:</label>
-													  <div class="col-md-7 controls"><?php echo $languages_known ?></div>
+
+												  
+												  <div class="col-sm-6 col-xs-12">
+												<?php
+												$select3 = mysql_query("SELECT tl.lanugage_name FROM tbl_guide_known_languages AS gkl INNER JOIN tbl_languages AS tl ON gkl.language_id=tl.language_id WHERE gkl.user_id = $userid");
+												
+												?>
+				
+											  <div class="form-group">
+											  <label class="col-md-5 control-label" style="font-size:14px; font-weight:bold">Language Known:</label>
+											  <div class="col-md-7 controls">
+											  <?php while($row33 = mysql_fetch_array($select3))
+												{
+													echo $row33["lanugage_name"].", ";
+												}  
+												?>
+												</div>
 												  </div>
 													  <!-- col-sm-10 --> 
 												  </div>
+												  
 												</div>
 												
 												<hr class="pd-10">

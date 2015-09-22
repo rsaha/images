@@ -61,6 +61,8 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 			
 			$communicationmechanism= mysql_real_escape_string($_POST['communicationmechanism']);
 			
+			@$languageKnown= $_POST['languageKnown'];
+			
 			include("db.php");
 			$update = mysql_query("UPDATE `tbl_user_profile` SET `gender`='$Gender', `d_o_b`='$DOB', `street_address`='$streetaddress', `city`='$city', `state`='$state', `country`='$country', `datecreated`=now() WHERE `user_id`=$userid");
 		
@@ -83,7 +85,6 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 				} 
 				else 
 				{
-					echo "hello";
 					$newName=date("dmYHms") . "_img." . $file_extension;
 					move_uploaded_file($_FILES["licenceImage"]["tmp_name"], $upload_dir . $newName);
 					$bin_string = file_get_contents( $upload_dir . $newName);
@@ -156,6 +157,21 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 		
 			if($update || $upl == 1)
 			{
+				if( is_array($languageKnown))
+				{
+					$deleteee = mysql_query("DELETE FROM `tbl_guide_known_languages` WHERE `user_id` = $userid");
+					while (list ($key, $val) = each ($languageKnown)) 
+					{
+						$insertINLan = mysql_query("INSERT INTO `tbl_guide_known_languages`
+						(
+						`user_id`, 
+						`language_id`
+						) VALUES (
+						$userid,
+						$val
+						)")  or die('Error : ' . mysql_error());
+					}
+				}
 				$errormsg="Registratin Step 2 completed.";
 				$_session['login']="true";
 				$msg="Successfully Updated!!";
