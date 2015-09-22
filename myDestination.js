@@ -6,8 +6,8 @@
     $httpProvider.defaults.useXDomain = true;
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
 }]);
-app.controller('destinationCtrl',['$scope','$http', function($scope, $http) {
-    $http.get("http://130.211.123.212/app/places")
+/* app.controller('destinationCtrl',['$scope','$http', function($scope, $http) {
+    $http.get("http://130.211.123.212/app/guides")
     .success(function (response) {
 		$scope.names = response.Guides;
 	
@@ -17,12 +17,12 @@ app.controller('destinationCtrl',['$scope','$http', function($scope, $http) {
 			});
 			
 			
-}]);
-    
-app.controller('tourCtrl',['$scope','$http', function($scope, $http) {
+}]); */
+
+app.controller('toursCtrl',['$scope','$http', function($scope, $http) {
     $http.get("http://130.211.123.212/app/tours")
     .success(function (response) {
-		$scope.names = response.Tours;
+		$scope.tours = response.Tours;
 	
 		})
 	.error(function() {
@@ -30,8 +30,7 @@ app.controller('tourCtrl',['$scope','$http', function($scope, $http) {
 			});
 			
 			
-}]);
-    
+}]); 
 app.controller('guideCtrl',['$scope','$http', function($scope, $http) {
     $http.get("http://130.211.123.212/app/guides")
     .success(function (response) {
@@ -41,6 +40,20 @@ app.controller('guideCtrl',['$scope','$http', function($scope, $http) {
 				$scope.data = "error in fetching data";
 			});
 }]);
+
+app.controller('placesCtrl',['$scope','$http', function($scope, $http) {
+    $http.get("http://130.211.123.212/app/places")
+    .success(function (response) {
+		$scope.places = response.Places;
+	
+		})
+	.error(function() {
+				$scope.data = "error in fetching data";
+			});
+			
+			
+}]); 
+
 app.directive('starRating', function () {
     return {
         restrict: 'A',
@@ -63,4 +76,3 @@ app.directive('starRating', function () {
         }
     }
 });
-})();

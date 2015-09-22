@@ -342,20 +342,26 @@ else
 															<option value="Email">Email</option>
 															</select>
 														</div>
-														<div class="col-md-4">
-															
-														</div>
+														
 													</li>
 													<li class="row">
+														<div class="col-md-4">
+															<label style="font-size:14px; font-weight:bold">Language Known</label>
+															<select class="form-control" size="6" multiple name="languageKnown[]" id="languageKnown">
+															<?php 
+														  $select3 = mysql_query("SELECT * FROM `tbl_languages` WHERE `status` = 1");
+														  while($row33 = mysql_fetch_array($select3))
+															{
+															echo '<option value="' . $row33['language_id'] . '">' . $row33["lanugage_name"] . '</option>';
+															}
+															?>
+															</select>
+														</div>
 														
-														<div class="col-md-12">
+														<div class="col-md-8">
 															<label style="font-size:14px; font-weight:bold">Payment Terms</label>
-															
 															<textarea class="form-control" name="paymentterms" ></textarea>
 														</div>
-														</li>
-														<li class="row">
-														
 														</li>
 														
 														<li class="row">
