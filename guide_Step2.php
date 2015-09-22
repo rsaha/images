@@ -63,6 +63,8 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 			
 			@$languageKnown= $_POST['languageKnown'];
 			
+			$guideTerritory= mysql_real_escape_string($_POST['guideTerritory']);
+			
 			include("db.php");
 			$update = mysql_query("UPDATE `tbl_user_profile` SET `gender`='$Gender', `d_o_b`='$DOB', `street_address`='$streetaddress', `city`='$city', `state`='$state', `country`='$country', `datecreated`=now() WHERE `user_id`=$userid");
 		
@@ -110,6 +112,7 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 				`license_no`,
 				`license_Image`,	
 				`validity`, 
+				`guide_territory`,
 				`landline_no`, 
 				`Best_time_for_contact`,
 				`payment_terms`, 
@@ -122,6 +125,7 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 				'$licencenumber',
 				'$hex_string',
 				'$licenceexpiry',
+				'$guideTerritory',
 				'$landlinenumber',
 				'$contacttime',
 				'$paymentterms',
@@ -141,6 +145,7 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 				`license_no` = '$licencenumber',
 				`license_Image` = '$hex_string',	
 				`validity` = '$licenceexpiry', 
+				`guide_territory`, = '$guideTerritory',
 				`landline_no` = '$landlinenumber', 
 				`Best_time_for_contact` = '$contacttime',
 				`payment_terms` = '$paymentterms', 

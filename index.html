@@ -66,10 +66,10 @@
 		
 	<style type="text/css">
 	#searchDiv{
-	top: 130px;
+	<!-- top: 130px;
 	position: absolute;
 	left:20px;
-	z-index: 2;
+	z-index: 2; -->
 	}
 	
 		
@@ -88,6 +88,8 @@ ul.rating {
     text-align: center;
     font-weight: bold;
     cursor: pointer;
+	margin-top: -6px;
+    font-size: 20px;
 }
 .rating .filled {
     color: #ff845e;
@@ -105,7 +107,7 @@ ul.rating {
 	<header> <!-- START #top-header
 	--> <div id="top-header"> <div class="container"> <div class="row
 	top-row"> <div class="col-md-6"> <div class="left-part alignleft">
-	<span class="contact-email small">touchus@xmapledatalab.com</span>
+	<span class="contact-email small">touchus@guidedgateway.com</span>
 	<span class="contact-phone small">+1 510 938 2562</span> <ul
 	class="social-media header-social"> <li><a class="sm-facebook"
 	href="#"><span>Facebook</span></a></li> <li><a class="sm-flickr"
@@ -131,7 +133,7 @@ ul.rating {
 				class="col-md-9"> <nav class="main-nav">
 				<span>MENU</span> <ul id="main-menu"> <li><a href="index.html"
 				title="">HOME</a></li> <li><a
-				href="guides.html" title="">Guides</a></li> <li><a
+				href="top-guides-listview.html" title="">Guides</a></li> <li><a
 				href="top-destinations-listview-sidebar.html" title="">Destinations</a> </li>
                 <li><a
 				href="#" title="">Themed Tours</a> </li>
@@ -160,7 +162,7 @@ ul.rating {
 						</div>
 					</form>
 				</div>
-				</div>
+				</div><br><br><br><br><br><br>
 					 <div>
 		        <div id="slider">
 					<img src="img/tour_1.jpg" data-src-2x="img/tour_1.jpg" alt="Slide 1" />
@@ -192,33 +194,10 @@ ul.rating {
 					<div class="carousel"> 
 					  <ul class="slides">
 					  <li > 
-					    <!-- <div class="row"  ng-controller="destinationCtrl"> 
-						
-					<div class="col-md-3"  ng-repeat="x in names"> 
-							<a href="top-destinations-listview-sidebar.html">
-							<div class="ft-item"> 
-							<span class="ft-image"><img src="{{x.Photo}}" alt="featured Scroller" /> </span> 
-							   <div class="ft-data">
-							     <span  style="color:black;" class="text-upper fa fa-pagelines" href="#">&nbsp;&nbsp;{{x.Tours.Type}}</span> &nbsp;&nbsp;&nbsp;
-								 <span style="color:black;" class="fa fa-plane text-upper">&nbsp;&nbsp;Transport</span> &nbsp;&nbsp;
-								  <span style="color:black;" class=" text-upper"><i  style="color:black;" class="fa fa-glass"></i>&nbsp;&nbsp;{{x.Transport}}</span>
-							   </div> 
-								<div class="ft-foot"> <h4 class="ft-title text-upper" style="color:#686868">{{x.Name}}, RJ</h4> 
-								<span class="ft-offer text-upper">Starting INR {{x.Tours.StartingPrice}}</span> 
-								</div>
-								<div class="ft-foot-ex"> 
-								<span class="fa fa-image text-upper alignleft">&nbsp;&nbsp;100 tours&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;
-								<span star-rating rating-value="x.Review.Star" class="alignleft stars" ></span>								
-								<span class="alignright fa fa-eye">&nbsp;&nbsp;{{x.Review.Count}} reviews</span> 
-								</div> 							
-							</div>
-							</a>
-					 </div> 
-					 
-					 </div> -->	
+					   
 					 <div class="row"  ng-controller="toursCtrl"> 
 						
-					<div class="col-md-3"  ng-repeat="x in tours"> 
+					 <div class="col-md-3" ng-repeat="x in tours" ng-show="$index<4"> 
 							<a href="top-destinations-listview-sidebar.html">
 							<div class="ft-item"> 
 							<span class="ft-image"><img src="{{x.Media.Image.gs}}" alt="Popular Tours" /> </span> 
@@ -229,7 +208,7 @@ ul.rating {
 								  <span style="color:black;" class="fa">{{x.Title}}</span>
 							   </div> 
 							   
-								<div class="ft-foot"> <h4 class="ft-title text-upper" style="color:#686868">{{x.Guide}}, RJ</h4> 
+								<div class="ft-foot"> <h4 class="ft-title text-upper" style="color:#686868">{{x.Guide}}</h4> 
 								<span class="ft-offer text-upper">Starting&nbsp&nbsp{{x.Price}}</span> 
 								</div>
 								<div class="ft-foot-ex" > 
@@ -253,8 +232,8 @@ ul.rating {
 				<li> 
 				<div class="row"  ng-controller="guideCtrl">
 				
-				   <div class="col-md-3" ng-repeat="x in allguides"> 
-				   <a href="top-destinations-listview-sidebar.html">
+				<div class="col-md-3" ng-repeat="x in allguides" ng-show="$index<4"> 
+				   <a href="top-guides-listview.html">
 				      <div	class="ft-item"> 
 						  <span class="ft-image">
 							 <img src="{{x.Photo}}" alt="featured Scroller" /> 
@@ -263,7 +242,7 @@ ul.rating {
 								<div class="ft-data">
 							  <span style="color:black;" class="fa fa-odnoklassniki text-upper">&nbsp;&nbsp;{{x.Gender}}</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							  <span style="color:black;" class="fa fa-book text-upper" >&nbsp;&nbsp;{{x.Speciality}}</span>&nbsp;&nbsp;&nbsp;&nbsp;
-							  <span style="color:black;" class="fa fa-plane text-upper" >&nbsp;&nbsp;{{x.Transport}}</span>
+							  <span style="color:black;" class="fa fa-plane text-upper" >&nbsp;&nbsp;{{x.LanguageKnown}}</span>
 								</div> 
 					
 							<div class="ft-foot">
@@ -284,12 +263,51 @@ ul.rating {
 				</li> 
 				</ul>
 				</div>
+				
+				<h2 class="ft-heading text-upper">Top Destinations</h2>
+                <div class="carousel"> 
+				<ul class="slides">
+				<li> 
+				<div class="row"  ng-controller="placesCtrl">
+				
+				<div class="col-md-3" ng-repeat="x in places" ng-show="$index<4"> 
+				   <a href="top-guides-listview.html">
+				      <div	class="ft-item"> 
+						  <span class="ft-image">
+							 <img src="{{x.Media.Image.gs}}" alt="Top Destination" /> 
+						  </span>
+					  
+								<div class="ft-data">
+							  <span style="color:black;" class="fa fa-book text-upper">&nbsp;&nbsp;{{x.Description}}</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							  <!-- <span style="color:black;" class="fa fa-book text-upper" >&nbsp;&nbsp;{{x.Speciality}}</span>&nbsp;&nbsp;&nbsp;&nbsp;
+							  <span style="color:black;" class="fa fa-plane text-upper" >&nbsp;&nbsp;{{x.LanguageKnown}}</span> -->
+								</div> 
+					
+							<div class="ft-foot">
+							<h4 class="ft-title text-upper" style="color:#686868">{{x.Name}}</h4> 
+							<span class="ft-offer text-upper">{{x.Category}}</span> 
+							</div> 
+					
+							<div class="ft-foot-ex"> 
+								<span class="fa fa-shield text-upper alignleft">{{x.Attractions}}</span>
+								<!-- <span star-rating rating-value="x.Review.Star" class="aligncenter"></span>
+								<span class="alignright fa fa-eye">{{x.Review.Count}} reviews</span>  -->							
+							</div> 
+					</div>
+					</a>
+					 </div>
+				</div>
+				
+				</li> 
+				</ul>
+				</div>
+				
 				</div>
 				</div> <!-- END .main-contents -->
 
 			<!-- START .main-contents .bom-contents --> <div
 			class="main-contents bom-contents"> <div class="container">
-			<h2 class="text-center text-upper">Top Destinations</h2> <p
+			<h2 class="text-center text-upper">THEME BASED TOURS</h2> <p
 			class="headline text-center">Visit Unique Attractions around Special Themes</p>
 
 					<div class="row"> <!-- START featured destination 1
