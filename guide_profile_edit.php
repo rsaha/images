@@ -253,7 +253,7 @@
 					<input name="licenceNumber" class="form-control" type="text" value="<?php echo $licenceNumber ?>" /><br />
 					  <hr>
 					<label style="font-size:14px;">Licence Expiry Date :</label><br><br />
-					<input name="licenceValidty" class="form-control" min="2015-01-01" type="date" value="<?php echo $licenceValidty ?>" />
+					<input name="licenceValidty" class="form-control" min="2010-01-01" type="date" value="<?php echo $licenceValidty ?>" />
 					<hr>
 					<label style="font-size:14px;">Licence Image :</label><br><br />
 							
