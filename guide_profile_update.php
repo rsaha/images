@@ -38,6 +38,7 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 			$paymentTerm = mysql_real_escape_string($_POST['paymentTerm']);
 			$bestTimeToContact = mysql_real_escape_string($_POST['bestTimeToContact']);
 			$communicationMechanism = mysql_real_escape_string($_POST['communicationMechanism']);
+			@$languageKnown= $_POST['languageKnown'];
 			$experiance = mysql_real_escape_string($_POST['experiance']);
 			$remark = mysql_real_escape_string($_POST['remark']);
 			
@@ -214,6 +215,21 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 			
 			if($flag1==1 && $flag2==1)
 			{
+				if( is_array($languageKnown))
+				{
+					$deleteee = mysql_query("DELETE FROM `tbl_guide_known_languages` WHERE `user_id` = $userid");
+					while (list ($key, $val) = each ($languageKnown)) 
+					{
+						$insertINLan = mysql_query("INSERT INTO `tbl_guide_known_languages`
+						(
+						`user_id`, 
+						`language_id`
+						) VALUES (
+						$userid,
+						$val
+						)")  or die('Error : ' . mysql_error());
+					}
+				}
 			$msg = "Guide '$emailID' Profile Successfully Updated!!";
 			error_log($msg,0);
 			echo "<script type='text/javascript'>alert('$msg');</script>";

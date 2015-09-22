@@ -294,7 +294,7 @@
 					    </div>
 			      </div>
 						<!-- START #page -->
-						<div id="page" class="col-md-10">
+						<div id="page" class="col-md-10 col-sm-12 col-xs-12">
 							<div class="user-profile">
 								<!-- START TABS -->
 								<ul class="nav nav-tabs text-upper" style="background-color:#FFA98E;">
@@ -457,6 +457,31 @@
 													  <!-- col-sm-10 --> 
 													</div>
 												  </div> 
+												  
+												  <div class="col-sm-6 form-group">
+													<div class="row mgbt-xs-0">
+													  <label class="col-xs-5 control-label">Language Known:</label>
+													  <div class="col-xs-7 controls">
+													  <?php
+														$select4 = mysql_query("SELECT tl.language_id, tl.lanugage_name FROM tbl_guide_known_languages AS gkl INNER JOIN tbl_languages AS tl ON gkl.language_id=tl.language_id WHERE gkl.user_id = $userid");
+														while($row44 = mysql_fetch_array($select4))
+														{
+															echo $row44["lanugage_name"].", ";
+														}
+														?>
+													  <select class="form-control" multiple name="languageKnown[]" id="languageKnown" style="background-color:#f7f7f7;">
+												<?php 
+											  $select3 = mysql_query("SELECT * FROM `tbl_languages` WHERE `status` = 1");
+											  while($row33 = mysql_fetch_array($select3))
+												{
+												echo '<option value="' . $row33['language_id'] . '">' . $row33["lanugage_name"] . '</option>';
+												}
+												?>
+												</select>
+													  </div>
+													  <!-- col-sm-10 --> 
+													</div>
+												  </div> 
 												</div>
 
 												<h3 class=" mgtp-10 font-semibold"><i class="icon-user mgr-10 profile-icon"></i> PAYMENT TERMS</h3>
@@ -539,6 +564,8 @@
 				document.getElementById("bestTimeToContact").value = "<?php echo $bestTimeToContact ?>";
 				document.getElementById("communicationMechanism").value = "<?php echo $communicationMechanism ?>";
 			</script>
+			
+			
 			
 			<script>
 		function myFunction(id) {
