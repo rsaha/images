@@ -34,6 +34,7 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 			
 			$licenceNumber = mysql_real_escape_string($_POST['licenceNumber']);
 			$licenceValidty = mysql_real_escape_string($_POST['licenceValidty']);
+			$guideTerritory = mysql_real_escape_string($_POST['guideTerritory']);
 			$landLineNumber = mysql_real_escape_string($_POST['landLineNumber']);
 			$paymentTerm = mysql_real_escape_string($_POST['paymentTerm']);
 			$bestTimeToContact = mysql_real_escape_string($_POST['bestTimeToContact']);
@@ -102,6 +103,7 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 					`license_no`,
 					`license_Image`, 
 					`validity`, 
+					`guide_territory`, 
 					`landline_no`, 
 					`Best_time_for_contact`,
 					`payment_terms`, 
@@ -115,6 +117,7 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 					'$licenceNumber',
 					'$hex_string',
 					'$licenceValidty',
+					'$guideTerritory',
 					'$landLineNumber',
 					'$bestTimeToContact',
 					'$paymentTerm',
@@ -140,6 +143,7 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 					`user_id`, 
 					`license_no`,
 					`validity`, 
+					`guide_territory`, 
 					`landline_no`, 
 					`Best_time_for_contact`,
 					`payment_terms`, 
@@ -152,6 +156,7 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 					$userid, 
 					'$licenceNumber',
 					'$licenceValidty',
+					'$guideTerritory',
 					'$landLineNumber',
 					'$bestTimeToContact',
 					'$paymentTerm',
@@ -180,10 +185,19 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 				
 				if(isset($hex_string))
 				{
-					$update2 = mysql_query("UPDATE `tbl_guide_detail_profile` SET `guide_experience` = '$experiance', `license_no`='$licenceNumber',`validity`='$licenceValidty',
-					`license_Image` = '$hex_string',`landline_no`='$landLineNumber', `payment_terms`='$paymentTerm',
-					`Best_time_for_contact`='$bestTimeToContact', `Communication_mechanism`='$communicationMechanism',
-					`guide_Remarks`='$remark',`datecreated`=now() WHERE `user_id` = $userid") or die('Error : ' . mysql_error());
+					$update2 = mysql_query("UPDATE `tbl_guide_detail_profile` SET 
+					`guide_experience` = '$experiance', 
+					`license_no`='$licenceNumber',
+					`validity`='$licenceValidty', 
+					`guide_territory` = '$guideTerritory',
+					`license_Image` = '$hex_string',
+					`landline_no`='$landLineNumber', 
+					`payment_terms`='$paymentTerm',
+					`Best_time_for_contact`='$bestTimeToContact', 
+					`Communication_mechanism`='$communicationMechanism',
+					`guide_Remarks`='$remark',
+					`datecreated`=now() 
+					WHERE `user_id` = $userid") or die('Error : ' . mysql_error());
 					if($update2)
 					{
 						$flag2=1;
@@ -196,10 +210,18 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 				}
 				else
 				{
-					$update2 = mysql_query("UPDATE `tbl_guide_detail_profile` SET `guide_experience` = '$experiance', `license_no`='$licenceNumber',`validity`='$licenceValidty',
-					`landline_no`='$landLineNumber', `payment_terms`='$paymentTerm',
-					`Best_time_for_contact`='$bestTimeToContact', `Communication_mechanism`='$communicationMechanism',
-					`guide_Remarks`='$remark',`datecreated`=now() WHERE `user_id` = $userid") or die('Error : ' . mysql_error());
+					$update2 = mysql_query("UPDATE `tbl_guide_detail_profile` SET 
+					`guide_experience` = '$experiance', 
+					`license_no`='$licenceNumber',
+					`validity`='$licenceValidty', 
+					`guide_territory` = '$guideTerritory',
+					`landline_no`='$landLineNumber', 
+					`payment_terms`='$paymentTerm',
+					`Best_time_for_contact`='$bestTimeToContact', 
+					`Communication_mechanism`='$communicationMechanism',
+					`guide_Remarks`='$remark',
+					`datecreated`=now() 
+					WHERE `user_id` = $userid") or die('Error : ' . mysql_error());
 					if($update2)
 					{
 						$flag2=1;

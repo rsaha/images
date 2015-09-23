@@ -299,7 +299,7 @@ blockquote strong {font-size:16px;}
 .ft-plane {background:url(../img/icons/plane.png) 0 center no-repeat;} 
 .ft-tea {padding-left:20px; background:url(../img/icons/cup.png) 0 center no-repeat;}
 .ft-data a:hover {color:#000;}
-.ft-foot-ex {float:left; width:100%; padding:6px 0 0;}
+.ft-foot-ex {float:left; width:100%; padding:8px 0 0;}
 .ft-date, .ft-temp {color:#94969b; font-size:13px;}
 .ft-date {padding-left:16px; background:url(../img/icons/calendar.png) 0 center no-repeat;}
 .ft-temp {padding-right:16px; background:url(../img/icons/temp.png) right center no-repeat;}

@@ -45,6 +45,7 @@
 				$LicenceImage = $row22["license_Image"];
 				$licenceNumber = $row22["license_no"];
 				$licenceValidty = $row22["validity"];
+				$guideTerritory = $row22["guide_territory"];
 				$summery = $row22["guide_summary"];
 				$experiance = $row22["guide_experience"];
 				$intrest = $row22["guide_interest"];
@@ -60,6 +61,7 @@
 				$nickName = "";
 				$licenceNumber = "";
 				$licenceValidty = "";
+				$guideTerritory = "";
 				$summery = "";
 				$experiance = "";
 				$intrest = "";
@@ -407,16 +409,26 @@
 												  <div class="col-sm-6 col-xs-12">
 												<?php
 												$select3 = mysql_query("SELECT tl.lanugage_name FROM tbl_guide_known_languages AS gkl INNER JOIN tbl_languages AS tl ON gkl.language_id=tl.language_id WHERE gkl.user_id = $userid");
-												
+												$count4Lan = mysql_num_rows($select3);
 												?>
 				
 											  <div class="form-group">
 											  <label class="col-md-5 control-label" style="font-size:14px; font-weight:bold">Language Known:</label>
 											  <div class="col-md-7 controls">
-											  <?php while($row33 = mysql_fetch_array($select3))
-												{
-													echo $row33["lanugage_name"].", ";
-												}  
+											  <?php 
+											 $cnt=1;
+														while($row33 = mysql_fetch_array($select3))
+														{
+															if($count4Lan==$cnt)
+															{
+															echo $row33["lanugage_name"];
+															}
+															else
+															{
+																echo $row33["lanugage_name"].", ";
+															}
+															$cnt=$cnt+1;
+														}
 												?>
 												</div>
 												  </div>
@@ -425,6 +437,19 @@
 												  
 												</div>
 												
+												<hr class="pd-10">
+												<div class="row">
+												 <div class="col-sm-12 col-xs-12">
+													<div class="form-group">
+													  <h3 class=" font-semibold">GUIDE TERRITORY</h3>
+													<div class="content-list content-menu col-sm-11">
+													   <span class="menu-text"><?php echo $guideTerritory ?></span>
+													</div>
+												  </div>
+												  </div>
+												  </div>
+												  
+												  
 												<hr class="pd-10">
 												<div class="row">
 												 <div class="col-sm-12 col-xs-12">
