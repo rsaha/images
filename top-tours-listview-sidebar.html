@@ -44,6 +44,33 @@
   ga('send', 'pageview');
 
 </script>
+<!-- <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script> -->
+<script type="text/javascript"  src= "js/angular.min.js"></script>
+<script type="text/javascript"  src="topTour.js"></script>
+
+<style type="text/css">
+.rating {
+    color: #a9a9a9;
+    margin: 0;
+    padding: 0;
+}
+ul.rating {
+    display: inline-block;
+}
+.rating li {
+    list-style-type: none;
+    display: inline-block;
+    padding: 0px;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+	margin-top: -6px;
+    font-size: 16px;
+}
+.rating .filled {
+    color: #292c2f;
+}
+</style>
 	</head>
 	<!-- END head -->
 
@@ -84,7 +111,7 @@
 				title="">HOME</a> <!-- ul> <li><a href="index.html"
 				title="">HOME PAGE 1</a></li> <li><a href="home.html"
 				title="">HOME PAGE 2</a></li> </ul --> </li> <li><a
-				href="guides.html" title="">Guides</a> <!-- ul> <li><a
+				href="top-guides-listview.html" title="">Guides</a> <!-- ul> <li><a
 				href="deals.html" title="">DEALS PAGE</a></li> <li><a
 				href="deals-sidebar.html" title="">DEALS PAGE WITH
 				SIDEBAR</a></li> <li><a href="deals-detail.html"
@@ -130,109 +157,46 @@
 			
 			<!-- START .main-contents -->
 			<div class="main-contents">
-				<div class="container">
+				<div class="container" ng-app="topTours">
+				  
 					<div class="row">
-						<div class="col-md-8">
-							<div class="row">
+						<div class="col-md-8" ng-controller="toursCtrl" >
+							<div class="row" ng-repeat="x in tours">
 								<div class="col-md-12">
 									<div class="tour-plans">
 										<div class="plan-image">
-											<img class="img-responsive" src="http://placehold.it/770x210" alt="Kolkata, WB" href="tour_detail_sidebar.html"/>
+											<!-- <img class="img-responsive" src="{{x.Media.Image.gs}}" alt="Tour image" href="tour_detail_sidebar.html"/> -->
+											<img class="img-responsive" src="img/custom2.jpg" alt="Tour image" href="tour_detail_sidebar.html"/>
 											<div class="offer-box">
 												<div class="offer-top">
-													<span class="ft-temp alignright">19&#730;c</span>
-													<span class="featured-cr text-upper">Spain</span>
-													<h2 class="featured-cy text-upper">Barcelona</h2>
+													<span class="ft-temp alignright">{{x.Category}}</span>
+													<span class="featured-cr text-upper">{{x.Location}}</span>
+													<h2 class="featured-cy text-upper">{{x.Title}}</h2>
 												</div>
 												
 												<div class="offer-bottom">
 													<span class="featured-stf">Starting From </span>
-													<span class="featured-spe">250 $</span>
+													<span class="featured-spe">{{x.Price}}</span>
 												</div>
-												<div class="act-date">
-													<span class="bold">25</span>
-													<span>Nov</span>
-												</div>
+												<<!-- div class="act-date">
+													<span class="bold">{{x.}}</span>
+												</div> -->
 											</div>
 										</div>
 										<div class="featured-btm box-shadow1">
-											<a class="ft-hotel text-upper" href="#">6 nights VIP/Luxurious Hotel</a>
-											<a class="ft-plane text-upper" href="#">Return Air Ticket</a>
-											<a class="ft-tea text-upper" href="#">Complimentary Break Fast</a>
+											<span class="ft-hotel text-upper">{{x.Guide}}</span>
+											<span class="ft-plane text-upper">{{x.Duration}}</span>
+											<span class="ft-tea text-upper" star-rating rating-value="x.Reviews.OverallRating"></span>
+											<span class="alignleft fa fa-eye">&nbsp;&nbsp;{{x.Reviews.ReviewCount}} reviews</span> 
 										</div>
 										<div class="post-desc">
-											<h4>Amet turpis tristique, nec in aliquet dis amet</h4>
-											<p>Amet turpis tristique, nec in aliquet dis amet, proin egestas in tempor, cras et dapibus, lectus pellentesque enim odio elementum eu tincidunt diam a et. Dapibus sed cum, aliquam cras egestas enim elit in mattis? Scelerisque, ultrices mid! Lorem. Scelerisque? Pid cras, mattis vel, porta, quis! Porttitor turpis cras, odio ultricies parturient pulvinar tempor, eu turpis enim dapibus diam tristique cursus egestas quis phasellus natoque ac. </p>
-											<a class="btn btn-primary marb20" href="#">DETAILS</a>
+											<h4>{{x.Title}}</h4>
+											<!-- <p>{{x.Description}}</p> -->
+											<a class="btn btn-primary marb20" href="tour_detail_sidebar.html">DETAILS</a>
 										</div>
 									</div>
-								</div>
-								<div class="col-md-12">
-									<div class="tour-plans">
-										<div class="plan-image">
-											<img class="img-responsive" src="http://placehold.it/770x210" alt="Kolkata, WB" href="tour_detail_sidebar.html"/>
-											<div class="offer-box">
-												<div class="offer-top">
-													<span class="ft-temp alignright">19&#730;c</span>
-													<span class="featured-cr text-upper">Spain</span>
-													<h2 class="featured-cy text-upper">Barcelona</h2>
-												</div>
-												
-												<div class="offer-bottom">
-													<span class="featured-stf">Starting From </span>
-													<span class="featured-spe">250 $</span>
-												</div>
-												<div class="act-date">
-													<span class="bold">25</span>
-													<span>Nov</span>
-												</div>
-											</div>
-										</div>
-										<div class="featured-btm box-shadow1">
-											<a class="ft-hotel text-upper" href="#">6 nights VIP/Luxurious Hotel</a>
-											<a class="ft-plane text-upper" href="#">Return Air Ticket</a>
-											<a class="ft-tea text-upper" href="#">Complimentary Break Fast</a>
-										</div>
-										<div class="post-desc">
-											<h4>Amet turpis tristique, nec in aliquet dis amet</h4>
-											<p>Amet turpis tristique, nec in aliquet dis amet, proin egestas in tempor, cras et dapibus, lectus pellentesque enim odio elementum eu tincidunt diam a et. Dapibus sed cum, aliquam cras egestas enim elit in mattis? Scelerisque, ultrices mid! Lorem. Scelerisque? Pid cras, mattis vel, porta, quis! Porttitor turpis cras, odio ultricies parturient pulvinar tempor, eu turpis enim dapibus diam tristique cursus egestas quis phasellus natoque ac. </p>
-											<a class="btn btn-primary marb20" href="#">DETAILS</a>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-12">
-									<div class="tour-plans">
-										<div class="plan-image">
-											<img class="img-responsive" src="http://placehold.it/770x210" alt="Kolkata, WB" href="tour_detail_sidebar.html"/>
-											<div class="offer-box">
-												<div class="offer-top">
-													<span class="ft-temp alignright">19&#730;c</span>
-													<span class="featured-cr text-upper">Spain</span>
-													<h2 class="featured-cy text-upper">Barcelona</h2>
-												</div>
-												
-												<div class="offer-bottom">
-													<span class="featured-stf">Starting From </span>
-													<span class="featured-spe">250 $</span>
-												</div>
-												<div class="act-date">
-													<span class="bold">25</span>
-													<span>Nov</span>
-												</div>
-											</div>
-										</div>
-										<div class="featured-btm box-shadow1">
-											<a class="ft-hotel text-upper" href="#">6 nights VIP/Luxurious Hotel</a>
-											<a class="ft-plane text-upper" href="#">Return Air Ticket</a>
-											<a class="ft-tea text-upper" href="#">Complimentary Break Fast</a>
-										</div>
-										<div class="post-desc">
-											<h4>Amet turpis tristique, nec in aliquet dis amet</h4>
-											<p>Amet turpis tristique, nec in aliquet dis amet, proin egestas in tempor, cras et dapibus, lectus pellentesque enim odio elementum eu tincidunt diam a et. Dapibus sed cum, aliquam cras egestas enim elit in mattis? Scelerisque, ultrices mid! Lorem. Scelerisque? Pid cras, mattis vel, porta, quis! Porttitor turpis cras, odio ultricies parturient pulvinar tempor, eu turpis enim dapibus diam tristique cursus egestas quis phasellus natoque ac. </p>
-											<a class="btn btn-primary marb20" href="#">DETAILS</a>
-										</div>
-									</div>
-								</div>
+								</div><br>
+							
 								<div class="clearfix"></div>
 							</div>
 						</div>
@@ -242,9 +206,9 @@
 								<!-- Sidebar recent popular posts -->
 								<!-- START TABS -->
 								<ul class="nav nav-tabs text-upper">
-									<li class="active"><a href="#tours-on-sale" data-toggle="tab">Deal Tours</a></li>
-									<li><a href="#popular-tours" data-toggle="tab">Popular</a></li>
-									<li><a href="#recent-tours" data-toggle="tab">Newly Added</a></li>
+									<li class="active"><a href="#salestours" data-toggle="tab">Tours</a></li>
+									<li><a href="#newtours" data-toggle="tab">Guides</a></li>
+									<li><a href="#" data-toggle="tab">Attractions</a></li>
 								</ul>
 								<!-- END TABS -->
 								

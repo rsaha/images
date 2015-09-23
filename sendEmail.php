@@ -9,7 +9,7 @@ function SendMail($fromAddress, $fromName, $toAddress, $toName, $subject, $messa
       return 1;
     }
 	
-	else {// if($env == "production"){
+	else {
 		require_once("./sendgrid-php/sendgrid-php.php");
 		$apiKey = parse_ini_file('config.ini',true)['emailApiKey'];
 		
@@ -44,6 +44,7 @@ function SendMail($fromAddress, $fromName, $toAddress, $toName, $subject, $messa
 //Need to send welcome email with template header
 function SendMailTemplate($fromAddress, $fromName, $toAddress, $toName, $subject, $templateId)
 {
+
 	
     $env = parse_ini_file('config.ini',true)['env'];
     if($env == "development"){

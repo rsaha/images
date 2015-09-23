@@ -40,7 +40,6 @@
 				$LicenceImage = $row22["license_Image"];
 				$licenceNumber = $row22["license_no"];
 				$licenceValidty = $row22["validity"];
-				$guideTerritory = $row22["guide_territory"];
 				$summery = $row22["guide_summary"];
 				$experiance = $row22["guide_experience"];
 				$intrest = $row22["guide_interest"];
@@ -56,7 +55,6 @@
 				$nickName = "";
 				$licenceNumber = "";
 				$licenceValidty = "";
-				$guideTerritory = "";
 				$summery = "";
 				$experiance = "";
 				$intrest = "";
@@ -255,7 +253,7 @@
 					<input name="licenceNumber" class="form-control" type="text" value="<?php echo $licenceNumber ?>" /><br />
 					  <hr>
 					<label style="font-size:14px;">Licence Expiry Date :</label><br><br />
-					<input name="licenceValidty" class="form-control" min="2015-01-01" type="date" value="<?php echo $licenceValidty ?>" />
+					<input name="licenceValidty" class="form-control" min="2010-01-01" type="date" value="<?php echo $licenceValidty ?>" />
 					<hr>
 					<label style="font-size:14px;">Licence Image :</label><br><br />
 							
@@ -437,7 +435,7 @@
 													  <label class="col-xs-5 control-label">Communication Mechanism:</label>
 													  <div class="col-xs-7 controls">
 													  <select class="form-control"  style="background-color:#f7f7f7;" name="communicationMechanism" id="communicationMechanism">
-														<option value="Mobile & Email">Mobile &amp; Email</option>
+														<option value="Any">Mobile &amp; Email</option>
                                                         <option value="Mobile">Mobile</option>
 														<option value="Email">Email</option>
 														</select>
@@ -450,7 +448,7 @@
 													  <label class="col-xs-5 control-label">Best time to contact:</label>
 													  <div class="col-xs-7 controls">
 													  <select class="form-control" style="background-color:#f7f7f7;" name="bestTimeToContact" id="bestTimeToContact">
-															<option value="ANY TIME">ANY TIME</option>
+															<option value="Any">ANY TIME</option>
 															<option value="08:00 AM - 12:00 PM">08:00 AM - 12:00 PM</option>
 															<option value="12:00 PM - 04:00 PM">12:00 PM - 04:00 PM</option>
 															<option value="04:00 PM - 08:00 PM">04:00 PM - 08:00 PM</option>
@@ -464,27 +462,19 @@
 													<div class="row mgbt-xs-0">
 													  <label class="col-xs-5 control-label">Language Known:</label>
 													  <div class="col-xs-7 controls">
-													  
-													  <select class="form-control" multiple name="languageKnown[]" id="languageKnown" style="background-color:#f7f7f7;">
-												<?php 
-											  $select3 = mysql_query("SELECT * FROM `tbl_languages` WHERE `status` = 1 ORDER BY `lanugage_name`");
-											  while($row33 = mysql_fetch_array($select3))
-												{
-													$fish=0;
-													$select4 = mysql_query("SELECT tl.language_id, tl.lanugage_name FROM tbl_guide_known_languages AS gkl INNER JOIN tbl_languages AS tl ON gkl.language_id=tl.language_id WHERE gkl.user_id = $userid");
+													  <?php
+														$select4 = mysql_query("SELECT tl.language_id, tl.lanugage_name FROM tbl_guide_known_languages AS gkl INNER JOIN tbl_languages AS tl ON gkl.language_id=tl.language_id WHERE gkl.user_id = $userid");
 														while($row44 = mysql_fetch_array($select4))
 														{
-															if($row33['language_id'] == $row44['language_id'])
-															{
-																echo '<option selected value="' . $row33['language_id'] . '">' . $row33["lanugage_name"] . '</option>';
-																$fish=1;
-															}
+															echo $row44["lanugage_name"].", ";
 														}
-														if($fish==0)
-														{
-															echo '<option value="' . $row33['language_id'] . '">' . $row33["lanugage_name"] . '</option>';
-															
-														}
+														?>
+													  <select class="form-control" multiple name="languageKnown[]" id="languageKnown" style="background-color:#f7f7f7;">
+												<?php 
+											  $select3 = mysql_query("SELECT * FROM `tbl_languages` WHERE `status` = 1");
+											  while($row33 = mysql_fetch_array($select3))
+												{
+												echo '<option value="' . $row33['language_id'] . '">' . $row33["lanugage_name"] . '</option>';
 												}
 												?>
 												</select>
@@ -492,13 +482,6 @@
 													  <!-- col-sm-10 --> 
 													</div>
 												  </div> 
-												</div>
-												
-												<h3 class=" mgtp-10 font-semibold"><i class="icon-user mgr-10 profile-icon"></i>GUIDE TERRITORY</h3>
-												<div class="row">
-												<div class="col-sm-12">
-												<textarea name="guideTerritory" class="form-control" style="background-color:#f7f7f7;" rows="2" style="width:100%;" ><?php echo $guideTerritory ?></textarea>
-												</div>
 												</div>
 
 												<h3 class=" mgtp-10 font-semibold"><i class="icon-user mgr-10 profile-icon"></i> PAYMENT TERMS</h3>

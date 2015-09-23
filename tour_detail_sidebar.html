@@ -32,49 +32,54 @@
 		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Karla:400,700,400italic,700italic" />
 		<!-- color scheme -->
 		<link rel="stylesheet" type="text/css" href="css/colors/color3.css" title="color3" />
+        
+        <script src= "js/angular.min.js"></script>
+        <script src="myDestination.js"></script>
+        <!-- Google Analytics -->
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-64862528-1', 'auto');
+            ga('send', 'pageview');
+
+        </script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+        <script type="text/javascript"  src= "js/angular.min.js"></script>
+        <script type="text/javascript"  src="topTour.js"></script>
+		
 	</head>
 	<!-- END head -->
 
 	<!-- START body -->
-	<body>
-		<!-- START #wrapper -->
+	<body ng-app="topTours" ng-controller="tourDetailCtrl" >
+		<!-- START #wrapper --> 
 		<div id="wrapper">
 			<!-- START header -->
 			<header>
-				<!-- START #top-header -->
-				<div id="top-header">
-					<div class="container">
-						<div class="row top-row">
-							<div class="col-md-6">
-								<div class="left-part alignleft">
-									<span class="contact-email small">touchus@travelhub.com</span>
-									<span class="contact-phone small">+1 125 496 0999</span>
-									<ul class="social-media header-social">
-										<li><a class="sm-yahoo" href="#"><span>Yahoo</span></a></li>
-										<li><a class="sm-facebook" href="#"><span>Facebook</span></a></li>
-										<li><a class="sm-rss" href="#"><span>RSS</span></a></li>
-										<li><a class="sm-flickr" href="#"><span>Flicker</span></a></li>
-										<li><a class="sm-windows" href="#"><span>Windows</span></a></li>
-										<li><a class="sm-stumble" href="#"><span>Stumbleupon</span></a></li>
-									</ul>
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="right-part alignright">
-									<form action="#" method="get">
-										<fieldset class="alignright">
-											<input type="text" name="s" class="search-input" value="Search..." onfocus="if (this.value == 'Search...') { this.value = ''; }" onblur="if (this.value == '') { this.value = 'Search...'; }" />
-											<input type="submit" name="submit" class="search-submit" value="" />
-										</fieldset>
-									</form>
-									<span class="top-link small">Tell a Friend</span>
-									<span class="top-link small">Bookmark</span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- END #top-header -->
+				<!-- START #top-header
+	--> <div id="top-header"> <div class="container"> <div class="row
+	top-row"> <div class="col-md-6"> <div class="left-part alignleft">
+	<span class="contact-email small">touchus@guidedgateway.com</span>
+	<span class="contact-phone small">+1 510 938 2562</span> <ul
+	class="social-media header-social"> <li><a class="sm-facebook"
+	href="#"><span>Facebook</span></a></li> <li><a class="sm-flickr"
+	href="#"><span>Pinterest</span></a></li> <li><a class="sm-windows"
+	href="#"><span>Youtube</span></a></li> <li><a class="sm-stumble"
+	href="#"><span>Twitter</span></a></li> </ul> </div> </div> <div
+	class="col-md-6"> <div class="right-part alignright"> <form
+	action="#" method="get"> <fieldset class="alignright"> <input
+	type="text" name="s" class="search-input" value="Search..."
+	onfocus="if (this.value == 'Search...') { this.value = ''; }"
+	onblur="if (this.value == '') { this.value = 'Search...'; }" />
+	<input type="submit" name="submit" class="search-submit" value="" />
+	</fieldset> </form> <span class="top-link small"><a
+										href="guide_login.php" title="">Guide
+										Sign-in</a></span> <span class="top-link small"><a href="sign-in.html"
+										title="">SIGN IN</a></span> </div>
+	</div> </div> </div> </div> <!-- END #top-header -->
 				
 				<!-- START #main-header --> <div id="main-header"> <div
 				class="container"> <div class="row"> <div
@@ -82,19 +87,9 @@
 				src="images/logo.png" alt="Guided Gateway" /> </a> </div> <div
 				class="col-md-9"> <nav class="main-nav">
 				<span>MENU</span> <ul id="main-menu"> <li><a href="index.html"
-				title="">HOME</a> <!-- ul> <li><a href="index.html"
-				title="">HOME PAGE 1</a></li> <li><a href="home.html"
+				title="">HOME</a> 
 				title="">HOME PAGE 2</a></li> </ul --> </li> <li><a
-				href="guides.html" title="">Guides</a> <!-- ul> <li><a
-				href="deals.html" title="">DEALS PAGE</a></li> <li><a
-				href="deals-sidebar.html" title="">DEALS PAGE WITH
-				SIDEBAR</a></li> <li><a href="deals-detail.html"
-				title="">DEALS DETAIL</a></li> <li><a
-				href="deals-detail-sidebar.html" title="">DEALS DETAIL
-				SIDEBAR</a></li> <li><a href="deals-listview.html"
-				title="">LIST VIEW</a></li> <li><a
-				href="deals-listview-sidebar.html" title="">LIST VIEW
-				SIDEBAR</a></li> </ul--> </li> <li><a
+				href="top-guides-listview.html" title="">Guides</a> </li> <li><a
 				href="top-destinations-listview-sidebar.html" title="">Destinations</a> </li>
                 <li><a
 				href="#" title="">Themed Tours</a> </li>
@@ -110,7 +105,7 @@
 					<div class="container">
 						<div class="row">
 							<section class="col-sm-6">
-								<h1 class="text-upper">Three days in Historic Agra</h1>
+								<h1 class="text-upper">{{tour.Title}}</h1>
 							</section>
 							
 							<!-- breadcrumbs -->

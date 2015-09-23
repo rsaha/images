@@ -140,9 +140,8 @@ ul.rating {
 		
 									</ul> </nav> </div> </div> </div>
 					<div class="main-contents col-md-8 col-md-offset-2" id="searchDiv">
-					 <div class=""  class="col-md-12">
 					<form class="plan-tour">
-						<div class="top-fields" class="col-md-12">
+						<div class="top-fields"><br>
 						<div class="row">								
 						<div class="col-md-8 col-md-offset-1">
 						<input type="text" class="form-control" style="background-color:white;" placeholder="Where to go?" />
@@ -161,8 +160,7 @@ ul.rating {
 						</div>
 						</div>
 					</form>
-				</div>
-				</div><br><br><br><br><br><br>
+				</div><br><br><br><br><br><br><br>
 					 <div>
 		        <div id="slider">
 					<img src="img/tour_1.jpg" data-src-2x="img/tour_1.jpg" alt="Slide 1" />
@@ -198,7 +196,7 @@ ul.rating {
 					 <div class="row"  ng-controller="toursCtrl"> 
 						
 					 <div class="col-md-3" ng-repeat="x in tours" ng-show="$index<4"> 
-							<a href="top-destinations-listview-sidebar.html">
+							<a href="top-tours-listview-sidebar.html">
 							<div class="ft-item"> 
 							<span class="ft-image"><img src="{{x.Media.Image.gs}}" alt="Popular Tours" /> </span> 
 							   <div class="ft-data">
@@ -236,7 +234,7 @@ ul.rating {
 				   <a href="top-guides-listview.html">
 				      <div	class="ft-item"> 
 						  <span class="ft-image">
-							 <img src="{{x.Photo}}" alt="featured Scroller" /> 
+							 <img src="{{x.Photo}}" alt="Top Guide" /> 
 						  </span>
 					  
 								<div class="ft-data">
@@ -271,7 +269,7 @@ ul.rating {
 				<div class="row"  ng-controller="placesCtrl">
 				
 				<div class="col-md-3" ng-repeat="x in places" ng-show="$index<4"> 
-				   <a href="top-guides-listview.html">
+				   <a href="top-destinations-listview-sidebar.html">
 				      <div	class="ft-item"> 
 						  <span class="ft-image">
 							 <img src="{{x.Media.Image.gs}}" alt="Top Destination" /> 
@@ -467,21 +465,7 @@ ul.rating {
 	    }	    }
 		</script>
 	
-		<!--- SELECT BOX -->
-		<!-- <script type="text/javascript">
-   		$(function() {    	
-                
-					$('span.stars').stars();	
-		});
-
-		$.fn.stars = function() {
-			return $(this).each(function() {
-				$(this).html($('<span />').width(Math.max(0, (Math.min(5, parseFloat($(this).html())))) * 8));
-			});
-		}
-	  </script> -->
-	
-	<!-- <span class="stars alignleft">1</span> -->
+		
 	
 		</body> 
 		</html>
