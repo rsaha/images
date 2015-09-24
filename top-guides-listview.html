@@ -42,7 +42,36 @@
   ga('send', 'pageview');
 
 </script>
+<style type="text/css">
+	
+	
+		
+.rating {
+    color: #a9a9a9;
+    margin: 0;
+    padding: 0;
+}
+ul.rating {
+    display: inline-block;
+}
+.rating li {
+    list-style-type: none;
+    display: inline-block;
+    padding: 0px;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+	margin-top: -6px;
+    font-size: 20px;
+}
+.rating .filled {
+    color: #ff845e;
+}
 
+	</style>
+<script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+   <script src="guideList.js"></script>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	</head> <!-- END head -->
 
 	<!-- START body --> <body> <!-- START #wrapper --> <div
@@ -173,173 +202,279 @@
 				</div>
 			</div>
 			<!-- END #page-header -->
-			
+			<div class="main-contents col-md-8 col-md-offset-2" id="searchDiv">
+					<form class="plan-tour">
+						<div class="top-fields"><br>
+						<div class="row">								
+						<div class="col-md-8 col-md-offset-1">
+						<input type="text" class="form-control" style="background-color:white;" placeholder="Where to go?" />
+						</div> 
+						<div class="col-md-2" >
+						<input type="submit" class="form-control" style="background-color:#ff845e;" class="btn btn-primary" value="Search" /> 
+						</div> 
+						</div>
+						<div class="row">
+						<div class="col-md-7 col-md-offset-1"> <br>
+						<label >Search via</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<label><input class="input-cb"	type="checkbox" name="inc_Tour" value="1"	checked="checked" /> Tours</label>&nbsp;&nbsp;&nbsp;&nbsp;
+						<label><input class="input-cb" type="checkbox" name="inc_Guide" value="1" checked="checked" /> Guides </label>&nbsp;&nbsp;&nbsp;&nbsp;
+						<label><input class="input-cb" type="checkbox"	name="inc_Destination" value="1" checked="checked"/> Destinations</label>&nbsp;&nbsp; 
+						</div> 
+						</div>
+						</div>
+					</form>
+				</div>
 			<!-- START .main-contents -->
 			<div class="main-contents">
 				<div class="container">
 					<div class="row">
-						<div class="col-md-3">
-							<div class="ft-item">
+					  <div class="col-md-8" ng-app="myGuideList">
+							<div class="row" ng-controller="guideCtrl">
+						<div class="col-md-4" ng-repeat="x in allguides" >
+							<!-- <div class="ft-item">
 								<span class="ft-image">
 									<img alt="featured Scroller" src="{{x.Photo}}" draggable="false">
 								</span>
 								<div class="ft-data">
-									<a href="#" class="ft-hotel text-upper">Male</a>
-									<a href="#" class="ft-plane text-upper">Art</a>
-									<a href="#" class="ft-tea text-upper">German</a>
+									<a href="#" class="ft-hotel text-upper">{{x.Gender}}</a>
+									<a href="#" class="ft-plane text-upper">{{x.Speciality}}</a>
+									<a href="#" class="ft-tea text-upper">{{x.LanguageKnown}}</a>
 								</div>
 								<div class="ft-foot">
-									<h4 class="ft-title text-upper"><a href="#">Sujay Kar  All Over India</a></h4>
+									<h3 class="ft-title text-upper"><a href="#">{{x.Name}}</a></h3>
+									<span class="ft-offer text-upper">&nbsp&nbsp{{x.Territory}}</span>
 								</div>
 								<div class="ft-foot-ex">
 									<span class="fa fa-shield text-upper alignleft">&nbsp;&nbsp;{{x.Tours.Count}} Tours&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;
 								<span star-rating rating-value="x.Review.Star" class="aligncenter"></span>
 								<span class="alignright fa fa-eye">{{x.Review.Count}} reviews</span>
 								</div>
-							</div>
-						</div>
-						<div class="col-md-3">
-							<div class="ft-item">
-								<span class="ft-image">
-									<img alt="featured Scroller" src="http://placehold.it/270x137" draggable="false">
-								</span>
+							</div> -->
+							 <div	class="ft-item"> 
+						  <span class="ft-image">
+							 <img src="{{x.Photo}}" alt="Top Guide" /> 
+						  </span>
+					  
 								<div class="ft-data">
-									<a href="#" class="ft-hotel text-upper">Lodging</a>
-									<a href="#" class="ft-plane text-upper">History</a>
-									<a href="#" class="ft-tea text-upper">Custom</a>
-								</div>
-								<div class="ft-foot">
-									<h4 class="ft-title text-upper"><a href="#">Konark, OR</a></h4>
-									<span class="ft-offer text-upper">Starting From 220 $</span>
-								</div>
-								<div class="ft-foot-ex">
-									<span class="ft-date text-upper alignleft">**** 4020 reviews</span>
-									<span class="ft-temp alignright">Female</span>
-								</div>
-							</div>
+							  <span style="color:black;" class="fa fa-odnoklassniki text-upper">&nbsp;&nbsp;{{x.Gender}}</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							  <span style="color:black;" class="fa fa-book text-upper" >&nbsp;&nbsp;{{x.Speciality}}</span>&nbsp;&nbsp;&nbsp;&nbsp;
+							  <span style="color:black;" class="fa fa-plane text-upper" >&nbsp;&nbsp;{{x.LanguageKnown}}</span>
+								</div> 
+					
+							<div class="ft-foot">
+							<h4 class="ft-title text-upper" style="color:#686868">{{x.Name}},&nbsp{{x.Territory}}</h4> 
+							<!-- <span class="ft-offer text-upper">{{x.Tours.Count}} Tours</span>  -->
+							</div> 
+					
+							<div class="ft-foot-ex"> 
+								<span class="fa fa-shield text-upper alignleft">&nbsp;&nbsp;{{x.Tours.Count}} Tours&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;
+								<span star-rating rating-value="x.Review.Star" class="aligncenter"></span>
+								<span class="alignright fa fa-eye">{{x.Review.Count}} reviews</span> 							
+							</div> 
+					       </div>
 						</div>
-						<div class="col-md-3">
-							
-							<div class="ft-item">
-								<span class="ft-image">
-									<img alt="featured Scroller" src="http://placehold.it/270x137" draggable="false">
-								</span>
-								<div class="ft-data">
-									<a href="#" class="ft-hotel text-upper">Lodging</a>
-									<a href="#" class="ft-plane text-upper">History</a>
-									<a href="#" class="ft-tea text-upper">Custom</a>
-								</div>
-								<div class="ft-foot">
-									<h4 class="ft-title text-upper"><a href="#">Konark, OR</a></h4>
-									<span class="ft-offer text-upper">Starting From 220 $</span>
-								</div>
-								<div class="ft-foot-ex">
-									<span class="ft-date text-upper alignleft">**** 4020 reviews</span>
-									<span class="ft-temp alignright">Female</span>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-3">
-							<div class="ft-item">
-								<span class="ft-image">
-									<img alt="featured Scroller" src="http://placehold.it/270x137" draggable="false">
-								</span>
-								<div class="ft-data">
-									<a href="#" class="ft-hotel text-upper">Lodging</a>
-									<a href="#" class="ft-plane text-upper">History</a>
-									<a href="#" class="ft-tea text-upper">Custom</a>
-								</div>
-								<div class="ft-foot">
-									<h4 class="ft-title text-upper"><a href="#">Konark, OR</a></h4>
-									<span class="ft-offer text-upper">Starting From 220 $</span>
-								</div>
-								<div class="ft-foot-ex">
-									<span class="ft-date text-upper alignleft">**** 4020 reviews</span>
-									<span class="ft-temp alignright">Female</span>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-3">
-							<div class="ft-item">
-								<span class="ft-image">
-									<img alt="featured Scroller" src="http://placehold.it/270x137" draggable="false">
-								</span>
-								<div class="ft-data">
-									<a href="#" class="ft-hotel text-upper">Lodging</a>
-									<a href="#" class="ft-plane text-upper">History</a>
-									<a href="#" class="ft-tea text-upper">Custom</a>
-								</div>
-								<div class="ft-foot">
-									<h4 class="ft-title text-upper"><a href="#">Konark, OR</a></h4>
-									<span class="ft-offer text-upper">Starting From 220 $</span>
-								</div>
-								<div class="ft-foot-ex">
-									<span class="ft-date text-upper alignleft">**** 4020 reviews</span>
-									<span class="ft-temp alignright">Female</span>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-3">
-							<div class="ft-item">
-								<span class="ft-image">
-									<img alt="featured Scroller" src="http://placehold.it/270x137" draggable="false">
-								</span>
-								<div class="ft-data">
-									<a href="#" class="ft-hotel text-upper">Lodging</a>
-									<a href="#" class="ft-plane text-upper">History</a>
-									<a href="#" class="ft-tea text-upper">Custom</a>
-								</div>
-								<div class="ft-foot">
-									<h4 class="ft-title text-upper"><a href="#">Kolkata, WB</a></h4>
-									<span class="ft-offer text-upper">Starting From 250 $</span>
-								</div>
-								<div class="ft-foot-ex">
-									<span class="ft-date text-upper alignleft">**** 4020 reviews</span>
-									<span class="ft-temp alignright">Female</span>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-3">
-							<div class="ft-item">
-								<span class="ft-image">
-									<img alt="featured Scroller" src="http://placehold.it/270x137" draggable="false">
-								</span>
-								<div class="ft-data">
-									<a href="#" class="ft-hotel text-upper">Lodging</a>
-									<a href="#" class="ft-plane text-upper">History</a>
-									<a href="#" class="ft-tea text-upper">Custom</a>
-								</div>
-								<div class="ft-foot">
-									<h4 class="ft-title text-upper"><a href="#">Kolkata, WB</a></h4>
-									<span class="ft-offer text-upper">Starting From 250 $</span>
-								</div>
-								<div class="ft-foot-ex">
-									<span class="ft-date text-upper alignleft">**** 4020 reviews</span>
-									<span class="ft-temp alignright">Female</span>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-3">
-							<div class="ft-item">
-								<span class="ft-image">
-									<img alt="featured Scroller" src="http://placehold.it/270x137" draggable="false">
-								</span>
-								<div class="ft-data">
-									<a href="#" class="ft-hotel text-upper">Lodging</a>
-									<a href="#" class="ft-plane text-upper">History</a>
-									<a href="#" class="ft-tea text-upper">Custom</a>
-								</div>
-								<div class="ft-foot">
-									<h4 class="ft-title text-upper"><a href="#">Kolkata, WB</a></h4>
-									<span class="ft-offer text-upper">Starting From 250 $</span>
-								</div>
-								<div class="ft-foot-ex">
-									<span class="ft-date text-upper alignleft">**** 4020 reviews</span>
-									<span class="ft-temp alignright">Female</span>
-								</div>
-							</div>
-						</div>
+						
+						
+						
+						
+						
+						
+					
 						<div class="clearfix"></div>
+					  </div>
+					 </div>
+					        <aside id="sidebar" class="col-md-4">
+							<div class="sidebar-widget">
+								<!-- Sidebar recent popular posts -->
+								<!-- START TABS -->
+								<ul class="nav nav-tabs text-upper">
+									<li class="active"><a href="#salestours" data-toggle="tab">Tours on Sale</a></li>
+									<li><a href="#newtours" data-toggle="tab">Newly Added</a></li>
+									<li><a href="#" data-toggle="tab"></a></li>
+								</ul>
+								<!-- END TABS -->
+								
+								<!-- START TAB CONTENT -->
+								<div class="tab-content gray box-shadow1 clearfix marb30">
+									<!-- START TAB 1 -->
+									<div class="tab-pane active" id="popular-posts">
+										<ul class="rc-posts-list list-unstyled">
+											<li>
+												<span class="rc-post-image">
+													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 2" />
+												</span>
+												<h5><a href="#">Limbaugh: Does 'Dark Knight Rise have it Bomb Found...</a></h5>
+												<span class="rc-post-date small">January 18, 2014</span>
+											</li>
+											<li>
+												<span class="rc-post-image">
+													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 4" />
+												</span>
+												<h5><a href="#">Shares suspende am Bankiaid 'Gloomy Forecast'</a></h5>
+												<span class="rc-post-date small">January 11, 2014</span>
+											</li>
+											<li>
+												<span class="rc-post-image">
+													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 3" />
+												</span>
+												<h5><a href="#">Shares suspende am Bankiaid 'Gloomy Forecast'</a></h5>
+												<span class="rc-post-date small">January 15, 2014</span>
+											</li>
+											<li class="last-rc-post">
+												<span class="rc-post-image">
+													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 1" />
+												</span>
+												<h5><a href="#">Apple Fails to Fix iPhone Daylight Saving Time Alarm Bug</a></h5>
+												<span class="rc-post-date small">January 20, 2014</span>
+											</li>
+										</ul>
+									</div>
+									<!-- END TAB 1 -->
+									
+									<!-- START TAB 2 -->
+									<div class="tab-pane" id="recent-posts">
+										<ul class="rc-posts-list list-unstyled">
+											<li>
+												<span class="rc-post-image">
+													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 1" />
+												</span>
+												<h5><a href="#">Apple Fails to Fix iPhone Daylight Saving Time Alarm Bug</a></h5>
+												<span class="rc-post-date small">January 20, 2014</span>
+											</li>
+											<li>
+												<span class="rc-post-image">
+													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 2" />
+												</span>
+												<h5><a href="#">Limbaugh: Does 'Dark Knight Rise have it Bomb Found...</a></h5>
+												<span class="rc-post-date small">January 18, 2014</span>
+											</li>
+											<li>
+												<span class="rc-post-image">
+													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 3" />
+												</span>
+												<h5><a href="#">Shares suspende am Bankiaid 'Gloomy Forecast'</a></h5>
+												<span class="rc-post-date small">January 15, 2014</span>
+											</li>
+											<li class="last-rc-post">
+												<span class="rc-post-image">
+													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 4" />
+												</span>
+												<h5><a href="#">Shares suspende am Bankiaid 'Gloomy Forecast'</a></h5>
+												<span class="rc-post-date small">January 11, 2014</span>
+											</li>
+										</ul>
+									</div>
+									<!-- END TAB 2 -->
+									
+									<!-- START TAB 3 -->
+									<div class="tab-pane" id="recent-comments">
+										<div class="inside-pane">
+											<p>Amet turpis tristique, nec in aliquet dis amet, proin egestas in tempor, cras et dapibus, lectus pellentesque enim odio elementum eu tincidunt diam a et. Dapibus sed cum, aliquam cras egestas enim elit in mattis? Scelerisque, ultrices mid! Lorem. Scelerisque? Pid cras, mattis vel, porta, quis! Porttitor turpis cras, odio ultricies parturient pulvinar tempor.</p>
+											<p>eu turpis enim dapibus diam tristique cursus egestas quis phasellus montes! Parturient porta purus quis scelerisque? Vel proin, ac odio cras penatibus magnis non? Aliquam elementum, dis? Elementum ac.</p>
+										</div>
+									</div>
+									<!-- END TAB 3 -->
+								</div>
+								<!-- END TAB CONTENT -->
+							</div>
+							
+							<div class="sidebar-widget">
+								<!-- Sidebar facebook widget -->
+								<!-- START TABS -->
+								<ul class="nav nav-tabs social-tabs text-upper">
+									<li class="active"><a class="facebook-tab" href="#facebook-tab" data-toggle="tab">Facebook</a></li>
+									<li><a class="twitter-tab" href="#pinterest-tab" data-toggle="tab">Pinterest</a></li>
+									<li><a class="share-tab" href="#share-tab" data-toggle="tab">Like Us</a></li>
+								</ul>
+								<!-- END TABS -->
+								
+								<!-- START TAB CONTENT -->
+								<div class="tab-content clearfix marb30">
+									<!-- START TAB 1 -->
+									<div class="tab-pane active" id="facebook-tab">
+										<div id="fb-widget">
+											<iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2FFacebookDevelopers&amp;width&amp;height=290&amp;colorscheme=light&amp;show_faces=true&amp;header=true&amp;stream=false&amp;show_border=true" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:290px;" allowTransparency="true"></iframe>
+										</div>
+									</div>
+									<!-- END TAB 1 -->
+									
+									<!-- START TAB 2 -->
+									<div class="tab-pane" id="twitter-tab">
+										
+									</div>
+									<!-- END TAB 2 -->
+									
+									<!-- START TAB 3 -->
+									<div class="tab-pane" id="share-tab">
+										
+									</div>
+									<!-- END TAB 3 -->
+								</div>
+								<!-- END TAB CONTENT -->
+							</div>
+							
+							<div class="sidebar-widget">
+								<!-- Sidebar What We Do -->
+								<h3 class="text-upper">What We Do ?</h3>
+								<div class="panel-group" id="accordion">
+									<div class="panel panel-default">
+										<div class="panel-heading">
+											<a class="panel-title" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+												A Simple Heading for Accordion
+											</a>
+										</div>
+										<div id="collapseOne" class="panel-collapse collapse in">
+											<div class="panel-body">
+												Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+											</div>
+										</div>
+									</div>
+									<div class="panel panel-default">
+										<div class="panel-heading">
+											<a class="panel-title collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+												Another Example of Accordion
+											</a>
+										</div>
+										<div id="collapseTwo" class="panel-collapse collapse">
+											<div class="panel-body">
+												Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+											</div>
+										</div>
+									</div>
+									<div class="panel panel-default">
+										<div class="panel-heading">
+											<a class="panel-title collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+												This is The Last Test Item
+											</a>
+										</div>
+										<div id="collapseThree" class="panel-collapse collapse">
+											<div class="panel-body">
+												Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							<div class="sidebar-widget">
+								<!-- Sidebar Flickr Gallery -->
+								<h3 class="text-upper">Pinterest Board</h3>
+								<ul class="flickr-gal list-unstyled">
+									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
+									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
+									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
+									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
+									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
+									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
+									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
+									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
+									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
+									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
+									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
+									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
+								</ul>
+							</div>
+						</aside>
 					</div>
 					<!-- START .pagination -->
 					<ul class="pagination">
