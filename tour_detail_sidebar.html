@@ -47,13 +47,19 @@
 
         </script>
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+<<<<<<< HEAD
         
+=======
+        <script type="text/javascript"  src= "js/angular.min.js"></script>
+        <script type="text/javascript"  src="topTour.js"></script>
+		
+>>>>>>> 7993f1e7aabf911724ce186beb5d56c74674bb13
 	</head>
 	<!-- END head -->
 
 	<!-- START body -->
-	<body>
-		<!-- START #wrapper -->
+	<body ng-app="topTours" ng-controller="tourDetailCtrl" >
+		<!-- START #wrapper --> 
 		<div id="wrapper">
 			<!-- START header -->
 			<header>
@@ -85,19 +91,9 @@
 				src="images/logo.png" alt="Guided Gateway" /> </a> </div> <div
 				class="col-md-9"> <nav class="main-nav">
 				<span>MENU</span> <ul id="main-menu"> <li><a href="index.html"
-				title="">HOME</a> <!-- ul> <li><a href="index.html"
-				title="">HOME PAGE 1</a></li> <li><a href="home.html"
+				title="">HOME</a> 
 				title="">HOME PAGE 2</a></li> </ul --> </li> <li><a
-				href="top-guides-listview.html" title="">Guides</a> <!-- ul> <li><a
-				href="deals.html" title="">DEALS PAGE</a></li> <li><a
-				href="deals-sidebar.html" title="">DEALS PAGE WITH
-				SIDEBAR</a></li> <li><a href="deals-detail.html"
-				title="">DEALS DETAIL</a></li> <li><a
-				href="deals-detail-sidebar.html" title="">DEALS DETAIL
-				SIDEBAR</a></li> <li><a href="deals-listview.html"
-				title="">LIST VIEW</a></li> <li><a
-				href="deals-listview-sidebar.html" title="">LIST VIEW
-				SIDEBAR</a></li> </ul--> </li> <li><a
+				href="top-guides-listview.html" title="">Guides</a> </li> <li><a
 				href="top-destinations-listview-sidebar.html" title="">Destinations</a> </li>
                 <li><a
 				href="#" title="">Themed Tours</a> </li>
@@ -113,7 +109,7 @@
 					<div class="container">
 						<div class="row">
 							<section class="col-sm-6">
-								<h1 class="text-upper">Three days in Historic Agra</h1>
+								<h1 class="text-upper">{{tour.Title}}</h1>
 							</section>
 							
 							<!-- breadcrumbs -->
