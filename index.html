@@ -89,7 +89,7 @@ ul.rating {
     font-weight: bold;
     cursor: pointer;
 	margin-top: -6px;
-    font-size: 20px;
+    font-size: 14px;
 }
 .rating .filled {
     color: #ff845e;
@@ -198,7 +198,7 @@ ul.rating {
 					 <div class="col-md-3" ng-repeat="x in tours" ng-show="$index<4"> 
 							<a href="top-tours-listview-sidebar.html">
 							<div class="ft-item"> 
-							<span class="ft-image"><img src="{{x.Media.Image.gs}}" alt="Popular Tours" /> </span> 
+							<span class="ft-image"><img src="img/custom11.jpg" alt="Popular Tours" /> </span> 
 							   <div class="ft-data">
 							     <span  style="color:black;" class="text-upper fa fa-pagelines" href="#">&nbsp;&nbsp;{{x.Category}}</span> &nbsp;&nbsp;&nbsp;
 								 <!-- <span style="color:black;" class="fa text-upper">&nbsp;&nbsp;LOCATION :</span> &nbsp;&nbsp; -->
@@ -239,7 +239,7 @@ ul.rating {
 					  
 								<div class="ft-data">
 							  <span style="color:black;" class="fa fa-odnoklassniki text-upper">&nbsp;&nbsp;{{x.Gender}}</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							  <span style="color:black;" class="fa fa-book text-upper" >&nbsp;&nbsp;{{x.Speciality}}</span>&nbsp;&nbsp;&nbsp;&nbsp;
+							  <span style="color:black;" class="fa fa-book text-upper alignright" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{x.Speciality}}</span><br>
 							  <span style="color:black;" class="fa fa-plane text-upper" >&nbsp;&nbsp;{{x.LanguageKnown}}</span>
 								</div> 
 					
@@ -272,7 +272,7 @@ ul.rating {
 				   <a href="top-destinations-listview-sidebar.html">
 				      <div	class="ft-item"> 
 						  <span class="ft-image">
-							 <img src="{{x.Media.Image.gs}}" alt="Top Destination" /> 
+							 <img src="img/custom11.jpg" alt="Top Destination" /> 
 						  </span>
 					  
 								<div class="ft-data">
@@ -287,7 +287,7 @@ ul.rating {
 							</div> 
 					
 							<div class="ft-foot-ex"> 
-								<span class="fa fa-shield text-upper alignleft">{{x.Attractions}}</span>
+								<span class="fa fa-shield text-upper alignleft">{{x.Attractions}}&nbsp;</span>
 								<!-- <span star-rating rating-value="x.Review.Star" class="aligncenter"></span>
 								<span class="alignright fa fa-eye">{{x.Review.Count}} reviews</span>  -->							
 							</div> 
@@ -465,7 +465,21 @@ ul.rating {
 	    }	    }
 		</script>
 	
-		
+		<!--- SELECT BOX -->
+		<!-- <script type="text/javascript">
+   		$(function() {    	
+                
+					$('span.stars').stars();	
+		});
+
+		$.fn.stars = function() {
+			return $(this).each(function() {
+				$(this).html($('<span />').width(Math.max(0, (Math.min(5, parseFloat($(this).html())))) * 8));
+			});
+		}
+	  </script> -->
+	
+	<!-- <span class="stars alignleft">1</span> -->
 	
 		</body> 
 		</html>

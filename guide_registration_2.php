@@ -329,7 +329,7 @@ else
 														
 															<label style="font-size:14px; font-weight:bold">Best Time for Contact</label>
 															<select class="form-control" name="contacttime">
-															<option value="anytime">ANY TIME</option>
+															<option value="ANY TIME">ANY TIME</option>
 															<option value="08:00 AM - 12:00 PM">08:00 AM - 12:00 PM</option>
 															<option value="12:00 PM - 04:00 PM">12:00 PM - 04:00 PM</option>
 															<option value="04:00 PM - 08:00 PM">04:00 PM - 08:00 PM</option>
@@ -338,8 +338,9 @@ else
 														<div class="col-md-4">
 															<label style="font-size:14px; font-weight:bold">Communication Mechanism</label>
 															<select class="form-control" name="communicationmechanism">
-															<option value="Mobile">Mobile</option>
-															<option value="Email">Email</option>
+															<option value="Mobile & Email">Mobile &amp; Email</option>
+                                                        <option value="Mobile">Mobile</option>
+														<option value="Email">Email</option>
 															</select>
 														</div>
 														
@@ -349,16 +350,29 @@ else
 															<label style="font-size:14px; font-weight:bold">Language Known</label>
 															<select class="form-control" size="6" multiple name="languageKnown[]" id="languageKnown">
 															<?php 
-														  $select3 = mysql_query("SELECT * FROM `tbl_languages` WHERE `status` = 1");
+														  $select3 = mysql_query("SELECT * FROM `tbl_languages` WHERE `status` = 1 ORDER BY `lanugage_name`");
 														  while($row33 = mysql_fetch_array($select3))
 															{
-															echo '<option value="' . $row33['language_id'] . '">' . $row33["lanugage_name"] . '</option>';
+																if(strtoupper($row33['lanugage_name']) == strtoupper("english"))
+																{
+																	echo '<option selected value="' . $row33['language_id'] . '">' . $row33["lanugage_name"] . '</option>';
+																	
+																}
+																else
+																{
+																	echo '<option value="' . $row33['language_id'] . '">' . $row33["lanugage_name"] . '</option>';
+																}
 															}
 															?>
 															</select>
 														</div>
 														
-														<div class="col-md-8">
+														<div class="col-md-4">
+															<label style="font-size:14px; font-weight:bold">Guide Territory</label>
+															<textarea class="form-control" name="guideTerritory" ></textarea>
+														</div>
+														
+														<div class="col-md-4">
 															<label style="font-size:14px; font-weight:bold">Payment Terms</label>
 															<textarea class="form-control" name="paymentterms" ></textarea>
 														</div>
