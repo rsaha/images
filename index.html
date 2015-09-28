@@ -99,7 +99,7 @@ ul.rating {
 	
 	</head> <!-- END head -->
 
-	<!-- START body --> <body>
+	<!-- START body --> <body ng-app="myDestinations">
 		
 	<!-- START #wrapper --> <div id="wrapper"> <!-- START header --> 
 	
@@ -144,7 +144,7 @@ ul.rating {
 						<div class="top-fields"><br>
 						<div class="row">								
 						<div class="col-md-8 col-md-offset-1">
-						<input type="text" class="form-control" style="background-color:white;" placeholder="Where to go?" />
+						<input type="text" class="form-control" style="background-color:white;" ng-model="search" placeholder="Where to go?" />
 						</div> 
 						<div class="col-md-2" >
 						<input type="submit" class="form-control" style="background-color:#ff845e;" class="btn btn-primary" value="Search" /> 
@@ -153,9 +153,9 @@ ul.rating {
 						<div class="row">
 						<div class="col-md-7 col-md-offset-1"> <br>
 						<label >Search via</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<label><input class="input-cb"	type="checkbox" name="inc_Tour" value="1"	checked="checked" /> Tours</label>&nbsp;&nbsp;&nbsp;&nbsp;
-						<label><input class="input-cb" type="checkbox" name="inc_Guide" value="1" checked="checked" /> Guides </label>&nbsp;&nbsp;&nbsp;&nbsp;
-						<label><input class="input-cb" type="checkbox"	name="inc_Destination" value="1" checked="checked"/> Destinations</label>&nbsp;&nbsp; 
+						<label><input class="input-cb"	type="checkbox" name="inc_Tour"  ng-model="tours" value=""/> Tours</label>&nbsp;&nbsp;&nbsp;&nbsp;
+						<label><input class="input-cb" type="checkbox" name="inc_Guide" value="" ng-model="guidesfilter"/> Guides </label>&nbsp;&nbsp;&nbsp;&nbsp;
+						<label><input class="input-cb" type="checkbox"	name="inc_Destination" value="" ng-model="destinationsfilter"/> Destinations</label>&nbsp;&nbsp; 
 						</div> 
 						</div>
 						</div>
@@ -181,7 +181,7 @@ ul.rating {
  
 			<!-- START .main-contents --> 
         <div class="main-contents">
-			<div class="container" id="home-page" ng-app="myDestinations">
+			<div class="container" id="home-page">
                <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 					<!-- START Search Container --> 
                   
@@ -195,7 +195,7 @@ ul.rating {
 					   
 					 <div class="row"  ng-controller="toursCtrl"> 
 						
-					 <div class="col-md-3" ng-repeat="x in tours" ng-show="$index<4"> 
+					 <div class="col-md-3" ng-repeat="x in tours | filter:search:tours" ng-show="$index<4"> 
 							<a href="top-tours-listview-sidebar.html">
 							<div class="ft-item"> 
 							<span class="ft-image"><img src="img/custom11.jpg" alt="Popular Tours" /> </span> 
@@ -230,7 +230,7 @@ ul.rating {
 				<li> 
 				<div class="row"  ng-controller="guideCtrl">
 				
-				<div class="col-md-3" ng-repeat="x in allguides" ng-show="$index<4"> 
+				<div class="col-md-3" ng-repeat="x in allguides | filter:search:guidesfilter" ng-show="$index<4"> 
 				   <a href="top-guides-listview.html">
 				      <div	class="ft-item"> 
 						  <span class="ft-image">
@@ -268,7 +268,7 @@ ul.rating {
 				<li> 
 				<div class="row"  ng-controller="placesCtrl">
 				
-				<div class="col-md-3" ng-repeat="x in places" ng-show="$index<4"> 
+				<div class="col-md-3" ng-repeat="x in places | filter:search:destinationsfilter" ng-show="$index<4"> 
 				   <a href="top-destinations-listview-sidebar.html">
 				      <div	class="ft-item"> 
 						  <span class="ft-image">

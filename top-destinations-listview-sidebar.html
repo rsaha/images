@@ -9,7 +9,7 @@
 		<!-- title --> <title>Home | Guided Gateway - Authentic
 		Affordable Travel</title>
 
-		<!-- meta description --> <meta name="description" content="Authentic Afordable Travel in India" />
+		<!-- meta description --> <meta name="description" content="Authentic Affordable Travel in India" />
 
 		<!-- meta keywords --> <meta name="keywords" content="travel
 		guide tourism india" />
@@ -44,11 +44,13 @@
   ga('send', 'pageview');
 
 </script>
+        <script type="text/javascript"  src= "js/angular.min.js"></script>
+        <script type="text/javascript"  src="topPlaces.js"></script>
 	</head>
 	<!-- END head -->
 
 	<!-- START body -->
-	<body>
+	<body ng-app="topPlaces" ng-controller="placesCtrl">
 		<!-- START #wrapper -->
 		<div id="wrapper">
 			<!-- START header -->
@@ -187,8 +189,48 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-md-8">
-							<div class="row">
+						<a href="destination-detail-sidebar.html">
+							<div class="row" ng-repeat="x in places">
 								<div class="col-md-12">
+									<div class="tour-plans">
+										<div class="plan-image">
+											<img class="img-responsive" src="http://placehold.it/770x210" alt="Kolkata, WB" href="destination-detail-sidebar.html"/>
+											<div class="offer-box">
+												<div class="offer-top">
+													<span class="ft-temp alignright">19&#730;c</span>
+													<span class="featured-cr text-upper">{{x.Name}}</span>
+													<h2 class="featured-cy text-upper">{{x.State}}</h2>
+												</div>
+												
+												<div class="offer-bottom">
+													<span class="featured-stf"></span>
+													<span class="featured-spe">{{x.Category}}</span>
+												</div>
+												<div class="act-date">
+													<span class="bold">{{x.BestTimeToVisit}}</span>
+													<!-- <span></span> -->
+												</div>
+											</div>
+										</div>
+																	
+										<div class="featured-btm box-shadow1">
+										   <ul style="list-style-type:none;">
+											<li class="ft-hotel text-upper" style="float:left;" ng-repeat="y in x.Transport">{{y}}&nbsp&nbsp</li>
+											<!-- <a class="ft-plane text-upper" href="#">Return Air Ticket</a>
+											<a class="ft-tea text-upper" href="#">Complimentary Break Fast</a> -->
+											</ul>
+										</div>
+										<div class="post-desc">
+											<h4>{{x.Description}}</h4>
+											 <h5>Attractions</h5>
+											<p>
+											<ul><li ng-repeat="y in x.Attractions">{{y}}</li>
+											</p>
+											<a class="btn btn-primary marb20" href="destination-detail-sidebar.html">DETAILS</a>
+										</div>
+									</div>
+								</div>
+						<!-- 		<div class="col-md-12">
 									<div class="tour-plans">
 										<div class="plan-image">
 											<img class="img-responsive" src="http://placehold.it/770x210" alt="Kolkata, WB" href="destination-detail-sidebar.html"/>
@@ -220,8 +262,8 @@
 											<a class="btn btn-primary marb20" href="#">DETAILS</a>
 										</div>
 									</div>
-								</div>
-								<div class="col-md-12">
+								</div> -->
+						<!-- 		<div class="col-md-12">
 									<div class="tour-plans">
 										<div class="plan-image">
 											<img class="img-responsive" src="http://placehold.it/770x210" alt="Kolkata, WB" href="destination-detail-sidebar.html"/>
@@ -253,42 +295,10 @@
 											<a class="btn btn-primary marb20" href="#">DETAILS</a>
 										</div>
 									</div>
-								</div>
-								<div class="col-md-12">
-									<div class="tour-plans">
-										<div class="plan-image">
-											<img class="img-responsive" src="http://placehold.it/770x210" alt="Kolkata, WB" href="destination-detail-sidebar.html"/>
-											<div class="offer-box">
-												<div class="offer-top">
-													<span class="ft-temp alignright">19&#730;c</span>
-													<span class="featured-cr text-upper">Spain</span>
-													<h2 class="featured-cy text-upper">Barcelona</h2>
-												</div>
-												
-												<div class="offer-bottom">
-													<span class="featured-stf">Starting From </span>
-													<span class="featured-spe">250 $</span>
-												</div>
-												<div class="act-date">
-													<span class="bold">25</span>
-													<span>Nov</span>
-												</div>
-											</div>
-										</div>
-										<div class="featured-btm box-shadow1">
-											<a class="ft-hotel text-upper" href="#">6 nights VIP/Luxurious Hotel</a>
-											<a class="ft-plane text-upper" href="#">Return Air Ticket</a>
-											<a class="ft-tea text-upper" href="#">Complimentary Break Fast</a>
-										</div>
-										<div class="post-desc">
-											<h4>Amet turpis tristique, nec in aliquet dis amet</h4>
-											<p>Amet turpis tristique, nec in aliquet dis amet, proin egestas in tempor, cras et dapibus, lectus pellentesque enim odio elementum eu tincidunt diam a et. Dapibus sed cum, aliquam cras egestas enim elit in mattis? Scelerisque, ultrices mid! Lorem. Scelerisque? Pid cras, mattis vel, porta, quis! Porttitor turpis cras, odio ultricies parturient pulvinar tempor, eu turpis enim dapibus diam tristique cursus egestas quis phasellus natoque ac. </p>
-											<a class="btn btn-primary marb20" href="#">DETAILS</a>
-										</div>
-									</div>
-								</div>
+								</div> -->
 								<div class="clearfix"></div>
 							</div>
+							</a>
 						</div>
 						<!-- START #sidebar -->
 						<aside id="sidebar" class="col-md-4">
@@ -296,9 +306,9 @@
 								<!-- Sidebar recent popular posts -->
 								<!-- START TABS -->
 								<ul class="nav nav-tabs text-upper">
-									<li class="active"><a href="#tours-on-sale" data-toggle="tab">Deal Tours</a></li>
-									<li><a href="#popular-tours" data-toggle="tab">Popular</a></li>
-									<li><a href="#recent-tours" data-toggle="tab">Newly Added</a></li>
+									<li class="active"><a href="#tours-on-sale" data-toggle="tab">Tours</a></li>
+									<li><a href="#popular-tours" data-toggle="tab">Guides</a></li>
+									<li><a href="#recent-tours" data-toggle="tab">Attractions</a></li>
 								</ul>
 								<!-- END TABS -->
 								

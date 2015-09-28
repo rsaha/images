@@ -32,11 +32,14 @@
 		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Karla:400,700,400italic,700italic" />
 		<!-- color scheme -->
 		<link rel="stylesheet" type="text/css" href="css/colors/color1.css" title="color1" />
+		
+		 <script type="text/javascript"  src= "js/angular.min.js"></script>
+        <script type="text/javascript"  src="topPlaces.js"></script>
 	</head>
 	<!-- END head -->
 
 	<!-- START body -->
-	<body>
+	<body ng-app="topPlaces" ng-controller="placeDetailCtrl">
 		<!-- START #wrapper -->
 		<div id="wrapper">
 			<!-- START header -->
@@ -166,7 +169,7 @@
 					<div class="container">
 						<div class="row">
 							<section class="col-sm-6">
-								<h1 class="text-upper">Amet turpis tristique, nec</h1>
+								<h1 class="text-upper">{{place.Name}}, {{place.State}}</h1>
 							</section>
 							
 							<!-- breadcrumbs -->
@@ -196,25 +199,30 @@
 								</div>
 								
 								<ul class="featured-btm single-ft-btm list-unstyled box-shadow1">
-									<li class="author-img"><img class="img-circle img-wt-border" src="http://placehold.it/80x80" alt="Admin" /></li>
-									<li class="post-author"><a class="text-upper" href="#">Admin</a></li>
-									<li class="post-date"><a class="text-upper" href="#">25-08-2013</a></li>
-									<li class="post-category"><a class="text-upper" href="#">Blog</a>, <a class="text-upper" href="#">News</a></li>
+									<li class="author-img"><img class="img-circle img-wt-border" src="http://placehold.it/80x80" alt="Admin" />{{place.History}}</li>
+									<li class="post-date"><a class="text-upper" href="#">{{place.Category}}</a></li>
+									<li class="post-category"><a class="text-upper" href="#">{{place.BestTimeToVisit}}</a></li>
+									<li class="post-category"><a class="text-upper" href="#">Popularity: {{place.TravelIndex}}</a></li>
+									<li class="post-author"><a class="text-upper" href="place.Wikipedia">Follow on Wikipedia</a></li>
 								</ul>
 							</div>
 							<!-- END .post-data -->
 							
 							<!-- START .post-content -->
 							<article class="post-content">
-								<p>Augue sed platea sed non porta tincidunt augue? Odio platea, pulvinar habitasse vut! Pulvinar, integer odio. Ac pid! Habitasse montes elementum, et sagittis tincidunt magnis? Sociis! Elementum quis, integer natoque sed auctor nascetur enim parturient ridiculus ut amet porttitor dapibus phasellus tempor, natoque adipiscing aliquam. Amet. Dapibus proin, elit ut!</p> 
-								<p>Nec? Mid lundium, turpis sit sagittis, in porttitor augue, magna dis, ultrices vel porttitor dapibus tincidunt, elementum lorem, massa odio porta. Sit ac proin odio, platea adipiscing, tempor sagittis enim a, eros proin.</p>
+								<p>{{place.Description}}</p> 
+								 <h5>Attractions</h5>
+											<p>
+											<ul><li ng-repeat="y in place.Attractions">{{y}}</li>
+											</p>
 								<p>
 									<img class="alignleft" src="img/in-post-image.jpg" alt="Image in Post" />
-									In! Vel magna nisi aliquam, magnis tempor, nunc dapibus sed porta vut porttitor tristique! Lectus turpis massa ridiculus sagittis tincidunt eros lundium etiam nisi non natoque ac arcu auctor elementum vel nunc sociis! Nunc lacus! Dictumst facilisis turpis, integer? Nec nec. Nunc scelerisque diam! Cum sit arcu, mus in, nisi non etiam arcu a magna etiam nisi porttitor turpis! Natoque ac porta pellentesque nunc placerat porttitor sed porta urna, est ut ut adipiscing, tortor montes, massa urna dictumst ac, pellentesque facilisis nisi arcu! Tortor lacus elementum eros, placerat arcu. Adipiscing platea purus sagittis ridiculus turpis, nunc dictumst ac?
+									<h5>Transport Availability</h5>											
+											<ul><li ng-repeat="y in place.Transport">{{y}}</li>										
 								</p>
 								
 								<!-- BLOCKQUOTE -->
-								<blockquote>
+								<br><br><br><br><blockquote>
 									<p><strong>BLOCK QUOTE</strong></p>
 									<p>In! Vel magna nisi aliquam, magnis tempor, nunc dapibus sed porta vut porttitor tristique! Lectus turpis massa ridiculus sagittis tincidunt eros lundium etiam nisi non natoque ac arcu auctor elementum vel nunc sociis!</p>
 								</blockquote>
