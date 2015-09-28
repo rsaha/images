@@ -1,16 +1,16 @@
 (function () {
     'use strict';
   
-	 var app = angular.module('topTours', []);
+	 var app = angular.module('topPlaces', []);
 	 app.config(['$httpProvider', function ($httpProvider) {
     $httpProvider.defaults.useXDomain = true;
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
 }]);
 
-app.controller('toursCtrl',['$scope','$http', function($scope, $http) {
-    $http.get("http://130.211.123.212/app/tours")
+app.controller('placesCtrl',['$scope','$http', function($scope, $http) {
+    $http.get("http://130.211.123.212/app/places")
     .success(function (response) {
-		$scope.tours = response.Tours;
+		$scope.places = response.Places;
 	   
 		})
 	.error(function() {
@@ -20,17 +20,17 @@ app.controller('toursCtrl',['$scope','$http', function($scope, $http) {
 			
 }]); 
 
-app.controller('tourDetailCtrl',['$scope','$http', function($scope, $http) {
-    $http.get("http://130.211.123.212/app/tour")
+app.controller('placeDetailCtrl',['$scope','$http', function($scope, $http) {
+    $http.get("http://130.211.123.212/app/place")
     .success(function (response) {
-		$scope.tour = response;
+		$scope.place = response;
 		
 		})
 	.error(function() {
 				$scope.data = "error in fetching data";
 			});
 			
-		$scope.attractions=function()
+		/*$scope.attractions=function()
 		{
 		     for(var i=0;i<3;i++)
 		     {
@@ -40,23 +40,10 @@ app.controller('tourDetailCtrl',['$scope','$http', function($scope, $http) {
 			 y=substring(0,lastIndexOf(',')-1);
 			 
 			 return y;
-		}
+		}*/
 			
 			
 }]); 
-app.controller('guideDetailCtrl',['$scope','$http', function($scope, $http) {
-    $http.get("http://130.211.123.212/app/guide")
-    .success(function (response) {
-		$scope.guide = response;
-		
-		})
-	.error(function() {
-				$scope.data = "error in fetching data";
-			});
-			
-}]); 
-
-
 app.directive('starRating', function () {
     return {
         restrict: 'A',

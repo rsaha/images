@@ -9,7 +9,7 @@
 		<!-- title --> <title>Home | Guided Gateway - Authentic
 		Affordable Travel</title>
 
-		<!-- meta description --> <meta name="description" content="Authentic Afordable Travel in India" />
+		<!-- meta description --> <meta name="description" content="Authentic Affordable Travel in India" />
 
 		<!-- meta keywords --> <meta name="keywords" content="travel
 		guide tourism india" />
@@ -44,11 +44,13 @@
   ga('send', 'pageview');
 
 </script>
+        <script type="text/javascript"  src= "js/angular.min.js"></script>
+        <script type="text/javascript"  src="topPlaces.js"></script>
 	</head>
 	<!-- END head -->
 
 	<!-- START body -->
-	<body>
+	<body ng-app="topPlaces" ng-controller="placesCtrl">
 		<!-- START #wrapper -->
 		<div id="wrapper">
 			<!-- START header -->
@@ -69,7 +71,8 @@
 	onblur="if (this.value == '') { this.value = 'Search...'; }" />
 	<input type="submit" name="submit" class="search-submit" value="" />
 	</fieldset> </form> <span class="top-link small"><a
-										href="guide_registration_1.php" title="">Guide
+										href="http://guide.guidedgateway
+										.com" title="">Guide
 										Sign-up</a></span> <span class="top-link small"><a href="sign-in.html"
 										title="">SIGN IN</a></span> </div>
 	</div> </div> </div> </div> <!-- END #top-header -->
@@ -83,7 +86,7 @@
 				title="">HOME</a> <!-- ul> <li><a href="index.html"
 				title="">HOME PAGE 1</a></li> <li><a href="home.html"
 				title="">HOME PAGE 2</a></li> </ul --> </li> <li><a
-				href="top-guides-listview.html" title="">Guides</a> <!-- ul> <li><a
+				href="guides.html" title="">Guides</a> <!-- ul> <li><a
 				href="deals.html" title="">DEALS PAGE</a></li> <li><a
 				href="deals-sidebar.html" title="">DEALS PAGE WITH
 				SIDEBAR</a></li> <li><a href="deals-detail.html"
@@ -186,108 +189,116 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-md-8">
-							<div class="row">
+						<a href="destination-detail-sidebar.html">
+							<div class="row" ng-repeat="x in places">
 								<div class="col-md-12">
 									<div class="tour-plans">
 										<div class="plan-image">
-											<img class="img-responsive" src="img/custom2.jpg" alt="Delhi, Delhi" href="destination-detail-sidebar.html"/>
+											<img class="img-responsive" src="http://placehold.it/770x210" alt="Kolkata, WB" href="destination-detail-sidebar.html"/>
 											<div class="offer-box">
 												<div class="offer-top">
-													<span class="ft-temp alignright">History</span>
-													<span class="featured-cr text-upper">Delhi</span>
-													<h2 class="featured-cy text-upper">Delhi</h2>
+													<span class="ft-temp alignright">19&#730;c</span>
+													<span class="featured-cr text-upper">{{x.Name}}</span>
+													<h2 class="featured-cy text-upper">{{x.State}}</h2>
 												</div>
 												
 												<div class="offer-bottom">
-													<span class="featured-stf">Starting From </span>
-													<span class="featured-spe">INR 12250</span>
+													<span class="featured-stf"></span>
+													<span class="featured-spe">{{x.Category}}</span>
 												</div>
 												<div class="act-date">
-													<span class="bold">Fall</span>
+													<span class="bold">{{x.BestTimeToVisit}}</span>
+													<!-- <span></span> -->
 												</div>
 											</div>
 										</div>
+																	
 										<div class="featured-btm box-shadow1">
-											<a class="ft-hotel text-upper" href="#">20 guides</a>
-											<a class="ft-plane text-upper" href="#">200 tours</a>
-											<a class="ft-tea text-upper" href="#">20 Attarctions</a>
+										   <ul style="list-style-type:none;">
+											<li class="ft-hotel text-upper" style="float:left;" ng-repeat="y in x.Transport">{{y}}&nbsp&nbsp</li>
+											<!-- <a class="ft-plane text-upper" href="#">Return Air Ticket</a>
+											<a class="ft-tea text-upper" href="#">Complimentary Break Fast</a> -->
+											</ul>
 										</div>
 										<div class="post-desc">
-											<h4>New Delhi - India's Capital and Heritage site</h4>
-											<p>New Delhi is not only the administrative capital of India. Delhi is also a city that actually bridges two different cities together. The old Delhi was once a part of the Islamic reigns. It is a city with narrow roads 
-and formidable mosques. There are also several historical monuments and dilapidated havelis. On the other hand, the comparatively new city of New Delhi was established by the British rulers. It is a city of tree lined avenues, spacious government buildings and structures. New Delhi is also known for its rich cultural background. Explore the city and soak in the gems that lie all around like the ancient monuments and the fascinating galleries, the wonderful architecture, and the bustling markets. </p>
+											<h4>{{x.Description}}</h4>
+											 <h5>Attractions</h5>
+											<p>
+											<ul><li ng-repeat="y in x.Attractions">{{y}}</li>
+											</p>
 											<a class="btn btn-primary marb20" href="destination-detail-sidebar.html">DETAILS</a>
 										</div>
 									</div>
 								</div>
-								<div class="col-md-12">
+						<!-- 		<div class="col-md-12">
 									<div class="tour-plans">
 										<div class="plan-image">
-											<img class="img-responsive" src="img/custom2.jpg" alt="Delhi, Delhi" href="destination-detail-sidebar.html"/>
+											<img class="img-responsive" src="http://placehold.it/770x210" alt="Kolkata, WB" href="destination-detail-sidebar.html"/>
 											<div class="offer-box">
 												<div class="offer-top">
-													<span class="ft-temp alignright">History</span>
-													<span class="featured-cr text-upper">Delhi</span>
-													<h2 class="featured-cy text-upper">Delhi</h2>
+													<span class="ft-temp alignright">19&#730;c</span>
+													<span class="featured-cr text-upper">Spain</span>
+													<h2 class="featured-cy text-upper">Barcelona</h2>
 												</div>
 												
 												<div class="offer-bottom">
 													<span class="featured-stf">Starting From </span>
-													<span class="featured-spe">INR 12250</span>
+													<span class="featured-spe">250 $</span>
 												</div>
 												<div class="act-date">
-													<span class="bold">Fall</span>
+													<span class="bold">25</span>
+													<span>Nov</span>
 												</div>
 											</div>
 										</div>
 										<div class="featured-btm box-shadow1">
-											<a class="ft-hotel text-upper" href="#">20 guides</a>
-											<a class="ft-plane text-upper" href="#">200 tours</a>
-											<a class="ft-tea text-upper" href="#">20 Attarctions</a>
+											<a class="ft-hotel text-upper" href="#">6 nights VIP/Luxurious Hotel</a>
+											<a class="ft-plane text-upper" href="#">Return Air Ticket</a>
+											<a class="ft-tea text-upper" href="#">Complimentary Break Fast</a>
 										</div>
 										<div class="post-desc">
-											<h4>New Delhi - India's Capital and Heritage site</h4>
-											<p>New Delhi is not only the administrative capital of India. Delhi is also a city that actually bridges two different cities together. The old Delhi was once a part of the Islamic reigns. It is a city with narrow roads 
-and formidable mosques. There are also several historical monuments and dilapidated havelis. On the other hand, the comparatively new city of New Delhi was established by the British rulers. It is a city of tree lined avenues, spacious government buildings and structures. New Delhi is also known for its rich cultural background. Explore the city and soak in the gems that lie all around like the ancient monuments and the fascinating galleries, the wonderful architecture, and the bustling markets. </p>
-											<a class="btn btn-primary marb20" href="destination-detail-sidebar.html">DETAILS</a>
+											<h4>Amet turpis tristique, nec in aliquet dis amet</h4>
+											<p>Amet turpis tristique, nec in aliquet dis amet, proin egestas in tempor, cras et dapibus, lectus pellentesque enim odio elementum eu tincidunt diam a et. Dapibus sed cum, aliquam cras egestas enim elit in mattis? Scelerisque, ultrices mid! Lorem. Scelerisque? Pid cras, mattis vel, porta, quis! Porttitor turpis cras, odio ultricies parturient pulvinar tempor, eu turpis enim dapibus diam tristique cursus egestas quis phasellus natoque ac. </p>
+											<a class="btn btn-primary marb20" href="#">DETAILS</a>
 										</div>
 									</div>
-								</div>
-								<div class="col-md-12">
+								</div> -->
+						<!-- 		<div class="col-md-12">
 									<div class="tour-plans">
 										<div class="plan-image">
-											<img class="img-responsive" src="img/custom2.jpg" alt="Delhi, Delhi" href="destination-detail-sidebar.html"/>
+											<img class="img-responsive" src="http://placehold.it/770x210" alt="Kolkata, WB" href="destination-detail-sidebar.html"/>
 											<div class="offer-box">
 												<div class="offer-top">
-													<span class="ft-temp alignright">History</span>
-													<span class="featured-cr text-upper">Delhi</span>
-													<h2 class="featured-cy text-upper">Delhi</h2>
+													<span class="ft-temp alignright">19&#730;c</span>
+													<span class="featured-cr text-upper">Spain</span>
+													<h2 class="featured-cy text-upper">Barcelona</h2>
 												</div>
 												
 												<div class="offer-bottom">
 													<span class="featured-stf">Starting From </span>
-													<span class="featured-spe">INR 12250</span>
+													<span class="featured-spe">250 $</span>
 												</div>
 												<div class="act-date">
-													<span class="bold">Fall</span>
+													<span class="bold">25</span>
+													<span>Nov</span>
 												</div>
 											</div>
 										</div>
 										<div class="featured-btm box-shadow1">
-											<a class="ft-hotel text-upper" href="#">20 guides</a>
-											<a class="ft-plane text-upper" href="#">200 tours</a>
-											<a class="ft-tea text-upper" href="#">20 Attarctions</a>
+											<a class="ft-hotel text-upper" href="#">6 nights VIP/Luxurious Hotel</a>
+											<a class="ft-plane text-upper" href="#">Return Air Ticket</a>
+											<a class="ft-tea text-upper" href="#">Complimentary Break Fast</a>
 										</div>
 										<div class="post-desc">
-											<h4>New Delhi - India's Capital and Heritage site</h4>
-											<p>New Delhi is not only the administrative capital of India. Delhi is also a city that actually bridges two different cities together. The old Delhi was once a part of the Islamic reigns. It is a city with narrow roads 
-and formidable mosques. There are also several historical monuments and dilapidated havelis. On the other hand, the comparatively new city of New Delhi was established by the British rulers. It is a city of tree lined avenues, spacious government buildings and structures. New Delhi is also known for its rich cultural background. Explore the city and soak in the gems that lie all around like the ancient monuments and the fascinating galleries, the wonderful architecture, and the bustling markets. </p>
-											<a class="btn btn-primary marb20" href="destination-detail-sidebar.html">DETAILS</a>
+											<h4>Amet turpis tristique, nec in aliquet dis amet</h4>
+											<p>Amet turpis tristique, nec in aliquet dis amet, proin egestas in tempor, cras et dapibus, lectus pellentesque enim odio elementum eu tincidunt diam a et. Dapibus sed cum, aliquam cras egestas enim elit in mattis? Scelerisque, ultrices mid! Lorem. Scelerisque? Pid cras, mattis vel, porta, quis! Porttitor turpis cras, odio ultricies parturient pulvinar tempor, eu turpis enim dapibus diam tristique cursus egestas quis phasellus natoque ac. </p>
+											<a class="btn btn-primary marb20" href="#">DETAILS</a>
 										</div>
 									</div>
-								</div>
+								</div> -->
 								<div class="clearfix"></div>
 							</div>
+							</a>
 						</div>
 						<!-- START #sidebar -->
 						<aside id="sidebar" class="col-md-4">
@@ -295,16 +306,16 @@ and formidable mosques. There are also several historical monuments and dilapida
 								<!-- Sidebar recent popular posts -->
 								<!-- START TABS -->
 								<ul class="nav nav-tabs text-upper">
-									<li class="active"><a href="#tours" data-toggle="tab">Tours</a></li>
-									<li><a href="#guides" data-toggle="tab">Guides</a></li>
-									<li><a href="#attractions" data-toggle="tab">Attarctions</a></li>
+									<li class="active"><a href="#tours-on-sale" data-toggle="tab">Tours</a></li>
+									<li><a href="#popular-tours" data-toggle="tab">Guides</a></li>
+									<li><a href="#recent-tours" data-toggle="tab">Attractions</a></li>
 								</ul>
 								<!-- END TABS -->
 								
 								<!-- START TAB CONTENT -->
 								<div class="tab-content gray box-shadow1 clearfix marb30">
 									<!-- START TAB 1 -->
-									<div class="tab-pane active" id="tours">
+									<div class="tab-pane active" id="popular-posts">
 										<ul class="rc-posts-list list-unstyled">
 											<li>
 												<span class="rc-post-image">
@@ -339,7 +350,7 @@ and formidable mosques. There are also several historical monuments and dilapida
 									<!-- END TAB 1 -->
 									
 									<!-- START TAB 2 -->
-									<div class="tab-pane" id="guides">
+									<div class="tab-pane" id="recent-posts">
 										<ul class="rc-posts-list list-unstyled">
 											<li>
 												<span class="rc-post-image">
@@ -374,11 +385,46 @@ and formidable mosques. There are also several historical monuments and dilapida
 									<!-- END TAB 2 -->
 									
 									<!-- START TAB 3 -->
-									<div class="tab-pane" id="attractions">
+									<div class="tab-pane" id="recent-comments">
 										<div class="inside-pane">
 											<p>Amet turpis tristique, nec in aliquet dis amet, proin egestas in tempor, cras et dapibus, lectus pellentesque enim odio elementum eu tincidunt diam a et. Dapibus sed cum, aliquam cras egestas enim elit in mattis? Scelerisque, ultrices mid! Lorem. Scelerisque? Pid cras, mattis vel, porta, quis! Porttitor turpis cras, odio ultricies parturient pulvinar tempor.</p>
 											<p>eu turpis enim dapibus diam tristique cursus egestas quis phasellus montes! Parturient porta purus quis scelerisque? Vel proin, ac odio cras penatibus magnis non? Aliquam elementum, dis? Elementum ac.</p>
 										</div>
+									</div>
+									<!-- END TAB 3 -->
+								</div>
+								<!-- END TAB CONTENT -->
+							</div>
+							
+							<div class="sidebar-widget">
+								<!-- Sidebar facebook widget -->
+								<!-- START TABS -->
+								<ul class="nav nav-tabs social-tabs text-upper">
+									<li class="active"><a class="facebook-tab" href="#facebook-tab" data-toggle="tab">Facebook</a></li>
+									<li><a class="twitter-tab" href="#pinterest-tab" data-toggle="tab">Pinterest</a></li>
+									<li><a class="share-tab" href="#share-tab" data-toggle="tab">Like Us</a></li>
+								</ul>
+								<!-- END TABS -->
+								
+								<!-- START TAB CONTENT -->
+								<div class="tab-content clearfix marb30">
+									<!-- START TAB 1 -->
+									<div class="tab-pane active" id="facebook-tab">
+										<div id="fb-widget">
+											<iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2FFacebookDevelopers&amp;width&amp;height=290&amp;colorscheme=light&amp;show_faces=true&amp;header=true&amp;stream=false&amp;show_border=true" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:290px;" allowTransparency="true"></iframe>
+										</div>
+									</div>
+									<!-- END TAB 1 -->
+									
+									<!-- START TAB 2 -->
+									<div class="tab-pane" id="twitter-tab">
+										
+									</div>
+									<!-- END TAB 2 -->
+									
+									<!-- START TAB 3 -->
+									<div class="tab-pane" id="share-tab">
+										
 									</div>
 									<!-- END TAB 3 -->
 								</div>
