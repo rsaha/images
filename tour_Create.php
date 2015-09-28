@@ -45,6 +45,7 @@
 				$LicenceImage = $row22["license_Image"];
 				$licenceNumber = $row22["license_no"];
 				$licenceValidty = $row22["validity"];
+				$guideTerritory = $row22["guide_territory"];
 				$summery = $row22["guide_summary"];
 				$experiance = $row22["guide_experience"];
 				$intrest = $row22["guide_interest"];
@@ -472,11 +473,12 @@
 
 											<?php 
 											$sql2 = mysql_query("SELECT `street_address`, `city`, `state`, `country` FROM `tbl_user_profile` WHERE (`user_id` = $userid and `status` = 1)");
+											//$roww = mysql_fetch_assoc($sql2)
 											$guideCity = mysql_result($sql2, 0, 1);
 											
-											$sql1 = mysql_query("SELECT `tour_id`, `tour_category_id`, `tour_title`, `tour_location`, `tour_description`, `tour_duration`, `tour_price`, `start_point`, `end_point`, `inclusive`, `exclusive`, `cancelation_policy`, `restrictions`, `notes`, `status`, `datecreated` FROM `tbl_tours` WHERE `user_id` = 10000");
+											$sql1 = mysql_query("SELECT * FROM `tbl_tours` WHERE `user_id` = 10000 and `tour_territory` = '$guideTerritory' and `status` = 1");
 											
-										  //$sql1 = mysql_query("SELECT `tour_id`, `tour_category_id`, `tour_title`, `tour_location`, `tour_description`, `tour_duration`, `tour_price`, `start_point`, `end_point`, `inclusive`, `exclusive`, `cancelation_policy`, `restrictions`, `notes`, `status`, `datecreated` FROM `tbl_tours` WHERE ( `user_id` != $userid AND (`tour_id` NOT IN (select `created_added` from `tbl_tours` WHERE `user_id`= $userid and `created_added` != 0)) and `tour_location` = '$guideCity' and `status` = 1 )");
+										  //$sql1 = mysql_query("SELECT * FROM `tbl_tours` WHERE ( `user_id` != $userid AND (`tour_id` NOT IN (select `created_added` from `tbl_tours` WHERE `user_id`= $userid and `created_added` != 0)) and `tour_location` = '$guideCity' and `status` = 1 )");
 											if(mysql_num_rows($sql1) >= 1)
 											{
 											while ($row1 = mysql_fetch_array($sql1))

@@ -1,5 +1,33 @@
 <?php
 session_start();
+
+
+if(isset($_POST["searchString"]))
+{
+	$searchString = $_POST["searchString"];
+	if($_POST["searchString"]!="")
+	{
+	$searchPerameter1=""; $searchPerameter2=""; $searchPerameter3="";
+	if(isset($_POST["in_tour"]) && $_POST["in_tour"] == 1)
+	{
+		
+		$searchPerameter1 = "Tours";
+		//echo $searchString . " in " . $searchPerameter1 . "<br>";
+	}
+	if(isset($_POST["in_guide"]) && $_POST["in_guide"] == 1)
+	{
+		$searchPerameter2 = "Guides";
+		//echo $searchString . " in " . $searchPerameter2 . "<br>";
+	}
+	if(isset($_POST["in_destination"]) && $_POST["in_destination"] == 1)
+	{
+		$searchPerameter3 = "Destinations";
+		//echo $searchString . " in " . $searchPerameter3 . "<br>";
+	}
+	}
+}
+
+
 ?>
 <html lang="en" dir="ltr">
 
@@ -213,30 +241,234 @@ if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "signin"))
 			<!-- START .main-contents --> <div class="main-contents">
 			<div class="container" id="home-page">
 
-					<!-- START .tour-plan --> <form class="plan-tour">
-					<!-- div class="plan-banner"><span>WHERE WHAT</span></div -->
-					<div class="top-fields"> <div class="input-field
-					col-md-3"><input type="text" placeholder="Where
-					" /></div> <!-- div class="input-field
-					col-md-3"><input type="text" placeholder="2. What to
-					do?" /></div> <div
-					class="input-field col-md-4" --> 
-                    <!-- label>3.
-					Including</label> <label><input class="input-cb"
-					type="checkbox" name="inc_hotel" value="1"
-					checked="checked" /> Hotel</label> <label><input
-					class="input-cb" type="checkbox" name="inc_flight"
-					value="1" checked="checked" /> Meals </label>
-					<label><input class="input-cb" type="checkbox"
-					name="inc_car" value="1" /> Transport</label> </div --> 
-                    <div class="submit-btn col-md-2"> <input type="submit"
-					value="Search" /> </div> </div> </form> <!-- END
+					<!-- START .tour-plan --> 
+					<form class="plan-tour" method="POST" action="Index.php">
+					<!-- div class="plan-banner">
+					<span>WHERE WHAT</span>
+					</div -->
+					<div class="top-fields">
+					
+					<div class="row">
+					<div class="input-field col-md-8 col-md-offset-1">
+					<input type="text" placeholder="Where" name="searchString" value="" />
+					</div>
+					<div class="submit-btn col-md-2"> 
+					<input type="submit" style="height:49px; background-color:#ff845e; color:white;" value="Search" /> 
+					</div>
+					</div>
+					<div class="row">
+					<div class="input-field col-md-4 col-md-offset-1"> 
+					<table>
+					<tr>
+					<td>
+					<label style="font-size:15px">
+					<input class="input-cb" type="checkbox" id="in_tour" name="in_tour" onclick="myCheckBox();" value="0" /> Tour
+					</label> 
+					<td>
+					<td>
+					<label style="font-size:15px">
+					<input class="input-cb" type="checkbox" id="in_guide" name="in_guide" onclick="myCheckBox();" value="0" /> Guide 
+					</label>
+					<td>
+					<td>
+					<label style="font-size:15px">
+					<input class="input-cb" type="checkbox" id="in_destination" name="in_destination" onclick="myCheckBox();" value="0" /> Destination
+					</label> 
+					<td>
+					</tr>
+					</table>
+					</div>
+                    </div>
+					</div> 
+					</form> 
+					<!-- END
 					.tour-plan -->
+					<div id="searchData">
+					<div class="carousel"> 
+					<ul class="slides">
+					<li> 
+					
+					
+					<?php
+					if($searchPerameter1 == "Tours")
+					{
+						?>
+					<div class="row">
 
-					<h2 class="ft-heading text-upper">Top
-					Destinations</h2>
+											<?php 
+											include('db.php');
+											$sql1 = mysql_query("SELECT * FROM `tbl_tours` WHERE `tour_territory` LIKE '%$searchString%'");
+											if(mysql_num_rows($sql1) < 1)
+											{
+											?>
+											<center><h1>No Such Tours Available</h1></center>
+												<!--div class="col-lg-3 col-md-4 col-sm-6 col-xs-10">
+													<div class="ft-item">
+														<span class="ft-image">
+															<img alt="featured Scroller" class="img-responsive" src="img/custom1.jpg" draggable="false">
+														</span>
+														<div class="ft-data2">
+														<span style="color:white" class="ft-title text-upper">Tour Title</span>
+															<span class="ft-offer text-upper">Price (Rs)</span>
+														</div>
+														<div class="ft-foot">
+															<span style="font-size:12px" class="ft-date text-upper alignleft">Location</span>
+															<span style="font-size:11px" class="ft-temp alignright">Tour Duration</span>
+														</div>
+													</div>
+												</div-->
+											<?php
+											}
+											else
+											{
+												echo '<h2 class="ft-heading text-upper">Tours</h2>';
+											while ($row1 = mysql_fetch_array($sql1))
+											{
+											?>
+													<div class="col-lg-3 col-md-4 col-sm-6 col-xs-10">
+													<?php
+													echo '<a style="cursor: pointer;" onclick="detailTour(' . $row1['tour_id'] . ');" >';
+														$tour_id = $row1['tour_id'];
+														?>
+														<input type="hidden" name="tourid" id="tourid" value=" <?php echo $row1['tour_id'] ?> " />
+														<div class="ft-item">
+														
+															<span class="ft-image">
+																<?php
+																$select4Tpic = mysql_query("SELECT * FROM `tbl_tour_media_pictures` WHERE `tour_id` = $tour_id");
+																$count4Tpic = mysql_num_rows($select4Tpic);
+																if ($count4Tpic==0)
+																{
+																	echo '<img alt="featured Scroller" class="img-responsive" draggable="false" src="img/custom11.jpg"/>';
+																}
+																else
+																{
+																	echo '<img alt="featured Scroller" class="img-responsive" draggable="false" style="width:207px; height:105px;" src="showMediaPicture.php?id=' . mysql_result($select4Tpic, 0, 0) . '"/>';
+																}
+																?>
+																
+															</span>
+															<div class="ft-data2">
+																<span style="color:white" class="ft-title text-upper"><?php echo $row1['tour_title'] ?></span>
+																<span class="ft-offer text-upper"><?php echo $row1['tour_price'] ?></span>
+															</div>
+															<div class="ft-foot">
+																<span class="ft-date text-upper alignleft"><?php echo $row1['tour_location'] ?></span>
+																<span class="ft-temp alignright"><?php echo $row1['tour_duration'] ?> Days</span>
+															</div>
+														</div>
+														<?php echo '</a>'; ?>
+													</div>
+													
+												<?php 
+											}
+											}
+											?>
+						
+						
+						<div class="clearfix"></div>
+					</div>
+					<?php
+					}
+						?>
+						
+						
+						
+						
+						<?php
+					if($searchPerameter2 == "Guides")
+					{
+						?>
+					<div class="row">
 
-					<div class="carousel"> <ul class="slides"> <li> <div
+											<?php 
+											include_once('db.php');
+											$sql2 = mysql_query("SELECT * FROM `user_fulldetail` WHERE (`user_type_id`=1) && ((`f_name` LIKE '%$searchString%') || (`l_name` LIKE '%$searchString%') || (`guide_territory` LIKE '%$searchString%'))");
+											if(mysql_num_rows($sql2) < 1)
+											{
+											?>
+											<center><h1>No Such Guide Available</h1></center>
+												<!--div class="col-lg-3 col-md-4 col-sm-6 col-xs-10">
+													<div class="ft-item">
+														<span class="ft-image">
+															<img alt="featured Scroller" class="img-responsive" src="img/custom1.jpg" draggable="false">
+														</span>
+														<div class="ft-data2">
+														<span style="color:white" class="ft-title text-upper">Tour Title</span>
+															<span class="ft-offer text-upper">Price (Rs)</span>
+														</div>
+														<div class="ft-foot">
+															<span style="font-size:12px" class="ft-date text-upper alignleft">Location</span>
+															<span style="font-size:11px" class="ft-temp alignright">Tour Duration</span>
+														</div>
+													</div>
+												</div-->
+											<?php
+											}
+											else
+											{
+												echo '<h2 class="ft-heading text-upper">Guides</h2>';
+											while ($row2 = mysql_fetch_array($sql2))
+											{
+											?>
+													<div class="col-lg-2 col-md-2 col-sm-6 col-xs-10">
+													<?php
+													echo '<a style="cursor: pointer;" onclick="detailGuide(' . $row2['user_id'] . ');" >';
+														$user_id = $row2['user_id'];
+														?>
+														<input type="hidden" name="user_id" id="user_id" value=" <?php echo $row2['user_id'] ?> " />
+														<div class="ft-item"> 
+														<span class="ft-image">
+																<?php
+																if ($row2['guide_profile_pic']==NULL)
+																{
+																	echo '<img alt="featured Scroller" class="img-responsive" draggable="false" src="img/userDefaultIcon.png" />';
+																}
+																else
+																{
+																	echo '<img alt="featured Scroller" class="img-responsive" draggable="false" src="showImage.php?id=' . $row2['guide_profile_pic'] . '"/>';
+																}
+																?>
+																
+															</span> 
+														<div class="ft-data"> 
+														<a class="ft-hotel text-upper" href="#"><?php echo $row2['f_name'] . " " . $row2['l_name'] ?></a> 
+														<a class="ft-plane text-upper" href="#"><?php echo $row2['gender'] ?></a>
+														</div> 
+														<div class="ft-foot"> 
+														<h4 class="ft-title text-upper">
+														<a href="#"><?php echo "From " . $row2['city'] . ", " . $row2['state'] ?></a>
+														</h4> 
+														 <!--span class="ft-offer text-upper">Starting From INR 5000 </span--> 
+														</div> 
+														</div>
+														<?php echo '</a>'; ?>
+													</div>
+													
+												<?php 
+											}
+											}
+											?>
+						
+						
+						<div class="clearfix"></div>
+					</div>
+					<?php
+					}
+						?>
+						
+					
+					</li> 
+					</ul> 
+					</div>
+				</div>
+				
+<div id="oldData">
+					<h2 class="ft-heading text-upper">Top Destinations</h2>
+
+					<div class="carousel"> 
+					
+					<ul class="slides"> <li> <div
 					class="row"> <div class="col-md-3"> <div
 					class="ft-item"> <span class="ft-image"> <img
 					src="https://storage.googleapis.com/
@@ -333,8 +565,7 @@ if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "signin"))
 
                         </div></div></div> </li> </ul> </div>
                 
-<h2 class="ft-heading text-upper">Top
-					Guides</h2>
+<h2 class="ft-heading text-upper">Top Guides</h2>
                 <div class="carousel"> <ul class="slides"> <li> <div
 					class="row"> <div class="col-md-3"> <div
 					class="ft-item"> <span class="ft-image"> <img
@@ -430,8 +661,11 @@ if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "signin"))
 										2013</span> <span class="ft-temp
 										alignright">17&#730;c</span>
 
-                        </div></div></div> </li> </ul> </div>
-				</div> </div> <!-- END .main-contents -->
+                        </div></div></div> </li> </ul> 
+						</div>
+				</div> 
+				</div><!-- END .main-contents -->
+				</div> 
 
 			<!-- START .main-contents .bom-contents --> <div
 			class="main-contents bom-contents"> <div class="container">
@@ -559,8 +793,27 @@ if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "signin"))
 		<!--[if lt IE 9]> <script type="text/javascript"
 		src="js/html5shiv.js"></script> <![endif]-->
 
+		<script>
+		function myCheckBox(){
+    
+    if(myCheckBox.caller.arguments[0].target.checked)
+      {
+        myCheckBox.caller.arguments[0].target.value="1";
+        //alert(myCheckBox.caller.arguments[0].target.value)
+      }
+  else
+    {
+      myCheckBox.caller.arguments[0].target.value="0";
+        //alert(myCheckBox.caller.arguments[0].target.value)
+    }
+  
+}
 
-		<script type="text/javascript"> $(document).ready(function() {
+		
+		</script>
+		
+		<script type="text/javascript"> 
+		$(document).ready(function() {
 			// revolution slider
 			revapi = $("#content-slider").revolution({ delay: 15000,
 			startwidth: 1170, startheight: 920, hideThumbs: 10,
@@ -570,9 +823,8 @@ if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "signin"))
 			}
 			// initilize datepicker
 			$(".date-picker").datepicker();
-		});
-		}
-		}		}
+		
+		
 	    $(window).load(function(){ $('.carousel').flexslider({
 	    animation: "fade", animationLoop: true, controlNav: false,
 	    maxItems: 1, pausePlay: false, mousewheel:true, start:
@@ -580,11 +832,38 @@ if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "signin"))
 			}
 	      });
 	    });
-	    }
-	    }	    }
-		</script> <script> $(document).ready(function(){
+		
+		</script> 
+		
+		<script> 
+		$(document).ready(function(){
 		$("#adults").minimalect({ theme: "bubble", placeholder: "Select"
 		}); $("#kids").minimalect({ theme: "bubble", placeholder:
 		"Select" });
 		});
-		</script><!--- SELECT BOX --> </bosdy> </html>
+		</script><!--- SELECT BOX --> 
+		<script>
+		function detailTour(id) 
+				{
+					window.location.href = "tour_detail_sidebar.php?id="+id+"";
+					return false;
+				}
+				
+				function detailGuide(id) 
+				{
+					//alert("user id - " + id);
+					window.location.href = "guide_detail.php?id="+id+"";
+					return false;
+				}
+		</script>
+		<?php
+		if( ($searchPerameter1 == "Tours") || ($searchPerameter2 == "Guides") || ($searchPerameter3 == "Destinations"))
+		{
+			echo "<script type='text/javascript'>document.getElementById('oldData').style.display = 'none';</script>";
+		}
+		else
+		{
+			echo "<script type='text/javascript'>document.getElementById('searchData').style.display = 'none';</script>";
+		}
+		?>
+		</body> </html>
