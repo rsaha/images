@@ -1,25 +1,11 @@
 <?php
 	session_start();
 	
-	if(isset($_SESSION['userId']))
-	{
-		if(isset($_GET['id']))
+	if(isset($_GET['id']))
 		{
-		$userid = $_GET['id'];
-		}
-		if($_SESSION['userId']!=$userid)
-		{
-			include("signOut.php");
-            header('Location:guide_login.php');
-			exit;
-		}
-		else
-		{
-			
+			$userid = $_GET['id'];
 			$_SESSION['photo'] = array();
-			$_SESSION['signinCheck']="signin";
-			$_SESSION['phase'] = "signin";
-				include('db.php');
+			include('db.php');
 
 				$select1 = mysql_query("SELECT * FROM `tbl_user_profile` WHERE `user_id` = $userid");
 				$row11 = mysql_fetch_assoc($select1);
@@ -73,13 +59,6 @@
 				$remark = "";
 				}
 		}
-	}
-	else
-	{
-		include("signOut.php");
-        header('Location:guide_login.php');
-		exit;
-	}
 ?>
 <html lang="en" dir="ltr">
 
@@ -187,7 +166,7 @@
 		<!-- START #wrapper -->
 		<div id="wrapper">
 			
-			<?php include('MasterHeaderAfterLogin.php'); ?>
+			<?php include('MasterHeader.php'); ?>
 			
 			<!-- START #page-header -->
 			<div class="" >
@@ -287,22 +266,20 @@
 							<div class="user-profile">
 								<!-- START TABS -->
 								<ul class="nav nav-tabs text-upper" style="background-color:#FFA98E;">
-									<li><a href="#userinfo" data-toggle="tab">Guide Profile</a></li>
-									<li class="active"><a href="#tourList" data-toggle="tab">Tours</a></li>
-									<li><a href="#inviteGuide" data-toggle="tab">Invite Guides</a></li>
+									<li class="active"><a href="#userinfo" data-toggle="tab">Guide Profile</a></li>
 								</ul>
 								<!-- END TABS -->
 								
 								<!-- START TAB CONTENT -->
 								<div class="tab-content clearfix ">
 									<!-- START TAB 1 -->
-									<div class="tab-pane" id="userinfo">
+									<div class="tab-pane active" id="userinfo">
 										<div class="booking gray clearfix box-shadow1">
 											<fieldset>
 										<div >
 										<?php
-										echo '<a class="btn btn-default pull-right" style="background-color:#ffa98e" onclick="editProfile(' . $userid. ')"> 
-										<i class="fa fa-pencil"></i> Edit Profile 
+										echo '<a class="btn-lg btn-default pull-right" style="background-color:#ffa98e; cursor: pointer;" onclick="bookGuide(' . $userid. ')"> 
+										<i class="fa fa-pencil"></i> Book This Guide 
 										</a>'
 										?>	
 										</div>      <br>
@@ -484,17 +461,35 @@
 												</fieldset>
 											</div>
 											</div>
-									<!-- START TAB 2 -->
-									<div class="tab-pane active" id="tourList">
-										<div class="booking gray clearfix box-shadow1">
-											<div class="row">
+								</div>
+								<!-- END TAB CONTENT -->
+							</div>
+						</div>
+						<!-- END #page -->
+					</div>
+					<!-- END .row -->
+					<div class="row">
+					<div class="user-profile">
+								<!-- START TABS -->
+								<ul class="nav nav-tabs text-upper" style="background-color:#FFA98E;">
+									<li class="active"><a href="#userinfo" data-toggle="tab">Tours By this Guide</a></li>
+								</ul>
+								<!-- END TABS -->
+								
+								<!-- START TAB CONTENT -->
+								<div class="tab-content clearfix ">
+									<!-- START TAB 1 -->
+									<div class="tab-pane active" id="userinfo">
+										<div class="row">
 
 											<?php 
-											$sql1 = mysql_query("SELECT `tour_id`, `tour_category_id`, `tour_title`, `tour_location`, `tour_description`, `tour_duration`, `tour_price`, `start_point`, `end_point`, `inclusive`, `exclusive`, `cancelation_policy`, `restrictions`, `notes`, `status`, `datecreated` FROM `tbl_tours` WHERE (`user_id` = $userid and `status` = 1)");
+											include_once('db.php');
+											$sql1 = mysql_query("SELECT * FROM `tbl_tours` WHERE `user_id`=$userid");
 											if(mysql_num_rows($sql1) < 1)
 											{
 											?>
-												<div class="col-lg-3 col-md-4 col-sm-6 col-xs-10">
+											<center><h1>No Tours By This Guide</h1></center>
+												<!--div class="col-lg-3 col-md-4 col-sm-6 col-xs-10">
 													<div class="ft-item">
 														<span class="ft-image">
 															<img alt="featured Scroller" class="img-responsive" src="img/custom1.jpg" draggable="false">
@@ -508,18 +503,18 @@
 															<span style="font-size:11px" class="ft-temp alignright">Tour Duration</span>
 														</div>
 													</div>
-												</div>
+												</div-->
 											<?php
 											}
 											else
 											{
-											while ($row1 = mysql_fetch_array($sql1))
+												echo "<br>";
+												while ($row1 = mysql_fetch_array($sql1))
 											{
 											?>
 													<div class="col-lg-3 col-md-4 col-sm-6 col-xs-10">
 													<?php
-													echo '<a id="editButton" style="height:20px" class="btn btn-xs btn-default" data-toggle="tab" onclick="editTour(' . $userid . ',' . $row1['tour_id'] . ');" >EDIT</a>';
-														echo '<a style="cursor: pointer;" onclick="detailTour(' . $row1['tour_id'] . ');" >';
+													echo '<a style="cursor: pointer;" onclick="detailTour(' . $row1['tour_id'] . ');" >';
 														$tour_id = $row1['tour_id'];
 														?>
 														<input type="hidden" name="tourid" id="tourid" value=" <?php echo $row1['tour_id'] ?> " />
@@ -556,100 +551,15 @@
 											}
 											}
 											?>
-
-						<!-- ############################################################################ -->
-						<a style="cursor: pointer;" onclick="createTour(<?php echo $userid; ?>);" >
-						<div class="col-lg-3 col-md-4 col-sm-6 col-xs-10">
-							<div class="ft-item">
-								<span class="ft-image">
-									<img alt="featured Scroller" class="img-responsive" src="img/newTour.jpg" draggable="false">
-								</span>
-								<div class="ft-data2">
-								<span style="color:white" class="ft-title text-upper">Tour Title</span>
-									<span class="ft-offer text-upper">Price (Rs)</span>
-								</div>
-								<div class="ft-foot">
-									<span style="font-size:12px" class="ft-date text-upper alignleft">Location</span>
-									<span style="font-size:11px" class="ft-temp alignright">Tour Duration</span>
-								</div>
-							</div>
-						</div>
-						</a>
-						<!-- ############################################################################ -->
 						
 						
 						<div class="clearfix"></div>
 					</div>
-					<!-- START .pagination -->
-					<ul class="pagination">
-						<li><a href="#">&lsaquo;</a></li>
-						<li class="active"><a href="#">1</a></li>
-						<li><a href="#">2</a></li>
-						<li><a href="#">&rsaquo;</a></li>
-					</ul>
-											
-										</div>
-									</div>
-									<!-- START TAB 3 -->
-									<div class="tab-pane" id="inviteGuide">
-										<div class="booking gray clearfix box-shadow1">
-									<center><h3>Invite Guide Friends and get some exciting referral rewards when your friend register with us...</h3></center><br />
-										<form action="guide_step4.php" method="post" ng-app="myApp"  ng-controller="validateCtrl5" name="myForm"  novalidate>
-										<input type="hidden" name="userid" value="<?php echo $userid ?>" />
-										
-											<div class="col-md-12">
-											
-											<ul  class="formFields list-unstyled">
-											<li class="row">
-											<div class="col-md-6">
-												<label style="font-size:13px; font-weight:bold">Name of your friend</label>
-												<input type="text" class="form-control" id="nameFriend1" name="nameFriend1" value="" ng-model="nameFriend1" style="background-color:#f7f7f7;" ng-pattern="/^[a-z A-Z]+$/" required />
-												 <span style="color:red" ng-show="myForm.nameFriend1.$dirty && myForm.nameFriend1.$invalid">
-												<span ng-show="myForm.nameFriend1.$error.required">*Friend's Name is required.</span>
-												   <span ng-show="myForm.nameFriend1.$error.pattern">*Invalid Name ...</span>
-												  </span>
 											</div>
-											</li>
-											<li class="row">
-											<div class="col-md-6">
-												<label style="font-size:13px; font-weight:bold">Email Id of your friend</label>
-												<input type="email" class="form-control" id="emailFriend1" name="emailFriend1" value="" ng-model="emailFriend1" style="background-color:#f7f7f7;" ng-pattern="/^[a-zA-Z0-9._-]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,5}(\.[a-zA-Z]{2,5}){0,1}$/" required />
-											 <span style="color:red" ng-show="myForm.emailFriend1.$dirty && myForm.emailFriend1.$invalid">
-											  <span ng-show="myForm.emailFriend1.$error.required">*Friend's Email ID is required.</span>
-											   <span ng-show="myForm.emailFriend1.$error.pattern">*Invalid Email ID ...</span>
-											  </span>
-											</div>
-											</li>
-											<li class="row">
-											<div class="col-md-6">
-												<label style="font-size:13px; font-weight:bold">Mobile Number of your friend</label>
-												<input type="tel" class="form-control" id="mobileFeiend1" name="mobileFeiend1" ng-model="mobileFeiend1" style="background-color:#f7f7f7;" maxlength="10" ng-pattern="/^([7-9]{1})(\d{9})$/" value="" />
-											 <span style="color:red" ng-show="myForm.mobileFeiend1.$dirty && myForm.mobileFeiend1.$invalid">
-												<span ng-show="myForm.mobileFeiend1.$error.pattern">*Invalid Mobile Number ...</span>
-											  </span>
-														</div>
-														
-													</li>
-													<li class="row">
-													<div class="col-md-3 col-md-offset-3" >
-														<button type="submit" class="btn btn-warning form-control"  ng-disabled="myForm.nameFriend1.$dirty && myForm.nameFriend1.$invalid || myForm.emailFriend1.$dirty && myForm.emailFriend1.$invalid ">Send Invitation</button>
-													</div>
-													</li>
-													</ul>
-											</div>
-													
-									</form>
-										</div>
-									</div>
-									
-
 								</div>
 								<!-- END TAB CONTENT -->
 							</div>
-						</div>
-						<!-- END #page -->
 					</div>
-					<!-- END .row -->
 				</div>
 			</div>
 			<!-- END .main-contents -->
@@ -701,6 +611,12 @@
 				function detailTour(id) 
 				{
 					window.location.href = "tour_detail_sidebar.php?id="+id+"";
+					return false;
+				}
+				
+				function bookGuide(id) 
+				{
+					window.location.href = "booking-form.php?id="+id+"";
 					return false;
 				}
 		</script>
