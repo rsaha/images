@@ -42,7 +42,8 @@
 				$licenceValidty = $row22["validity"];
 				$guideTerritory = $row22["guide_territory"];
 				$summery = $row22["guide_summary"];
-				$experiance = $row22["guide_experience"];
+				$otherExperiance = $row22["other_experience"];
+				$experianceInYear = $row22["experiance_in_year"];
 				$intrest = $row22["guide_interest"];
 				$landLineNumber = $row22["landline_no"];
 				$paymentCurrency = $row22["payment_currency"];
@@ -58,7 +59,8 @@
 				$licenceValidty = "";
 				$guideTerritory = "";
 				$summery = "";
-				$experiance = "";
+				$otherExperiance = "";
+				$experianceInYear = "";
 				$intrest = "";
 				$landLineNumber = "";
 				$paymentCurrency = "";
@@ -466,32 +468,47 @@
 													  <div class="col-xs-7 controls">
 													  
 													  <select class="form-control" multiple name="languageKnown[]" id="languageKnown" style="background-color:#f7f7f7;">
-												<?php 
-											  $select3 = mysql_query("SELECT * FROM `tbl_languages` WHERE `status` = 1 ORDER BY `lanugage_name`");
-											  while($row33 = mysql_fetch_array($select3))
-												{
-													$fish=0;
-													$select4 = mysql_query("SELECT tl.language_id, tl.lanugage_name FROM tbl_guide_known_languages AS gkl INNER JOIN tbl_languages AS tl ON gkl.language_id=tl.language_id WHERE gkl.user_id = $userid");
-														while($row44 = mysql_fetch_array($select4))
-														{
-															if($row33['language_id'] == $row44['language_id'])
+															<?php 
+														  $select3 = mysql_query("SELECT * FROM `tbl_languages` WHERE `status` = 1 ORDER BY `lanugage_name`");
+														  while($row33 = mysql_fetch_array($select3))
 															{
-																echo '<option selected value="' . $row33['language_id'] . '">' . $row33["lanugage_name"] . '</option>';
-																$fish=1;
+																$fish=0;
+																$select4 = mysql_query("SELECT tl.language_id, tl.lanugage_name FROM tbl_guide_known_languages AS gkl INNER JOIN tbl_languages AS tl ON gkl.language_id=tl.language_id WHERE gkl.user_id = $userid");
+																	while($row44 = mysql_fetch_array($select4))
+																	{
+																		if($row33['language_id'] == $row44['language_id'])
+																		{
+																			echo '<option selected value="' . $row33['language_id'] . '">' . $row33["lanugage_name"] . '</option>';
+																			$fish=1;
+																		}
+																	}
+																	if($fish==0)
+																	{
+																		echo '<option value="' . $row33['language_id'] . '">' . $row33["lanugage_name"] . '</option>';
+																		
+																	}
 															}
-														}
-														if($fish==0)
-														{
-															echo '<option value="' . $row33['language_id'] . '">' . $row33["lanugage_name"] . '</option>';
-															
-														}
-												}
-												?>
-												</select>
+															?>
+															</select>
 													  </div>
 													  <!-- col-sm-10 --> 
 													</div>
 												  </div> 
+												  
+												  <div class="col-sm-6 form-group">
+													<div class="row mgbt-xs-0">
+													<label class="col-xs-5 control-label">Experiance (in years) :</label>
+													  <div class="col-xs-7 controls">
+													 <div class="input-group">
+													  <input type="tel" maxlength="2" class="form-control" style="background-color:#f7f7f7;" value="<?php echo $experianceInYear; ?>" name="experianceInYear" id="experianceInYear">
+													  <span class="input-group-addon" style="background-color:#f7f7f7;" id="basic-addon2">Years</span>
+													</div>
+													  </div>
+													  <!-- col-sm-10 --> 
+													</div>
+												  </div> 
+												  
+												  
 												</div>
 												
 												<h3 class=" mgtp-10 font-semibold"><i class="icon-user mgr-10 profile-icon"></i>GUIDE TERRITORY</h3>
@@ -510,9 +527,10 @@
 												<hr class="pd-10">
 												<div class="row">
 												  <div class="col-sm-6">
-													<h3 class=" font-semibold"><i class="fa fa-file-text-o mgr-10 profile-icon"></i> EXPERIENCE</h3>
+												 <h3 class=" font-semibold"><i class="fa fa-file-text-o mgr-10 profile-icon"></i> OTHER EXPERIENCE</h3>
+													
 													<div class="content-list content-menu col-sm-12">
-													   <span class="menu-text"><textarea name="experiance" class="form-control" rows="5" style="width:100%; background-color:#f7f7f7;"><?php echo $experiance ?></textarea></span>
+													   <span class="menu-text"><textarea name="otherExperiance" class="form-control" rows="5" style="width:100%; background-color:#f7f7f7;"><?php echo $otherExperiance ?></textarea></span>
 													</div>
 												  </div>
 												  <div class="col-sm-6">
