@@ -48,7 +48,8 @@
 				$licenceNumber = $row22["license_no"];
 				$licenceValidty = $row22["validity"];
 				$summery = $row22["guide_summary"];
-				$experiance = $row22["guide_experience"];
+				$otherExperiance = $row22["other_experience"];
+				$experianceInYear = $row22["experiance_in_year"];
 				$intrest = $row22["guide_interest"];
 				$landLineNumber = $row22["landline_no"];
 				$paymentCurrency = $row22["payment_currency"];
@@ -63,7 +64,8 @@
 				$licenceNumber = "";
 				$licenceValidty = "";
 				$summery = "";
-				$experiance = "";
+				$otherExperiance = "";
+				$experianceInYear = "";
 				$intrest = "";
 				$landLineNumber = "";
 				$paymentCurrency = "";

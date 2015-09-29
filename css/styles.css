@@ -205,7 +205,7 @@ blockquote strong {font-size:16px;}
 .top-fields, .bottom-fields {
     background: none repeat scroll 0 0 #ECECEC;
     float: left;
-    padding: 10px;
+    padding: 5px;
     width: 100%;
 
     -webkit-border-radius: 0 3px 0 0;

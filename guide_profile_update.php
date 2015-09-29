@@ -40,7 +40,9 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 			$bestTimeToContact = mysql_real_escape_string($_POST['bestTimeToContact']);
 			$communicationMechanism = mysql_real_escape_string($_POST['communicationMechanism']);
 			@$languageKnown= $_POST['languageKnown'];
-			$experiance = mysql_real_escape_string($_POST['experiance']);
+			
+			$experianceInYear = mysql_real_escape_string($_POST['experianceInYear']);
+			$otherExperiance = mysql_real_escape_string($_POST['otherExperiance']);
 			$remark = mysql_real_escape_string($_POST['remark']);
 			
 			
@@ -109,7 +111,8 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 					`payment_terms`, 
 					`Communication_mechanism`,
 					`guide_Remarks`,
-					`guide_experience`,
+					`experiance_in_year`,
+					`other_experience`,
 					`status`, 
 					`datecreated`
 					) VALUES (
@@ -123,7 +126,8 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 					'$paymentTerm',
 					'$communicationMechanism',
 					'$remark'
-					'$experiance'
+					'$experianceInYear',
+					'$otherExperiance',
 					1, 
 					now()
 					)") or die('Error : ' . mysql_error());
@@ -149,7 +153,8 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 					`payment_terms`, 
 					`Communication_mechanism`,
 					`guide_Remarks`,
-					`guide_experience`,
+					`experiance_in_year`,
+					`other_experience`,
 					`status`, 
 					`datecreated`
 					) VALUES (
@@ -162,7 +167,8 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 					'$paymentTerm',
 					'$communicationMechanism',
 					'$remark',
-					'$experiance',
+					'$experianceInYear',
+					'$otherExperiance',
 					1, 
 					now()
 					)";
@@ -186,7 +192,8 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 				if(isset($hex_string))
 				{
 					$update2 = mysql_query("UPDATE `tbl_guide_detail_profile` SET 
-					`guide_experience` = '$experiance', 
+					`other_experience` = '$otherExperiance', 
+					`experiance_in_year` = '$experianceInYear',
 					`license_no`='$licenceNumber',
 					`validity`='$licenceValidty', 
 					`guide_territory` = '$guideTerritory',
@@ -211,7 +218,8 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 				else
 				{
 					$update2 = mysql_query("UPDATE `tbl_guide_detail_profile` SET 
-					`guide_experience` = '$experiance', 
+					`other_experience` = '$otherExperiance', 
+					`experiance_in_year` = '$experianceInYear',
 					`license_no`='$licenceNumber',
 					`validity`='$licenceValidty', 
 					`guide_territory` = '$guideTerritory',

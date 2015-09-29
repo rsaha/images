@@ -119,7 +119,7 @@
 							<?php
 							if(!(isset($_SESSION['userId'])))
 							{
-								echo '<a class="btn-lg btn-default pull-right" style="background-color:#ffa98e; cursor: pointer;" onclick="bookTour(' .$tourID.')"><i class="fa fa-check-square-o"></i> Book This Tour</a>';
+								echo '<a class="btn-lg btn-default pull-right" style="background-color:#ffa98e; cursor: pointer;" onclick="bookTour(0,' .$tourID.')"><i class="fa fa-check-square-o"></i> Book This Tour</a>';
 							}
 							?>
 										<?php
@@ -421,9 +421,9 @@
 					return false;
 				}
 				
-				function bookTour(id) 
+				function bookTour(guide,tour) 
 				{
-					window.location.href = "booking-form.php?id="+id+"";
+					window.location.href = "booking-form.php?id1="+guide+"&id2="+tour;
 					return false;
 				}
 		</script>
