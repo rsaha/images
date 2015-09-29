@@ -47,7 +47,8 @@
 				$licenceValidty = $row22["validity"];
 				$guideTerritory = $row22["guide_territory"];
 				$summery = $row22["guide_summary"];
-				$experiance = $row22["guide_experience"];
+				$otherExperiance = $row22["other_experience"];
+				$experianceInYear = $row22["experiance_in_year"];
 				$intrest = $row22["guide_interest"];
 				$landLineNumber = $row22["landline_no"];
 				$paymentCurrency = $row22["payment_currency"];
@@ -63,7 +64,7 @@
 				$licenceValidty = "";
 				$guideTerritory = "";
 				$summery = "";
-				$experiance = "";
+				$otherExperiance = "";
 				$intrest = "";
 				$landLineNumber = "";
 				$paymentCurrency = "";
@@ -467,7 +468,19 @@
 													<div class="form-group">
 													  <h3 class=" font-semibold"><i class="fa fa-file-text-o mgr-10 profile-icon"></i> EXPERIENCE</h3>
 													<div class="content-list content-menu col-sm-11">
-													   <span class="menu-text"><?php echo $experiance ?></span>
+													   <span class="menu-text">
+													   <?php 
+													   if($experianceInYear!= NULL || $experianceInYear!= "" || $experianceInYear != 0)
+													   {
+														   $exper = $experianceInYear . " Year Experiace in Guiding.<br>"; 
+													   } 
+													   else 
+													   { 
+															$exper = ""; 
+													   } 
+														echo $exper . "" . $otherExperiance 
+													   ?>
+													   </span>
 													</div>
 												  </div>
 												  </div>

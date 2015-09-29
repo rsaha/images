@@ -99,7 +99,7 @@ ul.rating {
 	
 	</head> <!-- END head -->
 
-	<!-- START body --> <body ng-app="myDestinations">
+	<!-- START body --> <body ng-app="myDestinations" ng-controller="ExampleController">
 		
 	<!-- START #wrapper --> <div id="wrapper"> <!-- START header --> 
 	
@@ -146,16 +146,17 @@ ul.rating {
 						<div class="col-md-8 col-md-offset-1">
 						<input type="text" class="form-control" style="background-color:white;" ng-model="search" placeholder="Where to go?" />
 						</div> 
-						<div class="col-md-2" >
-						<input type="submit" class="form-control" style="background-color:#ff845e;" class="btn btn-primary" value="Search" /> 
+						<div class="col-md-1" >
+						<span class="form-control" style="height:50px;"><i class="fa fa-search"></i></span>
+						<!-- <input type="submit" class="form-control" style="background-color:#ff845e;" class="btn btn-primary" value="Search" />  -->
 						</div> 
 						</div>
 						<div class="row">
 						<div class="col-md-7 col-md-offset-1"> <br>
 						<label >Search via</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<label><input class="input-cb"	type="checkbox" name="inc_Tour"  ng-model="tours" value=""/> Tours</label>&nbsp;&nbsp;&nbsp;&nbsp;
-						<label><input class="input-cb" type="checkbox" name="inc_Guide" value="" ng-model="guidesfilter"/> Guides </label>&nbsp;&nbsp;&nbsp;&nbsp;
-						<label><input class="input-cb" type="checkbox"	name="inc_Destination" value="" ng-model="destinationsfilter"/> Destinations</label>&nbsp;&nbsp; 
+						<label><input class="input-cb"	type="checkbox" name="inc_Tour" checked ng-model="checkboxModel.value1" value=""/> Tours</label>&nbsp;&nbsp;&nbsp;&nbsp;
+						<label><input class="input-cb" type="checkbox" name="inc_Guide" value="1" ng-model="checkboxModel.value2" checked /> Guides </label>&nbsp;&nbsp;&nbsp;&nbsp;
+						<label><input class="input-cb" type="checkbox"	name="inc_Destination" value="1" ng-model="checkboxModel.value3" checked /> Destinations</label>&nbsp;&nbsp; 
 						</div> 
 						</div>
 						</div>
@@ -187,15 +188,15 @@ ul.rating {
                   
 					<!-- END Search Container -->
 
-				<h2 class="ft-heading text-upper">Popular Tours</h2>
+				<h2 class="ft-heading text-upper" ng-show="checkboxModel.value1">Popular Tours</h2>
 
-					<div class="carousel"> 
+					<div class="carousel" ng-show="checkboxModel.value1"> 
 					  <ul class="slides">
 					  <li > 
 					   
 					 <div class="row"  ng-controller="toursCtrl"> 
 						
-					 <div class="col-md-3" ng-repeat="x in tours | filter:search:tours" ng-show="$index<4"> 
+					 <div class="col-md-3" ng-repeat="x in tours | filter:search" ng-show="$index<4"> 
 							<a href="top-tours-listview-sidebar.html">
 							<div class="ft-item"> 
 							<span class="ft-image"><img src="img/custom11.jpg" alt="Popular Tours" /> </span> 
@@ -224,13 +225,13 @@ ul.rating {
 						
 				</div>
                
-          <h2 class="ft-heading text-upper">Featured Guides</h2>
-                <div class="carousel"> 
+          <h2 class="ft-heading text-upper" ng-show="checkboxModel.value2">Featured Guides</h2>
+                <div class="carousel" ng-show="checkboxModel.value2"> 
 				<ul class="slides">
 				<li> 
 				<div class="row"  ng-controller="guideCtrl">
 				
-				<div class="col-md-3" ng-repeat="x in allguides | filter:search:guidesfilter" ng-show="$index<4"> 
+				<div class="col-md-3" ng-repeat="x in allguides | filter:search" ng-show="$index<4"> 
 				   <a href="top-guides-listview.html">
 				      <div	class="ft-item"> 
 						  <span class="ft-image">
@@ -262,13 +263,13 @@ ul.rating {
 				</ul>
 				</div>
 				
-				<h2 class="ft-heading text-upper">Top Destinations</h2>
-                <div class="carousel"> 
+				<h2 class="ft-heading text-upper" ng-show="checkboxModel.value3">Top Destinations</h2>
+                <div class="carousel" ng-show="checkboxModel.value3"> 
 				<ul class="slides">
 				<li> 
 				<div class="row"  ng-controller="placesCtrl">
 				
-				<div class="col-md-3" ng-repeat="x in places | filter:search:destinationsfilter" ng-show="$index<4"> 
+				<div class="col-md-3" ng-repeat="x in places | filter:search" ng-show="$index<4"> 
 				   <a href="top-destinations-listview-sidebar.html">
 				      <div	class="ft-item"> 
 						  <span class="ft-image">
