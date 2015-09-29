@@ -196,15 +196,15 @@ else
 													<li class="row">
 														<div class="col-md-6">
 															<label style="font-size:14px; font-weight:bold">Guide Facebook Profile</label>
-															<input type="text" class="form-control" name="GuideFacebookProfile" ng-model="GuideFacebookProfile" value="" ng-pattern="[a-z0-9A-Z_-.]+"/>
+															<input type="text" id="GuideFacebookProfile" class="form-control" name="GuideFacebookProfile" ng-model="GuideFacebookProfile" ng-pattern="/^[a-z0-9A-Z_-.]+$/" />
 															<span style="color:red" ng-show="myForm.GuideFacebookProfile.$dirty && myForm.GuideFacebookProfile.$invalid">
 											 
-											   <span ng-show="myForm.GuideFacebookProfile.$error.pattern">*Invalid Facebook Profile Name ...</span>
-											  </span>
+											                <span ng-show="myForm.GuideFacebookProfile.$error.pattern">*Invalid Facebook Profile Name ...</span>
+											                </span>
 														</div>
 														<div class="col-md-6">
 															<label style="font-size:14px; font-weight:bold">Guide Linkedin Profile</label>
-															<input type="text" class="form-control" name="GuideLinkedinProfile" ng-model="GuideLinkedinProfile" value="" ng-pattern="[a-z0-9A-Z_-.]+" />
+															<input type="text" id="GuideLinkedinProfile" class="form-control" name="GuideLinkedinProfile" ng-model="GuideLinkedinProfile" ng-pattern="/^[a-z0-9A-Z_-.]+$/" />
 															<span style="color:red" ng-show="myForm.GuideLinkedinProfile.$dirty && myForm.GuideLinkedinProfile.$invalid">
 											 
 											   <span ng-show="myForm.GuideLinkedinProfile.$error.pattern">*Invalid Linkedin Profile Name ...</span>
@@ -215,7 +215,7 @@ else
 													<li class="row">
 														<div class="col-md-6">
 															<label style="font-size:14px; font-weight:bold">Guide Pinterest Profile</label>
-															<input type="text" class="form-control" name="GuidePinterestProfile" ng-model="GuidePinterestProfile" value="" ng-pattern="[a-z0-9A-Z_-.]+" />
+															<input type="text" id="GuidePinterestProfile" class="form-control" name="GuidePinterestProfile" ng-model="GuidePinterestProfile" ng-pattern="/^[a-z0-9A-Z_-.]+$/" />
 															<span style="color:red" ng-show="myForm.GuidePinterestProfile.$dirty && myForm.GuidePinterestProfile.$invalid">
 											  
 											   <span ng-show="myForm.GuidePinterestProfile.$error.pattern">*Invalid Pinterest Profile Name ...</span>
@@ -223,19 +223,33 @@ else
 														</div>
 														<div class="col-md-6">
 															<label style="font-size:14px; font-weight:bold">Guide Skype Address</label>
-															<input type="text" class="form-control" name="GuideSkypeAddress" ng-model="GuideSkypeAddress" ng-pattern="[a-z0-9A-Z_-.]+"  value="" />
+															<input type="text" id="GuideSkypeAddress"  class="form-control" name="GuideSkypeAddress" ng-model="GuideSkypeAddress" ng-pattern="/^[a-z0-9A-Z_-.]+$/"/>
 															<span style="color:red" ng-show="myForm.GuideSkypeAddress.$dirty && myForm.GuideSkypeAddress.$invalid">
 											 
 											   <span ng-show="myForm.GuideSkypeAddress.$error.pattern">*Invalid Skype Address ...</span>
 											  </span>
 														</div>
+														
+														<div class="col-md-6"><br>
+															<label style="font-size:14px; font-weight:bold">Guide Experience</label><br><br>
+															<div class="input-group">
+															  <input type="tel" id="ExperienceInYear"  class="form-control" maxlength="2" name="ExperienceInYear" id="ExperienceInYear" ng-model="ExperienceInYear" ng-pattern="/^[0-9]+/$" />
+															  <span class="input-group-addon" style="background-color:#f7f7f7;" id="basic-addon2">Years</span>
+															</div>
+															<span style="color:red" ng-show="myForm.ExperienceInYear.$dirty && myForm.ExperienceInYear.$invalid">
+															<span ng-show="myForm.ExperienceInYear.$error.pattern">*in numbers only ...</span>
+															</span>
+														</div>
+														
 													</li>
 													
 													<li class="row">
 														
+														
+														
 														<div class="col-md-6">
 															<label style="font-size:14px; font-weight:bold">Guide Experience</label>
-															<textarea class="form-control" name="GuideExperience" ></textarea>
+															<textarea class="form-control" name="OtherExperience" ></textarea>
 														</div>
 														
 														<div class="col-md-6">
@@ -249,7 +263,7 @@ else
 														
 														<div class="form-group">
 														<div class="col-md-3 pull-right" >
-															<button type="submit" class="btn btn-warning form-control" ng-disabled="myForm.GuideFacebookProfile.$dirty && myForm.GuideFacebookProfile.$invalid || myForm.GuideLinkedinProfile.$dirty && myForm.GuideLinkedinProfile.$invalid || myForm.GuidePinterestProfile.$dirty && myForm.GuidePinterestProfile.$invalid || myForm.GuideSkypeAddress.$dirty && myForm.GuideSkypeAddress.$invalid ">Next</button>
+															<button type="submit" class="btn btn-warning form-control" ng-disabled="myForm.GuideFacebookProfile.$dirty && myForm.GuideFacebookProfile.$invalid || myForm.GuideLinkedinProfile.$dirty && myForm.GuideLinkedinProfile.$invalid || myForm.GuidePinterestProfile.$dirty && myForm.GuidePinterestProfile.$invalid || myForm.GuideSkypeAddress.$dirty && myForm.GuideSkypeAddress.$invalid  || myForm.ExperienceInYear.$dirty && myForm.ExperienceInYear.$invalid">Next</button>
 														
 														</div>
 														<div class="col-md-3 pull-right" >

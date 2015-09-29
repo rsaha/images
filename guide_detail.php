@@ -33,7 +33,8 @@
 				$licenceValidty = $row22["validity"];
 				$guideTerritory = $row22["guide_territory"];
 				$summery = $row22["guide_summary"];
-				$experiance = $row22["guide_experience"];
+				$otherExperiance = $row22["other_experience"];
+				$experianceInYear = $row22["experiance_in_year"];
 				$intrest = $row22["guide_interest"];
 				$landLineNumber = $row22["landline_no"];
 				$paymentCurrency = $row22["payment_currency"];
@@ -49,7 +50,8 @@
 				$licenceValidty = "";
 				$guideTerritory = "";
 				$summery = "";
-				$experiance = "";
+				$otherExperiance = "";
+				$experianceInYear = "";
 				$intrest = "";
 				$landLineNumber = "";
 				$paymentCurrency = "";
@@ -278,7 +280,7 @@
 											<fieldset>
 										<div >
 										<?php
-										echo '<a class="btn-lg btn-default pull-right" style="background-color:#ffa98e; cursor: pointer;" onclick="bookGuide(' . $userid. ')"> 
+										echo '<a class="btn-lg btn-default pull-right" style="background-color:#ffa98e; cursor: pointer;" onclick="bookGuide(' . $userid. ',0)"> 
 										<i class="fa fa-pencil"></i> Book This Guide 
 										</a>'
 										?>	
@@ -444,7 +446,7 @@
 													<div class="form-group">
 													  <h3 class=" font-semibold"><i class="fa fa-file-text-o mgr-10 profile-icon"></i> EXPERIENCE</h3>
 													<div class="content-list content-menu col-sm-11">
-													   <span class="menu-text"><?php echo $experiance ?></span>
+													   <span class="menu-text"><?php echo $experianceInYear . " Years experiance, <br>" . $otherExperiance ?></span>
 													</div>
 												  </div>
 												  </div>
@@ -614,9 +616,9 @@
 					return false;
 				}
 				
-				function bookGuide(id) 
+				function bookGuide(guide,tour) 
 				{
-					window.location.href = "booking-form.php?id="+id+"";
+					window.location.href = "booking-form.php?id1="+guide+"&id2="+tour;
 					return false;
 				}
 		</script>
