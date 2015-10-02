@@ -1,9 +1,9 @@
 <?php
 session_start();
-include("db.php");
+include_once("db.php");
 if((isset($_POST['username'])) && (isset($_POST['emailid'])) && (isset($_POST['monileno'])))
 {
-	include('sendEmail.php');
+	include_once('sendEmail.php');
 	
 	$HostEmail = parse_ini_file('config.ini',true)['email'];
 	$subject = "Forget Password Retreval Email";

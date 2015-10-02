@@ -21,7 +21,7 @@ app.controller('placesCtrl',['$scope','$http', function($scope, $http) {
 }]); 
 
 app.controller('placeDetailCtrl',['$scope','$http', function($scope, $http) {
-    $http.get("http://130.211.123.212/app/place")
+    $http.get("http://130.211.123.212/app/place?placeid=1002")
     .success(function (response) {
 		$scope.place = response;
 		

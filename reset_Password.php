@@ -1,6 +1,6 @@
 <?php 
 session_start();
-include('db.php');
+include_once('db.php');
 if(isset($_SESSION['userId']))
 	{
 		if(isset($_POST['userid']) && isset($_POST['oldPassword']) && isset($_POST['newPassword']) && isset($_POST['conformpassword']))
@@ -12,7 +12,7 @@ if(isset($_SESSION['userId']))
 		}
 		if($_SESSION['userId']!=$userid)
 		{
-			include("signOut.php");
+			include_once("signOut.php");
             header('Location:guide_login.php');
 			exit;
 		}
@@ -55,7 +55,7 @@ if(isset($_SESSION['userId']))
 	}
 	else
 	{
-		include("signOut.php");
+		include_once("signOut.php");
 		echo "<script type='text/javascript'>alert('$msg');</script>";
         //header('Location:guide_login.php');
 		exit;

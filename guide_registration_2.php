@@ -14,13 +14,13 @@ else if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "reg"))
 	}
 	if($_SESSION['userId']!=$userid)
 	{
-		include('signOut.php');
+		include_once('signOut.php');
 		header('Location:guide_registration_1.php');
 		exit;
 	}
 	else
 	{
-		include('db.php');
+		include_once('db.php');
 		$select = mysql_query("SELECT * FROM `tbl_user_profile` WHERE `user_id` = $userid");
 		$row = mysql_fetch_assoc($select);
 		$firstName =  $row["f_name"];
@@ -32,7 +32,7 @@ else if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "reg"))
 }
 else
 {
-	include("signOut.php");
+	include_once("signOut.php");
 	header('Location:guide_registration_1.php');
 	exit;
 }
@@ -121,7 +121,7 @@ else
 		<!-- START #wrapper -->
 		<div id="wrapper">
 		
-			<?php include('MasterHeaderAfterLogin.php'); ?>
+			<?php include_once('MasterHeaderAfterLogin.php'); ?>
 			<center>
 						<div class="row">
 						<div class="hovera text-center" style="border: 0px solid black;">
@@ -291,7 +291,7 @@ else
 														<div class="col-md-4">
 															<label style="font-size:14px; font-weight:bold">State</label>
 															<select name="state" id="state" class="form-control">
-													  <?php include('state.php'); ?>
+													  <?php include_once('state.php'); ?>
 														</select>
 														</div>
 														<div class="col-md-4">
@@ -406,7 +406,7 @@ else
 			</div>
 			<!-- END .main-contents -->
 			
-			<?php include('MasterFooter.php'); ?>
+			<?php include_once('MasterFooter.php'); ?>
 		</div>
 		<!-- END #wrapper -->
 		

@@ -15,7 +15,7 @@
 		{
 			$_SESSION['signinCheck']="signin";
 			$_SESSION['phase'] = "signin";
-				include('db.php');
+				include_once('db.php');
 
 				$select1 = mysql_query("SELECT * FROM `tbl_user_profile` WHERE `user_id` = $userid");
 
@@ -141,7 +141,7 @@
 		<!-- START #wrapper -->
 		<div id="wrapper">
 			
-			<?php include('MasterHeaderAfterLogin.php'); ?>
+			<?php include_once('MasterHeaderAfterLogin.php'); ?>
 			
 			<form action="guide_Step2.php" method="post">
 			<!-- START #page-header -->
@@ -586,7 +586,7 @@
 			</div>
 			<!-- END .main-contents -->
 			</form>
-			<?php include('MasterFooter.php'); ?>
+			<?php include_once('MasterFooter.php'); ?>
 		</div>
 		<!-- END #wrapper -->
 			

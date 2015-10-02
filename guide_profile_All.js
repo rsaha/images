@@ -8,7 +8,7 @@
 }]);
 
 app.controller('guideControl',['$scope','$http', function($scope, $http) {
-    $http.get("http://130.211.123.212/app/guide")
+    $http.get("http://130.211.123.212/app/guide?id=10005")
     .success(function (response) {
 		$scope.allguides=response;
 		})

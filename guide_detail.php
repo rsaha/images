@@ -5,7 +5,7 @@
 		{
 			$userid = $_GET['id'];
 			$_SESSION['photo'] = array();
-			include('db.php');
+			include_once('db.php');
 
 				$select1 = mysql_query("SELECT * FROM `tbl_user_profile` WHERE `user_id` = $userid");
 				$row11 = mysql_fetch_assoc($select1);
@@ -168,7 +168,7 @@
 		<!-- START #wrapper -->
 		<div id="wrapper">
 			
-			<?php include('MasterHeader.php'); ?>
+			<?php include_once('MasterHeader.php'); ?>
 			
 			<!-- START #page-header -->
 			<div class="" >
@@ -566,7 +566,7 @@
 			</div>
 			<!-- END .main-contents -->
 			
-			<?php include('MasterFooter.php'); ?>
+			<?php include_once('MasterFooter.php'); ?>
 			
 			<?php
 			

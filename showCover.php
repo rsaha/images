@@ -1,7 +1,7 @@
 <?php
 
 	$userid=$_GET['id'];
-	include('db.php');
+	include_once('db.php');
 $select = mysql_query("SELECT * FROM `tbl_guide_detail_profile` WHERE `user_id` = $userid");
 		$row = mysql_fetch_assoc($select);
 		$profile_cover_binary= $row['guide_Cover_pic'];

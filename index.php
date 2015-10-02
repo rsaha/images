@@ -84,11 +84,11 @@ if(isset($_POST["searchString"]))
 	
 if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "signin"))
 			{
-				include('MasterHeaderAfterLogin.php'); 
+				include_once('MasterHeaderAfterLogin.php'); 
 			}
 			else
 			{
-				include('MasterHeader.php'); 
+				include_once('MasterHeader.php'); 
 			}
 	?>
 
@@ -296,7 +296,7 @@ if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "signin"))
 					<div class="row">
 
 											<?php 
-											include('db.php');
+											include_once('db.php');
 											$sql1 = mysql_query("SELECT * FROM `tbl_tours` WHERE `tour_territory` LIKE '%$searchString%'");
 											if(mysql_num_rows($sql1) < 1)
 											{
@@ -762,7 +762,7 @@ if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "signin"))
                 								</section> </div> </div> </div> </div>
 								<!-- END #ft-footer -->
 
-				<?php include("MasterFooter.php"); ?>
+				<?php include_once("MasterFooter.php"); ?>
 				
 							</div> <!-- END #wrapper -->
 

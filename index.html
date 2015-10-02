@@ -42,6 +42,7 @@
     #slider {
         max-width: 100%;
         margin: auto;
+		
     }
     </style>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -66,10 +67,12 @@
 		
 	<style type="text/css">
 	#searchDiv{
-	<!-- top: 130px;
+	top: 120px;
 	position: absolute;
 	left:20px;
-	z-index: 2; -->
+	z-index: 2; 
+	height:100px;
+	
 	}
 	
 		
@@ -138,18 +141,23 @@ ul.rating {
                 <li><a
 				href="#" title="">Themed Tours</a> </li>
 		
-									</ul> </nav> </div> </div> </div>
-					<div class="main-contents col-md-8 col-md-offset-2" id="searchDiv">
-					<form class="plan-tour">
-						<div class="top-fields"><br>
-						<div class="row">								
-						<div class="col-md-8 col-md-offset-1">
+						</ul> </nav> </div> </div> </div>
+					<br><br><br><br><br><br><br>
+					 </div></header>
+									 <!-- END #main-header -->
+									 <!-- END header -->
+					 <div>
+					 <div class="main-contents col-md-6 col-md-offset-2" id="searchDiv">
+					 <form class="plan-tour">
+						<div class="" style="background-color:#f1f1f1;" >
+						<div class="row">
+						<br>
+						<div class="col-md-10 col-md-offset-1 input-group">
 						<input type="text" class="form-control" style="background-color:white;" ng-model="search" placeholder="Where to go?" />
-						</div> 
-						<div class="col-md-1" >
-						<span class="form-control" style="height:50px;"><i class="fa fa-search"></i></span>
-						<!-- <input type="submit" class="form-control" style="background-color:#ff845e;" class="btn btn-primary" value="Search" />  -->
-						</div> 
+						<span class="input-group-addon">
+						<i class="fa fa-search"></i>
+						</span>
+						</div>
 						</div>
 						<div class="row">
 						<div class="col-md-7 col-md-offset-1"> <br>
@@ -161,8 +169,7 @@ ul.rating {
 						</div>
 						</div>
 					</form>
-				</div><br><br><br><br><br><br><br>
-					 <div>
+				</div>
 		        <div id="slider">
 					<img src="img/tour_1.jpg" data-src-2x="img/tour_1.jpg" alt="Slide 1" />
 					<img data-src="img/tour_2.jpg" data-src-2x="img/tour_2.jpg" src="" alt="Slide 2" />
@@ -175,8 +182,7 @@ ul.rating {
 				</script> 
 			</div>
 				
-									</div> <!-- END #main-header -->
-									</header> <!-- END header -->
+									 
 									
 	
  
@@ -235,7 +241,7 @@ ul.rating {
 				   <a href="top-guides-listview.html">
 				      <div	class="ft-item"> 
 						  <span class="ft-image">
-							 <img src="{{x.Photo}}" alt="Top Guide" /> 
+							 <img style="height:230px;width:180;" src="{{x.Photo}}" alt="Top Guide" /> 
 						  </span>
 					  
 								<div class="ft-data">

@@ -10,7 +10,7 @@
 		}
 		if($_SESSION['userId']!=$userid)
 		{
-			include("signOut.php");
+			include_once("signOut.php");
             header('Location:guide_login.php');
 			exit;
 		}
@@ -20,7 +20,7 @@
 			$_SESSION['photo'] = array();
 			$_SESSION['signinCheck']="signin";
 			$_SESSION['phase'] = "signin";
-				include('db.php');
+				include_once('db.php');
 
 				$select1 = mysql_query("SELECT * FROM `tbl_user_profile` WHERE `user_id` = $userid");
 				$row11 = mysql_fetch_assoc($select1);
@@ -77,7 +77,7 @@
 	}
 	else
 	{
-		include("signOut.php");
+		include_once("signOut.php");
         header('Location:guide_login.php');
 		exit;
 	}
@@ -175,7 +175,7 @@
 		<!-- START #wrapper -->
 		<div id="wrapper">
 			
-			<?php include('MasterHeaderAfterLogin.php'); ?>
+			<?php include_once('MasterHeaderAfterLogin.php'); ?>
 			
 			<!-- START #page-header -->
 			<div class="" >
@@ -360,7 +360,7 @@
 				</div>
 			</div>
 			<!-- END .main-contents -->
-			<?php include('MasterFooter.php'); ?>
+			<?php include_once('MasterFooter.php'); ?>
 			
 			<?php
 			

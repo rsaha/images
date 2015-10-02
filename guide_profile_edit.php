@@ -14,7 +14,7 @@
 		else
 		{
 			$_SESSION["signinCheck"]="signin";
-				include('db.php');
+				include_once('db.php');
 
 				$select1 = mysql_query("SELECT * FROM `tbl_user_profile` WHERE `user_id` = $userid");
 				$row11 = mysql_fetch_assoc($select1);
@@ -156,7 +156,7 @@
 		<div id="wrapper">
 			
 			
-			<?php include('MasterHeaderAfterLogin.php'); ?>
+			<?php include_once('MasterHeaderAfterLogin.php'); ?>
 			
 			
 			
@@ -390,7 +390,7 @@
 													  
 													  <div class="col-xs-7 controls">
 													  <select name="state" id="state" class="form-control" style="background-color:#f7f7f7;">
-													  <?php include('state.php'); ?>
+													  <?php include_once('state.php'); ?>
 														</select>
 													  </div>
 													  <!-- col-sm-10 --> 
@@ -559,7 +559,7 @@
 			</div>
 			<!-- END .main-contents -->
 			
-			<?php include('MasterFooter.php'); ?>
+			<?php include_once('MasterFooter.php'); ?>
 		</div>
 		<!-- END #wrapper -->
 			<script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places" type="text/javascript"></script>

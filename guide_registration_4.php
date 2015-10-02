@@ -8,13 +8,13 @@ if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "reg"))
 	}
 	if($_SESSION['userId']!=$userid)
 	{
-		include("signOut.php");
+		include_once("signOut.php");
 		header('Location:guide_registration_1.php');
 		exit;
 	}
 	else
 	{
-		include('db.php');
+		include_once('db.php');
 		$select = mysql_query("SELECT * FROM `tbl_user_profile` WHERE `user_id` = $userid");
 		$row = mysql_fetch_assoc($select);
 		$firstName =  $row["f_name"];
@@ -26,7 +26,7 @@ if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "reg"))
 }
 else
 {
-	include("signOut.php");
+	include_once("signOut.php");
 	header('Location:guide_registration_1.php');
 	exit;
 }
@@ -97,7 +97,7 @@ else
 	<body>
 		<!-- START #wrapper -->
 		<div id="wrapper">
-			<?php include('MasterHeaderAfterLogin.php'); ?>
+			<?php include_once('MasterHeaderAfterLogin.php'); ?>
 			
 			<!-- START #page-header -->
 			<div>
@@ -308,7 +308,7 @@ else
 			</div>
 			<!-- END .main-contents -->
 			
-			<?php include('MasterFooter.php'); ?>
+			<?php include_once('MasterFooter.php'); ?>
 		</div>
 		<!-- END #wrapper -->
 		

@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	include("db.php");
+	include_once("db.php");
 	
 	$FirstName=mysql_real_escape_string($_POST['FirstName']);
 	$LastName=mysql_real_escape_string($_POST['LastName']);

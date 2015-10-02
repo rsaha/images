@@ -7,7 +7,6 @@ if((isset($_SESSION['userId'])) && (($_SESSION['phase'] == "signin") || ($_SESSI
 	{
 	  $userid=$_POST['userid'];
 	  $tourID=$_POST['tourID'];
-	  
 	}
 
 	if (isset($_POST['picture']))
@@ -31,7 +30,7 @@ if((isset($_SESSION['userId'])) && (($_SESSION['phase'] == "signin") || ($_SESSI
 				$hex_string = base64_encode($bin_string);
 				unlink(parse_ini_file('config.ini',true)['imagePath'] . $newName);
 				#$imgFullpath = "http://".$_SERVER['SERVER_NAME'].dirname($_SERVER["REQUEST_URI"].'?'). parse_ini_file('config.ini',true)['imagePath'] . $newName;
-				include("db.php");
+				include_once("db.php");
 				$insert = mysql_query("INSERT INTO `tbl_tour_media_pictures`(`tour_id`, `tour_picture`) VALUES ($tourID, '$hex_string')");
 				if($insert)
 				{
@@ -49,6 +48,7 @@ if((isset($_SESSION['userId'])) && (($_SESSION['phase'] == "signin") || ($_SESSI
 		} 
 		else 
 		{
+			echo "file not required type";
 			$errormsg="Cover Picture type or size do not match the required type or size";
 			error_log($errormsg,0);
 		}
@@ -76,7 +76,7 @@ if((isset($_SESSION['userId'])) && (($_SESSION['phase'] == "signin") || ($_SESSI
 				$hex_string = base64_encode($bin_string);
 				unlink(parse_ini_file('config.ini',true)['imagePath'] . $newName);
 				#$imgFullpath = "http://".$_SERVER['SERVER_NAME'].dirname($_SERVER["REQUEST_URI"].'?'). parse_ini_file('config.ini',true)['imagePath'] . $newName;
-				include("db.php");
+				include_once("db.php");
 				$insert = mysql_query("INSERT INTO `tbl_tour_media_videos`(`tour_id`, `tour_video`) VALUES ($tourID, '$hex_string')");
 				if($insert)
 				{
@@ -93,7 +93,6 @@ if((isset($_SESSION['userId'])) && (($_SESSION['phase'] == "signin") || ($_SESSI
 		}
 		else 
 		{
-			echo '<script>alert("hii");</sript>';
 			$errormsg="Cover Picture type or size do not match the required type or size";
 			error_log($errormsg,0);
 		}
@@ -108,7 +107,7 @@ else
 {
 	$errormsg="Unauthenticated access to the upload page, Registration Step 1 is not done";
 	error_log($errormsg,0);
-	include("signOut.php");
+	include_once("signOut.php");
 	header('Location:guide_registration_1.php');
 }
 ?>

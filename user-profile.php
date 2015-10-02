@@ -76,7 +76,7 @@ ul.rating {
 	<body ng-app="myAllGuide" ng-controller="guideControl">
 		<!-- START #wrapper -->
 		<div id="wrapper">
-			<?php include('MasterHeader.php'); ?>
+			<?php include_once('MasterHeader.php'); ?>
 			<!-- END header -->
 				<div class="container">
 					
@@ -475,7 +475,7 @@ ul.rating {
 			<!-- END .main-contents -->
 			
 			<!-- START footer -->
-			<?php include('MasterFooter.php'); ?>
+			<?php include_once('MasterFooter.php'); ?>
 			<!-- END footer -->
 		</div>
 		<!-- END #wrapper -->

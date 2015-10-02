@@ -1,7 +1,7 @@
 <?php
 	session_start();
 $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
-    include("db.php");
+    include_once("db.php");
 	
 	if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "signin"))
 	{
@@ -19,7 +19,7 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 		{
 			$errormsg="Unauthenticated access to the step 2 page, Registration Step 1 is not done";
 			error_log($errormsg,0);
-			include("signOut.php");
+			include_once("signOut.php");
 			header('Location:guide_registration_1.php');
 			exit;
 		}
@@ -65,7 +65,7 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 			
 			$guideTerritory= mysql_real_escape_string($_POST['guideTerritory']);
 			
-			include("db.php");
+			include_once("db.php");
 			$update = mysql_query("UPDATE `tbl_user_profile` SET `gender`='$Gender', `d_o_b`='$DOB', `street_address`='$streetaddress', `city`='$city', `state`='$state', `country`='$country', `datecreated`=now() WHERE `user_id`=$userid");
 		
 			$validextensions = array("jpeg", "jpg", "png");
@@ -197,7 +197,7 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 	{
 	 $errormsg="Unauthenticated access to the step 2 page, Registration Step 1 is not done";
 	error_log($errormsg,0);
-     include("signOut.php");
+     include_once("signOut.php");
 	header('Location:guide_registration_1.php');	
 	}
 ?>

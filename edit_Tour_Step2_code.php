@@ -13,12 +13,12 @@ session_start();
 		{
 			$errormsg="Unauthenticated access to the Guide edit page, Registration Step 1 is not done";
 			error_log($errormsg,0);
-			include("signOut.php");
+			include_once("signOut.php");
 			header('Location:guide_registration_1.php');
 		}
 		else
 		{
-			include('db.php');
+			include_once('db.php');
 			if(mysql_query("DELETE FROM `tbl_tour_itinerary` WHERE `tour_id` = '$tour_id'"))
 			{
 				$flag1=0;
@@ -111,7 +111,7 @@ session_start();
 	{
 		$errormsg="Unauthenticated access to the Guide edit page, Registration Step 1 is not done";
 		error_log($errormsg,0);
-		include("signOut.php");
+		include_once("signOut.php");
         header('Location:guide_registration_1.php');
 	    exit;
 	}

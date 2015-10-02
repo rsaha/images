@@ -11,14 +11,14 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 	{
 		$errormsg="Unauthenticated access to the Guide edit page, Registration Step 1 is not done";
 		error_log($errormsg,0);
-		include("signOut.php");
+		include_once("signOut.php");
         header('Location:guide_registration_1.php');
 	}
 	else
 	{
 		$flag1=0;
 		$flag2=0;
-			include('db.php');
+			include_once('db.php');
 			$firstName=mysql_real_escape_string($_POST['firstName']);
 			$lastName=mysql_real_escape_string($_POST['lastName']);
 			$emailID = mysql_real_escape_string($_POST['emailID']);
@@ -280,7 +280,7 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 	{
 		$errormsg="Unauthenticated access to the Guide edit page, Registration Step 1 is not done";
 		error_log($errormsg,0);
-		include("signOut.php");
+		include_once("signOut.php");
         header('Location:guide_registration_1.php');
 	    exit;
 	}
