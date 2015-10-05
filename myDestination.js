@@ -42,7 +42,14 @@ app.controller('placesCtrl',['$scope','$http', function($scope, $http) {
 			
 			
 }]); 
-
+ app.controller('ExampleController', ['$scope', function($scope) {
+      $scope.checkboxModel = {
+       value1 : true,
+	   value2 : true,
+	   value3 : true,
+       /* value2 : 'YES' */
+     };
+    }]);
 app.directive('starRating', function () {
     return {
         restrict: 'A',

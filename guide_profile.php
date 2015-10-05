@@ -9,7 +9,7 @@
 		}
 		if($_SESSION['userId']!=$userid)
 		{
-			include("signOut.php");
+			include_once("signOut.php");
             header('Location:guide_login.php');
 			exit;
 		}
@@ -19,7 +19,7 @@
 			$_SESSION['photo'] = array();
 			$_SESSION['signinCheck']="signin";
 			$_SESSION['phase'] = "signin";
-				include('db.php');
+				include_once('db.php');
 
 				$select1 = mysql_query("SELECT * FROM `tbl_user_profile` WHERE `user_id` = $userid");
 				$row11 = mysql_fetch_assoc($select1);
@@ -45,8 +45,10 @@
 				$LicenceImage = $row22["license_Image"];
 				$licenceNumber = $row22["license_no"];
 				$licenceValidty = $row22["validity"];
+				$guideTerritory = $row22["guide_territory"];
 				$summery = $row22["guide_summary"];
-				$experiance = $row22["guide_experience"];
+				$otherExperiance = $row22["other_experience"];
+				$experianceInYear = $row22["experiance_in_year"];
 				$intrest = $row22["guide_interest"];
 				$landLineNumber = $row22["landline_no"];
 				$paymentCurrency = $row22["payment_currency"];
@@ -60,8 +62,9 @@
 				$nickName = "";
 				$licenceNumber = "";
 				$licenceValidty = "";
+				$guideTerritory = "";
 				$summery = "";
-				$experiance = "";
+				$otherExperiance = "";
 				$intrest = "";
 				$landLineNumber = "";
 				$paymentCurrency = "";
@@ -74,7 +77,7 @@
 	}
 	else
 	{
-		include("signOut.php");
+		include_once("signOut.php");
         header('Location:guide_login.php');
 		exit;
 	}
@@ -185,7 +188,7 @@
 		<!-- START #wrapper -->
 		<div id="wrapper">
 			
-			<?php include('MasterHeaderAfterLogin.php'); ?>
+			<?php include_once('MasterHeaderAfterLogin.php'); ?>
 			
 			<!-- START #page-header -->
 			<div class="" >
@@ -193,17 +196,17 @@
 			$count4pic = mysql_num_rows($select2);
 			if ($count4pic==0)
 			{
-				echo '<img style="width:1400px; height:200px;" class="hover img-responsive" src="img/Default.jpg"/>';
+				echo '<img class="hover img-responsive" src="img/Default.jpg"/>';
 			}
 			else
 			{
 				if($coverPicture==null)
 				{
-					echo '<img style="width:1400px; height:200px;" class="hover img-responsive" src="img/Default.jpg"/>';
+					echo '<img class="hover img-responsive" src="img/Default.jpg"/>';
 				}
 				else
 				{
-					echo '<img style="width:1400px; height:200px;" class="hover img-responsive" src="showCover.php?id=' . $userid . '"/>';
+					echo '<img class="hover img-responsive" src="showCover.php?id=' . $userid . '"/>';
 				}
 			}
 			?><br>
@@ -224,17 +227,17 @@
 						$count4pic = mysql_num_rows($select2);
 						if ($count4pic==0)
 						{
-							echo '<img style="max-height:200px; max-width:170px;" class="hover img-responsive" src="img/userDefaultIcon.png"/>';
+							echo '<img class="hover img-responsive" src="img/userDefaultIcon.png"/>';
 						}
 						else
 						{
 							if($profilePicture==null)
 							{
-								echo '<img style="max-height:200px; max-width:170px;" class="hover img-responsive" src="img/userDefaultIcon.png"/>';
+								echo '<img class="hover img-responsive" src="img/userDefaultIcon.png"/>';
 							}
 							else
 							{
-								echo '<img style="max-height:200px; max-width:170px;" class="hover img-responsive" src="showImage.php?id=' . $userid . '"/>';
+								echo '<img class="hover img-responsive" src="showImage.php?id=' . $userid . '"/>';
 							}
 						}
 							
@@ -258,17 +261,17 @@
 							$count4pic = mysql_num_rows($select2);
 							if ($count4pic==0)
 							{
-								echo '<img style="max-height:127px; max-width:200px;" class="hover img-responsive" src="img/PRcard.jpg"/>';
+								echo '<img class="hover img-responsive" src="img/PRcard.jpg"/>';
 							}
 							else
 							{
 								if($LicenceImage==null)
 								{
-									echo '<img style="max-height:127px; max-width:200px;" class="hover img-responsive" src="img/PRcard.jpg"/>';
+									echo '<img class="hover img-responsive" src="img/PRcard.jpg"/>';
 								}
 								else
 								{
-									echo '<img style="max-height:127px; max-width:200px;" class="hover img-responsive" src="showLicence.php?id=' . $userid . '"/>';
+									echo '<img class="hover img-responsive" src="showLicence.php?id=' . $userid . '"/>';
 								}
 							}
 							?>
@@ -402,21 +405,30 @@
 												  </div>
 													  <!-- col-sm-10 --> 
 												  </div>
-
 												  
 												  <div class="col-sm-6 col-xs-12">
 												<?php
 												$select3 = mysql_query("SELECT tl.lanugage_name FROM tbl_guide_known_languages AS gkl INNER JOIN tbl_languages AS tl ON gkl.language_id=tl.language_id WHERE gkl.user_id = $userid");
-												
+												$count4Lan = mysql_num_rows($select3);
 												?>
 				
 											  <div class="form-group">
 											  <label class="col-md-5 control-label" style="font-size:14px; font-weight:bold">Language Known:</label>
 											  <div class="col-md-7 controls">
-											  <?php while($row33 = mysql_fetch_array($select3))
-												{
-													echo $row33["lanugage_name"].", ";
-												}  
+											  <?php 
+											 $cnt=1;
+														while($row33 = mysql_fetch_array($select3))
+														{
+															if($count4Lan==$cnt)
+															{
+															echo $row33["lanugage_name"];
+															}
+															else
+															{
+																echo $row33["lanugage_name"].", ";
+															}
+															$cnt=$cnt+1;
+														}
 												?>
 												</div>
 												  </div>
@@ -425,6 +437,19 @@
 												  
 												</div>
 												
+												<hr class="pd-10">
+												<div class="row">
+												 <div class="col-sm-12 col-xs-12">
+													<div class="form-group">
+													  <h3 class=" font-semibold">GUIDE TERRITORY</h3>
+													<div class="content-list content-menu col-sm-11">
+													   <span class="menu-text"><?php echo $guideTerritory ?></span>
+													</div>
+												  </div>
+												  </div>
+												  </div>
+												  
+												  
 												<hr class="pd-10">
 												<div class="row">
 												 <div class="col-sm-12 col-xs-12">
@@ -443,7 +468,19 @@
 													<div class="form-group">
 													  <h3 class=" font-semibold"><i class="fa fa-file-text-o mgr-10 profile-icon"></i> EXPERIENCE</h3>
 													<div class="content-list content-menu col-sm-11">
-													   <span class="menu-text"><?php echo $experiance ?></span>
+													   <span class="menu-text">
+													   <?php 
+													   if($experianceInYear!= NULL || $experianceInYear!= "" || $experianceInYear != 0)
+													   {
+														   $exper = $experianceInYear . " Year Experiace in Guiding.<br>"; 
+													   } 
+													   else 
+													   { 
+															$exper = ""; 
+													   } 
+														echo $exper . "" . $otherExperiance 
+													   ?>
+													   </span>
 													</div>
 												  </div>
 												  </div>
@@ -630,7 +667,7 @@
 			</div>
 			<!-- END .main-contents -->
 			
-			<?php include('MasterFooter.php'); ?>
+			<?php include_once('MasterFooter.php'); ?>
 			
 			<?php
 			

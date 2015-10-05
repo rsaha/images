@@ -7,7 +7,7 @@
 		<meta charset="UTF-8">
 		
 		<!-- title -->
-		<title>Kolkata, WB | Guided Gateway</title>
+		<title>Tour Details | Guided Gateway</title>
 		
 		<!-- meta description -->
 		<meta name="description" content="Guided Gateway" />
@@ -33,8 +33,8 @@
 		<!-- color scheme -->
 		<link rel="stylesheet" type="text/css" href="css/colors/color3.css" title="color3" />
         
-        <script src= "js/angular.min.js"></script>
-        <script src="myDestination.js"></script>
+      <!--   <script src= "js/angular.min.js"></script>
+        <script src="myDestination.js"></script> -->
         <!-- Google Analytics -->
         <script>
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -47,18 +47,37 @@
 
         </script>
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
-<<<<<<< HEAD
-        
-=======
         <script type="text/javascript"  src= "js/angular.min.js"></script>
         <script type="text/javascript"  src="topTour.js"></script>
-		
->>>>>>> 7993f1e7aabf911724ce186beb5d56c74674bb13
+		<style type="text/css">
+.rating {
+    color: #a9a9a9;
+    margin: 0;
+    padding: 0;
+}
+ul.rating {
+    display: inline-block;
+}
+.rating li {
+    list-style-type: none;
+    display: inline-block;
+    padding: 0px;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+	margin-top: -6px;
+    font-size: 16px;
+}
+.rating .filled {
+    color: #ff845e;
+}
+</style>
+>>>>>>> 9c50680ae5576efa73c94d16241539c32d29d86f
 	</head>
 	<!-- END head -->
 
 	<!-- START body -->
-	<body ng-app="topTours" ng-controller="tourDetailCtrl" >
+	<body ng-app="topTours" ng-controller="tourDetailCtrl">
 		<!-- START #wrapper --> 
 		<div id="wrapper">
 			<!-- START header -->
@@ -85,15 +104,25 @@
 										title="">SIGN IN</a></span> </div>
 	</div> </div> </div> </div> <!-- END #top-header -->
 				
-				<!-- START #main-header --> <div id="main-header"> <div
+			<!-- START #main-header --> <div id="main-header"> <div
 				class="container"> <div class="row"> <div
 				class="col-md-3"> <a id="site-logo" href="#"> <img
 				src="images/logo.png" alt="Guided Gateway" /> </a> </div> <div
 				class="col-md-9"> <nav class="main-nav">
 				<span>MENU</span> <ul id="main-menu"> <li><a href="index.html"
-				title="">HOME</a> 
+				title="">HOME</a> <!-- ul> <li><a href="index.html"
+				title="">HOME PAGE 1</a></li> <li><a href="home.html"
 				title="">HOME PAGE 2</a></li> </ul --> </li> <li><a
-				href="top-guides-listview.html" title="">Guides</a> </li> <li><a
+				href="top-guides-listview.html" title="">Guides</a> <!-- ul> <li><a
+				href="deals.html" title="">DEALS PAGE</a></li> <li><a
+				href="deals-sidebar.html" title="">DEALS PAGE WITH
+				SIDEBAR</a></li> <li><a href="deals-detail.html"
+				title="">DEALS DETAIL</a></li> <li><a
+				href="deals-detail-sidebar.html" title="">DEALS DETAIL
+				SIDEBAR</a></li> <li><a href="deals-listview.html"
+				title="">LIST VIEW</a></li> <li><a
+				href="deals-listview-sidebar.html" title="">LIST VIEW
+				SIDEBAR</a></li> </ul--> </li> <li><a
 				href="top-destinations-listview-sidebar.html" title="">Destinations</a> </li>
                 <li><a
 				href="#" title="">Themed Tours</a> </li>
@@ -113,13 +142,13 @@
 							</section>
 							
 							<!-- breadcrumbs -->
-							<section class="col-sm-6">
+							<!-- <section class="col-sm-6">
 								<ol class="breadcrumb">
-									<li class="home"><a href="#">Home</a></li>
-									<li><a href="#">Tour #2</a></li>
-									<li class="active">Agra, UP</li>
+									<li class="home"><a href="#"  style="color:black;">Home</a></li>
+									<li><a href="#" style="color:black;">Tour #2</a></li>
+									<li class="active"><span  style="color:black;">Agra, UP</span></li>
 								</ol>
-							</section>
+							</section> -->
 						</div>
 					</div>
 				</div>
@@ -139,26 +168,28 @@
 									<div class="offer-box">
 										<div class="offer-top">
 											<span class="ft-temp alignright">19&#730;c</span>
-											<span class="featured-cr text-upper">Agra</span>
-											<h2 class="featured-cy text-upper">UP</h2>
+											<span class="featured-cr text-upper">{{tour.Localtion}}</span>
+											<h2 class="featured-cy text-upper">{{tour.Duration}}</h2>
 										</div>
 										
 										<div class="offer-bottom">
 											<span class="featured-stf">Per Person </span>
-											<span class="featured-spe">INR 15000</span>
+											<span class="featured-spe">{{tour.Price}}</span>
 										</div>
 									</div>
 								</div>
 								
 								<div class="featured-btm box-shadow1">
-									<a class="ft-hotel text-upper" href="#">2 days</a>
-									<a class="ft-plane text-upper" href="#">Historic</a>
-									<a class="ft-tea text-upper" href="#">Complimentary Break Fast</a>
-                                    <a class="ft-tea text-upper" href="booking-form.html">Book the Tour</a>
+									<a class="ft-hotel text-upper" href="#">{{tour.Guides}}</a>
+									<a class="ft-plane text-upper" href="#">{{tour.Category}}</a>
+									<a class="ft-tea text-upper" href="#">{{tour.Inclusive}}</a>
+                                    <a class="ft-tea text-upper" href="booking-form.html">{{tour.Exclusive}}</a>
 								</div>
 								
 								<h2 class="text-upper">Tour Information</h2>
-								<p>Amet turpis tristique, nec in aliquet dis amet, proin egestas in tempor, cras et dapibus, lectus pellentesque enim odio elementum eu tincidunt diam a et. Dapibus sed cum, aliquam cras egestas enim elit in mattis? Scelerisque, ultrices mid! Lorem. Scelerisque? Pid cras, mattis vel, porta, quis! Porttitor turpis cras, odio ultricies parturient pulvinar tempor, eu turpis enim dapibus diam tristique cursus egestas quis phasellus montes! Parturient porta purus quis scelerisque? Vel proin, ac odio cras penatibus magnis non? Aliquam elementum, dis? Elementum ac.</p>
+								<p>{{tour.Description}}</p>
+								<p><h5>Start Point : {{tour.StartPoint}}&nbsp&nbsp&nbsp&nbsp&nbspEnd Point : {{tour.EnPoint}}</h5></p>
+								
 							</div>
 							<!-- END .tour-plans -->
 							
@@ -166,7 +197,7 @@
 							<ul class="nav nav-tabs text-upper">
 								<li class="active"><a href="#tourPlan" data-toggle="tab">Tour Plan</a></li>
 								<li><a href="#flightSchedule" data-toggle="tab">Places Covered</a></li>
-								<li><a href="#additionalInfo" data-toggle="tab">Additional Information</a></li>
+								<li><a href="#additionalInfo" data-toggle="tab">Reviews</a></li>
 							</ul>
 							<!-- END TABS -->
 							
@@ -174,16 +205,19 @@
 							<div class="tab-content gray box-shadow1 clearfix marb30">
 								<!-- START TAB 1 -->
 								<div class="tab-pane active" id="tourPlan">
-									<ul class="plans-list list-unstyled">
-										<li>
+									<!-- <ul class="plans-list list-unstyled">
+										<li> -->
+										<div class="col-md-4" style="padding:15px 15px 15px 15px">
 											<img class="img-responsive" src="img/custom2.jpg" alt="Day 1" />
 											<div class="plan-info">
-												<h4 class="text-upper">Day 1</h4>
-												<p>Amet turpis tristique, nec in aliquet dis amet, proin egestas in tempor, cras et dapibus.</p>
+												<h4 class="text-upper">{{tour.Itineary.Duration}}</h4>
+												<p ng-repeat="x in tour.Itineary.Day.Spots"><span>{{x.Spot}}</span></p>
+											    <h5>Lunch&nbsp:&nbsp{{tour.Itineary.Day.Lunch}}</h5>
 											</div>
-										</li>
+										</div>
+										<!-- </li> -->
 										
-										<li>
+										<!-- <li>
 											<img class="img-responsive" src="img/custom2.jpg" alt="Day 2" />
 											<div class="plan-info">
 												<h4 class="text-upper">Day 2</h4>
@@ -197,7 +231,7 @@
 												<h4 class="text-upper">Day 3</h4>
 												<p>Amet turpis tristique, nec in aliquet dis amet, proin egestas in tempor, cras et dapibus.</p>
 											</div>
-										</li>
+										</li> -->
 									</ul>
 								</div>
 								<!-- END TAB 1 -->
@@ -208,22 +242,22 @@
 										<table class="table">
 											<thead>
 												<tr>
-													<th>Place</th>
-													<th>Type</th>
-													<th>DATE</th>
-													<th>DEPARTS</th>
-													<th>ARRIVES</th>
+													<th>Spot</th>
+													<th>Description</th>
+													<th>Map Location</th>
+													<th>Duration</th>
+													<th>Entry Fees</th>
 												</tr>
 											</thead>
-											<tbody>
+											<tbody ng-repeat="x in tour.Itineary.Day.Spots">
 												<tr class="dark-gray">
-													<td>Taj Mahal</td>
-													<td>Monument</td>
-													<td>20 DEC 2013</td>
-													<td>10:00</td>
-													<td>12:00</td>
+													<td>{{x.Spot}}</td>
+													<td>{{x.Description}}</td>
+													<td>{{x.MapLocation.Latitude +', '+ x.MapLocation.Longitude}}</td>
+													<td>{{x.Duration}}</td>
+													<td>{{x.Entreefees}}</td>
 												</tr>
-												<tr>
+												<!-- <tr>
 													<td>Yamuna River</td>
 													<td>Nature</td>
 													<td>21 DEC 2013</td>
@@ -250,7 +284,7 @@
 													<td>24 DEC 2013</td>
 													<td>10:00</td>
 													<td>03:40</td>
-												</tr>
+												</tr> -->
 											</tbody>
 										</table>
 									</div>
@@ -260,8 +294,8 @@
 								<!-- START TAB 3 -->
 								<div class="tab-pane" id="additionalInfo">
 									<div class="inside-pane">
-										<p>Amet turpis tristique, nec in aliquet dis amet, proin egestas in tempor, cras et dapibus, lectus pellentesque enim odio elementum eu tincidunt diam a et. Dapibus sed cum, aliquam cras egestas enim elit in mattis? Scelerisque, ultrices mid! Lorem. Scelerisque? Pid cras, mattis vel, porta, quis! Porttitor turpis cras, odio ultricies parturient pulvinar tempor.</p>
-										<p>eu turpis enim dapibus diam tristique cursus egestas quis phasellus montes! Parturient porta purus quis scelerisque? Vel proin, ac odio cras penatibus magnis non? Aliquam elementum, dis? Elementum ac.</p>
+										<h4>Overall Rating&nbsp:&nbsp<span star-rating rating-value="tour.Reviews.Overall_rating"></span></h4>
+										<p>{{tour.Reviews.Overall_rating}}</p>
 									</div>
 								</div>
 								<!-- END TAB 3 -->

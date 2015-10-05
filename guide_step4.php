@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	include("db.php");
+	include_once("db.php");
 	if((isset($_SESSION['userId'])) && (($_SESSION['phase'] == "reg")||($_SESSION['phase'] == "signin")))
 	{
 		if(isset($_POST['userid']))
@@ -11,7 +11,7 @@
 		{
 			$errormsg="Unauthenticated access to the step 4 page, Registraion Step 1 is not done";
 				error_log($errormsg,0);
-			include("signOut.php");
+			include_once("signOut.php");
 			header('Location:guide_registration_1.php');
 			exit;
 		}
@@ -96,7 +96,7 @@
 				/* $nameFriend=array();
 				$emailFriend=array();
 				$mobileFeiend=array(); */
-				include('sendEmail.php');
+				include_once('sendEmail.php');
 				
 				$HostEmail = parse_ini_file('config.ini',true)['email'];
                 
@@ -234,7 +234,7 @@
 	{
 		$errormsg="Unauthenticated access to the step 4 page, Registraion Step 1 is not done";
 		error_log($errormsg,0);
-		include("signOut.php");
+		include_once("signOut.php");
 		header('Location:guide_registration_1.php');
 		exit;
 	}

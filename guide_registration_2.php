@@ -14,13 +14,13 @@ else if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "reg"))
 	}
 	if($_SESSION['userId']!=$userid)
 	{
-		include('signOut.php');
+		include_once('signOut.php');
 		header('Location:guide_registration_1.php');
 		exit;
 	}
 	else
 	{
-		include('db.php');
+		include_once('db.php');
 		$select = mysql_query("SELECT * FROM `tbl_user_profile` WHERE `user_id` = $userid");
 		$row = mysql_fetch_assoc($select);
 		$firstName =  $row["f_name"];
@@ -32,7 +32,7 @@ else if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "reg"))
 }
 else
 {
-	include("signOut.php");
+	include_once("signOut.php");
 	header('Location:guide_registration_1.php');
 	exit;
 }
@@ -121,7 +121,7 @@ else
 		<!-- START #wrapper -->
 		<div id="wrapper">
 		
-			<?php include('MasterHeaderAfterLogin.php'); ?>
+			<?php include_once('MasterHeaderAfterLogin.php'); ?>
 			<center>
 						<div class="row">
 						<div class="hovera text-center" style="border: 0px solid black;">
@@ -136,18 +136,18 @@ else
 							$count4CovPic = mysql_num_rows($select4CovPic);
 							if ($count4CovPic == 0)
 							{
-								echo '<img style="width:1400px; height:200px;" class="hover img-responsive" src="img/Default.jpg" />';
+								echo '<img class="hover img-responsive" src="img/Default.jpg" />';
 							}
 							else
 							{
 								$CovPicVal = mysql_result($select4CovPic, 0, 3);
 								if($CovPicVal == NULL)
 								{
-									echo '<img style="width:1400px; height:200px;" class="hover img-responsive" src="img/Default.jpg" />';
+									echo '<img class="hover img-responsive" src="img/Default.jpg" />';
 								}
 								else
 								{
-									echo '<img style="width:1400px; height:200px;" class="hover img-responsive" src="showCover.php?id=' . $userid . '"/>';
+									echo '<img class="hover img-responsive" src="showCover.php?id=' . $userid . '"/>';
 								}
 							}
 							?>
@@ -173,6 +173,7 @@ else
 					<div id="page" class="col-md-2">
 					<center>
 						<div class="row">
+						<div class="col-md-11">
 						<div class="hovera text-center" style="border: 0px solid black;">
 						<form action="uploadphp.php" enctype="multipart/form-data" method="post"  id="formProfile" name="formProfile">
 							<table >
@@ -186,18 +187,18 @@ else
 							$count4ProPic = mysql_num_rows($select4ProPic);
 							if ($count4ProPic == 0)
 							{
-								echo '<img style="max-height:200px; max-width:170px;" class="hover img-responsive" src="img/userDefaultIcon.png"/>';
+								echo '<img class="hover img-responsive" src="img/userDefaultIcon.png"/>';
 							}
 							else
 							{
 								$ProPicVal = mysql_result($select4ProPic, 0, 2);
 								if($ProPicVal == NULL)
 								{
-									echo '<img style="max-height:200px; max-width:170px;" class="hover img-responsive" src="img/userDefaultIcon.png"/>';
+									echo '<img class="hover img-responsive" src="img/userDefaultIcon.png"/>';
 								}
 								else
 								{
-									echo '<img style="height200px; width:170px;" class="hover img-responsive" src="showImage.php?id=' . $userid . '"/>';
+									echo '<img class="hover img-responsive" src="showImage.php?id=' . $userid . '"/>';
 								}
 							}
 							?>
@@ -210,6 +211,7 @@ else
 							<input type="hidden" name="userid" value="<?php echo $userid; ?>" />
 							<input id="file2" name="file2" type="file" style="visibility: hidden;"  onchange="formProfile.submit();"/>
 							</form>
+							</div>
 							</div>
 							</div>
 							</center>
@@ -291,7 +293,7 @@ else
 														<div class="col-md-4">
 															<label style="font-size:14px; font-weight:bold">State</label>
 															<select name="state" id="state" class="form-control">
-													  <?php include('state.php'); ?>
+													  <?php include_once('state.php'); ?>
 														</select>
 														</div>
 														<div class="col-md-4">
@@ -329,7 +331,7 @@ else
 														
 															<label style="font-size:14px; font-weight:bold">Best Time for Contact</label>
 															<select class="form-control" name="contacttime">
-															<option value="anytime">ANY TIME</option>
+															<option value="ANY TIME">ANY TIME</option>
 															<option value="08:00 AM - 12:00 PM">08:00 AM - 12:00 PM</option>
 															<option value="12:00 PM - 04:00 PM">12:00 PM - 04:00 PM</option>
 															<option value="04:00 PM - 08:00 PM">04:00 PM - 08:00 PM</option>
@@ -338,8 +340,9 @@ else
 														<div class="col-md-4">
 															<label style="font-size:14px; font-weight:bold">Communication Mechanism</label>
 															<select class="form-control" name="communicationmechanism">
-															<option value="Mobile">Mobile</option>
-															<option value="Email">Email</option>
+															<option value="Mobile & Email">Mobile &amp; Email</option>
+                                                        <option value="Mobile">Mobile</option>
+														<option value="Email">Email</option>
 															</select>
 														</div>
 														
@@ -349,16 +352,29 @@ else
 															<label style="font-size:14px; font-weight:bold">Language Known</label>
 															<select class="form-control" size="6" multiple name="languageKnown[]" id="languageKnown">
 															<?php 
-														  $select3 = mysql_query("SELECT * FROM `tbl_languages` WHERE `status` = 1");
+														  $select3 = mysql_query("SELECT * FROM `tbl_languages` WHERE `status` = 1 ORDER BY `lanugage_name`");
 														  while($row33 = mysql_fetch_array($select3))
 															{
-															echo '<option value="' . $row33['language_id'] . '">' . $row33["lanugage_name"] . '</option>';
+																if(strtoupper($row33['lanugage_name']) == strtoupper("english"))
+																{
+																	echo '<option selected value="' . $row33['language_id'] . '">' . $row33["lanugage_name"] . '</option>';
+																	
+																}
+																else
+																{
+																	echo '<option value="' . $row33['language_id'] . '">' . $row33["lanugage_name"] . '</option>';
+																}
 															}
 															?>
 															</select>
 														</div>
 														
-														<div class="col-md-8">
+														<div class="col-md-4">
+															<label style="font-size:14px; font-weight:bold">Guide Territory</label>
+															<textarea class="form-control" name="guideTerritory" ></textarea>
+														</div>
+														
+														<div class="col-md-4">
 															<label style="font-size:14px; font-weight:bold">Payment Terms</label>
 															<textarea class="form-control" name="paymentterms" ></textarea>
 														</div>
@@ -392,7 +408,7 @@ else
 			</div>
 			<!-- END .main-contents -->
 			
-			<?php include('MasterFooter.php'); ?>
+			<?php include_once('MasterFooter.php'); ?>
 		</div>
 		<!-- END #wrapper -->
 		

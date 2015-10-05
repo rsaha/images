@@ -9,7 +9,7 @@
 		}
 		if($_SESSION['userId']!=$userid)
 		{
-			include("signOut.php");
+			include_once("signOut.php");
             header('Location:guide_login.php');
 			exit;
 		}
@@ -19,7 +19,7 @@
 			$_SESSION['photo'] = array();
 			$_SESSION['signinCheck']="signin";
 			$_SESSION['phase'] = "signin";
-				include('db.php');
+				include_once('db.php');
 
 				$select1 = mysql_query("SELECT * FROM `tbl_user_profile` WHERE `user_id` = $userid");
 				$row11 = mysql_fetch_assoc($select1);
@@ -45,8 +45,10 @@
 				$LicenceImage = $row22["license_Image"];
 				$licenceNumber = $row22["license_no"];
 				$licenceValidty = $row22["validity"];
+				$guideTerritory = $row22["guide_territory"];
 				$summery = $row22["guide_summary"];
-				$experiance = $row22["guide_experience"];
+				$otherExperiance = $row22["other_experience"];
+				$experianceInYear = $row22["experiance_in_year"];
 				$intrest = $row22["guide_interest"];
 				$landLineNumber = $row22["landline_no"];
 				$paymentCurrency = $row22["payment_currency"];
@@ -62,7 +64,8 @@
 				$licenceNumber = "";
 				$licenceValidty = "";
 				$summery = "";
-				$experiance = "";
+				$otherExperiance = "";
+				$experianceInYear = "";
 				$intrest = "";
 				$landLineNumber = "";
 				$paymentCurrency = "";
@@ -75,7 +78,7 @@
 	}
 	else
 	{
-		include("signOut.php");
+		include_once("signOut.php");
         header('Location:guide_login.php');
 		exit;
 	}
@@ -189,7 +192,7 @@
 		<!-- START #wrapper -->
 		<div id="wrapper">
 			
-			<?php include('MasterHeaderAfterLogin.php'); ?>
+			<?php include_once('MasterHeaderAfterLogin.php'); ?>
 			
 			<!-- START #page-header -->
 			<div class="" >
@@ -198,17 +201,17 @@
 							$count4pic = mysql_num_rows($select2);
 							if ($count4pic==0)
 							{
-								echo '<img style="width:1400px; height:200px;" class="hover img-responsive" src="img/Default.jpg"/>';
+								echo '<img class="hover img-responsive" src="img/Default.jpg"/>';
 							}
 							else
 							{
 								if($coverPicture==null)
 								{
-									echo '<img style="width:1400px; height:200px;" class="hover img-responsive" src="img/Default.jpg"/>';
+									echo '<img class="hover img-responsive" src="img/Default.jpg"/>';
 								}
 								else
 								{
-									echo '<img style="width:1400px; height:200px;" class="hover img-responsive" src="showCover.php?id=' . $userid . '"/>';
+									echo '<img class="hover img-responsive" src="showCover.php?id=' . $userid . '"/>';
 								}
 							}
 							?><br>
@@ -229,17 +232,17 @@
 						$count4pic = mysql_num_rows($select2);
 						if ($count4pic==0)
 						{
-							echo '<img style="max-height:200px; max-width:170px;" class="hover img-responsive" src="img/userDefaultIcon.png"/>';
+							echo '<img class="hover img-responsive" src="img/userDefaultIcon.png"/>';
 						}
 						else
 						{
 							if($profilePicture==null)
 							{
-								echo '<img style="max-height:200px; max-width:170px;" class="hover img-responsive" src="img/userDefaultIcon.png"/>';
+								echo '<img class="hover img-responsive" src="img/userDefaultIcon.png"/>';
 							}
 							else
 							{
-								echo '<img style="max-height:200px; max-width:170px;" class="hover img-responsive" src="showImage.php?id=' . $userid . '"/>';
+								echo '<img class="hover img-responsive" src="showImage.php?id=' . $userid . '"/>';
 							}
 						}
 							
@@ -265,17 +268,17 @@
 							$count4pic = mysql_num_rows($select2);
 							if ($count4pic==0)
 							{
-								echo '<img style="max-height:127px; max-width:200px;" class="hover img-responsive" src="img/PRcard.jpg"/>';
+								echo '<img class="hover img-responsive" src="img/PRcard.jpg"/>';
 							}
 							else
 							{
 								if($LicenceImage==null)
 								{
-									echo '<img style="max-height:127px; max-width:200px;" class="hover img-responsive" src="img/PRcard.jpg"/>';
+									echo '<img class="hover img-responsive" src="img/PRcard.jpg"/>';
 								}
 								else
 								{
-									echo '<img style="max-height:127px; max-width:200px;" class="hover img-responsive" src="showLicence.php?id=' . $userid . '"/>';
+									echo '<img class="hover img-responsive" src="showLicence.php?id=' . $userid . '"/>';
 								}
 							}
 							?>
@@ -472,11 +475,12 @@
 
 											<?php 
 											$sql2 = mysql_query("SELECT `street_address`, `city`, `state`, `country` FROM `tbl_user_profile` WHERE (`user_id` = $userid and `status` = 1)");
+											//$roww = mysql_fetch_assoc($sql2)
 											$guideCity = mysql_result($sql2, 0, 1);
 											
-											$sql1 = mysql_query("SELECT `tour_id`, `tour_category_id`, `tour_title`, `tour_location`, `tour_description`, `tour_duration`, `tour_price`, `start_point`, `end_point`, `inclusive`, `exclusive`, `cancelation_policy`, `restrictions`, `notes`, `status`, `datecreated` FROM `tbl_tours` WHERE `user_id` = 10000");
+											$sql1 = mysql_query("SELECT * FROM `tbl_tours` WHERE `user_id` = 10000 and `tour_territory` = '$guideTerritory' and `status` = 1");
 											
-										  //$sql1 = mysql_query("SELECT `tour_id`, `tour_category_id`, `tour_title`, `tour_location`, `tour_description`, `tour_duration`, `tour_price`, `start_point`, `end_point`, `inclusive`, `exclusive`, `cancelation_policy`, `restrictions`, `notes`, `status`, `datecreated` FROM `tbl_tours` WHERE ( `user_id` != $userid AND (`tour_id` NOT IN (select `created_added` from `tbl_tours` WHERE `user_id`= $userid and `created_added` != 0)) and `tour_location` = '$guideCity' and `status` = 1 )");
+										  //$sql1 = mysql_query("SELECT * FROM `tbl_tours` WHERE ( `user_id` != $userid AND (`tour_id` NOT IN (select `created_added` from `tbl_tours` WHERE `user_id`= $userid and `created_added` != 0)) and `tour_location` = '$guideCity' and `status` = 1 )");
 											if(mysql_num_rows($sql1) >= 1)
 											{
 											while ($row1 = mysql_fetch_array($sql1))
@@ -552,7 +556,7 @@
 				</div>
 			</div>
 			<!-- END .main-contents -->
-			<?php include('MasterFooter.php'); ?>
+			<?php include_once('MasterFooter.php'); ?>
 			
 			<?php
 			

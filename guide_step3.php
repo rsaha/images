@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	include("db.php");
+	include_once("db.php");
 
 	if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "signin"))
 	{
@@ -18,7 +18,7 @@
 	{
 		$errormsg="Unauthenticated access to the step 3 page, Registration Step 1 is not done";
 				error_log($errormsg,0);
-		include("signOut.php");
+		include_once("signOut.php");
 		header('Location:guide_registration_1.php');
 		exit;
 	}
@@ -29,10 +29,13 @@
 		$GuideLinkedinProfile=mysql_real_escape_string($_POST['GuideLinkedinProfile']);
 		$GuidePinterestProfile=mysql_real_escape_string($_POST['GuidePinterestProfile']);
 		$GuideSkypeAddress=mysql_real_escape_string($_POST['GuideSkypeAddress']);
-		$GuideExperience=mysql_real_escape_string($_POST['GuideExperience']);
+		$ExperienceInYear=mysql_real_escape_string($_POST['ExperienceInYear']);
+		$OtherExperience=mysql_real_escape_string($_POST['OtherExperience']);
 		$GuideRemark=mysql_real_escape_string($_POST['GuideRemark']);
 		
-		include("db.php");
+		include_once("db.php");
+		$insert = 0;
+		$update = 0;
 			$select4exval = mysql_query("SELECT * FROM `tbl_guide_detail_profile` WHERE `user_id` = $userid");
 			$count4exval = mysql_num_rows($select4exval);
 			if ($count4exval==0)
@@ -44,7 +47,8 @@
 				`guide_pinterest_profile`, 
 				`guide_skype_address`,
 				`guide_Remarks`,
-				`guide_experience`,
+				`experiance_in_year`,
+				`other_experience`,
 				`status`, 
 				`datecreated`
 				) VALUES (
@@ -54,7 +58,8 @@
 				'$GuidePinterestProfile',
 				'$GuideSkypeAddress',
 				'$GuideRemark',
-				'$GuideExperience',
+				'$ExperienceInYear',
+				'$OtherExperience',
 				1, 
 				now()
 				)");
@@ -63,13 +68,13 @@
 			{
 		$update = mysql_query("UPDATE `tbl_guide_detail_profile` SET `guide_facebook_profile`='$GuideFacebookProfile', 
 		`guide_linkedin_profile`='$GuideLinkedinProfile', `guide_pinterest_profile`='$GuidePinterestProfile', 
-		`guide_skype_address`='$GuideSkypeAddress', `guide_experience`='$GuideExperience', `guide_Remarks`='$GuideRemark', 
+		`guide_skype_address`='$GuideSkypeAddress', `experiance_in_year`='$ExperienceInYear', `other_experience`='$OtherExperience', `guide_Remarks`='$GuideRemark', 
 		`datecreated`=now() WHERE `user_id`=$userid");
 			}
 		if($insert || $update)
 		{
 			$errormsg="Registration Step 3 completed.";
-				error_log($errormsg,0);
+			error_log($errormsg,0);
 			$_session['login']="true";
 			$msg="Successfully Updated!!";
 			echo "<script type='text/javascript'>alert('$msg');</script>";
@@ -88,7 +93,7 @@
 	{
 		$errormsg="Unauthenticated access to the step 3 page, Registration Step 1 is not done";
 		error_log($errormsg,0);
-		include("signOut.php");
+		include_once("signOut.php");
 	header('Location:guide_registration_1.php');
 exit;	
 	}

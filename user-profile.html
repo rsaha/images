@@ -32,11 +32,15 @@
 		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Karla:400,700,400italic,700italic" />
 		<!-- color scheme -->
 		<link rel="stylesheet" type="text/css" href="css/colors/color1.css" title="color1" />
+		
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+   <script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+   <script src="guide_profile_All.js"></script>
 	</head>
 	<!-- END head -->
 
 	<!-- START body -->
-	<body>
+	<body ng-app="myAllGuide" ng-controller="guideControl">
 		<!-- START #wrapper -->
 		<div id="wrapper">
 			<!-- START header -->
@@ -159,26 +163,30 @@
 				<!-- END #main-header -->
 			</header>
 			<!-- END header -->
-			
-			<!-- START #page-header -->
-			<div id="header-banner">
-				<div class="banner-overlay">
-					<div class="container">
-						<div class="row">
-							<section class="col-sm-6">
-								<h1 class="text-upper">User Profile</h1>
-							</section>
+				<div class="container">
+					
+						<div class="row hover img-responsive" style="width:1400px; height:200px; background-image:url(img/Default.jpg)">
+							<!--<section class="col-sm-6">
+								<h1 class="text-upper">{{allguides.Name}}</h1>
+							</section>-->
 							
 							<!-- breadcrumbs -->
-							<section class="col-sm-6">
+							<!-- <section class="col-sm-6">
 								<ol class="breadcrumb">
-									<li class="home"><a href="#">Home</a></li>
+									<li style="color:blue;" class="home"><a href="#">Home</a></li>
 									<li class="active">Contact Us</li>
 								</ol>
-							</section>
+							</section> -->
+							<img class="img-responsive" style="margin-top:50px; margin-left:30px;" src="{{allguides.Media.Photo}}"/>
+							
 						</div>
+						
 					</div>
-				</div>
+			<!-- START #page-header -->
+			<div id="header-banner">
+				<!--<div class="banner-overlay">
+				
+				</div>-->
 			</div>
 			<!-- END #page-header -->
 			
@@ -192,124 +200,115 @@
 								<!-- Sidebar recent popular posts -->
 								<!-- START TABS -->
 								<ul class="nav nav-tabs text-upper">
-									<li class="active"><a href="#userinfo" data-toggle="tab">User Info</a></li>
-									<li><a href="#booking" data-toggle="tab">Booking</a></li>
+									<li class="active"><a href="#userinfo" data-toggle="tab">Profile</a></li>
+									<!-- <li><a href="#booking" data-toggle="tab">Tours</a></li> -->
 								</ul>
 								<!-- END TABS -->
 								
 								<!-- START TAB CONTENT -->
 								<div class="tab-content clearfix marb30">
 									<!-- START TAB 1 -->
-									<div class="tab-pane active mart20" id="userinfo">
-										<form action="contact.php" method="post">
+									<div class="tab-pane active mart20" id="userinfo" >
+										<div class="row">
+										 <div class="col-md-12">
 											<fieldset>
-												<ul class="formFields list-unstyled">
+												<ul class="formFields list-unstyled" >
 													<li class="row">
 														<div class="col-md-6">
-															<label>Name <span class="required small">(Required)</span></label>
-															<input type="text" class="form-control" name="name" value="" />
+															<label>Name <span class="required small"></span></label>
+															<label class="default form-control">{{allguides.Name}}</label>
+															<!-- <input type="text" class="form-control" name="name" value="" readonly/> -->
 														</div>
 														<div class="col-md-6">
-															<label>Email <span class="required small">(Required)</span></label>
-															<input type="text" class="form-control" name="email" value="" />
-														</div>
-													</li>
-													<li class="row">
-														<div class="col-md-6">
-															<label>City <span class="required small">(Required)</span></label>
-															<input type="text" class="form-control" name="city" value="" />
-														</div>
-														<div class="col-md-6">
-															<label>Country <span class="required small">(Required)</span></label>
-															<input type="text" class="form-control" name="country" value="" />
+															<label>Email <span class="required small"></span></label>
+															<label class="default form-control">{{allguides.Email}}</label>
 														</div>
 													</li>
 													<li class="row">
 														<div class="col-md-6">
-															<label>Zip Code <span class="required small">(Required)</span></label>
-															<input type="text" class="form-control" name="zipcode" value="" />
+															<label>Gender <span class="required small"></span></label>
+															<label class="default form-control">{{allguides.Gender}}</label>
 														</div>
 														<div class="col-md-6">
-															<label>Billing Method <span class="required small">(Required)</span></label>
-															<input type="text" class="form-control" name="method" value="" />
+															<label>Language Known <span class="required small"></span></label>
+															<label class="default form-control"></label>
 														</div>
 													</li>
 													<li class="row">
-														<div class="col-md-12">
-															<label>Bank Account <span class="required small">(Required)</span></label>
-															<input type="text" class="form-control" name="account" value="" />
+														<div class="col-md-6">
+															<label>Territory<span class="required small"></span></label>
+															<label class="default form-control">{{allguides.Territory}}</label>
+														</div>
+														<div class="col-md-6">
+															<label>Speciality <span class="required small"></span></label>
+															<label class="default form-control">{{allguides.Speciality}}</label>
 														</div>
 													</li>
 													<li class="row">
-														<div class="col-md-12">
-															<label>Bank Address <span class="required small">(Required)</span></label>
-															<input type="text" class="form-control" name="address" value="" />
+														<div class="col-md-6">
+															<label>Transport <span class="required small"></span></label>
+															<label class="default form-control">{{allguides.Transport}}</label>
+													</div>
+														<div class="col-md-6">
+															<label>Description<span class="required small"></span></label>
+															<label class="default form-control">{{allguides.Description}}</label>
 														</div>
 													</li>
-													<li class="row">
-														<div class="col-md-12">
-															<span class="checkbox-container">
-																<label><input type="checkbox" name="a" class="styled" />First Choice</label>
-																<label><input type="checkbox" name="a" class="styled" />Second Choice</label>
-																<label><input type="checkbox" name="a" class="styled" />Third Choice</label>
-															</span>
-															<span class="checkbox-container">
-																<label><input type="radio" name="radio" class="styled"  checked="checked" /> First Choice</label>
-																<label><input type="radio" name="radio" class="styled" /> Second Choice</label>
-																<label><input type="radio" name="radio" class="styled" /> Third Choice</label>
-															</span>
-														</div>
-													</li>
-													<li class="row">
-														<div class="col-md-12">
-															<input type="submit" class="btn btn-primary btn-lg text-upper" name="save" value="Save" />
-															<span class="required small">*Your email will never published.</span>
-														</div>
-													</li>
+													
 												</ul>
 											</fieldset>
-										</form>
+											</div>
+									</div>
+										
 									</div>
 									<!-- END TAB 1 -->
-									
+									<ul class="nav nav-tabs text-upper">
+									<!-- <li class="active"><a href="#userinfo" data-toggle="tab">Profile</a></li> -->
+									<li class="active"><a href="#booking" data-toggle="tab">Tours</a></li>
+								</ul>
 									<!-- START TAB 2 -->
-									<div class="tab-pane" id="booking">
-										<div class="booking gray clearfix box-shadow1">
-											<div class="selected-deal">
-												<h2 class="marb20">Selected Deal</h2>
-												<div class="ft-item">
-													<span class="ft-image">
-														<img src="img/ft-img-1.jpg" alt="featured Scroller" />
-													</span>
-													<div class="ft-data">
-														<a class="ft-hotel text-upper" href="#">Hotel</a>
-														<a class="ft-plane text-upper" href="#">Air Ticket</a>
-														<a class="ft-tea text-upper" href="#">Break Fast</a>
-													</div>
-													<div class="ft-foot">
-														<h4 class="ft-title text-upper"><a href="#">Colosseum</a></h4>
-														<span class="ft-offer text-upper">Starting From 250 $</span>
-													</div>
-													<div class="ft-foot-ex">
-														<span class="ft-date text-upper alignleft">28 December 2013</span>
-														<span class="ft-temp alignright">17&#730;c</span>
-													</div>
-												</div>
-											</div>
-											<div class="booking-status">
-												<h2 class="marb20">Booking Status</h2>
-												<p>Amet turpis tristique, nec in aliquet dis amet, proin egestas in tempor, cras et dapibus.</p>
-												<span class="checkbox-container">
-													<label><input type="radio" name="radio" class="styled"  checked="checked" /> First Choice</label>
-													<label><input type="radio" name="radio" class="styled" /> Second Choice</label>
-													<label><input type="radio" name="radio" class="styled" /> Third Choice</label>
-												</span>
-											</div>
+									<!-- <div class="tab-pane active mart20" id="booking"> -->
+                                    <div id="header-banner">
+				<!--<div class="banner-overlay">
+				
+				</div>-->
+			</div>
+										<div class="row" >
 											
+													<div class="col-md-12">
+														<div class="row" ng-controller="TourControl">
+													<div class="col-md-4" ng-repeat="y in alltours">
+														 <div	class="ft-item"> 
+													  <span class="ft-image">
+														 <img class="img-responsive" src="img/custom11.jpg"" alt="Top Guide" /> 
+													  </span>
+												  
+															<div class="ft-data">
+														  <span style="color:black;" class="fa fa-odnoklassniki text-upper">&nbsp;&nbsp;{{y.Title}}</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+														  <span style="color:black;" class="fa fa-book text-upper" >&nbsp;&nbsp;{{y.Price}}</span>&nbsp;&nbsp;&nbsp;&nbsp;
+														 <!--  <br><span style=" font-size:11px;color:black;" class="fa fa-plane text-upper" > {{x.LanguageKnown}}</span> -->
+															
+															</div> 
+												
+														<div class="ft-foot">
+														<h4 class="ft-title text-upper" style="color:#686868">{{y.location}}&nbsp</h4> 
+														<span class="ft-offer text-upper">{{y.Duration}} Tours</span> 
+														</div> 
+												
+													<!-- 	<div class="ft-foot-ex"> 
+															<span class="fa fa-shield text-upper alignleft">&nbsp;&nbsp;{{x.Tours.Count}} Tours&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;
+															<span star-rating rating-value="x.Review.Star" class="aligncenter"></span>
+															<span class="alignright fa fa-eye">{{x.Review.Count}} reviews</span> 							
+														</div>  -->
+													   </div>
+													</div>
+												  </div>
+												 </div>
 										</div>
-									</div>
+								<!-- 	</div> -->
 									<!-- END TAB 2 -->
 								</div>
+								
 								<!-- END TAB CONTENT -->
 							</div>
 						</div>
@@ -320,7 +319,7 @@
 							<div class="sidebar-widget">
 								<!-- Sidebar recent popular posts -->
 								<!-- START TABS -->
-								<ul class="nav nav-tabs text-upper">
+								<ul class="nav nav-tabs text-upper" style="backgoud-color:ff845e;">
 									<li class="active"><a href="#popular-posts" data-toggle="tab">Popular</a></li>
 									<li><a href="#recent-posts" data-toggle="tab">Recent</a></li>
 									<li><a href="#recent-comments" data-toggle="tab">Comments</a></li>
@@ -644,5 +643,6 @@
 			<script type="text/javascript" src="js/html5shiv.js"></script>
 		<![endif]-->
 
+  <!--  <script src="gettours.js"></script> -->
 	</body>
 </html>

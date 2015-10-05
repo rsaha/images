@@ -11,14 +11,14 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 	{
 		$errormsg="Unauthenticated access to the Guide edit page, Registration Step 1 is not done";
 		error_log($errormsg,0);
-		include("signOut.php");
+		include_once("signOut.php");
         header('Location:guide_registration_1.php');
 	}
 	else
 	{
 		$flag1=0;
 		$flag2=0;
-			include('db.php');
+			include_once('db.php');
 			$firstName=mysql_real_escape_string($_POST['firstName']);
 			$lastName=mysql_real_escape_string($_POST['lastName']);
 			$emailID = mysql_real_escape_string($_POST['emailID']);
@@ -34,12 +34,15 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 			
 			$licenceNumber = mysql_real_escape_string($_POST['licenceNumber']);
 			$licenceValidty = mysql_real_escape_string($_POST['licenceValidty']);
+			$guideTerritory = mysql_real_escape_string($_POST['guideTerritory']);
 			$landLineNumber = mysql_real_escape_string($_POST['landLineNumber']);
 			$paymentTerm = mysql_real_escape_string($_POST['paymentTerm']);
 			$bestTimeToContact = mysql_real_escape_string($_POST['bestTimeToContact']);
 			$communicationMechanism = mysql_real_escape_string($_POST['communicationMechanism']);
 			@$languageKnown= $_POST['languageKnown'];
-			$experiance = mysql_real_escape_string($_POST['experiance']);
+			
+			$experianceInYear = mysql_real_escape_string($_POST['experianceInYear']);
+			$otherExperiance = mysql_real_escape_string($_POST['otherExperiance']);
 			$remark = mysql_real_escape_string($_POST['remark']);
 			
 			
@@ -102,12 +105,14 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 					`license_no`,
 					`license_Image`, 
 					`validity`, 
+					`guide_territory`, 
 					`landline_no`, 
 					`Best_time_for_contact`,
 					`payment_terms`, 
 					`Communication_mechanism`,
 					`guide_Remarks`,
-					`guide_experience`,
+					`experiance_in_year`,
+					`other_experience`,
 					`status`, 
 					`datecreated`
 					) VALUES (
@@ -115,12 +120,14 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 					'$licenceNumber',
 					'$hex_string',
 					'$licenceValidty',
+					'$guideTerritory',
 					'$landLineNumber',
 					'$bestTimeToContact',
 					'$paymentTerm',
 					'$communicationMechanism',
 					'$remark'
-					'$experiance'
+					'$experianceInYear',
+					'$otherExperiance',
 					1, 
 					now()
 					)") or die('Error : ' . mysql_error());
@@ -140,24 +147,28 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 					`user_id`, 
 					`license_no`,
 					`validity`, 
+					`guide_territory`,
 					`landline_no`, 
 					`Best_time_for_contact`,
 					`payment_terms`, 
 					`Communication_mechanism`,
 					`guide_Remarks`,
-					`guide_experience`,
+					`experiance_in_year`,
+					`other_experience`,
 					`status`, 
 					`datecreated`
 					) VALUES (
 					$userid, 
 					'$licenceNumber',
 					'$licenceValidty',
+					'$guideTerritory',
 					'$landLineNumber',
 					'$bestTimeToContact',
 					'$paymentTerm',
 					'$communicationMechanism',
 					'$remark',
-					'$experiance',
+					'$experianceInYear',
+					'$otherExperiance',
 					1, 
 					now()
 					)";
@@ -180,10 +191,20 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 				
 				if(isset($hex_string))
 				{
-					$update2 = mysql_query("UPDATE `tbl_guide_detail_profile` SET `guide_experience` = '$experiance', `license_no`='$licenceNumber',`validity`='$licenceValidty',
-					`license_Image` = '$hex_string',`landline_no`='$landLineNumber', `payment_terms`='$paymentTerm',
-					`Best_time_for_contact`='$bestTimeToContact', `Communication_mechanism`='$communicationMechanism',
-					`guide_Remarks`='$remark',`datecreated`=now() WHERE `user_id` = $userid") or die('Error : ' . mysql_error());
+					$update2 = mysql_query("UPDATE `tbl_guide_detail_profile` SET 
+					`other_experience` = '$otherExperiance', 
+					`experiance_in_year` = '$experianceInYear',
+					`license_no`='$licenceNumber',
+					`validity`='$licenceValidty', 
+					`guide_territory` = '$guideTerritory',
+					`license_Image` = '$hex_string',
+					`landline_no`='$landLineNumber', 
+					`payment_terms`='$paymentTerm',
+					`Best_time_for_contact`='$bestTimeToContact', 
+					`Communication_mechanism`='$communicationMechanism',
+					`guide_Remarks`='$remark',
+					`datecreated`=now() 
+					WHERE `user_id` = $userid") or die('Error : ' . mysql_error());
 					if($update2)
 					{
 						$flag2=1;
@@ -196,10 +217,19 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 				}
 				else
 				{
-					$update2 = mysql_query("UPDATE `tbl_guide_detail_profile` SET `guide_experience` = '$experiance', `license_no`='$licenceNumber',`validity`='$licenceValidty',
-					`landline_no`='$landLineNumber', `payment_terms`='$paymentTerm',
-					`Best_time_for_contact`='$bestTimeToContact', `Communication_mechanism`='$communicationMechanism',
-					`guide_Remarks`='$remark',`datecreated`=now() WHERE `user_id` = $userid") or die('Error : ' . mysql_error());
+					$update2 = mysql_query("UPDATE `tbl_guide_detail_profile` SET 
+					`other_experience` = '$otherExperiance', 
+					`experiance_in_year` = '$experianceInYear',
+					`license_no`='$licenceNumber',
+					`validity`='$licenceValidty', 
+					`guide_territory` = '$guideTerritory',
+					`landline_no`='$landLineNumber', 
+					`payment_terms`='$paymentTerm',
+					`Best_time_for_contact`='$bestTimeToContact', 
+					`Communication_mechanism`='$communicationMechanism',
+					`guide_Remarks`='$remark',
+					`datecreated`=now() 
+					WHERE `user_id` = $userid") or die('Error : ' . mysql_error());
 					if($update2)
 					{
 						$flag2=1;
@@ -250,7 +280,7 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 	{
 		$errormsg="Unauthenticated access to the Guide edit page, Registration Step 1 is not done";
 		error_log($errormsg,0);
-		include("signOut.php");
+		include_once("signOut.php");
         header('Location:guide_registration_1.php');
 	    exit;
 	}
