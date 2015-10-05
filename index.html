@@ -131,7 +131,7 @@ ul.rating {
 
 				<!-- START #main-header --> <div id="main-header"> <div
 				class="container"> <div class="row"> <div
-				class="col-md-3"> <a id="site-logo" href="#"> <img
+				class="col-md-3"> <a id="site-logo" href="index.html"> <img
 				src="images/logo.png" alt="Guided Gateway" /> </a> </div> <div
 				class="col-md-9"> <nav class="main-nav">
 				<span>MENU</span> <ul id="main-menu"> <li><a href="index.html"
@@ -139,25 +139,20 @@ ul.rating {
 				href="top-guides-listview.html" title="">Guides</a></li> <li><a
 				href="top-destinations-listview-sidebar.html" title="">Destinations</a> </li>
                 <li><a
-				href="#" title="">Themed Tours</a> </li>
+				href="#" title="">Tours</a> </li>
 		
-						</ul> </nav> </div> </div> </div>
-					<br><br><br><br><br><br><br>
-					 </div></header>
-									 <!-- END #main-header -->
-									 <!-- END header -->
-					 <div>
-					 <div class="main-contents col-md-6 col-md-offset-2" id="searchDiv">
-					 <form class="plan-tour">
-						<div class="" style="background-color:#f1f1f1;" >
-						<div class="row">
-						<br>
-						<div class="col-md-10 col-md-offset-1 input-group">
-						<input type="text" class="form-control" style="background-color:white;" ng-model="search" placeholder="Where to go?" />
-						<span class="input-group-addon">
-						<i class="fa fa-search"></i>
-						</span>
-						</div>
+									</ul> </nav> </div> </div> </div>
+					<div class="main-contents col-md-8 col-md-offset-2" id="searchDiv">
+					<form class="plan-tour">
+						<div class="top-fields"><br>
+						<div class="row">								
+						<div class="col-md-8 col-md-offset-1">
+						<input type="text" class="form-control" style="background-color:white;" ng-model="search" placeholder="What is in your mind?" />
+						</div> 
+						<div class="col-md-1" >
+						<span class="form-control" style="height:50px;"><i class="fa fa-search"></i></span>
+						<!-- <input type="submit" class="form-control" style="background-color:#ff845e;" class="btn btn-primary" value="Search" />  -->
+						</div> 
 						</div>
 						<div class="row">
 						<div class="col-md-7 col-md-offset-1"> <br>
@@ -205,12 +200,12 @@ ul.rating {
 					 <div class="col-md-3" ng-repeat="x in tours | filter:search" ng-show="$index<4"> 
 							<a href="top-tours-listview-sidebar.html">
 							<div class="ft-item"> 
-							<span class="ft-image"><img src="img/custom11.jpg" alt="Popular Tours" /> </span> 
+							<span class="ft-image"><img src="{{x.Media.Image[0]}}" alt="Popular Tours" /> </span> 
 							   <div class="ft-data">
 							     <span  style="color:black;" class="text-upper fa fa-pagelines" href="#">&nbsp;&nbsp;{{x.Category}}</span> &nbsp;&nbsp;&nbsp;
 								 <!-- <span style="color:black;" class="fa text-upper">&nbsp;&nbsp;LOCATION :</span> &nbsp;&nbsp; -->
 								  <span style="color:black;" class="alignright fa text-upper"><i  style="color:black;" class="fa text-upper" ></i>&nbsp;&nbsp;{{x.Location}}</span>
-								  <span style="color:black;" class="fa">{{x.Title}}</span>
+								  <span style="color:black;" class="fa text-upper">{{x.Title}}</span>
 							   </div> 
 							   
 								<div class="ft-foot"> <h4 class="ft-title text-upper" style="color:#686868">{{x.Guide}}</h4> 
@@ -279,24 +274,24 @@ ul.rating {
 				   <a href="top-destinations-listview-sidebar.html">
 				      <div	class="ft-item"> 
 						  <span class="ft-image">
-							 <img src="img/custom11.jpg" alt="Top Destination" /> 
+							 <img src="{{x.Media.Image[0]}}" alt="Top Destination" /> 
 						  </span>
 					  
 								<div class="ft-data">
-							  <span style="color:black;" class="fa fa-book text-upper">&nbsp;&nbsp;{{x.Description}}</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							  <!-- <span style="color:black;" class="fa fa-book text-upper" >&nbsp;&nbsp;{{x.Speciality}}</span>&nbsp;&nbsp;&nbsp;&nbsp;
-							  <span style="color:black;" class="fa fa-plane text-upper" >&nbsp;&nbsp;{{x.LanguageKnown}}</span> -->
+							  <span style="color:black;" class="fa text-upper">{{x.Name}}</span>
+							  <!-- span style="color:black;" class="fa fa-book">{{x.GuideCount}}</span>
+							  <span style="color:black;" class="fa fa-plane">{{x.TourCount}}</span -->
 								</div> 
 					
 							<div class="ft-foot">
-							<h4 class="ft-title text-upper" style="color:#686868">{{x.Name}}</h4> 
+							<h4 class="ft-title text-upper" style="color:#686868">{{x.BestTimeToVisit}}</h4> 
 							<span class="ft-offer text-upper">{{x.Category}}</span> 
 							</div> 
 					
 							<div class="ft-foot-ex"> 
-								<span class="fa fa-shield text-upper alignleft">{{x.Attractions}}&nbsp;</span>
-								<!-- <span star-rating rating-value="x.Review.Star" class="aligncenter"></span>
-								<span class="alignright fa fa-eye">{{x.Review.Count}} reviews</span>  -->							
+								<span class="fa fa-shield text-upper alignleft">{{x.TourCount}}</span>
+								<!-- <span star-rating rating-value="x.Review.Star" class="aligncenter"></span> -->
+								<span class="alignright fa fa-eye">{{x.GuideCount}}</span>							
 							</div> 
 					</div>
 					</a>
@@ -370,18 +365,11 @@ ul.rating {
 			<!-- START footer --> <footer> <!-- START #ft-footer -->
 			<div id="ft-footer"> <div class="footer-overlay"> <div
 			class="container"> <div class="row"> <!-- testimonials -->
-			<section class="col-md-6"> <h3>Testimonials</h3> <p>Tortor
-			turpis. Proin. Dolor. Auctor arcu, habitasse mid placerat
-			magna? Dis ac, adipiscing? Cras mus dolor sit a? Platea eros
-			dictumst ridiculus sed phasellus, rhoncus magnis a
-			pellentesque pulvinar duis purus risus tristique ultricies
-			natoque, nec! Natoque natoque cum? Nec, placerat sociis! Sit
-			ut, scelerisque? placerat sociis! Sit ut, scelerisque? Urna
-			ut aliquam duis et scelerisque,</p> <div class="tl-author">
+			<section class="col-md-6"> <h3>Testimonials</h3> <p>Amazing experience with guided tour. Much authentic and affordable than a "so called" luxury package. A local guide or expert can enable you to connect with local people and culture more than you can do on your own and surely more than visiting just placec. Connecting with culture and learning from it is any way the main purpose of my visit  to place like Jaipur - apart from the awesome foods. Thank you. </p> <div class="tl-author">
 			<span class="tl-author-img"> <img class="img-circle"
 			src="http://placehold.it/70x70" alt="Testimonial Author" />
 			</span> <span class="tl-author-title">Jassem Elrakesh</span>
-			<span class="tl-author-desc">Visited Barcelona
+			<span class="tl-author-desc">Visited Jaipur
 			recently</span> </div> </section>
 
 								<!-- twitter --> <section
