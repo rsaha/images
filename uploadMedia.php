@@ -1,5 +1,14 @@
 <?php
+<?php
 session_start();
+function getExtension($str) 
+	{
+		$i = strrpos($str,".");
+		if (!$i) { return ""; }
+		$l = strlen($str) - $i;
+		$ext = substr($str,$i+1,$l);
+		return $ext;
+	}
 $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 if((isset($_SESSION['userId'])) && (($_SESSION['phase'] == "signin") || ($_SESSION['phase'] == "reg")))
 {
@@ -11,46 +20,81 @@ if((isset($_SESSION['userId'])) && (($_SESSION['phase'] == "signin") || ($_SESSI
 
 	if (isset($_POST['picture']))
 	{
-		$validextensions = array("jpeg", "jpg", "png");
-		$temporary = explode(".", $_FILES["file1"]["name"]);
-		$file_extension = end($temporary);
+		define ("MAX_SIZE","400");
+		$image =$_FILES["file1"]["name"];
+		$uploadedfile = $_FILES['file1']['tmp_name'];
 
-		if ((($_FILES["file1"]["type"] == "image/png") || ($_FILES["file1"]["type"] == "image/jpg") || ($_FILES["file1"]["type"] == "image/jpeg")
-		) && in_array($file_extension, $validextensions))
+		if ($image) 
 		{
-			if ($_FILES["file1"]["error"] > 0)
+			$filename = stripslashes($_FILES['file1']['name']);
+			$extension = getExtension($filename);
+			$extension = strtolower($extension);
+
+
+			if (($extension != "jpg") && ($extension != "jpeg") && ($extension != "png") && ($extension != "gif")) 
 			{
-				echo "Return Code: " . $_FILES["file1"]["error"] . "<br/><br/>";
-			} 
-			else 
+				$errormsg="Tour Media picture type do not match the required type";
+				error_log($errormsg,0);
+			}
+			else
 			{
-				$newName=date("dmYHms") . "_img." . $file_extension;
-				move_uploaded_file($_FILES["file1"]["tmp_name"], $upload_dir . $newName);
-				$bin_string = file_get_contents( $upload_dir . $newName);
+				$size=filesize($_FILES['file1']['tmp_name']);
+
+				if ($size > MAX_SIZE*1024)
+				{
+					$errormsg="Tour Media picture size do not match the required size";
+					error_log($errormsg,0);
+				}
+
+				if($extension=="jpg" || $extension=="jpeg" )
+				{
+					$uploadedfile = $_FILES['file1']['tmp_name'];
+					$src = imagecreatefromjpeg($uploadedfile);
+				}
+				else if($extension=="png")
+				{
+					$uploadedfile = $_FILES['file1']['tmp_name'];
+					$src = imagecreatefrompng($uploadedfile);
+				}
+				else 
+				{
+					$src = imagecreatefromgif($uploadedfile);
+				}
+
+				list($width,$height)=getimagesize($uploadedfile);
+
+				$newwidth=500;
+				$newheight=500; //($height/$width)*$newwidth;
+				$tmp=imagecreatetruecolor($newwidth,$newheight);
+
+				imagecopyresampled($tmp, $src, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
+
+				$newName=date("dmYHms") . "_img." . $extension;
+				$filename = $upload_dir . $newName;
+				imagejpeg($tmp,$filename,100);
+
+				imagedestroy($src);
+				imagedestroy($tmp);
+
+				$bin_string = file_get_contents($filename);
 				$hex_string = base64_encode($bin_string);
-				unlink(parse_ini_file('config.ini',true)['imagePath'] . $newName);
-				#$imgFullpath = "http://".$_SERVER['SERVER_NAME'].dirname($_SERVER["REQUEST_URI"].'?'). parse_ini_file('config.ini',true)['imagePath'] . $newName;
+				unlink($filename);
+
 				include_once("db.php");
 				$insert = mysql_query("INSERT INTO `tbl_tour_media_pictures`(`tour_id`, `tour_picture`) VALUES ($tourID, '$hex_string')");
 				if($insert)
 				{
-					$errormsg="Cover Picture uploaded.";
+					$errormsg="Tour Media Picture uploaded.";
 					error_log($errormsg,0);
 					header('Location:mediaManagement.php?user='. $userid .'&tour=' . $tourID. '');
 				}
 				else
 				{
 					echo "<script type='text/javascript'>alert('7');</script>";
-					$errormsg="Cover Picture could not uploaded.";
+					$errormsg="Tour Media Picture could not uploaded.";
 					error_log($errormsg,0);
 				}
 			}
-		} 
-		else 
-		{
-			echo "file not required type";
-			$errormsg="Cover Picture type or size do not match the required type or size";
-			error_log($errormsg,0);
 		}
 	}
 	else if(isset($_POST['video']))
@@ -59,7 +103,7 @@ if((isset($_SESSION['userId'])) && (($_SESSION['phase'] == "signin") || ($_SESSI
 		$temporary = explode(".", $_FILES["file2"]["name"]);
 		$file_extension = end($temporary);
 
-		if ((($_FILES["file2"]["type"] == "image/mp4") || ($_FILES["file2"]["type"] == "image/mpeg") || ($_FILES["file2"]["type"] == "image/wmv")  || ($_FILES["file2"]["type"] == "image/avi")  || ($_FILES["file2"]["type"] == "image/3gp")
+		if ((($_FILES["file2"]["type"] == "video/mp4") || ($_FILES["file2"]["type"] == "video/mpeg") || ($_FILES["file2"]["type"] == "video/wmv")  || ($_FILES["file2"]["type"] == "video/avi")  || ($_FILES["file2"]["type"] == "video/3gp")
 		) && ($_FILES["file2"]["size"] < 10000000000000)//Approx. 100kb files can be uploaded.
 		&& in_array($file_extension, $validextensions))
 		{
@@ -95,7 +139,7 @@ if((isset($_SESSION['userId'])) && (($_SESSION['phase'] == "signin") || ($_SESSI
 		{
 			$errormsg="Cover Picture type or size do not match the required type or size";
 			error_log($errormsg,0);
-		}
+		}		
 	}	
 	else
 	{
@@ -111,4 +155,3 @@ else
 	header('Location:guide_registration_1.php');
 }
 ?>
-

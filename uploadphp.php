@@ -1,232 +1,322 @@
 <?php
-session_start();
-$upload_dir = parse_ini_file('config.ini',true)['imagePath'];
-if((isset($_SESSION['userId'])) && (($_SESSION['phase'] == "signin") || ($_SESSION['phase'] == "reg")))
-{
-	echo '<script>alert("1");</sript>';
-	$userid=$_SESSION['userId'];
-	
-	if (isset($_POST['cover_pic']))
+	session_start();
+	function getExtension($str) 
 	{
-		echo '<script>alert("2");</sript>';
-			$validextensions = array("jpeg", "jpg", "png");
-			$temporary = explode(".", $_FILES["file1"]["name"]);
-			$file_extension = end($temporary);
+		$i = strrpos($str,".");
+		if (!$i) { return ""; }
+		$l = strlen($str) - $i;
+		$ext = substr($str,$i+1,$l);
+		return $ext;
+	}
 
-		if ((($_FILES["file1"]["type"] == "image/png") || ($_FILES["file1"]["type"] == "image/jpg") || ($_FILES["file1"]["type"] == "image/jpeg")
-				) && ($_FILES["file1"]["size"] < 10000000)//Approx. 100kb files can be uploaded.
-				&& in_array($file_extension, $validextensions))
-				{
-					echo '<script>alert("3");</sript>';
-					if ($_FILES["file1"]["error"] > 0)
-				{
-					echo '<script>alert("4");</sript>';
-			echo "Return Code: " . $_FILES["file1"]["error"] . "<br/><br/>";
-			} 
-			else 
+	$upload_dir = parse_ini_file('config.ini',true)['imagePath'];
+	if((isset($_SESSION['userId'])) && (($_SESSION['phase'] == "signin") || ($_SESSION['phase'] == "reg")))
+	{
+		$userid=$_SESSION['userId'];
+
+		if (isset($_POST['cover_pic']))
+		{
+			define ("MAX_SIZE","400");
+			$image =$_FILES["file1"]["name"];
+			$uploadedfile = $_FILES['file1']['tmp_name'];
+
+			if ($image) 
 			{
-				echo '<script>alert("5");</sript>';
-				$newName=date("dmYHms") . "_img." . $file_extension;
-				move_uploaded_file($_FILES["file1"]["tmp_name"], $upload_dir . $newName);
-					 $bin_string = file_get_contents( $upload_dir . $newName);
-					 $hex_string = base64_encode($bin_string);
-					 unlink($upload_dir . $newName);
-					 #$imgFullpath = "http://".$_SERVER['SERVER_NAME'].dirname($_SERVER["REQUEST_URI"].'?'). $upload_dir . $newName;
+				$filename = stripslashes($_FILES['file1']['name']);
+				$extension = getExtension($filename);
+				$extension = strtolower($extension);
+
+
+				if (($extension != "jpg") && ($extension != "jpeg") && ($extension != "png") && ($extension != "gif")) 
+				{
+					$errormsg="Cover picture type do not match the required type";
+					error_log($errormsg,0);
+				}
+				else
+				{
+					$size=filesize($_FILES['file1']['tmp_name']);
+
+					if ($size > MAX_SIZE*1024)
+					{
+						$errormsg="Cover picture size do not match the required size";
+						error_log($errormsg,0);
+					}
+
+					if($extension=="jpg" || $extension=="jpeg" )
+					{
+						$uploadedfile = $_FILES['file1']['tmp_name'];
+						$src = imagecreatefromjpeg($uploadedfile);
+					}
+					else if($extension=="png")
+					{
+						$uploadedfile = $_FILES['file1']['tmp_name'];
+						$src = imagecreatefrompng($uploadedfile);
+					}
+					else 
+					{
+						$src = imagecreatefromgif($uploadedfile);
+					}
+
+					list($width,$height)=getimagesize($uploadedfile);
+
+					$newwidth=1400;
+					$newheight=200; //($height/$width)*$newwidth;
+					$tmp=imagecreatetruecolor($newwidth,$newheight);
+
+					imagecopyresampled($tmp, $src, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
+
+					$newName=date("dmYHms") . "_img." . $extension;
+					$filename = $upload_dir . $newName;
+					imagejpeg($tmp,$filename,100);
+
+					imagedestroy($src);
+					imagedestroy($tmp);
+
+					$bin_string = file_get_contents($filename);
+					$hex_string = base64_encode($bin_string);
+					unlink($filename);
+
 					include_once("db.php");
 					$upl=0;
 					$select=mysql_query("SELECT * FROM `tbl_guide_detail_profile` WHERE `user_id` = $userid");
 					$count = mysql_num_rows($select);
 					if($count==0)
 					{
-						echo '<script>alert("6");</sript>';
 						$insert = mysql_query("INSERT INTO `tbl_guide_detail_profile` (`user_id`, `guide_Cover_pic`, `status`, `datecreated`) VALUES ($userid, '$hex_string', 1, now())");
 						if($insert)
 						{
-							echo '<script>alert("7");</sript>';
-						$upl=1;
+							$upl=1;
 						}
 					}
 					else
-					{	
-				echo '<script>alert("8");</sript>';
+					{
 						$update = mysql_query("UPDATE `tbl_guide_detail_profile` SET `guide_Cover_pic` = '$hex_string' WHERE `user_id` = $userid");
 						if($update)
 						{
-							echo '<script>alert("8");</sript>';
-						$upl=1;
+							$upl=1;
 						}
 					}
 					if($upl == 1)
-						{
-							echo '<script>alert("9");</sript>';
-							$errormsg="Cover Picture uploaded.";
-					error_log($errormsg,0);
-					//header('Location:guide_registration_2.php?id=' . $userid .'');
-						}
-						else
-						{
-							echo '<script>alert("10");</sript>';
-							$errormsg="Cover Picture could not uploaded.";
-							error_log($errormsg,0);
-						}
-			}
-		} 
-		else 
-		{
-			echo '<script>alert("11");</sript>';
-		$errormsg="Cover Picture type or size do not match the required type or size";
+					{
+						$errormsg="Cover Picture uploaded.";
 						error_log($errormsg,0);
-		}
+						header('Location:guide_registration_2.php?id=' . $userid .'');
+					}
+					else
+					{
+						$errormsg="Cover Picture could not uploaded.";
+						error_log($errormsg,0);
+					}
+				}
+			}
 		}
 		else if(isset($_POST['profile_pic']))
 		{
-			echo '12';
-			$validextensions = array("jpeg", "jpg", "png");
-			$temporary = explode(".", $_FILES["file2"]["name"]);
-			$file_extension = end($temporary);
+			define ("MAX_SIZE","400");
+			$image =$_FILES["file2"]["name"];
+			$uploadedfile = $_FILES['file2']['tmp_name'];
 
-			if ((($_FILES["file2"]["type"] == "image/png") || ($_FILES["file2"]["type"] == "image/jpg") || ($_FILES["file2"]["type"] == "image/jpeg")
-			) && ($_FILES["file2"]["size"] < 10000000)//Approx. 100kb files can be uploaded.
-			&& in_array($file_extension, $validextensions))
+			if ($image) 
 			{
-				echo '<script>alert("13");</sript>';
-					if ($_FILES["file2"]["error"] > 0)
-						{
-							echo '<script>alert("14");</sript>';
-							echo "Return Code: " . $_FILES["file2"]["error"] . "<br/><br/>";
-						} 
-				else 
-				{
-					echo '<script>alert("15");</sript>';
-					$newName=date("dmYHms") . "_img." . $file_extension;
-					move_uploaded_file($_FILES["file2"]["tmp_name"], $upload_dir . $newName);
-				 $bin_string = file_get_contents( $upload_dir . $newName);
-				 $hex_string = base64_encode($bin_string);
-				 unlink($upload_dir . $newName);
-				 #$imgFullpath = "http://".$_SERVER['SERVER_NAME'].dirname($_SERVER["REQUEST_URI"].'?'). $upload_dir . $newName;
-				include_once("db.php");
-				$upl=0;
-				$select=mysql_query("SELECT * FROM `tbl_guide_detail_profile` WHERE `user_id` = $userid");
-				$count = mysql_num_rows($select);
-				if($count==0)
-				{
-					echo '<script>alert("16");</sript>';
-					$insert = mysql_query("INSERT INTO `tbl_guide_detail_profile` (`user_id`, `guide_profile_pic`, `status`, `datecreated`) VALUES ($userid, '$hex_string', 1, now())");
-					if($insert)
-					{
-						echo '<script>alert("17");</sript>';
-					$upl=1;
-					}
-				}
-				else
-				{	
-			echo '<script>alert("18");</sript>';
-					$update = mysql_query("UPDATE `tbl_guide_detail_profile` SET `guide_profile_pic` = '$hex_string' WHERE `user_id` = $userid");
-					if($update)
-					{
-						echo '<script>alert("19");</sript>';
-					$upl=1;
-					}
-				}
-				if($upl == 1)
-					{
-						echo '<script>alert("20");</sript>';
-						$errormsg="Profile Picture Image uploaded.";
-				error_log($errormsg,0);
-				//header('Location:guide_registration_2.php?id=' . $userid .'');
-					}
-					else
-					{
-						echo '<script>alert("21");</sript>';
-						$errormsg="Profile Picture could not uploaded.";
-						error_log($errormsg,0);
-					}
-				}
+			$filename = stripslashes($_FILES['file2']['name']);
+			$extension = getExtension($filename);
+			$extension = strtolower($extension);
+
+
+			if (($extension != "jpg") && ($extension != "jpeg") && ($extension != "png") && ($extension != "gif")) 
+			{
+			$errormsg="Profile picture type do not match the required type";
+			error_log($errormsg,0);
 			}
-		else
-		{
-			echo '<script>alert("22");</sript>';
-			$errormsg="Profile Picture type or size do not match the required type or size";
-						error_log($errormsg,0);
-		}
-	}	
-			else if(isset($_POST['licence_pic']))
+			else
 			{
-				$validextensions = array("jpeg", "jpg", "png");
-				$temporary = explode(".", $_FILES["file3"]["name"]);
-				$file_extension = end($temporary);
+			$size=filesize($_FILES['file2']['tmp_name']);
 
-				if ((($_FILES["file3"]["type"] == "image/png") || ($_FILES["file3"]["type"] == "image/jpg") || ($_FILES["file3"]["type"] == "image/jpeg")
-				) && ($_FILES["file3"]["size"] < 10000000) //Approx. 100kb files can be uploaded.
-				&& in_array($file_extension, $validextensions))
-					{
-						if ($_FILES["file3"]["error"] > 0)
-					{
-				echo "Return Code: " . $_FILES["file3"]["error"] . "<br/><br/>";
-				} 
-				else 
-				{
-					$newName=date("dmYHms") . "_img." . $file_extension;
-					move_uploaded_file($_FILES["file3"]["tmp_name"], $upload_dir . $newName);
-					 $bin_string = file_get_contents( $upload_dir. $newName);
-					 $hex_string = base64_encode($bin_string);
-					 unlink($upload_dir . $newName);
-					#$imgFullpath = "http://".$_SERVER['SERVER_NAME'].dirname($_SERVER["REQUEST_URI"].'?'). $upload_dir . $newName;
-					include_once("db.php");
-					$upl=0;
-					$select=mysql_query("SELECT * FROM `tbl_guide_detail_profile` WHERE `user_id` = $userid");
-					$count = mysql_num_rows($select);
-					if($count==0)
-					{
-						$insert = mysql_query("INSERT INTO `tbl_guide_detail_profile` (`user_id`, `license_Image`, `status`, `datecreated`) VALUES ($userid, '$hex_string', 1, now())");
-						if($insert)
-						{
-						$upl=1;
-						}
-					}
-					else
-					{	
-						$update = mysql_query("UPDATE `tbl_guide_detail_profile` SET `license_Image` = '$hex_string' WHERE `user_id` = $userid");
-						if($update)
-						{
-						$upl=1;
-						}
-					}
-					if($upl == 1)
-					{
-						$errormsg="Licence Image uploaded.";
-						error_log($errormsg,0);
-						//header('Location:guide_registration_2.php?id=' . $userid .'');
-						exit;
-					}
-					else
-					{
-						$errormsg="Licence Image could not uploaded.";
-						error_log($errormsg,0);
-						//header('Location:guide_registration_2.php?id=' . $userid .'');
-						exit;
-					}
-				}
-			} 
+			if ($size > MAX_SIZE*1024)
+			{
+			$errormsg="Profile picture size do not match the required size";
+			error_log($errormsg,0);
+			}
+
+			if($extension=="jpg" || $extension=="jpeg" )
+			{
+			$uploadedfile = $_FILES['file2']['tmp_name'];
+			$src = imagecreatefromjpeg($uploadedfile);
+			}
+			else if($extension=="png")
+			{
+			$uploadedfile = $_FILES['file2']['tmp_name'];
+			$src = imagecreatefrompng($uploadedfile);
+			}
 			else 
 			{
-				$errormsg="Licence Image type or size do not match the required type or size";
-						error_log($errormsg,0);
+			$src = imagecreatefromgif($uploadedfile);
+			}
+
+			list($width,$height)=getimagesize($uploadedfile);
+
+			$newwidth=198;
+			$newheight=198; //($height/$width)*$newwidth;
+			$tmp=imagecreatetruecolor($newwidth,$newheight);
+
+			imagecopyresampled($tmp, $src, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
+
+			$newName=date("dmYHms") . "_img." . $extension;
+			$filename = $upload_dir . $newName;
+			imagejpeg($tmp,$filename,100);
+
+			imagedestroy($src);
+			imagedestroy($tmp);
+
+			$bin_string = file_get_contents($filename);
+			$hex_string = base64_encode($bin_string);
+			unlink($filename);
+
+
+			include_once("db.php");
+			$upl=0;
+			$select=mysql_query("SELECT * FROM `tbl_guide_detail_profile` WHERE `user_id` = $userid");
+			$count = mysql_num_rows($select);
+			if($count==0)
+			{
+			$insert = mysql_query("INSERT INTO `tbl_guide_detail_profile` (`user_id`, `guide_profile_pic`, `status`, `datecreated`) VALUES ($userid, '$hex_string', 1, now())");
+			if($insert)
+			{
+			$upl=1;
+			}
+			}
+			else
+			{	
+			$update = mysql_query("UPDATE `tbl_guide_detail_profile` SET `guide_profile_pic` = '$hex_string' WHERE `user_id` = $userid");
+			if($update)
+			{
+			$upl=1;
+			}
+			}
+			if($upl == 1)
+			{
+			$errormsg="Profile Picture Image uploaded.";
+			error_log($errormsg,0);
+			header('Location:guide_registration_2.php?id=' . $userid .'');
+			}
+			else
+			{
+			$errormsg="Profile Picture could not uploaded.";
+			error_log($errormsg,0);
+			}
+			}
+			}
+		}
+		else if(isset($_POST['licence_pic']))
+		{
+			define ("MAX_SIZE","400");
+			$image =$_FILES["file3"]["name"];
+			$uploadedfile = $_FILES['file3']['tmp_name'];
+
+			if ($image) 
+			{
+			$filename = stripslashes($_FILES['file3']['name']);
+			$extension = getExtension($filename);
+			$extension = strtolower($extension);
+
+
+			if (($extension != "jpg") && ($extension != "jpeg") && ($extension != "png") && ($extension != "gif")) 
+			{
+			$errormsg="Licence Image type do not match the required type";
+			error_log($errormsg,0);
+			}
+			else
+			{
+			$size=filesize($_FILES['file3']['tmp_name']);
+
+			if ($size > MAX_SIZE*1024)
+			{
+			$errormsg="Licence Image size do not match the required size";
+			error_log($errormsg,0);
+			}
+
+			if($extension=="jpg" || $extension=="jpeg" )
+			{
+			$uploadedfile = $_FILES['file3']['tmp_name'];
+			$src = imagecreatefromjpeg($uploadedfile);
+			}
+			else if($extension=="png")
+			{
+			$uploadedfile = $_FILES['file3']['tmp_name'];
+			$src = imagecreatefrompng($uploadedfile);
+			}
+			else 
+			{
+			$src = imagecreatefromgif($uploadedfile);
+			}
+
+			list($width,$height)=getimagesize($uploadedfile);
+
+			$newwidth=250;
+			$newheight=180; //($height/$width)*$newwidth;
+			$tmp=imagecreatetruecolor($newwidth,$newheight);
+
+			imagecopyresampled($tmp, $src, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
+
+			$newName=date("dmYHms") . "_img." . $extension;
+			$filename = $upload_dir . $newName;
+			imagejpeg($tmp,$filename,100);
+
+			imagedestroy($src);
+			imagedestroy($tmp);
+
+			$bin_string = file_get_contents($filename);
+			$hex_string = base64_encode($bin_string);
+			unlink($filename);
+
+			include_once("db.php");
+			$upl=0;
+			$select=mysql_query("SELECT * FROM `tbl_guide_detail_profile` WHERE `user_id` = $userid");
+			$count = mysql_num_rows($select);
+			if($count==0)
+			{
+			$insert = mysql_query("INSERT INTO `tbl_guide_detail_profile` (`user_id`, `license_Image`, `status`, `datecreated`) VALUES ($userid, '$hex_string', 1, now())");
+			if($insert)
+			{
+			$upl=1;
+			}
+			}
+			else
+			{	
+			$update = mysql_query("UPDATE `tbl_guide_detail_profile` SET `license_Image` = '$hex_string' WHERE `user_id` = $userid");
+			if($update)
+			{
+			$upl=1;
+			}
+			}
+			if($upl == 1)
+			{
+			$errormsg="Licence Image uploaded.";
+			error_log($errormsg,0);
+			header('Location:guide_registration_2.php?id=' . $userid .'');
+			exit;
+			}
+			else
+			{
+			$errormsg="Licence Image could not uploaded.";
+			error_log($errormsg,0);
+			header('Location:guide_registration_2.php?id=' . $userid .'');
+			exit;
+			}
+			}
 			}
 		}
 		else
 		{
-			echo '<script>alert("23");</sript>';
 			$errormsg="Somthing Went Wrong!!";
-		error_log($errormsg,0);
+			error_log($errormsg,0);
 		}
 	}
 	else 
 	{
-		echo '<script>alert("24");</sript>';
 		$errormsg="Unauthenticated access to the upload page, Registration Step 1 is not done";
 		error_log($errormsg,0);
 		include_once("signOut.php");
-		//header('Location:guide_registration_1.php');
+		header('Location:guide_registration_1.php');
 	}
 ?>
