@@ -1,7 +1,7 @@
 <?php 
 session_start();
 $_SESSION['notification']="Congratulation! Welcome to Guided Gateway, you are now member of #1 online marketplace for tour guides.";
-include('db.php');
+include_once('db.php');
 if (isset($_POST['username']) && isset($_POST['password']))
 {
 

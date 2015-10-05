@@ -14,7 +14,7 @@
 		else
 		{
 			$_SESSION["signinCheck"]="signin";
-				include('db.php');
+				include_once('db.php');
 
 				$select1 = mysql_query("SELECT * FROM `tbl_user_profile` WHERE `user_id` = $userid");
 				$row11 = mysql_fetch_assoc($select1);
@@ -40,8 +40,10 @@
 				$LicenceImage = $row22["license_Image"];
 				$licenceNumber = $row22["license_no"];
 				$licenceValidty = $row22["validity"];
+				$guideTerritory = $row22["guide_territory"];
 				$summery = $row22["guide_summary"];
-				$experiance = $row22["guide_experience"];
+				$otherExperiance = $row22["other_experience"];
+				$experianceInYear = $row22["experiance_in_year"];
 				$intrest = $row22["guide_interest"];
 				$landLineNumber = $row22["landline_no"];
 				$paymentCurrency = $row22["payment_currency"];
@@ -55,8 +57,10 @@
 				$nickName = "";
 				$licenceNumber = "";
 				$licenceValidty = "";
+				$guideTerritory = "";
 				$summery = "";
-				$experiance = "";
+				$otherExperiance = "";
+				$experianceInYear = "";
 				$intrest = "";
 				$landLineNumber = "";
 				$paymentCurrency = "";
@@ -152,7 +156,7 @@
 		<div id="wrapper">
 			
 			
-			<?php include('MasterHeaderAfterLogin.php'); ?>
+			<?php include_once('MasterHeaderAfterLogin.php'); ?>
 			
 			
 			
@@ -169,17 +173,17 @@
 											$count4pic = mysql_num_rows($select2);
 											if ($count4pic==0)
 											{
-												echo '<img style="width:1400px; height:200px;" class="hover img-responsive" src="img/Default.jpg"/>';
+												echo '<img class="hover img-responsive" src="img/Default.jpg"/>';
 											}
 											else
 											{
 												if($coverPicture==null)
 												{
-													echo '<img style="width:1400px; height:200px;" class="hover img-responsive" src="img/Default.jpg"/>';
+													echo '<img class="hover img-responsive" src="img/Default.jpg"/>';
 												}
 												else
 												{
-													echo '<img style="width:1400px; height:200px;" class="hover img-responsive" src="showCover.php?id=' . $userid . '"/>';
+													echo '<img class="hover img-responsive" src="showCover.php?id=' . $userid . '"/>';
 												}
 											}
 											?><br>
@@ -218,17 +222,17 @@
 						$count4pic = mysql_num_rows($select2);
 						if ($count4pic==0)
 						{
-							echo '<img style="max-height:200px; max-width:170px;" class="hover img-responsive" src="img/userDefaultIcon.png"/>';
+							echo '<img class="hover img-responsive" src="img/userDefaultIcon.png"/>';
 						}
 						else
 						{
 							if($profilePicture==null)
 							{
-								echo '<img style="max-height:200px; max-width:170px;" class="hover img-responsive" src="img/userDefaultIcon.png"/>';
+								echo '<img class="hover img-responsive" src="img/userDefaultIcon.png"/>';
 							}
 							else
 							{
-								echo '<img style="max-height:200px; max-width:170px;" class="hover img-responsive" src="showImage.php?id=' . $userid . '"/>';
+								echo '<img class="hover img-responsive" src="showImage.php?id=' . $userid . '"/>';
 							}
 						}
 							
@@ -253,7 +257,7 @@
 					<input name="licenceNumber" class="form-control" type="text" value="<?php echo $licenceNumber ?>" /><br />
 					  <hr>
 					<label style="font-size:14px;">Licence Expiry Date :</label><br><br />
-					<input name="licenceValidty" class="form-control" min="2010-01-01" type="date" value="<?php echo $licenceValidty ?>" />
+					<input name="licenceValidty" class="form-control" min="2015-01-01" type="date" value="<?php echo $licenceValidty ?>" />
 					<hr>
 					<label style="font-size:14px;">Licence Image :</label><br><br />
 							
@@ -267,17 +271,17 @@
 							$count4pic = mysql_num_rows($select2);
 							if ($count4pic==0)
 							{
-								echo '<img style="max-height:127px; max-width:200px;" class="hover img-responsive" src="img/PRcard.jpg"/>';
+								echo '<img class="hover img-responsive" src="img/PRcard.jpg"/>';
 							}
 							else
 							{
 								if($LicenceImage==null)
 								{
-									echo '<img style="max-height:127px; max-width:200px;" class="hover img-responsive" src="img/PRcard.jpg"/>';
+									echo '<img class="hover img-responsive" src="img/PRcard.jpg"/>';
 								}
 								else
 								{
-									echo '<img style="max-height:127px; max-width:200px;" class="hover img-responsive" src="showLicence.php?id=' . $userid . '"/>';
+									echo '<img class="hover img-responsive" src="showLicence.php?id=' . $userid . '"/>';
 								}
 							}
 							?>
@@ -386,7 +390,7 @@
 													  
 													  <div class="col-xs-7 controls">
 													  <select name="state" id="state" class="form-control" style="background-color:#f7f7f7;">
-													  <?php include('state.php'); ?>
+													  <?php include_once('state.php'); ?>
 														</select>
 													  </div>
 													  <!-- col-sm-10 --> 
@@ -435,7 +439,7 @@
 													  <label class="col-xs-5 control-label">Communication Mechanism:</label>
 													  <div class="col-xs-7 controls">
 													  <select class="form-control"  style="background-color:#f7f7f7;" name="communicationMechanism" id="communicationMechanism">
-														<option value="Any">Mobile &amp; Email</option>
+														<option value="Mobile & Email">Mobile &amp; Email</option>
                                                         <option value="Mobile">Mobile</option>
 														<option value="Email">Email</option>
 														</select>
@@ -448,7 +452,7 @@
 													  <label class="col-xs-5 control-label">Best time to contact:</label>
 													  <div class="col-xs-7 controls">
 													  <select class="form-control" style="background-color:#f7f7f7;" name="bestTimeToContact" id="bestTimeToContact">
-															<option value="Any">ANY TIME</option>
+															<option value="ANY TIME">ANY TIME</option>
 															<option value="08:00 AM - 12:00 PM">08:00 AM - 12:00 PM</option>
 															<option value="12:00 PM - 04:00 PM">12:00 PM - 04:00 PM</option>
 															<option value="04:00 PM - 08:00 PM">04:00 PM - 08:00 PM</option>
@@ -462,26 +466,56 @@
 													<div class="row mgbt-xs-0">
 													  <label class="col-xs-5 control-label">Language Known:</label>
 													  <div class="col-xs-7 controls">
-													  <?php
-														$select4 = mysql_query("SELECT tl.language_id, tl.lanugage_name FROM tbl_guide_known_languages AS gkl INNER JOIN tbl_languages AS tl ON gkl.language_id=tl.language_id WHERE gkl.user_id = $userid");
-														while($row44 = mysql_fetch_array($select4))
-														{
-															echo $row44["lanugage_name"].", ";
-														}
-														?>
+													  
 													  <select class="form-control" multiple name="languageKnown[]" id="languageKnown" style="background-color:#f7f7f7;">
-												<?php 
-											  $select3 = mysql_query("SELECT * FROM `tbl_languages` WHERE `status` = 1");
-											  while($row33 = mysql_fetch_array($select3))
-												{
-												echo '<option value="' . $row33['language_id'] . '">' . $row33["lanugage_name"] . '</option>';
-												}
-												?>
-												</select>
+															<?php 
+														  $select3 = mysql_query("SELECT * FROM `tbl_languages` WHERE `status` = 1 ORDER BY `lanugage_name`");
+														  while($row33 = mysql_fetch_array($select3))
+															{
+																$fish=0;
+																$select4 = mysql_query("SELECT tl.language_id, tl.lanugage_name FROM tbl_guide_known_languages AS gkl INNER JOIN tbl_languages AS tl ON gkl.language_id=tl.language_id WHERE gkl.user_id = $userid");
+																	while($row44 = mysql_fetch_array($select4))
+																	{
+																		if($row33['language_id'] == $row44['language_id'])
+																		{
+																			echo '<option selected value="' . $row33['language_id'] . '">' . $row33["lanugage_name"] . '</option>';
+																			$fish=1;
+																		}
+																	}
+																	if($fish==0)
+																	{
+																		echo '<option value="' . $row33['language_id'] . '">' . $row33["lanugage_name"] . '</option>';
+																		
+																	}
+															}
+															?>
+															</select>
 													  </div>
 													  <!-- col-sm-10 --> 
 													</div>
 												  </div> 
+												  
+												  <div class="col-sm-6 form-group">
+													<div class="row mgbt-xs-0">
+													<label class="col-xs-5 control-label">Experiance (in years) :</label>
+													  <div class="col-xs-7 controls">
+													 <div class="input-group">
+													  <input type="tel" maxlength="2" class="form-control" style="background-color:#f7f7f7;" value="<?php echo $experianceInYear; ?>" name="experianceInYear" id="experianceInYear">
+													  <span class="input-group-addon" style="background-color:#f7f7f7;" id="basic-addon2">Years</span>
+													</div>
+													  </div>
+													  <!-- col-sm-10 --> 
+													</div>
+												  </div> 
+												  
+												  
+												</div>
+												
+												<h3 class=" mgtp-10 font-semibold"><i class="icon-user mgr-10 profile-icon"></i>GUIDE TERRITORY</h3>
+												<div class="row">
+												<div class="col-sm-12">
+												<textarea name="guideTerritory" class="form-control" style="background-color:#f7f7f7;" rows="2" style="width:100%;" ><?php echo $guideTerritory ?></textarea>
+												</div>
 												</div>
 
 												<h3 class=" mgtp-10 font-semibold"><i class="icon-user mgr-10 profile-icon"></i> PAYMENT TERMS</h3>
@@ -493,9 +527,10 @@
 												<hr class="pd-10">
 												<div class="row">
 												  <div class="col-sm-6">
-													<h3 class=" font-semibold"><i class="fa fa-file-text-o mgr-10 profile-icon"></i> EXPERIENCE</h3>
+												 <h3 class=" font-semibold"><i class="fa fa-file-text-o mgr-10 profile-icon"></i> OTHER EXPERIENCE</h3>
+													
 													<div class="content-list content-menu col-sm-12">
-													   <span class="menu-text"><textarea name="experiance" class="form-control" rows="5" style="width:100%; background-color:#f7f7f7;"><?php echo $experiance ?></textarea></span>
+													   <span class="menu-text"><textarea name="otherExperiance" class="form-control" rows="5" style="width:100%; background-color:#f7f7f7;"><?php echo $otherExperiance ?></textarea></span>
 													</div>
 												  </div>
 												  <div class="col-sm-6">
@@ -524,7 +559,7 @@
 			</div>
 			<!-- END .main-contents -->
 			
-			<?php include('MasterFooter.php'); ?>
+			<?php include_once('MasterFooter.php'); ?>
 		</div>
 		<!-- END #wrapper -->
 			<script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places" type="text/javascript"></script>

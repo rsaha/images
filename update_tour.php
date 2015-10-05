@@ -12,13 +12,13 @@ if(isset($_SESSION['userId']))
 		{
 			$errormsg="Unauthenticated access to the Guide edit page, Registration Step 1 is not done";
 			error_log($errormsg,0);
-			include("signOut.php");
+			include_once("signOut.php");
 			header('Location:guide_registration_1.php');
 		}
 		else
 		{
 			$flag1=0;
-			include('db.php');
+			include_once('db.php');
             $tourType = mysql_real_escape_string($_POST['tourType']);
 			$tourName = mysql_real_escape_string($_POST['tourName']);
 			$tourLocationTemp = mysql_real_escape_string($_POST['tourLocation']);
@@ -83,7 +83,7 @@ if(isset($_SESSION['userId']))
 	{
 		$errormsg="Unauthenticated access to the Guide edit page, Registration Step 1 is not done";
 		error_log($errormsg,0);
-		include("signOut.php");
+		include_once("signOut.php");
         header('Location:guide_registration_1.php');
 	    exit;
 	}

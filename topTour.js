@@ -21,17 +21,42 @@ app.controller('toursCtrl',['$scope','$http', function($scope, $http) {
 }]); 
 
 app.controller('tourDetailCtrl',['$scope','$http', function($scope, $http) {
-    $http.get("http://130.211.123.212/app/tour")
+    $http.get("http://130.211.123.212/app/tour?tourid=50001")
     .success(function (response) {
 		$scope.tour = response;
-	    
+		
 		})
 	.error(function() {
 				$scope.data = "error in fetching data";
 			});
 			
+		$scope.attractions=function()
+		{
+		     for(var i=0;i<3;i++)
+		     {
+			
+		     y+=$scope.tour.Itineary.Day.Spots[i].Spot+', '		
+			 }
+			 y=substring(0,lastIndexOf(',')-1);
+			 
+			 return y;
+		}
+			
 			
 }]); 
+app.controller('guideDetailCtrl',['$scope','$http', function($scope, $http) {
+    $http.get("http://130.211.123.212/app/guide")
+    .success(function (response) {
+		$scope.guide = response;
+		
+		})
+	.error(function() {
+				$scope.data = "error in fetching data";
+			});
+			
+}]); 
+
+
 app.directive('starRating', function () {
     return {
         restrict: 'A',

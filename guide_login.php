@@ -59,7 +59,7 @@ else
 		<!-- START #wrapper -->
 		<div id="wrapper">
 			<?php 
-			include('MasterHeader.php'); 
+			include_once('MasterHeader.php'); 
 			?>
 			
 			<!-- START .main-contents -->
@@ -121,7 +121,7 @@ else
 			</div>
 			<!-- END .main-contents -->
 			
-			<?php include('MasterFooter.php'); ?>
+			<?php include_once('MasterFooter.php'); ?>
 			
 		</div>
 		<!-- END #wrapper -->

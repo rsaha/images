@@ -1,6 +1,6 @@
 <?php
 	$picture_media_id=$_GET['id'];
-	include('db.php');
+	include_once('db.php');
 $select1 = mysql_query("SELECT * FROM `tbl_tour_media_pictures` WHERE `picture_media_id` = $picture_media_id");
 		while ($row = mysql_fetch_assoc($select1)) 
 		{

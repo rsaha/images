@@ -39,7 +39,7 @@
 	<body>
 		<!-- START #wrapper -->
 		<div id="wrapper">
-			<?php include('MasterHeader.php'); ?>
+			<?php include_once('MasterHeader.php'); ?>
 			
 			<br />
 			
@@ -88,7 +88,7 @@
 			</div>
 			<!-- END .main-contents -->
 			
-			<?php include('MasterFutter.php'); ?>
+			<?php include_once('MasterFutter.php'); ?>
 		</div>
 		<!-- END #wrapper -->
 

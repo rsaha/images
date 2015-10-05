@@ -124,7 +124,7 @@
 				<li><a href="index.php" title="">HOME</a>
 				</li> 
 				<li>
-				<a href="top-guides-listview.html" title="">Guides</a></li>
+				<a href="guides.html" title="">Guides</a></li>
 				<li><a href="top-destinations-listview-sidebar.html" title="">Destinations</a> </li>
                 <li><a href="top-themes-listview-sidebar.html" title="">Themes</a> </li>
                 <li><a href="blog.html" title="blog">Travelogue</a> </li>

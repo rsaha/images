@@ -93,11 +93,11 @@
 			<?php 
 			if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "signin"))
 			{
-				include('MasterHeaderAfterLogin.php'); 
+				include_once('MasterHeaderAfterLogin.php'); 
 			}
 			else
 			{
-				include('MasterHeader.php'); 
+				include_once('MasterHeader.php'); 
 			}
 			
 			?>
@@ -230,7 +230,7 @@
 </div>
 <!-- END .main-contents -->
 			
-			<?php include('MasterFooter.php'); ?>
+			<?php include_once('MasterFooter.php'); ?>
 		</div>
 		
 		<!-- set up the modal to start hidden and fade in and out -->

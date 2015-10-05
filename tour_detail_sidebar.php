@@ -1,13 +1,13 @@
 <?php
 	session_start();
 	
-	if(isset($_SESSION['userId']))
-	{
+	/* if(isset($_SESSION['userId']))
+	{ */
 		if(isset($_GET['id']))
 		{
 		$tourID = $_GET['id'];
 		}
-		include('db.php');
+		include_once('db.php');
 
 		$select1 = mysql_query("SELECT * FROM `tbl_tours` WHERE `tour_id` = $tourID && `status` = 1");
 		$row1 = mysql_fetch_assoc($select1);
@@ -25,7 +25,6 @@
 		$cancelation_policy = $row1["cancelation_policy"];
 		$restrictions = $row1["restrictions"];
 		$notes = $row1["notes"];
-		$userid=$user_id;
 			
 		$select2 = mysql_query("SELECT * FROM `tbl_tour_media_pictures` WHERE `tour_id` = $tourID");
 		$row2 = mysql_fetch_assoc($select2);
@@ -43,13 +42,13 @@
 			$tour_video = $row3["tour_video"];
 		}
 		
-	}
+	/* }
 	else
 	{
-		include("signOut.php");
+		include_once("signOut.php");
         header('Location:guide_login.php');
 		exit;
-	}
+	} */
 ?>
 <html lang="en" dir="ltr">
 
@@ -92,7 +91,21 @@
 		<!-- START #wrapper -->
 		<div id="wrapper">
 			<!-- START header -->
-			<?php include('MasterHeaderAfterLogin.php'); ?>
+		<?php
+			$userid="";
+			if(isset($_SESSION['userId']))
+			{
+				$userid = $_SESSION['userId'];
+			}
+			if($userid == $user_id)
+			{
+				include_once('MasterHeaderAfterLogin.php');
+			}
+			else
+			{
+				include_once('MasterHeader.php');
+			}
+		?>
 			
 			<!-- START #page-header -->
 			<div id="header-banner">
@@ -100,13 +113,17 @@
 					<div class="container">
 						<div class="row">
 							<section class="col-sm-6">
-								<h1 class="text-upper"><?php echo $tour_duration . ' Days in ' . $tour_title ; ?></h1>
+								<h1 class="text-upper"><?php echo $tour_title ; ?></h1> <?php //echo $tour_duration . ' Days in ' . $tour_title ; ?>
 							</section>
                             <div >
+							<?php
+							if(!(isset($_SESSION['userId'])))
+							{
+								echo '<a class="btn-lg btn-default pull-right" style="background-color:#ffa98e; cursor: pointer;" onclick="bookTour(0,' .$tourID.')"><i class="fa fa-check-square-o"></i> Book This Tour</a>';
+							}
+							?>
 										<?php
-										echo '<a class="btn btn-default pull-right" style="background-color:#ffa98e" onclick="editTour(' . $user_id.','.$tourID.')"> 
-										<i class="fa fa-pencil"></i> Edit Tour 
-										</a>'
+										//echo '<a class="btn btn-default pull-right" style="background-color:#ffa98e" onclick="editTour(' . $user_id.','.$tourID.')"><i class="fa fa-pencil"></i> Edit Tour</a>';
 										?>	
 										</div>
 							
@@ -165,7 +182,7 @@
 									<a class="ft-hotel text-upper" href="#"><?php echo $tour_duration; ?> Day Tour</a>
 									<a class="ft-plane text-upper" href="#"><?php $select2 = mysql_query("SELECT `tour_category_title` FROM `tbl_tour_category` WHERE `tour_category_id` = $tour_category_id && `status` = 1"); echo mysql_result($select2, 0, 0); ?></a>
 									<a class="ft-tea text-upper" href="#"><?php echo $inclusive; ?></a>
-                                    <a class="ft-tea text-upper" href="booking-form.html">Book the Tour</a>
+                                    <?php echo '<a class="ft-tea text-upper" style="cursor: pointer;" onclick="bookTour(' .$tourID.')">Book the Tour</a>'; ?>
 								</div>
 								
 							</div>
@@ -363,7 +380,7 @@
 			</div>
 			<!-- END .main-contents -->
 			
-			<?php include('MasterFooter.php'); ?>
+			<?php include_once('MasterFooter.php'); ?>
 		</div>
 		<!-- END #wrapper -->
 
@@ -401,6 +418,12 @@
 				function detailTour(id) 
 				{
 					window.location.href = "tour_detail_sidebar.php?id="+id+"";
+					return false;
+				}
+				
+				function bookTour(guide,tour) 
+				{
+					window.location.href = "booking-form.php?id1="+guide+"&id2="+tour;
 					return false;
 				}
 		</script>
