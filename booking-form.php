@@ -46,7 +46,7 @@ echo "Tour = " . $_GET["id2"];
 		<!-- START #wrapper -->
 		<div id="wrapper">
 			<!-- START header -->
-			<?php include('MasterHeader.php'); ?>
+			<?php include_once('MasterHeader.php'); ?>
 			<!-- END header -->
 			
 			<!-- START #page-header -->

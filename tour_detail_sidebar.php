@@ -7,7 +7,7 @@
 		{
 		$tourID = $_GET['id'];
 		}
-		include('db.php');
+		include_once('db.php');
 
 		$select1 = mysql_query("SELECT * FROM `tbl_tours` WHERE `tour_id` = $tourID && `status` = 1");
 		$row1 = mysql_fetch_assoc($select1);
@@ -45,7 +45,7 @@
 	/* }
 	else
 	{
-		include("signOut.php");
+		include_once("signOut.php");
         header('Location:guide_login.php');
 		exit;
 	} */
@@ -99,11 +99,11 @@
 			}
 			if($userid == $user_id)
 			{
-				include('MasterHeaderAfterLogin.php');
+				include_once('MasterHeaderAfterLogin.php');
 			}
 			else
 			{
-				include('MasterHeader.php');
+				include_once('MasterHeader.php');
 			}
 		?>
 			
@@ -380,7 +380,7 @@
 			</div>
 			<!-- END .main-contents -->
 			
-			<?php include('MasterFooter.php'); ?>
+			<?php include_once('MasterFooter.php'); ?>
 		</div>
 		<!-- END #wrapper -->
 

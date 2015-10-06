@@ -8,13 +8,13 @@ if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "reg"))
 	}
 	if($_SESSION['userId']!=$userid)
 	{
-		include("signOut.php");
+		include_once("signOut.php");
 		header('Location:guide_registration_1.php');
 		exit;
 	}
 	else
 	{
-		include('db.php');
+		include_once('db.php');
 		$select = mysql_query("SELECT * FROM `tbl_user_profile` WHERE `user_id` = $userid");
 		$row = mysql_fetch_assoc($select);
 		$firstName =  $row["f_name"];
@@ -26,7 +26,7 @@ if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "reg"))
 }
 else
 {
-	include("signOut.php");
+	include_once("signOut.php");
 	header('Location:guide_registration_1.php');
 	exit;
 }
@@ -97,7 +97,7 @@ else
 	<body>
 		<!-- START #wrapper -->
 		<div id="wrapper">
-			<?php include('MasterHeaderAfterLogin.php'); ?>
+			<?php include_once('MasterHeaderAfterLogin.php'); ?>
 			
 			<!-- START #page-header -->
 			<div>
@@ -107,18 +107,18 @@ else
 							$count4pic = mysql_num_rows($select4pic);
 							if ($count4pic==0)
 							{
-								echo '<img style="width:1400px; height:200px;" class="hover img-responsive" src="img/Default.jpg"/>';
+								echo '<img class="hover img-responsive" src="img/Default.jpg"/>';
 							}
 							else
 							{
 								$picVal = mysql_result($select4pic, 0, 3);
 								if($picVal==null)
 								{
-									echo '<img style="width:1400px; height:200px;" class="hover img-responsive" src="img/Default.jpg"/>';
+									echo '<img class="hover img-responsive" src="img/Default.jpg"/>';
 								}
 								else
 								{
-									echo '<img style="width:1400px; height:200px;" class="hover img-responsive" src="showCover.php?id=' . $userid . '"/>';
+									echo '<img class="hover img-responsive" src="showCover.php?id=' . $userid . '"/>';
 								}
 							}
 							?><br><br />
@@ -139,18 +139,18 @@ else
 						$count4pic = mysql_num_rows($select4pic);
 						if ($count4pic==0)
 						{
-							echo '<img style="max-height:200px; max-width:170px;" class="hover img-responsive" src="img/userDefaultIcon.png"/>';
+							echo '<img class="hover img-responsive" src="img/userDefaultIcon.png"/>';
 						}
 						else
 						{
 							$picVal = mysql_result($select4pic, 0, 2);
 							if($picVal==null)
 							{
-								echo '<img style="max-height:200px; max-width:170px;" class="hover img-responsive" src="img/userDefaultIcon.png"/>';
+								echo '<img class="hover img-responsive" src="img/userDefaultIcon.png"/>';
 							}
 							else
 							{
-								echo '<img style="max-height:200px; max-width:170px;" class="hover img-responsive" src="showImage.php?id=' . $userid . '"/>';
+								echo '<img class="hover img-responsive" src="showImage.php?id=' . $userid . '"/>';
 							}
 						}
 							
@@ -308,7 +308,7 @@ else
 			</div>
 			<!-- END .main-contents -->
 			
-			<?php include('MasterFooter.php'); ?>
+			<?php include_once('MasterFooter.php'); ?>
 		</div>
 		<!-- END #wrapper -->
 		

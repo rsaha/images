@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	include("db.php");
+	include_once("db.php");
 
 	if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "signin"))
 	{
@@ -18,7 +18,7 @@
 	{
 		$errormsg="Unauthenticated access to the step 3 page, Registration Step 1 is not done";
 				error_log($errormsg,0);
-		include("signOut.php");
+		include_once("signOut.php");
 		header('Location:guide_registration_1.php');
 		exit;
 	}
@@ -93,7 +93,7 @@
 	{
 		$errormsg="Unauthenticated access to the step 3 page, Registration Step 1 is not done";
 		error_log($errormsg,0);
-		include("signOut.php");
+		include_once("signOut.php");
 	header('Location:guide_registration_1.php');
 exit;	
 	}

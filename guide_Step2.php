@@ -1,7 +1,17 @@
 <?php
 	session_start();
 $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
-    include("db.php");
+
+function getExtension($str) 
+	{
+		$i = strrpos($str,".");
+		if (!$i) { return ""; }
+		$l = strlen($str) - $i;
+		$ext = substr($str,$i+1,$l);
+		return $ext;
+	}
+	
+    include_once("db.php");
 	
 	if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "signin"))
 	{
@@ -19,7 +29,7 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 		{
 			$errormsg="Unauthenticated access to the step 2 page, Registration Step 1 is not done";
 			error_log($errormsg,0);
-			include("signOut.php");
+			include_once("signOut.php");
 			header('Location:guide_registration_1.php');
 			exit;
 		}
@@ -65,74 +75,143 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 			
 			$guideTerritory= mysql_real_escape_string($_POST['guideTerritory']);
 			
-			include("db.php");
+			$hex_string = "";
+			
+			include_once("db.php");
 			$update = mysql_query("UPDATE `tbl_user_profile` SET `gender`='$Gender', `d_o_b`='$DOB', `street_address`='$streetaddress', `city`='$city', `state`='$state', `country`='$country', `datecreated`=now() WHERE `user_id`=$userid");
 		
-			$validextensions = array("jpeg", "jpg", "png");
-			$temporary = explode(".", $_FILES["licenceImage"]["name"]);
-			$file_extension = end($temporary);
-			if (
-			(
-			($_FILES["licenceImage"]["type"] == "image/png") || 
-			($_FILES["licenceImage"]["type"] == "image/jpg") || 
-			($_FILES["licenceImage"]["type"] == "image/jpeg")
-			) && 
-			($_FILES["licenceImage"]["size"] < 10000000) && 
-			in_array($file_extension, $validextensions)
-			)
+		
+		define ("MAX_SIZE","400");
+		$image =$_FILES["licenceImage"]["name"];
+		$uploadedfile = $_FILES['licenceImage']['tmp_name'];
+
+		if ($image) 
+		{
+			$filename = stripslashes($_FILES['licenceImage']['name']);
+			$extension = getExtension($filename);
+			$extension = strtolower($extension);
+
+
+			if (($extension != "jpg") && ($extension != "jpeg") && ($extension != "png") && ($extension != "gif")) 
 			{
-				if ($_FILES["licenceImage"]["error"] > 0)
-				{
-				echo "Return Code: " . $_FILES["licenceImage"]["error"] . "<br/><br/>";
-				} 
-				else 
-				{
-					$newName=date("dmYHms") . "_img." . $file_extension;
-					move_uploaded_file($_FILES["licenceImage"]["tmp_name"], $upload_dir . $newName);
-					$bin_string = file_get_contents( $upload_dir . $newName);
-					$hex_string = base64_encode($bin_string);
-					unlink(parse_ini_file('config.ini',true)['imagePath'] . $newName);
-					#$imgFullpath = "http://".$_SERVER['SERVER_NAME'].dirname($_SERVER["REQUEST_URI"].'?'). parse_ini_file('config.ini',true)['imagePath'] . $newName;
-				}
-			} 
-			else 
-			{
-				$errormsg="Could not upload the licence attachment.";
+				$errormsg="Licence Image type do not match the required type";
 				error_log($errormsg,0);
 			}
+			else
+			{
+				$size=filesize($_FILES['licenceImage']['tmp_name']);
+
+				if ($size > MAX_SIZE*1024)
+				{
+					$errormsg="Licence Image size do not match the required size";
+					error_log($errormsg,0);
+				}
+
+				if($extension=="jpg" || $extension=="jpeg" )
+				{
+					$uploadedfile = $_FILES['licenceImage']['tmp_name'];
+					$src = imagecreatefromjpeg($uploadedfile);
+				}
+				else if($extension=="png")
+				{
+					$uploadedfile = $_FILES['licenceImage']['tmp_name'];
+					$src = imagecreatefrompng($uploadedfile);
+				}
+				else 
+				{
+					$src = imagecreatefromgif($uploadedfile);
+				}
+
+				list($width,$height)=getimagesize($uploadedfile);
+
+				$newwidth=250;
+				$newheight=180; //($height/$width)*$newwidth;
+				$tmp=imagecreatetruecolor($newwidth,$newheight);
+
+				imagecopyresampled($tmp, $src, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
+
+				$newName=date("dmYHms") . "_img." . $extension;
+				$filename = $upload_dir . $newName;
+				imagejpeg($tmp,$filename,100);
+
+				imagedestroy($src);
+				imagedestroy($tmp);
+
+				$bin_string = file_get_contents($filename);
+				$hex_string = base64_encode($bin_string);
+				unlink($filename);
+			}
+		}
+		else 
+		{
+			$hex_string = "";
+			$errormsg="Could not upload the licence attachment.";
+			error_log($errormsg,0);
+		}
 			
 			$upl=0;
 			$select=mysql_query("SELECT * FROM `tbl_guide_detail_profile` WHERE `user_id` = $userid");
 			$count = mysql_num_rows($select);
 			if($count==0)
 			{
-				$create = mysql_query("INSERT INTO `tbl_guide_detail_profile` (
-				`user_id`, 
-				`nick_name`, 
-				`license_no`,
-				`license_Image`,	
-				`validity`, 
-				`guide_territory`,
-				`landline_no`, 
-				`Best_time_for_contact`,
-				`payment_terms`, 
-				`Communication_mechanism`,
-				`status`, 
-				`datecreated`
-				) VALUES (
-				$userid, 
-				'$nickname', 
-				'$licencenumber',
-				'$hex_string',
-				'$licenceexpiry',
-				'$guideTerritory',
-				'$landlinenumber',
-				'$contacttime',
-				'$paymentterms',
-				'$communicationmechanism',
-				1, 
-				now()
-				)");
+				if($hex_string == "")
+				{
+					$create = mysql_query("INSERT INTO `tbl_guide_detail_profile` (
+					`user_id`, 
+					`nick_name`, 
+					`license_no`,	
+					`validity`, 
+					`guide_territory`,
+					`landline_no`, 
+					`Best_time_for_contact`,
+					`payment_terms`, 
+					`Communication_mechanism`,
+					`status`, 
+					`datecreated`
+					) VALUES (
+					$userid, 
+					'$nickname', 
+					'$licencenumber',
+					'$licenceexpiry',
+					'$guideTerritory',
+					'$landlinenumber',
+					'$contacttime',
+					'$paymentterms',
+					'$communicationmechanism',
+					1, 
+					now()
+					)");
+				}
+				else
+				{
+					$create = mysql_query("INSERT INTO `tbl_guide_detail_profile` (
+					`user_id`, 
+					`nick_name`, 
+					`license_no`,
+					`license_Image`,	
+					`validity`, 
+					`guide_territory`,
+					`landline_no`, 
+					`Best_time_for_contact`,
+					`payment_terms`, 
+					`Communication_mechanism`,
+					`status`, 
+					`datecreated`
+					) VALUES (
+					$userid, 
+					'$nickname', 
+					'$licencenumber',
+					'$hex_string',
+					'$licenceexpiry',
+					'$guideTerritory',
+					'$landlinenumber',
+					'$contacttime',
+					'$paymentterms',
+					'$communicationmechanism',
+					1, 
+					now()
+					)");
+				}
 				if($create)
 				{
 					$upl=1;
@@ -140,22 +219,40 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 			}
 			else
 			{
-				$update2 = mysql_query("UPDATE `tbl_guide_detail_profile` SET 
-				`nick_name` = '$nickname', 
-				`license_no` = '$licencenumber',
-				`license_Image` = '$hex_string',	
-				`validity` = '$licenceexpiry', 
-				`guide_territory`, = '$guideTerritory',
-				`landline_no` = '$landlinenumber', 
-				`Best_time_for_contact` = '$contacttime',
-				`payment_terms` = '$paymentterms', 
-				`Communication_mechanism` = '$communicationmechanism',
-				`datecreated` = now()
-				WHERE `user_id` = $userid");
+				if($hex_string == "")
+				{
+					$update2 = mysql_query("UPDATE `tbl_guide_detail_profile` SET 
+					`nick_name` = '$nickname', 
+					`license_no` = '$licencenumber',
+					`validity` = '$licenceexpiry', 
+					`guide_territory` = '$guideTerritory',
+					`landline_no` = '$landlinenumber', 
+					`Best_time_for_contact` = '$contacttime',
+					`payment_terms` = '$paymentterms', 
+					`Communication_mechanism` = '$communicationmechanism',
+					`datecreated` = now()
+					WHERE `user_id` = $userid");
+				}
+				else
+				{
+					$update2 = mysql_query("UPDATE `tbl_guide_detail_profile` SET 
+					`nick_name` = '$nickname', 
+					`license_no` = '$licencenumber',
+					`validity` = '$licenceexpiry', 
+					`license_Image` = '$hex_string',	
+					`guide_territory` = '$guideTerritory',
+					`landline_no` = '$landlinenumber', 
+					`Best_time_for_contact` = '$contacttime',
+					`payment_terms` = '$paymentterms', 
+					`Communication_mechanism` = '$communicationmechanism',
+					`datecreated` = now()
+					WHERE `user_id` = $userid");
+				}
+				
 				
 				if($update2)
 				{
-				$upl=1;
+					$upl=1;
 				}
 			}
 				
@@ -195,9 +292,9 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 	}
 	else
 	{
-	 $errormsg="Unauthenticated access to the step 2 page, Registration Step 1 is not done";
+		$errormsg="Unauthenticated access to the step 2 page, Registration Step 1 is not done";
 	error_log($errormsg,0);
-     include("signOut.php");
+     include_once("signOut.php");
 	header('Location:guide_registration_1.php');	
 	}
 ?>

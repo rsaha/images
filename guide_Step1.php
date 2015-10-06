@@ -8,7 +8,7 @@
 	}
 
 	
-	include("db.php");
+	include_once("db.php");
 	$FirstName=mysql_real_escape_string($_POST['FirstName']);
 	   
 	$LastName=mysql_real_escape_string($_POST['LastName']);
@@ -69,7 +69,7 @@
 		$subject = $username . " : Welcome to Guided Gateway - online marketplace for you";
 		
 		
-		include('sendEmail.php');
+		include_once('sendEmail.php');
 
 		$emailSuccess = SendMailTemplate($HostEmail, 'Guided Gateway', $from, $username, $subject, $templateId);
         

@@ -8,7 +8,7 @@
 }]);
 
 app.controller('guideControl',['$scope','$http', function($scope, $http) {
-    $http.get("http://130.211.123.212/app/guide")
+    $http.get("http://130.211.123.212/app/guide?id=10005")
     .success(function (response) {
 		$scope.allguides=response;
 		})
@@ -16,6 +16,14 @@ app.controller('guideControl',['$scope','$http', function($scope, $http) {
 				$scope.data = "error in fetching data";
 			});
 }]);
+
+	app.controller('validateCtrlNew', function($scope) {
+		$scope.name = '';
+		$scope.email = '';
+		$scope.subject = '';
+		$scope.Message = '';
+		
+	});
 app.controller('TourControl',['$scope','$http', function($scope, $http) {
     $http.get("http://130.211.123.212/app/tours")
     .success(function (response) {

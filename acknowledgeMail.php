@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	include('db.php');
+	include_once('db.php');
 	if(isset($_GET['id']))
 	{
 	$userid = $_GET['id'];
@@ -29,7 +29,7 @@
 			}
 			
 			
-		include('sendEmail.php');
+		include_once('sendEmail.php');
 		$HostEmail = parse_ini_file('config.ini',true)['email'];
 		$subject = "Guide " . $username . " has invited some friends";
 		$message    = "<b>". $username . "</b> has invited some friends :<b><br />" . $emailaddresses . "</b><br /><br /> -----------------------------<br />";

@@ -21,7 +21,7 @@ app.controller('toursCtrl',['$scope','$http', function($scope, $http) {
 }]); 
 
 app.controller('tourDetailCtrl',['$scope','$http', function($scope, $http) {
-    $http.get("http://130.211.123.212/app/tour")
+    $http.get("http://130.211.123.212/app/tour?tourid=50001")
     .success(function (response) {
 		$scope.tour = response;
 		

@@ -1,6 +1,6 @@
 <?php
 	session_start();
-    include("db.php");
+    include_once("db.php");
 	
 	
 	$result= mysql_query("SELECT tour_title,tour_price,start_point,end_point FROM `tbl_tours` WHERE `user_id` = 6");
