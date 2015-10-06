@@ -134,10 +134,11 @@ ul.rating {
 				class="col-md-3"> <a id="site-logo" href="#"> <img
 				src="images/logo.png" alt="Guided Gateway" /> </a> </div> <div
 				class="col-md-9"> <nav class="main-nav">
-				<span>MENU</span> <ul id="main-menu"> <li><a href="index.html"
-				title="">HOME</a></li> <li><a
-				href="top-guides-listview.html" title="">Guides</a></li> <li><a
-				href="top-destinations-listview-sidebar.html" title="">Destinations</a> </li>
+				<span>MENU</span> <ul id="main-menu"> 
+				<li><a href="index.html" title="">HOME</a></li> 
+				<li><a href="top-tours-listview-sidebar.html" title="">Tours</a></li> 
+				<li><a href="top-guides-listview.html" title="">Guides</a></li>
+				<li><a href="top-destinations-listview-sidebar.html" title="">Destinations</a> </li>
                 <li><a
 				href="#" title="">Themed Tours</a> </li>
 		
@@ -149,7 +150,7 @@ ul.rating {
 					 <div>
 					 <div class="main-contents col-md-6 col-md-offset-2" id="searchDiv">
 					 <form class="plan-tour">
-						<div class="" style="background-color:#f1f1f1;" >
+						<div class="" style="background-color:#f1f1f1;">
 						<div class="row">
 						<br>
 						<div class="col-md-10 col-md-offset-1 input-group">
@@ -200,12 +201,12 @@ ul.rating {
 					  <ul class="slides">
 					  <li > 
 					   
-					 <div class="row"  ng-controller="toursCtrl"> 
-						
+					 <div class="row bom-contents"  ng-controller="toursCtrl"> 
+						<div class="col-md-11">
 					 <div class="col-md-3" ng-repeat="x in tours | filter:search" ng-show="$index<4"> 
-							<a href="top-tours-listview-sidebar.html">
+							<a href="tour_detail_sidebar.html">
 							<div class="ft-item"> 
-							<span class="ft-image"><img src="img/custom11.jpg" alt="Popular Tours" /> </span> 
+							<span class="ft-image"><img style="height:230px;width:180;" src="img/custom11.jpg" alt="Popular Tours" /> </span> 
 							   <div class="ft-data">
 							     <span  style="color:black;" class="text-upper fa fa-pagelines" href="#">&nbsp;&nbsp;{{x.Category}}</span> &nbsp;&nbsp;&nbsp;
 								 <!-- <span style="color:black;" class="fa text-upper">&nbsp;&nbsp;LOCATION :</span> &nbsp;&nbsp; -->
@@ -217,14 +218,17 @@ ul.rating {
 								<span class="ft-offer text-upper">Starting&nbsp&nbsp{{x.Price}}</span> 
 								</div>
 								<div class="ft-foot-ex" > 
-								<span class="fa fa-image text-upper alignleft">&nbsp;&nbsp;{{x.Duration}}&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;
-								<span star-rating rating-value="x.Reviews.OverallRating" class="aligncenter" ></span>								
-								<span class="alignright fa fa-eye">&nbsp;&nbsp;{{x.Reviews.ReviewCount}} reviews</span> 
+								<span class="fa fa-image text-upper alignleft">&nbsp;&nbsp;{{x.Duration}}&nbsp;&nbsp;</span>&nbsp;&nbsp;
+								<span star-rating rating-value="x.Reviews.OverallRating" class="" style="margin-left:50px;" ></span>								
+								<span class="alignright">&nbsp;&nbsp;{{x.Reviews.ReviewCount}} reviews</span> 
 								</div> 							
 							</div>
 							</a>
 					 </div> 
-					 
+					 </div>
+					 <div class="col-md-1 alignright" style="padding-top:240px;">
+					 <a class="btn btn-default" href="top-tours-listview-sidebar.html"><span style="font-weight:bold;">More >></span></a>
+					 </div>
 					 </div>
 						</li>
 						</ul> 
@@ -235,10 +239,10 @@ ul.rating {
                 <div class="carousel" ng-show="checkboxModel.value2"> 
 				<ul class="slides">
 				<li> 
-				<div class="row"  ng-controller="guideCtrl">
-				
+				<div class="row bom-contents"  ng-controller="guideCtrl">
+				<div class="col-md-11">
 				<div class="col-md-3" ng-repeat="x in allguides | filter:search" ng-show="$index<4"> 
-				   <a href="top-guides-listview.html">
+				   <a href="guide-detail-sidebar.html">
 				      <div	class="ft-item"> 
 						  <span class="ft-image">
 							 <img style="height:230px;width:180;" src="{{x.Photo}}" alt="Top Guide" /> 
@@ -250,7 +254,7 @@ ul.rating {
 							  <span style="color:black;" class="fa fa-plane text-upper" >&nbsp;&nbsp;{{x.LanguageKnown}}</span>
 								</div> 
 					
-							<div class="ft-foot">
+							<div class="ft-foot" style="word-wrap:break-word; height:50px;">
 							<h4 class="ft-title text-upper" style="color:#686868">{{x.Name}},&nbsp{{x.Territory}}</h4> 
 							<!-- <span class="ft-offer text-upper">{{x.Tours.Count}} Tours</span>  -->
 							</div> 
@@ -263,6 +267,10 @@ ul.rating {
 					</div>
 					</a>
 					 </div>
+					 </div>
+					 <div class="col-md-1 alignright" style="padding-top:240px;">
+					 <a class="btn btn-default" href="top-tours-listview-sidebar.html"><span style="font-weight:bold;">More >></span></a>
+					 </div>
 				</div>
 				
 				</li> 
@@ -273,13 +281,13 @@ ul.rating {
                 <div class="carousel" ng-show="checkboxModel.value3"> 
 				<ul class="slides">
 				<li> 
-				<div class="row"  ng-controller="placesCtrl">
-				
+				<div class="row bom-contents"  ng-controller="placesCtrl">
+				<div class="col-md-11">
 				<div class="col-md-3" ng-repeat="x in places | filter:search" ng-show="$index<4"> 
-				   <a href="top-destinations-listview-sidebar.html">
+				   <a href="destination-detail-sidebar.html">
 				      <div	class="ft-item"> 
 						  <span class="ft-image">
-							 <img src="img/custom11.jpg" alt="Top Destination" /> 
+							 <img style="height:230px;width:180;" src="img/custom11.jpg" alt="Top Destination" /> 
 						  </span>
 					  
 								<div class="ft-data">
@@ -301,6 +309,10 @@ ul.rating {
 					</div>
 					</a>
 					 </div>
+					 </div>
+					 <div class="col-md-1 alignright" style="padding-top:240px;">
+					 <a class="btn btn-default" href="top-tours-listview-sidebar.html"><span style="font-weight:bold;">More >></span></a>
+					 </div>
 				</div>
 				
 				</li> 
@@ -310,13 +322,14 @@ ul.rating {
 				</div>
 				</div> <!-- END .main-contents -->
 
-			<!-- START .main-contents .bom-contents --> <div
-			class="main-contents bom-contents"> <div class="container">
-			<h2 class="text-center text-upper">THEME BASED TOURS</h2> <p
-			class="headline text-center">Visit Unique Attractions around Special Themes</p>
+			<!-- START .main-contents .bom-contents --> <!-- <div class="main-contents bom-contents"> 
+			<div class="container">
+					<h2 class="text-center text-upper">THEME BASED TOURS</h2> <p class="headline text-center">Visit Unique Attractions around Special Themes</p>
 
-					<div class="row"> <!-- START featured destination 1
-					--> <section class="col-md-3 fd-column"> <div
+					     <div class="row"> 
+						
+						 <section class="col-md-3 fd-column">
+  						 <div
 					class="featured-dest"> <span class="fd-image"> <img
 					class="img-circle" src="http://placehold.it/150x150"
 					alt="Featured Destination" /> </span> <h3
@@ -324,9 +337,7 @@ ul.rating {
 					class="text-center">Beach destinations and tour packages in India</p> <span class="btn-center"><a
 					class="btn btn-primary text-upper" href="#"
 					title="Search">Search</a></span> </div> </section>
-					<!-- END featured destination 1 -->
-
-						<!-- START featured destination 2 --> <section
+					 <section
 						class="col-md-3 fd-column"> <div
 						class="featured-dest"> <span class="fd-image">
 						<img class="img-circle"
@@ -337,9 +348,7 @@ ul.rating {
 						class="btn-center"><a class="btn btn-primary
 						text-upper" href="#"
 						title="Search">Search</a></span> </div>
-						</section> <!-- END featured destination 2 -->
-
-						<!-- START featured destination 3 --> <section
+						</section>  <section
 						class="col-md-3 fd-column"> <div
 						class="featured-dest"> <span class="fd-image">
 						<img class="img-circle"
@@ -350,9 +359,7 @@ ul.rating {
 						class="btn-center"><a class="btn btn-primary
 						text-upper" href="#"
 						title="Search">Search</a></span> </div>
-						</section> <!-- END featured destination 3 -->
-
-						<!-- START featured destination 4 --> <section
+						</section> <section
 						class="col-md-3 fd-column"> <div
 						class="featured-dest"> <span class="fd-image">
 						<img class="img-circle"
@@ -363,10 +370,10 @@ ul.rating {
 						class="btn-center"><a class="btn btn-primary
 						text-upper" href="#"
 						title="Search">Search</a></span> </div>
-						</section> <!-- END featured destination 4 -->
-						</div> </div> </div> <!-- END .main-contents
+						</section> 
+						</div> </div> </div> --> <!-- END .main-contents
 						.bom-contents -->
-
+<br>
 			<!-- START footer --> <footer> <!-- START #ft-footer -->
 			<div id="ft-footer"> <div class="footer-overlay"> <div
 			class="container"> <div class="row"> <!-- testimonials -->
