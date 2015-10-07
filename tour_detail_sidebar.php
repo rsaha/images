@@ -126,7 +126,6 @@
 										//echo '<a class="btn btn-default pull-right" style="background-color:#ffa98e" onclick="editTour(' . $user_id.','.$tourID.')"><i class="fa fa-pencil"></i> Edit Tour</a>';
 										?>	
 										</div>
-							
 							<!-- breadcrumbs 
 							<section class="col-sm-6">
 								<ol class="breadcrumb">
@@ -134,7 +133,7 @@
 									<li><a href="#">Tour #2</a></li>
 									<li class="active">Agra, UP</li>
 								</ol>
-							</section>-->
+							</section -->
 						</div>
 					</div>
 				</div>
@@ -268,15 +267,15 @@
 							<div class="tab-content gray box-shadow1 clearfix marb30">
 								<!-- START TAB 1 -->
 								<div class="tab-pane active" id="tourPlan">
-									<ul class="plans-list list-unstyled">
+									<ul class="row list-unstyled" style="padding: 5px 5px 5px 5px;">
 										<?php
 										for($p=1; $p<=$tour_duration; $p++)
 										{
 											$select5 = mysql_query("SELECT * FROM `tbl_tour_itinerary` WHERE `tour_id` = $tourID and `day` = $p");
 											$count5 = mysql_num_rows($select5);
 											?>
-											<li>
-												<img class="img-responsive" src="img/custom2.jpg" alt="Day 1" />
+											<li class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+												<img class="img-responsive" src="img/custom2.jpg" alt="Days" />
 												<div class="plan-info">
 													<h4 class="text-upper">Day <?php echo $p; ?></h4>
 													<?php
@@ -310,8 +309,7 @@
 								$select4 = mysql_query("SELECT * FROM `tbl_tour_itinerary` WHERE `tour_id` = $tourID");
 								
 								$count4 = mysql_num_rows($select4);
-							
-									
+								
 								?>
 								<div class="tab-pane" id="flightSchedule">
 									<div class="table-responsive">

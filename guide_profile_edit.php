@@ -267,6 +267,7 @@
 							<td>
 							<a href="" onclick="document.getElementById('licenceImage').click(); return false">
 							
+							<div style="max-height: 180px; max-width: 250px;">
 							<?php 
 							$count4pic = mysql_num_rows($select2);
 							if ($count4pic==0)
@@ -285,6 +286,7 @@
 								}
 							}
 							?>
+							</div>
 							</a>
 							</td>
 							</tr>

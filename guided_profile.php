@@ -211,6 +211,7 @@
 							<li><span class="menu-text"> Licence Expiry Date : <a ><?php echo $licenceValidty ?></a><br><br></li>
 							
 					    <li><span class="menu-text"> Licence Image : 
+						<div style="max-height: 180px; max-width: 250px;">
 						<?php 
 							$select4pic = mysql_query("SELECT * FROM `tbl_guide_detail_profile` WHERE `user_id` = $userid");
 							$count4pic = mysql_num_rows($select4pic);
@@ -231,6 +232,7 @@
 								}
 							}
 							?>
+							</div>
 						<br></li>
 							
 							</ul>

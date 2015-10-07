@@ -283,6 +283,7 @@
 					<span style="font-size:18px;font-weight:bold;"><?php echo $licenceValidty ?></span><br />
 					<hr>
 					<label style="font-size:14px;">Licence Image :</label><br><br />
+					<div style="max-height: 180px; max-width: 250px;">
 					<?php 
 							$count4pic = mysql_num_rows($select2);
 							if ($count4pic==0)
@@ -301,6 +302,7 @@
 								}
 							}
 							?>
+							</div>
 						<br>
 					
 					</div>

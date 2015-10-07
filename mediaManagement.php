@@ -245,6 +245,7 @@
 					<span style="font-size:18px;font-weight:bold;"><?php echo $licenceValidty ?></span><br />
 					<hr>
 					<label style="font-size:14px;">Licence Image :</label><br><br />
+					<div style="max-height: 180px; max-width: 250px;">
 					<?php 
 							$count4pic = mysql_num_rows($select2);
 							if ($count4pic==0)
@@ -263,6 +264,7 @@
 								}
 							}
 							?>
+							</div>
 						<br>
 					
 					</div>
@@ -304,7 +306,7 @@
 												while ($row = mysql_fetch_array($selectPIC))
 												{												
 												echo '<div class="col-sm-2">';
-												echo '<img style="padding:0 0 20px 0; height:140px; width:120px;" class="hover img-responsive" src="showMediaPicture.php?id=' . $row['picture_media_id'] . '"/>';
+												echo '<img style="padding:0 0 20px 0; height:110px; width:270px;" class="hover img-responsive" src="showMediaPicture.php?id=' . $row['picture_media_id'] . '"/>';
 												echo '</div>';
 												}
 											}
