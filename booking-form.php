@@ -77,7 +77,12 @@ echo "Tour = " . $_GET["id2"];
 					<div class="row">
 						<!-- START #page -->
 						<div id="page" class="col-md-8">
-							
+							<div class="row">
+								<div class="col-md-6">
+													<label>Email <span class="required small">(Required)</span></label>
+													<input type="text" class="form-control" name="email" value="" />
+												</div><br><br><br><br><br><br>
+							</div>
 							<!-- START #contactForm -->
 							<section id="booking-form">
 								<h2 class="ft-heading text-upper">Provide Your Booking Information</h2>

@@ -302,21 +302,6 @@ if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "signin"))
 											{
 											?>
 											<center><h1>No Such Tours Available</h1></center>
-												<!--div class="col-lg-3 col-md-4 col-sm-6 col-xs-10">
-													<div class="ft-item">
-														<span class="ft-image">
-															<img alt="featured Scroller" class="img-responsive" src="img/custom1.jpg" draggable="false">
-														</span>
-														<div class="ft-data2">
-														<span style="color:white" class="ft-title text-upper">Tour Title</span>
-															<span class="ft-offer text-upper">Price (Rs)</span>
-														</div>
-														<div class="ft-foot">
-															<span style="font-size:12px" class="ft-date text-upper alignleft">Location</span>
-															<span style="font-size:11px" class="ft-temp alignright">Tour Duration</span>
-														</div>
-													</div>
-												</div-->
 											<?php
 											}
 											else
@@ -343,7 +328,7 @@ if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "signin"))
 																}
 																else
 																{
-																	echo '<img alt="featured Scroller" class="img-responsive" draggable="false" style="width:207px; height:105px;" src="showMediaPicture.php?id=' . mysql_result($select4Tpic, 0, 0) . '"/>';
+																	echo '<img alt="featured Scroller" class="img-responsive" draggable="false" src="showMediaPicture.php?id=' . mysql_result($select4Tpic, 0, 0) . '"/>';
 																}
 																?>
 																
@@ -388,21 +373,6 @@ if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "signin"))
 											{
 											?>
 											<center><h1>No Such Guide Available</h1></center>
-												<!--div class="col-lg-3 col-md-4 col-sm-6 col-xs-10">
-													<div class="ft-item">
-														<span class="ft-image">
-															<img alt="featured Scroller" class="img-responsive" src="img/custom1.jpg" draggable="false">
-														</span>
-														<div class="ft-data2">
-														<span style="color:white" class="ft-title text-upper">Tour Title</span>
-															<span class="ft-offer text-upper">Price (Rs)</span>
-														</div>
-														<div class="ft-foot">
-															<span style="font-size:12px" class="ft-date text-upper alignleft">Location</span>
-															<span style="font-size:11px" class="ft-temp alignright">Tour Duration</span>
-														</div>
-													</div>
-												</div-->
 											<?php
 											}
 											else
@@ -426,7 +396,7 @@ if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "signin"))
 																}
 																else
 																{
-																	echo '<img alt="featured Scroller" class="img-responsive" draggable="false" src="showImage.php?id=' . $row2['guide_profile_pic'] . '"/>';
+																	echo '<img alt="featured Scroller" class="img-responsive" draggable="false" src="showImage.php?id=' . $row2['user_id'] . '"/>';
 																}
 																?>
 																
