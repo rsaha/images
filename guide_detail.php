@@ -237,11 +237,12 @@
 					<span style="font-size:18px;font-weight:bold;"><?php echo $licenceValidty ?></span><br />
 					<hr>
 					<label style="font-size:14px;">Licence Image :</label><br><br />
+					<div style="max-height: 180px; max-width: 250px;">
 					<?php 
 							$count4pic = mysql_num_rows($select2);
 							if ($count4pic==0)
 							{
-								echo '<img class="hover img-responsive" src="img/PRcard.jpg"/>';
+								echo '<img class="hover img-responsive"  src="img/PRcard.jpg"/>';
 							}
 							else
 							{
@@ -255,8 +256,8 @@
 								}
 							}
 							?>
+							</div>
 						<br>
-					
 					</div>
 					
 					</div>
@@ -491,21 +492,6 @@
 											{
 											?>
 											<center><h1>No Tours By This Guide</h1></center>
-												<!--div class="col-lg-3 col-md-4 col-sm-6 col-xs-10">
-													<div class="ft-item">
-														<span class="ft-image">
-															<img alt="featured Scroller" class="img-responsive" src="img/custom1.jpg" draggable="false">
-														</span>
-														<div class="ft-data2">
-														<span style="color:white" class="ft-title text-upper">Tour Title</span>
-															<span class="ft-offer text-upper">Price (Rs)</span>
-														</div>
-														<div class="ft-foot">
-															<span style="font-size:12px" class="ft-date text-upper alignleft">Location</span>
-															<span style="font-size:11px" class="ft-temp alignright">Tour Duration</span>
-														</div>
-													</div>
-												</div-->
 											<?php
 											}
 											else
@@ -532,7 +518,7 @@
 																}
 																else
 																{
-																	echo '<img alt="featured Scroller" class="img-responsive" draggable="false" style="width:207px; height:105px;" src="showMediaPicture.php?id=' . mysql_result($select4Tpic, 0, 0) . '"/>';
+																	echo '<img alt="featured Scroller" class="img-responsive" draggable="false" src="showMediaPicture.php?id=' . mysql_result($select4Tpic, 0, 0) . '"/>';
 																}
 																?>
 																

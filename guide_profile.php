@@ -257,6 +257,7 @@
 					<span style="font-size:18px;font-weight:bold;"><?php echo $licenceValidty ?></span><br />
 					<hr>
 					<label style="font-size:14px;">Licence Image :</label><br><br />
+					<div style="max-height: 180px; max-width: 250px;">
 					<?php 
 							$count4pic = mysql_num_rows($select2);
 							if ($count4pic==0)
@@ -275,6 +276,7 @@
 								}
 							}
 							?>
+							</div>
 						<br>
 					
 					</div>
@@ -507,7 +509,7 @@
 											if(mysql_num_rows($sql1) < 1)
 											{
 											?>
-												<div class="col-lg-3 col-md-4 col-sm-6 col-xs-10">
+												<div class="col-lg-3 col-md-4 col-sm-4 col-xs-10">
 													<div class="ft-item">
 														<span class="ft-image">
 															<img alt="featured Scroller" class="img-responsive" src="img/custom1.jpg" draggable="false">
@@ -529,7 +531,7 @@
 											while ($row1 = mysql_fetch_array($sql1))
 											{
 											?>
-													<div class="col-lg-3 col-md-4 col-sm-6 col-xs-10">
+													<div class="col-lg-3 col-md-4 col-sm-4 col-xs-10">
 													<?php
 													echo '<a id="editButton" style="height:20px" class="btn btn-xs btn-default" data-toggle="tab" onclick="editTour(' . $userid . ',' . $row1['tour_id'] . ');" >EDIT</a>';
 														echo '<a style="cursor: pointer;" onclick="detailTour(' . $row1['tour_id'] . ');" >';
@@ -548,7 +550,7 @@
 																}
 																else
 																{
-																	echo '<img alt="featured Scroller" class="img-responsive" draggable="false" style="width:207px; height:105px;" src="showMediaPicture.php?id=' . mysql_result($select4Tpic, 0, 0) . '"/>';
+																	echo '<img alt="featured Scroller" class="img-responsive" draggable="false" src="showMediaPicture.php?id=' . mysql_result($select4Tpic, 0, 0) . '"/>';
 																}
 																?>
 																
@@ -572,7 +574,7 @@
 
 						<!-- ############################################################################ -->
 						<a style="cursor: pointer;" onclick="createTour(<?php echo $userid; ?>);" >
-						<div class="col-lg-3 col-md-4 col-sm-6 col-xs-10">
+						<div class="col-lg-3 col-md-4 col-sm-4 col-xs-10">
 							<div class="ft-item">
 								<span class="ft-image">
 									<img alt="featured Scroller" class="img-responsive" src="img/newTour.jpg" draggable="false">

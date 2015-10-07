@@ -17,7 +17,7 @@ if($count > 0)
 		echo '<script>alert("'.$oldPassword.'")</script>';
 		${"newPassword_" . $c} = md5($oldPassword);
 		echo '<script>alert("'.${"newPassword_" . $c}.'")</script>';
-		$update = mysql_query("UPDATE `tbl_user_profile` SET `user_password` = '".${"newPassword_" . $c}."' WHERE `user_id` = ". ${"user_id_" . $c}."");
+		$update = mysql_query("UPDATE `tbl_user_profile` SET `user_password` = '" . ${"newPassword_" . $c} . "' WHERE `user_id` = " . ${"user_id_" . $c} . "");
 		if(!($update))
 		{
 			$flag=0;
