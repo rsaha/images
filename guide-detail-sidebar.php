@@ -7,7 +7,7 @@
 		<meta charset="UTF-8">
 		
 		<!-- title -->
-		<title>Tour Details | Guided Gateway</title>
+		<title>Guide Detail | Travel Hub HTML5 Template</title>
 		
 		<!-- meta description -->
 		<meta name="description" content="Guided Gateway" />
@@ -21,7 +21,7 @@
 		<!-- favicon -->
 		<link rel="icon" href="favicon.ico" type="image/x-icon" />
 		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-		
+		<link rel="stylesheet" type="text/css" href="bs3/css/bootstrap.css" media="all" /> 
 		<!-- bootstrap 3 stylesheets -->
 		<link rel="stylesheet" type="text/css" href="bs3/css/bootstrap.css" media="all" />
 		<!-- template stylesheet -->
@@ -32,24 +32,18 @@
 		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Karla:400,700,400italic,700italic" />
 		<!-- color scheme -->
 		<link rel="stylesheet" type="text/css" href="css/colors/color3.css" title="color3" />
-        
-      <!--   <script src= "js/angular.min.js"></script>
-        <script src="myDestination.js"></script> -->
-        <!-- Google Analytics -->
-        <script>
-            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-            ga('create', 'UA-64862528-1', 'auto');
-            ga('send', 'pageview');
-
-        </script>
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
-        <script type="text/javascript"  src= "js/angular.min.js"></script>
-        <script type="text/javascript"  src="topTour.js"></script>
-		<style type="text/css">
+		 <script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+   <script src="guide_profile_All.js"></script>
+   
+   	<style type="text/css">
+	#searchDiv{
+	<!-- top: 130px;
+	position: absolute;
+	left:20px;
+	z-index: 2; -->
+	}
+	
+		
 .rating {
     color: #a9a9a9;
     margin: 0;
@@ -66,18 +60,21 @@ ul.rating {
     font-weight: bold;
     cursor: pointer;
 	margin-top: -6px;
-    font-size: 16px;
+    font-size: 14px;
 }
 .rating .filled {
     color: #ff845e;
 }
-</style>
+
+	</style>
+	
+  
 	</head>
 	<!-- END head -->
 
 	<!-- START body -->
-	<body ng-app="topTours" ng-controller="tourDetailCtrl">
-		<!-- START #wrapper --> 
+	<body ng-app="myAllGuide" ng-controller="guideControl">
+		<!-- START #wrapper -->
 		<div id="wrapper">
 			<!-- START header -->
 			<?php 
@@ -86,21 +83,22 @@ ul.rating {
 			
 			
 			?>
+			
 			<!-- START #page-header -->
 			<div id="header-banner">
-				<div class="banner-overlay">
+				<div class="">
 					<div class="container">
 						<div class="row">
-							<section class="col-sm-6">
-								<h1 class="text-upper">{{tour.Title}}</h1>
+							<section class="col-md-12">
+								<h1 class="text-upper">{{allguides.Name}}&nbsp;&nbsp;<span star-rating rating-value="allguides.ReviewSummary.Star" ></span></h1>	
 							</section>
 							
 							<!-- breadcrumbs -->
-							<!-- <section class="col-sm-6">
+						<!-- 	<section class="col-sm-6">
 								<ol class="breadcrumb">
-									<li class="home"><a href="#"  style="color:black;">Home</a></li>
-									<li><a href="#" style="color:black;">Tour #2</a></li>
-									<li class="active"><span  style="color:black;">Agra, UP</span></li>
+									<li class="home"><a href="#">Home</a></li>
+									<li><a href="#">Blog</a></li>
+									<li class="active">Lorem ipsum dolor sit amet</li>
 								</ol>
 							</section> -->
 						</div>
@@ -114,157 +112,118 @@ ul.rating {
 				<div class="container">
 					<div class="row">
 						<!-- START #page -->
-						<div id="page" class="col-md-8">
-							<!-- START .tour-plans -->
-							<div class="tour-plans">
+						<div id="page" class="col-md-8" ng-controller="guideControl">
+							<!-- START .post-data -->
+							<div class="post-data">
 								<div class="plan-image">
-									<img class="img-responsive" src="img/custom2.jpg" alt="TajMahal" />
-									<div class="offer-box">
-										<div class="offer-top">
-											<span class="ft-temp alignright">19&#730;c</span>
-											<span class="featured-cr text-upper">{{tour.Localtion}}</span>
-											<h2 class="featured-cy text-upper">{{tour.Duration}}</h2>
-										</div>
-										
-										<div class="offer-bottom">
-											<span class="featured-stf">Per Person </span>
-											<span class="featured-spe">{{tour.Price}}</span>
-										</div>
-									</div>
+									<img class="img-responsive" src="{{allguides.Media.CoverPhoto}}" alt="Kolkata, WB" />
 								</div>
 								
-								<div class="featured-btm box-shadow1">
-									<a class="ft-hotel text-upper" href="#">{{tour.Guides}}</a>
-									<a class="ft-plane text-upper" href="#">{{tour.Category}}</a>
-									<a class="ft-tea text-upper" href="#">{{tour.Inclusive}}</a>
-                                    <a class="ft-tea text-upper" href="booking-form.html">{{tour.Exclusive}}</a>
-								</div>
-								
-								<h2 class="text-upper">Tour Information</h2>
-								<p>{{tour.Description}}</p>
-								<p><h5>Start Point : {{tour.StartPoint}}&nbsp&nbsp&nbsp&nbsp&nbspEnd Point : {{tour.EnPoint}}</h5></p>
-								
+								<ul class="featured-btm single-ft-btm list-unstyled box-shadow1">
+									<li class="author-img"><img class="img-circle img-wt-border" style=height:80px;width:80px; src="{{allguides.Media.Photo}}" alt="Guide" /></li>
+									<li class="post-author"><a class="text-upper" >{{allguides.Gender}}</a></li>
+									<li class="fa fa-tree"><a class=""> {{allguides.Speciality}}</a></li>
+									<li class="post-date"><span class="alignright" star-rating rating-value="allguides.ReviewSummary.Star" ></span></li>
+									
+								</ul>
 							</div>
-							<!-- END .tour-plans -->
+							<!-- END .post-data -->
 							
-							<!-- START TABS -->
-							<ul class="nav nav-tabs text-upper">
-								<li class="active"><a href="#tourPlan" data-toggle="tab">Tour Plan</a></li>
-								<li><a href="#flightSchedule" data-toggle="tab">Places Covered</a></li>
-								<li><a href="#additionalInfo" data-toggle="tab">Reviews</a></li>
-							</ul>
-							<!-- END TABS -->
+							<!-- START .post-content -->
+							<article class="post-content">
+								<p>Augue sed platea sed non porta tincidunt augue? Odio platea, pulvinar habitasse vut! Pulvinar, integer odio. Ac pid! Habitasse montes elementum, et sagittis tincidunt magnis? Sociis! Elementum quis, integer natoque sed auctor nascetur enim parturient ridiculus ut amet porttitor dapibus phasellus tempor, natoque adipiscing aliquam. Amet. Dapibus proin, elit ut!</p> 
+								<p>Nec? Mid lundium, turpis sit sagittis, in porttitor augue, magna dis, ultrices vel porttitor dapibus tincidunt, elementum lorem, massa odio porta. Sit ac proin odio, platea adipiscing, tempor sagittis enim a, eros proin.</p>
+								<p>
+									<img class="alignleft" src="img/feature_detail_tour.jpg" alt="Top Tour" />
+									In! Vel magna nisi aliquam, magnis tempor, nunc dapibus sed porta vut porttitor tristique! Lectus turpis massa ridiculus sagittis tincidunt eros lundium etiam nisi non natoque ac arcu auctor elementum vel nunc sociis! Nunc lacus! Dictumst facilisis turpis, integer? Nec nec. Nunc scelerisque diam! Cum sit arcu, mus in, nisi non etiam arcu a magna etiam nisi porttitor turpis! Natoque ac porta pellentesque nunc placerat porttitor sed porta urna, est ut ut adipiscing, tortor montes, massa urna dictumst ac, pellentesque facilisis nisi arcu! Tortor lacus elementum eros, placerat arcu. Adipiscing platea purus sagittis ridiculus turpis, nunc dictumst ac?
+								</p>
+								
+								<!-- BLOCKQUOTE -->
+								<blockquote>
+									<p><strong>BLOCK QUOTE</strong></p>
+									<p>In! Vel magna nisi aliquam, magnis tempor, nunc dapibus sed porta vut porttitor tristique! Lectus turpis massa ridiculus sagittis tincidunt eros lundium etiam nisi non natoque ac arcu auctor elementum vel nunc sociis!</p>
+								</blockquote>
+								<p>Augue sed platea sed non porta tincidunt augue? Odio platea, pulvinar habitasse vut! Pulvinar, integer odio. Ac pid! Habitasse montes elementum, et sagittis tincidunt magnis? Sociis! Elementum quis, integer natoque sed auctor nascetur enim parturient ridiculus ut amet porttitor dapibus phasellus tempor, natoque adipiscing aliquam.</p>
+							</article>
+							<!-- END .post-content -->
 							
-							<!-- START TAB CONTENT -->
-							<div class="tab-content gray box-shadow1 clearfix marb30">
-								<!-- START TAB 1 -->
-								<div class="tab-pane active" id="tourPlan">
-									<!-- <ul class="plans-list list-unstyled">
-										<li> -->
-										<div class="col-md-4" style="padding:15px 15px 15px 15px">
-											<img class="img-responsive" src="img/custom2.jpg" alt="Day 1" />
-											<div class="plan-info">
-												<h4 class="text-upper">{{tour.Itineary.Duration}}</h4>
-												<p ng-repeat="x in tour.Itineary.Day.Spots"><span>{{x.Spot}}</span></p>
-											    <h5>Lunch&nbsp:&nbsp{{tour.Itineary.Day.Lunch}}</h5>
-											</div>
-										</div>
-										<!-- </li> -->
-										
-										<!-- <li>
-											<img class="img-responsive" src="img/custom2.jpg" alt="Day 2" />
-											<div class="plan-info">
-												<h4 class="text-upper">Day 2</h4>
-												<p>Amet turpis tristique, nec in aliquet dis amet, proin egestas in tempor, cras et dapibus.</p>
-											</div>
-										</li>
-										
-										<li>
-											<img class="img-responsive" src="img/custom2.jpg" alt="Day 3" />
-											<div class="plan-info">
-												<h4 class="text-upper">Day 3</h4>
-												<p>Amet turpis tristique, nec in aliquet dis amet, proin egestas in tempor, cras et dapibus.</p>
-											</div>
-										</li> -->
-									</ul>
-								</div>
-								<!-- END TAB 1 -->
-								
-								<!-- START TAB 2 -->
-								<div class="tab-pane" id="flightSchedule">
-									<div class="table-responsive">
-										<table class="table">
-											<thead>
-												<tr>
-													<th>Spot</th>
-													<th>Description</th>
-													<th>Map Location</th>
-													<th>Duration</th>
-													<th>Entry Fees</th>
-												</tr>
-											</thead>
-											<tbody ng-repeat="x in tour.Itineary.Day.Spots">
-												<tr class="dark-gray">
-													<td>{{x.Spot}}</td>
-													<td>{{x.Description}}</td>
-													<td>{{x.MapLocation.Latitude +', '+ x.MapLocation.Longitude}}</td>
-													<td>{{x.Duration}}</td>
-													<td>{{x.Entreefees}}</td>
-												</tr>
-												<!-- <tr>
-													<td>Yamuna River</td>
-													<td>Nature</td>
-													<td>21 DEC 2013</td>
-													<td>09:00</td>
-													<td>10:00</td>
-												</tr>
-												<tr class="dark-gray">
-													<td>Kabob Corner</td>
-													<td>Food</td>
-													<td>22 DEC 2013</td>
-													<td>05:00</td>
-													<td>06:30</td>
-												</tr>
-												<tr>
-													<td>Taj Mahal Garden</td>
-													<td>Romance</td>
-													<td>23 DEC 2013</td>
-													<td>08:15</td>
-													<td>09:30</td>
-												</tr>
-												<tr class="dark-gray">
-													<td>Rafting</td>
-													<td>Adventure</td>
-													<td>24 DEC 2013</td>
-													<td>10:00</td>
-													<td>03:40</td>
-												</tr> -->
-											</tbody>
-										</table>
-									</div>
-								</div>
-								<!-- END TAB 2 -->
-								
-								<!-- START TAB 3 -->
-								<div class="tab-pane" id="additionalInfo">
-									<div class="inside-pane">
-										<h4>Overall Rating&nbsp:&nbsp<span star-rating rating-value="tour.Reviews.Overall_rating"></span></h4>
-										<p>{{tour.Reviews.Overall_rating}}</p>
-									</div>
-								</div>
-								<!-- END TAB 3 -->
+							<!-- START .about-author -->
+							<div class="about-author gray box-shadow1">
+								<span class="author-image">
+									<img src="img/feature_guide_tour.jpg" alt="Reviewed Tour" />
+								</span>
+								<h5>NICK WILSON <small>Tourist , 2015</small></h5>
+								<p>In! Vel magna nisi aliquam, magnis tempor, nunc dapibus sed porta vut porttitor tristique! Lectus turpis massa ridiculus sagittis tincidunt eros lundium etiam nisi non natoque ac arcu auctor elementum vel nunc sociis! Nunc lacus! Dictumst facilisis turpis</p>
+								<a href="https://twitter.com/envato" class="twitter-follow-button" data-show-count="false">Follow Nick Wilson</a>
 							</div>
-							<!-- END TAB CONTENT -->
+							<!-- END .about-author -->
+							
+							<!-- START #commentForm -->
+						<!-- 	<section id="commentForm">
+								<h2 class="ft-heading text-upper">Contact Guide</h2>
+								<form action="contactGuideMail.php" method="post" ng-controller="validateCtrlNew" name="myForm"  novalidate>
+									<fieldset>
+										<ul class="formFields list-unstyled">
+											<li class="row">
+												<div class="col-md-6">
+													<label>Name </label>
+													<input type="text" class="form-control" name="name" value="name" ng-model="name" required ng-pattern="/^[a-z A-Z]+$/" />
+														 <span style="color:red" ng-show="myForm.name.$dirty && myForm.name.$invalid">
+											 <span ng-show="myForm.name.$error.required">*Name is required.</span>
+											   <span ng-show="myForm.name.$error.pattern">*Invalid Name ...</span>
+											  </span>
+												</div>
+												<div class="col-md-6">
+													<label>Email</label>
+													<input type="text" class="form-control" name="email" value="email" ng-model="email" required ng-pattern="/^[a-zA-Z0-9._-]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,5}(\.[a-zA-Z]{2,5}){0,1}$/" />
+												 <span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
+											 <span ng-show="myForm.email.$error.required">*email is required.</span>
+											   <span ng-show="myForm.email.$error.pattern">*Invalid Name ...</span>
+											  </span>
+												</div>
+											</li>
+											<li class="row">
+												<div class="col-md-12">
+													<label>Subject </label>
+													<input type="text" class="form-control" name="subject" value="subject" required ng-model="subject" ng-pattern="/^[a-z A-Z]+$/"/>
+													 <span style="color:red" ng-show="myForm.subject.$dirty && myForm.subject.$invalid">
+											 <span ng-show="myForm.subject.$error.required">*subject is required.</span>
+											   <span ng-show="myForm.subject.$error.pattern">*Invalid Name ...</span>
+											  </span>
+												</div>
+											</li>
+											<li class="row">
+												<div class="col-md-12">
+													<label>Message </label>
+													<textarea class="form-control" ng-model="Message" value="Message" required ng-pattern="/^[a-z A-Z]+$/"></textarea>
+													 <span style="color:red" ng-show="myForm.Message.$dirty && myForm.Message.$invalid">
+											 <span ng-show="myForm.Message.$error.required">*Message is required.</span>
+											   <span ng-show="myForm.Message.$error.pattern">*Invalid Name ...</span>
+											  </span>
+												</div>
+											</li>
+											<li class="row">
+												<div class="col-md-12">
+													<input type="submit" class="btn btn-primary btn-lg text-upper" name="submit" value="Submit" />
+													<span class="required small">*Your email will never published.</span>
+												</div>
+											</li>
+										</ul>
+									</fieldset>
+								</form>
+							</section> -->
+							<!-- END #commentForm -->
 						</div>
 						<!-- END #page -->
+						
 						<!-- START #sidebar -->
 						<aside id="sidebar" class="col-md-4">
 							<div class="sidebar-widget">
 								<!-- Sidebar recent popular posts -->
 								<!-- START TABS -->
 								<ul class="nav nav-tabs text-upper">
-									<li class="active"><a href="#popular-posts" data-toggle="tab">Guides</a></li>
-									<li><a href="#recent-posts" data-toggle="tab">Reviws</a></li>
+									<li class="active"><a href="#popular-posts" data-toggle="tab">Tours</a></li>
+									<li><a href="#recent-posts" data-toggle="tab">Reviews</a></li>
 									<li><a href="#recent-comments" data-toggle="tab">Tips</a></li>
 								</ul>
 								<!-- END TABS -->
@@ -272,38 +231,37 @@ ul.rating {
 								<!-- START TAB CONTENT -->
 								<div class="tab-content gray box-shadow1 clearfix marb30">
 									<!-- START TAB 1 -->
-									<div class="tab-pane active" id="popular-posts">
+									<form action="booking-form.php" method="post">
+									<div class="tab-pane active" id="popular-posts" ng-controller="guideControl">
 										<ul class="rc-posts-list list-unstyled">
-											<li>
+											<li ng-repeat="x in allguides" ng-show="$index<2">
 												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 2" />
+													<img class="img-responsive" src="img/tour_1.jpg" alt="Tour 1" />
 												</span>
-												<h5><a href="#">Limbaugh: Does 'Dark Knight Rise have it Bomb Found...</a></h5>
-												<span class="rc-post-date small">January 18, 2014</span>
+												<h5><a href="#">{{x.Title}}</a></h5>
+												<span class="rc-post-date small">Starting Price INR 1500</span><br/>
+                                                <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Book" />
 											</li>
+											
 											<li>
 												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 4" />
+													<img class="img-responsive" src="img/tour_3.jpg" alt="Tour 3" />
 												</span>
-												<h5><a href="#">Shares suspende am Bankiaid 'Gloomy Forecast'</a></h5>
-												<span class="rc-post-date small">January 11, 2014</span>
-											</li>
-											<li>
-												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 3" />
-												</span>
-												<h5><a href="#">Shares suspende am Bankiaid 'Gloomy Forecast'</a></h5>
-												<span class="rc-post-date small">January 15, 2014</span>
+												<h5><a href="#">Tour 3 description comes here</a></h5>
+												<span class="rc-post-date small">Starting Price INR 1500</span><br/>
+                                                <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Book" />
 											</li>
 											<li class="last-rc-post">
 												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 1" />
+													<img class="img-responsive" src="img/tour_4.jpg" alt="Tour 4" />
 												</span>
-												<h5><a href="#">Apple Fails to Fix iPhone Daylight Saving Time Alarm Bug</a></h5>
-												<span class="rc-post-date small">January 20, 2014</span>
+												<h5><a href="#">Tour 4 description comes here</a></h5>
+												<span class="rc-post-date small">Starting Price INR 1500</span><br/>
+                                                <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Book" />
 											</li>
 										</ul>
 									</div>
+									</form>
 									<!-- END TAB 1 -->
 									
 									<!-- START TAB 2 -->
@@ -357,8 +315,8 @@ ul.rating {
 							<div class="sidebar-widget">
 								<!-- Sidebar Newsletter -->
 								<div class="styled-box gray">
-									<h3 class="text-upper">Broadcast for Custom Price</h3>
-									<form action="#" method="post">
+									<h3 class="text-upper">Contact for Custom tour</h3>
+									<form action="contactGuideMail.php" method="post">
 										<label>Email Address</label>
 										<input type="text" name="email" class="form-control input-style1 marb20" value="Enter Email Address" onfocus="if (this.value == 'Enter Email Address') { this.value = ''; }" onblur="if (this.value == '') { this.value = 'Enter Email Address'; }" />
 										<input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Send" />
@@ -470,7 +428,6 @@ ul.rating {
 		</div>
 		<!-- END #wrapper -->
 
-		
 				<!-- javascripts -->
 		<script type="text/javascript" src="js/modernizr.custom.17475.js"></script>
 

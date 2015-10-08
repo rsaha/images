@@ -1,7 +1,3 @@
-<?php
-echo "Guide = " . $_GET["id1"] . "<br>";
-echo "Tour = " . $_GET["id2"];
-?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -10,14 +6,13 @@ echo "Tour = " . $_GET["id2"];
 		<!-- Site meta charset -->
 		<meta charset="UTF-8">
 		
-		<!-- title -->
-		<title>Booking Form | Guided Gateway</title>
-		
-		<!-- meta description -->
-		<meta name="description" content="Guided Gateway" />
-		
-		<!-- meta keywords -->
-		<meta name="keywords" content="Travel India Tourist Guide" />
+		<!-- title --> <title>Home | Guided Gateway - Authentic
+		Affordable Travel</title>
+
+		<!-- meta description --> <meta name="description" content="Authentic Afordable Travel in India" />
+
+		<!-- meta keywords --> <meta name="keywords" content="travel
+		guide tourism india" />
 		
 		<!-- meta viewport -->
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
@@ -35,177 +30,145 @@ echo "Tour = " . $_GET["id2"];
 		<!-- Load Fonts via Google Fonts API -->
 		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Karla:400,700,400italic,700italic" />
 		<!-- color scheme -->
-		<link rel="stylesheet" type="text/css" href="css/colors/color1.css" title="color1" />
+		<link rel="stylesheet" type="text/css" href="css/colors/color3.css" title="color3" />
+	</head><!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-64862528-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<style type="text/css">
+	
+	
 		
-		<style type="text/css">
-			#registration-form 
-			{
-				background: #FDFDFD;
-				padding: 20px;
-				margin-right: auto;
-				margin-left: auto;
-				border: 1px solid #E9E9E9;
-				border-radius: 10px;
-			}
-		</style>
+.rating {
+    color: #a9a9a9;
+    margin: 0;
+    padding: 0;
+}
+ul.rating {
+    display: inline-block;
+}
+.rating li {
+    list-style-type: none;
+    display: inline-block;
+    padding: 0px;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+	margin-top: -6px;
+    font-size: 14px;
+}
+.rating .filled {
+    color: #ff845e;
+}
 
-		<script type="text/javascript" src="anki/jquery-1.10.2.min.js"></script>
-		<script type="text/javascript">
-		$(document).ready(function() {
-			var x_timer;    
-			$("#email").keyup(function (e){
-				clearTimeout(x_timer);
-				var email_name = $(this).val();
-				x_timer = setTimeout(function(){
-					check_email_ajax(email_name);
-				}, 1000);
-			}); 
+	</style>
+<script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+   <script src="guideList.js"></script>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+	</head> <!-- END head -->
 
-		function check_email_ajax(email){
-			$("#email-result").html('<img src="img/ajax-loader.gif" />');
-			$.post('email-checker.php', {
-				'email':email
-				}, function(data) {
-			  $("#email-result").html(data);
-			});
-		}
-		});
-		</script>
-
-	</head>
-	<!-- END head -->
-
-	<!-- START body -->
-	<body>
-		<!-- START #wrapper -->
-		<div id="wrapper">
-			<!-- START header -->
-			<?php include_once('MasterHeader.php'); ?>
-			<!-- END header -->
+	<!-- START body --> <body> <!-- START #wrapper --> <div
+	id="wrapper"> <!-- START header --> <?php 
+			
+				include('MasterTopHeader.php'); 
+			
+			
+			?>
 			
 			<!-- START #page-header -->
 			<div id="header-banner">
-				<div class="banner-overlay">
+				<div class="top-header">
 					<div class="container">
 						<div class="row">
-							<section class="col-sm-6">
-								<h1 class="text-upper">Booking Form</h1>
-							</section>
+							<!-- <section class="col-sm-6">
+								<h1 class="text-upper">Your Guides</h1>
+							</section> -->
 							
 							<!-- breadcrumbs -->
-							<section class="col-sm-6">
+							<!-- <section class="col-sm-6">
 								<ol class="breadcrumb">
-									<li class="home"><a href="#">Home</a></li>
-									<li class="active">Contact Us</li>
+									<li class="home"><a href="index.html">Home</a></li>
+									<li><a href="#">Guides</a></li>
+									
 								</ol>
-							</section>
+							</section> -->
+							
 						</div>
 					</div>
 				</div>
 			</div>
 			<!-- END #page-header -->
-			
+			<!-- <div class="main-contents col-md-8 col-md-offset-2" id="searchDiv">
+					<form class="plan-tour">
+						<div class="top-fields"><br>
+						<div class="row">								
+						<div class="col-md-8 col-md-offset-1">
+						<input type="text" class="form-control" style="background-color:white;" placeholder="Where to go?" />
+						</div> 
+						<div class="col-md-2" >
+						<input type="submit" class="form-control" style="background-color:#ff845e;" class="btn btn-primary" value="Search" /> 
+						</div> 
+						</div>
+						<div class="row">
+						<div class="col-md-7 col-md-offset-1"> <br>
+						<label >Search via</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<label><input class="input-cb"	type="checkbox" name="inc_Tour" value="1"	checked="checked" /> Tours</label>&nbsp;&nbsp;&nbsp;&nbsp;
+						<label><input class="input-cb" type="checkbox" name="inc_Guide" value="1" checked="checked" /> Guides </label>&nbsp;&nbsp;&nbsp;&nbsp;
+						<label><input class="input-cb" type="checkbox"	name="inc_Destination" value="1" checked="checked"/> Destinations</label>&nbsp;&nbsp; 
+						</div> 
+						</div>
+						</div>
+					</form>
+				</div> -->
 			<!-- START .main-contents -->
 			<div class="main-contents">
 				<div class="container">
 					<div class="row">
-						<!-- START #page -->
-						<div id="page" class="col-md-8">
-						<div class="row">
-						<div class="" id="registration-form">
-						<label for="email">Email <span class="required small">(Required)</span></label><br><br>
-						<div class="form-inline">
-						<input name="email" class="form-control" type="text" id="email" >
-						<span id="email-result"></span>
+					  <div class="col-md-8" ng-app="myGuideList">
+							<div class="row" ng-controller="guideCtrl">
+						<div class="col-md-4" ng-repeat="x in allguides" >
+							 <div	class="ft-item"> 
+						  <span class="ft-image">
+						  <a href="guide-detail-sidebar.php">
+							 <img style="height:230px;width:180;" class="img-responsive" src="{{x.Photo}}" alt="Top Guide" /> </a>
+						  </span>
+					  
+								<div class="ft-data">
+							  <span style="color:black;" class="fa fa-odnoklassniki text-upper">&nbsp;&nbsp;{{x.Gender}}</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							  <span style="color:black;" class="fa fa-book text-upper" >&nbsp;&nbsp;{{x.Speciality}}</span>&nbsp;&nbsp;&nbsp;&nbsp;
+							  <br><span style=" font-size:11px;color:black;" class="fa fa-plane text-upper" > {{x.LanguageKnown}}</span>
+								
+								</div> 
+					
+							<div class="ft-foot">
+							<h4 class="ft-title text-upper" style="color:#686868">{{x.Name}},&nbsp{{x.Territory}}</h4> 
+							<!-- <span class="ft-offer text-upper">{{x.Tours.Count}} Tours</span>  -->
+							</div> 
+					
+							<div class="ft-foot-ex"> 
+								<span class="fa fa-shield text-upper alignleft">&nbsp;&nbsp;{{x.Tours.Count}} Tours&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;
+								<span star-rating rating-value="x.Review.Star" class="aligncenter"></span>
+								<span class="alignright fa fa-eye">{{x.Review.Count}} reviews</span> 							
+							</div> 
+					       </div>
 						</div>
-						</div><br><br><br><br><br><br><br><br>
-						</div>
-							<!-- START #contactForm -->
-							<section id="booking-form">
-								<h2 class="ft-heading text-upper">Provide Your Booking Information</h2>
-								<form action="contact.php" method="post">
-									<fieldset>
-										<ul class="formFields list-unstyled">
-											<li class="row">
-												<div class="col-md-6">
-													<label>Name <span class="required small">(Required)</span></label>
-													<input type="text" class="form-control" name="name" value="" />
-												</div>
-												<div class="col-md-6">
-													<label>Email <span class="required small">(Required)</span></label>
-													<input type="text" class="form-control" name="email" value="" />
-												</div>
-											</li>
-											<li class="row">
-												<div class="col-md-6">
-													<label>City <span class="required small">(Required)</span></label>
-													<input type="text" class="form-control" name="city" value="" />
-												</div>
-												<div class="col-md-6">
-													<label>Country <span class="required small">(Required)</span></label>
-													<input type="text" class="form-control" name="country" value="" />
-												</div>
-											</li>
-											<li class="row">
-												<div class="col-md-6">
-													<label>Zip Code <span class="required small">(Required)</span></label>
-													<input type="text" class="form-control" name="zipcode" value="" />
-												</div>
-												<div class="col-md-6">
-													<label>Billing Method <span class="required small">(Required)</span></label>
-													<input type="text" class="form-control" name="method" value="" />
-												</div>
-											</li>
-											<li class="row">
-												<div class="col-md-12">
-													<label>Bank Account <span class="required small">(Required)</span></label>
-													<input type="text" class="form-control" name="account" value="" />
-												</div>
-											</li>
-											<li class="row">
-												<div class="col-md-12">
-													<label>Bank Address <span class="required small">(Required)</span></label>
-													<input type="text" class="form-control" name="address" value="" />
-												</div>
-											</li>
-											<li class="row">
-												<div class="col-md-12">
-													<div class="checkbox-container">
-														<label><input type="checkbox" name="a" class="styled" />First Choice</label>
-														<label><input type="checkbox" name="a" class="styled" />Second Choice</label>
-														<label><input type="checkbox" name="a" class="styled" />Third Choice</label>
-													</div>
-													<div class="checkbox-container">
-														<label><input type="radio" name="radio" class="styled"  checked="checked" /> First Choice</label>
-														<label><input type="radio" name="radio" class="styled" /> Second Choice</label>
-														<label><input type="radio" name="radio" class="styled" /> Third Choice</label>
-													</div>
-												</div>
-											</li>
-											<li class="row">
-												<div class="col-md-12">
-													<input type="submit" class="btn btn-primary btn-lg text-upper" name="save" value="Save" />
-													<span class="required small">*Your email will never published.</span>
-												</div>
-											</li>
-											
-										</ul>
-									</fieldset>
-								</form>
-							</section>
-							<!-- END #contactForm -->
-						</div>
-						<!-- END #page -->
-						
-						<!-- START #sidebar -->
-						<aside id="sidebar" class="col-md-4">
+					  </div>
+					 </div>
+					        <aside id="sidebar" class="col-md-4">
 							<div class="sidebar-widget">
 								<!-- Sidebar recent popular posts -->
 								<!-- START TABS -->
 								<ul class="nav nav-tabs text-upper">
-									<li class="active"><a href="#popular-posts" data-toggle="tab">Popular</a></li>
-									<li><a href="#recent-posts" data-toggle="tab">Recent</a></li>
-									<li><a href="#recent-comments" data-toggle="tab">Comments</a></li>
+									<li class="active"><a href="#salestours" data-toggle="tab">Tours on Sale</a></li>
+									<li><a href="#newtours" data-toggle="tab">Newly Added</a></li>
+									<li><a href="#" data-toggle="tab"></a></li>
 								</ul>
 								<!-- END TABS -->
 								
@@ -298,8 +261,8 @@ echo "Tour = " . $_GET["id2"];
 								<!-- START TABS -->
 								<ul class="nav nav-tabs social-tabs text-upper">
 									<li class="active"><a class="facebook-tab" href="#facebook-tab" data-toggle="tab">Facebook</a></li>
-									<li><a class="twitter-tab" href="#twitter-tab" data-toggle="tab">Twitter</a></li>
-									<li><a class="share-tab" href="#share-tab" data-toggle="tab">Follow Us</a></li>
+									<li><a class="twitter-tab" href="#pinterest-tab" data-toggle="tab">Pinterest</a></li>
+									<li><a class="share-tab" href="#share-tab" data-toggle="tab">Like Us</a></li>
 								</ul>
 								<!-- END TABS -->
 								
@@ -326,27 +289,6 @@ echo "Tour = " . $_GET["id2"];
 									<!-- END TAB 3 -->
 								</div>
 								<!-- END TAB CONTENT -->
-							</div>
-							
-							<div class="sidebar-widget">
-								<!-- Post Tags -->
-								<div class="styled-box gray">
-									<h3 class="text-upper">Tags</h3>
-									<ul class="post-tags list-unstyled">
-										<li><a class="btn btn-primary btn-sm" href="#">aliquet</a></li>
-										<li><a class="btn btn-primary btn-sm" href="#">tristique</a></li>
-										<li><a class="btn btn-primary btn-sm" href="#">diam</a></li>
-										<li><a class="btn btn-primary btn-sm" href="#">egestas</a></li>
-										<li><a class="btn btn-primary btn-sm" href="#">montes</a></li>
-										<li><a class="btn btn-primary btn-sm" href="#">dapibus</a></li>
-										<li><a class="btn btn-primary btn-sm" href="#">turpis</a></li>
-										<li><a class="btn btn-primary btn-sm" href="#">tempor</a></li>
-										<li><a class="btn btn-primary btn-sm" href="#">cursus</a></li>
-										<li><a class="btn btn-primary btn-sm" href="#">enim</a></li>
-										<li><a class="btn btn-primary btn-sm" href="#">lectus</a></li>
-										<li><a class="btn btn-primary btn-sm" href="#">elementum</a></li>
-									</ul>
-								</div>
 							</div>
 							
 							<div class="sidebar-widget">
@@ -393,27 +335,8 @@ echo "Tour = " . $_GET["id2"];
 							</div>
 							
 							<div class="sidebar-widget">
-								<!-- Sidebar About -->
-								<h3 class="text-upper">About Travel Hub</h3>
-								<p>Lorem ipsum dolor sit amet,Phasellus ac lectus a leo scelerisque scelerisque. In commodo sollicitudin tempus. Integer orci ante</p>
-								<p>Augue sed platea sed non porta tincidunt augue? Odio platea, pulvinar habitasse vut! Pulvinar, integer odio. Ac pid! Habitasse montes elementum, et sagittis tincidunt magnis? Sociis! Elementum quis, integer natoque sed auctor nascetur enim parturient ridiculus ut amet porttitor aliquam.</p>
-							</div>
-							
-							<div class="sidebar-widget">
-								<!-- Sidebar Newsletter -->
-								<div class="styled-box gray">
-									<h3 class="text-upper">Subscribe Newsletter</h3>
-									<form action="#" method="post">
-										<label>Email Address</label>
-										<input type="text" name="email" class="form-control input-style1 marb20" value="Enter Email Address" onfocus="if (this.value == 'Enter Email Address') { this.value = ''; }" onblur="if (this.value == '') { this.value = 'Enter Email Address'; }" />
-										<input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Subscribe" />
-									</form>
-								</div>
-							</div>
-							
-							<div class="sidebar-widget">
 								<!-- Sidebar Flickr Gallery -->
-								<h3 class="text-upper">Flickr Gallery</h3>
+								<h3 class="text-upper">Pinterest Board</h3>
 								<ul class="flickr-gal list-unstyled">
 									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
 									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
@@ -430,9 +353,20 @@ echo "Tour = " . $_GET["id2"];
 								</ul>
 							</div>
 						</aside>
-						<!-- END #sidebar -->
 					</div>
-					<!-- END .row -->
+					<!-- START .pagination -->
+					<ul class="pagination">
+						<li><a href="#">&lsaquo;</a></li>
+						<li class="active"><a href="#">1</a></li>
+						<li><a href="#">2</a></li>
+						<li><a href="#">3</a></li>
+						<li><a href="#">4</a></li>
+						<li><a href="#">5</a></li>
+						<li><a href="#">6</a></li>
+						<li><a href="#">7</a></li>
+						<li><a href="#">&rsaquo;</a></li>
+					</ul>
+					<!-- END .pagination -->
 				</div>
 			</div>
 			<!-- END .main-contents -->
@@ -499,11 +433,11 @@ echo "Tour = " . $_GET["id2"];
 									</ul>
 								</div>
 								<div class="foot-box foot-box-md col-md-4">
-									<span class="contact-email"> touchus@travelhub.com</span>
+									<span class="contact-email">support@guidedgateway.com</span>
 									<span class="contact-phone"> +1 125 496 0999</span>
 								</div>
 								<div class="foot-box col-md-4">
-									<span class="">&copy; 2013 travelhub. All Rights Reserved.</span>
+									<span class="">&copy; 2013 Guided Gateway. All Rights Reserved.</span>
 								</div>
 							</div>
 						</div>
@@ -515,16 +449,12 @@ echo "Tour = " . $_GET["id2"];
 		</div>
 		<!-- END #wrapper -->
 
-		
 				<!-- javascripts -->
 		<script type="text/javascript" src="js/modernizr.custom.17475.js"></script>
 
 		<script type="text/javascript" src="js/jquery.min.js"></script>
 		<script type="text/javascript" src="bs3/js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="js/check-radio-box.js"></script>
 		<script type="text/javascript" src="js/script.js"></script>
-		<script type="text/javascript" src="js/styleswitcher.js"></script>
-
 		<!--[if lt IE 9]>
 			<script type="text/javascript" src="js/html5shiv.js"></script>
 		<![endif]-->
