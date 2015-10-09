@@ -1,16 +1,3 @@
-<?php
-if($_GET["id1"] == 0)
-{
-	$tourID=$_GET["id2"];
-	$userID=0;
-}
-if($_GET["id2"]==0)
-{
-	$userID=$_GET["id1"];
-	$tourID=0;
-}
-
-?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -20,7 +7,7 @@ if($_GET["id2"]==0)
 		<meta charset="UTF-8">
 		
 		<!-- title -->
-		<title>Booking Form | Guided Gateway</title>
+		<title>Destination-Detail | Travel Hub HTML5 Template</title>
 		
 		<!-- meta description -->
 		<meta name="description" content="Guided Gateway" />
@@ -46,51 +33,22 @@ if($_GET["id2"]==0)
 		<!-- color scheme -->
 		<link rel="stylesheet" type="text/css" href="css/colors/color1.css" title="color1" />
 		
-		<style type="text/css">
-			#registration-form 
-			{
-				background: #FDFDFD;
-				padding: 20px;
-				margin-right: auto;
-				margin-left: auto;
-				border: 1px solid #E9E9E9;
-				border-radius: 10px;
-			}
-		</style>
-
-		<script type="text/javascript" src="anki/jquery-1.10.2.min.js"></script>
-		<script type="text/javascript">
-		$(document).ready(function() {
-			var x_timer;    
-			$("#email").keyup(function (e){
-				clearTimeout(x_timer);
-				var email_name = $(this).val();
-				x_timer = setTimeout(function(){
-					check_email_ajax(email_name);
-				}, 1000);
-			}); 
-
-		function check_email_ajax(email){
-			$("#email-result").html('<img src="img/ajax-loader.gif" />');
-			$.post('email-checker.php', {
-				'email':email
-				}, function(data) {
-			  $("#email-result").html(data);
-			});
-		}
-		});
-		</script>
-
+		 <script type="text/javascript"  src= "js/angular.min.js"></script>
+        <script type="text/javascript"  src="topPlaces.js"></script>
 	</head>
 	<!-- END head -->
 
 	<!-- START body -->
-	<body>
+	<body ng-app="topPlaces" ng-controller="placeDetailCtrl">
 		<!-- START #wrapper -->
 		<div id="wrapper">
 			<!-- START header -->
-			<?php include_once('MasterHeader.php'); ?>
-			<!-- END header -->
+			<?php 
+			
+				include('MasterTopHeader.php'); 
+			
+			
+			?>
 			
 			<!-- START #page-header -->
 			<div id="header-banner">
@@ -98,14 +56,15 @@ if($_GET["id2"]==0)
 					<div class="container">
 						<div class="row">
 							<section class="col-sm-6">
-								<h1 class="text-upper">Booking Form</h1>
+								<h1 class="text-upper">{{place.Name}}, {{place.State}}</h1>
 							</section>
 							
 							<!-- breadcrumbs -->
 							<section class="col-sm-6">
 								<ol class="breadcrumb">
 									<li class="home"><a href="#">Home</a></li>
-									<li class="active">Contact Us</li>
+									<li><a href="#">Blog</a></li>
+									<li class="active">Lorem ipsum dolor sit amet</li>
 								</ol>
 							</section>
 						</div>
@@ -120,19 +79,59 @@ if($_GET["id2"]==0)
 					<div class="row">
 						<!-- START #page -->
 						<div id="page" class="col-md-8">
-						<div class="row">
-						<div class="" id="registration-form">
-						<label for="email">Email <span class="required small">(Required)</span></label><br><br>
-						<div class="form-inline">
-						<input name="email" class="form-control" type="text" id="email" >
-						<span id="email-result"></span>
-						</div>
-						</div><br><br><br><br><br><br><br><br>
-						</div>
-							<!-- START #contactForm -->
-							<section id="booking-form">
-								<h2 class="ft-heading text-upper">Provide Your Booking Information</h2>
-								<form action="contact.php" method="post">
+							<!-- START .post-data -->
+							<div class="post-data">
+								<div class="plan-image">
+									<img class="img-responsive" src="http://placehold.it/760x320" alt="Kolkata, WB" />
+								</div>
+								
+								<ul class="featured-btm single-ft-btm list-unstyled box-shadow1">
+									<li class="author-img"><img class="img-circle img-wt-border" src="http://placehold.it/80x80" alt="Admin" />{{place.History}}</li>
+									<li class="post-date"><a class="text-upper" href="#">{{place.Category}}</a></li>
+									<li class="post-category"><a class="text-upper" href="#">{{place.BestTimeToVisit}}</a></li>
+									<li class="post-category"><a class="text-upper" href="#">Popularity: {{place.TravelIndex}}</a></li>
+									<li class="post-author"><a class="text-upper" href="place.Wikipedia">Follow on Wikipedia</a></li>
+								</ul>
+							</div>
+							<!-- END .post-data -->
+							
+							<!-- START .post-content -->
+							<article class="post-content">
+								<p>{{place.Description}}</p> 
+								 <h5>Attractions</h5>
+											<p>
+											<ul><li ng-repeat="y in place.Attractions">{{y}}</li>
+											</p>
+								<p>
+									<img class="alignleft" src="img/in-post-image.jpg" alt="Image in Post" />
+									<h5>Transport Availability</h5>											
+											<ul><li ng-repeat="y in place.Transport">{{y}}</li>										
+								</p>
+								
+								<!-- BLOCKQUOTE -->
+								<br><br><br><br><blockquote>
+									<p><strong>BLOCK QUOTE</strong></p>
+									<p>In! Vel magna nisi aliquam, magnis tempor, nunc dapibus sed porta vut porttitor tristique! Lectus turpis massa ridiculus sagittis tincidunt eros lundium etiam nisi non natoque ac arcu auctor elementum vel nunc sociis!</p>
+								</blockquote>
+								<p>Augue sed platea sed non porta tincidunt augue? Odio platea, pulvinar habitasse vut! Pulvinar, integer odio. Ac pid! Habitasse montes elementum, et sagittis tincidunt magnis? Sociis! Elementum quis, integer natoque sed auctor nascetur enim parturient ridiculus ut amet porttitor dapibus phasellus tempor, natoque adipiscing aliquam.</p>
+							</article>
+							<!-- END .post-content -->
+							
+							<!-- START .about-author -->
+							<div class="about-author gray box-shadow1">
+								<span class="author-image">
+									<img src="http://placehold.it/70x70" alt="Author Image" />
+								</span>
+								<h5>NICK WILSON <small>Admin</small></h5>
+								<p>In! Vel magna nisi aliquam, magnis tempor, nunc dapibus sed porta vut porttitor tristique! Lectus turpis massa ridiculus sagittis tincidunt eros lundium etiam nisi non natoque ac arcu auctor elementum vel nunc sociis! Nunc lacus! Dictumst facilisis turpis</p>
+								<a href="https://twitter.com/envato" class="twitter-follow-button" data-show-count="false">Follow Nick Wilson</a>
+							</div>
+							<!-- END .about-author -->
+							
+							<!-- START #commentForm -->
+							<section id="commentForm">
+								<h2 class="ft-heading text-upper">Leave Us a Reply</h2>
+								<form action="comment.php" method="post">
 									<fieldset>
 										<ul class="formFields list-unstyled">
 											<li class="row">
@@ -146,63 +145,28 @@ if($_GET["id2"]==0)
 												</div>
 											</li>
 											<li class="row">
-												<div class="col-md-6">
-													<label>City <span class="required small">(Required)</span></label>
-													<input type="text" class="form-control" name="city" value="" />
-												</div>
-												<div class="col-md-6">
-													<label>Country <span class="required small">(Required)</span></label>
-													<input type="text" class="form-control" name="country" value="" />
-												</div>
-											</li>
-											<li class="row">
-												<div class="col-md-6">
-													<label>Zip Code <span class="required small">(Required)</span></label>
-													<input type="text" class="form-control" name="zipcode" value="" />
-												</div>
-												<div class="col-md-6">
-													<label>Billing Method <span class="required small">(Required)</span></label>
-													<input type="text" class="form-control" name="method" value="" />
+												<div class="col-md-12">
+													<label>Subject <span class="required small">(Required)</span></label>
+													<input type="text" class="form-control" name="subject" value="" />
 												</div>
 											</li>
 											<li class="row">
 												<div class="col-md-12">
-													<label>Bank Account <span class="required small">(Required)</span></label>
-													<input type="text" class="form-control" name="account" value="" />
+													<label>Message <span class="required small">(Required)</span></label>
+													<textarea class="form-control"></textarea>
 												</div>
 											</li>
 											<li class="row">
 												<div class="col-md-12">
-													<label>Bank Address <span class="required small">(Required)</span></label>
-													<input type="text" class="form-control" name="address" value="" />
-												</div>
-											</li>
-											<li class="row">
-												<div class="col-md-12">
-													<div class="checkbox-container">
-														<label><input type="checkbox" name="a" class="styled" />First Choice</label>
-														<label><input type="checkbox" name="a" class="styled" />Second Choice</label>
-														<label><input type="checkbox" name="a" class="styled" />Third Choice</label>
-													</div>
-													<div class="checkbox-container">
-														<label><input type="radio" name="radio" class="styled"  checked="checked" /> First Choice</label>
-														<label><input type="radio" name="radio" class="styled" /> Second Choice</label>
-														<label><input type="radio" name="radio" class="styled" /> Third Choice</label>
-													</div>
-												</div>
-											</li>
-											<li class="row">
-												<div class="col-md-12">
-													<input type="submit" class="btn btn-primary btn-lg text-upper" name="save" value="Save" />
+													<input type="submit" class="btn btn-primary btn-lg text-upper" name="submit" value="Submit" />
 													<span class="required small">*Your email will never published.</span>
 												</div>
 											</li>
-											
 										</ul>
 									</fieldset>
 								</form>
 							</section>
-							<!-- END #contactForm -->
+							<!-- END #commentForm -->
 						</div>
 						<!-- END #page -->
 						
@@ -212,17 +176,9 @@ if($_GET["id2"]==0)
 								<!-- Sidebar recent popular posts -->
 								<!-- START TABS -->
 								<ul class="nav nav-tabs text-upper">
-									<?php
-									if($userID == 0)
-									{
-										echo '<li class="active"><a href="#popular-posts" data-toggle="tab">Requested Tour Detail</a></li>';
-									}
-									else if($tourID == 0)
-									{
-										echo '<li class="active"><a href="#popular-posts" data-toggle="tab">Requested Tour Detail</a></li>';
-									}
-									
-									?>
+									<li class="active"><a href="#popular-posts" data-toggle="tab">Popular</a></li>
+									<li><a href="#recent-posts" data-toggle="tab">Recent</a></li>
+									<li><a href="#recent-comments" data-toggle="tab">Comments</a></li>
 								</ul>
 								<!-- END TABS -->
 								
@@ -230,150 +186,36 @@ if($_GET["id2"]==0)
 								<div class="tab-content gray box-shadow1 clearfix marb30">
 									<!-- START TAB 1 -->
 									<div class="tab-pane active" id="popular-posts">
-										<?php 
-										if($userID == 0)
-									{
-										?>
-										<div class="tour-plans" style="padding:10px 10px 10px 10px;">
-								<div class="plan-image">
-								<?php
-								include_once('db.php');
-
-								$select1 = mysql_query("SELECT * FROM `tbl_tours` WHERE `tour_id` = $tourID && `status` = 1");
-								$row1 = mysql_fetch_assoc($select1);
-								$user_id=$row1["user_id"];
-								$tour_category_id = $row1["tour_category_id"];
-								$tour_title = $row1["tour_title"];
-								$tour_location = $row1["tour_location"];
-								$tour_description = $row1["tour_description"];
-								$tour_duration = $row1["tour_duration"];
-								$tour_price = $row1["tour_price"];
-								$start_point = $row1["start_point"];
-								$end_point = $row1["end_point"];
-								$inclusive = $row1["inclusive"];
-								$exclusive = $row1["exclusive"];
-								$cancelation_policy = $row1["cancelation_policy"];
-								$restrictions = $row1["restrictions"];
-								$notes = $row1["notes"];
-		
-								$select4Tvid = mysql_query("SELECT * FROM `tbl_tour_media_videos` WHERE `tour_id` = $tourID");
-								$select4Tpic = mysql_query("SELECT * FROM `tbl_tour_media_pictures` WHERE `tour_id` = $tourID");
-								$count4Tpic = mysql_num_rows($select4Tpic);
-								if ($count4Tpic==0)
-								{
-									echo '<img class="img-responsive" alt="featured Scroller" draggable="false" src="img/custom11.jpg"/>';
-								}
-								else
-								{
-									echo '<img class="img-responsive" alt="featured Scroller" draggable="false" src="showMediaPicture.php?id=' . mysql_result($select4Tpic, 0, 0) . '"/>';
-								}
-								?>
-									<!--<img class="img-responsive" src="img/custom2.jpg" alt="TajMahal" />-->
-									<div class="offer-box">
-										<div class="offer-top">
-											<!--<span class="ft-temp alignright">19&#730;c</span>-->
-											<span class="featured-cr text-upper" style="font-size:15px"><?php echo $tour_location ; ?></span>
-											<h2 class="featured-cy text-upper" style="font-size:15px"><?php echo $tour_title; ?></h2>
-										</div>
-										
-										<div class="offer-bottom">
-											<span class="featured-spe" style="font-size:15px"><?php echo $tour_price; ?></span>
-										</div>
-									</div>
-								</div>
-								
-								<div class="featured-btm box-shadow1">
-									<a class="ft-hotel text-upper" href="#"><?php echo $tour_duration; ?> Day Tour</a>
-									<a class="ft-plane text-upper" href="#"><?php $select2 = mysql_query("SELECT `tour_category_title` FROM `tbl_tour_category` WHERE `tour_category_id` = $tour_category_id && `status` = 1"); echo mysql_result($select2, 0, 0); ?></a>
-									<a class="ft-tea text-upper" href="#"><?php echo $inclusive; ?></a>
-                                    <?php echo '<a class="ft-tea text-upper" style="cursor: pointer;" onclick="bookTour(' .$tourID.')">Book the Tour</a>'; ?>
-								</div>
-								
-							</div>
-							<div style="text-align:justify; padding:10px 10px 10px 10px;">
-							<div class="row">
-							<div class="col-md-5">
-							Tour Description :
-							</div>
-							<div class="col-md-7">
-							<?php echo $tour_description; ?>
-							</div>
-							</div>
-							
-							<div class="row">
-							<div class="col-md-5">
-							Start Point :
-							</div>
-							<div class="col-md-7">
-							<?php echo $start_point; ?>
-							</div>
-							</div>
-							
-							<div class="row">
-							<div class="col-md-5">
-							End Point :
-							</div>
-							<div class="col-md-7">
-							<?php echo $end_point; ?>
-							</div>
-							</div>
-							
-							<div class="row">
-							<div class="col-md-5">
-							Inclusive :
-							</div>
-							<div class="col-md-7">
-							<?php echo $inclusive; ?>
-							</div>
-							</div>
-							
-							<div class="row">
-							<div class="col-md-5">
-							Exclusive :
-							</div>
-							<div class="col-md-7">
-							<?php echo $exclusive; ?>
-							</div>
-							</div>
-							
-							<div class="row">
-							<div class="col-md-5">
-							Cancelation Policy :
-							</div>
-							<div class="col-md-7">
-							<?php echo $cancelation_policy; ?>
-							</div>
-							</div>
-							
-							<div class="row">
-							<div class="col-md-5">
-							Restruction :
-							</div>
-							<div class="col-md-7">
-							<?php echo $restrictions; ?>
-							</div>
-							</div>
-							
-							<div class="row">
-							<div class="col-md-5">
-							Note :
-							</div>
-							<div class="col-md-7">
-							<?php echo $notes; ?>
-							</div>
-							</div>
-							</div>
-							<div style="text-align:justify; padding:10px 10px 10px 10px;">
-							<input type="button" class="pull-right btn btn-sm btn-warning" value="Detail" /><br><br>
-							</div>
-										<?php
-									}
-									else if($tourID == 0)
-									{
-										echo 'No Guide Details';
-									}
-										?>
-										
+										<ul class="rc-posts-list list-unstyled">
+											<li>
+												<span class="rc-post-image">
+													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 2" />
+												</span>
+												<h5><a href="#">Limbaugh: Does 'Dark Knight Rise have it Bomb Found...</a></h5>
+												<span class="rc-post-date small">January 18, 2014</span>
+											</li>
+											<li>
+												<span class="rc-post-image">
+													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 4" />
+												</span>
+												<h5><a href="#">Shares suspende am Bankiaid 'Gloomy Forecast'</a></h5>
+												<span class="rc-post-date small">January 11, 2014</span>
+											</li>
+											<li>
+												<span class="rc-post-image">
+													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 3" />
+												</span>
+												<h5><a href="#">Shares suspende am Bankiaid 'Gloomy Forecast'</a></h5>
+												<span class="rc-post-date small">January 15, 2014</span>
+											</li>
+											<li class="last-rc-post">
+												<span class="rc-post-image">
+													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 1" />
+												</span>
+												<h5><a href="#">Apple Fails to Fix iPhone Daylight Saving Time Alarm Bug</a></h5>
+												<span class="rc-post-date small">January 20, 2014</span>
+											</li>
+										</ul>
 									</div>
 									<!-- END TAB 1 -->
 									
@@ -646,16 +488,12 @@ if($_GET["id2"]==0)
 		</div>
 		<!-- END #wrapper -->
 
-		
 				<!-- javascripts -->
 		<script type="text/javascript" src="js/modernizr.custom.17475.js"></script>
 
 		<script type="text/javascript" src="js/jquery.min.js"></script>
 		<script type="text/javascript" src="bs3/js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="js/check-radio-box.js"></script>
 		<script type="text/javascript" src="js/script.js"></script>
-		<script type="text/javascript" src="js/styleswitcher.js"></script>
-
 		<!--[if lt IE 9]>
 			<script type="text/javascript" src="js/html5shiv.js"></script>
 		<![endif]-->
