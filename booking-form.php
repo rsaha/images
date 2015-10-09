@@ -1,6 +1,15 @@
 <?php
-echo "Guide = " . $_GET["id1"] . "<br>";
-echo "Tour = " . $_GET["id2"];
+if($_GET["id1"] == 0)
+{
+	$tourID=$_GET["id2"];
+	$userID=0;
+}
+if($_GET["id2"]==0)
+{
+	$userID=$_GET["id1"];
+	$tourID=0;
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -203,9 +212,17 @@ echo "Tour = " . $_GET["id2"];
 								<!-- Sidebar recent popular posts -->
 								<!-- START TABS -->
 								<ul class="nav nav-tabs text-upper">
-									<li class="active"><a href="#popular-posts" data-toggle="tab">Popular</a></li>
-									<li><a href="#recent-posts" data-toggle="tab">Recent</a></li>
-									<li><a href="#recent-comments" data-toggle="tab">Comments</a></li>
+									<?php
+									if($userID == 0)
+									{
+										echo '<li class="active"><a href="#popular-posts" data-toggle="tab">Requested Tour Detail</a></li>';
+									}
+									else if($tourID == 0)
+									{
+										echo '<li class="active"><a href="#popular-posts" data-toggle="tab">Requested Tour Detail</a></li>';
+									}
+									
+									?>
 								</ul>
 								<!-- END TABS -->
 								
@@ -213,36 +230,150 @@ echo "Tour = " . $_GET["id2"];
 								<div class="tab-content gray box-shadow1 clearfix marb30">
 									<!-- START TAB 1 -->
 									<div class="tab-pane active" id="popular-posts">
-										<ul class="rc-posts-list list-unstyled">
-											<li>
-												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 2" />
-												</span>
-												<h5><a href="#">Limbaugh: Does 'Dark Knight Rise have it Bomb Found...</a></h5>
-												<span class="rc-post-date small">January 18, 2014</span>
-											</li>
-											<li>
-												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 4" />
-												</span>
-												<h5><a href="#">Shares suspende am Bankiaid 'Gloomy Forecast'</a></h5>
-												<span class="rc-post-date small">January 11, 2014</span>
-											</li>
-											<li>
-												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 3" />
-												</span>
-												<h5><a href="#">Shares suspende am Bankiaid 'Gloomy Forecast'</a></h5>
-												<span class="rc-post-date small">January 15, 2014</span>
-											</li>
-											<li class="last-rc-post">
-												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 1" />
-												</span>
-												<h5><a href="#">Apple Fails to Fix iPhone Daylight Saving Time Alarm Bug</a></h5>
-												<span class="rc-post-date small">January 20, 2014</span>
-											</li>
-										</ul>
+										<?php 
+										if($userID == 0)
+									{
+										?>
+										<div class="tour-plans" style="padding:10px 10px 10px 10px;">
+								<div class="plan-image">
+								<?php
+								include_once('db.php');
+
+								$select1 = mysql_query("SELECT * FROM `tbl_tours` WHERE `tour_id` = $tourID && `status` = 1");
+								$row1 = mysql_fetch_assoc($select1);
+								$user_id=$row1["user_id"];
+								$tour_category_id = $row1["tour_category_id"];
+								$tour_title = $row1["tour_title"];
+								$tour_location = $row1["tour_location"];
+								$tour_description = $row1["tour_description"];
+								$tour_duration = $row1["tour_duration"];
+								$tour_price = $row1["tour_price"];
+								$start_point = $row1["start_point"];
+								$end_point = $row1["end_point"];
+								$inclusive = $row1["inclusive"];
+								$exclusive = $row1["exclusive"];
+								$cancelation_policy = $row1["cancelation_policy"];
+								$restrictions = $row1["restrictions"];
+								$notes = $row1["notes"];
+		
+								$select4Tvid = mysql_query("SELECT * FROM `tbl_tour_media_videos` WHERE `tour_id` = $tourID");
+								$select4Tpic = mysql_query("SELECT * FROM `tbl_tour_media_pictures` WHERE `tour_id` = $tourID");
+								$count4Tpic = mysql_num_rows($select4Tpic);
+								if ($count4Tpic==0)
+								{
+									echo '<img class="img-responsive" alt="featured Scroller" draggable="false" src="img/custom11.jpg"/>';
+								}
+								else
+								{
+									echo '<img class="img-responsive" alt="featured Scroller" draggable="false" src="showMediaPicture.php?id=' . mysql_result($select4Tpic, 0, 0) . '"/>';
+								}
+								?>
+									<!--<img class="img-responsive" src="img/custom2.jpg" alt="TajMahal" />-->
+									<div class="offer-box">
+										<div class="offer-top">
+											<!--<span class="ft-temp alignright">19&#730;c</span>-->
+											<span class="featured-cr text-upper" style="font-size:15px"><?php echo $tour_location ; ?></span>
+											<h2 class="featured-cy text-upper" style="font-size:15px"><?php echo $tour_title; ?></h2>
+										</div>
+										
+										<div class="offer-bottom">
+											<span class="featured-spe" style="font-size:15px"><?php echo $tour_price; ?></span>
+										</div>
+									</div>
+								</div>
+								
+								<div class="featured-btm box-shadow1">
+									<a class="ft-hotel text-upper" href="#"><?php echo $tour_duration; ?> Day Tour</a>
+									<a class="ft-plane text-upper" href="#"><?php $select2 = mysql_query("SELECT `tour_category_title` FROM `tbl_tour_category` WHERE `tour_category_id` = $tour_category_id && `status` = 1"); echo mysql_result($select2, 0, 0); ?></a>
+									<a class="ft-tea text-upper" href="#"><?php echo $inclusive; ?></a>
+                                    <?php echo '<a class="ft-tea text-upper" style="cursor: pointer;" onclick="bookTour(' .$tourID.')">Book the Tour</a>'; ?>
+								</div>
+								
+							</div>
+							<div style="text-align:justify; padding:10px 10px 10px 10px;">
+							<div class="row">
+							<div class="col-md-5">
+							Tour Description :
+							</div>
+							<div class="col-md-7">
+							<?php echo $tour_description; ?>
+							</div>
+							</div>
+							
+							<div class="row">
+							<div class="col-md-5">
+							Start Point :
+							</div>
+							<div class="col-md-7">
+							<?php echo $start_point; ?>
+							</div>
+							</div>
+							
+							<div class="row">
+							<div class="col-md-5">
+							End Point :
+							</div>
+							<div class="col-md-7">
+							<?php echo $end_point; ?>
+							</div>
+							</div>
+							
+							<div class="row">
+							<div class="col-md-5">
+							Inclusive :
+							</div>
+							<div class="col-md-7">
+							<?php echo $inclusive; ?>
+							</div>
+							</div>
+							
+							<div class="row">
+							<div class="col-md-5">
+							Exclusive :
+							</div>
+							<div class="col-md-7">
+							<?php echo $exclusive; ?>
+							</div>
+							</div>
+							
+							<div class="row">
+							<div class="col-md-5">
+							Cancelation Policy :
+							</div>
+							<div class="col-md-7">
+							<?php echo $cancelation_policy; ?>
+							</div>
+							</div>
+							
+							<div class="row">
+							<div class="col-md-5">
+							Restruction :
+							</div>
+							<div class="col-md-7">
+							<?php echo $restrictions; ?>
+							</div>
+							</div>
+							
+							<div class="row">
+							<div class="col-md-5">
+							Note :
+							</div>
+							<div class="col-md-7">
+							<?php echo $notes; ?>
+							</div>
+							</div>
+							</div>
+							<div style="text-align:justify; padding:10px 10px 10px 10px;">
+							<input type="button" class="pull-right btn btn-sm btn-warning" value="Detail" /><br><br>
+							</div>
+										<?php
+									}
+									else if($tourID == 0)
+									{
+										echo 'No Guide Details';
+									}
+										?>
+										
 									</div>
 									<!-- END TAB 1 -->
 									

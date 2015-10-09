@@ -19,6 +19,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 		
 		<!-- favicon -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 		<link rel="icon" href="favicon.ico" type="image/x-icon" />
 		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 		<link rel="stylesheet" type="text/css" href="bs3/css/bootstrap.css" media="all" /> 
@@ -85,13 +86,19 @@ ul.rating {
 			?>
 			
 			<!-- START #page-header -->
-			<div id="header-banner">
-				<div class="">
+			<div id="" style="color:#ff845e;">
+				
 					<div class="container">
-						<div class="row">
-							<section class="col-md-12">
-								<h1 class="text-upper">{{allguides.Name}}&nbsp;&nbsp;<span star-rating rating-value="allguides.ReviewSummary.Star" ></span></h1>	
-							</section>
+						<div class="row col-md-12 col-xs-12">
+							
+							
+							
+							
+								<h1 class="text-upper"><i class="fa fa-user-secret" style="color:black;"></i>&nbsp;&nbsp;{{allguides.Name}}&nbsp;&nbsp;<span star-rating rating-value="allguides.ReviewSummary.Star" ></span></h1>	
+							
+							
+							
+							
 							
 							<!-- breadcrumbs -->
 						<!-- 	<section class="col-sm-6">
@@ -103,7 +110,7 @@ ul.rating {
 							</section> -->
 						</div>
 					</div>
-				</div>
+				
 			</div>
 			<!-- END #page-header -->
 			
@@ -231,68 +238,63 @@ ul.rating {
 								<!-- START TAB CONTENT -->
 								<div class="tab-content gray box-shadow1 clearfix marb30">
 									<!-- START TAB 1 -->
-									<form action="booking-form.php" method="post">
-									<div class="tab-pane active" id="popular-posts" ng-controller="guideControl">
+									
+									<div class="tab-pane active" id="popular-posts" ng-controller="TourControl">
 										<ul class="rc-posts-list list-unstyled">
-											<li ng-repeat="x in allguides" ng-show="$index<2">
+											<li ng-repeat="x in alltours" ng-show="$index<2">
 												<span class="rc-post-image">
-													<img class="img-responsive" src="img/tour_1.jpg" alt="Tour 1" />
+													<img class="img-responsive" src="{{x.Media.Image[0]}}" alt="Tour 1" />
 												</span>
 												<h5><a href="#">{{x.Title}}</a></h5>
-												<span class="rc-post-date small">Starting Price INR 1500</span><br/>
-                                                <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Book" />
+												<span class="rc-post-date small">Starting Price&nbsp;{{x.Price}}</span><br/>
+                                               <a href="booking-form.html"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Book" /></a>
 											</li>
 											
 											<li>
 												<span class="rc-post-image">
 													<img class="img-responsive" src="img/tour_3.jpg" alt="Tour 3" />
 												</span>
-												<h5><a href="#">Tour 3 description comes here</a></h5>
+												<h5><a href="#">Tour 3 </a></h5>
 												<span class="rc-post-date small">Starting Price INR 1500</span><br/>
-                                                <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Book" />
+                                               <a href="booking-form.html"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Book" /> </a>
 											</li>
 											<li class="last-rc-post">
 												<span class="rc-post-image">
 													<img class="img-responsive" src="img/tour_4.jpg" alt="Tour 4" />
 												</span>
-												<h5><a href="#">Tour 4 description comes here</a></h5>
+												<h5><a href="#">Tour 4 </a></h5>
 												<span class="rc-post-date small">Starting Price INR 1500</span><br/>
-                                                <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Book" />
+                                               <a href="booking-form.html"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Book" /></a>
 											</li>
 										</ul>
 									</div>
-									</form>
+									
 									<!-- END TAB 1 -->
 									
 									<!-- START TAB 2 -->
-									<div class="tab-pane" id="recent-posts">
+									<div class="tab-pane" id="recent-posts" ng-controller="TourControl">
 										<ul class="rc-posts-list list-unstyled">
-											<li>
+											<li ng-repeat="x in alltours" ng-show="$index<2">
 												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 1" />
+													<img class="img-responsive" src="{{x.Media.Image[0]}}" alt="Recent Post 1" />
 												</span>
-												<h5><a href="#">Apple Fails to Fix iPhone Daylight Saving Time Alarm Bug</a></h5>
-												<span class="rc-post-date small">January 20, 2014</span>
+												<span star-rating rating-value="x.Reviews.OverallRating"  class="" ></span>	
+												<span class="">{{x.Reviews.ReviewCount}} reviews</span>
+												
 											</li>
-											<li>
-												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 2" />
-												</span>
-												<h5><a href="#">Limbaugh: Does 'Dark Knight Rise have it Bomb Found...</a></h5>
-												<span class="rc-post-date small">January 18, 2014</span>
-											</li>
+											
 											<li>
 												<span class="rc-post-image">
 													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 3" />
 												</span>
-												<h5><a href="#">Shares suspende am Bankiaid 'Gloomy Forecast'</a></h5>
-												<span class="rc-post-date small">January 15, 2014</span>
+												<h5><a href="#">5 star rating..upcoming</a></h5>
+												<span class="rc-post-date small">January 15, 2016</span>
 											</li>
 											<li class="last-rc-post">
 												<span class="rc-post-image">
 													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 4" />
 												</span>
-												<h5><a href="#">Shares suspende am Bankiaid 'Gloomy Forecast'</a></h5>
+												<h5><a href="#">5 star rating..upcoming</a></h5>
 												<span class="rc-post-date small">January 11, 2014</span>
 											</li>
 										</ul>

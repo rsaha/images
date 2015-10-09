@@ -23,6 +23,7 @@
 		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 		
 		<!-- bootstrap 3 stylesheets -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="bs3/css/bootstrap.css" media="all" />
 		<!-- template stylesheet -->
 		<link rel="stylesheet" type="text/css" href="css/styles.css" media="all" />
@@ -87,12 +88,13 @@ ul.rating {
 			
 			?>
 			<!-- START #page-header -->
-			<div id="header-banner">
-				<div class="banner-overlay">
+			<div id="" style="color:#ff845e;">
+				
 					<div class="container">
 						<div class="row">
 							<section class="col-sm-6">
-								<h1 class="text-upper">{{tour.Title}}</h1>
+								
+								<h1 class="text-upper"><i class="fa fa-plane" style="color:black;"></i>&nbsp;&nbsp;{{tour.Title}}</h1>	
 							</section>
 							
 							<!-- breadcrumbs -->
@@ -105,7 +107,7 @@ ul.rating {
 							</section> -->
 						</div>
 					</div>
-				</div>
+				
 			</div>
 			<!-- END #page-header -->
 			
@@ -118,7 +120,7 @@ ul.rating {
 							<!-- START .tour-plans -->
 							<div class="tour-plans">
 								<div class="plan-image">
-									<img class="img-responsive" src="img/custom2.jpg" alt="TajMahal" />
+									<img class="img-responsive" src="{{tour.Media.Image[0]}}" alt="TajMahal" />
 									<div class="offer-box">
 										<div class="offer-top">
 											<span class="ft-temp alignright">19&#730;c</span>
@@ -134,14 +136,15 @@ ul.rating {
 								</div>
 								
 								<div class="featured-btm box-shadow1">
-									<a class="ft-hotel text-upper" href="#">{{tour.Guides}}</a>
-									<a class="ft-plane text-upper" href="#">{{tour.Category}}</a>
-									<a class="ft-tea text-upper" href="#">{{tour.Inclusive}}</a>
-                                    <a class="ft-tea text-upper" href="booking-form.html">{{tour.Exclusive}}</a>
+									
+									<a class="ft-plane text-upper" style="font-weight:bold;" href="#">{{tour.Category}}</a>
+									<a class="ft-tea text-upper" style="font-weight:bold;" href="#">{{tour.Inclusive}}</a>
+                                    <a class="ft-hotel text-upper" style="font-weight:bold;" href="booking-form.html">From:&nbsp;&nbsp;{{tour.StartPoint}}&nbsp;&nbsp;-&nbsp;&nbsp;To:&nbsp;&nbsp;{{tour.EnPoint}}</a>
+									
 								</div>
 								
 								<h2 class="text-upper">Tour Information</h2>
-								<p>{{tour.Description}}</p>
+								<p>"{{tour.Description}}"</p>
 								<p><h5>Start Point : {{tour.StartPoint}}&nbsp&nbsp&nbsp&nbsp&nbspEnd Point : {{tour.EnPoint}}</h5></p>
 								
 							</div>
@@ -162,7 +165,7 @@ ul.rating {
 									<!-- <ul class="plans-list list-unstyled">
 										<li> -->
 										<div class="col-md-4" style="padding:15px 15px 15px 15px">
-											<img class="img-responsive" src="img/custom2.jpg" alt="Day 1" />
+											<img class="img-responsive" src="{{tour.Media.Image[0]}}" alt="Day 1" />
 											<div class="plan-info">
 												<h4 class="text-upper">{{tour.Itineary.Duration}}</h4>
 												<p ng-repeat="x in tour.Itineary.Day.Spots"><span>{{x.Spot}}</span></p>
@@ -196,18 +199,18 @@ ul.rating {
 										<table class="table">
 											<thead>
 												<tr>
-													<th>Spot</th>
-													<th>Description</th>
 													<th>Map Location</th>
+													<th>Description</th>
+													<th>Spot</th>
 													<th>Duration</th>
 													<th>Entry Fees</th>
 												</tr>
 											</thead>
 											<tbody ng-repeat="x in tour.Itineary.Day.Spots">
 												<tr class="dark-gray">
-													<td>{{x.Spot}}</td>
+													<td><a href="#">{{x.Spot}}({{x.MapLocation.Latitude +', '+ x.MapLocation.Longitude}})</a></td>
 													<td>{{x.Description}}</td>
-													<td>{{x.MapLocation.Latitude +', '+ x.MapLocation.Longitude}}</td>
+													<td>{{x.Spot}}</td>
 													<td>{{x.Duration}}</td>
 													<td>{{x.Entreefees}}</td>
 												</tr>
@@ -272,14 +275,14 @@ ul.rating {
 								<!-- START TAB CONTENT -->
 								<div class="tab-content gray box-shadow1 clearfix marb30">
 									<!-- START TAB 1 -->
-									<div class="tab-pane active" id="popular-posts">
+									<div class="tab-pane active" id="popular-posts" ng-control="guidescontrol">
 										<ul class="rc-posts-list list-unstyled">
-											<li>
+											<li ng-repeat="x in guides" ng-show="$index<4>
 												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 2" />
+													<img class="img-responsive" src="{{x.Photo}}" alt="Recent Post 2" />
 												</span>
-												<h5><a href="#">Limbaugh: Does 'Dark Knight Rise have it Bomb Found...</a></h5>
-												<span class="rc-post-date small">January 18, 2014</span>
+												<h5><a href="#">{{x.Territory}}</a></h5>
+												<span class="rc-post-date small">Speciality{{x.Speciality}}</span>
 											</li>
 											<li>
 												<span class="rc-post-image">
@@ -370,8 +373,8 @@ ul.rating {
 								<!-- Sidebar Flickr Gallery -->
 								<h3 class="text-upper">Tour Gallery</h3>
 								<ul class="flickr-gal list-unstyled">
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
+									<li><img class="img-responsive" src="{{tour.Media.Image[0]}}" alt="Flickr Photo" /></li>
+									<li><img class="img-responsive" src="{{tour.Media.Image[1]}}" alt="Flickr Photo" /></li>
 									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
 									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
 									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>

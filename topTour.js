@@ -19,7 +19,18 @@ app.controller('toursCtrl',['$scope','$http', function($scope, $http) {
 			
 			
 }]); 
-
+app.controller('guidescontrol',['$scope','$http', function($scope, $http) {
+    $http.get("http://130.211.123.212/app/guides")
+    .success(function (response) {
+		$scope.guides = response.Guides;
+	   
+		})
+	.error(function() {
+				$scope.data = "error in fetching data";
+			});
+			
+			
+}]);
 app.controller('tourDetailCtrl',['$scope','$http', function($scope, $http) {
     $http.get("http://130.211.123.212/app/tour?tourid=50001")
     .success(function (response) {
