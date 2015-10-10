@@ -140,19 +140,23 @@ ul.rating {
 				href="top-destinations-listview-sidebar.html" title="">Destinations</a> </li>
                 <li><a
 				href="#" title="">Tours</a> </li>
-		
-									</ul> </nav> </div> </div> </div>
-					<div class="main-contents col-md-8 col-md-offset-2" id="searchDiv">
-					<form class="plan-tour">
-						<div class="top-fields"><br>
-						<div class="row">								
-						<div class="col-md-8 col-md-offset-1">
-						<input type="text" class="form-control" style="background-color:white;" ng-model="search" placeholder="What is in your mind?" />
-						</div> 
-						<div class="col-md-1" >
-						<span class="form-control" style="height:50px;"><i class="fa fa-search"></i></span>
-						<!-- <input type="submit" class="form-control" style="background-color:#ff845e;" class="btn btn-primary" value="Search" />  -->
-						</div> 
+				</ul> </nav> </div> </div> </div>
+					<br><br><br><br><br><br><br>
+					 </div></header>
+									 <!-- END #main-header -->
+									 <!-- END header -->
+					 <div>
+					 <div class="main-contents col-md-6 col-md-offset-2" id="searchDiv">
+					 <form class="plan-tour">
+						<div class="" style="background-color:#f1f1f1;" >
+						<div class="row">
+						<br>
+						<div class="col-md-10 col-md-offset-1 input-group">
+						<input type="text" class="form-control" style="background-color:white;" ng-model="search" placeholder="Where to go?" />
+						<span class="input-group-addon">
+						<i class="fa fa-search"></i>
+						</span>
+						</div>
 						</div>
 						<div class="row">
 						<div class="col-md-7 col-md-offset-1"> <br>
@@ -184,7 +188,6 @@ ul.rating {
 			<!-- START .main-contents --> 
         <div class="main-contents">
 			<div class="container" id="home-page">
-               <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 					<!-- START Search Container --> 
                   
 					<!-- END Search Container -->
@@ -193,14 +196,15 @@ ul.rating {
 
 					<div class="carousel" ng-show="checkboxModel.value1"> 
 					  <ul class="slides">
-					  <li > 
+					  <li> 
 					   
 					 <div class="row"  ng-controller="toursCtrl"> 
 						
 					 <div class="col-md-3" ng-repeat="x in tours | filter:search" ng-show="$index<4"> 
 							<a href="top-tours-listview-sidebar.html">
 							<div class="ft-item"> 
-							<span class="ft-image"><img src="{{x.Media.Image[0]}}" alt="Popular Tours" /> </span> 
+
+							<span class="ft-image"><img src="img/custom11.jpg" alt="Popular Tours" /> </span> 
 							   <div class="ft-data">
 							     <span  style="color:black;" class="text-upper fa fa-pagelines" href="#">&nbsp;&nbsp;{{x.Category}}</span> &nbsp;&nbsp;&nbsp;
 								 <!-- <span style="color:black;" class="fa text-upper">&nbsp;&nbsp;LOCATION :</span> &nbsp;&nbsp; -->

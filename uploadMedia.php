@@ -1,5 +1,4 @@
 <?php
-<?php
 session_start();
 function getExtension($str) 
 	{
@@ -9,6 +8,7 @@ function getExtension($str)
 		$ext = substr($str,$i+1,$l);
 		return $ext;
 	}
+	
 $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 if((isset($_SESSION['userId'])) && (($_SESSION['phase'] == "signin") || ($_SESSION['phase'] == "reg")))
 {
@@ -63,8 +63,8 @@ if((isset($_SESSION['userId'])) && (($_SESSION['phase'] == "signin") || ($_SESSI
 
 				list($width,$height)=getimagesize($uploadedfile);
 
-				$newwidth=500;
-				$newheight=500; //($height/$width)*$newwidth;
+				$newwidth=400;
+				$newheight=203; //($height/$width)*$newwidth;
 				$tmp=imagecreatetruecolor($newwidth,$newheight);
 
 				imagecopyresampled($tmp, $src, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);

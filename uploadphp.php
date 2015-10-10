@@ -100,12 +100,29 @@
 					{
 						$errormsg="Cover Picture uploaded.";
 						error_log($errormsg,0);
-						header('Location:guide_registration_2.php?id=' . $userid .'');
+						if($_SESSION['phase'] == "signin") //$_SESSION['phase'] == "reg")
+						{
+							header('Location:guide_profile_edit.php?id=' . $userid .'');
+						}
+						else
+						{
+							header('Location:guide_registration_2.php?id=' . $userid .'');
+						}
+						exit;
 					}
 					else
 					{
 						$errormsg="Cover Picture could not uploaded.";
 						error_log($errormsg,0);
+						if($_SESSION['phase'] == "signin") //$_SESSION['phase'] == "reg")
+						{
+							header('Location:guide_profile_edit.php?id=' . $userid .'');
+						}
+						else
+						{
+							header('Location:guide_registration_2.php?id=' . $userid .'');
+						}
+						exit;
 					}
 				}
 			}
@@ -197,12 +214,29 @@
 			{
 			$errormsg="Profile Picture Image uploaded.";
 			error_log($errormsg,0);
-			header('Location:guide_registration_2.php?id=' . $userid .'');
+			if($_SESSION['phase'] == "signin") //$_SESSION['phase'] == "reg")
+			{
+				header('Location:guide_profile_edit.php?id=' . $userid .'');
+			}
+			else
+			{
+				header('Location:guide_registration_2.php?id=' . $userid .'');
+			}
+			exit;
 			}
 			else
 			{
 			$errormsg="Profile Picture could not uploaded.";
 			error_log($errormsg,0);
+			if($_SESSION['phase'] == "signin") //$_SESSION['phase'] == "reg")
+			{
+				header('Location:guide_profile_edit.php?id=' . $userid .'');
+			}
+			else
+			{
+				header('Location:guide_registration_2.php?id=' . $userid .'');
+			}
+			exit;
 			}
 			}
 			}
@@ -293,14 +327,28 @@
 			{
 			$errormsg="Licence Image uploaded.";
 			error_log($errormsg,0);
-			header('Location:guide_registration_2.php?id=' . $userid .'');
+			if($_SESSION['phase'] == "signin") //$_SESSION['phase'] == "reg")
+			{
+				header('Location:guide_profile_edit.php?id=' . $userid .'');
+			}
+			else
+			{
+				header('Location:guide_registration_2.php?id=' . $userid .'');
+			}
 			exit;
 			}
 			else
 			{
 			$errormsg="Licence Image could not uploaded.";
 			error_log($errormsg,0);
-			header('Location:guide_registration_2.php?id=' . $userid .'');
+			if($_SESSION['phase'] == "signin") //$_SESSION['phase'] == "reg")
+			{
+				header('Location:guide_profile_edit.php?id=' . $userid .'');
+			}
+			else
+			{
+				header('Location:guide_registration_2.php?id=' . $userid .'');
+			}
 			exit;
 			}
 			}

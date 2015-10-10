@@ -1,69 +1,55 @@
-<?php
-session_start();
-
-
-if(isset($_POST["searchString"]))
-{
-	$searchString = $_POST["searchString"];
-	if($_POST["searchString"]!="")
-	{
-	$searchPerameter1=""; $searchPerameter2=""; $searchPerameter3="";
-	if(isset($_POST["in_tour"]) && $_POST["in_tour"] == 1)
-	{
-		
-		$searchPerameter1 = "Tours";
-		//echo $searchString . " in " . $searchPerameter1 . "<br>";
-	}
-	if(isset($_POST["in_guide"]) && $_POST["in_guide"] == 1)
-	{
-		$searchPerameter2 = "Guides";
-		//echo $searchString . " in " . $searchPerameter2 . "<br>";
-	}
-	if(isset($_POST["in_destination"]) && $_POST["in_destination"] == 1)
-	{
-		$searchPerameter3 = "Destinations";
-		//echo $searchString . " in " . $searchPerameter3 . "<br>";
-	}
-	}
-}
-
-
-?>
+<!DOCTYPE html> 
 <html lang="en" dir="ltr">
 
 	<!-- START head --> <head> <!-- Site meta charset --> <meta
 	charset="UTF-8">
 
-		<!-- title --> <title>Home | Guided Gateway - Authentic
-		Affordable Travel</title>
+		<!-- title --> 
+        <title>Home | Guided Gateway - Authentic Affordable Travel</title>
 
-		<!-- meta description --> <meta name="description" content="Authentic Afordable Travel in India" />
+		<!-- meta description --> 
+        <meta name="description" content="Authentic Afordable Travel in India" />
 
-		<!-- meta keywords --> <meta name="keywords" content="travel
-		guide tourism india" />
+		<!-- meta keywords --> 
+        <meta name="keywords" content="travel guide tourism india" />
 
-		<!-- meta viewport --> <meta name="viewport"
-		content="width=device-width, initial-scale=1, maximum-scale=1"
-		/>
-		<!-- favicon --> 
-		<link rel="icon" href="favicon.ico" type="image/x-icon" /> 
-		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+		<!-- meta viewport --> 
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+        <meta name="google-site-verification" content="97KdXLMw3XyVYxOKnUXPHKQDz0CTdasQNkgxbkF7KHw" />
+		<!-- favicon --> <link rel="icon" href="favicon.ico"
+		type="image/x-icon" /> <link rel="shortcut icon"
+		href="favicon.ico" type="image/x-icon" />
 
-		<!-- bootstrap 3 stylesheets --> 
-		<link rel="stylesheet" type="text/css" href="bs3/css/bootstrap.css" media="all" /> 
-		<!-- template stylesheet --> 
-		<link rel="stylesheet" type="text/css" href="css/styles.css" media="all" />
+		<!-- bootstrap 3 stylesheets --> <link rel="stylesheet"
+		type="text/css" href="bs3/css/bootstrap.css" media="all" /> <!--
+		template stylesheet --> <link rel="stylesheet" type="text/css"
+		href="css/styles.css" media="all" />
 
-		<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" /> 
-		<!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
-		<link rel="stylesheet" type="text/css" href="js/rs-plugin/css/settings.css" media="all" />
-		<!-- responsive stylesheet --> 
-		<link rel="stylesheet" type="text/css" href="css/responsive.css" media="all" /> 
-		<!-- Load Fonts via Google Fonts API --> 
-		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Karla:400,700,400italic,700italic" /> 
-		<!-- color scheme --> 
-		<link rel="stylesheet" type="text/css" href="css/colors/color3.css" title="color3" />
+		<link rel="stylesheet" href="css/flexslider.css" type="text/css"
+		media="screen" /> <!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
+		<link rel="stylesheet" type="text/css"
+		href="js/rs-plugin/css/settings.css" media="all" /> <!--
+		responsive stylesheet --> <link rel="stylesheet" type="text/css"
+		href="css/responsive.css" media="all" /> <!-- Load Fonts via
+		Google Fonts API --> <link rel="stylesheet" type="text/css"
+		href="http://fonts.googleapis.com/css?family=Karla:400,700,
+		400italic,700italic" /> <!-- color scheme --> <link
+		rel="stylesheet" type="text/css" href="css/colors/color3.css"
+		title="color3" />
 
+ <link rel="stylesheet" href="css/ideal-image-slider.css">
+    <style media="screen">
+    #slider {
+        max-width: 100%;
+        margin: auto;
+		
+    }
+    </style>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+	<script src= "js/angular.min.js"></script>
+    <script src="js/ideal-image-slider.js"></script>
+<script src="myDestination.js"></script>
+<!-- <script src="myGuideDetail.js"></script> -->
 <!-- Google Analytics -->
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -75,669 +61,290 @@ if(isset($_POST["searchString"]))
   ga('send', 'pageview');
 
 </script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+	 
 
+		
+	<style type="text/css">
+	#searchDiv{
+	top: 280px;
+	position: absolute;
+	
+	z-index:2; 
+	height:100px;
+	
+	}
+	
+		
+.rating {
+    color: #a9a9a9;
+    margin: 0;
+    padding: 0;
+}
+ul.rating {
+    display: inline-block;
+}
+.rating li {
+    list-style-type: none;
+    display: inline-block;
+    padding: 0px;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+	margin-top: -6px;
+    font-size: 14px;
+}
+.rating .filled {
+    color: #ff845e;
+}
+
+	</style>
+	
 	</head> <!-- END head -->
 
-	<!-- START body --> <body> <!-- START #wrapper --> <div id="wrapper"> 
+	<!-- START body --> <body ng-app="myDestinations" ng-controller="ExampleController">
+		
+	<!-- START #wrapper --> <div id="wrapper"> <!-- START header --> 
+	
 	
 	<?php 
-	
-if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "signin"))
-			{
-				include_once('MasterHeaderAfterLogin.php'); 
-			}
-			else
-			{
-				include_once('MasterHeader.php'); 
-			}
-	?>
-
-			<div id="main-slider">
-				<div id="content-slider">
-					<ul>
-						<!-- START Slide 1 -->
-						<li data-transition="fade" data-slotamount="5" data-masterspeed="700">
-							<img src="img/tour_1.jpg" alt="Slider Image 1" data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat" />
-							
-							<!-- LAYER NR. 1 -->
-							<div class="caption caption-yellow sft stt headline text-upper"
-								data-x="20"
-								data-y="150"
-								data-speed="600"
-								data-start="2000"
-								data-easing="Power3.easeOut"
-								data-endspeed="400"
-								data-endeasing="Power4.easeIn"
-								data-captionhidden="off"
-								style="z-index:6;font-size:18px;">Starting From 1200 $ Only
-							</div>
-							
-							<!-- LAYER NR. 2 -->
-							<div class="caption caption-white sfr stl slider-heading text-upper"
-								data-x="20"
-								data-y="185"
-								data-speed="1000"
-								data-start="1800"
-								data-easing="Power2.easeOut"
-								data-endspeed="600"
-								data-endeasing="Power3.easeIn"
-								data-captionhidden="off"
-								style="z-index:6;font-size:48px; ">Luxury Journeys
-							</div>
-							
-							<!-- LAYER NR. 3 -->
-							<div class="caption caption-black sfb stb headline text-upper"
-								data-x="20"
-								data-y="263"
-								data-speed="600"
-								data-start="1500"
-								data-easing="Power4.easeOut"
-								data-endspeed="500"
-								data-endeasing="Power1.easeIn"
-								data-captionhidden="off"
-								style="z-index:6">Crafting individual and unique itineraries to every corner of Japan.<br />
-								Peruse the possibilities here.
-							</div>
-						</li>
-						<!-- END Slide 1 -->
+			
+				include('MasterTopHeader.php'); 
+			
+			
+			?>
+			<div>
+					 <div class="main-contents col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1" id="searchDiv">
+					 <form class="" style="background-color:#f1f1f1;">
 						
-						<!-- START Slide 2 -->
-						<li data-transition="fade" data-slotamount="7" data-masterspeed="1000">
-							<img src="img/tour_2.jpg" alt="Slider Image 2"  data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat" />
-							
-							<!-- LAYER NR. 1 -->
-							<div class="caption caption-yellow sfl str headline text-upper"
-								data-x="20"
-								data-y="150"
-								data-speed="600"
-								data-start="2000"
-								data-easing="Bounce.easeInOut"
-								data-endspeed="400"
-								data-endeasing="Bounce.easeOut"
-								data-captionhidden="off"
-								style="z-index:6;font-size:18px;">Starting From 1200 $ Only
-							</div>
-							
-							<!-- LAYER NR. 2 -->
-							<div class="caption caption-white sft stb slider-heading text-upper"
-								data-x="20"
-								data-y="185"
-								data-speed="500"
-								data-start="800"
-								data-easing="Expo.easeIn"
-								data-endspeed="600"
-								data-endeasing="Expo.easeInOut"
-								data-captionhidden="off"
-								style="z-index:6;font-size:48px; ">Luxury Journeys
-							</div>
-							
-							<!-- LAYER NR. 3 -->
-							<div class="caption caption-black sfr stl headline text-upper"
-								data-x="20"
-								data-y="263"
-								data-speed="600"
-								data-start="1500"
-								data-easing="Power0.easeOut"
-								data-endspeed="500"
-								data-endeasing="Back.easeOut"
-								data-captionhidden="off"
-								style="z-index:6">Crafting individual and unique itineraries to every corner of Japan.<br />
-								Peruse the possibilities here.
-							</div>
-						</li>
-						
-						<!-- START Slide 3 -->
-						<li data-transition="fade" data-slotamount="6" data-masterspeed="800">
-							<img src="img/tour_1.jpg" alt="Slider Image 3"  data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat" />
-							
-							<!-- LAYER NR. 1 -->
-							<div class="caption caption-yellow sft stt headline text-upper"
-								data-x="20"
-								data-y="150"
-								data-speed="600"
-								data-start="2000"
-								data-easing="Power3.easeOut"
-								data-endspeed="400"
-								data-endeasing="Power4.easeIn"
-								data-captionhidden="off"
-								style="z-index:6;font-size:18px;">Starting From 1200 $ Only
-							</div>
-							
-							<!-- LAYER NR. 2 -->
-							<div class="caption caption-white sfr stl slider-heading text-upper"
-								data-x="20"
-								data-y="185"
-								data-speed="1000"
-								data-start="1800"
-								data-easing="Power2.easeOut"
-								data-endspeed="600"
-								data-endeasing="Power3.easeIn"
-								data-captionhidden="off"
-								style="z-index:6;font-size:48px; ">Luxury Journeys
-							</div>
-							
-							<!-- LAYER NR. 3 -->
-							<div class="caption caption-black sfb stb headline text-upper"
-								data-x="20"
-								data-y="263"
-								data-speed="600"
-								data-start="1500"
-								data-easing="Power4.easeOut"
-								data-endspeed="500"
-								data-endeasing="Power1.easeIn"
-								data-captionhidden="off"
-								style="z-index:6">Crafting individual and unique itineraries to every corner of Japan.<br />
-								Peruse the possibilities here.
-							</div>
-						</li>
-						<!-- END Slide 3 -->
-					</ul>
+						<div class="row">
+						<br>
+						<div class="col-md-10 col-sm-10 col-sm-offset-1 col-md-offset-1 col-xs-10 col-xs-offset-1 input-group">
+						<input type="text" class="form-control" style="background-color:white;" ng-model="search" placeholder="Where to go?" />
+						<span class="input-group-addon">
+						<i class="fa fa-search"></i>
+						</span>
+						</div>
+						</div>
+						<div class="row">
+						<div class="col-md-7 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1"> <br>
+						<label >Search via</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<label><input class="input-cb"	type="checkbox" name="inc_Tour" checked ng-model="checkboxModel.value1" value=""/> Tours</label>&nbsp;&nbsp;&nbsp;&nbsp;
+						<label><input class="input-cb" type="checkbox" name="inc_Guide" value="1" ng-model="checkboxModel.value2" checked /> Guides </label>&nbsp;&nbsp;&nbsp;&nbsp;
+						<label><input class="input-cb" type="checkbox"	name="inc_Destination" value="1" ng-model="checkboxModel.value3" checked /> Destinations</label>&nbsp;&nbsp; 
+						</div> 
+						</div>
+					
+					</form>
 				</div>
-				<div id="slider-overlay"></div>
+		        <div id="slider">
+					<img src="img/tour_1.jpg" data-src-2x="img/tour_1.jpg" alt="Slide 1" />
+					<img data-src="img/tour_2.jpg" data-src-2x="img/tour_2.jpg" src="" alt="Slide 2" />
+					<img data-src="img/tour_3.jpg" data-src-2x="img/tour_3.jpg" src="" alt="Slide 3" />
+					<img data-src="img/tour_4.jpg" data-src-2x="img/tour_4.jpg" src="" alt="Slide 4" />
+				</div>
+				 <script>
+					var slider = new IdealImageSlider.Slider('#slider');
+						slider.start();
+				</script> 
 			</div>
-			<!-- END #main-slider -->
-
-
-			<!-- START .main-contents --> <div class="main-contents">
+				
+									 
+									
+	
+ 
+			<!-- START .main-contents --> 
+        <div class="main-contents">
 			<div class="container" id="home-page">
-
-					<!-- START .tour-plan --> 
-					<form class="plan-tour" method="POST" action="Index.php">
-					<!-- div class="plan-banner">
-					<span>WHERE WHAT</span>
-					</div -->
-					<div class="top-fields">
+               <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+					<!-- START Search Container --> 
+                  
+					<!-- END Search Container -->
+<div class="row">
+				<h2 class="ft-heading text-upper col-md-12" ng-show="checkboxModel.value1"><i class="fa fa-ship"></i>&nbsp;&nbsp; Popular Tours<span class="alignright"> <a class="btn btn-primary" href="top-tours-listview-sidebar.php"><span style="">More&nbsp;<i class="fa fa-angle-double-right"></i></span></a></span></h2>
+</div>
+					<div class="carousel" ng-show="checkboxModel.value1"> 
+					  <ul class="slides">
+					  <li > 
+					   
+					 <div class="row bom-contents"  ng-controller="toursCtrl" style="height:380px;"> 
+						<div class="col-md-11" >
+					 <div class="col-md-3" ng-repeat="x in tours | filter:search" ng-show="$index<4"> 
+							<a href="tour_detail_sidebar.php">
+							<div class="ft-item"> 
+							<span class="ft-image"><img style="height:200px;" src="{{x.Media.Image[0]}}" alt="Popular Tours" /> </span> 
+							   <div class="ft-data" style="height:45px;font-size:11px;" >
+							     <span  style="color:black;" class="text-upper fa fa-pagelines" href="#">{{x.Category}}</span> &nbsp;&nbsp;&nbsp;
+								 <!-- <span style="color:black;" class="fa text-upper">&nbsp;&nbsp;LOCATION :</span> &nbsp;&nbsp; -->
+								   <span style="color:black;" class="fa aligncenter wrapword">{{x.Title}}</span>
+								   <span style="color:black;" class="fa text-upper wrapword"><i  style="color:black;" class="fa text-upper" ></i>&nbsp;&nbsp;{{x.Location}}</span>
+							   </div> 
+							   
+								<div class="ft-foot"> <h4 class="ft-title text-upper" style="color:#686868">{{x.Guide}}</h4> 
+								<span class="ft-offer text-upper">Starting&nbsp&nbsp{{x.Price}}</span> 
+								</div>
+								<div class="ft-foot-ex" > 
+								<span class="fa fa-image text-upper alignleft">&nbsp;&nbsp;{{x.Duration}}&nbsp;&nbsp;</span>&nbsp;&nbsp;
+								
+								<span star-rating rating-value="x.Reviews.OverallRating" style="margin-left:20px;" class="" ></span>	
+<span class="alignright">{{x.Reviews.ReviewCount}} reviews</span> 								
+								
+								</div> 							
+							</div>
+							</a>
+					 </div> 
+					 </div>
+					 <div class="col-md-1 alignright" style="padding-top:265px; padding-right:20px;">
+					<!-- <a class="btn btn-primary" href="top-tours-listview-sidebar.php"><span style="font-weight:bold;">More >></span></a> -->
+					 </div>
+					 </div>
+						</li>
+						</ul> 
+						
+				</div>
+    <div class="row">           
+          <h2 class="ft-heading text-upper col-md-12" ng-show="checkboxModel.value2"><i class="fa fa-user-secret"></i>&nbsp;&nbsp; Featured Guides<span class="alignright"> <a class="btn btn-primary" href="top-guides-listview.php"><span style="font-weight:bold;">More&nbsp;<i class="fa fa-angle-double-right"></i></span></a></span></h2>
+</div>               
+			   <div class="carousel" ng-show="checkboxModel.value2"> 
+				<ul class="slides">
+				<li> 
+				<div class="row bom-contents"  ng-controller="guideCtrl" style="height:380px;">
+				<div class="col-md-11 col-xs-11">
+				<div class="col-md-3" ng-repeat="x in allguides | filter:search" ng-show="$index<4"> 
+				   <a href="guide-detail-sidebar.php">
+				      <div	class="ft-item"> 
+						  <span class="ft-image">
+							 <img style="height:200px;" src="{{x.Photo}}" alt="Top Guide" /> 
+						  </span>
+					  
+								<div class="ft-data" style="height:45px;font-size:11px;">
+							  <span style="color:black;" class="fa fa-odnoklassniki text-upper">&nbsp;&nbsp;{{x.Gender}}</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							   <span style="color:black;" class="fa fa-plane text-upper" >&nbsp;&nbsp;{{x.LanguageKnown[0]}}</span>
+							  <span style="color:black;" class="fa fa-book text-upper alignright" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{x.Speciality}}</span><br>
+							 
+								</div> 
 					
-					<div class="row">
-					<div class="input-field col-md-8 col-md-offset-1">
-					<input type="text" placeholder="Where" name="searchString" value="" />
-					</div>
-					<div class="submit-btn col-md-2"> 
-					<input type="submit" style="height:49px; background-color:#ff845e; color:white;" value="Search" /> 
-					</div>
-					</div>
-					<div class="row">
-					<div class="input-field col-md-4 col-md-offset-1"> 
-					<table>
-					<tr>
-					<td>
-					<label style="font-size:15px">
-					<input class="input-cb" type="checkbox" id="in_tour" name="in_tour" onclick="myCheckBox();" value="0" /> Tour
-					</label> 
-					<td>
-					<td>
-					<label style="font-size:15px">
-					<input class="input-cb" type="checkbox" id="in_guide" name="in_guide" onclick="myCheckBox();" value="0" /> Guide 
-					</label>
-					<td>
-					<td>
-					<label style="font-size:15px">
-					<input class="input-cb" type="checkbox" id="in_destination" name="in_destination" onclick="myCheckBox();" value="0" /> Destination
-					</label> 
-					<td>
-					</tr>
-					</table>
-					</div>
-                    </div>
-					</div> 
-					</form> 
-					<!-- END
-					.tour-plan -->
-					<div id="searchData">
-					<div class="carousel"> 
-					<ul class="slides">
-					<li> 
+							<div class="ft-foot" style="word-wrap:break-word; height:50px;">
+							<h4 class="ft-title text-upper" style="color:#686868">{{x.Name}},&nbsp{{x.Territory}}</h4> 
+							<!-- <span class="ft-offer text-upper">{{x.Tours.Count}} Tours</span>  -->
+							</div> 
 					
-					
-					<?php
-					if($searchPerameter1 == "Tours")
-					{
-						?>
-					<div class="row">
-
-											<?php 
-											include_once('db.php');
-											$sql1 = mysql_query("SELECT * FROM `tbl_tours` WHERE `tour_territory` LIKE '%$searchString%'");
-											if(mysql_num_rows($sql1) < 1)
-											{
-											?>
-											<center><h1>No Such Tours Available</h1></center>
-												<!--div class="col-lg-3 col-md-4 col-sm-6 col-xs-10">
-													<div class="ft-item">
-														<span class="ft-image">
-															<img alt="featured Scroller" class="img-responsive" src="img/custom1.jpg" draggable="false">
-														</span>
-														<div class="ft-data2">
-														<span style="color:white" class="ft-title text-upper">Tour Title</span>
-															<span class="ft-offer text-upper">Price (Rs)</span>
-														</div>
-														<div class="ft-foot">
-															<span style="font-size:12px" class="ft-date text-upper alignleft">Location</span>
-															<span style="font-size:11px" class="ft-temp alignright">Tour Duration</span>
-														</div>
-													</div>
-												</div-->
-											<?php
-											}
-											else
-											{
-												echo '<h2 class="ft-heading text-upper">Tours</h2>';
-											while ($row1 = mysql_fetch_array($sql1))
-											{
-											?>
-													<div class="col-lg-3 col-md-4 col-sm-6 col-xs-10">
-													<?php
-													echo '<a style="cursor: pointer;" onclick="detailTour(' . $row1['tour_id'] . ');" >';
-														$tour_id = $row1['tour_id'];
-														?>
-														<input type="hidden" name="tourid" id="tourid" value=" <?php echo $row1['tour_id'] ?> " />
-														<div class="ft-item">
-														
-															<span class="ft-image">
-																<?php
-																$select4Tpic = mysql_query("SELECT * FROM `tbl_tour_media_pictures` WHERE `tour_id` = $tour_id");
-																$count4Tpic = mysql_num_rows($select4Tpic);
-																if ($count4Tpic==0)
-																{
-																	echo '<img alt="featured Scroller" class="img-responsive" draggable="false" src="img/custom11.jpg"/>';
-																}
-																else
-																{
-																	echo '<img alt="featured Scroller" class="img-responsive" draggable="false" style="width:207px; height:105px;" src="showMediaPicture.php?id=' . mysql_result($select4Tpic, 0, 0) . '"/>';
-																}
-																?>
-																
-															</span>
-															<div class="ft-data2">
-																<span style="color:white" class="ft-title text-upper"><?php echo $row1['tour_title'] ?></span>
-																<span class="ft-offer text-upper"><?php echo $row1['tour_price'] ?></span>
-															</div>
-															<div class="ft-foot">
-																<span class="ft-date text-upper alignleft"><?php echo $row1['tour_location'] ?></span>
-																<span class="ft-temp alignright"><?php echo $row1['tour_duration'] ?> Days</span>
-															</div>
-														</div>
-														<?php echo '</a>'; ?>
-													</div>
-													
-												<?php 
-											}
-											}
-											?>
-						
-						
-						<div class="clearfix"></div>
+							<div class="ft-foot-ex"> 
+								<span class="fa fa-shield text-upper alignleft">&nbsp;&nbsp;{{x.Tours.Count}} Tours&nbsp;&nbsp;</span>&nbsp;&nbsp;
+								<span star-rating rating-value="x.Review.Star" style="margin-left:20px;" class="aligncenter"></span>
+								<span class="alignright">{{x.Review.Count}} reviews</span> 							
+							</div> 
 					</div>
-					<?php
-					}
-						?>
-						
-						
-						
-						
-						<?php
-					if($searchPerameter2 == "Guides")
-					{
-						?>
-					<div class="row">
-
-											<?php 
-											include_once('db.php');
-											$sql2 = mysql_query("SELECT * FROM `user_fulldetail` WHERE (`user_type_id`=1) && ((`f_name` LIKE '%$searchString%') || (`l_name` LIKE '%$searchString%') || (`guide_territory` LIKE '%$searchString%'))");
-											if(mysql_num_rows($sql2) < 1)
-											{
-											?>
-											<center><h1>No Such Guide Available</h1></center>
-												<!--div class="col-lg-3 col-md-4 col-sm-6 col-xs-10">
-													<div class="ft-item">
-														<span class="ft-image">
-															<img alt="featured Scroller" class="img-responsive" src="img/custom1.jpg" draggable="false">
-														</span>
-														<div class="ft-data2">
-														<span style="color:white" class="ft-title text-upper">Tour Title</span>
-															<span class="ft-offer text-upper">Price (Rs)</span>
-														</div>
-														<div class="ft-foot">
-															<span style="font-size:12px" class="ft-date text-upper alignleft">Location</span>
-															<span style="font-size:11px" class="ft-temp alignright">Tour Duration</span>
-														</div>
-													</div>
-												</div-->
-											<?php
-											}
-											else
-											{
-												echo '<h2 class="ft-heading text-upper">Guides</h2>';
-											while ($row2 = mysql_fetch_array($sql2))
-											{
-											?>
-													<div class="col-lg-2 col-md-2 col-sm-6 col-xs-10">
-													<?php
-													echo '<a style="cursor: pointer;" onclick="detailGuide(' . $row2['user_id'] . ');" >';
-														$user_id = $row2['user_id'];
-														?>
-														<input type="hidden" name="user_id" id="user_id" value=" <?php echo $row2['user_id'] ?> " />
-														<div class="ft-item"> 
-														<span class="ft-image">
-																<?php
-																if ($row2['guide_profile_pic']==NULL)
-																{
-																	echo '<img alt="featured Scroller" class="img-responsive" draggable="false" src="img/userDefaultIcon.png" />';
-																}
-																else
-																{
-																	echo '<img alt="featured Scroller" class="img-responsive" draggable="false" src="showImage.php?id=' . $row2['guide_profile_pic'] . '"/>';
-																}
-																?>
-																
-															</span> 
-														<div class="ft-data"> 
-														<a class="ft-hotel text-upper" href="#"><?php echo $row2['f_name'] . " " . $row2['l_name'] ?></a> 
-														<a class="ft-plane text-upper" href="#"><?php echo $row2['gender'] ?></a>
-														</div> 
-														<div class="ft-foot"> 
-														<h4 class="ft-title text-upper">
-														<a href="#"><?php echo "From " . $row2['city'] . ", " . $row2['state'] ?></a>
-														</h4> 
-														 <!--span class="ft-offer text-upper">Starting From INR 5000 </span--> 
-														</div> 
-														</div>
-														<?php echo '</a>'; ?>
-													</div>
-													
-												<?php 
-											}
-											}
-											?>
-						
-						
-						<div class="clearfix"></div>
-					</div>
-					<?php
-					}
-						?>
-						
-					
-					</li> 
-					</ul> 
-					</div>
+					</a>
+					 </div>
+					 </div>
+					 <div class="col-md-1 alignright" style="padding-top:265px;padding-right:20px;">
+					<!-- <a class="btn btn-primary" href="top-tours-listview-sidebar.php"><span style="font-weight:bold;">More >></span></a>-->
+					 </div>
 				</div>
 				
-<div id="oldData">
-					<h2 class="ft-heading text-upper">Top Destinations</h2>
-
-					<div class="carousel"> 
+				</li> 
+				</ul>
+				</div>
+			<div class="row">	
+				<h2 class="ft-heading text-upper col-md-12" ng-show="checkboxModel.value3"><i class="fa fa-leaf"></i>&nbsp;&nbsp;Top Destinations<span class="alignright"> <a class="btn btn-primary" href="top-destinations-listview-sidebar.php"><span>More&nbsp;<i class="fa fa-angle-double-right"></i></span></a></span></h2>
+               </div>
+			   <div class="carousel" ng-show="checkboxModel.value3"> 
+				<ul class="slides">
+				<li> 
+				<div class="row bom-contents"  ng-controller="placesCtrl" style="height:380px;">
+				<div class="col-md-11">
+				<div class="col-md-3" ng-repeat="x in places | filter:search" ng-show="$index<4"> 
+				   <a href="destination-detail-sidebar.php">
+				      <div	class="ft-item"> 
+						  <span class="ft-image">
+							 <img style="height:200px;" src="{{x.Media.Image[0]}}" alt="Top Destination" /> 
+						  </span>
+					  
+								<div class="ft-data" style="height:45px;font-size:11px;">
+							  <span style="color:black;" class="fa fa-book text-upper">&nbsp;&nbsp;Attractions:&nbsp;&nbsp;{{x.BestTimeToVisit}}</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							  <!-- <span style="color:black;" class="fa fa-book text-upper" >&nbsp;&nbsp;{{x.Speciality}}</span>&nbsp;&nbsp;&nbsp;&nbsp;
+							  <span style="color:black;" class="fa fa-plane text-upper" >&nbsp;&nbsp;{{x.LanguageKnown}}</span> -->
+								</div> 
 					
-					<ul class="slides"> <li> <div
-					class="row"> <div class="col-md-3"> <div
-					class="ft-item"> <span class="ft-image"> <img
-					src="https://storage.googleapis.com/
-						guidedgateway_media/top_dest_1.jpg" alt="featured
-					Scroller" /> </span> <div class="ft-data"> <a
-					class="ft-hotel text-upper" href="#">Hotel</a> <a
-					class="ft-plane text-upper" href="#">Guide</a>
-					<a class="ft-tea text-upper" href="#">Meals</a>
-					</div> <div class="ft-foot"> <h4 class="ft-title
-					text-upper"><a href="#">Pushkar, RJ</a></h4> <span
-					class="ft-offer text-upper">Starting From INR 5000
-					</span> </div> <div class="ft-foot-ex"> <span
-					class="ft-date text-upper alignleft">28 October
-					2015</span> <span class="ft-temp
-					alignright">17&#730;c</span> </div> </div>
+							<div class="ft-foot" style="word-wrap:break-word; height:50px;">
+							<h4 class="ft-title text-upper" style="color:#686868">{{x.Name}}</h4> 
+							<span class="ft-offer text-upper">{{x.Category}}</span> 
+							</div> 
+					
+							<div class="ft-foot-ex"> 
+								<span class="fa fa-shield text-upper alignleft">{{x.TourCount}}&nbsp;&nbsp;Tours</span>
+								
+								<span class="alignright fa fa-eye">{{x.GuideCount}}&nbsp;&nbsp;Guides</span> 						
+							</div> 
+					</div>
+					</a>
+					 </div>
+					 </div>
+					 <div class="col-md-1 alignright" style="padding-top:265px;padding-right:20px;">
+					<!-- <a class="btn btn-primary" href="top-tours-listview-sidebar.php"><span style="font-weight:bold;">More >></span></a> -->
+					 </div>
+				</div>
+				
+				</li> 
+				</ul>
+				</div>
+				
+				</div>
+				</div> <!-- END .main-contents -->
 
-										 </div> <div
-										class="col-md-3"> <div
-										class="ft-item"> <span
-										class="ft-image"> <img
-										src="https://storage.googleapis.com/
-						guidedgateway_media/top_dest_2.jpg
-										" alt="featured Scroller" />
-										</span> <div class="ft-data"> <a
-										class="ft-hotel text-upper"
-										href="#">Hotel</a> <a
-										class="ft-plane text-upper"
-										href="#">Guide</a> <a
-										class="ft-tea text-upper"
-										href="#">Meals</a> </div>
-										<div class="ft-foot"> <h4
-										class="ft-title text-upper"><a
-										href="#">Konark, OR</a></h4>
-										<span class="ft-offer
-										text-upper">Starting From 250
-										$</span> </div> <div
-										class="ft-foot-ex"> <span
-										class="ft-date text-upper
-										alignleft">28 December
-										2013</span> <span class="ft-temp
-										alignright">17&#730;c</span>
-										</div> </div>
+			<!-- START .main-contents .bom-contents --> <!-- <div class="main-contents bom-contents"> 
+			<div class="container">
+					<h2 class="text-center text-upper">THEME BASED TOURS</h2> <p class="headline text-center">Visit Unique Attractions around Special Themes</p>
 
-										 </div> <div
-										class="col-md-3"> <div
-										class="ft-item"> <span
-										class="ft-image"> <img
-										src="http://storage.googleapis.com/
-						guidedgateway_media/top_dest_3.jpg
-										" alt="featured Scroller" />
-										</span> <div class="ft-data"> <a
-										class="ft-hotel text-upper"
-										href="#">Hotel</a> <a
-										class="ft-plane text-upper"
-										href="#">Guide</a> <a
-										class="ft-tea text-upper"
-										href="#">Meals</a> </div>
-										<div class="ft-foot"> <h4
-										class="ft-title text-upper"><a
-										href="#">Agra, UP</a></h4>
-										<span class="ft-offer
-										text-upper">Starting From INR 1000
-										</span> </div> <div
-										class="ft-foot-ex"> <span
-										class="ft-date text-upper
-										alignleft">28 December
-										2015</span> <span class="ft-temp
-										alignright">17&#730;c</span>
-                        </div> </div></div><div
-										class="col-md-3"> <div
-										class="ft-item"> <span
-										class="ft-image"> <img
-										src="https://storage.googleapis.com/
-						guidedgateway_media/top_dest_4.jpg
-										" alt="featured Scroller" />
-										</span> <div class="ft-data"> <a
-										class="ft-hotel text-upper"
-										href="#">Hotel</a> <a
-										class="ft-plane text-upper"
-										href="#">Guide</a> <a
-										class="ft-tea text-upper"
-										href="#">Meals</a> </div>
-										<div class="ft-foot"> <h4
-										class="ft-title text-upper"><a
-										href="#">Aleppy, KE</a></h4>
-										<span class="ft-offer
-										text-upper">Starting From 250
-										$</span> </div> <div
-										class="ft-foot-ex"> <span
-										class="ft-date text-upper
-										alignleft">28 November
-										2015</span> <span class="ft-temp
-										alignright">17&#730;c</span>
-
-                        </div></div></div> </li> </ul> </div>
-                
-<h2 class="ft-heading text-upper">Top Guides</h2>
-                <div class="carousel"> <ul class="slides"> <li> <div
-					class="row"> <div class="col-md-3"> <div
-					class="ft-item"> <span class="ft-image"> <img
-					src="https://storage.googleapis.com/
-						guidedgateway_media/guide_1.jpg" alt="featured
-					Scroller" /> </span> <div class="ft-data"> <a
-					class="ft-hotel text-upper" href="#">Hotel</a> <a
-					class="ft-plane text-upper" href="#">Guide</a>
-					<a class="ft-tea text-upper" href="#">Meals</a>
-					</div> <div class="ft-foot"> <h4 class="ft-title
-					text-upper"><a href="#">Rakesh, RJ</a></h4> <span
-					class="ft-offer text-upper">Starting From INR 5000
-					</span> </div> <div class="ft-foot-ex"> <span
-					class="ft-date text-upper alignleft">28 October
-					2015</span> <span class="ft-temp
-					alignright">17&#730;c</span> </div> </div>
-
-										 </div> <div
-										class="col-md-3"> <div
-										class="ft-item"> <span
-										class="ft-image"> <img
-										src="https://storage.googleapis.com/
-						guidedgateway_media/guide_2.jpg
-										" alt="featured Scroller" />
-										</span> <div class="ft-data"> <a
-										class="ft-hotel text-upper"
-										href="#">Hotel</a> <a
-										class="ft-plane text-upper"
-										href="#">Guide</a> <a
-										class="ft-tea text-upper"
-										href="#">Meals</a> </div>
-										<div class="ft-foot"> <h4
-										class="ft-title text-upper"><a
-										href="#">Sujoy, WB</a></h4>
-										<span class="ft-offer
-										text-upper">Starting From 250
-										$</span> </div> <div
-										class="ft-foot-ex"> <span
-										class="ft-date text-upper
-										alignleft">28 December
-										2013</span> <span class="ft-temp
-										alignright">17&#730;c</span>
-										</div> </div>
-
-										 </div> <div
-										class="col-md-3"> <div
-										class="ft-item"> <span
-										class="ft-image"> <img
-										src="https://storage.googleapis.com/
-						guidedgateway_media/guide_3.jpg
-										" alt="featured Scroller" />
-										</span> <div class="ft-data"> <a
-										class="ft-hotel text-upper"
-										href="#">Hotel</a> <a
-										class="ft-plane text-upper"
-										href="#">Guide</a> <a
-										class="ft-tea text-upper"
-										href="#">Meals</a> </div>
-										<div class="ft-foot"> <h4
-										class="ft-title text-upper"><a
-										href="#">SUraj, Or</a></h4>
-										<span class="ft-offer
-										text-upper">Starting From 250
-										$</span> </div> <div
-										class="ft-foot-ex"> <span
-										class="ft-date text-upper
-										alignleft">28 December
-										2013</span> <span class="ft-temp
-										alignright">17&#730;c</span>
-                        </div> </div></div><div
-										class="col-md-3"> <div
-										class="ft-item"> <span
-										class="ft-image"> <img
-										src="https://storage.googleapis.com/
-						guidedgateway_media/guide_4.jpg
-										" alt="featured Scroller" />
-										</span> <div class="ft-data"> <a
-										class="ft-hotel text-upper"
-										href="#">Hotel</a> <a
-										class="ft-plane text-upper"
-										href="#">Guide</a> <a
-										class="ft-tea text-upper"
-										href="#">Meals</a> </div>
-										<div class="ft-foot"> <h4
-										class="ft-title text-upper"><a
-										href="#">Prasun, Ke</a></h4>
-										<span class="ft-offer
-										text-upper">Starting From 250
-										$</span> </div> <div
-										class="ft-foot-ex"> <span
-										class="ft-date text-upper
-										alignleft">28 December
-										2013</span> <span class="ft-temp
-										alignright">17&#730;c</span>
-
-                        </div></div></div> </li> </ul> 
-						</div>
-				</div> 
-				</div><!-- END .main-contents -->
-				</div> 
-
-			<!-- START .main-contents .bom-contents --> <div
-			class="main-contents bom-contents"> <div class="container">
-			<h2 class="text-center text-upper">Theme Based Tours</h2> <p
-			class="headline text-center">A piece of heaven in the summer
-			of 2013 brought ten small art houses enlivn the street scene
-			in Tracy Arm FJord</p>
-
-					<div class="row"> <!-- START featured destination 1
-					--> <section class="col-md-3 fd-column"> <div
+					     <div class="row"> 
+						
+						 <section class="col-md-3 fd-column">
+  						 <div
 					class="featured-dest"> <span class="fd-image"> <img
 					class="img-circle" src="http://placehold.it/150x150"
 					alt="Featured Destination" /> </span> <h3
 					class="text-center text-upper">Beach</h3> <p
-					class="text-center">Egestas dignissim a enim lorem a
-					mus egestas risus porta? Sed. Scelerisque, in nec
-					velit augue aenean a, vut velit nec! Phasellus
-					aliquam odio.</p> <span class="btn-center"><a
+					class="text-center">Beach destinations and tour packages in India</p> <span class="btn-center"><a
 					class="btn btn-primary text-upper" href="#"
 					title="Search">Search</a></span> </div> </section>
-					<!-- END featured destination 1 -->
-
-						<!-- START featured destination 2 --> <section
+					 <section
 						class="col-md-3 fd-column"> <div
 						class="featured-dest"> <span class="fd-image">
 						<img class="img-circle"
 						src="http://placehold.it/150x150" alt="Featured
 						Destination" /> </span> <h3 class="text-center
 						text-upper">Romantic</h3> <p
-						class="text-center">Egestas dignissim a enim
-						lorem a mus egestas risus porta? Sed.
-						Scelerisque, in nec velit augue aenean a, vut
-						velit nec! Phasellus aliquam odio.</p> <span
+						class="text-center">Romantic destinations and tour packages in India</p> <span
 						class="btn-center"><a class="btn btn-primary
 						text-upper" href="#"
 						title="Search">Search</a></span> </div>
-						</section> <!-- END featured destination 2 -->
-
-						<!-- START featured destination 3 --> <section
+						</section>  <section
 						class="col-md-3 fd-column"> <div
 						class="featured-dest"> <span class="fd-image">
 						<img class="img-circle"
 						src="http://placehold.it/150x150" alt="Featured
 						Destination" /> </span> <h3 class="text-center
 						text-upper">Adventure</h3> <p
-						class="text-center">Egestas dignissim a enim
-						lorem a mus egestas risus porta? Sed.
-						Scelerisque, in nec velit augue aenean a, vut
-						velit nec! Phasellus aliquam odio.</p> <span
+						class="text-center">Adventure tour packages from different parts of India</p> <span
 						class="btn-center"><a class="btn btn-primary
 						text-upper" href="#"
 						title="Search">Search</a></span> </div>
-						</section> <!-- END featured destination 3 -->
-
-						<!-- START featured destination 4 --> <section
+						</section> <section
 						class="col-md-3 fd-column"> <div
 						class="featured-dest"> <span class="fd-image">
 						<img class="img-circle"
 						src="http://placehold.it/150x150" alt="Featured
 						Destination" /> </span> <h3 class="text-center
 						text-upper">Eco</h3> <p
-						class="text-center">Egestas dignissim a enim
-						lorem a mus egestas risus porta? Sed.
-						Scelerisque, in nec velit augue aenean a, vut
-						velit nec! Phasellus aliquam odio.</p> <span
+						class="text-center">Ecological tours and destinations from different parts of India</p> <span
 						class="btn-center"><a class="btn btn-primary
 						text-upper" href="#"
 						title="Search">Search</a></span> </div>
-						</section> <!-- END featured destination 4 -->
-						</div> </div> </div> <!-- END .main-contents
+						</section> 
+						</div> </div> </div> --> <!-- END .main-contents
 						.bom-contents -->
-
+<br>
 			<!-- START footer --> <footer> <!-- START #ft-footer -->
 			<div id="ft-footer"> <div class="footer-overlay"> <div
 			class="container"> <div class="row"> <!-- testimonials -->
@@ -762,8 +369,33 @@ if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "signin"))
                 								</section> </div> </div> </div> </div>
 								<!-- END #ft-footer -->
 
-				<?php include_once("MasterFooter.php"); ?>
-				
+				<!-- START #ex-footer --> <div id="#ex-footer"> <div
+				class="container"> <div class="row"> <nav
+				class="col-md-12"> <ul class="footer-menu"> <li><a
+				href="#">Cancellation Policy</a></li> <li><a
+				href="#">Careers</a></li> <li><a href="#">Hotel
+				Directory</a></li> <li><a href="termofuse.html">Website Terms of
+				Use</a></li> <li><a href="privacy.html">Privacy Statement</a></li>
+				<li><a href="#">Affiliates</a></li> <li
+				class="last-item"><a href="#">Top Destinations</a></li>
+				</ul> </nav>
+
+							<div class="foot-boxs"> <div class="foot-box
+							col-md-4 text-right"> <span>Stay
+							Connected</span> <ul class="social-media
+							footer-social"><li><a class="sm-facebook"
+	href="#"><span>Facebook</span></a></li> <li><a class="sm-flickr"
+	href="#"><span>Pinterest</span></a></li> <li><a class="sm-windows"
+	href="#"><span>Youtube</span></a></li> <li><a class="sm-stumble"
+	href="#"><span>Twitter</span></a></li>
+							</ul> </div> <div class="foot-box
+							foot-box-md col-md-4"> <span
+							class="contact-email">
+							touchus@guidedgateway.com</span> <span
+							class="contact-phone"> +1 510 938 2562</span> </div> <div class="foot-box
+							col-md-4"> <span class="">&copy; 2015							GuideGateway. All Rights Reserved.</span>
+							</div> </div> </div> </div> </div> <!-- END #ex-footer --> 
+							</footer> <!-- END footer -->
 							</div> <!-- END #wrapper -->
 
 
@@ -793,27 +425,8 @@ if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "signin"))
 		<!--[if lt IE 9]> <script type="text/javascript"
 		src="js/html5shiv.js"></script> <![endif]-->
 
-		<script>
-		function myCheckBox(){
-    
-    if(myCheckBox.caller.arguments[0].target.checked)
-      {
-        myCheckBox.caller.arguments[0].target.value="1";
-        //alert(myCheckBox.caller.arguments[0].target.value)
-      }
-  else
-    {
-      myCheckBox.caller.arguments[0].target.value="0";
-        //alert(myCheckBox.caller.arguments[0].target.value)
-    }
-  
-}
 
-		
-		</script>
-		
-		<script type="text/javascript"> 
-		$(document).ready(function() {
+		<script type="text/javascript"> $(document).ready(function() {
 			// revolution slider
 			revapi = $("#content-slider").revolution({ delay: 15000,
 			startwidth: 1170, startheight: 920, hideThumbs: 10,
@@ -823,8 +436,9 @@ if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "signin"))
 			}
 			// initilize datepicker
 			$(".date-picker").datepicker();
-		
-		
+		});
+		}
+		}		}
 	    $(window).load(function(){ $('.carousel').flexslider({
 	    animation: "fade", animationLoop: true, controlNav: false,
 	    maxItems: 1, pausePlay: false, mousewheel:true, start:
@@ -832,38 +446,25 @@ if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "signin"))
 			}
 	      });
 	    });
-		
-		</script> 
-		
-		<script> 
-		$(document).ready(function(){
-		$("#adults").minimalect({ theme: "bubble", placeholder: "Select"
-		}); $("#kids").minimalect({ theme: "bubble", placeholder:
-		"Select" });
-		});
-		</script><!--- SELECT BOX --> 
-		<script>
-		function detailTour(id) 
-				{
-					window.location.href = "tour_detail_sidebar.php?id="+id+"";
-					return false;
-				}
-				
-				function detailGuide(id) 
-				{
-					//alert("user id - " + id);
-					window.location.href = "guide_detail.php?id="+id+"";
-					return false;
-				}
+	    }
+	    }	    }
 		</script>
-		<?php
-		if( ($searchPerameter1 == "Tours") || ($searchPerameter2 == "Guides") || ($searchPerameter3 == "Destinations"))
-		{
-			echo "<script type='text/javascript'>document.getElementById('oldData').style.display = 'none';</script>";
+	
+		<!--- SELECT BOX -->
+		<!-- <script type="text/javascript">
+   		$(function() {    	
+                
+					$('span.stars').stars();	
+		});
+
+		$.fn.stars = function() {
+			return $(this).each(function() {
+				$(this).html($('<span />').width(Math.max(0, (Math.min(5, parseFloat($(this).html())))) * 8));
+			});
 		}
-		else
-		{
-			echo "<script type='text/javascript'>document.getElementById('searchData').style.display = 'none';</script>";
-		}
-		?>
-		</body> </html>
+	  </script> -->
+	
+	<!-- <span class="stars alignleft">1</span> -->
+	
+		</body> 
+		</html>
