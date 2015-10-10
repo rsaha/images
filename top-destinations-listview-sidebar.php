@@ -93,7 +93,7 @@
 								<div class="col-md-12">
 									<div class="tour-plans">
 										<div class="plan-image">
-											<img class="img-responsive" src="http://placehold.it/770x210" alt="Kolkata, WB" href="destination-detail-sidebar.html"/>
+											<img class="img-responsive" src="{{x.Media.Image[0]}}" alt="{{x.Name}}" href="destination-detail-sidebar.html"/>
 											<div class="offer-box">
 												<div class="offer-top">
 													<span class="ft-temp alignright">19&#730;c</span>
