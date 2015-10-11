@@ -10,6 +10,81 @@ if($_GET["id2"]==0)
 	$tourID=0;
 }
 
+include_once('db.php');
+
+$select1 = mysql_query("SELECT * FROM `tbl_user_profile` WHERE `user_id` = $userID");
+$row11 = mysql_fetch_assoc($select1);
+$firstName=$row11["f_name"];
+$lastName=$row11["l_name"];
+$username =  $firstName . " " . $lastName;
+$emailID = $row11["email"];
+$mobileNumber = $row11["mobileNo"];
+$gender = $row11["gender"];
+$birthday = $row11["d_o_b"];
+$streetAddress = $row11["street_address"];
+$city = $row11["city"];
+$state = $row11["state"];
+$country = $row11["country"];
+
+$select2 = mysql_query("SELECT * FROM `tbl_guide_detail_profile` WHERE `user_id` = $userID");
+$row22 = mysql_fetch_assoc($select2);
+if(mysql_num_rows($select2) > 0 )
+{
+$profilePicture = $row22["guide_profile_pic"];
+$coverPicture = $row22["guide_Cover_pic"];
+$nickName = $row22["nick_name"];
+$LicenceImage = $row22["license_Image"];
+$licenceNumber = $row22["license_no"];
+$licenceValidty = $row22["validity"];
+$guideTerritory = $row22["guide_territory"];
+$summery = $row22["guide_summary"];
+$otherExperiance = $row22["other_experience"];
+$experianceInYear = $row22["experiance_in_year"];
+$intrest = $row22["guide_interest"];
+$landLineNumber = $row22["landline_no"];
+$paymentCurrency = $row22["payment_currency"];
+$paymentTerm = $row22["payment_terms"];
+$bestTimeToContace = $row22["Best_time_for_contact"];
+$communicationMechanism = $row22["Communication_mechanism"];
+$remark = $row22["guide_Remarks"];
+}
+else
+{
+$nickName = "";
+$licenceNumber = "";
+$licenceValidty = "";
+$guideTerritory = "";
+$summery = "";
+$otherExperiance = "";
+$experianceInYear = "";
+$intrest = "";
+$landLineNumber = "";
+$paymentCurrency = "";
+$paymentTerm = "";
+$bestTimeToContace = "";
+$communicationMechanism = "";
+$remark = "";
+}
+
+$select3 = mysql_query("SELECT * FROM `tbl_tours` WHERE `tour_id` = $tourID && `status` = 1");
+$row33 = mysql_fetch_assoc($select3);
+$user_id=$row33["user_id"];
+$tour_category_id = $row33["tour_category_id"];
+$tour_title = $row33["tour_title"];
+$tour_location = $row33["tour_location"];
+$tour_description = $row33["tour_description"];
+$tour_duration = $row33["tour_duration"];
+$tour_price = $row33["tour_price"];
+$start_point = $row33["start_point"];
+$end_point = $row33["end_point"];
+$inclusive = $row33["inclusive"];
+$exclusive = $row33["exclusive"];
+$cancelation_policy = $row33["cancelation_policy"];
+$restrictions = $row33["restrictions"];
+$notes = $row33["notes"];
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -211,7 +286,8 @@ if($_GET["id2"]==0)
 							<div class="sidebar-widget">
 								<!-- Sidebar recent popular posts -->
 								<!-- START TABS -->
-								<ul class="nav nav-tabs text-upper">
+								
+								<ul class="nav nav-tabs text-upper" style="background-color:#ff845e;">
 									<?php
 									if($userID == 0)
 									{
@@ -219,7 +295,7 @@ if($_GET["id2"]==0)
 									}
 									else if($tourID == 0)
 									{
-										echo '<li class="active"><a href="#popular-posts" data-toggle="tab">Requested Tour Detail</a></li>';
+										echo '<li class="active"><a href="#popular-posts" data-toggle="tab">Requested Guide Detail</a></li>';
 									}
 									
 									?>
@@ -237,24 +313,7 @@ if($_GET["id2"]==0)
 										<div class="tour-plans" style="padding:10px 10px 10px 10px;">
 								<div class="plan-image">
 								<?php
-								include_once('db.php');
-
-								$select1 = mysql_query("SELECT * FROM `tbl_tours` WHERE `tour_id` = $tourID && `status` = 1");
-								$row1 = mysql_fetch_assoc($select1);
-								$user_id=$row1["user_id"];
-								$tour_category_id = $row1["tour_category_id"];
-								$tour_title = $row1["tour_title"];
-								$tour_location = $row1["tour_location"];
-								$tour_description = $row1["tour_description"];
-								$tour_duration = $row1["tour_duration"];
-								$tour_price = $row1["tour_price"];
-								$start_point = $row1["start_point"];
-								$end_point = $row1["end_point"];
-								$inclusive = $row1["inclusive"];
-								$exclusive = $row1["exclusive"];
-								$cancelation_policy = $row1["cancelation_policy"];
-								$restrictions = $row1["restrictions"];
-								$notes = $row1["notes"];
+								
 		
 								$select4Tvid = mysql_query("SELECT * FROM `tbl_tour_media_videos` WHERE `tour_id` = $tourID");
 								$select4Tpic = mysql_query("SELECT * FROM `tbl_tour_media_pictures` WHERE `tour_id` = $tourID");
@@ -364,13 +423,91 @@ if($_GET["id2"]==0)
 							</div>
 							</div>
 							<div style="text-align:justify; padding:10px 10px 10px 10px;">
-							<input type="button" class="pull-right btn btn-sm btn-warning" value="Detail" /><br><br>
+							<?php echo '<a class="pull-right btn btn-sm btn-warning" onclick="detailTour(' . $tourID . ');">Detail</a>'; ?>
+							
+							<br><br>
 							</div>
 										<?php
 									}
 									else if($tourID == 0)
 									{
-										echo 'No Guide Details';
+										
+										
+										?>
+										<div style="text-align:justify; padding:10px 10px 10px 10px;">
+										<div class="row">
+										<div class="col-md-4 col-sm-4 plan-image">
+										<?php 
+										$count4pic = mysql_num_rows($select2);
+										if ($count4pic==0)
+										{
+											echo '<img class="hover img-responsive" src="img/userDefaultIcon.png"/>';
+										}
+										else
+										{
+											if($profilePicture==null)
+											{
+												echo '<img class="hover img-responsive" src="img/userDefaultIcon.png"/>';
+											}
+											else
+											{
+												echo '<img class="hover img-responsive" src="showImage.php?id=' . $userID . '"/>';
+											}
+										}
+											
+										?>
+										
+										</div>
+										<div class="col-md-8 col-sm-8">
+										<div class="row">
+										<div class="col-md-3 col-sm-4 col-xs-4">Name:</div>
+										<div class="col-md-9 col-sm-8 col-xs-8"><?php echo $username; ?></div>
+										</div>
+										<div class="row">
+										<div class="col-md-3 col-sm-4 col-xs-4">Gender:</div>
+										<div class="col-md-9 col-sm-8 col-xs-8"><?php echo $gender; ?></div>
+										</div>
+										<div class="row">
+										<div class="col-md-3 col-sm-4 col-xs-4">DOB:</div>
+										<div class="col-md-9 col-sm-8 col-xs-8"><?php echo $birthday; ?></div>
+										</div>
+										<div class="row">
+										<div class="col-md-3 col-sm-4 col-xs-4">Mobile:</div>
+										<div class="col-md-9 col-sm-8 col-xs-8"><?php echo $mobileNumber; ?></div>
+										</div>
+										<div class="row">
+										<div class="col-md-3 col-sm-4 col-xs-4">Email:</div>
+										<div class="col-md-9 col-sm-8 col-xs-8"><?php echo $emailID; ?></div>
+										</div>
+										</div>
+										</div>
+										<div class="row"><br>
+										<div class="col-md-12">
+										<div class="row">
+										<div class="col-md-4 col-sm-4 col-xs-4">Address:</div>
+										<div class="col-md-8 col-sm-8 col-xs-8"><?php echo $streetAddress . ", " . $city. ", " . $state. ", " . $country; ?></div>
+										</div>
+										<div class="row">
+										<div class="col-md-4 col-sm-4 col-xs-4">Guide Territory:</div>
+										<div class="col-md-8 col-sm-8 col-xs-8"><?php echo $guideTerritory; ?></div>
+										</div>
+										<div class="row">
+										<div class="col-md-4 col-sm-4 col-xs-4">Licence No.:</div>
+										<div class="col-md-8 col-sm-8 col-xs-8"><?php echo $licenceNumber; ?></div>
+										</div>
+										<div class="row">
+										<div class="col-md-4 col-sm-4 col-xs-4">Experiance:</div>
+										<div class="col-md-8 col-sm-8 col-xs-8"><?php echo $experianceInYear . " Year Experiance, " . $otherExperiance . "." ; ?></div>
+										</div>
+</div>
+										</div>
+										</div>
+										<div style="text-align:justify; padding:10px 10px 10px 10px;">
+										<?php echo '<a class="pull-right btn btn-sm btn-warning" onclick="detailGuide(' . $userID . ');">Detail</a>'; ?>
+										<br><br>
+										</div>
+										
+										<?php
 									}
 										?>
 										
@@ -424,61 +561,8 @@ if($_GET["id2"]==0)
 								<!-- END TAB CONTENT -->
 							</div>
 							
-							<div class="sidebar-widget">
-								<!-- Sidebar facebook widget -->
-								<!-- START TABS -->
-								<ul class="nav nav-tabs social-tabs text-upper">
-									<li class="active"><a class="facebook-tab" href="#facebook-tab" data-toggle="tab">Facebook</a></li>
-									<li><a class="twitter-tab" href="#twitter-tab" data-toggle="tab">Twitter</a></li>
-									<li><a class="share-tab" href="#share-tab" data-toggle="tab">Follow Us</a></li>
-								</ul>
-								<!-- END TABS -->
-								
-								<!-- START TAB CONTENT -->
-								<div class="tab-content clearfix marb30">
-									<!-- START TAB 1 -->
-									<div class="tab-pane active" id="facebook-tab">
-										<div id="fb-widget">
-											<iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2FFacebookDevelopers&amp;width&amp;height=290&amp;colorscheme=light&amp;show_faces=true&amp;header=true&amp;stream=false&amp;show_border=true" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:290px;" allowTransparency="true"></iframe>
-										</div>
-									</div>
-									<!-- END TAB 1 -->
-									
-									<!-- START TAB 2 -->
-									<div class="tab-pane" id="twitter-tab">
-										
-									</div>
-									<!-- END TAB 2 -->
-									
-									<!-- START TAB 3 -->
-									<div class="tab-pane" id="share-tab">
-										
-									</div>
-									<!-- END TAB 3 -->
-								</div>
-								<!-- END TAB CONTENT -->
-							</div>
 							
-							<div class="sidebar-widget">
-								<!-- Post Tags -->
-								<div class="styled-box gray">
-									<h3 class="text-upper">Tags</h3>
-									<ul class="post-tags list-unstyled">
-										<li><a class="btn btn-primary btn-sm" href="#">aliquet</a></li>
-										<li><a class="btn btn-primary btn-sm" href="#">tristique</a></li>
-										<li><a class="btn btn-primary btn-sm" href="#">diam</a></li>
-										<li><a class="btn btn-primary btn-sm" href="#">egestas</a></li>
-										<li><a class="btn btn-primary btn-sm" href="#">montes</a></li>
-										<li><a class="btn btn-primary btn-sm" href="#">dapibus</a></li>
-										<li><a class="btn btn-primary btn-sm" href="#">turpis</a></li>
-										<li><a class="btn btn-primary btn-sm" href="#">tempor</a></li>
-										<li><a class="btn btn-primary btn-sm" href="#">cursus</a></li>
-										<li><a class="btn btn-primary btn-sm" href="#">enim</a></li>
-										<li><a class="btn btn-primary btn-sm" href="#">lectus</a></li>
-										<li><a class="btn btn-primary btn-sm" href="#">elementum</a></li>
-									</ul>
-								</div>
-							</div>
+							
 							
 							<div class="sidebar-widget">
 								<!-- Sidebar What We Do -->
@@ -521,44 +605,6 @@ if($_GET["id2"]==0)
 										</div>
 									</div>
 								</div>
-							</div>
-							
-							<div class="sidebar-widget">
-								<!-- Sidebar About -->
-								<h3 class="text-upper">About Travel Hub</h3>
-								<p>Lorem ipsum dolor sit amet,Phasellus ac lectus a leo scelerisque scelerisque. In commodo sollicitudin tempus. Integer orci ante</p>
-								<p>Augue sed platea sed non porta tincidunt augue? Odio platea, pulvinar habitasse vut! Pulvinar, integer odio. Ac pid! Habitasse montes elementum, et sagittis tincidunt magnis? Sociis! Elementum quis, integer natoque sed auctor nascetur enim parturient ridiculus ut amet porttitor aliquam.</p>
-							</div>
-							
-							<div class="sidebar-widget">
-								<!-- Sidebar Newsletter -->
-								<div class="styled-box gray">
-									<h3 class="text-upper">Subscribe Newsletter</h3>
-									<form action="#" method="post">
-										<label>Email Address</label>
-										<input type="text" name="email" class="form-control input-style1 marb20" value="Enter Email Address" onfocus="if (this.value == 'Enter Email Address') { this.value = ''; }" onblur="if (this.value == '') { this.value = 'Enter Email Address'; }" />
-										<input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Subscribe" />
-									</form>
-								</div>
-							</div>
-							
-							<div class="sidebar-widget">
-								<!-- Sidebar Flickr Gallery -->
-								<h3 class="text-upper">Flickr Gallery</h3>
-								<ul class="flickr-gal list-unstyled">
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-								</ul>
 							</div>
 						</aside>
 						<!-- END #sidebar -->
@@ -655,6 +701,22 @@ if($_GET["id2"]==0)
 		<script type="text/javascript" src="js/check-radio-box.js"></script>
 		<script type="text/javascript" src="js/script.js"></script>
 		<script type="text/javascript" src="js/styleswitcher.js"></script>
+		
+		
+		<script>
+		function detailTour(id) 
+				{
+					window.location.href = "tour_detail_sidebar.php?id="+id+"";
+					return false;
+				}
+				
+				function detailGuide(id) 
+				{
+					//alert("user id - " + id);
+					window.location.href = "guide_detail.php?id="+id+"";
+					return false;
+				}
+		</script>
 
 		<!--[if lt IE 9]>
 			<script type="text/javascript" src="js/html5shiv.js"></script>
