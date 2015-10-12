@@ -62,8 +62,8 @@
 			?>
 			
 			<!-- START #page-header -->
-			<div id="header-banner">
-				<div class="banner-overlay">
+			<div id="">
+				<div class="">
 					<div class="container">
 						<div class="row">
 							<section class="col-sm-6">
@@ -71,12 +71,12 @@
 							</section>
 							
 							<!-- breadcrumbs -->
-							<section class="col-sm-6">
+						<!--	<section class="col-sm-6">
 								<ol class="breadcrumb">
 									<li class="home"><a href="#">Home</a></li>
 									<li><a href="#">Top Destinations</a></li>
 								</ol>
-							</section>
+							</section> -->
 						</div>
 					</div>
 				</div>
@@ -93,7 +93,7 @@
 								<div class="col-md-12">
 									<div class="tour-plans">
 										<div class="plan-image">
-											<img class="img-responsive" src="{{x.Media.Image[0]}}" alt="{{x.Name}}" href="destination-detail-sidebar.html"/>
+											<img class="img-responsive" style="height:360px;" src="{{x.Media.Image[0]}}" alt="{{x.Name}}" href="destination-detail-sidebar.html"/>
 											<div class="offer-box">
 												<div class="offer-top">
 													<span class="ft-temp alignright">19&#730;c</span>
