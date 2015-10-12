@@ -87,8 +87,8 @@ ul.rating {
 			?>
 			
 			<!-- START #page-header -->
-			<div id="header-banner">
-				<div class="banner-overlay">
+			<div id="">
+				
 					<div class="container">
 						<div class="row">
 							<section class="col-sm-6">
@@ -96,15 +96,15 @@ ul.rating {
 							</section>
 							
 							<!-- breadcrumbs -->
-							<section class="col-sm-6">
+							<!--<section class="col-sm-6">
 								<ol class="breadcrumb">
 									<li class="home"><a href="#">Home</a></li>
 									<li><a href="#">Top Tours</a></li>
 								</ol>
-							</section>
+							</section> -->
 						</div>
 					</div>
-				</div>
+				
 			</div>
 			<!-- END #page-header -->
 			
@@ -120,7 +120,11 @@ ul.rating {
 									<div class="tour-plans">
 										<div class="plan-image">
 											<!-- <img class="img-responsive" src="{{x.Media.Image.gs}}" alt="Tour image" href="tour_detail_sidebar.html"/> -->
+<<<<<<< HEAD
 											<img class="img-responsive" src="{{x.Media.Image[0]}}" alt="{{x.Title}}" href="tour_detail_sidebar.php?tourid={{x.ID}}"/>
+=======
+											<img class="img-responsive" style="height:360px;" src="{{x.Media.Image[0]}}" alt="Tour image" href="tour_detail_sidebar.html"/>
+>>>>>>> 7e80d5880c53c1be921e3d7725daae0a8520b067
 											<div class="offer-box">
 												<div class="offer-top">
 													<span class="ft-temp alignright">{{x.Category}}</span>

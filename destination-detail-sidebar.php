@@ -51,8 +51,8 @@
 			?>
 			
 			<!-- START #page-header -->
-			<div id="header-banner">
-				<div class="banner-overlay">
+			<div id="">
+				<div class="">
 					<div class="container">
 						<div class="row">
 							<section class="col-sm-6">
@@ -60,13 +60,7 @@
 							</section>
 							
 							<!-- breadcrumbs -->
-							<section class="col-sm-6">
-								<ol class="breadcrumb">
-									<li class="home"><a href="#">Home</a></li>
-									<li><a href="#">Blog</a></li>
-									<li class="active">Lorem ipsum dolor sit amet</li>
-								</ol>
-							</section>
+						
 						</div>
 					</div>
 				</div>
@@ -82,7 +76,7 @@
 							<!-- START .post-data -->
 							<div class="post-data">
 								<div class="plan-image">
-									<img class="img-responsive" src="http://placehold.it/760x320" alt="Kolkata, WB" />
+									<img class="img-responsive" style="width:770px; height:320px;" src="{{place.Media.Image[0]}}" alt="Kolkata, WB" />
 								</div>
 								
 								<ul class="featured-btm single-ft-btm list-unstyled box-shadow1">
@@ -103,7 +97,7 @@
 											<ul><li ng-repeat="y in place.Attractions">{{y}}</li>
 											</p>
 								<p>
-									<img class="alignleft" src="img/in-post-image.jpg" alt="Image in Post" />
+									<img class="alignleft" style="width:260px;height:168px;" src="{{place.Media.Image[0]}}" alt="Image in Post" />
 									<h5>Transport Availability</h5>											
 											<ul><li ng-repeat="y in place.Transport">{{y}}</li>										
 								</p>

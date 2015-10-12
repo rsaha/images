@@ -67,7 +67,7 @@ ul.rating {
     font-weight: bold;
     cursor: pointer;
 	margin-top: -6px;
-    font-size: 16px;
+    font-size: 14px;
 }
 .rating .filled {
     color: #ff845e;
@@ -251,8 +251,9 @@ ul.rating {
 								<!-- START TAB 3 -->
 								<div class="tab-pane" id="additionalInfo">
 									<div class="inside-pane">
-										<h4>Overall Rating&nbsp:&nbsp<span star-rating rating-value="tour.Reviews.Overall_rating"></span></h4>
+										Overall Rating&nbsp:&nbsp<span star-rating rating-value="tour.Reviews.Overall_rating"></span>
 										<p>{{tour.Reviews.Overall_rating}}</p>
+										
 									</div>
 								</div>
 								<!-- END TAB 3 -->
@@ -275,49 +276,32 @@ ul.rating {
 								<!-- START TAB CONTENT -->
 								<div class="tab-content gray box-shadow1 clearfix marb30">
 									<!-- START TAB 1 -->
-									<div class="tab-pane active" id="popular-posts" ng-control="guidescontrol">
+									<div class="tab-pane active" id="popular-posts" ng-controller="guidescontrol">
 										<ul class="rc-posts-list list-unstyled">
-											<li ng-repeat="x in guides" ng-show="$index<4>
+											<li ng-repeat="z in guides" ng-show="$index<4">
 												<span class="rc-post-image">
-													<img class="img-responsive" src="{{x.Photo}}" alt="Recent Post 2" />
+													<img class="img-responsive" src="{{z.Photo}}" alt="Recent Post 2" />
 												</span>
-												<h5><a href="#">{{x.Territory}}</a></h5>
-												<span class="rc-post-date small">Speciality{{x.Speciality}}</span>
+											<h5><a href="#">{{z.Name}}</a></h5>
+												<h5><a href="#">{{z.Territory}}</a></h5>
+												<h5>{{z.Speciality}}<span class="rc-post-date small">Speciality&nbsp;&nbsp;</span></h5>
+												<span star-rating rating-value="z.Review.Star" style="" class="" ></span>	
 											</li>
-											<li>
-												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 4" />
-												</span>
-												<h5><a href="#">Shares suspende am Bankiaid 'Gloomy Forecast'</a></h5>
-												<span class="rc-post-date small">January 11, 2014</span>
-											</li>
-											<li>
-												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 3" />
-												</span>
-												<h5><a href="#">Shares suspende am Bankiaid 'Gloomy Forecast'</a></h5>
-												<span class="rc-post-date small">January 15, 2014</span>
-											</li>
-											<li class="last-rc-post">
-												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 1" />
-												</span>
-												<h5><a href="#">Apple Fails to Fix iPhone Daylight Saving Time Alarm Bug</a></h5>
-												<span class="rc-post-date small">January 20, 2014</span>
-											</li>
+										
 										</ul>
 									</div>
 									<!-- END TAB 1 -->
 									
 									<!-- START TAB 2 -->
-									<div class="tab-pane" id="recent-posts">
+									<div class="tab-pane" id="recent-posts" ng-controller="tourDetailCtrl">
 										<ul class="rc-posts-list list-unstyled">
-											<li>
+											<li ng-repeat="z in tour.Reviews.Reviews">
 												<span class="rc-post-image">
 													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 1" />
 												</span>
-												<h5><a href="#">Apple Fails to Fix iPhone Daylight Saving Time Alarm Bug</a></h5>
-												<span class="rc-post-date small">January 20, 2014</span>
+												<h5>{{z.Comment}}</h5>
+												<span star-rating rating-value="z.Rating" style="" class="" ></span>
+												
 											</li>
 											<li>
 												<span class="rc-post-image">
@@ -356,7 +340,14 @@ ul.rating {
 								<!-- END TAB CONTENT -->
 							</div>
 							
-							
+							  <div class="col-sm-6 sidebar-widget">
+                    <h3 class="column-title">Video Intro</h3>
+                    <!-- 16:9 aspect ratio -->
+                    <div class="embed-responsive embed-responsive-16by9">
+					<iframe width="360" height="315" src="https://www.youtube.com/embed/0ohZyqgIyQI?autoplay=1" frameborder="0" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>
+					
+                    </div>
+                </div>
 							<div class="sidebar-widget">
 								<!-- Sidebar Newsletter -->
 								<div class="styled-box gray">
