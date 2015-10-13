@@ -6,8 +6,7 @@
 		<!-- Site meta charset -->
 		<meta charset="UTF-8">
 		
-		<!-- title --> <title>Home | Guided Gateway - Authentic
-		Affordable Travel</title>
+		<title>Tour Details | Guided Gateway - Authentic Affordable Travel</title>
 
 		<!-- meta description --> <meta name="description" content="Authentic Afordable Travel in India" />
 
