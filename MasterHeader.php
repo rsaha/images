@@ -124,19 +124,9 @@
 				<li><a href="index.php" title="">HOME</a>
 				</li> 
 				<li>
-				<a href="guides.html" title="">Guides</a></li>
-				<li><a href="top-destinations-listview-sidebar.html" title="">Destinations</a> </li>
-                <li><a href="top-themes-listview-sidebar.html" title="">Themes</a> </li>
-                <li><a href="blog.html" title="blog">Travelogue</a> </li>
-				
-				<li><a href="#" onclick="return false;" title="">SIGN IN</a>
-				
-				<ul> 
-				<li><a href="#" title="">Touriest SIGN IN</a></li>
-				<li><a href="guide_login.php" title="">Guide SIGN IN</a></li>
-				</ul>
-				
-				</li>
+				<a href="#" title="">Guides</a></li>
+				<li><a href="#" title="">Destinations</a> </li>
+                <li><a href="#" title="">Themed Tours</a> </li>
 
 				</ul>
 				</nav>
