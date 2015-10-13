@@ -46,7 +46,12 @@
 		
 		<!-- meta viewport -->
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-		
+		<script type="text/javascript" src="js/modernizr.custom.17475.js"></script>
+			
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="bs3/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/check-radio-box.js"></script>
+		<script type="text/javascript" src="js/script.js"></script>
 		<!-- favicon -->
 		<link rel="icon" href="favicon.ico" type="image/x-icon" />
 		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
@@ -136,8 +141,8 @@
 						</div>
 					</div>
 
-					<div class="row">
-						<form action="guide_Step1.php" method="post" ng-app="myApp"  ng-controller="validateCtrl" name="myForm"  novalidate>
+					<div class="row" ng-app="myApp">
+						<form action="guide_Step1.php" method="post"  ng-controller="validateCtrl" ng-submit="submitForm(myForm.$valid)" name="myForm"  novalidate>
 							<div class="col-sm-12">
 								<div class="row">
 									<div class="col-sm-12">
@@ -194,20 +199,29 @@
 									  </span>
 									</div>
 									<div class="form-group col-sm-6">
-										<input type="password" class="form-control" id="conformpassword" ng-model="conformpassword" name="conformpassword" onKeyUp="validate()" placeholder="Confirm Password" ng-pattern="/^[a-zA-Z_0-9!@#$%^&* ]{6,15}$/" required  >
+										<input type="password" class="form-control" id="conformpassword" ng-model="conformpassword" name="conformpassword"  placeholder="Confirm Password" ng-pattern="/^[a-zA-Z_0-9!@#$%^&* ]{6,15}$/" required onkeyup="validate();" >
 									<span style="color:red" ng-show="myForm.conformpassword.$dirty && myForm.conformpassword.$invalid">
 									  <span ng-show="myForm.conformpassword.$error.required">*password is required.</span>
 									  <span ng-show="myForm.conformpassword.$error.pattern">*Invalid password ...</span>
 									  </span>
 									</div>
 								</div>
-
+								
 								<div class="form-group">
 									<div class="col-sm-12 text-center">
 										<strong style="color:#444454;">By clicking Register button, you agree to Guided Gateway's <a target="_blank" id="TosLink" href="termsofuse.html">Terms of Service</a> and <a target="_blank" id="PrivacyLink" href="privacy.html">Privacy Policy</a></strong>
 										<br /><br />
-										<input class="col-md-8 col-md-offset-2 btn btn-warning" name="submitbutton" type="submit" id="registerUser" value="Register" style="font-size:17px; font-weight: bold;" class="form-control" ng-disabled="myForm.FirstName.$dirty && myForm.FirstName.$invalid || myForm.LastName.$dirty && myForm.LastName.$invalid ||
-  myForm.EmailAddress.$dirty && myForm.EmailAddress.$invalid || myForm.MobileNumber.$dirty && myForm.MobileNumber.$invalid || myForm.Password.$dirty && myForm.Password.$invalid || myForm.conformpassword.$dirty && myForm.conformpassword.$invalid"><br><br><br>
+										<input class="col-md-8 col-md-offset-2 btn btn-warning" name="submitbutton" type="submit" id="registerUser" value="Register" style="font-size:17px; font-weight: bold;" class="form-control" 
+										ng-disabled="myForm.$invalid ||
+										myForm.FirstName.$dirty && myForm.FirstName.$invalid 
+										|| myForm.LastName.$dirty && myForm.LastName.$invalid 
+										|| myForm.EmailAddress.$dirty && myForm.EmailAddress.$invalid 
+										|| myForm.MobileNumber.$dirty && myForm.MobileNumber.$invalid 
+										|| myForm.Password.$dirty && myForm.Password.$invalid 
+										|| myForm.conformpassword.$dirty && myForm.conformpassword.$invalid
+										|| myForm.Password == myForm.conformpassword
+										"  />
+										<br><br><br>
 									</div>
 								</div>
 								<div class="col-sm-12 text-center">
@@ -249,52 +263,26 @@
 </div>
  
 <!-- sometime later, probably inside your on load event callback -->
-<script>
-    $("#myModal").on("show", function() {    // wire up the OK button to dismiss the modal when shown
-        $("#myModal a.btn").on("click", function(e) {
-            console.log("button pressed");   // just as an example...
-            $("#myModal").modal('hide');     // dismiss the dialog
-        });
-    });
- 
-    $("#myModal").on("hide", function() {    // remove the event listeners when the dialog is dismissed
-        $("#myModal a.btn").off("click");
-    });
-    
-    $("#myModal").on("hidden", function() {  // remove the actual elements from the DOM when fully hidden
-        $("#myModal").remove();
-    });
-    
-    $("#myModal").modal({                    // wire up the actual modal functionality and show the dialog
-      "backdrop"  : "static",
-      "keyboard"  : true,
-      "show"      : true                     // ensure the modal is shown immediately
-    });
-</script>
+
 		<!-- END #wrapper -->
 
 				<!-- javascripts -->
 			<script type="text/javascript">
-			function validate() {
-			var password1 = $("#Password").val();
-			var password2 = $("#conformpassword").val();
-			
-			if(password1 != password2) {
-				document.getElementById('conformpassword').style.border='1px solid red';
-			
-			}
-			else {
-					document.getElementById('conformpassword').style.border='';
-			}
-			}
-
-			</script>
-		<script type="text/javascript" src="js/modernizr.custom.17475.js"></script>
-			
-		<script type="text/javascript" src="js/jquery.min.js"></script>
-		<script type="text/javascript" src="bs3/js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="js/check-radio-box.js"></script>
-		<script type="text/javascript" src="js/script.js"></script>
+				function validate() {
+				var password1 = $("#Password").val();
+				var password2 = $("#conformpassword").val();
+				
+				if(password1 != password2) {
+					document.getElementById('conformpassword').style.border='1px solid red';
+					document.getElementById('registerUser').disabled=true;
+				}
+				else {
+						document.getElementById('conformpassword').style.border='';
+						//document.getElementById('registerUser').disabled=false;
+				}
+				}
+			</script> 
+		
 		
 			
 		<!--[if lt IE 9]>
