@@ -7,7 +7,7 @@
 		<meta charset="UTF-8">
 		
 		<!-- title -->
-		<title>Destination-Detail | Travel Hub HTML5 Template</title>
+		<title>Destination-Detail |Guided Gateway - Authentic Affordable Travel</title>
 		
 		<!-- meta description -->
 		<meta name="description" content="Guided Gateway" />
@@ -170,16 +170,16 @@
 								<!-- Sidebar recent popular posts -->
 								<!-- START TABS -->
 								<ul class="nav nav-tabs text-upper">
-									<li class="active"><a href="#popular-posts" data-toggle="tab">Popular</a></li>
-									<li><a href="#recent-posts" data-toggle="tab">Recent</a></li>
-									<li><a href="#recent-comments" data-toggle="tab">Comments</a></li>
+									<li class="active"><a href="#guides" data-toggle="tab">Guides</a></li>
+									<li><a href="#recent-posts" data-toggle="tab">Tours</a></li>
+									<li><a href="#recent-comments" data-toggle="tab">Hotels</a></li>
 								</ul>
 								<!-- END TABS -->
 								
 								<!-- START TAB CONTENT -->
 								<div class="tab-content gray box-shadow1 clearfix marb30">
 									<!-- START TAB 1 -->
-									<div class="tab-pane active" id="popular-posts">
+									<div class="tab-pane active" id="guides">
 										<ul class="rc-posts-list list-unstyled">
 											<li>
 												<span class="rc-post-image">
@@ -214,7 +214,7 @@
 									<!-- END TAB 1 -->
 									
 									<!-- START TAB 2 -->
-									<div class="tab-pane" id="recent-posts">
+									<div class="tab-pane" id="tours">
 										<ul class="rc-posts-list list-unstyled">
 											<li>
 												<span class="rc-post-image">
@@ -249,7 +249,7 @@
 									<!-- END TAB 2 -->
 									
 									<!-- START TAB 3 -->
-									<div class="tab-pane" id="recent-comments">
+									<div class="tab-pane" id="hotels">
 										<div class="inside-pane">
 											<p>Amet turpis tristique, nec in aliquet dis amet, proin egestas in tempor, cras et dapibus, lectus pellentesque enim odio elementum eu tincidunt diam a et. Dapibus sed cum, aliquam cras egestas enim elit in mattis? Scelerisque, ultrices mid! Lorem. Scelerisque? Pid cras, mattis vel, porta, quis! Porttitor turpis cras, odio ultricies parturient pulvinar tempor.</p>
 											<p>eu turpis enim dapibus diam tristique cursus egestas quis phasellus montes! Parturient porta purus quis scelerisque? Vel proin, ac odio cras penatibus magnis non? Aliquam elementum, dis? Elementum ac.</p>
@@ -260,61 +260,6 @@
 								<!-- END TAB CONTENT -->
 							</div>
 							
-							<div class="sidebar-widget">
-								<!-- Sidebar facebook widget -->
-								<!-- START TABS -->
-								<ul class="nav nav-tabs social-tabs text-upper">
-									<li class="active"><a class="facebook-tab" href="#facebook-tab" data-toggle="tab">Facebook</a></li>
-									<li><a class="twitter-tab" href="#twitter-tab" data-toggle="tab">Twitter</a></li>
-									<li><a class="share-tab" href="#share-tab" data-toggle="tab">Follow Us</a></li>
-								</ul>
-								<!-- END TABS -->
-								
-								<!-- START TAB CONTENT -->
-								<div class="tab-content clearfix marb30">
-									<!-- START TAB 1 -->
-									<div class="tab-pane active" id="facebook-tab">
-										<div id="fb-widget">
-											<iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2FFacebookDevelopers&amp;width&amp;height=290&amp;colorscheme=light&amp;show_faces=true&amp;header=true&amp;stream=false&amp;show_border=true" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:290px;" allowTransparency="true"></iframe>
-										</div>
-									</div>
-									<!-- END TAB 1 -->
-									
-									<!-- START TAB 2 -->
-									<div class="tab-pane" id="twitter-tab">
-										
-									</div>
-									<!-- END TAB 2 -->
-									
-									<!-- START TAB 3 -->
-									<div class="tab-pane" id="share-tab">
-										
-									</div>
-									<!-- END TAB 3 -->
-								</div>
-								<!-- END TAB CONTENT -->
-							</div>
-							
-							<div class="sidebar-widget">
-								<!-- Post Tags -->
-								<div class="styled-box gray">
-									<h3 class="text-upper">Tags</h3>
-									<ul class="post-tags list-unstyled">
-										<li><a class="btn btn-primary btn-sm" href="#">aliquet</a></li>
-										<li><a class="btn btn-primary btn-sm" href="#">tristique</a></li>
-										<li><a class="btn btn-primary btn-sm" href="#">diam</a></li>
-										<li><a class="btn btn-primary btn-sm" href="#">egestas</a></li>
-										<li><a class="btn btn-primary btn-sm" href="#">montes</a></li>
-										<li><a class="btn btn-primary btn-sm" href="#">dapibus</a></li>
-										<li><a class="btn btn-primary btn-sm" href="#">turpis</a></li>
-										<li><a class="btn btn-primary btn-sm" href="#">tempor</a></li>
-										<li><a class="btn btn-primary btn-sm" href="#">cursus</a></li>
-										<li><a class="btn btn-primary btn-sm" href="#">enim</a></li>
-										<li><a class="btn btn-primary btn-sm" href="#">lectus</a></li>
-										<li><a class="btn btn-primary btn-sm" href="#">elementum</a></li>
-									</ul>
-								</div>
-							</div>
 							
 							<div class="sidebar-widget">
 								<!-- Sidebar What We Do -->
@@ -323,47 +268,16 @@
 									<div class="panel panel-default">
 										<div class="panel-heading">
 											<a class="panel-title" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-												A Simple Heading for Accordion
+												Guided Gateway Benefits
 											</a>
 										</div>
 										<div id="collapseOne" class="panel-collapse collapse in">
 											<div class="panel-body">
-												Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-											</div>
-										</div>
-									</div>
-									<div class="panel panel-default">
-										<div class="panel-heading">
-											<a class="panel-title collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-												Another Example of Accordion
-											</a>
-										</div>
-										<div id="collapseTwo" class="panel-collapse collapse">
-											<div class="panel-body">
-												Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-											</div>
-										</div>
-									</div>
-									<div class="panel panel-default">
-										<div class="panel-heading">
-											<a class="panel-title collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-												This is The Last Test Item
-											</a>
-										</div>
-										<div id="collapseThree" class="panel-collapse collapse">
-											<div class="panel-body">
-												Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+												Provide authentic, affordable Indian travel experience to tourists by connecting them or their travel agents with the guides and tour services through an online marketplace. Our hand-selected tour guides offer unique authentic pre-defined or custom tours at an affordable price. We through with our partners also can offer authentic, local lodiging experience. All tours 
 											</div>
 										</div>
 									</div>
 								</div>
-							</div>
-							
-							<div class="sidebar-widget">
-								<!-- Sidebar About -->
-								<h3 class="text-upper">About Travel Hub</h3>
-								<p>Lorem ipsum dolor sit amet,Phasellus ac lectus a leo scelerisque scelerisque. In commodo sollicitudin tempus. Integer orci ante</p>
-								<p>Augue sed platea sed non porta tincidunt augue? Odio platea, pulvinar habitasse vut! Pulvinar, integer odio. Ac pid! Habitasse montes elementum, et sagittis tincidunt magnis? Sociis! Elementum quis, integer natoque sed auctor nascetur enim parturient ridiculus ut amet porttitor aliquam.</p>
 							</div>
 							
 							<div class="sidebar-widget">
@@ -380,7 +294,7 @@
 							
 							<div class="sidebar-widget">
 								<!-- Sidebar Flickr Gallery -->
-								<h3 class="text-upper">Flickr Gallery</h3>
+								<h3 class="text-upper">Tour Gallery</h3>
 								<ul class="flickr-gal list-unstyled">
 									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
 									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
@@ -404,81 +318,50 @@
 			</div>
 			<!-- END .main-contents -->
 			
-			<!-- START footer -->
-			<footer>
-				<!-- START #ft-footer -->
-				<div id="ft-footer">
-					<div class="footer-overlay">
-						<div class="container">
-							<div class="row">
-								<!-- testimonials -->
-								<section class="col-md-6">
-									<h3>Testimonials</h3>
-									<p>Tortor turpis. Proin. Dolor. Auctor arcu, habitasse mid placerat magna? Dis ac, adipiscing? Cras mus dolor sit a? Platea eros dictumst ridiculus sed phasellus, rhoncus magnis a pellentesque pulvinar duis purus risus tristique ultricies natoque, nec! Natoque natoque cum? Nec, placerat sociis! Sit ut, scelerisque? placerat sociis! Sit ut, scelerisque? Urna ut aliquam duis et scelerisque,</p>
-									<div class="tl-author">
-										<span class="tl-author-img">
-											<img class="img-circle" src="http://placehold.it/70x70" alt="Testimonial Author" />
-										</span>
-										<span class="tl-author-title">Jassem Elrakesh</span>
-										<span class="tl-author-desc">Visited Barcelona recently</span>
-									</div>
-								</section>
-								
-								<!-- twitter -->
-								<section class="col-md-6">
-									<h3 class="tw-feeds">Twitter Feeds</h3>
-									<p>The only netball team that takes a team photo after every game #envato <a href="#">http://instagram.com/p/gXSJNTwBJe/</a></p>
-									<p>Very excited that Envato is joining the big-ticket Macaw backers list - <a href="#">http://macaw.co</a>  - very intuitive looking new web design app!</p>
-									<p>Remember, you really are your own boss. Sink or swim, but do it like a boss. (10/10) <a href="#">#10BootstrappingTips</a></p>
-								</section>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- END #ft-footer -->
-				
-				<!-- START #ex-footer -->
-				<div id="#ex-footer">
-					<div class="container">
-						<div class="row">
-							<nav class="col-md-12">
-								<ul class="footer-menu">
-									<li><a href="#">Best Rate Guarntee</a></li>
-									<li><a href="#">Careers</a></li>
-									<li><a href="#">Hotel Directory</a></li>
-									<li><a href="#">Website Terms of Use</a></li>
-									<li><a href="#">Privacy Statement</a></li>
-									<li><a href="#">Affiliates</a></li>
-									<li class="last-item"><a href="#">Top Destinations</a></li>
-								</ul>
-							</nav>
-							
-							<div class="foot-boxs">
-								<div class="foot-box col-md-4 text-right">
-									<span>Stay Connected</span>
-									<ul class="social-media footer-social">
-										<li><a class="sm-yahoo" href="#"><span>Yahoo</span></a></li>
-										<li><a class="sm-facebook" href="#"><span>Facebook</span></a></li>
-										<li><a class="sm-rss" href="#"><span>RSS</span></a></li>
-										<li><a class="sm-flickr" href="#"><span>Flicker</span></a></li>
-										<li><a class="sm-windows" href="#"><span>Windows</span></a></li>
-										<li><a class="sm-stumble" href="#"><span>Stumbleupon</span></a></li>
-									</ul>
-								</div>
-								<div class="foot-box foot-box-md col-md-4">
-									<span class="contact-email"> touchus@travelhub.com</span>
-									<span class="contact-phone"> +1 125 496 0999</span>
-								</div>
-								<div class="foot-box col-md-4">
-									<span class="">&copy; 2013 travelhub. All Rights Reserved.</span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- END #ex-footer -->
-			</footer>
-			<!-- END footer -->
+			<!-- START footer --> <footer> <!-- START #ft-footer -->
+			<div id="ft-footer"> <div class="footer-overlay"> <div
+			class="container"> <div class="row"> <!-- testimonials -->
+			<section class="col-md-6"> <h3>Testimonials</h3> <p>Amazing experience with guided tour. Much authentic and affordable than a "so called" luxury package. A local guide or expert can enable you to connect with local people and culture more than you can do on your own and surely more than visiting just placec. Connecting with culture and learning from it is any way the main purpose of my visit  to place like Jaipur - apart from the awesome foods. Thank you. </p> <div class="tl-author">
+			<span class="tl-author-img"> <img class="img-circle"
+			src="http://placehold.it/70x70" alt="Testimonial Author" />
+			</span> <span class="tl-author-title">Jassem Elrakesh</span>
+			<span class="tl-author-desc">Visited Jaipur
+			recently</span> </div> </section>
+
+								<!-- twitter --> <section
+								class="col-md-6"> <h3
+								class="tw-feeds">Pinterest Feeds</h3>
+								                <a data-pin-do="embedBoard" href="https://www.pinterest.com/guidedgateway/guided-gateway/"data-pin-scale-width="80" data-pin-scale-height="200" data-pin-board-width="400">Follow Guided Gateway's board on Pinterest.</a><script type="text/javascript" async src="//assets.pinterest.com/js/pinit.js"></script>    
+                								</section> </div> </div> </div> </div>
+								<!-- END #ft-footer -->
+
+				<!-- START #ex-footer --> <div id="#ex-footer"> <div
+				class="container"> <div class="row"> <nav
+				class="col-md-12"> <ul class="footer-menu"> <li><a
+				href="#">Cancellation Policy</a></li> <li><a
+				href="#">Careers</a></li> <li><a href="#">Hotel
+				Directory</a></li> <li><a href="termofuse.html">Website Terms of
+				Use</a></li> <li><a href="privacy.html">Privacy Statement</a></li>
+				<li><a href="#">Affiliates</a></li> <li
+				class="last-item"><a href="#">Top Destinations</a></li>
+				</ul> </nav>
+
+							<div class="foot-boxs"> <div class="foot-box
+							col-md-4 text-right"> <span>Stay
+							Connected</span> <ul class="social-media
+							footer-social"><li><a class="sm-facebook"
+	href="#"><span>Facebook</span></a></li> <li><a class="sm-flickr"
+	href="#"><span>Pinterest</span></a></li> <li><a class="sm-windows"
+	href="#"><span>Youtube</span></a></li> <li><a class="sm-stumble"
+	href="#"><span>Twitter</span></a></li>
+							</ul> </div> <div class="foot-box
+							foot-box-md col-md-4"> <span
+							class="contact-email">
+							touchus@guidedgateway.com</span> <span
+							class="contact-phone"> +1 510 938 2562</span> </div> <div class="foot-box
+							col-md-4"> <span class="">&copy; 2015							GuideGateway. All Rights Reserved.</span>
+							</div> </div> </div> </div> </div> <!-- END #ex-footer --> 
+							</footer> <!-- END footer -->
 		</div>
 		<!-- END #wrapper -->
 

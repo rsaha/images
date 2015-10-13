@@ -77,7 +77,7 @@
 				<!-- START #ex-footer --> <div id="#ex-footer"> <div
 				class="container"> <div class="row"> <nav
 				class="col-md-12"> <ul class="footer-menu"> 
-                <li><a href="howitworks_guide.html">How it works</a></li> 
+                <li><a href="Why_GuidedGateway.html">How it works</a></li> 
                 <li><a href="#">Cancellation Policy</a>
                 </li> <li><a href="termofuse.html">Website Terms of
 				Use</a></li> <li><a href="privacy.html">Privacy Statement</a></li>

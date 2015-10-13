@@ -21,6 +21,55 @@
     <script src="bootstrap/js/html5shiv.js"></script>
     <script src="bootstrap/js/respond.min.js"></script>
     <![endif]-->
+    
+    <style type="text/css">
+    blink-text {
+  -moz-animation-duration: 800ms;
+  -moz-animation-name: blink;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-direction: alternate;
+  
+  -webkit-animation-duration: 800ms;
+  -webkit-animation-name: blink;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+  
+  animation-duration: 800ms;
+  animation-name: blink;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@-moz-keyframes blink {
+  from {
+    opacity: 1;
+  }
+  
+  to {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes blink {
+  from {
+    opacity: 1;
+  }
+  
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes blink {
+  from {
+    opacity: 1;
+  }
+  
+  to {
+    opacity: 0;
+  }
+}
+    </style>
 </head>
 
 <body data-spy="scroll" data-target="#topnav">
@@ -59,9 +108,11 @@
                 <div class="col-md-11">
                     <h1 class="title" style="color: #444454">Guided <span>Gateway</span></h1>
 
-                    <p style="color: #444454">Guided Gateway is #1 online marketplace for guides. </br/>We connect national and international toursists with <bold>GUIDES</bold>.</p>
+                    <p style="color: #444454">Guided Gateway is online marketplace for guides and guided tours. </br/>We connect toursists and their travel agents  with GUIDES.</p>
         
-                    <h3 style="color: #248822">Be part of a thriving community to promote your unique tours to tourists across the world</h3>
+        <h3 style="color: #FF845E">Limited time offer for guides joining before November 30:</h3>
+                        <ul><li><blink-text style="color: #444454">20% commission over service rate for next 6 months</blink-text></li>
+                            <li><blink-text style="color: #444454">Prime spot in our website for next 6 months</blink-text></li></ul>
 
                     <p style="color: #444454"><a class="btn btn-success btn-lg" href="guide_registration_1.php">Join <i class="icon icon-angle-right"></i></a></p>
                 </div>

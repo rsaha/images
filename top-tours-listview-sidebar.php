@@ -6,8 +6,7 @@
 		<!-- Site meta charset -->
 		<meta charset="UTF-8">
 		
-		<!-- title --> <title>Home | Guided Gateway - Authentic
-		Affordable Travel</title>
+		<title>Tour Details | Guided Gateway - Authentic Affordable Travel</title>
 
 		<!-- meta description --> <meta name="description" content="Authentic Afordable Travel in India" />
 
@@ -120,11 +119,7 @@ ul.rating {
 									<div class="tour-plans">
 										<div class="plan-image">
 											<!-- <img class="img-responsive" src="{{x.Media.Image.gs}}" alt="Tour image" href="tour_detail_sidebar.html"/> -->
-<<<<<<< HEAD
-											<img class="img-responsive" src="{{x.Media.Image[0]}}" alt="{{x.Title}}" href="tour_detail_sidebar.php?tourid={{x.ID}}"/>
-=======
 											<img class="img-responsive" style="height:360px;" src="{{x.Media.Image[0]}}" alt="Tour image" href="tour_detail_sidebar.html"/>
->>>>>>> 7e80d5880c53c1be921e3d7725daae0a8520b067
 											<div class="offer-box">
 												<div class="offer-top">
 													<span class="ft-temp alignright">{{x.Category}}</span>

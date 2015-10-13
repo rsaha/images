@@ -119,7 +119,7 @@
                         <h2><strong>Provide complete tour package with our partners</strong></h2>
                         <h2><strong>Compensation for no-show or late cancellation</strong></h2></br/>
 					<span class="btn-center">
-					<a class="btn btn-primary text-upper" href="howitworks_guide.html" title="Learn More">Learn More</a>
+					<a class="btn btn-primary text-upper" href="Why_GuidedGateway.html" title="Learn More">Learn More</a>
 					</span> 
 				</div>
 			</div>
