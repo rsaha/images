@@ -16,10 +16,10 @@ app.controller('guideControl',['$scope','$http', function($scope, $http) {
 				$scope.data = "error in fetching data";
 			});
 }]);
-app.controller('guidesCont',['$scope','$http', function($scope, $http) {
+app.controller('TopGuideControl',['$scope','$http', function($scope, $http) {
     $http.get("http://130.211.123.212/app/guides")
     .success(function (response) {
-		$scope.guides=response.Guides;
+		$scope.TopGuides=response.Guides;
 		})
 	.error(function() {
 				$scope.data = "error in fetching data";

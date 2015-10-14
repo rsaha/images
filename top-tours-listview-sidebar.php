@@ -161,51 +161,48 @@ ul.rating {
 								<!-- Sidebar recent popular posts -->
 								<!-- START TABS -->
 								<ul class="nav nav-tabs text-upper">
-									<li class="active"><a href="#salestours" data-toggle="tab">Tours</a></li>
+									<li class="active"><a href="#popular-posts" data-toggle="tab">Tours</a></li>
 									<li><a href="#newtours" data-toggle="tab">Guides</a></li>
-									<li><a href="#" data-toggle="tab">Attractions</a></li>
+									<li><a href="#recent-comments" data-toggle="tab">Attractions</a></li>
 								</ul>
 								<!-- END TABS -->
 								
 								<!-- START TAB CONTENT -->
 								<div class="tab-content gray box-shadow1 clearfix marb30">
 									<!-- START TAB 1 -->
-									<div class="tab-pane active" id="popular-posts">
+									<div class="tab-pane active" id="popular-posts" ng-controller="toursCtrl">
 										<ul class="rc-posts-list list-unstyled">
-											<li>
+											<li ng-repeat="x in tours" ng-show="$index<2">
 												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 2" />
+													<img class="img-responsive" src="{{x.Media.Image[0]}}" alt="Tour 1" />
 												</span>
-												<h5><a href="#">Limbaugh: Does 'Dark Knight Rise have it Bomb Found...</a></h5>
-												<span class="rc-post-date small">January 18, 2014</span>
+												<h5><a href="#">{{x.Title}}</a></h5>
+												<span class="rc-post-date small">Starting Price&nbsp;{{x.Price}}</span><br/>
+                                               <a href="booking-form.html"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Book" /></a>
 											</li>
+											
 											<li>
 												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 4" />
+													<img class="img-responsive" src="img/tour_3.jpg" alt="Tour 3" />
 												</span>
-												<h5><a href="#">Shares suspende am Bankiaid 'Gloomy Forecast'</a></h5>
-												<span class="rc-post-date small">January 11, 2014</span>
-											</li>
-											<li>
-												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 3" />
-												</span>
-												<h5><a href="#">Shares suspende am Bankiaid 'Gloomy Forecast'</a></h5>
-												<span class="rc-post-date small">January 15, 2014</span>
+												<h5><a href="#">Tour 3 </a></h5>
+												<span class="rc-post-date small">Starting Price INR 1500</span><br/>
+                                               <a href="booking-form.html"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Book" /> </a>
 											</li>
 											<li class="last-rc-post">
 												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 1" />
+													<img class="img-responsive" src="img/tour_4.jpg" alt="Tour 4" />
 												</span>
-												<h5><a href="#">Apple Fails to Fix iPhone Daylight Saving Time Alarm Bug</a></h5>
-												<span class="rc-post-date small">January 20, 2014</span>
+												<h5><a href="#">Tour 4 </a></h5>
+												<span class="rc-post-date small">Starting Price INR 1500</span><br/>
+                                               <a href="booking-form.html"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Book" /></a>
 											</li>
 										</ul>
 									</div>
 									<!-- END TAB 1 -->
 									
 									<!-- START TAB 2 -->
-									<div class="tab-pane" id="recent-posts">
+									<div class="tab-pane" id="newtours">
 										<ul class="rc-posts-list list-unstyled">
 											<li>
 												<span class="rc-post-image">

@@ -74,7 +74,7 @@
 
 					$bin_string = file_get_contents($filename);
 					$hex_string = base64_encode($bin_string);
-					unlink($filename);
+					//unlink($filename);
 
 					include_once("db.php");
 					$upl=0;
@@ -187,7 +187,7 @@
 
 			$bin_string = file_get_contents($filename);
 			$hex_string = base64_encode($bin_string);
-			unlink($filename);
+			//unlink($filename);
 
 
 			include_once("db.php");
@@ -301,7 +301,7 @@
 
 			$bin_string = file_get_contents($filename);
 			$hex_string = base64_encode($bin_string);
-			unlink($filename);
+			//unlink($filename);
 
 			include_once("db.php");
 			$upl=0;
