@@ -292,22 +292,12 @@
 								</div>
 							</div>
 							
-							<div class="sidebar-widget">
+							<div class="sidebar-widget" ng-controller="placesCtrl">
 								<!-- Sidebar Flickr Gallery -->
-								<h3 class="text-upper">Tour Gallery</h3>
+								<h3 class="text-upper">Top Places Gallery</h3>
 								<ul class="flickr-gal list-unstyled">
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
+									<li ng-repeat="place in places"><img class="img-responsive" style="width:85px;height:62px;" src="{{place.Media.Image[0]}}" alt="Flickr Photo" /></li>
+									
 								</ul>
 							</div>
 						</aside>

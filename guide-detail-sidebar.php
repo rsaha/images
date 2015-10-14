@@ -126,11 +126,11 @@ ul.rating {
 									<img class="img-responsive" src="{{allguides.Media.CoverPhoto}}" alt="Kolkata, WB" />
 								</div>
 								
-								<ul class="featured-btm single-ft-btm list-unstyled box-shadow1">
+								<ul class="featured-btm single-ft-btm">
 									<li class="author-img"><img class="img-circle img-wt-border" style=height:80px;width:80px; src="{{allguides.Media.Photo}}" alt="Guide" /></li>
 									<li class="post-author"><a class="text-upper" >{{allguides.Gender}}</a></li>
 									<li class="fa fa-tree"><a class=""> {{allguides.Speciality}}</a></li>
-									<li class="post-date"><span class="alignright" star-rating rating-value="allguides.ReviewSummary.Star" ></span></li>
+									
 									
 								</ul>
 							</div>
@@ -256,31 +256,31 @@ ul.rating {
 									<!-- END TAB 1 -->
 									
 									<!-- START TAB 2 -->
-									<div class="tab-pane" id="reviews" ng-controller="TourControl">
-										<ul class="rc-posts-list list-unstyled">
-											<li ng-repeat="x in alltours" ng-show="$index<2">
-												<span class="rc-post-image">
-													<img class="img-responsive" src="{{x.Media.Image[0]}}" alt="Recent Post 1" />
+									<div class="tab-pane" id="recent-posts" ng-controller="TourControl">
+										<ul class="list-unstyled">
+											<li ng-repeat="x in alltours" ng-show="$index<2" >
+												<span class="" style="display:inline-block;">
+													<img class="img-responsive" style="height:80px;width:80px;" src="{{x.Media.Image[0]}}" alt="Recent Post 1" />
 												</span>
 												<span star-rating rating-value="x.Reviews.OverallRating"  class="" ></span>	
-												<span class="">{{x.Reviews.ReviewCount}} reviews</span>
+												<span class="">&nbsp;&nbsp;{{x.Reviews.ReviewCount}} reviews</span><br><br>
 												
 											</li>
 											
-											<li>
+										<!--	<li>
 												<span class="rc-post-image">
 													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 3" />
 												</span>
 												<h5><a href="#">5 star rating..upcoming</a></h5>
-												<span class="rc-post-date small">January 15, 2016</span>
+												<span class="rc-post-date small">January 15, 2016</span><br><br>
 											</li>
 											<li class="last-rc-post">
 												<span class="rc-post-image">
 													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 4" />
 												</span>
 												<h5><a href="#">5 star rating..upcoming</a></h5>
-												<span class="rc-post-date small">January 11, 2014</span>
-											</li>
+												<span class="rc-post-date small">January 11, 2014</span><br><br>
+											</li> -->
 										</ul>
 									</div>
 									<!-- END TAB 2 -->
@@ -312,21 +312,10 @@ ul.rating {
 							
 							<div class="sidebar-widget">
 								<!-- Sidebar Flickr Gallery -->
-								<h3 class="text-upper">Tour Gallery</h3>
-								<ul class="flickr-gal list-unstyled">
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-								</ul>
+								<h3 class="text-upper">Guide Gallery</h3>
+								<ul class="flickr-gal list-unstyled" ng-controller="guidesCont">
+									<li ng-repeat="count in guides"><img class="img-responsive" style="width:85px;height:62px;" src="{{count.Photo}}" alt="Flickr Photo" /></li>
+																	</ul>
 							</div>
 						</aside>
 						<!-- END #sidebar -->
