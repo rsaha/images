@@ -139,7 +139,7 @@ function getExtension($str)
 
 				$bin_string = file_get_contents($filename);
 				$hex_string = base64_encode($bin_string);
-				unlink($filename);
+				//unlink($filename);
 			}
 		}
 		else 
