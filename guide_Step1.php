@@ -96,7 +96,6 @@
 			die;
 			exit;
 		}
-		
 	}
 	else
 	{
