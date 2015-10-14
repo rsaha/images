@@ -25,6 +25,7 @@
 		$scope.MobileNumber = '';
 		$scope.Password = '';
 		$scope.conformpassword = '';
+		$scope.submitbutton = '';
 	});
 	
 	app.controller('validateCtrl2', function($scope) {

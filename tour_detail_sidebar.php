@@ -47,9 +47,10 @@
             ga('send', 'pageview');
 
         </script>
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+       
         <script type="text/javascript"  src= "js/angular.min.js"></script>
         <script type="text/javascript"  src="topTour.js"></script>
+		 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
 		<style type="text/css">
 .rating {
     color: #a9a9a9;
@@ -67,7 +68,7 @@ ul.rating {
     font-weight: bold;
     cursor: pointer;
 	margin-top: -6px;
-    font-size: 14px;
+    font-size: 12px;
 }
 .rating .filled {
     color: #ff845e;
@@ -277,10 +278,10 @@ ul.rating {
 								<div class="tab-content gray box-shadow1 clearfix marb30">
 									<!-- START TAB 1 -->
 									<div class="tab-pane active" id="popular-posts" ng-controller="guidescontrol">
-										<ul class="rc-posts-list list-unstyled">
+										<ul class="list-unstyled">
 											<li ng-repeat="z in guides" ng-show="$index<4">
 												<span class="rc-post-image">
-													<img class="img-responsive" src="{{z.Photo}}" alt="Recent Post 2" />
+													<img class="img-responsive" style="height:80px; width:80px;" src="{{z.Photo}}" alt="Recent Post 2" />
 												</span>
 											<h5><a href="#">{{z.Name}}</a></h5>
 												<h5><a href="#">{{z.Territory}}</a></h5>
@@ -294,16 +295,16 @@ ul.rating {
 									
 									<!-- START TAB 2 -->
 									<div class="tab-pane" id="recent-posts" ng-controller="tourDetailCtrl">
-										<ul class="rc-posts-list list-unstyled">
+										<ul class="list-unstyled">
 											<li ng-repeat="z in tour.Reviews.Reviews">
 												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 1" />
+													<img class="img-responsive"  src="http://placehold.it/80x65" alt="Recent Post 1" />
 												</span>
 												<h5>{{z.Comment}}</h5>
-												<span star-rating rating-value="z.Rating" style="" class="" ></span>
+												<span star-rating rating-value="z.Rating" style="" class="" ></span><br><br>
 												
 											</li>
-											<li>
+										<!--	<li>
 												<span class="rc-post-image">
 													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 2" />
 												</span>
@@ -323,7 +324,7 @@ ul.rating {
 												</span>
 												<h5><a href="#">Shares suspende am Bankiaid 'Gloomy Forecast'</a></h5>
 												<span class="rc-post-date small">January 11, 2014</span>
-											</li>
+											</li>  -->
 										</ul>
 									</div>
 									<!-- END TAB 2 -->
