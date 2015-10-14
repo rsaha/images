@@ -74,6 +74,21 @@ ul.rating {
     color: #ff845e;
 }
 </style>
+
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+	<script>
+	//https://developers.google.com/maps/tutorials/fundamentals/adding-a-google-map
+      function initialize() {
+        var mapCanvas = document.getElementById('map');
+        var mapOptions = {
+          center: new google.maps.LatLng(23.555, 75.999),
+          zoom: 8,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        var map = new google.maps.Map(mapCanvas, mapOptions)
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
 	</head>
 	<!-- END head -->
 
@@ -119,6 +134,7 @@ ul.rating {
 						<!-- START #page -->
 						<div id="page" class="col-md-8">
 							<!-- START .tour-plans -->
+							<div class="col-md-12">
 							<div class="tour-plans">
 								<div class="plan-image">
 									<img class="img-responsive" src="{{tour.Media.Image[0]}}" alt="TajMahal" />
@@ -259,7 +275,10 @@ ul.rating {
 								</div>
 								<!-- END TAB 3 -->
 							</div>
+							</div>
 							<!-- END TAB CONTENT -->
+							<div class="col-md-12" id="map" style="width: 100%; height: 400px;">
+							</div>
 						</div>
 						<!-- END #page -->
 						<!-- START #sidebar -->

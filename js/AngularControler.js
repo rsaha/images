@@ -3,6 +3,8 @@
      /* angular.module('myApp', []); */
 	 var app = angular.module('myApp', []);
 	 
+	 
+	 
 	app.controller('customersCtrl',['$scope','$http', function($scope, $http) {
 		$http.get("customers.php")
 		.success(function (response) {
@@ -13,6 +15,11 @@
 		});
 	}]);
 	
+	
+
+  
+  
+  
 	app.controller('validateLogin', function($scope) {
 		$scope.username = '';
 		$scope.password = '';
@@ -28,6 +35,25 @@
 		$scope.submitbutton = '';
 	});
 	
+	app.directive('compareTo', function () {
+    return {
+      require: "ngModel",
+      scope: {
+        otherModelValue: "=compareTo"
+      },
+      link: function(scope, element, attributes, ngModel) {
+
+        ngModel.$validators.compareTo = function(modelValue) {
+          return modelValue == scope.otherModelValue;
+        };
+
+        scope.$watch("otherModelValue", function() {
+          ngModel.$validate();
+        });
+      }
+    };
+ });
+ 
 	app.controller('validateCtrl2', function($scope) {
 		$scope.nickname = '';
 		$scope.streetaddress = '';
