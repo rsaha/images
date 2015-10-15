@@ -75,8 +75,9 @@ ul.rating {
 }
 </style>
 
-    <script src="https://maps.googleapis.com/maps/api/js"></script>
-	<script>
+   <!-- <script src="https://maps.googleapis.com/maps/api/js"></script> -->
+	<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+	<!--<script>
 	//https://developers.google.com/maps/tutorials/fundamentals/adding-a-google-map
       function initialize() {
         var mapCanvas = document.getElementById('map');
@@ -88,7 +89,7 @@ ul.rating {
         var map = new google.maps.Map(mapCanvas, mapOptions)
       }
       google.maps.event.addDomListener(window, 'load', initialize);
-    </script>
+    </script> -->
 	</head>
 	<!-- END head -->
 
@@ -162,7 +163,7 @@ ul.rating {
 								
 								<h2 class="text-upper">Tour Information</h2>
 								<p>"{{tour.Description}}"</p>
-								<p><h5>Start Point : {{tour.StartPoint}}&nbsp&nbsp&nbsp&nbsp&nbspEnd Point : {{tour.EnPoint}}</h5></p>
+								<p><h5>Start Point : {{tour.StartPoint}}&nbsp&nbsp&nbsp&nbsp&nbspEnd Point : {{tour.EndPoint}}</h5></p>
 								
 							</div>
 							<!-- END .tour-plans -->
@@ -182,7 +183,7 @@ ul.rating {
 									<!-- <ul class="plans-list list-unstyled">
 										<li> -->
 										<div class="col-md-4" style="padding:15px 15px 15px 15px">
-											<img class="img-responsive" src="{{tour.Media.Image[0]}}" alt="Day 1" />
+										<!--	<img class="img-responsive" src="{{tour.Media.Image[0]}}" alt="Day 1" />  -->
 											<div class="plan-info">
 												<h4 class="text-upper">{{tour.Itineary.Duration}}</h4>
 												<p ng-repeat="x in tour.Itineary.Day.Spots"><span>{{x.Spot}}</span></p>
@@ -225,7 +226,7 @@ ul.rating {
 											</thead>
 											<tbody ng-repeat="x in tour.Itineary.Day.Spots">
 												<tr class="dark-gray">
-													<td><a href="#">{{x.Spot}}({{x.MapLocation.Latitude +', '+ x.MapLocation.Longitude}})</a></td>
+													<td><a href="#mapLocation" ng-click="getdata({{x.MapLocation.Latitude}},{{x.MapLocation.Longitude}})">{{x.Spot}}({{x.MapLocation.Latitude +', '+ x.MapLocation.Longitude}})</a></td>
 													<td>{{x.Description}}</td>
 													<td>{{x.Spot}}</td>
 													<td>{{x.Duration}}</td>
@@ -277,7 +278,7 @@ ul.rating {
 							</div>
 							</div>
 							<!-- END TAB CONTENT -->
-							<div class="col-md-12" id="map" style="width: 100%; height: 400px;">
+							<div class="col-md-12" id="mapLocation" hello-maps="" latitude="{{latit}}" longitude="{{longit}}" style="width: 100%; height: 400px;">
 							</div>
 						</div>
 						<!-- END #page -->
@@ -288,7 +289,7 @@ ul.rating {
 								<!-- START TABS -->
 								<ul class="nav nav-tabs text-upper">
 									<li class="active"><a href="#popular-posts" data-toggle="tab">Guides</a></li>
-									<li><a href="#recent-posts" data-toggle="tab">Reviws</a></li>
+									<li><a href="#recent-posts" data-toggle="tab">Reviews</a></li>
 									<li><a href="#recent-comments" data-toggle="tab">Tips</a></li>
 								</ul>
 								<!-- END TABS -->

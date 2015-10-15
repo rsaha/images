@@ -1,5 +1,13 @@
 <?php
 session_start();
+function getExtension($str) 
+	{
+		$i = strrpos($str,".");
+		if (!$i) { return ""; }
+		$l = strlen($str) - $i;
+		$ext = substr($str,$i+1,$l);
+		return $ext;
+	}
 $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 	if(isset($_SESSION['userId']))
 	{
@@ -109,7 +117,8 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 
 					imagecopyresampled($tmp, $src, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
 
-					$newName=date("dmYHms") . "_img." . $extension;
+					$newName=$mobileNumber . "_licence." . $extension;
+					//$newName=date("dmYHms") . "_img." . $extension;
 					$filename = $upload_dir . $newName;
 					imagejpeg($tmp,$filename,100);
 
@@ -307,7 +316,7 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 				$msg="Guide '$emailID' Profile update failed!";
 				echo "<script type='text/javascript'>alert('$msg');</script>";
 				error_log($msg, 0);
-				//header('Location:guide_profile.php?id=' . $userid . '');
+				header('Location:guide_profile.php?id=' . $userid . '');
 			}
 	}
 	}
