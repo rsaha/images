@@ -12,5 +12,5 @@
 	
 	session_destroy();
 	
-	header('Location:guide_login.php');
+	header('Location:login.php');
 ?>

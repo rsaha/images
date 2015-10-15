@@ -228,7 +228,7 @@
 								</div>
 								<div class="text-center">
 									<span style="color:gray;">
-									Already a member? <a id="LinkSignIn" href="guide_login.php">Sign In</a>
+									Already a member? <a id="LinkSignIn" href="login.php">Sign In</a>
 									</span>
 								</div>
 							</div>

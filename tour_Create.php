@@ -10,7 +10,7 @@
 		if($_SESSION['userId']!=$userid)
 		{
 			include_once("signOut.php");
-            header('Location:guide_login.php');
+            header('Location:login.php');
 			exit;
 		}
 		else
@@ -79,7 +79,7 @@
 	else
 	{
 		include_once("signOut.php");
-        header('Location:guide_login.php');
+        header('Location:login.php');
 		exit;
 	}
 ?>
@@ -253,7 +253,7 @@
 					        <br /><br />
 					   <div class="row">
 					<div class="col-md-11">
-					<a href="guide_login.php" style="color:#5a5a5a;" title="">
+					<a href="login.php" style="color:#5a5a5a;" title="">
 					<center><u><span style="font-size:18px;font-weight:bold;"><?php echo strtoupper($username) ?></span></u></center>
 					</a> 
 					<br /><br />
