@@ -69,7 +69,7 @@ if((isset($_SESSION['userId'])) && (($_SESSION['phase'] == "signin") || ($_SESSI
 
 				imagecopyresampled($tmp, $src, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
 
-				$newName=date("dmYHms") . "_img." . $extension;
+				$newName=date("dmYHms") . "_tour_img." . $extension;
 				$filename = $upload_dir . $newName;
 				imagejpeg($tmp,$filename,100);
 
