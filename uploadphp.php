@@ -13,6 +13,10 @@
 	if((isset($_SESSION['userId'])) && (($_SESSION['phase'] == "signin") || ($_SESSION['phase'] == "reg")))
 	{
 		$userid=$_SESSION['userId'];
+		include_once('db.php');
+		$selectt1 = mysql_query("SELECT `mobileNo` FROM `tbl_user_profile` WHERE `user_id` = $userid");
+		$roww11 = mysql_fetch_assoc($selectt1);
+		$mobileNumber=$roww11["mobileNo"];
 
 		if (isset($_POST['cover_pic']))
 		{
@@ -65,7 +69,7 @@
 
 					imagecopyresampled($tmp, $src, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
 
-					$newName=date("dmYHms") . "_img." . $extension;
+					$newName=$mobileNumber . "_cover." . $extension; //date("dmYHms") . "_img." . $extension;
 					$filename = $upload_dir . $newName;
 					imagejpeg($tmp,$filename,100);
 
@@ -178,7 +182,7 @@
 
 			imagecopyresampled($tmp, $src, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
 
-			$newName=date("dmYHms") . "_img." . $extension;
+			$newName=$mobileNumber . "_profile." . $extension; //date("dmYHms") . "_img." . $extension;
 			$filename = $upload_dir . $newName;
 			imagejpeg($tmp,$filename,100);
 
@@ -292,7 +296,7 @@
 
 			imagecopyresampled($tmp, $src, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
 
-			$newName=date("dmYHms") . "_img." . $extension;
+			$newName=$mobileNumber . "_licence." . $extension; //date("dmYHms") . "_img." . $extension;
 			$filename = $upload_dir . $newName;
 			imagejpeg($tmp,$filename,100);
 
