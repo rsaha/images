@@ -12,8 +12,8 @@
           latitude = attrs.latitude,
           longitude = attrs.longitude,
           map;
-        latitude = latitude && parseFloat(latitude, 10) || 43.074688;
-        longitude = longitude && parseFloat(longitude, 10) || -89.384294;
+        latitude = latitude && parseFloat(latitude, 10) || 28.6466773;
+        longitude = longitude && parseFloat(longitude, 10) || 76.813073;
         mapOptions = {
           zoom: 8,
           center: new google.maps.LatLng(latitude, longitude)
@@ -68,7 +68,9 @@ app.controller('tourDetailCtrl',['$scope','$http', function($scope, $http) {
 		}
 		$scope.getdata=function(latitude,longitude){
 			$scope.longit=longitude;
+			alert(longitude);
 			$scope.latit=latitude;
+			alert(latitude);
 		}
 			
 }]); 
