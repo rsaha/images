@@ -369,6 +369,6 @@
 		$errormsg="Unauthenticated access to the upload page, Registration Step 1 is not done";
 		error_log($errormsg,0);
 		include_once("signOut.php");
-		header('Location:guide_registration_1.php');
+		header('Location:registration.php');
 	}
 ?>

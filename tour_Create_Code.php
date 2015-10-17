@@ -12,7 +12,7 @@ session_start();
 			$errormsg="Unauthenticated access to the Guide edit page, Registration Step 1 is not done";
 			error_log($errormsg,0);
 			include_once("signOut.php");
-			header('Location:guide_registration_1.php');
+			header('Location:registration.php');
 		}
 		else
 		{
@@ -107,7 +107,7 @@ session_start();
 		$errormsg="Unauthenticated access to the Guide edit page, Registration Step 1 is not done";
 		error_log($errormsg,0);
 		include_once("signOut.php");
-        header('Location:guide_registration_1.php');
+        header('Location:registration.php');
 	    exit;
 	}
 ?>

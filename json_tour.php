@@ -70,6 +70,9 @@ if(isset($_POST["tourid"]))
 	);
 	unset($rows1);
 	$JsonReturn = json_encode( $return ); 
+    
+    //write to a file 
+    //then call rest API to push to the marklogic database as /tour/tour_<tour id>.json
 }
 ?>
 

@@ -8,7 +8,7 @@
 		}
 		if($_SESSION['userId']!=$userid)
 		{
-			header('Location:guide_login.php');
+			header('Location:login.php');
 			exit;
 		}
 		else
@@ -73,7 +73,7 @@
 	}
 	else
 	{
-		header('Location:guide_login.php');
+		header('Location:login.php');
 		exit;
 	}
 ?>
@@ -251,7 +251,7 @@
 				<form action="guide_profile_update.php" enctype="multipart/form-data" method="post">
 					   <div class="row">
 					   <div class="col-md-11">
-					   <a href="guide_login.php" style="color:#5a5a5a;" title=""><center><u><span style="font-size:18px;font-weight:bold;"><?php echo strtoupper($username) ?></span></u></center></a>
+					   <a href="login.php" style="color:#5a5a5a;" title=""><center><u><span style="font-size:18px;font-weight:bold;"><?php echo strtoupper($username) ?></span></u></center></a>
 					<br /><br />
 					<label style="font-size:14px;">Licence Number. :</label><br><br />
 					<input name="licenceNumber" class="form-control" type="text" value="<?php echo $licenceNumber ?>" /><br />
