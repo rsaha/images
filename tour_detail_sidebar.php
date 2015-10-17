@@ -157,13 +157,13 @@ ul.rating {
 									
 									<a class="ft-plane text-upper" style="font-weight:bold;" href="#">{{tour.Category}}</a>
 									<a class="ft-tea text-upper" style="font-weight:bold;" href="#">{{tour.Inclusive}}</a>
-                                    <a class="ft-hotel text-upper" style="font-weight:bold;" href="booking-form.html">From:&nbsp;&nbsp;{{tour.StartPoint}}&nbsp;&nbsp;-&nbsp;&nbsp;To:&nbsp;&nbsp;{{tour.EnPoint}}</a>
+                                    <a class="ft-hotel text-upper" style="font-weight:bold;" href="booking-form.html">From:&nbsp;&nbsp;{{tour.StartPoint}}&nbsp;&nbsp;-&nbsp;&nbsp;To:&nbsp;&nbsp;{{tour.EndPoint}}</a>
 									
 								</div>
 								
 								<h2 class="text-upper">Tour Information</h2>
 								<p>"{{tour.Description}}"</p>
-								<p><h5>Start Point : {{tour.StartPoint}}&nbsp&nbsp&nbsp&nbsp&nbspEnd Point : {{tour.EndPoint}}</h5></p>
+								<p><h5>Start Point : {{tour.StartPoint}} &nbsp;&nbsp;&nbsp;&nbsp; End Point : {{tour.EndPoint}}</h5></p>
 								
 							</div>
 							<!-- END .tour-plans -->
@@ -190,6 +190,28 @@ ul.rating {
 											    <h5>Lunch&nbsp:&nbsp{{tour.Itineary.Day.Lunch}}</h5>
 											</div>
 										</div>
+										<div class="col-md-6 table-responsive" style="padding:15px 15px 15px 15px">
+										<table class="table">
+											<thead>
+												<tr>
+													
+													<th>MapLocation</th>
+													<th>Duration</th>
+													<th>Entry Fees</th>
+												</tr>
+											</thead>
+											<tbody ng-repeat="x in tour.Itineary.Day.Spots">
+												<tr class="dark-gray">
+													
+													<td><a href="#mapLocation" ng-click="getdata({{x.MapLocation.Latitude}},{{x.MapLocation.Longitude}});">{{x.Spot}}</a></td>
+													<td>{{x.Duration}}</td>
+													<td>{{x.Entreefees}}</td>
+												</tr>
+											
+											</tbody>
+										</table>
+									</div>
+										
 										<!-- </li> -->
 										
 										<!-- <li>
@@ -207,7 +229,7 @@ ul.rating {
 												<p>Amet turpis tristique, nec in aliquet dis amet, proin egestas in tempor, cras et dapibus.</p>
 											</div>
 										</li> -->
-									</ul>
+									
 								</div>
 								<!-- END TAB 1 -->
 								
@@ -217,49 +239,22 @@ ul.rating {
 										<table class="table">
 											<thead>
 												<tr>
-													<th>Map Location</th>
-													<th>Description</th>
+													
+													<th>Tour Description</th>
 													<th>Spot</th>
-													<th>Duration</th>
-													<th>Entry Fees</th>
+													<th>Time Duration</th>
+													
 												</tr>
 											</thead>
 											<tbody ng-repeat="x in tour.Itineary.Day.Spots">
 												<tr class="dark-gray">
-													<td><a href="#mapLocation" ng-click="getdata({{x.MapLocation.Latitude}},{{x.MapLocation.Longitude}})">{{x.Spot}}({{x.MapLocation.Latitude +', '+ x.MapLocation.Longitude}})</a></td>
+													
 													<td>{{x.Description}}</td>
 													<td>{{x.Spot}}</td>
 													<td>{{x.Duration}}</td>
-													<td>{{x.Entreefees}}</td>
+													
 												</tr>
-												<!-- <tr>
-													<td>Yamuna River</td>
-													<td>Nature</td>
-													<td>21 DEC 2013</td>
-													<td>09:00</td>
-													<td>10:00</td>
-												</tr>
-												<tr class="dark-gray">
-													<td>Kabob Corner</td>
-													<td>Food</td>
-													<td>22 DEC 2013</td>
-													<td>05:00</td>
-													<td>06:30</td>
-												</tr>
-												<tr>
-													<td>Taj Mahal Garden</td>
-													<td>Romance</td>
-													<td>23 DEC 2013</td>
-													<td>08:15</td>
-													<td>09:30</td>
-												</tr>
-												<tr class="dark-gray">
-													<td>Rafting</td>
-													<td>Adventure</td>
-													<td>24 DEC 2013</td>
-													<td>10:00</td>
-													<td>03:40</td>
-												</tr> -->
+											
 											</tbody>
 										</table>
 									</div>
@@ -278,7 +273,7 @@ ul.rating {
 							</div>
 							</div>
 							<!-- END TAB CONTENT -->
-							<div class="col-md-12" id="mapLocation" hello-maps="" latitude="{{latit}}" longitude="{{longit}}" style="width: 100%; height: 400px;">
+							<div class="col-md-12" id="mapLocation" hello-maps="" latitude="{{latit}}" longitude="{{longit}}" style="width: 100%; height: 300px;">
 							</div>
 						</div>
 						<!-- END #page -->
@@ -365,14 +360,14 @@ ul.rating {
                     <h3 class="column-title">Video Intro</h3>
                     <!-- 16:9 aspect ratio -->
                     <div class="embed-responsive embed-responsive-16by9">
-					<iframe width="360" height="315" src="https://www.youtube.com/embed/0ohZyqgIyQI?autoplay=1" frameborder="0" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>
+					<iframe width="360" height="315" src="https://www.youtube.com/embed/0ohZyqgIyQI?autoplay=0" frameborder="0" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>
 					
                     </div>
                 </div>
 							<div class="sidebar-widget">
 								<!-- Sidebar Newsletter -->
 								<div class="styled-box gray">
-									<h3 class="text-upper">Broadcast for Custom Price</h3>
+									<h3 class="text-upper">Mail Us for Custom Tour</h3>
 									<form action="#" method="post">
 										<label>Email Address</label>
 										<input type="text" name="email" class="form-control input-style1 marb20" value="Enter Email Address" onfocus="if (this.value == 'Enter Email Address') { this.value = ''; }" onblur="if (this.value == '') { this.value = 'Enter Email Address'; }" />
@@ -387,16 +382,7 @@ ul.rating {
 								<ul class="flickr-gal list-unstyled">
 									<li><img class="img-responsive" src="{{tour.Media.Image[0]}}" alt="Flickr Photo" /></li>
 									<li><img class="img-responsive" src="{{tour.Media.Image[1]}}" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
+									
 								</ul>
 							</div>
 						</aside>
