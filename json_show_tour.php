@@ -69,7 +69,20 @@ if(isset($_POST["tourid"]))
 	'Tour' => $rows1
 	);
 	unset($rows1);
-	$JsonReturn = json_encode( $return ); 
+	//$JsonReturn = json_encode( $return ); 
+    
+    if($tour_ID=="all")
+	{
+        $tourName= "json/tours.json";
+	}
+	else
+	{
+        $tourName= "json/tour_".$tour_ID.".json";
+	}
+    $fp = fopen($tourName, 'w');
+    fwrite($fp, json_encode($return));
+    fclose($fp);
+    
 }
 ?>
 
