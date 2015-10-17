@@ -128,10 +128,10 @@ ul.rating {
 						</div>
 						<div class="row">
 						<div class="col-md-7 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1"> <br>
-						<label >Search via</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<label><input class="input-cb"	type="checkbox" name="inc_Tour" checked ng-model="checkboxModel.value1" value=""/> Tours</label>&nbsp;&nbsp;&nbsp;&nbsp;
-						<label><input class="input-cb" type="checkbox" name="inc_Guide" value="1" ng-model="checkboxModel.value2" checked /> Guides </label>&nbsp;&nbsp;&nbsp;&nbsp;
-						<label><input class="input-cb" type="checkbox"	name="inc_Destination" value="1" ng-model="checkboxModel.value3" checked /> Destinations</label>&nbsp;&nbsp; 
+						<label >Duration </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<label><input class="input-cb"	type="checkbox" name="inc_Tour" checked ng-model="checkboxModel.value1" value=""/> Hours</label>&nbsp;&nbsp;&nbsp;&nbsp;
+						<label><input class="input-cb" type="checkbox" name="inc_Guide" value="1" ng-model="checkboxModel.value2" checked /> Day </label>&nbsp;&nbsp;&nbsp;&nbsp;
+						<label><input class="input-cb" type="checkbox"	name="inc_Destination" value="1" ng-model="checkboxModel.value3" checked /> Multi-day </label>&nbsp;&nbsp; 
 						</div> 
 						</div>
 					
