@@ -12,14 +12,14 @@ if((isset($_POST['username'])) && (isset($_POST['emailid'])) && (isset($_POST['m
 		{
 			$errormsg="Email Sent";
 			error_log($errormsg,0);
-			header('Location: login.php');
+			header('Location: guide_login.php');
 			die;
 		}
 		else
 		{
 			$errormsg="Sorry Email Couldn't Sent.";
 			error_log($errormsg,0);
-			header('Location: login.php');
+			header('Location: guide_login.php');
 			exit;
 		}
 }
@@ -125,8 +125,8 @@ if((isset($_POST['username'])) && (isset($_POST['emailid'])) && (isset($_POST['m
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="http://www.guidedgateway.com">Home</a></li>
-                <li><a href="login.php">Guide Home</a></li>
-                <li><a href="registration.php">Guide Sign Up</a></li>
+                <li><a href="guide_login.php">Guide Home</a></li>
+                <li><a href="guide_registration_1.php">Guide Sign Up</a></li>
             </ul>
 
         </div>

@@ -94,7 +94,7 @@
 								<a href="sign-in.html" style="color:#292c2f" title="">SIGN IN</a>
 							</span> 
 							<span class="top-link small pull-left">
-								<a href="login.php" style="color:#292c2f" title="">Guide SIGN IN</a>
+								<a href="guide_login.php" style="color:#292c2f" title="">Guide SIGN IN</a>
 							</span> 
 							<form action="#" method="get"> 
 								<fieldset class="pull-left">
@@ -124,9 +124,19 @@
 				<li><a href="index.php" title="">HOME</a>
 				</li> 
 				<li>
-				<a href="#" title="">Guides</a></li>
-				<li><a href="#" title="">Destinations</a> </li>
-                <li><a href="#" title="">Themed Tours</a> </li>
+				<a href="guides.html" title="">Guides</a></li>
+				<li><a href="top-destinations-listview-sidebar.html" title="">Destinations</a> </li>
+                <li><a href="top-themes-listview-sidebar.html" title="">Themes</a> </li>
+                <li><a href="blog.html" title="blog">Travelogue</a> </li>
+				
+				<li><a href="#" onclick="return false;" title="">SIGN IN</a>
+				
+				<ul> 
+				<li><a href="#" title="">Touriest SIGN IN</a></li>
+				<li><a href="guide_login.php" title="">Guide SIGN IN</a></li>
+				</ul>
+				
+				</li>
 
 				</ul>
 				</nav>

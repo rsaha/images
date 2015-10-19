@@ -1,3 +1,8 @@
+<?php
+include_once('json_create_tour.php');
+include_once('json_create_guide.php');
+?>
+
 <!DOCTYPE html> 
 <html lang="en" dir="ltr">
 
@@ -128,10 +133,10 @@ ul.rating {
 						</div>
 						<div class="row">
 						<div class="col-md-7 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1"> <br>
-						<label >Duration </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<label><input class="input-cb"	type="checkbox" name="inc_Tour" checked ng-model="checkboxModel.value1" value=""/> Hours</label>&nbsp;&nbsp;&nbsp;&nbsp;
-						<label><input class="input-cb" type="checkbox" name="inc_Guide" value="1" ng-model="checkboxModel.value2" checked /> Day </label>&nbsp;&nbsp;&nbsp;&nbsp;
-						<label><input class="input-cb" type="checkbox"	name="inc_Destination" value="1" ng-model="checkboxModel.value3" checked /> Multi-day </label>&nbsp;&nbsp; 
+						<label >Search via</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<label><input class="input-cb"	type="checkbox" name="inc_Tour" checked ng-model="checkboxModel.value1" value=""/> Tours</label>&nbsp;&nbsp;&nbsp;&nbsp;
+						<label><input class="input-cb" type="checkbox" name="inc_Guide" value="1" ng-model="checkboxModel.value2" checked /> Guides </label>&nbsp;&nbsp;&nbsp;&nbsp;
+						<label><input class="input-cb" type="checkbox"	name="inc_Destination" value="1" ng-model="checkboxModel.value3" checked /> Destinations</label>&nbsp;&nbsp; 
 						</div> 
 						</div>
 					
@@ -348,11 +353,18 @@ ul.rating {
 			<!-- START footer --> <footer> <!-- START #ft-footer -->
 			<div id="ft-footer"> <div class="footer-overlay"> <div
 			class="container"> <div class="row"> <!-- testimonials -->
-			<section class="col-md-6"> <h3>Testimonials</h3> <p>Amazing experience with guided tour. Much authentic and affordable than a "so called" luxury package. A local guide or expert can enable you to connect with local people and culture more than you can do on your own and surely more than visiting just placec. Connecting with culture and learning from it is any way the main purpose of my visit  to place like Jaipur - apart from the awesome foods. Thank you. </p> <div class="tl-author">
+			<section class="col-md-6"> <h3>Testimonials</h3> <p>Tortor
+			turpis. Proin. Dolor. Auctor arcu, habitasse mid placerat
+			magna? Dis ac, adipiscing? Cras mus dolor sit a? Platea eros
+			dictumst ridiculus sed phasellus, rhoncus magnis a
+			pellentesque pulvinar duis purus risus tristique ultricies
+			natoque, nec! Natoque natoque cum? Nec, placerat sociis! Sit
+			ut, scelerisque? placerat sociis! Sit ut, scelerisque? Urna
+			ut aliquam duis et scelerisque,</p> <div class="tl-author">
 			<span class="tl-author-img"> <img class="img-circle"
 			src="http://placehold.it/70x70" alt="Testimonial Author" />
 			</span> <span class="tl-author-title">Jassem Elrakesh</span>
-			<span class="tl-author-desc">Visited Jaipur
+			<span class="tl-author-desc">Visited Barcelona
 			recently</span> </div> </section>
 
 								<!-- twitter --> <section
