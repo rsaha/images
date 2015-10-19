@@ -1,5 +1,13 @@
 <?php
 session_start();
+function getExtension($str) 
+	{
+		$i = strrpos($str,".");
+		if (!$i) { return ""; }
+		$l = strlen($str) - $i;
+		$ext = substr($str,$i+1,$l);
+		return $ext;
+	}
 $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 	if(isset($_SESSION['userId']))
 	{
@@ -58,39 +66,75 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 				$flag1=0;
 				error_log($update1);
 			}
-			if(file_exists($_FILES["licenceImage"]["tmp_name"]))
+			
+			include_once("db.php");
+			define ("MAX_SIZE","400");
+			$image =$_FILES["licenceImage"]["name"];
+			$uploadedfile = $_FILES['licenceImage']['tmp_name'];
+
+			if ($image) 
 			{
-				$validextensions = array("jpeg", "jpg", "png");
-				$temporary = explode(".", $_FILES["licenceImage"]["name"]);
-				$file_extension = end($temporary);
-				if (
-				(
-				($_FILES["licenceImage"]["type"] == "image/png") || 
-				($_FILES["licenceImage"]["type"] == "image/jpg") || 
-				($_FILES["licenceImage"]["type"] == "image/jpeg")
-				) && 
-				($_FILES["licenceImage"]["size"] < 100000000) && 
-				in_array($file_extension, $validextensions)
-				)
+				$filename = stripslashes($_FILES['licenceImage']['name']);
+				$extension = getExtension($filename);
+				$extension = strtolower($extension);
+
+
+				if (($extension != "jpg") && ($extension != "jpeg") && ($extension != "png") && ($extension != "gif")) 
 				{
-					if ($_FILES["licenceImage"]["error"] > 0)
+					$errormsg="Licence Image type do not match the required type";
+					error_log($errormsg,0);
+				}
+				else
+				{
+					$size=filesize($_FILES['licenceImage']['tmp_name']);
+
+					if ($size > MAX_SIZE*1024)
 					{
-					echo "Return Code: " . $_FILES["licenceImage"]["error"] . "<br/><br/>";
-					} 
+						$errormsg="Licence Image size do not match the required size";
+						error_log($errormsg,0);
+					}
+
+					if($extension=="jpg" || $extension=="jpeg" )
+					{
+						$uploadedfile = $_FILES['licenceImage']['tmp_name'];
+						$src = imagecreatefromjpeg($uploadedfile);
+					}
+					else if($extension=="png")
+					{
+						$uploadedfile = $_FILES['licenceImage']['tmp_name'];
+						$src = imagecreatefrompng($uploadedfile);
+					}
 					else 
 					{
-						$newName=date("dmYHms") . "_img." . $file_extension;
-						move_uploaded_file($_FILES["licenceImage"]["tmp_name"], $upload_dir . $newName);
-						$bin_string = file_get_contents( $upload_dir . $newName);
-						$hex_string = base64_encode($bin_string);
-						unlink(parse_ini_file('config.ini',true)['imagePath'] . $newName);
-						#$imgFullpath = "http://".$_SERVER['SERVER_NAME'].dirname($_SERVER["REQUEST_URI"].'?') . parse_ini_file('config.ini',true)['imagePath'] . $newName;
+						$src = imagecreatefromgif($uploadedfile);
 					}
+
+					list($width,$height)=getimagesize($uploadedfile);
+
+					$newwidth=250;
+					$newheight=180; //($height/$width)*$newwidth;
+					$tmp=imagecreatetruecolor($newwidth,$newheight);
+
+					imagecopyresampled($tmp, $src, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
+
+					$newName=$mobileNumber . "_licence." . $extension;
+					//$newName=date("dmYHms") . "_img." . $extension;
+					$filename = $upload_dir . $newName;
+					imagejpeg($tmp,$filename,100);
+
+					imagedestroy($src);
+					imagedestroy($tmp);
+
+					$bin_string = file_get_contents($filename);
+					$hex_string = base64_encode($bin_string);
+					//unlink($filename);
 				}
-				else 
-				{
-					echo "<script type='text/javascript'>alert('Could not upload the licence attachment');</script>";
-				}
+			}
+			else 
+			{
+				$hex_string = "";
+				$errormsg="Could not upload the licence attachment.";
+				error_log($errormsg,0);
 			}
 			
 			$select4exval = mysql_query("SELECT * FROM `tbl_guide_detail_profile` WHERE `user_id` = $userid");
@@ -272,7 +316,7 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 				$msg="Guide '$emailID' Profile update failed!";
 				echo "<script type='text/javascript'>alert('$msg');</script>";
 				error_log($msg, 0);
-				//header('Location:guide_profile.php?id=' . $userid . '');
+				header('Location:guide_profile.php?id=' . $userid . '');
 			}
 	}
 	}

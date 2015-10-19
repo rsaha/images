@@ -192,14 +192,14 @@
 
 								<div class="form-group">
 									<div class="form-group col-sm-6">
-										<input type="password" class="form-control" id="Password" ng-model="Password" maxlength="15" name="Password" placeholder="Password" ng-pattern="/^[a-zA-Z_0-9!@#$%^&* ]{6,15}$/" required >
+										<input type="password" class="form-control" id="Password" ng-model="Password" maxlength="15" name="Password" placeholder="Password" ng-pattern="/^[a-zA-Z_0-9!@#$%^&*]{6,15}$/" required >
 									<span style="color:red" ng-show="myForm.Password.$dirty && myForm.Password.$invalid">
 									  <span ng-show="myForm.Password.$error.required">*Password is required.</span>
 									  <span ng-show="myForm.Password.$error.pattern">*Invalid Password ...</span>
 									  </span>
 									</div>
 									<div class="form-group col-sm-6">
-										<input type="password" class="form-control" id="conformpassword" ng-model="conformpassword" name="conformpassword"  placeholder="Confirm Password" ng-pattern="/^[a-zA-Z_0-9!@#$%^&* ]{6,15}$/" required onkeyup="validate();" >
+										<input type="password" compare-to="Password" class="form-control" id="conformpassword" ng-model="conformpassword" name="conformpassword"  placeholder="Confirm Password" ng-pattern="/^[a-zA-Z_0-9!@#$%^&*]{6,15}$/" required >
 									<span style="color:red" ng-show="myForm.conformpassword.$dirty && myForm.conformpassword.$invalid">
 									  <span ng-show="myForm.conformpassword.$error.required">*password is required.</span>
 									  <span ng-show="myForm.conformpassword.$error.pattern">*Invalid password ...</span>
@@ -219,7 +219,6 @@
 										|| myForm.MobileNumber.$dirty && myForm.MobileNumber.$invalid 
 										|| myForm.Password.$dirty && myForm.Password.$invalid 
 										|| myForm.conformpassword.$dirty && myForm.conformpassword.$invalid
-										|| myForm.Password == myForm.conformpassword
 										"  />
 										<br><br><br>
 									</div>

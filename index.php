@@ -1,3 +1,8 @@
+<?php
+include_once('json_create_tour.php');
+include_once('json_create_guide.php');
+?>
+
 <!DOCTYPE html> 
 <html lang="en" dir="ltr">
 
