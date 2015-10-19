@@ -203,7 +203,7 @@ ul.rating {
 											<tbody ng-repeat="x in tour.Itineary.Day.Spots">
 												<tr class="dark-gray">
 													
-													<td><a href="#mapLocation" ng-click="getdata({{x.MapLocation.Latitude}},{{x.MapLocation.Longitude}});">{{x.Spot}}</a></td>
+													<td><a ng-href="#mapLocation" ng-click="getdata(x.MapLocation.Latitude,x.MapLocation.Longitude);">{{x.Spot}}</a></td>
 													<td>{{x.Duration}}</td>
 													<td>{{x.Entreefees}}</td>
 												</tr>
@@ -273,7 +273,9 @@ ul.rating {
 							</div>
 							</div>
 							<!-- END TAB CONTENT -->
-							<div class="col-md-12" id="mapLocation" hello-maps="" latitude="{{latit}}" longitude="{{longit}}" style="width: 100%; height: 300px;">
+							<!--{{latit}}-->
+							
+							<div class="col-md-12" id="mapLocation" hello-maps="" latitude="latit" longitude="longit" style="width: 100%; height: 300px;">
 							</div>
 						</div>
 						<!-- END #page -->
@@ -296,10 +298,10 @@ ul.rating {
 										<ul class="list-unstyled">
 											<li ng-repeat="z in guides" ng-show="$index<4">
 												<span class="rc-post-image">
-													<img class="img-responsive" style="height:80px; width:80px;" src="{{z.Photo}}" alt="Recent Post 2" />
+													<img class="img-responsive" style="height:80px; width:80px;" src="{{z.photo}}" alt="Recent Post 2" />
 												</span>
-											<h5><a href="#">{{z.Name}}</a></h5>
-												<h5><a href="#">{{z.Territory}}</a></h5>
+											<h5><a href="#">{{z.name}}</a></h5>
+												<h5><a href="#">{{z.guide_territory}}</a></h5>
 												<h5>{{z.Speciality}}<span class="rc-post-date small">Speciality&nbsp;&nbsp;</span></h5>
 												<span star-rating rating-value="z.Review.Star" style="" class="" ></span>	
 											</li>

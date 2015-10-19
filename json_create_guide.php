@@ -1,5 +1,6 @@
 <?php
 include_once('db.php');
+$jsonPath = parse_ini_file('config.ini',true)['jsonFilePath'];
 //=============================================================================
         try
         {
@@ -9,6 +10,7 @@ include_once('db.php');
         {
 
         }
+<<<<<<< HEAD
         $return = array( 
 	    'Guides' => myCode1($rs)
 	    );
@@ -17,6 +19,17 @@ include_once('db.php');
     fwrite($fp, $JsonReturn);
     fclose($fp);
     unset($fp);
+=======
+        $_SESSION["tType"]="all";
+        $JsonReturn=myCode1($rs);
+        $_SESSION["tType"]=null;
+        unset($_SESSION['tType']);
+        
+        $fp = fopen($jsonPath . "guides.json", 'w');
+        fwrite($fp, $JsonReturn);
+        fclose($fp);
+        unset($fp);
+>>>>>>> 2429cf7a389977db1882856b5e1e285a98b12ddf
         unset($rs);
 //=============================================================================
 	$sql = mysql_query("SELECT `user_id`, `f_name`, `l_name` FROM `user_fulldetail` WHERE `user_type_id` = 1");
@@ -32,9 +45,18 @@ include_once('db.php');
 		{
 			
 		}
+<<<<<<< HEAD
         $return = myCode1($rs)[0];
         $JsonReturn = json_encode( $return,JSON_PRETTY_PRINT );
         $userName= "/tmp/json/guide_".$user_id.".json";
+=======
+        $_SESSION["tType"]="individual";
+        $JsonReturn=myCode1($rs);
+        $_SESSION["tType"]=null;
+        unset($_SESSION['tType']);
+        
+        $userName= $jsonPath . "guide_".$user_id.".json";
+>>>>>>> 2429cf7a389977db1882856b5e1e285a98b12ddf
         $fp = fopen($userName, 'w');
         fwrite($fp, $JsonReturn);
         fclose($fp);
@@ -159,11 +181,27 @@ function myCode1($rs)
 		$rows1[]=null;
 	}
 
+<<<<<<< HEAD
  
          $return = $rows1;
     
 	unset($rows1);
 	
     return $return;
+=======
+	if($_SESSION["tType"]=="all")
+    {
+        $return = array( 
+	'Guides' => $rows1
+	);
+    }
+    if($_SESSION["tType"]=="individual")
+    {
+        $return = $rows1;
+    }
+	unset($rows1);
+	$JsonReturn = json_encode($return,JSON_PRETTY_PRINT);
+    return($JsonReturn);
+>>>>>>> 2429cf7a389977db1882856b5e1e285a98b12ddf
 }
 ?>

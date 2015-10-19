@@ -132,7 +132,7 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 			}
 			else 
 			{
-				$hex_string = "";
+				//$hex_string = null;
 				$errormsg="Could not upload the licence attachment.";
 				error_log($errormsg,0);
 			}
@@ -175,6 +175,7 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 					1, 
 					now()
 					)") or die('Error : ' . mysql_error());
+					
 					if($insert2)
 					{
 						$flag2=1;
@@ -182,12 +183,12 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 					else
 					{
 						$flag2=0;
-						error_log($insert_stmt);
+                        error_log("insert guide detail profile" . mysql_error());
 					}
 				}
 				else
 				{
-                    $insert_stmt = "INSERT INTO `tbl_guide_detail_profile` (
+                   $insert2 = mysql_query("INSERT INTO `tbl_guide_detail_profile` (
 					`user_id`, 
 					`license_no`,
 					`validity`, 
@@ -215,9 +216,7 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 					'$otherExperiance',
 					1, 
 					now()
-					)";
-					
-                    $insert2 = mysql_query($insert_stmt) or die('Error : ' . mysql_error());
+					)") or die('Error : ' . mysql_error());
                     
 					if($insert2)
 					{
@@ -226,7 +225,7 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 					else
 					{
 						$flag2=0;
-                        error_log("insert guide detail profile stmt".$insert_stmt);
+                        error_log("insert guide detail profile" . mysql_error());
 					}
 				}
 			}
@@ -256,7 +255,7 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 					else
 					{
 						$flag2=0;
-						error_log($insert_stmt);
+						error_log("Error: ".mysql_error());
 					}
 				}
 				else
@@ -281,7 +280,7 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 					else
 					{
 						$flag2=0;
-						error_log($insert_stmt);
+						error_log("Error: ".mysql_error());
 						
 					}
 				}
@@ -307,7 +306,7 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 			$msg = "Guide '$emailID' Profile Successfully Updated!!";
 			error_log($msg,0);
 			echo "<script type='text/javascript'>alert('$msg');</script>";
-			header('Location:guide_profile.php?id=' . $userid . '');
+			header('Location:guide_profile_edit.php?id=' . $userid . '');
 			
 			} 
 			else

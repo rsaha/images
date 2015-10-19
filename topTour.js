@@ -68,9 +68,9 @@ app.controller('tourDetailCtrl',['$scope','$http', function($scope, $http) {
 		}
 		$scope.getdata=function(latitude,longitude){
 			$scope.longit=longitude;
-			alert(longitude);
+			//alert($scope.longit);
 			$scope.latit=latitude;
-			alert(latitude);
+			//alert($scope.latit);
 		}
 			
 }]); 
