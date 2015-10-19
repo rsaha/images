@@ -157,7 +157,13 @@ function myCode1($rs)
 		$rows1[]=null;
 	}
 
-	$return = $rows1[0];
+    if(mysql_num_rows($rs) > 0)
+	{   
+         $return = $rows1;
+    }
+    else {
+        $return = $rows1[0];
+    }
     
 	unset($rows1);
 	$JsonReturn = json_encode( $return,JSON_PRETTY_PRINT );
