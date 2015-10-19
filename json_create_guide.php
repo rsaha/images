@@ -9,9 +9,10 @@ include_once('db.php');
         {
 
         }
-        $JsonReturn=array( 
+        $return = array( 
 	    'Guides' => myCode1($rs)
 	    );
+    $JsonReturn = json_encode( $return,JSON_PRETTY_PRINT );
     $fp = fopen("/tmp/json/guides.json", 'w');
     fwrite($fp, $JsonReturn);
     fclose($fp);
@@ -31,7 +32,8 @@ include_once('db.php');
 		{
 			
 		}
-        $JsonReturn=myCode1($rs);
+        $return = myCode1($rs)[0];
+        $JsonReturn = json_encode( $return,JSON_PRETTY_PRINT );
         $userName= "/tmp/json/guide_".$user_id.".json";
         $fp = fopen($userName, 'w');
         fwrite($fp, $JsonReturn);
@@ -157,16 +159,11 @@ function myCode1($rs)
 		$rows1[]=null;
 	}
 
-    if(mysql_num_rows($rs) > 0)
-	{   
+ 
          $return = $rows1;
-    }
-    else {
-        $return = $rows1[0];
-    }
     
 	unset($rows1);
-	$JsonReturn = json_encode( $return,JSON_PRETTY_PRINT );
-    return($JsonReturn);
+	
+    return $return;
 }
 ?>
