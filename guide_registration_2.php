@@ -15,7 +15,7 @@ else if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "reg"))
 	if($_SESSION['userId']!=$userid)
 	{
 		include_once('signOut.php');
-		header('Location:guide_registration_1.php');
+		header('Location:registration.php');
 		exit;
 	}
 	else
@@ -33,7 +33,7 @@ else if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "reg"))
 else
 {
 	include_once("signOut.php");
-	header('Location:guide_registration_1.php');
+	header('Location:registration.php');
 	exit;
 }
 

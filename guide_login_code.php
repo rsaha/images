@@ -36,7 +36,7 @@ else
 	$errormsg="login fail.";
 	error_log($errormsg,0);
 	$_SESSION['notification']="Congratulation! Welcome to Guided Gateway, you are now member of #1 online marketplace for tour guides.";
-	header('location:guide_login.php');
+	header('location:login.php');
 }
 }
 
