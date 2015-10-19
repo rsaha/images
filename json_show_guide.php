@@ -101,7 +101,7 @@ if(isset($_POST["user_id"]))
 			$rows1[] = array( 
 			'id'=> $row1[ 'user_id' ],             
 			'name' => $row1[ 'f_name' ]." ".$row1[ 'l_name' ],
-			'photo' => "~/tmp/".$row1[ 'mobileNo' ]."_profile.jpg",
+			'photo' => "https://storage.googleapis.com/guidedgateway_media/".$row1[ 'mobileNo' ]."_profile.jpg",
 			'email'=> $row1[ 'email' ], 
 			'mobileNo' => $row1[ 'mobileNo' ], 
 			'gender' => $row1[ 'gender' ],
@@ -145,14 +145,14 @@ if(isset($_POST["user_id"]))
     
     if($user_id=="all")
 	{
-        $userName= "json/guides.json";
+        $userName= "/tmp/json/guides.json";
 	}
 	else
 	{
-        $userName= "json/guide_".$user_id.".json";
+        $userName= "/tmp/json/guide_".$user_id.".json";
 	}
     $fp = fopen($userName, 'w');
-    fwrite($fp, json_encode($return));
+    fwrite($fp, json_encode($return,JSON_PRETTY_PRINT));
     fclose($fp);
 }
 ?>

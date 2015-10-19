@@ -73,14 +73,14 @@ if(isset($_POST["tourid"]))
     
     if($tour_ID=="all")
 	{
-        $tourName= "json/tours.json";
+        $tourName= "/tmp/json/tours.json";
 	}
 	else
 	{
-        $tourName= "json/tour_".$tour_ID.".json";
+        $tourName= "/tmp/json/tour_".$tour_ID.".json";
 	}
     $fp = fopen($tourName, 'w');
-    fwrite($fp, json_encode($return));
+    fwrite($fp, json_encode($return,JSON_PRETTY_PRINT));
     fclose($fp);
     
 }

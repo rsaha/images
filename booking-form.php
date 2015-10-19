@@ -119,7 +119,7 @@ $notes = $row33["notes"];
 		<!-- Load Fonts via Google Fonts API -->
 		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Karla:400,700,400italic,700italic" />
 		<!-- color scheme -->
-		<link rel="stylesheet" type="text/css" href="css/colors/color1.css" title="color1" />
+		<link rel="stylesheet" type="text/css" href="css/colors/color3.css" title="color3" />
 		
 		<style type="text/css">
 			#registration-form 
