@@ -102,7 +102,7 @@
 			}
 			else
 			{
-				include_once('MasterHeader.php'); 
+				include_once('MasterTopHeader.php'); 
 			}
 			
 			?>
@@ -120,11 +120,11 @@
                     <h1><strong>Make tourists happier and earn more</strong></h1>
                     <h3><strong>Be great at what you do!</strong></h3><br/>
                     <h2><strong>Attract More Tourists through our marketing programs</strong></h2>
-                        <h2><strong>Make more from each tourist with our low commission</strong></h2>
-                        <h2><strong>Provide complete tour package with our partners</strong></h2>
+                        <h2><strong>Make more from each tourist with our low commission & other services</strong></h2>
+                        <h2><strong>ENable offering complete tour package with our partners</strong></h2>
                         <h2><strong>Compensation for no-show or late cancellation</strong></h2></br/>
 					<span class="btn-center">
-					<a class="btn btn-primary text-upper" href="howitworks_guide.html" title="Learn More">Learn More</a>
+					<a class="btn btn-primary text-upper" href="Why_GuidedGateway.html" title="Learn More">Learn More</a>
 					</span> 
 				</div>
 			</div>
@@ -136,7 +136,7 @@
 					<div class="row">
 						<div class="text-center">
 							<p href="Index.html" style="color:#444454; ">
-							<span style="font-size:25px;">Welcome Guide </span>&nbsp;&nbsp;
+							<span style="font-size:25px;">Welcome Travel Enterprenures </span>&nbsp;&nbsp;
 							<span style="font-size:15px;">Get started - It's absolutely free</span>
 						</div>
 					</div>

@@ -226,34 +226,14 @@ $notes = $row33["notes"];
 													<input type="text" class="form-control" name="zipcode" value="" />
 												</div>
 												<div class="col-md-6">
-													<label>Options Method <span class="required small">(Required)</span></label>
+													<label>Options <span class="required small">(Required)</span></label>
 													<input type="text" class="form-control" name="method" value="" />
 												</div>
 											</li>
 											<li class="row">
 												<div class="col-md-12">
-													<label>Bank Account <span class="required small">(Required)</span></label>
+													<label>Payment Gateway</label>
 													<input type="text" class="form-control" name="account" value="" />
-												</div>
-											</li>
-											<li class="row">
-												<div class="col-md-12">
-													<label>Bank Address <span class="required small">(Required)</span></label>
-													<input type="text" class="form-control" name="address" value="" />
-												</div>
-											</li>
-											<li class="row">
-												<div class="col-md-12">
-													<div class="checkbox-container">
-														<label><input type="checkbox" name="a" class="styled" />First Choice</label>
-														<label><input type="checkbox" name="a" class="styled" />Second Choice</label>
-														<label><input type="checkbox" name="a" class="styled" />Third Choice</label>
-													</div>
-													<div class="checkbox-container">
-														<label><input type="radio" name="radio" class="styled"  checked="checked" /> First Choice</label>
-														<label><input type="radio" name="radio" class="styled" /> Second Choice</label>
-														<label><input type="radio" name="radio" class="styled" /> Third Choice</label>
-													</div>
 												</div>
 											</li>
 											<li class="row">

@@ -59,7 +59,7 @@ else
 		<!-- START #wrapper -->
 		<div id="wrapper">
 			<?php 
-			include_once('MasterHeader.php'); 
+			include_once('MasterTopHeader.php'); 
 			?>
 			
 			<!-- START .main-contents -->
