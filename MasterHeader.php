@@ -94,7 +94,7 @@
 								<a href="sign-in.html" style="color:#292c2f" title="">SIGN IN</a>
 							</span> 
 							<span class="top-link small pull-left">
-								<a href="guide_login.php" style="color:#292c2f" title="">Guide SIGN IN</a>
+								<a href="login.php" style="color:#292c2f" title="">Guide SIGN IN</a>
 							</span> 
 							<form action="#" method="get"> 
 								<fieldset class="pull-left">
@@ -133,7 +133,7 @@
 				
 				<ul> 
 				<li><a href="#" title="">Touriest SIGN IN</a></li>
-				<li><a href="guide_login.php" title="">Guide SIGN IN</a></li>
+				<li><a href="login.php" title="">Guide SIGN IN</a></li>
 				</ul>
 				
 				</li>

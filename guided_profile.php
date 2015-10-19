@@ -8,7 +8,7 @@
 		}
 		if($_SESSION['userId']!=$userid)
 		{
-            header('Location:guide_login.php');
+            header('Location:login.php');
 			exit;
 		}
 		else
@@ -72,7 +72,7 @@
 	}
 	else
 	{
-        header('Location:guide_login.php');
+        header('Location:login.php');
 		exit;
 	}
 ?>
