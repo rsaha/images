@@ -43,7 +43,7 @@ if(isset($_POST["user_id"]))
 							$languageName = $row4[ 'lanugage_name' ];
 						}
 						$rows3[] = array(
-							'lanugage_name'=> $languageName
+							$languageName
 							);
 					}
 			}
@@ -137,18 +137,19 @@ if(isset($_POST["user_id"]))
 		$rows1[]=null;
 	}
 
-	$return = array( 
-	'Guide' => $rows1
-	);
-	unset($rows1);
-	//$JsonReturn = json_encode( $return ); 
     
     if($user_id=="all")
 	{
+        $return = array( 
+	    'Guides' => $rows1
+	    );
+	    unset($rows1);
         $userName= "/tmp/json/guides.json";
 	}
 	else
 	{
+        $return =  $rows1[0];
+	    unset($rows1);
         $userName= "/tmp/json/guide_".$user_id.".json";
 	}
     $fp = fopen($userName, 'w');

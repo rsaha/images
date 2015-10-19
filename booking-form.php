@@ -197,12 +197,12 @@ $notes = $row33["notes"];
 						<div id="page" class="col-md-8">
 						<div class="row">
 						<div class="" id="registration-form">
-						<label for="email">Email <span class="required small">(Required)</span></label><br><br>
+						<label for="email">Sign in to auto-fill</label><br><br>
 						<div class="form-inline">
 						<input name="email" class="form-control" type="text" id="email" >
 						<span id="email-result"></span>
 						</div>
-						</div><br><br><br><br><br><br><br><br>
+						</div>
 						</div>
 							<!-- START #contactForm -->
 							<section id="booking-form">
@@ -222,21 +222,11 @@ $notes = $row33["notes"];
 											</li>
 											<li class="row">
 												<div class="col-md-6">
-													<label>City <span class="required small">(Required)</span></label>
-													<input type="text" class="form-control" name="city" value="" />
-												</div>
-												<div class="col-md-6">
-													<label>Country <span class="required small">(Required)</span></label>
-													<input type="text" class="form-control" name="country" value="" />
-												</div>
-											</li>
-											<li class="row">
-												<div class="col-md-6">
-													<label>Zip Code <span class="required small">(Required)</span></label>
+													<label>Payment Method <span class="required small">(Required)</span></label>
 													<input type="text" class="form-control" name="zipcode" value="" />
 												</div>
 												<div class="col-md-6">
-													<label>Billing Method <span class="required small">(Required)</span></label>
+													<label>Options Method <span class="required small">(Required)</span></label>
 													<input type="text" class="form-control" name="method" value="" />
 												</div>
 											</li>
