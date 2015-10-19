@@ -12,7 +12,7 @@ $userid = $_GET['id'];
 if($_SESSION['userId']!=$userid)
 {
 	include_once("signOut.php");
-	header('Location:guide_registration_1.php');
+	header('Location:registration.php');
 }
 else
 { 
@@ -30,7 +30,7 @@ $mobileNumber = $row["mobileNo"];
 else
 {
 	include_once("signOut.php");
-	header('Location:guide_registration_1.php');
+	header('Location:registration.php');
 }*/
 ?>
 <html lang="en" dir="ltr">

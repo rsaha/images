@@ -46,7 +46,7 @@
 	else
 	{
 		include_once("signOut.php");
-        header('Location:guide_login.php');
+        header('Location:login.php');
 		exit;
 	} */
 ?>

@@ -13,7 +13,7 @@ if(isset($_SESSION['userId']))
 		if($_SESSION['userId']!=$userid)
 		{
 			include_once("signOut.php");
-            header('Location:guide_login.php');
+            header('Location:login.php');
 			exit;
 		}
 		else
@@ -49,7 +49,7 @@ if(isset($_SESSION['userId']))
 		$errormsg="Invalid User";
 		error_log($errormsg,0);
 		echo "<script type='text/javascript'>alert('$errormsg');</script>";
-		header('location:guide_login.php');
+		header('location:login.php');
 	}
 	}
 	}
@@ -57,7 +57,7 @@ if(isset($_SESSION['userId']))
 	{
 		include_once("signOut.php");
 		echo "<script type='text/javascript'>alert('$msg');</script>";
-        //header('Location:guide_login.php');
+        //header('Location:login.php');
 		exit;
 	}
 ?>

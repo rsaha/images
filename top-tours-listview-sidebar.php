@@ -6,8 +6,7 @@
 		<!-- Site meta charset -->
 		<meta charset="UTF-8">
 		
-		<!-- title --> <title>Home | Guided Gateway - Authentic
-		Affordable Travel</title>
+		<title>Tour Details | Guided Gateway - Authentic Affordable Travel</title>
 
 		<!-- meta description --> <meta name="description" content="Authentic Afordable Travel in India" />
 
@@ -248,40 +247,7 @@ ul.rating {
 								<!-- END TAB CONTENT -->
 							</div>
 							
-							<div class="sidebar-widget">
-								<!-- Sidebar facebook widget -->
-								<!-- START TABS -->
-								<ul class="nav nav-tabs social-tabs text-upper">
-									<li class="active"><a class="facebook-tab" href="#facebook-tab" data-toggle="tab">Facebook</a></li>
-									<li><a class="twitter-tab" href="#pinterest-tab" data-toggle="tab">Pinterest</a></li>
-									<li><a class="share-tab" href="#share-tab" data-toggle="tab">Like Us</a></li>
-								</ul>
-								<!-- END TABS -->
-								
-								<!-- START TAB CONTENT -->
-								<div class="tab-content clearfix marb30">
-									<!-- START TAB 1 -->
-									<div class="tab-pane active" id="facebook-tab">
-										<div id="fb-widget">
-											<iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2FFacebookDevelopers&amp;width&amp;height=290&amp;colorscheme=light&amp;show_faces=true&amp;header=true&amp;stream=false&amp;show_border=true" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:290px;" allowTransparency="true"></iframe>
-										</div>
-									</div>
-									<!-- END TAB 1 -->
-									
-									<!-- START TAB 2 -->
-									<div class="tab-pane" id="twitter-tab">
-										
-									</div>
-									<!-- END TAB 2 -->
-									
-									<!-- START TAB 3 -->
-									<div class="tab-pane" id="share-tab">
-										
-									</div>
-									<!-- END TAB 3 -->
-								</div>
-								<!-- END TAB CONTENT -->
-							</div>
+							
 							
 							<div class="sidebar-widget">
 								<!-- Sidebar What We Do -->
@@ -328,20 +294,10 @@ ul.rating {
 							
 							<div class="sidebar-widget">
 								<!-- Sidebar Flickr Gallery -->
-								<h3 class="text-upper">Pinterest Board</h3>
-								<ul class="flickr-gal list-unstyled">
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
+								<h3 class="text-upper">Tours</h3>
+								<ul class="flickr-gal list-unstyled" ng-controller="toursCtrl">
+									<li ng-repeat="tourslist in tours"><img class="img-responsive" src="{{tourslist.Media.Image[0]}}" alt="Flickr Photo" /></li>
+									
 								</ul>
 							</div>
 						</aside>

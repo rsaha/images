@@ -43,7 +43,7 @@ if(isset($_POST["user_id"]))
 							$languageName = $row4[ 'lanugage_name' ];
 						}
 						$rows3[] = array(
-							'lanugage_name'=> $languageName
+							$languageName
 							);
 					}
 			}
@@ -101,7 +101,7 @@ if(isset($_POST["user_id"]))
 			$rows1[] = array( 
 			'id'=> $row1[ 'user_id' ],             
 			'name' => $row1[ 'f_name' ]." ".$row1[ 'l_name' ],
-			'photo' => "~/tmp/".$row1[ 'mobileNo' ]."_profile.jpg",
+			'photo' => "https://storage.googleapis.com/guidedgateway_media/".$row1[ 'mobileNo' ]."_profile.jpg",
 			'email'=> $row1[ 'email' ], 
 			'mobileNo' => $row1[ 'mobileNo' ], 
 			'gender' => $row1[ 'gender' ],
@@ -137,22 +137,23 @@ if(isset($_POST["user_id"]))
 		$rows1[]=null;
 	}
 
-	$return = array( 
-	'Guide' => $rows1
-	);
-	unset($rows1);
-	//$JsonReturn = json_encode( $return ); 
     
     if($user_id=="all")
 	{
-        $userName= "json/guides.json";
+        $return = array( 
+	    'Guides' => $rows1
+	    );
+	    unset($rows1);
+        $userName= "/tmp/json/guides.json";
 	}
 	else
 	{
-        $userName= "json/guide_".$user_id.".json";
+        $return =  $rows1[0];
+	    unset($rows1);
+        $userName= "/tmp/json/guide_".$user_id.".json";
 	}
     $fp = fopen($userName, 'w');
-    fwrite($fp, json_encode($return));
+    fwrite($fp, json_encode($return,JSON_PRETTY_PRINT));
     fclose($fp);
 }
 ?>

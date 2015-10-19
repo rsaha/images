@@ -1,5 +1,6 @@
 <?php
 include_once('db.php');
+$jsonPath = parse_ini_file('config.ini',true)['jsonFilePath'];
 //=============================================================================
         try
         {
@@ -9,11 +10,15 @@ include_once('db.php');
         {
 
         }
+        $_SESSION["tType"]="all";
         $JsonReturn=myCode1($rs);
-    $fp = fopen("json/guides.json", 'w');
-    fwrite($fp, $JsonReturn);
-    fclose($fp);
-    unset($fp);
+        $_SESSION["tType"]=null;
+        unset($_SESSION['tType']);
+        
+        $fp = fopen($jsonPath . "guides.json", 'w');
+        fwrite($fp, $JsonReturn);
+        fclose($fp);
+        unset($fp);
         unset($rs);
 //=============================================================================
 	$sql = mysql_query("SELECT `user_id`, `f_name`, `l_name` FROM `user_fulldetail` WHERE `user_type_id` = 1");
@@ -23,14 +28,18 @@ include_once('db.php');
 	
 		try
 		{
-			$rs = mysql_query("SELECT `user_id`, `user_type_id`, `user_password`, `f_name`, `l_name`, `email`, `mobileNo`, `gender`, `d_o_b`, `street_address`, `city`, `state`, `country`, `guide_profile_pic`, `guide_Cover_pic`, `nick_name`, `license_Image`, `license_no`, `validity`, `guide_summary`, `experiance_in_year`, `other_experience`, `guide_interest`, `guide_territory`, `guide_facebook_profile`, `guide_linkedin_profile`, `guide_pinterest_profile`, `guide_skype_address`, `landline_no`, `payment_currency`, `payment_terms`, `Best_time_for_contact`, `Communication_mechanism`, `guide_Remarks` FROM `user_fulldetail` WHERE `user_id` = ".$user_id.""); 
+			$rs = mysql_query("SELECT `user_id`, `user_type_id`, `f_name`, `l_name`, `email`, `mobileNo`, `gender`, `d_o_b`, `street_address`, `city`, `state`, `country`, `guide_profile_pic`, `guide_Cover_pic`, `nick_name`, `license_Image`, `license_no`, `validity`, `guide_summary`, `experiance_in_year`, `other_experience`, `guide_interest`, `guide_territory`, `guide_facebook_profile`, `guide_linkedin_profile`, `guide_pinterest_profile`, `guide_skype_address`, `landline_no`, `payment_currency`, `payment_terms`, `Best_time_for_contact`, `Communication_mechanism`, `guide_Remarks` FROM `user_fulldetail` WHERE `user_id` = ".$user_id.""); 
 		}
 		catch (Exception $e)
 		{
 			
 		}
+        $_SESSION["tType"]="individual";
         $JsonReturn=myCode1($rs);
-        $userName= "json/guide_".$user_id.".json";
+        $_SESSION["tType"]=null;
+        unset($_SESSION['tType']);
+        
+        $userName= $jsonPath . "guide_".$user_id.".json";
         $fp = fopen($userName, 'w');
         fwrite($fp, $JsonReturn);
         fclose($fp);
@@ -61,7 +70,7 @@ function myCode1($rs)
 							$languageName = $row4[ 'lanugage_name' ];
 						}
 						$rows3[] = array(
-							'lanugage_name'=> $languageName
+							 $languageName
 							);
 					}
 			}
@@ -119,7 +128,7 @@ function myCode1($rs)
 			$rows1[] = array( 
 			'id'=> $row1[ 'user_id' ],             
 			'name' => $row1[ 'f_name' ]." ".$row1[ 'l_name' ],
-			'photo' => "~/tmp/".$row1[ 'mobileNo' ]."_profile.jpg",
+			'photo' => "https://storage.googleapis.com/guidedgateway_media/".$row1[ 'mobileNo' ]."_profile.jpg",
 			'email'=> $row1[ 'email' ], 
 			'mobileNo' => $row1[ 'mobileNo' ], 
 			'gender' => $row1[ 'gender' ],
@@ -155,12 +164,18 @@ function myCode1($rs)
 		$rows1[]=null;
 	}
 
-	$return = array( 
-	'Guide' => $rows1
+	if($_SESSION["tType"]=="all")
+    {
+        $return = array( 
+	'Guides' => $rows1
 	);
-    
+    }
+    if($_SESSION["tType"]=="individual")
+    {
+        $return = $rows1;
+    }
 	unset($rows1);
-	$JsonReturn = json_encode( $return );
+	$JsonReturn = json_encode($return,JSON_PRETTY_PRINT);
     return($JsonReturn);
 }
 ?>
