@@ -119,7 +119,7 @@ $notes = $row33["notes"];
 		<!-- Load Fonts via Google Fonts API -->
 		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Karla:400,700,400italic,700italic" />
 		<!-- color scheme -->
-		<link rel="stylesheet" type="text/css" href="css/colors/color3.css" title="color3" />
+		<link rel="stylesheet" type="text/css" href="css/colors/color1.css" title="color1" />
 		
 		<style type="text/css">
 			#registration-form 
@@ -202,11 +202,7 @@ $notes = $row33["notes"];
 						<input name="email" class="form-control" type="text" id="email" >
 						<span id="email-result"></span>
 						</div>
-                        <div class="col-md-12">
-													<input type="submit" class="btn btn-primary btn-lg text-upper" name="save" value="Save" />
-													<span class="required small">*Your email will never published.</span>
-												</div>
-						</div>
+						</div><br><br><br><br><br><br><br><br>
 						</div>
 							<!-- START #contactForm -->
 							<section id="booking-form">

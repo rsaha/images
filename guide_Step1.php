@@ -103,7 +103,7 @@
 		$errormsg="Something went wrong, Could Not Register. Try again";
 		error_log($errormsg,0);
 		//echo "<script type='text/javascript'>alert('$errormsg');</script>";
-		header('Location:registration.php');
+		header('Location:guide_registration_1.php');
 	}
 ?>
 

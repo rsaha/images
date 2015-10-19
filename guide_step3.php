@@ -19,7 +19,7 @@
 		$errormsg="Unauthenticated access to the step 3 page, Registration Step 1 is not done";
 				error_log($errormsg,0);
 		include_once("signOut.php");
-		header('Location:registration.php');
+		header('Location:guide_registration_1.php');
 		exit;
 	}
 	else
@@ -94,7 +94,7 @@
 		$errormsg="Unauthenticated access to the step 3 page, Registration Step 1 is not done";
 		error_log($errormsg,0);
 		include_once("signOut.php");
-	header('Location:registration.php');
+	header('Location:guide_registration_1.php');
 exit;	
 	}
 ?>

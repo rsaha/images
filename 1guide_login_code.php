@@ -27,7 +27,7 @@ header('location:guide_profile.php');
 else
 {
 	$_SESSION["login"]="false";
-	header('location:login.php');
+	header('location:guide_login.php');
 }
 }
 

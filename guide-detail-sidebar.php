@@ -7,7 +7,7 @@
 		<meta charset="UTF-8">
 		
 		<!-- title -->
-		<title>Guide Detail | Guided Gateway - Authentic Affordable Travel</title>
+		<title>Guide Detail | Travel Hub HTML5 Template</title>
 		
 		<!-- meta description -->
 		<meta name="description" content="Guided Gateway" />
@@ -229,9 +229,9 @@ ul.rating {
 								<!-- Sidebar recent popular posts -->
 								<!-- START TABS -->
 								<ul class="nav nav-tabs text-upper">
-									<li class="active"><a href="#tours" data-toggle="tab">Tours</a></li>
-									<li><a href="#reviews" data-toggle="tab">Reviews</a></li>
-									<li><a href="#tips" data-toggle="tab">Tips</a></li>
+									<li class="active"><a href="#popular-posts" data-toggle="tab">Tours</a></li>
+									<li><a href="#recent-posts" data-toggle="tab">Reviews</a></li>
+									<li><a href="#recent-comments" data-toggle="tab">Tips</a></li>
 								</ul>
 								<!-- END TABS -->
 								
@@ -239,9 +239,9 @@ ul.rating {
 								<div class="tab-content gray box-shadow1 clearfix marb30">
 									<!-- START TAB 1 -->
 									
-									<div class="tab-pane active" id="tours" ng-controller="TourControl">
+									<div class="tab-pane active" id="popular-posts" ng-controller="TourControl">
 										<ul class="rc-posts-list list-unstyled">
-											<li ng-repeat="x in alltours" ng-show="$index<4">
+											<li ng-repeat="x in alltours" ng-show="$index<2">
 												<span class="rc-post-image">
 													<img class="img-responsive" src="{{x.Media.Image[0]}}" alt="Tour 1" />
 												</span>
@@ -250,6 +250,22 @@ ul.rating {
                                                <a href="booking-form.html"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Book" /></a>
 											</li>
 											
+											<li>
+												<span class="rc-post-image">
+													<img class="img-responsive" src="img/tour_3.jpg" alt="Tour 3" />
+												</span>
+												<h5><a href="#">Tour 3 </a></h5>
+												<span class="rc-post-date small">Starting Price INR 1500</span><br/>
+                                               <a href="booking-form.html"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Book" /> </a>
+											</li>
+											<li class="last-rc-post">
+												<span class="rc-post-image">
+													<img class="img-responsive" src="img/tour_4.jpg" alt="Tour 4" />
+												</span>
+												<h5><a href="#">Tour 4 </a></h5>
+												<span class="rc-post-date small">Starting Price INR 1500</span><br/>
+                                               <a href="booking-form.html"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Book" /></a>
+											</li>
 										</ul>
 									</div>
 									
@@ -286,7 +302,7 @@ ul.rating {
 									<!-- END TAB 2 -->
 									
 									<!-- START TAB 3 -->
-									<div class="tab-pane" id="tips">
+									<div class="tab-pane" id="recent-comments">
 										<div class="inside-pane">
 											<p>Amet turpis tristique, nec in aliquet dis amet, proin egestas in tempor, cras et dapibus, lectus pellentesque enim odio elementum eu tincidunt diam a et. Dapibus sed cum, aliquam cras egestas enim elit in mattis? Scelerisque, ultrices mid! Lorem. Scelerisque? Pid cras, mattis vel, porta, quis! Porttitor turpis cras, odio ultricies parturient pulvinar tempor.</p>
 											<p>eu turpis enim dapibus diam tristique cursus egestas quis phasellus montes! Parturient porta purus quis scelerisque? Vel proin, ac odio cras penatibus magnis non? Aliquam elementum, dis? Elementum ac.</p>
@@ -336,50 +352,80 @@ ul.rating {
 			</div>
 			<!-- END .main-contents -->
 			
-			<!-- START footer --> <footer> <!-- START #ft-footer -->
-			<div id="ft-footer"> <div class="footer-overlay"> <div
-			class="container"> <div class="row"> <!-- testimonials -->
-			<section class="col-md-6"> <h3>Testimonials</h3> <p>Amazing experience with guided tour. Much authentic and affordable than a "so called" luxury package. A local guide or expert can enable you to connect with local people and culture more than you can do on your own and surely more than visiting just placec. Connecting with culture and learning from it is any way the main purpose of my visit  to place like Jaipur - apart from the awesome foods. Thank you. </p> <div class="tl-author">
-			<span class="tl-author-img"> <img class="img-circle"
-			src="http://placehold.it/70x70" alt="Testimonial Author" />
-			</span> <span class="tl-author-title">Jassem Elrakesh</span>
-			<span class="tl-author-desc">Visited Jaipur
-			recently</span> </div> </section>
-
-								<!-- twitter --> <section
-								class="col-md-6"> <h3
-								class="tw-feeds">Pinterest Feeds</h3>
-								                <a data-pin-do="embedBoard" href="https://www.pinterest.com/guidedgateway/guided-gateway/"data-pin-scale-width="80" data-pin-scale-height="200" data-pin-board-width="400">Follow Guided Gateway's board on Pinterest.</a><script type="text/javascript" async src="//assets.pinterest.com/js/pinit.js"></script>    
-                								</section> </div> </div> </div> </div>
-								<!-- END #ft-footer -->
-
-				<!-- START #ex-footer --> <div id="#ex-footer"> <div
-				class="container"> <div class="row"> <nav
-				class="col-md-12"> <ul class="footer-menu"> <li><a
-				href="#">Cancellation Policy</a></li> <li><a
-				href="#">Careers</a></li> <li><a href="#">Hotel
-				Directory</a></li> <li><a href="termofuse.html">Website Terms of
-				Use</a></li> <li><a href="privacy.html">Privacy Statement</a></li>
-				<li><a href="#">Affiliates</a></li> <li
-				class="last-item"><a href="#">Top Destinations</a></li>
-				</ul> </nav>
-
-							<div class="foot-boxs"> <div class="foot-box
-							col-md-4 text-right"> <span>Stay
-							Connected</span> <ul class="social-media
-							footer-social"><li><a class="sm-facebook"
-	href="#"><span>Facebook</span></a></li> <li><a class="sm-flickr"
-	href="#"><span>Pinterest</span></a></li> <li><a class="sm-windows"
-	href="#"><span>Youtube</span></a></li> <li><a class="sm-stumble"
-	href="#"><span>Twitter</span></a></li>
-							</ul> </div> <div class="foot-box
-							foot-box-md col-md-4"> <span
-							class="contact-email">
-							touchus@guidedgateway.com</span> <span
-							class="contact-phone"> +1 510 938 2562</span> </div> <div class="foot-box
-							col-md-4"> <span class="">&copy; 2015							GuideGateway. All Rights Reserved.</span>
-							</div> </div> </div> </div> </div> <!-- END #ex-footer --> 
-							</footer> 
+			<!-- START footer -->
+			<footer>
+				<!-- START #ft-footer -->
+				<div id="ft-footer">
+					<div class="footer-overlay">
+						<div class="container">
+							<div class="row">
+								<!-- testimonials -->
+								<section class="col-md-6">
+									<h3>Testimonials</h3>
+									<p>Tortor turpis. Proin. Dolor. Auctor arcu, habitasse mid placerat magna? Dis ac, adipiscing? Cras mus dolor sit a? Platea eros dictumst ridiculus sed phasellus, rhoncus magnis a pellentesque pulvinar duis purus risus tristique ultricies natoque, nec! Natoque natoque cum? Nec, placerat sociis! Sit ut, scelerisque? placerat sociis! Sit ut, scelerisque? Urna ut aliquam duis et scelerisque,</p>
+									<div class="tl-author">
+										<span class="tl-author-img">
+											<img class="img-circle" src="http://placehold.it/70x70" alt="Testimonial Author" />
+										</span>
+										<span class="tl-author-title">Jassem Elrakesh</span>
+										<span class="tl-author-desc">Visited Barcelona recently</span>
+									</div>
+								</section>
+								
+								<!-- twitter -->
+								<section class="col-md-6">
+									<h3 class="tw-feeds">Twitter Feeds</h3>
+									<p>The only netball team that takes a team photo after every game #envato <a href="#">http://instagram.com/p/gXSJNTwBJe/</a></p>
+									<p>Very excited that Envato is joining the big-ticket Macaw backers list - <a href="#">http://macaw.co</a>  - very intuitive looking new web design app!</p>
+									<p>Remember, you really are your own boss. Sink or swim, but do it like a boss. (10/10) <a href="#">#10BootstrappingTips</a></p>
+								</section>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- END #ft-footer -->
+				
+				<!-- START #ex-footer -->
+				<div id="#ex-footer">
+					<div class="container">
+						<div class="row">
+							<nav class="col-md-12">
+								<ul class="footer-menu">
+									<li><a href="#">Best Rate Guarntee</a></li>
+									<li><a href="#">Careers</a></li>
+									<li><a href="#">Hotel Directory</a></li>
+									<li><a href="#">Website Terms of Use</a></li>
+									<li><a href="#">Privacy Statement</a></li>
+									<li><a href="#">Affiliates</a></li>
+									<li class="last-item"><a href="#">Top Destinations</a></li>
+								</ul>
+							</nav>
+							
+							<div class="foot-boxs">
+								<div class="foot-box col-md-4 text-right">
+									<span>Stay Connected</span>
+									<ul class="social-media footer-social">
+										<li><a class="sm-yahoo" href="#"><span>Yahoo</span></a></li>
+										<li><a class="sm-facebook" href="#"><span>Facebook</span></a></li>
+										<li><a class="sm-rss" href="#"><span>RSS</span></a></li>
+										<li><a class="sm-flickr" href="#"><span>Flicker</span></a></li>
+										<li><a class="sm-windows" href="#"><span>Windows</span></a></li>
+										<li><a class="sm-stumble" href="#"><span>Stumbleupon</span></a></li>
+									</ul>
+								</div>
+								<div class="foot-box foot-box-md col-md-4">
+									<span class="contact-email"> touchus@travelhub.com</span>
+									<span class="contact-phone"> +1 125 496 0999</span>
+								</div>
+								<div class="foot-box col-md-4">
+									<span class="">&copy; 2013 travelhub. All Rights Reserved.</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- END #ex-footer -->
+			</footer>
 			<!-- END footer -->
 		</div>
 		<!-- END #wrapper -->

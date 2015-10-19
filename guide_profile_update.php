@@ -20,7 +20,7 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 		$errormsg="Unauthenticated access to the Guide edit page, Registration Step 1 is not done";
 		error_log($errormsg,0);
 		include_once("signOut.php");
-        header('Location:registration.php');
+        header('Location:guide_registration_1.php');
 	}
 	else
 	{
@@ -132,8 +132,8 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 			}
 			else 
 			{
-				$hex_string = null;
-				$errormsg="No licence attachment.";
+				$hex_string = "";
+				$errormsg="Could not upload the licence attachment.";
 				error_log($errormsg,0);
 			}
 			
@@ -187,7 +187,6 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 				}
 				else
 				{
-                    error_log("No license image provided ");
                     $insert_stmt = "INSERT INTO `tbl_guide_detail_profile` (
 					`user_id`, 
 					`license_no`,
@@ -300,7 +299,6 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 						`user_id`, 
 						`language_id`
 						) VALUES (
-                        
 						$userid,
 						$val
 						)")  or die('Error : ' . mysql_error());
@@ -327,7 +325,7 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 		$errormsg="Unauthenticated access to the Guide edit page, Registration Step 1 is not done";
 		error_log($errormsg,0);
 		include_once("signOut.php");
-        header('Location:registration.php');
+        header('Location:guide_registration_1.php');
 	    exit;
 	}
 ?>
