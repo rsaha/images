@@ -9,7 +9,9 @@ include_once('db.php');
         {
 
         }
-        $JsonReturn=myCode1($rs);
+        $JsonReturn=array( 
+	    'Guides' => myCode1($rs)
+	    );
     $fp = fopen("/tmp/json/guides.json", 'w');
     fwrite($fp, $JsonReturn);
     fclose($fp);
@@ -119,7 +121,7 @@ function myCode1($rs)
 			$rows1[] = array( 
 			'id'=> $row1[ 'user_id' ],             
 			'name' => $row1[ 'f_name' ]." ".$row1[ 'l_name' ],
-			'photo' => "https:\/\/storage.googleapis.com\/guidedgateway_media\/".$row1[ 'mobileNo' ]."_profile.jpg",
+			'photo' => "https://storage.googleapis.com/guidedgateway_media/".$row1[ 'mobileNo' ]."_profile.jpg",
 			'email'=> $row1[ 'email' ], 
 			'mobileNo' => $row1[ 'mobileNo' ], 
 			'gender' => $row1[ 'gender' ],
@@ -155,7 +157,7 @@ function myCode1($rs)
 		$rows1[]=null;
 	}
 
-	$return = $rows1;
+	$return = $rows1[0];
     
 	unset($rows1);
 	$JsonReturn = json_encode( $return,JSON_PRETTY_PRINT );
