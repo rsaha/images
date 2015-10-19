@@ -155,12 +155,10 @@ function myCode1($rs)
 		$rows1[]=null;
 	}
 
-	$return = array( 
-	'Guide' => $rows1
-	);
+	$return = $rows1;
     
 	unset($rows1);
-	$JsonReturn = json_encode( $return );
+	$JsonReturn = json_encode( $return,JSON_PRETTY_PRINT );
     return($JsonReturn);
 }
 ?>
