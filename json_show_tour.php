@@ -65,22 +65,27 @@ if(isset($_POST["tourid"]))
 		unset($rows2);
 	}
 
-	$return = array( 
-	'Tour' => $rows1
-	);
-	unset($rows1);
+	
 	//$JsonReturn = json_encode( $return ); 
     
     if($tour_ID=="all")
 	{
-        $tourName= "json/tours.json";
+        $return = array( 
+	      'Tours' => $rows1
+	    );
+	    unset($rows1);
+        $tourName= "/tmp/json/tours.json";
 	}
 	else
 	{
-        $tourName= "json/tour_".$tour_ID.".json";
+        $return = array( 
+	    'Tour' => $rows1
+	    );
+	    unset($rows1);
+        $tourName= "/tmp/json/tour_".$tour_ID.".json";
 	}
     $fp = fopen($tourName, 'w');
-    fwrite($fp, json_encode($return));
+    fwrite($fp, json_encode($return,JSON_PRETTY_PRINT));
     fclose($fp);
     
 }
