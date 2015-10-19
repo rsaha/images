@@ -10,7 +10,7 @@ include_once('db.php');
 
         }
         $JsonReturn=myCode1($rs);
-    $fp = fopen("json/guides.json", 'w');
+    $fp = fopen("/tmp/json/guides.json", 'w');
     fwrite($fp, $JsonReturn);
     fclose($fp);
     unset($fp);
@@ -30,7 +30,7 @@ include_once('db.php');
 			
 		}
         $JsonReturn=myCode1($rs);
-        $userName= "json/guide_".$user_id.".json";
+        $userName= "/tmp/json/guide_".$user_id.".json";
         $fp = fopen($userName, 'w');
         fwrite($fp, $JsonReturn);
         fclose($fp);
@@ -61,7 +61,7 @@ function myCode1($rs)
 							$languageName = $row4[ 'lanugage_name' ];
 						}
 						$rows3[] = array(
-							'lanugage_name'=> $languageName
+							 $languageName
 							);
 					}
 			}
@@ -119,7 +119,7 @@ function myCode1($rs)
 			$rows1[] = array( 
 			'id'=> $row1[ 'user_id' ],             
 			'name' => $row1[ 'f_name' ]." ".$row1[ 'l_name' ],
-			'photo' => "~/tmp/".$row1[ 'mobileNo' ]."_profile.jpg",
+			'photo' => "https:\/\/storage.googleapis.com\/guidedgateway_media\/".$row1[ 'mobileNo' ]."_profile.jpg",
 			'email'=> $row1[ 'email' ], 
 			'mobileNo' => $row1[ 'mobileNo' ], 
 			'gender' => $row1[ 'gender' ],
