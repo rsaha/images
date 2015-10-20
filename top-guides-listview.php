@@ -74,7 +74,7 @@ ul.rating {
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	</head> <!-- END head -->
 
-	<!-- START body --> <body> <!-- START #wrapper --> <div
+	<!-- START body --> <body  ng-app="myGuideList"> <!-- START #wrapper --> <div
 	id="wrapper"> <!-- START header --> <?php 
 			
 				include('MasterTopHeader.php'); 
@@ -83,26 +83,24 @@ ul.rating {
 			?>
 			
 			<!-- START #page-header -->
-			<div id="header-banner">
-				<div class="top-header">
+				<div id="">
+				
 					<div class="container">
 						<div class="row">
-							<!-- <section class="col-sm-6">
-								<h1 class="text-upper">Your Guides</h1>
-							</section> -->
+							<section class="col-sm-6">
+								<h1 class="text-upper"><i class="fa fa-user-secret" style="color:black;"></i>&nbsp;&nbsp;Top Guides</h1>
+							</section>
 							
 							<!-- breadcrumbs -->
-							<!-- <section class="col-sm-6">
+							<!--<section class="col-sm-6">
 								<ol class="breadcrumb">
-									<li class="home"><a href="index.html">Home</a></li>
-									<li><a href="#">Guides</a></li>
-									
+									<li class="home"><a href="#">Home</a></li>
+									<li><a href="#">Top Tours</a></li>
 								</ol>
 							</section> -->
-							
 						</div>
 					</div>
-				</div>
+				
 			</div>
 			<!-- END #page-header -->
 			<!-- <div class="main-contents col-md-8 col-md-offset-2" id="searchDiv">
@@ -131,19 +129,20 @@ ul.rating {
 			<div class="main-contents">
 				<div class="container">
 					<div class="row">
-					  <div class="col-md-8" ng-app="myGuideList">
+					  <div class="col-md-8">
 							<div class="row" ng-controller="guideCtrl">
-						<div class="col-md-4" ng-repeat="x in allguides" >
+						<div class="col-md-4" ng-repeat="x in allguides" ng-show="$index<12" >
 							 <div	class="ft-item"> 
 						  <span class="ft-image">
 						  <a href="guide-detail-sidebar.php">
-							 <img style="height:230px;width:180;" class="img-responsive" src="img/author-img.jpg" alt="Top Guide" /> </a>
+							 <img style="height:230px;width:180;" class="img-responsive"  src="{{x.photo}}" alt="Top Guide" /> </a>
+<!--                               <img style="height:230px;width:180;" class="img-responsive"  src="img/author-img.jpg" alt="Top Guide" /> </a>-->
 						  </span>
 					  
 								<div class="ft-data">
 							  <span style="color:black;" class="fa fa-odnoklassniki text-upper">{{x.city}}</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							  <span style="color:black;" class="fa fa-book text-upper" >&nbsp;&nbsp;{{x.experiance_in_year}}</span>
-							  <br><span style=" font-size:11px;color:black;" class="fa fa-plane text-upper">{{x.language_known}}</span>
+							  <br><span style=" font-size:11px;color:black;" class="fa fa-plane text-upper">{{x.language_known[0]}}</span>
 								</div> 
 					
 							<div class="ft-foot">
@@ -172,72 +171,32 @@ ul.rating {
 								<!-- END TABS -->
 								
 								<!-- START TAB CONTENT -->
-								<div class="tab-content gray box-shadow1 clearfix marb30">
+								<div class="tab-content gray box-shadow1 clearfix marb30" >
 									<!-- START TAB 1 -->
-									<div class="tab-pane active" id="toptours">
-										<ul class="rc-posts-list list-unstyled">
-											<li>
+									<div class="tab-pane active" id="toptours"  ng-controller="tourCtrl">
+										<ul class=" list-unstyled">
+											<li ng-repeat="k in alltours" ng-show="$index<4">
 												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 2" />
+													<img class="img-responsive" src="{{k.Media.Image[0]}}" alt="Tour 1" />
 												</span>
-												<h5><a href="#">Limbaugh: Does 'Dark Knight Rise have it Bomb Found...</a></h5>
-												<span class="rc-post-date small">January 18, 2014</span>
-											</li>
-											<li>
-												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 4" />
-												</span>
-												<h5><a href="#">Shares suspende am Bankiaid 'Gloomy Forecast'</a></h5>
-												<span class="rc-post-date small">January 11, 2014</span>
-											</li>
-											<li>
-												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 3" />
-												</span>
-												<h5><a href="#">Shares suspende am Bankiaid 'Gloomy Forecast'</a></h5>
-												<span class="rc-post-date small">January 15, 2014</span>
-											</li>
-											<li class="last-rc-post">
-												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 1" />
-												</span>
-												<h5><a href="#">Apple Fails to Fix iPhone Daylight Saving Time Alarm Bug</a></h5>
-												<span class="rc-post-date small">January 20, 2014</span>
+												<h5><a href="#">{{k.Title}}</a></h5>
+												<span class="rc-post-date small">Starting Price&nbsp;{{k.Price}}</span><br/>
+                                               <a href="booking-form.html"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Custom" /></a>
 											</li>
 										</ul>
 									</div>
 									<!-- END TAB 1 -->
 									
 									<!-- START TAB 2 -->
-									<div class="tab-pane" id="topdestinations">
-										<ul class="rc-posts-list list-unstyled">
-											<li>
+									<div class="tab-pane" id="topdestinations"  ng-controller="placeCtrl">
+										<ul class=" list-unstyled">
+											<li ng-repeat="k in allplaces" ng-show="$index<4">
 												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 1" />
+													<img class="img-responsive" src="{{k.Media.Image[0]}}" alt="Tour 1" />
 												</span>
-												<h5><a href="#">Apple Fails to Fix iPhone Daylight Saving Time Alarm Bug</a></h5>
-												<span class="rc-post-date small">January 20, 2014</span>
-											</li>
-											<li>
-												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 2" />
-												</span>
-												<h5><a href="#">Limbaugh: Does 'Dark Knight Rise have it Bomb Found...</a></h5>
-												<span class="rc-post-date small">January 18, 2014</span>
-											</li>
-											<li>
-												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 3" />
-												</span>
-												<h5><a href="#">Shares suspende am Bankiaid 'Gloomy Forecast'</a></h5>
-												<span class="rc-post-date small">January 15, 2014</span>
-											</li>
-											<li class="last-rc-post">
-												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 4" />
-												</span>
-												<h5><a href="#">Shares suspende am Bankiaid 'Gloomy Forecast'</a></h5>
-												<span class="rc-post-date small">January 11, 2014</span>
+												<h5><a href="#">{{k.Name}}</a></h5>
+												<span class="rc-post-date small">Best Visit:&nbsp;&nbsp;&nbsp;{{k.BestTimeToVisit}}</span><br/>
+                                               <a href="booking-form.html"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Custom" /></a>
 											</li>
 										</ul>
 									</div>
@@ -259,11 +218,8 @@ ul.rating {
 							<div class="sidebar-widget">
 								<!-- Sidebar Flickr Gallery -->
 								<h3 class="text-upper">Guide Gallery</h3>
-								<ul class="flickr-gal list-unstyled">
-									<li><img class="img-responsive" src="img/custom1.jpg" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="img/custom1.jpg" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="img/custom1.jpg" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="img/custom1.jpg" alt="Flickr Photo" /></li>
+								<ul class="flickr-gal list-unstyled" ng-controller="guideCtrl">
+									<li ng-repeat="x in allguides" ><img style="height:70px; width:120px;" class="img-responsive" src="{{x.photo}}" alt="Guide" /></li>								
 								</ul>
 							</div>
 						</aside>
