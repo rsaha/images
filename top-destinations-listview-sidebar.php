@@ -6,8 +6,8 @@
 		<!-- Site meta charset -->
 		<meta charset="UTF-8">
 		
-		<!-- title --> <title>Home | Guided Gateway - Authentic
-		Affordable Travel</title>
+		<!-- title --> 
+        <title>Home | Guided Gateway - Authentic Affordable Travel</title>
 
 		<!-- meta description --> <meta name="description" content="Authentic Affordable Travel in India" />
 
@@ -324,7 +324,7 @@
 							
 							<div class="sidebar-widget">
 								<!-- Sidebar Flickr Gallery -->
-								<h3 class="text-upper">Place Gallery</h3>
+								<h3 class="text-upper">Destination Gallery</h3>
 								<ul class="flickr-gal list-unstyled">
 									<li><img class="img-responsive" src="img/custom1.jpg" alt="Flickr Photo" /></li>
 									<li><img class="img-responsive" src="img/custom1.jpg" alt="Flickr Photo" /></li>

@@ -7,7 +7,7 @@
 		<meta charset="UTF-8">
 		
 		<!-- title -->
-		<title>Guide Detail | Travel Hub HTML5 Template</title>
+		<title>Home | Guided Gateway - Authentic Affordable Travel</title>
 		
 		<!-- meta description -->
 		<meta name="description" content="Guided Gateway" />
@@ -127,9 +127,9 @@ ul.rating {
 								</div>
 								
 								<ul class="featured-btm single-ft-btm list-unstyled box-shadow1">
-									<li class="author-img"><img class="img-circle img-wt-border" style=height:80px;width:80px; src="{{allguides.Media.Photo}}" alt="Guide" /></li>
-									<li class="post-author"><a class="text-upper" >{{allguides.Gender}}</a></li>
-									<li class="fa fa-tree"><a class=""> {{allguides.Speciality}}</a></li>
+									<li class="author-img"><img class="img-circle img-wt-border" style=height:80px;width:80px; src="{{allguides.photo}}" alt="Guide" /></li>
+									<li class="post-author"><a class="text-upper" >{{allguides.gender}}</a></li>
+									<li class="fa fa-tree"><a class=""> {{allguides.city}}</a></li>
 									<li class="post-date"><span class="alignright" star-rating rating-value="allguides.ReviewSummary.Star" ></span></li>
 									
 								</ul>

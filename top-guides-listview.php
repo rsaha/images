@@ -6,8 +6,8 @@
 		<!-- Site meta charset -->
 		<meta charset="UTF-8">
 		
-		<!-- title --> <title>Home | Guided Gateway - Authentic
-		Affordable Travel</title>
+		<!-- title --> 
+        <title>Home | Guided Gateway - Authentic Affordable Travel</title>
 
 		<!-- meta description --> <meta name="description" content="Authentic Afordable Travel in India" />
 
@@ -133,7 +133,7 @@ ul.rating {
 					<div class="row">
 					  <div class="col-md-8" ng-app="myGuideList">
 							<div class="row" ng-controller="guideCtrl">
-						<div class="col-md-4" ng-repeat="x in allguides" >
+						<div class="col-md-4" ng-repeat="x in allguides < 16" >
 							 <div	class="ft-item"> 
 						  <span class="ft-image">
 						  <a href="guide-detail-sidebar.php">
@@ -141,14 +141,14 @@ ul.rating {
 						  </span>
 					  
 								<div class="ft-data">
-							  <span style="color:black;" class="fa fa-odnoklassniki text-upper">&nbsp;&nbsp;{{x.gender}}</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							  <span style="color:black;" class="fa fa-odnoklassniki text-upper">{{x.city}}</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							  <span style="color:black;" class="fa fa-book text-upper" >&nbsp;&nbsp;{{x.guide_interest}}</span>&nbsp;&nbsp;&nbsp;&nbsp;
 							  <br><span style=" font-size:11px;color:black;" class="fa fa-plane text-upper" > {{x.LanguageKnown}}</span>
 								
 								</div> 
 					
 							<div class="ft-foot">
-							<h4 class="ft-title text-upper" style="color:#686868">{{x.name}},&nbsp{{x.guide_territory}}</h4> 
+							<h4 class="ft-title text-upper" style="color:#686868">{{x.name}},&nbsp{{x.gender}}</h4> 
 							<!-- <span class="ft-offer text-upper">{{x.Tours.Count}} Tours</span>  -->
 							</div> 
 					
@@ -166,9 +166,9 @@ ul.rating {
 								<!-- Sidebar recent popular posts -->
 								<!-- START TABS -->
 								<ul class="nav nav-tabs text-upper">
-									<li class="active"><a href="#toptours" data-toggle="tab">Top Tours</a></li>
-									<li><a href="#topdestinations" data-toggle="tab">Top Destinations</a></li>
-									<li><a href="#toptips" data-toggle="tab">Expert Tips</a></li>
+									<li class="active"><a href="#toptours" data-toggle="tab">Tours</a></li>
+									<li><a href="#topdestinations" data-toggle="tab">Destinations</a></li>
+									<li><a href="#toptips" data-toggle="tab">Advices</a></li>
 								</ul>
 								<!-- END TABS -->
 								
