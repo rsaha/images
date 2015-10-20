@@ -181,7 +181,7 @@ ul.rating {
 												</span>
 												<h5><a href="#">{{k.Title}}</a></h5>
 												<span class="rc-post-date small">Starting Price&nbsp;{{k.Price}}</span><br/>
-                                               <a href="booking-form.html"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Custom" /></a>
+                                               <a href="booking-form.php"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Custom" /></a>
 											</li>
 										</ul>
 									</div>
