@@ -109,7 +109,7 @@ while( $row1 = mysql_fetch_array( $rs ) )
     }
     if($_SESSION["tType"]=="individual")
     {
-        $return = $rows1;
+        $return = $rows1[0];
     }
 	
     

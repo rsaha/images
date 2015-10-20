@@ -370,7 +370,7 @@ else
 														</div>
 														
 														<div class="col-md-4">
-															<label style="font-size:14px; font-weight:bold">Guide Territory</label>
+															<label style="font-size:14px; font-weight:bold">Territory</label>
 															<textarea class="form-control" name="guideTerritory" ></textarea>
 														</div>
 														

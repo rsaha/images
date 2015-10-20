@@ -90,7 +90,7 @@
 		<meta charset="UTF-8">
 		
 		<!-- title -->
-		<title>Guide Profile | Guided Gateway</title>
+		<title>Profile | Guided Gateway</title>
 		
 		<!-- meta description -->
 		<meta name="description" content="Guided Gateway" />
@@ -290,8 +290,8 @@
 							<div class="user-profile">
 								<!-- START TABS -->
 								<ul class="nav nav-tabs text-upper" style="background-color:#FFA98E;">
-									<li><a href="#userinfo" data-toggle="tab">Guide Profile</a></li>
-									<li class="active"><a href="#tourList" data-toggle="tab">Tours</a></li>
+									<li class="active"><a href="#userinfo" data-toggle="tab">My Profile</a></li>
+									<li><a href="#tourList" data-toggle="tab">Tours</a></li>
 									<li><a href="#inviteGuide" data-toggle="tab">Invite Guides</a></li>
 								</ul>
 								<!-- END TABS -->
@@ -299,7 +299,7 @@
 								<!-- START TAB CONTENT -->
 								<div class="tab-content clearfix ">
 									<!-- START TAB 1 -->
-									<div class="tab-pane" id="userinfo">
+									<div class="tab-pane active" id="userinfo">
 										<div class="booking gray clearfix box-shadow1">
 											<fieldset>
 										<div >
@@ -443,7 +443,7 @@
 												<div class="row">
 												 <div class="col-sm-12 col-xs-12">
 													<div class="form-group">
-													  <h3 class=" font-semibold">GUIDE TERRITORY</h3>
+													  <h3 class=" font-semibold">TERRITORY</h3>
 													<div class="content-list content-menu col-sm-11">
 													   <span class="menu-text"><?php echo $guideTerritory ?></span>
 													</div>
@@ -500,7 +500,7 @@
 											</div>
 											</div>
 									<!-- START TAB 2 -->
-									<div class="tab-pane active" id="tourList">
+									<div class="tab-pane" id="tourList">
 										<div class="booking gray clearfix box-shadow1">
 											<div class="row">
 
@@ -608,7 +608,7 @@
 									<!-- START TAB 3 -->
 									<div class="tab-pane" id="inviteGuide">
 										<div class="booking gray clearfix box-shadow1">
-									<center><h3>Invite Guide Friends and get some exciting referral rewards when your friend register with us...</h3></center><br />
+									<center><h3>Invite Your Friends and get some exciting referral rewards when your friend register with us...</h3></center><br />
 										<form action="guide_step4.php" method="post" ng-app="myApp"  ng-controller="validateCtrl5" name="myForm"  novalidate>
 										<input type="hidden" name="userid" value="<?php echo $userid ?>" />
 										

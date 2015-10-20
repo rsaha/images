@@ -126,7 +126,7 @@
 				<li><a onclick="myFunctionSetting(<?php echo $userid; ?>)" title="">Change Password</a></li>
 				</ul>
 				</li>
-				<li class="pull-right" ><a href="login.php" title=""><i class="fa fa-home"></i> Guide Home</a></li>
+				<li class="pull-right" ><a href="login.php" title=""><i class="fa fa-home"></i> Home</a></li>
                 <!--li><a href="" title=""> </a></li> 
 				<li><a href="" title=""> </a></li>
 				<li><a href="" title=""> </a></li> 

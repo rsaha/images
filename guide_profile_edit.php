@@ -304,7 +304,7 @@
 							<div class="user-profile">
 								<!-- START TABS -->
 								<ul class="nav nav-tabs text-upper" style="background-color:#FFA98E;">
-									<li class="active"><?php echo '<a href="guide_profile.php?id=' . $userid . '" data-toggle="tab">Guide Profile</a>' ?></li>
+									<li class="active"><?php echo '<a href="guide_profile.php?id=' . $userid . '" data-toggle="tab">My Profile</a>' ?></li>
 								</ul>
 								<!-- END TABS -->
 								
@@ -513,7 +513,7 @@
 												  
 												</div>
 												
-												<h3 class=" mgtp-10 font-semibold"><i class="icon-user mgr-10 profile-icon"></i>GUIDE TERRITORY</h3>
+												<h3 class=" mgtp-10 font-semibold"><i class="icon-user mgr-10 profile-icon"></i>TERRITORY</h3>
 												<div class="row">
 												<div class="col-sm-12">
 												<textarea name="guideTerritory" class="form-control" style="background-color:#f7f7f7;" rows="2" style="width:100%;" ><?php echo $guideTerritory ?></textarea>

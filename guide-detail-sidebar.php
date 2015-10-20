@@ -123,7 +123,7 @@ ul.rating {
 							<!-- START .post-data -->
 							<div class="post-data">
 								<div class="plan-image">
-									<img class="img-responsive" src="{{allguides.Media.CoverPhoto}}" alt="Kolkata, WB" />
+									<img class="img-responsive" src="" alt="Kolkata, WB" />
 								</div>
 								
 								<ul class="featured-btm single-ft-btm list-unstyled box-shadow1">
@@ -273,30 +273,16 @@ ul.rating {
 									
 									<!-- START TAB 2 -->
 									<div class="tab-pane" id="topreviews" ng-controller="TourControl">
-										<ul class="rc-posts-list list-unstyled">
+										<ul class="list-unstyled">
 											<li ng-repeat="x in alltours" ng-show="$index<2">
-												<span class="rc-post-image">
-													<img class="img-responsive" src="{{x.Media.Image[0]}}" alt="Recent Post 1" />
-												</span>
+												<span class="rc-post-image ">
+													<img class="img-responsive " src="{{x.Media.Image[0]}}" alt="Recent Post 1" />
+												</span><br><br><br>
 												<span star-rating rating-value="x.Reviews.OverallRating"  class="" ></span>	
 												<span class="">{{x.Reviews.ReviewCount}} reviews</span>
 												
 											</li>
 											
-											<li>
-												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 3" />
-												</span>
-												<h5><a href="#">5 star rating..upcoming</a></h5>
-												<span class="rc-post-date small">January 15, 2016</span>
-											</li>
-											<li class="last-rc-post">
-												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 4" />
-												</span>
-												<h5><a href="#">5 star rating..upcoming</a></h5>
-												<span class="rc-post-date small">January 11, 2014</span>
-											</li>
 										</ul>
 									</div>
 									<!-- END TAB 2 -->
@@ -326,14 +312,12 @@ ul.rating {
 								</div>
 							</div>
 							
-							<div class="sidebar-widget">
+								<div class="sidebar-widget">
 								<!-- Sidebar Flickr Gallery -->
 								<h3 class="text-upper">Guide Gallery</h3>
-								<ul class="flickr-gal list-unstyled">
-									<li><img class="img-responsive" src="img/custom1.jpg" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="img/custom1.jpg" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="img/custom1.jpg" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="img/custom1.jpg" alt="Flickr Photo" /></li>
+								<ul class="flickr-gal list-unstyled" ng-controller="TopGuideControl">
+									<li ng-repeat="x in TopGuides" ng-show="$index==5||7||12||13" ><img style="height:70px; width:120px;" class="img-responsive" src="{{x.photo}}" alt="Guide" /></li>
+								
 								</ul>
 							</div>
 						</aside>

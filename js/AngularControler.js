@@ -15,11 +15,6 @@
 		});
 	}]);
 	
-	
-
-  
-  
-  
 	app.controller('validateLogin', function($scope) {
 		$scope.username = '';
 		$scope.password = '';
@@ -104,6 +99,7 @@
 	app.controller('resetPswrdvalidateCtrl', function($scope) {
 		$scope.oldPassword = '';
 		$scope.newPassword = '';
-		$scope.conformpassword = '';
+		$scope.conformNewPassword = '';
+		$scope.submitbutton = '';
 	});
 })();
