@@ -110,7 +110,7 @@
 						}
 						else
 						{
-							//header('Location:guide_registration_2.php?id=' . $userid .'');
+							header('Location:guide_registration_2.php?id=' . $userid .'');
 						}
 						exit;
 					}
@@ -124,7 +124,7 @@
 						}
 						else
 						{
-							//header('Location:guide_registration_2.php?id=' . $userid .'');
+							header('Location:guide_registration_2.php?id=' . $userid .'');
 						}
 						exit;
 					}
@@ -220,11 +220,11 @@
 			error_log($errormsg,0);
 			if($_SESSION['phase'] == "signin") //$_SESSION['phase'] == "reg")
 			{
-				//header('Location:guide_profile_edit.php?id=' . $userid .'');
+				header('Location:guide_profile_edit.php?id=' . $userid .'');
 			}
 			else
 			{
-				//header('Location:guide_registration_2.php?id=' . $userid .'');
+				header('Location:guide_registration_2.php?id=' . $userid .'');
 			}
 			exit;
 			}
@@ -333,11 +333,11 @@
 			error_log($errormsg,0);
 			if($_SESSION['phase'] == "signin") //$_SESSION['phase'] == "reg")
 			{
-				//header('Location:guide_profile_edit.php?id=' . $userid .'');
+				header('Location:guide_profile_edit.php?id=' . $userid .'');
 			}
 			else
 			{
-				//header('Location:guide_registration_2.php?id=' . $userid .'');
+				header('Location:guide_registration_2.php?id=' . $userid .'');
 			}
 			exit;
 			}
@@ -347,11 +347,11 @@
 			error_log($errormsg,0);
 			if($_SESSION['phase'] == "signin") //$_SESSION['phase'] == "reg")
 			{
-				//header('Location:guide_profile_edit.php?id=' . $userid .'');
+				header('Location:guide_profile_edit.php?id=' . $userid .'');
 			}
 			else
 			{
-				//header('Location:guide_registration_2.php?id=' . $userid .'');
+				header('Location:guide_registration_2.php?id=' . $userid .'');
 			}
 			exit;
 			}
