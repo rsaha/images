@@ -133,18 +133,17 @@ ul.rating {
 					<div class="row">
 					  <div class="col-md-8" ng-app="myGuideList">
 							<div class="row" ng-controller="guideCtrl">
-						<div class="col-md-4" ng-repeat="x in allguides < 16" >
+						<div class="col-md-4" ng-repeat="x in allguides" >
 							 <div	class="ft-item"> 
 						  <span class="ft-image">
 						  <a href="guide-detail-sidebar.php">
-							 <img style="height:230px;width:180;" class="img-responsive" src="{{x.photo}}" alt="Top Guide" /> </a>
+							 <img style="height:230px;width:180;" class="img-responsive" src="img/author-img.jpg" alt="Top Guide" /> </a>
 						  </span>
 					  
 								<div class="ft-data">
 							  <span style="color:black;" class="fa fa-odnoklassniki text-upper">{{x.city}}</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							  <span style="color:black;" class="fa fa-book text-upper" >&nbsp;&nbsp;{{x.guide_interest}}</span>&nbsp;&nbsp;&nbsp;&nbsp;
-							  <br><span style=" font-size:11px;color:black;" class="fa fa-plane text-upper" > {{x.LanguageKnown}}</span>
-								
+							  <span style="color:black;" class="fa fa-book text-upper" >&nbsp;&nbsp;{{x.experiance_in_year}}</span>
+							  <br><span style=" font-size:11px;color:black;" class="fa fa-plane text-upper">{{x.language_known}}</span>
 								</div> 
 					
 							<div class="ft-foot">
