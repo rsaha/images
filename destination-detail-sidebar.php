@@ -19,6 +19,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 		
 		<!-- favicon -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 		<link rel="icon" href="favicon.ico" type="image/x-icon" />
 		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 		
@@ -56,7 +57,7 @@
 					<div class="container">
 						<div class="row">
 							<section class="col-sm-6">
-								<h1 class="text-upper">{{place.Name}}, {{place.State}}</h1>
+								<h1 class="text-upper"><i class="fa fa-leaf" style="color:black;"></i>&nbsp;&nbsp;{{place.Name}}, {{place.State}}</h1>
 							</section>
 							
 							<!-- breadcrumbs -->
@@ -179,70 +180,58 @@
 								<!-- START TAB CONTENT -->
 								<div class="tab-content gray box-shadow1 clearfix marb30">
 									<!-- START TAB 1 -->
-									<div class="tab-pane active" id="toptours">
-										<ul class="rc-posts-list list-unstyled">
-											<li>
+									<div class="tab-pane active" id="toptours"  ng-controller="tourCtrl">
+										<ul class=" list-unstyled">
+											<li ng-repeat="k in alltours" ng-show="$index<4">
 												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 2" />
+													<img class="img-responsive" src="{{k.Media.Image[0]}}" alt="Tour 1" />
 												</span>
-												<h5><a href="#">Limbaugh: Does 'Dark Knight Rise have it Bomb Found...</a></h5>
-												<span class="rc-post-date small">January 18, 2014</span>
-											</li>
-											<li>
-												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 4" />
-												</span>
-												<h5><a href="#">Shares suspende am Bankiaid 'Gloomy Forecast'</a></h5>
-												<span class="rc-post-date small">January 11, 2014</span>
-											</li>
-											<li>
-												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 3" />
-												</span>
-												<h5><a href="#">Shares suspende am Bankiaid 'Gloomy Forecast'</a></h5>
-												<span class="rc-post-date small">January 15, 2014</span>
-											</li>
-											<li class="last-rc-post">
-												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 1" />
-												</span>
-												<h5><a href="#">Apple Fails to Fix iPhone Daylight Saving Time Alarm Bug</a></h5>
-												<span class="rc-post-date small">January 20, 2014</span>
+												<h5><a href="#">{{k.Title}}</a></h5>
+												<span class="rc-post-date small">Starting Price&nbsp;{{k.Price}}</span><br/>
+                                               <a href="booking-form.html"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Custom" /></a>
 											</li>
 										</ul>
 									</div>
 									<!-- END TAB 1 -->
 									
 									<!-- START TAB 2 -->
-									<div class="tab-pane" id="topguides">
-										<ul class="rc-posts-list list-unstyled">
-											<li>
-												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 1" />
+									<div class="tab-pane" id="topguides" ng-controller="guidescontrol">
+										<ul class="list-unstyled">
+											<li ng-repeat="z in guides" ng-show="$index==5">
+												<span class="">
+													<img class="img-responsive" style="height:80px; width:80px;" src="{{z.photo}}" alt="Recent Post 2" />
 												</span>
-												<h5><a href="#">Apple Fails to Fix iPhone Daylight Saving Time Alarm Bug</a></h5>
-												<span class="rc-post-date small">January 20, 2014</span>
+											<h5><a href="#">{{z.name}}</a></h5>
+												<h5><a href="#">{{z.guide_territory}}</a></h5>
+												<h5>{{z.Speciality}}<span class="rc-post-date small">Speciality&nbsp;&nbsp;</span></h5>
+												<span star-rating rating-value="z.Review.Star" style="" class="" ></span>	
 											</li>
-											<li>
+											<li ng-repeat="z in guides" ng-show="$index==7">
 												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 2" />
+													<img class="img-responsive" style="height:80px; width:80px;" src="{{z.photo}}" alt="Recent Post 2" />
 												</span>
-												<h5><a href="#">Limbaugh: Does 'Dark Knight Rise have it Bomb Found...</a></h5>
-												<span class="rc-post-date small">January 18, 2014</span>
+											<h5><a href="#">{{z.name}}</a></h5>
+												<h5><a href="#">{{z.guide_territory[0]}}</a></h5>
+												<h5>{{z.Speciality}}<span class="rc-post-date small">Speciality&nbsp;&nbsp;</span></h5>
+												<span star-rating rating-value="z.Review.Star" style="" class="" ></span>	
 											</li>
-											<li>
+											<li ng-repeat="z in guides" ng-show="$index==12">
 												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 3" />
+													<img class="img-responsive" style="height:80px; width:80px;" src="{{z.photo}}" alt="Recent Post 2" />
 												</span>
-												<h5><a href="#">Shares suspende am Bankiaid 'Gloomy Forecast'</a></h5>
-												<span class="rc-post-date small">January 15, 2014</span>
+											<h5><a href="#">{{z.name}}</a></h5>
+												<h5><a href="#">{{z.guide_territory[0]}}</a></h5>
+												<h5>{{z.Speciality}}<span class="rc-post-date small">Speciality&nbsp;&nbsp;</span></h5>
+												<span star-rating rating-value="z.Review.Star" style="" class="" ></span>	
 											</li>
-											<li class="last-rc-post">
+											<li ng-repeat="z in guides"ng-show="$index==13">
 												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 4" />
+													<img class="img-responsive" style="height:80px; width:80px;" src="{{z.photo}}" alt="Recent Post 2" />
 												</span>
-												<h5><a href="#">Shares suspende am Bankiaid 'Gloomy Forecast'</a></h5>
-												<span class="rc-post-date small">January 11, 2014</span>
+											<h5><a href="#">{{z.name}}</a></h5>
+												<h5><a href="#">{{z.guide_territory[0]}}</a></h5>
+												<h5>{{z.Speciality}}<span class="rc-post-date small">Speciality&nbsp;&nbsp;</span></h5>
+												<span star-rating rating-value="z.Review.Star" style="" class="" ></span>	
 											</li>
 										</ul>
 									</div>
@@ -251,6 +240,8 @@
 									<!-- START TAB 3 -->
 									<div class="tab-pane" id="lodging">
 										<ul class="rc-posts-list list-unstyled">
+                                            <br><br><br><br><br><br><br><br><br>
+<!--
 											<li>
 												<span class="rc-post-image">
 													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 1" />
@@ -279,6 +270,7 @@
 												<h5><a href="#">Shares suspende am Bankiaid 'Gloomy Forecast'</a></h5>
 												<span class="rc-post-date small">January 11, 2014</span>
 											</li>
+-->
 										</ul>
 									</div>
 									<!-- END TAB 3 -->
@@ -300,14 +292,12 @@
 								</div>
 							</div>
 							
-							<div class="sidebar-widget">
+								<div class="sidebar-widget" ng-controller="placesCtrl">
 								<!-- Sidebar Flickr Gallery -->
 								<h3 class="text-upper">Destination Gallery</h3>
 								<ul class="flickr-gal list-unstyled">
-									<li><img class="img-responsive" src="img/custom1.jpg" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="img/custom1.jpg" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="img/custom1.jpg" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="img/custom1.jpg" alt="Flickr Photo" /></li>
+									<li ng-repeat="z in places"><img style="height:70px; width:120px;" class="img-responsive" src="{{z.Media.Image[0]}}" alt="image" /></li>
+									
 								</ul>
 							</div>
 						</aside>

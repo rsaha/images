@@ -1,4 +1,4 @@
-<?php
+j<?php
 session_start();
 function getExtension($str) 
 	{
@@ -224,7 +224,7 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 					}
 					else
 					{
-						$flag2=0;
+                        $flag2=0;
                         error_log("insert guide detail profile" . mysql_error());
 					}
 				}
@@ -306,7 +306,7 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 			$msg = "Guide '$emailID' Profile Successfully Updated!!";
 			error_log($msg,0);
 			echo "<script type='text/javascript'>alert('$msg');</script>";
-			header('Location:guide_profile_edit.php?id=' . $userid . '');
+			header('Location:guide_profile.php?id=' . $userid . '');
 			
 			} 
 			else

@@ -163,15 +163,6 @@ function myCode1($rs)
 	{
 		$rows1[]=null;
 	}
-
-<<<<<<< HEAD
- 
-         $return = $rows1;
-    
-	unset($rows1);
-	
-    return $return;
-=======
 	if($_SESSION["tType"]=="all")
     {
         $return = array( 
@@ -180,11 +171,10 @@ function myCode1($rs)
     }
     if($_SESSION["tType"]=="individual")
     {
-        $return = $rows1;
+        $return = $rows1[0];
     }
 	unset($rows1);
 	$JsonReturn = json_encode($return,JSON_PRETTY_PRINT);
     return($JsonReturn);
->>>>>>> 2429cf7a389977db1882856b5e1e285a98b12ddf
 }
 ?>

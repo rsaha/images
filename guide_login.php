@@ -56,10 +56,10 @@ else
 
 	<!-- START body -->
 	<body>
-        <!-- START #wrapper -->
+		<!-- START #wrapper -->
 		<div id="wrapper">
 			<?php 
-			include_once('MasterTopHeader.php'); 
+			include_once('MasterHeader.php'); 
 			?>
 			
 			<!-- START .main-contents -->
@@ -98,7 +98,7 @@ else
 												<span style="color:gray;"><a href="EmailSendCode.php">Forgot Your Password? </a>
 												</span><br>
 												<span style="color:gray;">Not a member? 
-												<a id="LinkSignUp" href="registration.php">Join now</a>
+												<a id="LinkSignUp" href="guide_registration_1.php">Join now</a>
 												</span></center>
                                                 <br />
 											</div>
