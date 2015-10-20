@@ -246,7 +246,7 @@ ul.rating {
 												</span>
 												<h5><a href="#">{{k.Title}}</a></h5>
 												<span class="rc-post-date small">Starting Price&nbsp;{{k.Price}}</span><br/>
-                                               <a href="booking-form.html"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Custom" /></a>
+                                               <a href="booking-form.php"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Custom" /></a>
 											</li>
 										</ul>
 									</div>
@@ -260,8 +260,8 @@ ul.rating {
 													<img class="img-responsive" style="height:80px; width:80px;" src="{{z.photo}}" alt="Recent Post 2" />
 												</span>
 											<h5><a href="#">{{z.name}}</a></h5>
-												<h5><a href="#">{{z.guide_territory}}</a></h5>
-												<h5>{{z.Speciality}}<span class="rc-post-date small">Speciality&nbsp;&nbsp;</span></h5>
+												<h5><a href="#">{{z.city}}</a></h5>
+												<h5>{{z.guide_interest}}<span class="rc-post-date small">Speciality&nbsp;&nbsp;</span></h5>
 												<span star-rating rating-value="z.Review.Star" style="" class="" ></span>	
 											</li>
 											<li ng-repeat="z in guides" ng-show="$index==7">
@@ -269,8 +269,8 @@ ul.rating {
 													<img class="img-responsive" style="height:80px; width:80px;" src="{{z.photo}}" alt="Recent Post 2" />
 												</span>
 											<h5><a href="#">{{z.name}}</a></h5>
-												<h5><a href="#">{{z.guide_territory[0]}}</a></h5>
-												<h5>{{z.Speciality}}<span class="rc-post-date small">Speciality&nbsp;&nbsp;</span></h5>
+												<h5><a href="#">{{z.city}}</a></h5>
+												<h5>{{z.guide_interest}}<span class="rc-post-date small">Speciality&nbsp;&nbsp;</span></h5>
 												<span star-rating rating-value="z.Review.Star" style="" class="" ></span>	
 											</li>
 											<li ng-repeat="z in guides" ng-show="$index==12">
@@ -278,8 +278,8 @@ ul.rating {
 													<img class="img-responsive" style="height:80px; width:80px;" src="{{z.photo}}" alt="Recent Post 2" />
 												</span>
 											<h5><a href="#">{{z.name}}</a></h5>
-												<h5><a href="#">{{z.guide_territory[0]}}</a></h5>
-												<h5>{{z.Speciality}}<span class="rc-post-date small">Speciality&nbsp;&nbsp;</span></h5>
+												<h5><a href="#">{{z.city}}</a></h5>
+												<h5>{{z.guide_interest}}<span class="rc-post-date small">Speciality&nbsp;&nbsp;</span></h5>
 												<span star-rating rating-value="z.Review.Star" style="" class="" ></span>	
 											</li>
 											<li ng-repeat="z in guides"ng-show="$index==13">
@@ -287,8 +287,8 @@ ul.rating {
 													<img class="img-responsive" style="height:80px; width:80px;" src="{{z.photo}}" alt="Recent Post 2" />
 												</span>
 											<h5><a href="#">{{z.name}}</a></h5>
-												<h5><a href="#">{{z.guide_territory[0]}}</a></h5>
-												<h5>{{z.Speciality}}<span class="rc-post-date small">Speciality&nbsp;&nbsp;</span></h5>
+												<h5><a href="#">{{z.city}}</a></h5>
+												<h5>{{z.guide_interest}}<span class="rc-post-date small">Speciality&nbsp;&nbsp;</span></h5>
 												<span star-rating rating-value="z.Review.Star" style="" class="" ></span>	
 											</li>
 										</ul>
