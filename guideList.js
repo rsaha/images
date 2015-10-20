@@ -16,6 +16,24 @@ app.controller('guideCtrl',['$scope','$http', function($scope, $http) {
 				$scope.data = "error in fetching data";
 			});
 }]);
+    app.controller('tourCtrl',['$scope','$http', function($scope, $http) {
+    $http.get("http://130.211.123.212/app/tours")
+    .success(function (response) {
+		$scope.alltours =response.Tours;
+		})
+	.error(function() {
+				$scope.data = "error in fetching data";
+			});
+}]);
+     app.controller('placeCtrl',['$scope','$http', function($scope, $http) {
+    $http.get("http://130.211.123.212/app/places")
+    .success(function (response) {
+		$scope.allplaces =response.Places;
+		})
+	.error(function() {
+				$scope.data = "error in fetching data";
+			});
+}]);
 app.directive('starRating', function () {
     return {
         restrict: 'A',

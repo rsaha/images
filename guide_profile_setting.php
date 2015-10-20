@@ -297,7 +297,7 @@
 									<div class="tab-pane active" id="profileSetting">
 										<div class="booking gray clearfix box-shadow1">
 									<div class="col-md-6"><center><h2>CHange your Password Here</h2></center><br /></div>
-										<form action="reset_Password.php" method="post" ng-app="myApp"  ng-controller="resetPswrdvalidateCtrl" name="myForm"  novalidate>
+										<form action="reset_Password.php" method="post" ng-app="myApp"  ng-controller="resetPswrdvalidateCtrl" ng-submit="submitForm(myForm.$valid)" name="myForm"  novalidate>
 										<input type="hidden" name="userid" value="<?php echo $userid ?>" />
 											<div class="col-md-12">
 											
@@ -325,17 +325,18 @@
 											<li class="row">
 											<div class="col-md-6">
 												<label style="font-size:13px; font-weight:bold">Re-enter new password </label>
-												<input type="password" class="form-control" id="conformpassword" ng-model="conformpassword" maxlength="15" name="conformpassword" style="background-color:#f7f7f7;" onKeyUp="validate()" placeholder="Confirm Password" ng-pattern="/^[a-zA-Z_0-9!@#$%^&* ]{6,15}$/" required  >
-									<span style="color:red" ng-show="myForm.conformpassword.$dirty && myForm.conformpassword.$invalid">
-									  <span ng-show="myForm.conformpassword.$error.required">*password is required.</span>
-									  <span ng-show="myForm.conformpassword.$error.pattern">*Invalid password ...</span>
+												<input type="password" class="form-control" id="conformNewPassword" compare-to="newPassword" ng-model="conformNewPassword" maxlength="15" name="conformNewPassword" style="background-color:#f7f7f7;" onKeyUp="validate()" placeholder="Confirm Password" ng-pattern="/^[a-zA-Z_0-9!@#$%^&* ]{6,15}$/" required  >
+									<span style="color:red" ng-show="myForm.conformNewPassword.$dirty && myForm.conformNewPassword.$invalid">
+									  <span ng-show="myForm.conformNewPassword.$error.required">*password is required.</span>
+									  <span ng-show="myForm.conformNewPassword.$error.pattern">*Invalid password ...</span>
 									  </span>
 														</div>
 														
 													</li>
 													<li class="row">
 													<div class="col-md-3 col-md-offset-3" >
-														<button type="submit" id="resetPasswordBtn" name="resetPasswordBtn" class="btn btn-warning form-control" ng-disabled="myForm.oldPassword.$dirty && myForm.oldPassword.$invalid || myForm.newPassword.$dirty && myForm.newPassword.$invalid || myForm.conformpassword.$dirty && myForm.conformpassword.$invalid">Reset Password</button>
+														<button type="submit" id="resetPasswordBtn" name="resetPasswordBtn" class="btn btn-warning form-control" ng-disabled="myForm.$invalid || myForm.oldPassword.$dirty && myForm.oldPassword.$invalid || myForm.newPassword.$dirty && myForm.newPassword.$invalid ||
+myForm.conformNewPassword.$dirty && myForm.conformNewPassword.$invalid">Reset Password</button>
 													</div>
 													</li>
 													</ul>
@@ -409,19 +410,19 @@
 		</script>
 		
 		<script type="text/javascript">
-			function validate() {
-			var password1 = $("#Password").val();
-			var password2 = $("#conformpassword").val();
-			
-			if(password1 != password2) {
-				document.getElementById('conformpassword').style.border='1px solid red';
-			
-			}
-			else {
-					document.getElementById('conformpassword').style.border='';
-			}
-			}
-
+				function validate() {
+				var password1 = $("#newPassword").val();
+				var password2 = $("#conformNewPassword").val();
+				
+				if(password1 != password2) {
+					document.getElementById('conformNewPassword').style.border='1px solid red';
+					document.getElementById('registerUser').disabled=true;
+				}
+				else {
+						document.getElementById('conformNewPassword').style.border='';
+						//document.getElementById('registerUser').disabled=false;
+				}
+				}
 			</script>
 
 				

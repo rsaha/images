@@ -190,7 +190,7 @@ else
 								<div class="tab-content clearfix marb30">
 									<!-- START TAB 1 -->
 									<div class="tab-pane active mart20" id="inviteGuide">
-									<center><h3>Invite 3 Guide Friends and get some exciting referal rewards when your friend register with us...</h3></center><br />
+									<center><h3>Invite your 3 Friends and get some exciting referal rewards when your friend register with us...</h3></center><br />
 										<form action="guide_step4.php" method="post" ng-app="myApp"  ng-controller="validateCtrl4" name="myForm"  novalidate>
 										<input type="hidden" name="userid" value="<?php echo $userid ?>" />
 										

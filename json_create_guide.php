@@ -163,7 +163,6 @@ function myCode1($rs)
 	{
 		$rows1[]=null;
 	}
-
 	if($_SESSION["tType"]=="all")
     {
         $return = array( 
@@ -172,7 +171,7 @@ function myCode1($rs)
     }
     if($_SESSION["tType"]=="individual")
     {
-        $return = $rows1;
+        $return = $rows1[0];
     }
 	unset($rows1);
 	$JsonReturn = json_encode($return,JSON_PRETTY_PRINT);

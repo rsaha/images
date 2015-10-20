@@ -7,7 +7,7 @@
 		<meta charset="UTF-8">
 		
 		<!-- title -->
-		<title>Guide Detail | Travel Hub HTML5 Template</title>
+		<title>Home | Guided Gateway - Authentic Affordable Travel</title>
 		
 		<!-- meta description -->
 		<meta name="description" content="Guided Gateway" />
@@ -123,13 +123,13 @@ ul.rating {
 							<!-- START .post-data -->
 							<div class="post-data">
 								<div class="plan-image">
-									<img class="img-responsive" src="{{allguides.Media.CoverPhoto}}" alt="Kolkata, WB" />
+									<img class="img-responsive" src="" alt="Kolkata, WB" />
 								</div>
 								
 								<ul class="featured-btm single-ft-btm list-unstyled box-shadow1">
-									<li class="author-img"><img class="img-circle img-wt-border" style=height:80px;width:80px; src="{{allguides.Media.Photo}}" alt="Guide" /></li>
-									<li class="post-author"><a class="text-upper" >{{allguides.Gender}}</a></li>
-									<li class="fa fa-tree"><a class=""> {{allguides.Speciality}}</a></li>
+									<li class="author-img"><img class="img-circle img-wt-border" style=height:80px;width:80px; src="{{allguides.photo}}" alt="Guide" /></li>
+									<li class="post-author"><a class="text-upper" >{{allguides.gender}}</a></li>
+									<li class="fa fa-tree"><a class=""> {{allguides.city}}</a></li>
 									<li class="post-date"><span class="alignright" star-rating rating-value="allguides.ReviewSummary.Star" ></span></li>
 									
 								</ul>
@@ -229,9 +229,9 @@ ul.rating {
 								<!-- Sidebar recent popular posts -->
 								<!-- START TABS -->
 								<ul class="nav nav-tabs text-upper">
-									<li class="active"><a href="#popular-posts" data-toggle="tab">Tours</a></li>
-									<li><a href="#recent-posts" data-toggle="tab">Reviews</a></li>
-									<li><a href="#recent-comments" data-toggle="tab">Tips</a></li>
+									<li class="active"><a href="#toptours" data-toggle="tab">Tours</a></li>
+									<li><a href="#topreviews" data-toggle="tab">Reviews</a></li>
+									<li><a href="#toptips" data-toggle="tab">Advices</a></li>
 								</ul>
 								<!-- END TABS -->
 								
@@ -239,7 +239,7 @@ ul.rating {
 								<div class="tab-content gray box-shadow1 clearfix marb30">
 									<!-- START TAB 1 -->
 									
-									<div class="tab-pane active" id="popular-posts" ng-controller="TourControl">
+									<div class="tab-pane active" id="toptours" ng-controller="TourControl">
 										<ul class="rc-posts-list list-unstyled">
 											<li ng-repeat="x in alltours" ng-show="$index<2">
 												<span class="rc-post-image">
@@ -272,37 +272,23 @@ ul.rating {
 									<!-- END TAB 1 -->
 									
 									<!-- START TAB 2 -->
-									<div class="tab-pane" id="recent-posts" ng-controller="TourControl">
-										<ul class="rc-posts-list list-unstyled">
+									<div class="tab-pane" id="topreviews" ng-controller="TourControl">
+										<ul class="list-unstyled">
 											<li ng-repeat="x in alltours" ng-show="$index<2">
-												<span class="rc-post-image">
-													<img class="img-responsive" src="{{x.Media.Image[0]}}" alt="Recent Post 1" />
-												</span>
+												<span class="rc-post-image ">
+													<img class="img-responsive " src="{{x.Media.Image[0]}}" alt="Recent Post 1" />
+												</span><br><br><br>
 												<span star-rating rating-value="x.Reviews.OverallRating"  class="" ></span>	
 												<span class="">{{x.Reviews.ReviewCount}} reviews</span>
 												
 											</li>
 											
-											<li>
-												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 3" />
-												</span>
-												<h5><a href="#">5 star rating..upcoming</a></h5>
-												<span class="rc-post-date small">January 15, 2016</span>
-											</li>
-											<li class="last-rc-post">
-												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 4" />
-												</span>
-												<h5><a href="#">5 star rating..upcoming</a></h5>
-												<span class="rc-post-date small">January 11, 2014</span>
-											</li>
 										</ul>
 									</div>
 									<!-- END TAB 2 -->
 									
 									<!-- START TAB 3 -->
-									<div class="tab-pane" id="recent-comments">
+									<div class="tab-pane" id="toptips">
 										<div class="inside-pane">
 											<p>Amet turpis tristique, nec in aliquet dis amet, proin egestas in tempor, cras et dapibus, lectus pellentesque enim odio elementum eu tincidunt diam a et. Dapibus sed cum, aliquam cras egestas enim elit in mattis? Scelerisque, ultrices mid! Lorem. Scelerisque? Pid cras, mattis vel, porta, quis! Porttitor turpis cras, odio ultricies parturient pulvinar tempor.</p>
 											<p>eu turpis enim dapibus diam tristique cursus egestas quis phasellus montes! Parturient porta purus quis scelerisque? Vel proin, ac odio cras penatibus magnis non? Aliquam elementum, dis? Elementum ac.</p>
@@ -326,22 +312,12 @@ ul.rating {
 								</div>
 							</div>
 							
-							<div class="sidebar-widget">
+								<div class="sidebar-widget">
 								<!-- Sidebar Flickr Gallery -->
-								<h3 class="text-upper">Tour Gallery</h3>
-								<ul class="flickr-gal list-unstyled">
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
+								<h3 class="text-upper">Guide Gallery</h3>
+								<ul class="flickr-gal list-unstyled" ng-controller="TopGuideControl">
+									<li ng-repeat="x in TopGuides" ng-show="$index==5||7||12||13" ><img style="height:70px; width:120px;" class="img-responsive" src="{{x.photo}}" alt="Guide" /></li>
+								
 								</ul>
 							</div>
 						</aside>

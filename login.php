@@ -56,7 +56,7 @@ else
 
 	<!-- START body -->
 	<body>
-		<!-- START #wrapper -->
+        <!-- START #wrapper -->
 		<div id="wrapper">
 			<?php 
 			include_once('MasterTopHeader.php'); 
