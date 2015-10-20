@@ -7,7 +7,7 @@
 		<meta charset="UTF-8">
 		
 		<!-- title -->
-		<title>Tour Details | Guided Gateway</title>
+		<title>Home | Guided Gateway - Authentic Affordable Travel</title>
 		
 		<!-- meta description -->
 		<meta name="description" content="Guided Gateway" />
