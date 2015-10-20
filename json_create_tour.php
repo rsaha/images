@@ -1,5 +1,9 @@
 <?php
 include_once('db.php');
+session_start();
+
+$jsonPath = parse_ini_file('config.ini',true)['jsonFilePath'];
+
  $JsonReturn="";
 //==========================================================================
         try
@@ -10,12 +14,15 @@ include_once('db.php');
 		{
 			
 		}
+$_SESSION["tType"]="all";
         $JsonReturn=myCode2($rs);
-    $fp = fopen("json/tours.json", 'w');
+$_SESSION["tType"]=null;
+unset($_SESSION['tType']);
+    $fp = fopen($jsonPath . "tours.json", 'w');
     fwrite($fp, $JsonReturn);
     fclose($fp);
     unset($fp);
-        unset($rs);
+    unset($rs);
 //=============================================================================
 	$sql = mysql_query("SELECT `tour_id`, `tour_title` FROM `tbl_tours` WHERE `status` = 1");
 	while ($roww = mysql_fetch_array($sql)){
@@ -31,8 +38,12 @@ include_once('db.php');
 		}
 	
         
+    $_SESSION["tType"]="individual";
     $JsonReturn=myCode2($rs);
-    $tourName= "json/tour_".$tour_ID.".json";
+    $_SESSION["tType"]=null;
+    unset($_SESSION['tType']);
+        
+    $tourName= $jsonPath."tour_".$tour_ID.".json";
     $fp = fopen($tourName, 'w');
     fwrite($fp, $JsonReturn);
     fclose($fp);
@@ -89,13 +100,21 @@ while( $row1 = mysql_fetch_array( $rs ) )
     {
         $rows1[]=null;
     }
-
-	$return = array( 
-	'Tour' => $rows1
+    
+    if($_SESSION["tType"]=="all")
+    {
+        $return = array( 
+	'Tours' => $rows1
 	);
+    }
+    if($_SESSION["tType"]=="individual")
+    {
+        $return = $rows1;
+    }
+	
     
 	unset($rows1);
-	$JsonReturn = json_encode( $return );
+	$JsonReturn = json_encode($return,JSON_PRETTY_PRINT);
     return($JsonReturn);
 }
 ?>
