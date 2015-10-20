@@ -250,10 +250,36 @@
 									
 									<!-- START TAB 3 -->
 									<div class="tab-pane" id="lodging">
-										<div class="inside-pane">
-											<p>Amet turpis tristique, nec in aliquet dis amet, proin egestas in tempor, cras et dapibus, lectus pellentesque enim odio elementum eu tincidunt diam a et. Dapibus sed cum, aliquam cras egestas enim elit in mattis? Scelerisque, ultrices mid! Lorem. Scelerisque? Pid cras, mattis vel, porta, quis! Porttitor turpis cras, odio ultricies parturient pulvinar tempor.</p>
-											<p>eu turpis enim dapibus diam tristique cursus egestas quis phasellus montes! Parturient porta purus quis scelerisque? Vel proin, ac odio cras penatibus magnis non? Aliquam elementum, dis? Elementum ac.</p>
-										</div>
+										<ul class="rc-posts-list list-unstyled">
+											<li>
+												<span class="rc-post-image">
+													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 1" />
+												</span>
+												<h5><a href="#">Apple Fails to Fix iPhone Daylight Saving Time Alarm Bug</a></h5>
+												<span class="rc-post-date small">January 20, 2014</span>
+											</li>
+											<li>
+												<span class="rc-post-image">
+													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 2" />
+												</span>
+												<h5><a href="#">Limbaugh: Does 'Dark Knight Rise have it Bomb Found...</a></h5>
+												<span class="rc-post-date small">January 18, 2014</span>
+											</li>
+											<li>
+												<span class="rc-post-image">
+													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 3" />
+												</span>
+												<h5><a href="#">Shares suspende am Bankiaid 'Gloomy Forecast'</a></h5>
+												<span class="rc-post-date small">January 15, 2014</span>
+											</li>
+											<li class="last-rc-post">
+												<span class="rc-post-image">
+													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 4" />
+												</span>
+												<h5><a href="#">Shares suspende am Bankiaid 'Gloomy Forecast'</a></h5>
+												<span class="rc-post-date small">January 11, 2014</span>
+											</li>
+										</ul>
 									</div>
 									<!-- END TAB 3 -->
 								</div>

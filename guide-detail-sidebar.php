@@ -231,7 +231,7 @@ ul.rating {
 								<ul class="nav nav-tabs text-upper">
 									<li class="active"><a href="#toptours" data-toggle="tab">Tours</a></li>
 									<li><a href="#topreviews" data-toggle="tab">Reviews</a></li>
-									<li><a href="#toptips" data-toggle="tab">Expert Advices</a></li>
+									<li><a href="#toptips" data-toggle="tab">Advices</a></li>
 								</ul>
 								<!-- END TABS -->
 								
@@ -302,7 +302,7 @@ ul.rating {
 									<!-- END TAB 2 -->
 									
 									<!-- START TAB 3 -->
-									<div class="tab-pane" id="#toptips">
+									<div class="tab-pane" id="toptips">
 										<div class="inside-pane">
 											<p>Amet turpis tristique, nec in aliquet dis amet, proin egestas in tempor, cras et dapibus, lectus pellentesque enim odio elementum eu tincidunt diam a et. Dapibus sed cum, aliquam cras egestas enim elit in mattis? Scelerisque, ultrices mid! Lorem. Scelerisque? Pid cras, mattis vel, porta, quis! Porttitor turpis cras, odio ultricies parturient pulvinar tempor.</p>
 											<p>eu turpis enim dapibus diam tristique cursus egestas quis phasellus montes! Parturient porta purus quis scelerisque? Vel proin, ac odio cras penatibus magnis non? Aliquam elementum, dis? Elementum ac.</p>
