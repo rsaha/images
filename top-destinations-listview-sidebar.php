@@ -205,16 +205,16 @@
 								<!-- Sidebar recent popular posts -->
 								<!-- START TABS -->
 								<ul class="nav nav-tabs text-upper">
-									<li class="active"><a href="#tours-on-sale" data-toggle="tab">Tours</a></li>
-									<li><a href="#popular-tours" data-toggle="tab">Guides</a></li>
-									<li><a href="#recent-tours" data-toggle="tab">Attractions</a></li>
+									<li class="active"><a href="#toptours" data-toggle="tab">Tours</a></li>
+									<li><a href="#topguides" data-toggle="tab">Guides</a></li>
+									<li><a href="#lodging" data-toggle="tab">Lodging</a></li>
 								</ul>
 								<!-- END TABS -->
 								
 								<!-- START TAB CONTENT -->
 								<div class="tab-content gray box-shadow1 clearfix marb30">
 									<!-- START TAB 1 -->
-									<div class="tab-pane active" id="popular-posts">
+									<div class="tab-pane active" id="toptours">
 										<ul class="rc-posts-list list-unstyled">
 											<li>
 												<span class="rc-post-image">
@@ -249,7 +249,7 @@
 									<!-- END TAB 1 -->
 									
 									<!-- START TAB 2 -->
-									<div class="tab-pane" id="recent-posts">
+									<div class="tab-pane" id="topguides">
 										<ul class="rc-posts-list list-unstyled">
 											<li>
 												<span class="rc-post-image">
@@ -284,7 +284,7 @@
 									<!-- END TAB 2 -->
 									
 									<!-- START TAB 3 -->
-									<div class="tab-pane" id="recent-comments">
+									<div class="tab-pane" id="lodging">
 										<div class="inside-pane">
 											<p>Amet turpis tristique, nec in aliquet dis amet, proin egestas in tempor, cras et dapibus, lectus pellentesque enim odio elementum eu tincidunt diam a et. Dapibus sed cum, aliquam cras egestas enim elit in mattis? Scelerisque, ultrices mid! Lorem. Scelerisque? Pid cras, mattis vel, porta, quis! Porttitor turpis cras, odio ultricies parturient pulvinar tempor.</p>
 											<p>eu turpis enim dapibus diam tristique cursus egestas quis phasellus montes! Parturient porta purus quis scelerisque? Vel proin, ac odio cras penatibus magnis non? Aliquam elementum, dis? Elementum ac.</p>
@@ -294,101 +294,16 @@
 								</div>
 								<!-- END TAB CONTENT -->
 							</div>
-							
-							<div class="sidebar-widget">
-								<!-- Sidebar facebook widget -->
-								<!-- START TABS -->
-								<ul class="nav nav-tabs social-tabs text-upper">
-									<li class="active"><a class="facebook-tab" href="#facebook-tab" data-toggle="tab">Facebook</a></li>
-									<li><a class="twitter-tab" href="#pinterest-tab" data-toggle="tab">Pinterest</a></li>
-									<li><a class="share-tab" href="#share-tab" data-toggle="tab">Like Us</a></li>
-								</ul>
-								<!-- END TABS -->
 								
-								<!-- START TAB CONTENT -->
-								<div class="tab-content clearfix marb30">
-									<!-- START TAB 1 -->
-									<div class="tab-pane active" id="facebook-tab">
-										<div id="fb-widget">
-											<iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2FFacebookDevelopers&amp;width&amp;height=290&amp;colorscheme=light&amp;show_faces=true&amp;header=true&amp;stream=false&amp;show_border=true" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:290px;" allowTransparency="true"></iframe>
-										</div>
-									</div>
-									<!-- END TAB 1 -->
-									
-									<!-- START TAB 2 -->
-									<div class="tab-pane" id="twitter-tab">
-										
-									</div>
-									<!-- END TAB 2 -->
-									
-									<!-- START TAB 3 -->
-									<div class="tab-pane" id="share-tab">
-										
-									</div>
-									<!-- END TAB 3 -->
-								</div>
-								<!-- END TAB CONTENT -->
-							</div>
-							
-							<div class="sidebar-widget">
-								<!-- Sidebar What We Do -->
-								<h3 class="text-upper">What We Do ?</h3>
-								<div class="panel-group" id="accordion">
-									<div class="panel panel-default">
-										<div class="panel-heading">
-											<a class="panel-title" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-												A Simple Heading for Accordion
-											</a>
-										</div>
-										<div id="collapseOne" class="panel-collapse collapse in">
-											<div class="panel-body">
-												Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-											</div>
-										</div>
-									</div>
-									<div class="panel panel-default">
-										<div class="panel-heading">
-											<a class="panel-title collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-												Another Example of Accordion
-											</a>
-										</div>
-										<div id="collapseTwo" class="panel-collapse collapse">
-											<div class="panel-body">
-												Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-											</div>
-										</div>
-									</div>
-									<div class="panel panel-default">
-										<div class="panel-heading">
-											<a class="panel-title collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-												This is The Last Test Item
-											</a>
-										</div>
-										<div id="collapseThree" class="panel-collapse collapse">
-											<div class="panel-body">
-												Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
 							
 							<div class="sidebar-widget">
 								<!-- Sidebar Flickr Gallery -->
-								<h3 class="text-upper">Pinterest Board</h3>
+								<h3 class="text-upper">Place Gallery</h3>
 								<ul class="flickr-gal list-unstyled">
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="http://placehold.it/85x62" alt="Flickr Photo" /></li>
+									<li><img class="img-responsive" src="img/custom1.jpg" alt="Flickr Photo" /></li>
+									<li><img class="img-responsive" src="img/custom1.jpg" alt="Flickr Photo" /></li>
+									<li><img class="img-responsive" src="img/custom1.jpg" alt="Flickr Photo" /></li>
+									<li><img class="img-responsive" src="img/custom1.jpg" alt="Flickr Photo" /></li>
 								</ul>
 							</div>
 						</aside>

@@ -160,24 +160,24 @@ ul.rating {
 								<!-- Sidebar recent popular posts -->
 								<!-- START TABS -->
 								<ul class="nav nav-tabs text-upper">
-									<li class="active"><a href="#popular-posts" data-toggle="tab">Tours</a></li>
-									<li><a href="#newtours" data-toggle="tab">Guides</a></li>
-									<li><a href="#recent-comments" data-toggle="tab">Attractions</a></li>
+									<li class="active"><a href="#topguides" data-toggle="tab">Guides</a></li>
+									<li><a href="#topreviews" data-toggle="tab">Reviews</a></li>
+									<li><a href="#toptips" data-toggle="tab">Advices</a></li>
 								</ul>
 								<!-- END TABS -->
 								
 								<!-- START TAB CONTENT -->
 								<div class="tab-content gray box-shadow1 clearfix marb30">
 									<!-- START TAB 1 -->
-									<div class="tab-pane active" id="popular-posts" ng-controller="toursCtrl">
+									<div class="tab-pane active" id="topguides" ng-controller="toursCtrl">
 										<ul class="rc-posts-list list-unstyled">
-											<li ng-repeat="x in tours" ng-show="$index<2">
+											<li ng-repeat="x in tours" ng-show="$index<4">
 												<span class="rc-post-image">
 													<img class="img-responsive" src="{{x.Media.Image[0]}}" alt="Tour 1" />
 												</span>
 												<h5><a href="#">{{x.Title}}</a></h5>
 												<span class="rc-post-date small">Starting Price&nbsp;{{x.Price}}</span><br/>
-                                               <a href="booking-form.html"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Book" /></a>
+                                               <a href="booking-form.html"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Custom" /></a>
 											</li>
 											
 											<li>
@@ -186,7 +186,7 @@ ul.rating {
 												</span>
 												<h5><a href="#">Tour 3 </a></h5>
 												<span class="rc-post-date small">Starting Price INR 1500</span><br/>
-                                               <a href="booking-form.html"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Book" /> </a>
+                                               <a href="booking-form.html"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Custom" /> </a>
 											</li>
 											<li class="last-rc-post">
 												<span class="rc-post-image">
@@ -194,14 +194,14 @@ ul.rating {
 												</span>
 												<h5><a href="#">Tour 4 </a></h5>
 												<span class="rc-post-date small">Starting Price INR 1500</span><br/>
-                                               <a href="booking-form.html"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Book" /></a>
+                                               <a href="booking-form.html"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Custom" /></a>
 											</li>
 										</ul>
 									</div>
 									<!-- END TAB 1 -->
 									
 									<!-- START TAB 2 -->
-									<div class="tab-pane" id="newtours">
+									<div class="tab-pane" id="topdestinations">
 										<ul class="rc-posts-list list-unstyled">
 											<li>
 												<span class="rc-post-image">
@@ -245,51 +245,6 @@ ul.rating {
 									<!-- END TAB 3 -->
 								</div>
 								<!-- END TAB CONTENT -->
-							</div>
-							
-							
-							
-							<div class="sidebar-widget">
-								<!-- Sidebar What We Do -->
-								<h3 class="text-upper">What We Do ?</h3>
-								<div class="panel-group" id="accordion">
-									<div class="panel panel-default">
-										<div class="panel-heading">
-											<a class="panel-title" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-												A Simple Heading for Accordion
-											</a>
-										</div>
-										<div id="collapseOne" class="panel-collapse collapse in">
-											<div class="panel-body">
-												Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-											</div>
-										</div>
-									</div>
-									<div class="panel panel-default">
-										<div class="panel-heading">
-											<a class="panel-title collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-												Another Example of Accordion
-											</a>
-										</div>
-										<div id="collapseTwo" class="panel-collapse collapse">
-											<div class="panel-body">
-												Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-											</div>
-										</div>
-									</div>
-									<div class="panel panel-default">
-										<div class="panel-heading">
-											<a class="panel-title collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-												This is The Last Test Item
-											</a>
-										</div>
-										<div id="collapseThree" class="panel-collapse collapse">
-											<div class="panel-body">
-												Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-											</div>
-										</div>
-									</div>
-								</div>
 							</div>
 							
 							<div class="sidebar-widget">
