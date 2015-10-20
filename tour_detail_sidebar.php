@@ -285,33 +285,15 @@ ul.rating {
 								<!-- Sidebar recent popular posts -->
 								<!-- START TABS -->
 								<ul class="nav nav-tabs text-upper">
-									<li class="active"><a href="#topguides" data-toggle="tab">Guides</a></li>
-									<li><a href="#topreview" data-toggle="tab">Reviews</a></li>
+									<li class="active"><a href="#relatedtours" data-toggle="tab">Related</a></li>
+									<li><a href="#topguides" data-toggle="tab">Guides</a></li>
 									<li><a href="#lodging" data-toggle="tab">Lodging</a></li>
 								</ul>
 								<!-- END TABS -->
 								
 								<!-- START TAB CONTENT -->
-								<div class="tab-content gray box-shadow1 clearfix marb30">
-									<!-- START TAB 1 -->
-									<div class="tab-pane active" id="topguides" ng-controller="guidescontrol">
-										<ul class="list-unstyled">
-											<li ng-repeat="z in guides" ng-show="$index<4">
-												<span class="rc-post-image">
-													<img class="img-responsive" style="height:80px; width:80px;" src="{{z.photo}}" alt="Recent Post 2" />
-												</span>
-											<h5><a href="#">{{z.name}}</a></h5>
-												<h5><a href="#">{{z.guide_territory}}</a></h5>
-												<h5>{{z.Speciality}}<span class="rc-post-date small">Speciality&nbsp;&nbsp;</span></h5>
-												<span star-rating rating-value="z.Review.Star" style="" class="" ></span>	
-											</li>
-										
-										</ul>
-									</div>
-									<!-- END TAB 1 -->
-									
-									<!-- START TAB 2 -->
-									<div class="tab-pane" id="topreviews" ng-controller="tourDetailCtrl">
+                                <!-- START TAB 1 -->
+									<div class="tab-pane" id="relatedtours" ng-controller="tourDetailCtrl">
 										<ul class="list-unstyled">
 											<li ng-repeat="z in tour.Reviews.Reviews">
 												<span class="rc-post-image">
@@ -344,7 +326,26 @@ ul.rating {
 											</li>  -->
 										</ul>
 									</div>
-									<!-- END TAB 2 -->
+									<!-- END TAB 1 -->
+								    <div class="tab-content gray box-shadow1 clearfix marb30">
+									<!-- START TAB 2 -->
+									<div class="tab-pane active" id="topguides" ng-controller="guidescontrol">
+										<ul class="list-unstyled">
+											<li ng-repeat="z in guides" ng-show="$index<4">
+												<span class="rc-post-image">
+													<img class="img-responsive" style="height:80px; width:80px;" src="{{z.photo}}" alt="Recent Post 2" />
+												</span>
+											<h5><a href="#">{{z.name}}</a></h5>
+												<h5><a href="#">{{z.guide_territory}}</a></h5>
+												<h5>{{z.Speciality}}<span class="rc-post-date small">Speciality&nbsp;&nbsp;</span></h5>
+												<span star-rating rating-value="z.Review.Star" style="" class="" ></span>	
+											</li>
+										
+										</ul>
+									</div>
+									<!-- END TAB 1 -->
+									
+									
 									
 									<!-- START TAB 3 -->
 									<div class="tab-pane" id="lodging">
