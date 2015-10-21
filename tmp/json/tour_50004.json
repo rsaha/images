@@ -1,0 +1,33 @@
+{
+    "tour_id": "50004",
+    "tour_category_id": "1",
+    "tour_title": "1 Day in Kolkata",
+    "tour_location": "Kolkata",
+    "tour_territory": "West Bangal, Delhi, Himachal Pradesh",
+    "tour_description": "Visiting Kolkata",
+    "tour_duration": "1",
+    "tour_itinerary": [
+        {
+            "day": "1",
+            "intraday": "09:00 AM - 01:00 PM",
+            "description": "Visiting Red Fort",
+            "transport": "Bus",
+            "tourist_spot": "Red Fort"
+        },
+        {
+            "day": "1",
+            "intraday": "01:00 AM - 06:00 PM",
+            "description": "Chandni Chowk Market",
+            "transport": "On Feet ",
+            "tourist_spot": "Chandni Chowk"
+        }
+    ],
+    "tour_price": "700 Rs",
+    "start_point": "Delhi Airport",
+    "end_point": "Delhi Airport",
+    "inclusive": "Transport, All meals, Entry Fee",
+    "exclusive": "Shoping, Drink",
+    "cancelation_policy": "Delhi Airport",
+    "restrictions": "Transport, All meals, Entry Fee",
+    "notes": "Shoping, Drink"
+}
