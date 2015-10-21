@@ -146,7 +146,7 @@ ul.rating {
 										<div class="post-desc">
 											<h4>{{x.Title}}</h4>
 											<!-- <p>{{x.Description}}</p> -->
-											<a class="btn btn-primary marb20" href="tour_detail_sidebar.html">DETAILS</a>
+											<a class="btn btn-primary marb20" href="tour_detail_sidebar.php">DETAILS</a>
 										</div>
 									</div>
 								</div><br>
@@ -161,7 +161,7 @@ ul.rating {
 								<!-- Sidebar recent popular posts -->
 								<!-- START TABS -->
 								<ul class="nav nav-tabs text-upper">
-									<li class="active"><a href="#topguides" data-toggle="tab">Guides</a></li>
+									<li class="active"><a href="#topguides" data-toggle="tab">Tours</a></li>
 									<li><a href="#topreviews" data-toggle="tab">Reviews</a></li>
 									<li><a href="#toptips" data-toggle="tab">Hotels</a></li>
 								</ul>
@@ -178,7 +178,7 @@ ul.rating {
 												</span>
 												<h5><a href="#">{{x.Title}}</a></h5>
 												<span class="rc-post-date small">Starting Price&nbsp;{{x.Price}}</span><br/>
-                                               <a href="booking-form.html"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Custom" /></a>
+                                               <a href="booking-form.html"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Book" /></a>
 											</li>
 											
 											<li>
@@ -187,7 +187,7 @@ ul.rating {
 												</span>
 												<h5><a href="#">Tour 3 </a></h5>
 												<span class="rc-post-date small">Starting Price INR 1500</span><br/>
-                                               <a href="booking-form.html"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Custom" /> </a>
+                                               <a href="booking-form.html"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Book" /> </a>
 											</li>
 											<li class="last-rc-post">
 												<span class="rc-post-image">
@@ -195,7 +195,7 @@ ul.rating {
 												</span>
 												<h5><a href="#">Tour 4 </a></h5>
 												<span class="rc-post-date small">Starting Price INR 1500</span><br/>
-                                               <a href="booking-form.html"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Custom" /></a>
+                                               <a href="booking-form.html"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Book" /></a>
 											</li>
 										</ul>
 									</div>
@@ -259,57 +259,7 @@ ul.rating {
 			<!-- END .main-contents -->
 			
 			<!-- START footer -->
-			<!-- START footer --> <footer> <!-- START #ft-footer -->
-			<div id="ft-footer"> <div class="footer-overlay"> <div
-			class="container"> <div class="row"> <!-- testimonials -->
-			<section class="col-md-6"> <h3>Testimonials</h3> <p>Tortor
-			turpis. Proin. Dolor. Auctor arcu, habitasse mid placerat
-			magna? Dis ac, adipiscing? Cras mus dolor sit a? Platea eros
-			dictumst ridiculus sed phasellus, rhoncus magnis a
-			pellentesque pulvinar duis purus risus tristique ultricies
-			natoque, nec! Natoque natoque cum? Nec, placerat sociis! Sit
-			ut, scelerisque? placerat sociis! Sit ut, scelerisque? Urna
-			ut aliquam duis et scelerisque,</p> <div class="tl-author">
-			<span class="tl-author-img"> <img class="img-circle"
-			src="http://placehold.it/70x70" alt="Testimonial Author" />
-			</span> <span class="tl-author-title">Jassem Elrakesh</span>
-			<span class="tl-author-desc">Visited Barcelona
-			recently</span> </div> </section>
-
-								<!-- twitter --> <section
-								class="col-md-6"> <h3
-								class="tw-feeds">Pinterest Feeds</h3>
-								                <a data-pin-do="embedBoard" href="https://www.pinterest.com/guidedgateway/guided-gateway/"data-pin-scale-width="80" data-pin-scale-height="200" data-pin-board-width="400">Follow Guided Gateway's board on Pinterest.</a><script type="text/javascript" async src="//assets.pinterest.com/js/pinit.js"></script>    
-                								</section> </div> </div> </div> </div>
-								<!-- END #ft-footer -->
-
-				<!-- START #ex-footer --> <div id="#ex-footer"> <div
-				class="container"> <div class="row"> <nav
-				class="col-md-12"> <ul class="footer-menu"> <li><a
-				href="#">Cancellation Policy</a></li> <li><a
-				href="#">Careers</a></li> <li><a href="#">Hotel
-				Directory</a></li> <li><a href="termofuse.html">Website Terms of
-				Use</a></li> <li><a href="privacy.html">Privacy Statement</a></li>
-				<li><a href="#">Affiliates</a></li> <li
-				class="last-item"><a href="#">Top Destinations</a></li>
-				</ul> </nav>
-
-							<div class="foot-boxs"> <div class="foot-box
-							col-md-4 text-right"> <span>Stay
-							Connected</span> <ul class="social-media
-							footer-social"><li><a class="sm-facebook"
-	href="#"><span>Facebook</span></a></li> <li><a class="sm-flickr"
-	href="#"><span>Pinterest</span></a></li> <li><a class="sm-windows"
-	href="#"><span>Youtube</span></a></li> <li><a class="sm-stumble"
-	href="#"><span>Twitter</span></a></li>
-							</ul> </div> <div class="foot-box
-							foot-box-md col-md-4"> <span
-							class="contact-email">
-							touchus@guidedgateway.com</span> <span
-							class="contact-phone"> +1 510 938 2562</span> </div> <div class="foot-box
-							col-md-4"> <span class="">&copy; 2015							GuideGateway. All Rights Reserved.</span>
-							</div> </div> </div> </div> </div> <!-- END #ex-footer --> 
-							</footer> <!-- END footer -->
+			<!-- START footer --> <?php include('MasterTopFooter.php'); ?> <!-- END footer -->
 		</div>
 		<!-- END #wrapper -->
 

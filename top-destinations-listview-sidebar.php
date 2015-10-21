@@ -149,7 +149,7 @@ ul.rating {
 											<p>
 											<ul><li ng-repeat="y in x.Attractions">{{y}}</li>
 											</p>
-											<a class="btn btn-primary marb20" href="destination-detail-sidebar.html">DETAILS</a>
+											<a class="btn btn-primary marb20" href="destination-detail-sidebar.php">DETAILS</a>
 										</div>
 									</div>
 								</div>
@@ -246,7 +246,7 @@ ul.rating {
 												</span>
 												<h5><a href="#">{{k.Title}}</a></h5>
 												<span class="rc-post-date small">Starting Price&nbsp;{{k.Price}}</span><br/>
-                                               <a href="booking-form.php"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Custom" /></a>
+                                               <a href="booking-form.php"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Book" /></a>
 											</li>
 										</ul>
 									</div>
@@ -255,42 +255,17 @@ ul.rating {
 									<!-- START TAB 2 -->
 									<div class="tab-pane" id="topguides" ng-controller="guidescontrol">
 										<ul class="list-unstyled">
-											<li ng-repeat="z in guides" ng-show="$index==5">
-												<span class="">
-													<img class="img-responsive" style="height:80px; width:80px;" src="{{z.photo}}" alt="Recent Post 2" />
-												</span>
-											<h5><a href="#">{{z.name}}</a></h5>
-												<h5><a href="#">{{z.city}}</a></h5>
-												<h5>{{z.guide_interest}}<span class="rc-post-date small">Speciality&nbsp;&nbsp;</span></h5>
-												<span star-rating rating-value="z.Review.Star" style="" class="" ></span>	
-											</li>
-											<li ng-repeat="z in guides" ng-show="$index==7">
+											<li ng-repeat="z in guides" ng-show="$index<16 && $index==5||$index==7||$index==12||$index==13">
 												<span class="rc-post-image">
-													<img class="img-responsive" style="height:80px; width:80px;" src="{{z.photo}}" alt="Recent Post 2" />
+													<img class="img-responsive" style="height:80px; width:65px;" src="{{z.photo}}" alt="Recent Post 2" />
 												</span>
 											<h5><a href="#">{{z.name}}</a></h5>
-												<h5><a href="#">{{z.city}}</a></h5>
-												<h5>{{z.guide_interest}}<span class="rc-post-date small">Speciality&nbsp;&nbsp;</span></h5>
-												<span star-rating rating-value="z.Review.Star" style="" class="" ></span>	
+<!--												<h5><a href="#">{{z.guide_territory}}</a></h5>-->
+<!--												<h5>{{z.Speciality}}<span class="rc-post-date small">Speciality&nbsp;&nbsp;</span></h5>-->
+												<span star-rating rating-value="z.review.Star" style="" class="" ></span>
+                                                 <a href="booking-form.php"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Book" /></a><br><br><br>
 											</li>
-											<li ng-repeat="z in guides" ng-show="$index==12">
-												<span class="rc-post-image">
-													<img class="img-responsive" style="height:80px; width:80px;" src="{{z.photo}}" alt="Recent Post 2" />
-												</span>
-											<h5><a href="#">{{z.name}}</a></h5>
-												<h5><a href="#">{{z.city}}</a></h5>
-												<h5>{{z.guide_interest}}<span class="rc-post-date small">Speciality&nbsp;&nbsp;</span></h5>
-												<span star-rating rating-value="z.Review.Star" style="" class="" ></span>	
-											</li>
-											<li ng-repeat="z in guides"ng-show="$index==13">
-												<span class="rc-post-image">
-													<img class="img-responsive" style="height:80px; width:80px;" src="{{z.photo}}" alt="Recent Post 2" />
-												</span>
-											<h5><a href="#">{{z.name}}</a></h5>
-												<h5><a href="#">{{z.city}}</a></h5>
-												<h5>{{z.guide_interest}}<span class="rc-post-date small">Speciality&nbsp;&nbsp;</span></h5>
-												<span star-rating rating-value="z.Review.Star" style="" class="" ></span>	
-											</li>
+											
 										</ul>
 									</div>
 									<!-- END TAB 2 -->
@@ -362,57 +337,7 @@ ul.rating {
 			<!-- END .main-contents -->
 			
 			<!-- START footer -->
-			<!-- START footer --> <footer> <!-- START #ft-footer -->
-			<div id="ft-footer"> <div class="footer-overlay"> <div
-			class="container"> <div class="row"> <!-- testimonials -->
-			<section class="col-md-6"> <h3>Testimonials</h3> <p>Tortor
-			turpis. Proin. Dolor. Auctor arcu, habitasse mid placerat
-			magna? Dis ac, adipiscing? Cras mus dolor sit a? Platea eros
-			dictumst ridiculus sed phasellus, rhoncus magnis a
-			pellentesque pulvinar duis purus risus tristique ultricies
-			natoque, nec! Natoque natoque cum? Nec, placerat sociis! Sit
-			ut, scelerisque? placerat sociis! Sit ut, scelerisque? Urna
-			ut aliquam duis et scelerisque,</p> <div class="tl-author">
-			<span class="tl-author-img"> <img class="img-circle"
-			src="http://placehold.it/70x70" alt="Testimonial Author" />
-			</span> <span class="tl-author-title">Jassem Elrakesh</span>
-			<span class="tl-author-desc">Visited Barcelona
-			recently</span> </div> </section>
-
-								<!-- twitter --> <section
-								class="col-md-6"> <h3
-								class="tw-feeds">Pinterest Feeds</h3>
-								                <a data-pin-do="embedBoard" href="https://www.pinterest.com/guidedgateway/guided-gateway/"data-pin-scale-width="80" data-pin-scale-height="200" data-pin-board-width="400">Follow Guided Gateway's board on Pinterest.</a><script type="text/javascript" async src="//assets.pinterest.com/js/pinit.js"></script>    
-                								</section> </div> </div> </div> </div>
-								<!-- END #ft-footer -->
-
-				<!-- START #ex-footer --> <div id="#ex-footer"> <div
-				class="container"> <div class="row"> <nav
-				class="col-md-12"> <ul class="footer-menu"> <li><a
-				href="#">Cancellation Policy</a></li> <li><a
-				href="#">Careers</a></li> <li><a href="#">Hotel
-				Directory</a></li> <li><a href="termofuse.html">Website Terms of
-				Use</a></li> <li><a href="privacy.html">Privacy Statement</a></li>
-				<li><a href="#">Affiliates</a></li> <li
-				class="last-item"><a href="#">Top Destinations</a></li>
-				</ul> </nav>
-
-							<div class="foot-boxs"> <div class="foot-box
-							col-md-4 text-right"> <span>Stay
-							Connected</span> <ul class="social-media
-							footer-social"><li><a class="sm-facebook"
-	href="#"><span>Facebook</span></a></li> <li><a class="sm-flickr"
-	href="#"><span>Pinterest</span></a></li> <li><a class="sm-windows"
-	href="#"><span>Youtube</span></a></li> <li><a class="sm-stumble"
-	href="#"><span>Twitter</span></a></li>
-							</ul> </div> <div class="foot-box
-							foot-box-md col-md-4"> <span
-							class="contact-email">
-							touchus@guidedgateway.com</span> <span
-							class="contact-phone"> +1 510 938 2562</span> </div> <div class="foot-box
-							col-md-4"> <span class="">&copy; 2015							GuideGateway. All Rights Reserved.</span>
-							</div> </div> </div> </div> </div> <!-- END #ex-footer --> 
-							</footer> <!-- END footer -->
+			<!-- START footer --> <?php include('MasterTopFooter.php'); ?><!-- END footer -->
 		</div>
 		<!-- END #wrapper -->
 

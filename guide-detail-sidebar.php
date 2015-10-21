@@ -94,7 +94,7 @@ ul.rating {
 							
 							
 							
-								<h1 class="text-upper"><i class="fa fa-user-secret" style="color:black;"></i>&nbsp;&nbsp;{{allguides.Name}}&nbsp;&nbsp;<span star-rating rating-value="allguides.ReviewSummary.Star" ></span></h1>	
+								<h1 class="text-upper"><i class="fa fa-user-secret" style="color:black;"></i>&nbsp;&nbsp;{{allguides.name}}&nbsp;&nbsp;<span star-rating rating-value="allguides.ReviewSummary.Star" ></span></h1>	
 							
 							
 							
@@ -123,11 +123,11 @@ ul.rating {
 							<!-- START .post-data -->
 							<div class="post-data">
 								<div class="plan-image">
-									<img class="img-responsive" src="" alt="Kolkata, WB" />
+									<img class="img-responsive" src="img/custom3.jpg" alt="Kolkata, WB" />
 								</div>
 								
 								<ul class="featured-btm single-ft-btm list-unstyled box-shadow1">
-									<li class="author-img"><img class="img-circle img-wt-border" style=height:80px;width:80px; src="{{allguides.photo}}" alt="Guide" /></li>
+									<li class="author-img"><img class="img-circle img-wt-border" style=height:80px;width:80px; src="img/featured_guide.jpg" alt="Guide" /></li>
 									<li class="post-author"><a class="text-upper" >{{allguides.gender}}</a></li>
 									<li class="fa fa-tree"><a class=""> {{allguides.city}}</a></li>
 									<li class="post-date"><span class="alignright" star-rating rating-value="allguides.ReviewSummary.Star" ></span></li>
@@ -264,7 +264,7 @@ ul.rating {
 												</span>
 												<h5><a href="#">Tour 4 </a></h5>
 												<span class="rc-post-date small">Starting Price INR 1500</span><br/>
-                                               <a href="booking-form.html"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Book" /></a>
+                                               <a href="booking-form.php"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Book" /></a>
 											</li>
 										</ul>
 									</div>
@@ -291,8 +291,7 @@ ul.rating {
 									<!-- START TAB 3 -->
 									<div class="tab-pane" id="toptips">
 										<div class="inside-pane">
-											<p>Amet turpis tristique, nec in aliquet dis amet, proin egestas in tempor, cras et dapibus, lectus pellentesque enim odio elementum eu tincidunt diam a et. Dapibus sed cum, aliquam cras egestas enim elit in mattis? Scelerisque, ultrices mid! Lorem. Scelerisque? Pid cras, mattis vel, porta, quis! Porttitor turpis cras, odio ultricies parturient pulvinar tempor.</p>
-											<p>eu turpis enim dapibus diam tristique cursus egestas quis phasellus montes! Parturient porta purus quis scelerisque? Vel proin, ac odio cras penatibus magnis non? Aliquam elementum, dis? Elementum ac.</p>
+											<p><br><br><br><br><br><br><br><br></p>
 										</div>
 									</div>
 									<!-- END TAB 3 -->
@@ -317,7 +316,7 @@ ul.rating {
 								<!-- Sidebar Flickr Gallery -->
 								<h3 class="text-upper">Guide Gallery</h3>
 								<ul class="flickr-gal list-unstyled" ng-controller="TopGuideControl">
-									<li ng-repeat="x in TopGuides" ng-show="$index==5||7||12||13" ><img style="height:70px; width:120px;" class="img-responsive" src="{{x.photo}}" alt="Guide" /></li>
+									<li ng-repeat="x in TopGuides" ng-show="$index==5||$index==7||$index==12||$index==13" ><img style="height:70px; width:120px;" class="img-responsive" src="{{x.photo}}" alt="Guide" /></li>
 								
 								</ul>
 							</div>
@@ -330,79 +329,7 @@ ul.rating {
 			<!-- END .main-contents -->
 			
 			<!-- START footer -->
-			<footer>
-				<!-- START #ft-footer -->
-				<div id="ft-footer">
-					<div class="footer-overlay">
-						<div class="container">
-							<div class="row">
-								<!-- testimonials -->
-								<section class="col-md-6">
-									<h3>Testimonials</h3>
-									<p>Tortor turpis. Proin. Dolor. Auctor arcu, habitasse mid placerat magna? Dis ac, adipiscing? Cras mus dolor sit a? Platea eros dictumst ridiculus sed phasellus, rhoncus magnis a pellentesque pulvinar duis purus risus tristique ultricies natoque, nec! Natoque natoque cum? Nec, placerat sociis! Sit ut, scelerisque? placerat sociis! Sit ut, scelerisque? Urna ut aliquam duis et scelerisque,</p>
-									<div class="tl-author">
-										<span class="tl-author-img">
-											<img class="img-circle" src="http://placehold.it/70x70" alt="Testimonial Author" />
-										</span>
-										<span class="tl-author-title">Jassem Elrakesh</span>
-										<span class="tl-author-desc">Visited Barcelona recently</span>
-									</div>
-								</section>
-								
-								<!-- twitter -->
-								<section class="col-md-6">
-									<h3 class="tw-feeds">Twitter Feeds</h3>
-									<p>The only netball team that takes a team photo after every game #envato <a href="#">http://instagram.com/p/gXSJNTwBJe/</a></p>
-									<p>Very excited that Envato is joining the big-ticket Macaw backers list - <a href="#">http://macaw.co</a>  - very intuitive looking new web design app!</p>
-									<p>Remember, you really are your own boss. Sink or swim, but do it like a boss. (10/10) <a href="#">#10BootstrappingTips</a></p>
-								</section>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- END #ft-footer -->
-				
-				<!-- START #ex-footer -->
-				<div id="#ex-footer">
-					<div class="container">
-						<div class="row">
-							<nav class="col-md-12">
-								<ul class="footer-menu">
-									<li><a href="#">Best Rate Guarntee</a></li>
-									<li><a href="#">Careers</a></li>
-									<li><a href="#">Hotel Directory</a></li>
-									<li><a href="#">Website Terms of Use</a></li>
-									<li><a href="#">Privacy Statement</a></li>
-									<li><a href="#">Affiliates</a></li>
-									<li class="last-item"><a href="#">Top Destinations</a></li>
-								</ul>
-							</nav>
-							
-							<div class="foot-boxs">
-								<div class="foot-box col-md-4 text-right">
-									<span>Stay Connected</span>
-									<ul class="social-media footer-social">
-										<li><a class="sm-yahoo" href="#"><span>Yahoo</span></a></li>
-										<li><a class="sm-facebook" href="#"><span>Facebook</span></a></li>
-										<li><a class="sm-rss" href="#"><span>RSS</span></a></li>
-										<li><a class="sm-flickr" href="#"><span>Flicker</span></a></li>
-										<li><a class="sm-windows" href="#"><span>Windows</span></a></li>
-										<li><a class="sm-stumble" href="#"><span>Stumbleupon</span></a></li>
-									</ul>
-								</div>
-								<div class="foot-box foot-box-md col-md-4">
-									<span class="contact-email"> touchus@travelhub.com</span>
-									<span class="contact-phone"> +1 125 496 0999</span>
-								</div>
-								<div class="foot-box col-md-4">
-									<span class="">&copy; 2013 travelhub. All Rights Reserved.</span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- END #ex-footer -->
-			</footer>
+			<?php include('MasterTopFooter.php'); ?>
 			<!-- END footer -->
 		</div>
 		<!-- END #wrapper -->

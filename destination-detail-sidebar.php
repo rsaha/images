@@ -36,6 +36,29 @@
 		
 		 <script type="text/javascript"  src= "js/angular.min.js"></script>
         <script type="text/javascript"  src="topPlaces.js"></script>
+        <style type="text/css">
+.rating {
+    color: #a9a9a9;
+    margin: 0;
+    padding: 0;
+}
+ul.rating {
+    display: inline-block;
+}
+.rating li {
+    list-style-type: none;
+    display: inline-block;
+    padding: 0px;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+	margin-top: -6px;
+    font-size: 16px;
+}
+.rating .filled {
+    color: #292c2f;
+}
+</style>
 	</head>
 	<!-- END head -->
 
@@ -81,7 +104,7 @@
 								</div>
 								
 								<ul class="featured-btm single-ft-btm list-unstyled box-shadow1">
-									<li class="author-img"><img class="img-circle img-wt-border" src="http://placehold.it/80x80" alt="Admin" />{{place.History}}</li>
+<!--									<li class="author-img"><img class="img-circle img-wt-border" src="http://placehold.it/80x80" alt="Admin" />{{place.History}}</li>-->
 									<li class="post-date"><a class="text-upper" href="#">{{place.Category}}</a></li>
 									<li class="post-category"><a class="text-upper" href="#">{{place.BestTimeToVisit}}</a></li>
 									<li class="post-category"><a class="text-upper" href="#">Popularity: {{place.TravelIndex}}</a></li>
@@ -124,6 +147,7 @@
 							<!-- END .about-author -->
 							
 							<!-- START #commentForm -->
+<!--
 							<section id="commentForm">
 								<h2 class="ft-heading text-upper">Leave Us a Reply</h2>
 								<form action="comment.php" method="post">
@@ -161,6 +185,7 @@
 									</fieldset>
 								</form>
 							</section>
+-->
 							<!-- END #commentForm -->
 						</div>
 						<!-- END #page -->
@@ -173,7 +198,7 @@
 								<ul class="nav nav-tabs text-upper">
 									<li class="active"><a href="#toptours" data-toggle="tab">Tours</a></li>
 									<li><a href="#topguides" data-toggle="tab">Guides</a></li>
-									<li><a href="#lodging" data-toggle="tab">Lodging</a></li>
+									<li><a href="#lodging" data-toggle="tab">Hotels</a></li>
 								</ul>
 								<!-- END TABS -->
 								
@@ -188,7 +213,7 @@
 												</span>
 												<h5><a href="#">{{k.Title}}</a></h5>
 												<span class="rc-post-date small">Starting Price&nbsp;{{k.Price}}</span><br/>
-                                               <a href="booking-form.html"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Custom" /></a>
+                                               <a href="booking-form.php"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Book" /></a>
 											</li>
 										</ul>
 									</div>
@@ -197,41 +222,15 @@
 									<!-- START TAB 2 -->
 									<div class="tab-pane" id="topguides" ng-controller="guidescontrol">
 										<ul class="list-unstyled">
-											<li ng-repeat="z in guides" ng-show="$index==5">
-												<span class="">
-													<img class="img-responsive" style="height:80px; width:80px;" src="{{z.photo}}" alt="Recent Post 2" />
-												</span>
-											<h5><a href="#">{{z.name}}</a></h5>
-												<h5><a href="#">{{z.guide_territory}}</a></h5>
-												<h5>{{z.Speciality}}<span class="rc-post-date small">Speciality&nbsp;&nbsp;</span></h5>
-												<span star-rating rating-value="z.Review.Star" style="" class="" ></span>	
-											</li>
-											<li ng-repeat="z in guides" ng-show="$index==7">
+											<li ng-repeat="z in guides" ng-show="$index<16 && $index==5||$index==7||$index==12||$index==13">
 												<span class="rc-post-image">
-													<img class="img-responsive" style="height:80px; width:80px;" src="{{z.photo}}" alt="Recent Post 2" />
+													<img class="img-responsive" style="height:80px; width:65px;" src="{{z.photo}}" alt="Recent Post 2" />
 												</span>
 											<h5><a href="#">{{z.name}}</a></h5>
-												<h5><a href="#">{{z.guide_territory[0]}}</a></h5>
-												<h5>{{z.Speciality}}<span class="rc-post-date small">Speciality&nbsp;&nbsp;</span></h5>
-												<span star-rating rating-value="z.Review.Star" style="" class="" ></span>	
-											</li>
-											<li ng-repeat="z in guides" ng-show="$index==12">
-												<span class="rc-post-image">
-													<img class="img-responsive" style="height:80px; width:80px;" src="{{z.photo}}" alt="Recent Post 2" />
-												</span>
-											<h5><a href="#">{{z.name}}</a></h5>
-												<h5><a href="#">{{z.guide_territory[0]}}</a></h5>
-												<h5>{{z.Speciality}}<span class="rc-post-date small">Speciality&nbsp;&nbsp;</span></h5>
-												<span star-rating rating-value="z.Review.Star" style="" class="" ></span>	
-											</li>
-											<li ng-repeat="z in guides"ng-show="$index==13">
-												<span class="rc-post-image">
-													<img class="img-responsive" style="height:80px; width:80px;" src="{{z.photo}}" alt="Recent Post 2" />
-												</span>
-											<h5><a href="#">{{z.name}}</a></h5>
-												<h5><a href="#">{{z.guide_territory[0]}}</a></h5>
-												<h5>{{z.Speciality}}<span class="rc-post-date small">Speciality&nbsp;&nbsp;</span></h5>
-												<span star-rating rating-value="z.Review.Star" style="" class="" ></span>	
+<!--												<h5><a href="#">{{z.guide_territory}}</a></h5>-->
+<!--												<h5>{{z.Speciality}}<span class="rc-post-date small">Speciality&nbsp;&nbsp;</span></h5>-->
+												<span star-rating rating-value="z.review.Star" style="" class="" ></span>
+                                                  <a href="booking-form.php"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Book" /></a><br><br><br>
 											</li>
 										</ul>
 									</div>
@@ -287,7 +286,7 @@
 									<form action="#" method="post">
 										<label>Email Address</label>
 										<input type="text" name="email" class="form-control input-style1 marb20" value="Enter Email Address" onfocus="if (this.value == 'Enter Email Address') { this.value = ''; }" onblur="if (this.value == '') { this.value = 'Enter Email Address'; }" />
-										<input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Subscribe" />
+										<input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Submit" />
 									</form>
 								</div>
 							</div>
@@ -309,79 +308,7 @@
 			<!-- END .main-contents -->
 			
 			<!-- START footer -->
-			<footer>
-				<!-- START #ft-footer -->
-				<div id="ft-footer">
-					<div class="footer-overlay">
-						<div class="container">
-							<div class="row">
-								<!-- testimonials -->
-								<section class="col-md-6">
-									<h3>Testimonials</h3>
-									<p>Tortor turpis. Proin. Dolor. Auctor arcu, habitasse mid placerat magna? Dis ac, adipiscing? Cras mus dolor sit a? Platea eros dictumst ridiculus sed phasellus, rhoncus magnis a pellentesque pulvinar duis purus risus tristique ultricies natoque, nec! Natoque natoque cum? Nec, placerat sociis! Sit ut, scelerisque? placerat sociis! Sit ut, scelerisque? Urna ut aliquam duis et scelerisque,</p>
-									<div class="tl-author">
-										<span class="tl-author-img">
-											<img class="img-circle" src="http://placehold.it/70x70" alt="Testimonial Author" />
-										</span>
-										<span class="tl-author-title">Jassem Elrakesh</span>
-										<span class="tl-author-desc">Visited Barcelona recently</span>
-									</div>
-								</section>
-								
-								<!-- twitter -->
-								<section class="col-md-6">
-									<h3 class="tw-feeds">Twitter Feeds</h3>
-									<p>The only netball team that takes a team photo after every game #envato <a href="#">http://instagram.com/p/gXSJNTwBJe/</a></p>
-									<p>Very excited that Envato is joining the big-ticket Macaw backers list - <a href="#">http://macaw.co</a>  - very intuitive looking new web design app!</p>
-									<p>Remember, you really are your own boss. Sink or swim, but do it like a boss. (10/10) <a href="#">#10BootstrappingTips</a></p>
-								</section>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- END #ft-footer -->
-				
-				<!-- START #ex-footer -->
-				<div id="#ex-footer">
-					<div class="container">
-						<div class="row">
-							<nav class="col-md-12">
-								<ul class="footer-menu">
-									<li><a href="#">Best Rate Guarntee</a></li>
-									<li><a href="#">Careers</a></li>
-									<li><a href="#">Hotel Directory</a></li>
-									<li><a href="#">Website Terms of Use</a></li>
-									<li><a href="#">Privacy Statement</a></li>
-									<li><a href="#">Affiliates</a></li>
-									<li class="last-item"><a href="#">Top Destinations</a></li>
-								</ul>
-							</nav>
-							
-							<div class="foot-boxs">
-								<div class="foot-box col-md-4 text-right">
-									<span>Stay Connected</span>
-									<ul class="social-media footer-social">
-										<li><a class="sm-yahoo" href="#"><span>Yahoo</span></a></li>
-										<li><a class="sm-facebook" href="#"><span>Facebook</span></a></li>
-										<li><a class="sm-rss" href="#"><span>RSS</span></a></li>
-										<li><a class="sm-flickr" href="#"><span>Flicker</span></a></li>
-										<li><a class="sm-windows" href="#"><span>Windows</span></a></li>
-										<li><a class="sm-stumble" href="#"><span>Stumbleupon</span></a></li>
-									</ul>
-								</div>
-								<div class="foot-box foot-box-md col-md-4">
-									<span class="contact-email"> touchus@travelhub.com</span>
-									<span class="contact-phone"> +1 125 496 0999</span>
-								</div>
-								<div class="foot-box col-md-4">
-									<span class="">&copy; 2013 travelhub. All Rights Reserved.</span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- END #ex-footer -->
-			</footer>
+			<?php include('MasterTopFooter.php'); ?>
 			<!-- END footer -->
 		</div>
 		<!-- END #wrapper -->

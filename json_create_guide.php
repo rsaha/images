@@ -67,11 +67,11 @@ function myCode1($rs)
 						if(mysql_num_rows($rs4) == 1)
 						{
 							$row4 = mysql_fetch_assoc( $rs4 );
-							$languageName = $row4[ 'lanugage_name' ];
+							$languageName = $row4['lanugage_name'];
 						}
 						$rows3[] = array(
-							 $languageName
-							);
+                            $languageName
+                        );
 					}
 			}
 			else
@@ -165,9 +165,10 @@ function myCode1($rs)
 	}
 	if($_SESSION["tType"]=="all")
     {
-        $return = array( 
+        $tempAry2[] = array( 
 	'Guides' => $rows1
 	);
+        $return = $tempAry2[0];
     }
     if($_SESSION["tType"]=="individual")
     {

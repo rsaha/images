@@ -103,9 +103,10 @@ while( $row1 = mysql_fetch_array( $rs ) )
     
     if($_SESSION["tType"]=="all")
     {
-        $return = array( 
+         $tempAry1[] = array( 
 	'Tours' => $rows1
 	);
+        $return = $tempAry1[0];
     }
     if($_SESSION["tType"]=="individual")
     {
