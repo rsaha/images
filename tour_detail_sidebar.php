@@ -285,15 +285,30 @@ ul.rating {
 								<!-- Sidebar recent popular posts -->
 								<!-- START TABS -->
 								<ul class="nav nav-tabs text-upper">
-									<li class="active"><a href="#topguides" data-toggle="tab">Guides</a></li>
-									<li><a href="#topreview" data-toggle="tab">Reviews</a></li>
+									<li class="active"><a href="#relatedtours" data-toggle="tab">Tours</a></li>
+									<li><a href="#topguides" data-toggle="tab">Guides</a></li>
 									<li><a href="#lodging" data-toggle="tab">Hotels</a></li>
 								</ul>
 								<!-- END TABS -->
 								
 								<!-- START TAB CONTENT -->
 								<div class="tab-content gray box-shadow1 clearfix marb30">
-									<!-- START TAB 1 -->
+                                    <!-- START TAB 1 -->
+									<div class="tab-pane active"  id="relatedtours" ng-controller="tourDetailCtrl">
+										<ul class="list-unstyled">
+											<li ng-repeat="k in alltours" ng-show="$index<4">
+												<span class="rc-post-image">
+													<img class="img-responsive" src="{{k.Media.Image[0]}}" alt="Tour 1" />
+												</span>
+												<h5><a href="#">{{k.Title}}</a></h5>
+												<span class="rc-post-date small">Starting Price&nbsp;{{k.Price}}</span><br/>
+                                               <a href="booking-form.php"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Book" /></a>
+											</li>
+										
+										</ul>
+									</div>
+									<!-- END TAB 1 -->
+									<!-- START TAB 2 -->
 									<div class="tab-pane active"  id="topguides" ng-controller="guidescontrol">
 										<ul class="list-unstyled">
 											<li ng-repeat="z in guides" ng-show="$index<16 && $index==5||$index==7||$index==12||$index==13">
@@ -308,67 +323,11 @@ ul.rating {
 										
 										</ul>
 									</div>
-									<!-- END TAB 1 -->
-									
-									<!-- START TAB 2 -->
-									<div class="tab-pane" id="topreview" ng-controller="tourDetailCtrl">
-										<ul class="list-unstyled">
-											<li ng-repeat="z in tour.Reviews.Reviews">
-												<span class="rc-post-image">
-													<img class="img-responsive"  src="http://placehold.it/80x65" alt="Related Tour 1" />
-												</span>
-												<h5>{{z.Comment}}</h5>
-												<span star-rating rating-value="z.Rating" style="" class="" ></span><br><br>
-												
-											</li>
-										<!--	<li>
-												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 2" />
-												</span>
-												<h5><a href="#">Limbaugh: Does 'Dark Knight Rise have it Bomb Found...</a></h5>
-												<span class="rc-post-date small">January 18, 2014</span>
-											</li>
-											<li>
-												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 3" />
-												</span>
-												<h5><a href="#">Shares suspende am Bankiaid 'Gloomy Forecast'</a></h5>
-												<span class="rc-post-date small">January 15, 2014</span>
-											</li>
-											<li class="last-rc-post">
-												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 4" />
-												</span>
-												<h5><a href="#">Shares suspende am Bankiaid 'Gloomy Forecast'</a></h5>
-												<span class="rc-post-date small">January 11, 2014</span>
-											</li>  -->
-										</ul>
-									</div>
-									<!-- END TAB 1 -->
-								    <!-- div class="tab-content gray box-shadow1 clearfix marb30" -->
-									<!-- START TAB 2 -->
-									<div class="tab-pane active" id="topguides" ng-controller="guidescontrol">
-										<ul class="list-unstyled">
-											<li ng-repeat="z in guides" ng-show="$index<4">
-												<span class="rc-post-image">
-													<img class="img-responsive" style="height:80px; width:80px;" src="{{z.photo}}" alt="Recent Post 2" />
-												</span>
-											<h5><a href="#">{{z.name}}</a></h5>
-												<h5><a href="#">{{z.guide_territory}}</a></h5>
-												<h5>{{z.Speciality}}<span class="rc-post-date small">Speciality&nbsp;&nbsp;</span></h5>
-												<span star-rating rating-value="z.Review.Star" style="" class="" ></span>	
-											</li>
-										
-										</ul>
-									</div>
-									<!-- END TAB 1 -->
-									
-									
-									
+									<!-- END TAB 2 -->
 									<!-- START TAB 3 -->
 									<div class="tab-pane" id="lodging">
 										<div class="inside-pane">
-											<p><br><br><br><br><br><br><br><br><br><br></p>
+											<p>Coming Soon<br><br><br><br><br><br><br><br><br><br></p>
 										</div>
 									</div>
 									<!-- END TAB 3 -->
