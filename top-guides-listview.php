@@ -128,14 +128,14 @@ ul.rating {
 			<!-- START .main-contents -->
 			<div class="main-contents">
 				<div class="container">
-					<div class="row">
+					<div class="row ">
 					  <div class="col-md-8">
-							<div class="row" ng-controller="guideCtrl">
-						<div class="col-md-4" ng-repeat="x in allguides" ng-show="$index<12" >
+							<div class="row bom-contents" ng-controller="guideCtrl">
+						<div class="col-md-4" ng-repeat="x in allguides" ng-show="$index<12 && $index==5||$index==7||$index==12||$index==13" >
 							 <div	class="ft-item"> 
 						  <span class="ft-image">
 						  <a href="guide-detail-sidebar.php">
-							 <img style="height:230px;width:180;" class="img-responsive"  src="{{x.photo}}" alt="Top Guide" /> </a>
+							 <img style="height:180px;width:160;" class="img-responsive"  src="{{x.photo}}" alt="Top Guide" /> </a>
 <!--                               <img style="height:230px;width:180;" class="img-responsive"  src="img/author-img.jpg" alt="Top Guide" /> </a>-->
 						  </span>
 					  
@@ -166,7 +166,7 @@ ul.rating {
 								<ul class="nav nav-tabs text-upper">
 									<li class="active"><a href="#toptours" data-toggle="tab">Tours</a></li>
 									<li><a href="#topdestinations" data-toggle="tab">Destinations</a></li>
-									<li><a href="#toptips" data-toggle="tab">Advices</a></li>
+									<li><a href="#toptips" data-toggle="tab">Hotels</a></li>
 								</ul>
 								<!-- END TABS -->
 								
@@ -177,11 +177,11 @@ ul.rating {
 										<ul class=" list-unstyled">
 											<li ng-repeat="k in alltours" ng-show="$index<4">
 												<span class="rc-post-image">
-													<img class="img-responsive" src="{{k.Media.Image[0]}}" alt="Tour 1" />
+													<img class="img-responsive" style="height:80px;width:80px;" src="{{k.Media.Image[0]}}" alt="Tour 1" />
 												</span>
 												<h5><a href="#">{{k.Title}}</a></h5>
 												<span class="rc-post-date small">Starting Price&nbsp;{{k.Price}}</span><br/>
-                                               <a href="booking-form.html"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Custom" /></a>
+                                               <a href="booking-form.php"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Book" /></a>
 											</li>
 										</ul>
 									</div>
@@ -192,11 +192,11 @@ ul.rating {
 										<ul class=" list-unstyled">
 											<li ng-repeat="k in allplaces" ng-show="$index<4">
 												<span class="rc-post-image">
-													<img class="img-responsive" src="{{k.Media.Image[0]}}" alt="Tour 1" />
+													<img class="img-responsive" style="height:80px;width:80px;" src="{{k.Media.Image[0]}}" alt="Tour 1" />
 												</span>
 												<h5><a href="#">{{k.Name}}</a></h5>
 												<span class="rc-post-date small">Best Visit:&nbsp;&nbsp;&nbsp;{{k.BestTimeToVisit}}</span><br/>
-                                               <a href="booking-form.html"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Custom" /></a>
+                                               <a href="booking-form.Php"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Book" /></a>
 											</li>
 										</ul>
 									</div>
@@ -205,8 +205,7 @@ ul.rating {
 									<!-- START TAB 3 -->
 									<div class="tab-pane" id="toptips">
 										<div class="inside-pane">
-											<p>Amet turpis tristique, nec in aliquet dis amet, proin egestas in tempor, cras et dapibus, lectus pellentesque enim odio elementum eu tincidunt diam a et. Dapibus sed cum, aliquam cras egestas enim elit in mattis? Scelerisque, ultrices mid! Lorem. Scelerisque? Pid cras, mattis vel, porta, quis! Porttitor turpis cras, odio ultricies parturient pulvinar tempor.</p>
-											<p>eu turpis enim dapibus diam tristique cursus egestas quis phasellus montes! Parturient porta purus quis scelerisque? Vel proin, ac odio cras penatibus magnis non? Aliquam elementum, dis? Elementum ac.</p>
+											<p><br><br><br><br><br><br><br><br></p>
 										</div>
 									</div>
 									<!-- END TAB 3 -->
@@ -219,12 +218,12 @@ ul.rating {
 								<!-- Sidebar Flickr Gallery -->
 								<h3 class="text-upper">Guide Gallery</h3>
 								<ul class="flickr-gal list-unstyled" ng-controller="guideCtrl">
-									<li ng-repeat="x in allguides" ><img style="height:70px; width:120px;" class="img-responsive" src="{{x.photo}}" alt="Guide" /></li>
+									<li ng-repeat="x in allguides" ng-show="$index==5||$index==7||$index==12||$index==13" ><img style="height:70px; width:120px;" class="img-responsive" src="{{x.photo}}" alt="Guide" /></li>
 								
 								</ul>
 							</div>
 						</aside>
-					</div>
+					</div><br>
 					<!-- START .pagination -->
 					<ul class="pagination">
 						<li><a href="#">&lsaquo;</a></li>
@@ -243,79 +242,7 @@ ul.rating {
 			<!-- END .main-contents -->
 			
 			<!-- START footer -->
-			<footer>
-				<!-- START #ft-footer -->
-				<div id="ft-footer">
-					<div class="footer-overlay">
-						<div class="container">
-							<div class="row">
-								<!-- testimonials -->
-								<section class="col-md-6">
-									<h3>Testimonials</h3>
-									<p>Tortor turpis. Proin. Dolor. Auctor arcu, habitasse mid placerat magna? Dis ac, adipiscing? Cras mus dolor sit a? Platea eros dictumst ridiculus sed phasellus, rhoncus magnis a pellentesque pulvinar duis purus risus tristique ultricies natoque, nec! Natoque natoque cum? Nec, placerat sociis! Sit ut, scelerisque? placerat sociis! Sit ut, scelerisque? Urna ut aliquam duis et scelerisque,</p>
-									<div class="tl-author">
-										<span class="tl-author-img">
-											<img class="img-circle" src="http://placehold.it/70x70" alt="Testimonial Author" />
-										</span>
-										<span class="tl-author-title">Jassem Elrakesh</span>
-										<span class="tl-author-desc">Visited Barcelona recently</span>
-									</div>
-								</section>
-								
-								<!-- twitter -->
-								<section class="col-md-6">
-									<h3 class="tw-feeds">Twitter Feeds</h3>
-									<p>The only netball team that takes a team photo after every game #envato <a href="#">http://instagram.com/p/gXSJNTwBJe/</a></p>
-									<p>Very excited that Envato is joining the big-ticket Macaw backers list - <a href="#">http://macaw.co</a>  - very intuitive looking new web design app!</p>
-									<p>Remember, you really are your own boss. Sink or swim, but do it like a boss. (10/10) <a href="#">#10BootstrappingTips</a></p>
-								</section>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- END #ft-footer -->
-				
-				<!-- START #ex-footer -->
-				<div id="#ex-footer">
-					<div class="container">
-						<div class="row">
-							<nav class="col-md-12">
-								<ul class="footer-menu">
-									<li><a href="#">Best Rate Guarntee</a></li>
-									<li><a href="#">Careers</a></li>
-									<li><a href="#">Hotel Directory</a></li>
-									<li><a href="#">Website Terms of Use</a></li>
-									<li><a href="#">Privacy Statement</a></li>
-									<li><a href="#">Affiliates</a></li>
-									<li class="last-item"><a href="#">Top Destinations</a></li>
-								</ul>
-							</nav>
-							
-							<div class="foot-boxs">
-								<div class="foot-box col-md-4 text-right">
-									<span>Stay Connected</span>
-									<ul class="social-media footer-social">
-										<li><a class="sm-yahoo" href="#"><span>Yahoo</span></a></li>
-										<li><a class="sm-facebook" href="#"><span>Facebook</span></a></li>
-										<li><a class="sm-rss" href="#"><span>RSS</span></a></li>
-										<li><a class="sm-flickr" href="#"><span>Flicker</span></a></li>
-										<li><a class="sm-windows" href="#"><span>Windows</span></a></li>
-										<li><a class="sm-stumble" href="#"><span>Stumbleupon</span></a></li>
-									</ul>
-								</div>
-								<div class="foot-box foot-box-md col-md-4">
-									<span class="contact-email">support@guidedgateway.com</span>
-									<span class="contact-phone"> +1 125 496 0999</span>
-								</div>
-								<div class="foot-box col-md-4">
-									<span class="">&copy; 2013 Guided Gateway. All Rights Reserved.</span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- END #ex-footer -->
-			</footer>
+			<?php include('MasterTopFooter.php'); ?>
 			<!-- END footer -->
 		</div>
 		<!-- END #wrapper -->

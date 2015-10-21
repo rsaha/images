@@ -210,29 +210,29 @@ ul.rating {
 				<li> 
 				<div class="row bom-contents"  ng-controller="guideCtrl" style="height:380px;">
 				<div class="col-md-11 col-xs-11">
-				<div class="col-md-3" ng-repeat="x in allguides | filter:search" ng-show="$index<4"> 
+				<div class="col-md-3" ng-repeat="x in allguides | filter:search"  ng-show="$index<16 && $index==5||$index==7||$index==12||$index==13"> 
 				   <a href="guide-detail-sidebar.php">
 				      <div	class="ft-item"> 
 						  <span class="ft-image">
-							 <img style="height:200px;" src="{{x.Photo}}" alt="Top Guide" /> 
+							 <img style="height:200px;" src="{{x.photo}}" alt="Top Guide" /> 
 						  </span>
 					  
 								<div class="ft-data" style="height:45px;font-size:11px;">
-							  <span style="color:black;" class="fa fa-odnoklassniki text-upper">&nbsp;&nbsp;{{x.Gender}}</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							   <span style="color:black;" class="fa fa-plane text-upper" >&nbsp;&nbsp;{{x.LanguageKnown[0]}}</span>
+							  <span style="color:black;" class="fa fa-odnoklassniki text-upper">&nbsp;&nbsp;{{x.gender}}</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							   <span style="color:black;" class="fa fa-plane text-upper" >&nbsp;&nbsp;{{x.language_known[0]}}</span>
 							  <span style="color:black;" class="fa fa-book text-upper alignright" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{x.Speciality}}</span><br>
 							 
 								</div> 
 					
 							<div class="ft-foot" style="word-wrap:break-word; height:50px;">
-							<h4 class="ft-title text-upper" style="color:#686868">{{x.Name}},&nbsp{{x.Territory}}</h4> 
+							<h4 class="ft-title text-upper" style="color:#686868">{{x.name}},&nbsp{{x.guide_territory[0]}}</h4> 
 							<!-- <span class="ft-offer text-upper">{{x.Tours.Count}} Tours</span>  -->
 							</div> 
 					
 							<div class="ft-foot-ex"> 
 								<span class="fa fa-shield text-upper alignleft">&nbsp;&nbsp;{{x.Tours.Count}} Tours&nbsp;&nbsp;</span>&nbsp;&nbsp;
 								<span star-rating rating-value="x.Review.Star" style="margin-left:20px;" class="aligncenter"></span>
-								<span class="alignright">{{x.Review.Count}} reviews</span> 							
+								<span class="alignright">{{x.review.Count}} reviews</span> 							
 							</div> 
 					</div>
 					</a>
@@ -345,57 +345,8 @@ ul.rating {
 						</div> </div> </div> --> <!-- END .main-contents
 						.bom-contents -->
 <br>
-			<!-- START footer --> <footer> <!-- START #ft-footer -->
-			<div id="ft-footer"> <div class="footer-overlay"> <div
-			class="container"> <div class="row"> <!-- testimonials -->
-			<section class="col-md-6"> <h3>Testimonials</h3> <p>Tortor
-			turpis. Proin. Dolor. Auctor arcu, habitasse mid placerat
-			magna? Dis ac, adipiscing? Cras mus dolor sit a? Platea eros
-			dictumst ridiculus sed phasellus, rhoncus magnis a
-			pellentesque pulvinar duis purus risus tristique ultricies
-			natoque, nec! Natoque natoque cum? Nec, placerat sociis! Sit
-			ut, scelerisque? placerat sociis! Sit ut, scelerisque? Urna
-			ut aliquam duis et scelerisque,</p> <div class="tl-author">
-			<span class="tl-author-img"> <img class="img-circle"
-			src="http://placehold.it/70x70" alt="Testimonial Author" />
-			</span> <span class="tl-author-title">Jassem Elrakesh</span>
-			<span class="tl-author-desc">Visited Barcelona
-			recently</span> </div> </section>
-
-								<!-- twitter --> <section
-								class="col-md-6"> <h3
-								class="tw-feeds">Pinterest Feeds</h3>
-								                <a data-pin-do="embedBoard" href="https://www.pinterest.com/guidedgateway/guided-gateway/"data-pin-scale-width="80" data-pin-scale-height="200" data-pin-board-width="400">Follow Guided Gateway's board on Pinterest.</a><script type="text/javascript" async src="//assets.pinterest.com/js/pinit.js"></script>    
-                								</section> </div> </div> </div> </div>
-								<!-- END #ft-footer -->
-
-				<!-- START #ex-footer --> <div id="#ex-footer"> <div
-				class="container"> <div class="row"> <nav
-				class="col-md-12"> <ul class="footer-menu"> <li><a
-				href="#">Cancellation Policy</a></li> <li><a
-				href="#">Careers</a></li> <li><a href="#">Hotel
-				Directory</a></li> <li><a href="termofuse.html">Website Terms of
-				Use</a></li> <li><a href="privacy.html">Privacy Statement</a></li>
-				<li><a href="#">Affiliates</a></li> <li
-				class="last-item"><a href="#">Top Destinations</a></li>
-				</ul> </nav>
-
-							<div class="foot-boxs"> <div class="foot-box
-							col-md-4 text-right"> <span>Stay
-							Connected</span> <ul class="social-media
-							footer-social"><li><a class="sm-facebook"
-	href="#"><span>Facebook</span></a></li> <li><a class="sm-flickr"
-	href="#"><span>Pinterest</span></a></li> <li><a class="sm-windows"
-	href="#"><span>Youtube</span></a></li> <li><a class="sm-stumble"
-	href="#"><span>Twitter</span></a></li>
-							</ul> </div> <div class="foot-box
-							foot-box-md col-md-4"> <span
-							class="contact-email">
-							touchus@guidedgateway.com</span> <span
-							class="contact-phone"> +1 510 938 2562</span> </div> <div class="foot-box
-							col-md-4"> <span class="">&copy; 2015							GuideGateway. All Rights Reserved.</span>
-							</div> </div> </div> </div> </div> <!-- END #ex-footer --> 
-							</footer> <!-- END footer -->
+			<!-- START footer --> <?php include('MasterTopFooter.php'); ?>
+    <!-- END footer -->
 							</div> <!-- END #wrapper -->
 
 
