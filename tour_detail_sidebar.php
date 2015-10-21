@@ -285,7 +285,7 @@ ul.rating {
 								<!-- Sidebar recent popular posts -->
 								<!-- START TABS -->
 								<ul class="nav nav-tabs text-upper">
-									<li class="active"><a href="#relatedtours" data-toggle="tab">Related</a></li>
+									<li class="active"><a href="#relatedtours" data-toggle="tab">Related Tours</a></li>
 									<li><a href="#topguides" data-toggle="tab">Guides</a></li>
 									<li><a href="#lodging" data-toggle="tab">Lodging</a></li>
 								</ul>
@@ -297,7 +297,7 @@ ul.rating {
 										<ul class="list-unstyled">
 											<li ng-repeat="z in tour.Reviews.Reviews">
 												<span class="rc-post-image">
-													<img class="img-responsive"  src="http://placehold.it/80x65" alt="Recent Post 1" />
+													<img class="img-responsive"  src="http://placehold.it/80x65" alt="Related Tour 1" />
 												</span>
 												<h5>{{z.Comment}}</h5>
 												<span star-rating rating-value="z.Rating" style="" class="" ></span><br><br>
@@ -327,7 +327,7 @@ ul.rating {
 										</ul>
 									</div>
 									<!-- END TAB 1 -->
-								    <div class="tab-content gray box-shadow1 clearfix marb30">
+								    <!-- div class="tab-content gray box-shadow1 clearfix marb30" -->
 									<!-- START TAB 2 -->
 									<div class="tab-pane active" id="topguides" ng-controller="guidescontrol">
 										<ul class="list-unstyled">
