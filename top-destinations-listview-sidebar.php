@@ -272,7 +272,7 @@ ul.rating {
 									<!-- START TAB 3 -->
 									<div class="tab-pane" id="lodging">
 										<ul class="rc-posts-list list-unstyled">
-                                            <br><br><br><br><br><br><br><br><br>
+                                            <p>Coming Soon</p><br><br><br><br><br><br><br><br><br>
 <!--
 											<li>
 												<span class="rc-post-image">
