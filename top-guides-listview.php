@@ -71,6 +71,7 @@ ul.rating {
 	</style>
 <script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
    <script src="guideList.js"></script>
+    <script src="topTour.js"></script>
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	</head> <!-- END head -->
 
