@@ -291,7 +291,7 @@ ul.rating {
 									<!-- START TAB 3 -->
 									<div class="tab-pane" id="toptips">
 										<div class="inside-pane">
-											<p><br><br><br><br><br><br><br><br></p>
+                                            <p>Coming soon</p><br><br><br><br><br><br><br><br>
 										</div>
 									</div>
 									<!-- END TAB 3 -->
