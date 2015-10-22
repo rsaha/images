@@ -37,7 +37,7 @@
 	<!-- END head -->
 
 	<!-- START body -->
-	<body>
+	<body ng-app="myGuideList">
 		<!-- START #wrapper -->
 		<div id="wrapper">
 			<!-- START header -->
@@ -50,16 +50,7 @@
 					<div class="container">
 						<div class="row">
 							<section class="col-sm-6">
-								<h1 class="text-upper">Blog Page - 2 Columns</h1>
-							</section>
-							
-							<!-- breadcrumbs -->
-							<section class="col-sm-6">
-								<ol class="breadcrumb">
-									<li class="home"><a href="#">Home</a></li>
-									<li><a href="#">Top Deals</a></li>
-									<li class="active">Kolkata, WB</li>
-								</ol>
+								<h1 class="text-upper">Travelogue</h1>
 							</section>
 						</div>
 					</div>
