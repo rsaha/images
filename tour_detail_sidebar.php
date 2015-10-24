@@ -1,3 +1,9 @@
+<?php
+if(isset($_GET['id']))
+{
+    $tourID=$_GET['id'];
+}
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 

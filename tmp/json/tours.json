@@ -5,7 +5,12 @@
             "tour_category_id": "1",
             "tour_title": "2 Days in Delhi",
             "tour_location": "Delhi",
-            "tour_territory": "Uttar Pradesh, Himachal Pradesh, Punjab, Delhi",
+            "tour_territory": [
+                "Uttar Pradesh",
+                "Himachal Pradesh",
+                "Punjab",
+                "Delhi"
+            ],
             "tour_description": "Visiting Delhi",
             "tour_duration": "2",
             "tour_itinerary": [
@@ -45,7 +50,11 @@
             "tour_category_id": "1",
             "tour_title": "3 Days in UP",
             "tour_location": "Uttar Pradesh",
-            "tour_territory": "Uttar Pradesh, Delhi, West Bangal",
+            "tour_territory": [
+                "Uttar Pradesh",
+                "Delhi",
+                "West Bangal"
+            ],
             "tour_description": "Visiting Uttar Pradesh",
             "tour_duration": "3",
             "tour_itinerary": [
@@ -92,7 +101,11 @@
             "tour_category_id": "1",
             "tour_title": "1 Day in Panduchery",
             "tour_location": "Panduchery",
-            "tour_territory": "Delhi, Himachal Pradesh, Punjab",
+            "tour_territory": [
+                "Delhi",
+                "Himachal Pradesh",
+                "Punjab"
+            ],
             "tour_description": "Visiting Delhi",
             "tour_duration": "1",
             "tour_itinerary": [
@@ -125,7 +138,11 @@
             "tour_category_id": "1",
             "tour_title": "1 Day in Kolkata",
             "tour_location": "Kolkata",
-            "tour_territory": "West Bangal, Delhi, Himachal Pradesh",
+            "tour_territory": [
+                "West Bangal",
+                "Delhi",
+                "Himachal Pradesh"
+            ],
             "tour_description": "Visiting Kolkata",
             "tour_duration": "1",
             "tour_itinerary": [

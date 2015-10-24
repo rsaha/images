@@ -3,7 +3,11 @@
     "tour_category_id": "1",
     "tour_title": "1 Day in Panduchery",
     "tour_location": "Panduchery",
-    "tour_territory": "Delhi, Himachal Pradesh, Punjab",
+    "tour_territory": [
+        "Delhi",
+        "Himachal Pradesh",
+        "Punjab"
+    ],
     "tour_description": "Visiting Delhi",
     "tour_duration": "1",
     "tour_itinerary": [

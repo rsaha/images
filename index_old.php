@@ -242,7 +242,7 @@ if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "signin"))
 			<div class="container" id="home-page">
 
 					<!-- START .tour-plan --> 
-					<form class="plan-tour" method="POST" action="Index.php">
+					<form class="plan-tour" method="POST" action="Index_old.php">
 					<!-- div class="plan-banner">
 					<span>WHERE WHAT</span>
 					</div -->
