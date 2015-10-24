@@ -71,6 +71,7 @@ ul.rating {
 	</style>
 <script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
    <script src="guideList.js"></script>
+    <script src="topTour.js"></script>
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	</head> <!-- END head -->
 
@@ -219,7 +220,6 @@ ul.rating {
 								<h3 class="text-upper">Guide Gallery</h3>
 								<ul class="flickr-gal list-unstyled" ng-controller="guideCtrl">
 									<li ng-repeat="x in allguides" ng-show="$index==5||$index==7||$index==12||$index==13" ><img style="height:70px; width:120px;" class="img-responsive" src="{{x.photo}}" alt="Guide" /></li>
-								
 								</ul>
 							</div>
 						</aside>

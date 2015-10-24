@@ -21,6 +21,52 @@
     <script src="bootstrap/js/html5shiv.js"></script>
     <script src="bootstrap/js/respond.min.js"></script>
     <![endif]-->
+    
+    <style type="text/css">
+    blink-text {
+  -moz-animation-duration: 800ms;
+  -moz-animation-name: blink;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-direction: alternate;
+  
+  -webkit-animation-duration: 800ms;
+  -webkit-animation-name: blink;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+  
+  animation-duration: 800ms;
+  animation-name: blink;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+@-moz-keyframes blink {
+  from {
+    opacity: 1;
+  }
+  
+  to {
+    opacity: 0;
+  }
+}
+@-webkit-keyframes blink {
+  from {
+    opacity: 1;
+  }
+  
+  to {
+    opacity: 0;
+  }
+}
+@keyframes blink {
+  from {
+    opacity: 1;
+  }
+  
+  to {
+    opacity: 0;
+  }
+}
+    </style>
 </head>
 
 <body data-spy="scroll" data-target="#topnav">
@@ -37,7 +83,7 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="index.html">Home</a></li>
+                <li class="active"><a href="index.php">Home</a></li>
                 <li><a href="login.php">Guide Home</a></li>
                 <li><a href="registration.php">Guide Sign Up</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -59,11 +105,13 @@
                 <div class="col-md-11">
                     <h1 class="title" style="color: #444454">Guided <span>Gateway</span></h1>
 
-                    <p style="color: #444454">Guided Gateway is #1 online marketplace for guides. </br/>We connect national and international toursists with <bold>GUIDES</bold>.</p>
+                    <p style="color: #444454">Guided Gateway is online marketplace for guides and guided tours. </br/>We connect toursists and their travel agents  with GUIDES.</p>
         
-                    <h3 style="color: #248822">Be part of a thriving community to promote your unique tours to tourists across the world</h3>
+        <h3 style="color: #FF845E">Limited time offer for guides joining before November 30:</h3>
+                        <ul><li><blink-text style="color: #444454">20% commission over service rate for next 6 months</blink-text></li>
+                            <li><blink-text style="color: #444454">Prime spot in our website for next 6 months</blink-text></li></ul>
 
-                    <p style="color: #444454"><a class="btn btn-success btn-lg" href="registration.php">Join <i class="icon icon-angle-right"></i></a></p>
+                    <p style="color: #444454"><a class="btn btn-success btn-lg" href="guide_registration_1.php">Join <i class="icon icon-angle-right"></i></a></p>
                 </div>
             </div>
         </div>
@@ -187,29 +235,24 @@
                 <div class="list-group">
                     <a href="#" class="list-group-item active">
                         <h4 class="list-group-item-heading">List group item heading</h4>
-
                         <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Fusce dapibus,
                             tellus ac cursus commodo, tortor </p>
                     </a>
                     <a href="#" class="list-group-item">
                         <h4 class="list-group-item-heading">List group item heading</h4>
-
                         <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Fusce dapibus,
                             tellus ac cursus commodo, tortor </p>
                     </a>
                     <a href="#" class="list-group-item">
                         <h4 class="list-group-item-heading">List group item heading</h4>
-
                         <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Fusce dapibus,
                             tellus ac cursus commodo, tortor </p>
                     </a>
                     <a href="#" class="list-group-item">
                         <h4 class="list-group-item-heading">List group item heading</h4>
-
                         <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Fusce dapibus,
                             tellus ac cursus commodo, tortor </p>
                     </a>
-
                 </div -->
 
 
@@ -219,21 +262,16 @@
 </section>
 
 <!-- section class="pricing" id="pricing">
-
     <div class="container">
         <div class="row">
             <div class="col-md-12 pricing-intro">
                 <h2 class="page-headline large text-center">Tell your projects awesome story.</h2>
-
                 <p class="text-center">Tell your projects awesome story. Tell your projects awesome story. Tell your
                     projects awesome story. Tell your projects awesome story.</p>
             </div>
         </div>
     </div>
-
-
     <div class="container">
-
         <div class="row pricing-table">
             <div class="col-md-4">
                 <div class="panel panel-danger">
@@ -252,7 +290,6 @@
                             NOW!</a>
                     </div>
                 </div>
-
             </div>
             <div class="col-md-4">
                 <div class="panel panel-info">
@@ -271,7 +308,6 @@
                             NOW!</a>
                     </div>
                 </div>
-
             </div>
             <div class="col-md-4">
                 <div class="panel panel-success">
@@ -290,12 +326,9 @@
                             NOW!</a>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
-
-
 </section -->
 <section class="gray">
     <div class="container">
@@ -470,17 +503,13 @@
         <div class="row">
 
             <!-- div class="col-md-6">
-
                 <div class="alert alert-success hidden" id="contactSuccess">
                     <strong>Success!</strong> Your message has been sent to us.
                 </div>
-
                 <div class="alert alert-error hidden" id="contactError">
                     <strong>Error!</strong> There was an error sending your message.
                 </div>
-
                 <h2 class="short"><strong>Contact</strong> Us</h2>
-
                 <form class="clearfix" accept-charset="utf-8" method="get" action="#">
                     <div class="row">
                         <div class="col-sm-6 form-group">
@@ -488,7 +517,6 @@
                             <input type="text" placeholder="" value="" name="name" id="name"
                                    class="form-control input-lg">
                         </div>
-
                         <div class="col-sm-6 form-group">
                             <label for="email">Email Address</label>
                             <input type="email" placeholder="" value="" name="email" id="email"
@@ -501,7 +529,6 @@
                             <textarea rows="4" name="message" id="message" class="form-control"></textarea>
                         </div>
                     </div>
-
                     <button class="btn btn-success btn-xlg" type="submit">Send Message</button>
                 </form>
             </div -->

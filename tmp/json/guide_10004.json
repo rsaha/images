@@ -28,13 +28,15 @@
     "other_experience": "dsfadsfadsf",
     "review": [
         {
-            "Count": 3,
+            "Count": 7,
             "Star": 1,
-            "TopReviewComment": "He is very knowledgable about History of the places."
+            "TopReviewComment": "She is organized."
         }
     ],
     "guide_interest": null,
-    "guide_territory": "dsfdsfasd",
+    "guide_territory": [
+        "Delhi"
+    ],
     "landline_no": "021783472374",
     "payment_currency": null,
     "payment_terms": "dsfasdfasdf",

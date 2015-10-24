@@ -1,14 +1,7 @@
 <?php
 
 	session_start();
-	
-	if(isset($_SESSION['notification']))
-	{
-		echo '<script> alert("' . $_SESSION['notification'] . '"); </script>';
-		$_SESSION['notification']="";
-		unset($_SESSION['notification']);
-	}
-	
+
 	if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "signin"))
 	{
 		header('Location:guide_profile.php?id=' . $_SESSION['userId'] . '');
@@ -21,9 +14,9 @@
 	}
 	else
 	{
-		session_unset();
-		session_destroy();
-		session_write_close();
+		//session_unset();
+		//session_destroy();
+		//session_write_close();
 	}
 	
 ?>
@@ -93,6 +86,29 @@
 
 	<!-- START body -->
 	<body>
+        
+        <div class="modal fade" id="memberModal" tabindex="-1" role="dialog" aria-labelledby="memberModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                 <h4 class="modal-title" id="memberModalLabel">Sorry Already Registered !</h4>
+
+            </div>
+            <div class="modal-body">
+                <p>The email address or Mobile number you entered is already registred with us.
+                    <BR>Please login if you are already registered,</p>
+                <p>Or sign up with different email id/mobile number.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+        
+        
 		<!-- START #wrapper -->
 		<div id="wrapper">
 			<?php 
@@ -244,28 +260,36 @@
 <!-- END .main-contents -->
 			
 			<?php include_once('MasterFooter.php'); ?>
-		</div>
+    
+    <?php
+
+if(isset($_SESSION['notification']))
+	{
+    //echo '<script> alert("' . $_SESSION['notification'] . '"); </script>';
+    ?>
+<script>
+        $(document).ready(function () {
+            $('#memberModal').modal('show');
+           
+        });
+        </script>
+<?php
+        $_SESSION['notification']="";
+		unset($_SESSION['notification']);
 		
-		<!-- set up the modal to start hidden and fade in and out -->
-<div id="myModal" class="modal fade">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <!-- dialog body -->
-      <div class="modal-body">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        Hello world!
-      </div>
-      <!-- dialog buttons -->
-      <div class="modal-footer"><button type="button" class="btn btn-primary">OK</button></div>
-    </div>
-  </div>
-</div>
- 
-<!-- sometime later, probably inside your on load event callback -->
+	}
+    session_unset();
+    session_destroy();
+    session_write_close();
+
+?>
+    
+		</div>
 
 		<!-- END #wrapper -->
 
 				<!-- javascripts -->
+
 			<script type="text/javascript">
 				function validate() {
 				var password1 = $("#Password").val();

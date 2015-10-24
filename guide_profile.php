@@ -1,6 +1,9 @@
 <?php
 	session_start();
-	
+if($_SESSION['phase']=="reg")
+{
+$_SESSION['notification']="Congratulation! Welcome to Guided Gateway, you are now member of #1 online marketplace for tour guides.";
+}
 	if(isset($_SESSION['userId']))
 	{
 		if(isset($_GET['id']))
@@ -119,7 +122,9 @@
 		<!-- color scheme -->
 		<link rel="stylesheet" type="text/css" href="css/colors/color1.css" title="color1" />
 		
-		
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="bs3/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="bs3/css/bootstrap.css" media="all" />
 
 			<style>
 
@@ -185,6 +190,28 @@
 
 	<!-- START body -->
 	<body>
+        
+        <div class="modal fade" id="memberModal" tabindex="-1" role="dialog" aria-labelledby="memberModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                 <h4 class="modal-title" id="memberModalLabel">Hurry ! Congratulations.</h4>
+
+            </div>
+            <div class="modal-body">
+                <p>Welcome to Guided Gateway.
+                    <BR>Thanks to be part of our family,</p>
+                <p>Have a wonderfull growth in our network.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+        
 		<!-- START #wrapper -->
 		<div id="wrapper">
 			
@@ -671,16 +698,22 @@
 			
 			<?php include_once('MasterFooter.php'); ?>
 			
-			<?php
-			
-			if(isset($_SESSION['notification']))
-			{
-				echo '<script> alert("' . $_SESSION['notification'] . '"); </script>';
-				
-			}
-			$_SESSION['notification']="";
-				unset($_SESSION['notification']);
-			
+             <?php
+
+            if(isset($_SESSION['notification']))
+                {
+                //echo '<script> alert("' . $_SESSION['notification'] . '"); </script>';
+                ?>
+            <script>
+                    $(document).ready(function () {
+                        $('#memberModal').modal('show');
+                    });
+                    </script>
+            <?php
+                    $_SESSION['notification']="";
+                    unset($_SESSION['notification']);
+
+                }
 			?>
 		</div>
 		<!-- END #wrapper -->

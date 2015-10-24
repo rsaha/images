@@ -230,7 +230,7 @@ ul.rating {
 								<!-- START TABS -->
 								<ul class="nav nav-tabs text-upper">
 									<li class="active"><a href="#toptours" data-toggle="tab">Tours</a></li>
-									<li><a href="#topreviews" data-toggle="tab">Reviews</a></li>
+									<li><a href="#relatedguides" data-toggle="tab">Guides</a></li>
 									<li><a href="#toptips" data-toggle="tab">Advices</a></li>
 								</ul>
 								<!-- END TABS -->
@@ -272,17 +272,18 @@ ul.rating {
 									<!-- END TAB 1 -->
 									
 									<!-- START TAB 2 -->
-									<div class="tab-pane" id="topreviews" ng-controller="TourControl">
+									<div class="tab-pane active" id="relatedguides" ng-controller="guidescontrol">
 										<ul class="list-unstyled">
-											<li ng-repeat="x in alltours" ng-show="$index<2">
-												<span class="rc-post-image ">
-													<img class="img-responsive " style="height:80px;width:80px;" src="{{x.Media.Image[0]}}" alt="Recent Post 1" />
-												</span><br><br><br>
-												<span star-rating rating-value="x.Reviews.OverallRating"  class="" ></span>	
-												<span class="">{{x.Reviews.ReviewCount}} reviews</span><br><br>
-												
+											<li ng-repeat="z in guides" ng-show="$index<4">
+												<span class="rc-post-image">
+													<img class="img-responsive" style="height:80px; width:80px;" src="{{z.photo}}" alt="Recent Post 2" />
+												</span>
+											<h5><a href="#">{{z.name}}</a></h5>
+												<h5><a href="#">{{z.guide_territory}}</a></h5>
+												<h5>{{z.Speciality}}<span class="rc-post-date small">Speciality&nbsp;&nbsp;</span></h5>
+												<span star-rating rating-value="z.Review.Star" style="" class="" ></span>	
 											</li>
-											
+										
 										</ul>
 									</div>
 									<!-- END TAB 2 -->
@@ -290,7 +291,7 @@ ul.rating {
 									<!-- START TAB 3 -->
 									<div class="tab-pane" id="toptips">
 										<div class="inside-pane">
-											<p><br><br><br><br><br><br><br><br></p>
+                                            <p>Coming soon</p><br><br><br><br><br><br><br><br>
 										</div>
 									</div>
 									<!-- END TAB 3 -->
@@ -302,7 +303,7 @@ ul.rating {
 							<div class="sidebar-widget">
 								<!-- Sidebar Newsletter -->
 								<div class="styled-box gray">
-									<h3 class="text-upper">Contact for Custom tour</h3>
+									<h3 class="text-upper">Contact Guide for Custom tour</h3>
 									<form action="contactGuideMail.php" method="post">
 										<label>Email Address</label>
 										<input type="text" name="email" class="form-control input-style1 marb20" value="Enter Email Address" onfocus="if (this.value == 'Enter Email Address') { this.value = ''; }" onblur="if (this.value == '') { this.value = 'Enter Email Address'; }" />

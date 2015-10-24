@@ -164,29 +164,8 @@ $notes = $row33["notes"];
 		<!-- START #wrapper -->
 		<div id="wrapper">
 			<!-- START header -->
-			<?php include_once('MasterHeader.php'); ?>
+			<?php include_once('MasterTopHeader.php'); ?>
 			<!-- END header -->
-			
-			<!-- START #page-header -->
-			<div id="header-banner">
-				<div class="banner-overlay">
-					<div class="container">
-						<div class="row">
-							<section class="col-sm-6">
-								<h1 class="text-upper">Booking Form</h1>
-							</section>
-							
-							<!-- breadcrumbs -->
-							<section class="col-sm-6">
-								<ol class="breadcrumb">
-									<li class="home"><a href="#">Home</a></li>
-									<li class="active">Contact Us</li>
-								</ol>
-							</section>
-						</div>
-					</div>
-				</div>
-			</div>
 			<!-- END #page-header -->
 			
 			<!-- START .main-contents -->
@@ -530,52 +509,6 @@ $notes = $row33["notes"];
 								</div>
 								<!-- END TAB CONTENT -->
 							</div>
-							
-							
-							
-							
-							<div class="sidebar-widget">
-								<!-- Sidebar What We Do -->
-								<h3 class="text-upper">What We Do ?</h3>
-								<div class="panel-group" id="accordion">
-									<div class="panel panel-default">
-										<div class="panel-heading">
-											<a class="panel-title" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-												A Simple Heading for Accordion
-											</a>
-										</div>
-										<div id="collapseOne" class="panel-collapse collapse in">
-											<div class="panel-body">
-												Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-											</div>
-										</div>
-									</div>
-									<div class="panel panel-default">
-										<div class="panel-heading">
-											<a class="panel-title collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-												Another Example of Accordion
-											</a>
-										</div>
-										<div id="collapseTwo" class="panel-collapse collapse">
-											<div class="panel-body">
-												Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-											</div>
-										</div>
-									</div>
-									<div class="panel panel-default">
-										<div class="panel-heading">
-											<a class="panel-title collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-												This is The Last Test Item
-											</a>
-										</div>
-										<div id="collapseThree" class="panel-collapse collapse">
-											<div class="panel-body">
-												Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
 						</aside>
 						<!-- END #sidebar -->
 					</div>
@@ -585,79 +518,7 @@ $notes = $row33["notes"];
 			<!-- END .main-contents -->
 			
 			<!-- START footer -->
-			<footer>
-				<!-- START #ft-footer -->
-				<div id="ft-footer">
-					<div class="footer-overlay">
-						<div class="container">
-							<div class="row">
-								<!-- testimonials -->
-								<section class="col-md-6">
-									<h3>Testimonials</h3>
-									<p>Tortor turpis. Proin. Dolor. Auctor arcu, habitasse mid placerat magna? Dis ac, adipiscing? Cras mus dolor sit a? Platea eros dictumst ridiculus sed phasellus, rhoncus magnis a pellentesque pulvinar duis purus risus tristique ultricies natoque, nec! Natoque natoque cum? Nec, placerat sociis! Sit ut, scelerisque? placerat sociis! Sit ut, scelerisque? Urna ut aliquam duis et scelerisque,</p>
-									<div class="tl-author">
-										<span class="tl-author-img">
-											<img class="img-circle" src="http://placehold.it/70x70" alt="Testimonial Author" />
-										</span>
-										<span class="tl-author-title">Jassem Elrakesh</span>
-										<span class="tl-author-desc">Visited Barcelona recently</span>
-									</div>
-								</section>
-								
-								<!-- twitter -->
-								<section class="col-md-6">
-									<h3 class="tw-feeds">Twitter Feeds</h3>
-									<p>The only netball team that takes a team photo after every game #envato <a href="#">http://instagram.com/p/gXSJNTwBJe/</a></p>
-									<p>Very excited that Envato is joining the big-ticket Macaw backers list - <a href="#">http://macaw.co</a>  - very intuitive looking new web design app!</p>
-									<p>Remember, you really are your own boss. Sink or swim, but do it like a boss. (10/10) <a href="#">#10BootstrappingTips</a></p>
-								</section>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- END #ft-footer -->
-				
-				<!-- START #ex-footer -->
-				<div id="#ex-footer">
-					<div class="container">
-						<div class="row">
-							<nav class="col-md-12">
-								<ul class="footer-menu">
-									<li><a href="#">Best Rate Guarntee</a></li>
-									<li><a href="#">Careers</a></li>
-									<li><a href="#">Hotel Directory</a></li>
-									<li><a href="#">Website Terms of Use</a></li>
-									<li><a href="#">Privacy Statement</a></li>
-									<li><a href="#">Affiliates</a></li>
-									<li class="last-item"><a href="#">Top Destinations</a></li>
-								</ul>
-							</nav>
-							
-							<div class="foot-boxs">
-								<div class="foot-box col-md-4 text-right">
-									<span>Stay Connected</span>
-									<ul class="social-media footer-social">
-										<li><a class="sm-yahoo" href="#"><span>Yahoo</span></a></li>
-										<li><a class="sm-facebook" href="#"><span>Facebook</span></a></li>
-										<li><a class="sm-rss" href="#"><span>RSS</span></a></li>
-										<li><a class="sm-flickr" href="#"><span>Flicker</span></a></li>
-										<li><a class="sm-windows" href="#"><span>Windows</span></a></li>
-										<li><a class="sm-stumble" href="#"><span>Stumbleupon</span></a></li>
-									</ul>
-								</div>
-								<div class="foot-box foot-box-md col-md-4">
-									<span class="contact-email"> touchus@travelhub.com</span>
-									<span class="contact-phone"> +1 125 496 0999</span>
-								</div>
-								<div class="foot-box col-md-4">
-									<span class="">&copy; 2013 travelhub. All Rights Reserved.</span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- END #ex-footer -->
-			</footer>
+			<?php include('MasterTopFooter.php'); ?>
 			<!-- END footer -->
 		</div>
 		<!-- END #wrapper -->
