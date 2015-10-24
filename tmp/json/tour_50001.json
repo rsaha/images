@@ -3,7 +3,12 @@
     "tour_category_id": "1",
     "tour_title": "2 Days in Delhi",
     "tour_location": "Delhi",
-    "tour_territory": "Uttar Pradesh, Himachal Pradesh, Punjab, Delhi",
+    "tour_territory": [
+        "Uttar Pradesh",
+        "Himachal Pradesh",
+        "Punjab",
+        "Delhi"
+    ],
     "tour_description": "Visiting Delhi",
     "tour_duration": "2",
     "tour_itinerary": [

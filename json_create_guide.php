@@ -1,5 +1,13 @@
 <?php
 include_once('db.php');
+function multiexplode ($delimiters, $string) {
+    
+    $ready = str_replace($delimiters, $delimiters[0], $string);
+    $launch = explode($delimiters[0], $ready);
+    return  $launch;
+}
+
+
 $jsonPath = parse_ini_file('config.ini',true)['jsonFilePath'];
 //=============================================================================
         try
@@ -123,12 +131,48 @@ function myCode1($rs)
 				'Star'=> rand ( 1 , 5 ),
 				'TopReviewComment' => $randomTopReviewComment
 			  );
-			  
-			unset($$randomTopReviewComment);
+			
+           
+            
+            if($row1['guide_profile_pic']==null)
+            {
+                $photo = null;
+            }
+            else
+            {
+                $profileImagePath = parse_ini_file('config.ini',true)['imagePath'];
+                //$photo = null;
+                if (file_exists($profileImagePath . $row1[ 'mobileNo' ]."_profile.jpg"))
+                {
+                    $photo = "https://storage.googleapis.com/guidedgateway_media/".$row1[ 'mobileNo' ]."_profile.jpg";
+                } 
+                else if (file_exists($profileImagePath . $row1[ 'mobileNo' ]."_profile.jpeg")) 
+                {
+                    $photo = "https://storage.googleapis.com/guidedgateway_media/".$row1[ 'mobileNo' ]."_profile.jpeg";
+                } 
+                else if (file_exists($profileImagePath . $row1[ 'mobileNo' ]."_profile.png")) 
+                {
+                    $photo = "https://storage.googleapis.com/guidedgateway_media/".$row1[ 'mobileNo' ]."_profile.png";
+                } 
+                else if (file_exists($profileImagePath . $row1[ 'mobileNo' ]."_profile.gif")) 
+                {
+                    $photo = "https://storage.googleapis.com/guidedgateway_media/".$row1[ 'mobileNo' ]."_profile.gif";
+                } else {
+                    $photo = null;
+                }
+            }
+            
+            $guideTerritorys = $row1['guide_territory'];
+            $guide_territory = array_map('trim', explode("," , $guideTerritorys));
+            if($guide_territory[0] == "")
+            {
+                $guide_territory = null;
+            }
+            
 			$rows1[] = array( 
 			'id'=> $row1[ 'user_id' ],             
 			'name' => $row1[ 'f_name' ]." ".$row1[ 'l_name' ],
-			'photo' => "https://storage.googleapis.com/guidedgateway_media/".$row1[ 'mobileNo' ]."_profile.jpg",
+			'photo' => $photo,
 			'email'=> $row1[ 'email' ], 
 			'mobileNo' => $row1[ 'mobileNo' ], 
 			'gender' => $row1[ 'gender' ],
@@ -145,7 +189,7 @@ function myCode1($rs)
 			'other_experience' => $row1[ 'other_experience' ], 
 			'review' => $review,
 			'guide_interest' => $row1[ 'guide_interest' ],
-			'guide_territory' => $row1[ 'guide_territory' ], 
+			'guide_territory' => $guide_territory, 
 			'landline_no' => $row1[ 'landline_no' ], 
 			'payment_currency' => $row1[ 'payment_currency' ],
 			'payment_terms' => $row1[ 'payment_terms' ], 
@@ -157,6 +201,9 @@ function myCode1($rs)
 			unset($rows2);
 			unset($rows3);
 			unset($review);
+            unset($photo);
+            unset($guide_territory);
+            unset($randomTopReviewComment);
 		}
 	}
 	else

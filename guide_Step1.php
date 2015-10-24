@@ -1,3 +1,5 @@
+
+
 <?php
 	session_start();
 	if((isset($_SESSION['userId'])) && ($_SESSION['phase'] == "signin"))
@@ -36,7 +38,7 @@
 	{
 		$row4 = mysql_fetch_array($Sel);
 		$user_type_id = $row4["user_type_id"];
-		echo '<script>alert(' . $user_type_id . ')</script>';
+		//echo '<script>alert(' . $user_type_id . ')</script>';
 	}
 	
 	$create = mysql_query("INSERT INTO tbl_user_profile(user_type_id, user_password, f_name, l_name, email, mobileNo, status, datecreated) VALUES ($user_type_id, '$Password', '$FirstName', '$LastName', '$EmailAddress', '$MobileNumber', 1, now())");
@@ -99,11 +101,14 @@
 	}
 	else
 	{
-		$_SESSION['notification']="Email or Mobile Number already Exist.";
+        $_SESSION['notification']="already_Exist.";
 		$errormsg="Something went wrong, Could Not Register. Try again";
 		error_log($errormsg,0);
-		//echo "<script type='text/javascript'>alert('$errormsg');</script>";
+        //echo "<script type='text/javascript'>alert('$errormsg');</script>";
 		header('Location:registration.php');
+       ?>
+        
+        <?php
 	}
 ?>
 

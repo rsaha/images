@@ -103,7 +103,7 @@ ul.rating {
 	</head> <!-- END head -->
 
 	<!-- START body --> <body ng-app="myDestinations" ng-controller="ExampleController">
-		
+    
 	<!-- START #wrapper --> <div id="wrapper"> <!-- START header --> 
 	
 	
@@ -170,7 +170,8 @@ ul.rating {
 					 <div class="row bom-contents"  ng-controller="toursCtrl" style="height:380px;"> 
 						<div class="col-md-11" >
 					 <div class="col-md-3" ng-repeat="x in tours | filter:search" ng-show="$index<4"> 
-							<a href="tour_detail_sidebar.php">
+							<a href="tour_detail_sidebar.php?id={{x.ID}}">
+<!--                                <input type="hidden" value="{{x.id}}" id="tour_ID" name="tour_ID" />-->
 							<div class="ft-item"> 
 							<span class="ft-image"><img style="height:200px;" src="{{x.Media.Image[0]}}" alt="Popular Tours" /> </span> 
 							   <div class="ft-data" style="height:45px;font-size:11px;" >
