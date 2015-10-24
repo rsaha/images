@@ -74,13 +74,20 @@ while( $row1 = mysql_fetch_array( $rs ) )
 			'tourist_spot' => $row2[ 'tourist_spot' ] 
 			);
 		}
+    
+    $tourTerritorys = $row1[ 'tour_territory' ];
+            $tour_territory = array_map('trim', explode("," , $tourTerritorys));
+            if($tour_territory[0] == "")
+            {
+                $tour_territory = null;
+            }
 	
 		$rows1[] = array( 
 		'tour_id'=> $row1[ 'tour_id' ], 
 		'tour_category_id' => $row1[ 'tour_category_id' ],             
 		'tour_title' => $row1[ 'tour_title' ], 
 		'tour_location' => $row1[ 'tour_location' ], 
-		'tour_territory'=> $row1[ 'tour_territory' ], 
+		'tour_territory'=> $tour_territory,
 		'tour_description' => $row1[ 'tour_description' ], 
 		'tour_duration' => $row1[ 'tour_duration' ],
 		'tour_itinerary' => $rows2,	
@@ -94,6 +101,7 @@ while( $row1 = mysql_fetch_array( $rs ) )
 		'notes' => $row1[ 'exclusive' ]
 		);
 		unset($rows2);
+    unset($tour_territory);
 	}
     }
     else

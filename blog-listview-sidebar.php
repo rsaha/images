@@ -7,7 +7,7 @@
 		<meta charset="UTF-8">
 		
 		<!-- title -->
-		<title>Kolkata, WB | Travel Hub HTML5 Template</title>
+		<title>Home | Guided Gateway - Authentic Affordable Travel</title>
 		
 		<!-- meta description -->
 		<meta name="description" content="Guided Gateway" />
@@ -199,7 +199,7 @@
 									<!-- END TAB 2 -->
 									
 									<!-- START TAB 3 -->
-									<div class="tab-pane" id="recent-comments">
+									<div class="tab-pane" id="rectopdestinations">
 										<div class="inside-pane">
 											<p>Amet turpis tristique, nec in aliquet dis amet, proin egestas in tempor, cras et dapibus, lectus pellentesque enim odio elementum eu tincidunt diam a et. Dapibus sed cum, aliquam cras egestas enim elit in mattis? Scelerisque, ultrices mid! Lorem. Scelerisque? Pid cras, mattis vel, porta, quis! Porttitor turpis cras, odio ultricies parturient pulvinar tempor.</p>
 											<p>eu turpis enim dapibus diam tristique cursus egestas quis phasellus montes! Parturient porta purus quis scelerisque? Vel proin, ac odio cras penatibus magnis non? Aliquam elementum, dis? Elementum ac.</p>
@@ -221,7 +221,7 @@
 							<div class="sidebar-widget">
 								<!-- Sidebar Newsletter -->
 								<div class="styled-box gray">
-									<h3 class="text-upper">Mail Us for Custom Tour</h3>
+									<h3 class="text-upper">Subscribe Our Newsletter</h3>
 									<form action="#" method="post">
 										<label>Email Address</label>
 										<input type="text" name="email" class="form-control input-style1 marb20" value="Enter Email Address" onfocus="if (this.value == 'Enter Email Address') { this.value = ''; }" onblur="if (this.value == '') { this.value = 'Enter Email Address'; }" />
@@ -247,19 +247,19 @@
 									<div class="panel panel-default">
 										<div class="panel-heading">
 											<a class="panel-title" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-												A Simple Heading for Accordion
+												Online &amp; Social Marketing of tours and guides
 											</a>
 										</div>
 										<div id="collapseOne" class="panel-collapse collapse in">
 											<div class="panel-body">
-												Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+												This website and other social channels are used to promote unqiue tours and guide profiles.
 											</div>
 										</div>
 									</div>
 									<div class="panel panel-default">
 										<div class="panel-heading">
 											<a class="panel-title collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-												Another Example of Accordion
+												Booking &amp; Payment handling
 											</a>
 										</div>
 										<div id="collapseTwo" class="panel-collapse collapse">
@@ -271,7 +271,7 @@
 									<div class="panel panel-default">
 										<div class="panel-heading">
 											<a class="panel-title collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-												This is The Last Test Item
+												Support &amp; Conflict Resolution with tourists and tour vendor
 											</a>
 										</div>
 										<div id="collapseThree" class="panel-collapse collapse">
@@ -286,20 +286,7 @@
 							<div class="sidebar-widget">
 								<!-- Sidebar About -->
 								<h3 class="text-upper">Why GuidedGateway</h3>
-								<p>Lorem ipsum dolor sit amet,Phasellus ac lectus a leo scelerisque scelerisque. In commodo sollicitudin tempus. Integer orci ante</p>
-								<p>Augue sed platea sed non porta tincidunt augue? Odio platea, pulvinar habitasse vut! Pulvinar, integer odio. Ac pid! Habitasse montes elementum, et sagittis tincidunt magnis? Sociis! Elementum quis, integer natoque sed auctor nascetur enim parturient ridiculus ut amet porttitor aliquam.</p>
-							</div>
-							
-							<div class="sidebar-widget">
-								<!-- Sidebar Newsletter -->
-								<div class="styled-box gray">
-									<h3 class="text-upper">Subscribe Newsletter</h3>
-									<form action="#" method="post">
-										<label>Email Address</label>
-										<input type="text" name="email" class="form-control input-style1 marb20" value="Enter Email Address" onfocus="if (this.value == 'Enter Email Address') { this.value = ''; }" onblur="if (this.value == '') { this.value = 'Enter Email Address'; }" />
-										<input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Subscribe" />
-									</form>
-								</div>
+								<p>Unique marketplace topromote Travel Entreprenures across India. Offering a marketplace for toursts to to explore activiites and sightseeing of real India with the help of a local cultural expert.</p>
 							</div>
 						</aside>
 						<!-- END #sidebar -->
