@@ -140,6 +140,7 @@ function myCode1($rs)
             }
             else
             {
+                $photo = "https://storage.googleapis.com/guidedgateway_media/".$row1[ 'mobileNo' ]."_profile.jpg";
                 $profileImagePath = parse_ini_file('config.ini',true)['imagePath'];
                 //$photo = null;
                 if (file_exists($profileImagePath . $row1[ 'mobileNo' ]."_profile.jpg"))

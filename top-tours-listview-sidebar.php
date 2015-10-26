@@ -163,7 +163,7 @@ ul.rating {
 								<ul class="nav nav-tabs text-upper">
 									<li class="active"><a href="#topguides" data-toggle="tab">Tours</a></li>
 									<li><a href="#topreviews" data-toggle="tab">Reviews</a></li>
-									<li><a href="#topdestinations" data-toggle="tab">Destinations</a></li>
+									<li><a href="#toptips" data-toggle="tab">Hotels</a></li>
 								</ul>
 								<!-- END TABS -->
 								
@@ -219,9 +219,9 @@ ul.rating {
 									<!-- END TAB 2 -->
 									
 									<!-- START TAB 3 -->
-									<div class="tab-pane" id="topdestinations">
+									<div class="tab-pane" id="toptips">
 										<div class="inside-pane">
-											<p>Coming soon<br><br><br></p>
+											<p><br><br><br></p>
 											<p><br><br><br><br><br><br></p>
 										</div>
 									</div>
@@ -234,7 +234,7 @@ ul.rating {
 								<!-- Sidebar Flickr Gallery -->
 								<h3 class="text-upper">Tours</h3>
 								<ul class="flickr-gal list-unstyled" ng-controller="toursCtrl">
-									<li ng-repeat="tourslist in tours"><img class="img-responsive" src="{{tourslist.Media.Image[0]}}" alt="Tour Photo" /></li>
+									<li ng-repeat="tourslist in tours"><img class="img-responsive" src="{{tourslist.Media.Image[0]}}" alt="Flickr Photo" /></li>
 									
 								</ul>
 							</div>
