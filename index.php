@@ -103,7 +103,7 @@ ul.rating {
 	</head> <!-- END head -->
 
 	<!-- START body --> <body ng-app="myDestinations" ng-controller="ExampleController">
-    
+		
 	<!-- START #wrapper --> <div id="wrapper"> <!-- START header --> 
 	
 	
@@ -170,22 +170,21 @@ ul.rating {
 					 <div class="row bom-contents"  ng-controller="toursCtrl" style="height:380px;"> 
 						<div class="col-md-11" >
 					 <div class="col-md-3" ng-repeat="x in tours | filter:search" ng-show="$index<4"> 
-							<a href="tour_detail_sidebar.php?id={{x.ID}}">
-<!--                                <input type="hidden" value="{{x.id}}" id="tour_ID" name="tour_ID" />-->
+							<a href="tour_detail_sidebar.php?id={{x.tour_id}}">
 							<div class="ft-item"> 
-							<span class="ft-image"><img style="height:200px;" src="{{x.Media.Image[0]}}" alt="Popular Tours" /> </span> 
+							<span class="ft-image"><img style="height:200px;" src="{{'x.photo'=='' ? 'x.photo' :'img/custom1.jpg'}}" alt="Popular Tours" /> </span> 
 							   <div class="ft-data" style="height:45px;font-size:11px;" >
 							     <span  style="color:black;" class="text-upper fa fa-pagelines" href="#">{{x.Category}}</span> &nbsp;&nbsp;&nbsp;
 								 <!-- <span style="color:black;" class="fa text-upper">&nbsp;&nbsp;LOCATION :</span> &nbsp;&nbsp; -->
-								   <span style="color:black;" class="fa aligncenter wrapword">{{x.Title}}</span>
-								   <span style="color:black;" class="fa text-upper wrapword"><i  style="color:black;" class="fa text-upper" ></i>&nbsp;&nbsp;{{x.Location}}</span>
+								   <span style="color:black;" class="fa aligncenter wrapword">{{x.tour_title}}</span>
+								   <span style="color:black;" class="fa text-upper wrapword"><i  style="color:black;" class="fa text-upper" ></i>&nbsp;&nbsp;{{x.tour_Location}}</span>
 							   </div> 
 							   
 								<div class="ft-foot"> <h4 class="ft-title text-upper" style="color:#686868">{{x.Guide}}</h4> 
-								<span class="ft-offer text-upper">Starting&nbsp&nbsp{{x.Price}}</span> 
+								<span class="ft-offer text-upper">Starting&nbsp&nbsp{{x.tour_price}}</span> 
 								</div>
 								<div class="ft-foot-ex" > 
-								<span class="fa fa-image text-upper alignleft">&nbsp;&nbsp;{{x.Duration}}&nbsp;&nbsp;</span>&nbsp;&nbsp;
+								<span class="fa fa-image text-upper alignleft">&nbsp;&nbsp;{{x.tour_duration}}&nbsp;&nbsp;</span>&nbsp;&nbsp;
 								
 								<span star-rating rating-value="x.Reviews.OverallRating" style="margin-left:20px;" class="" ></span>	
 <span class="alignright">{{x.Reviews.ReviewCount}} reviews</span> 								
@@ -212,10 +211,10 @@ ul.rating {
 				<div class="row bom-contents"  ng-controller="guideCtrl" style="height:380px;">
 				<div class="col-md-11 col-xs-11">
 				<div class="col-md-3" ng-repeat="x in allguides | filter:search"  ng-show="$index<16 && $index==5||$index==7||$index==12||$index==13"> 
-				   <a href="guide-detail-sidebar.php">
+				   <a href="guide-detail-sidebar.php?id2={{x.id}}" ng-controller="guideIDCtrl" ng-click="setID(x.id)">
 				      <div	class="ft-item"> 
 						  <span class="ft-image">
-							 <img style="height:200px;" src="{{x.photo}}" alt="Top Guide" /> 
+							 <img style="height:200px;" src="{{'x.photo'=='' ? 'x.photo' :'img/custom1.jpg'}}" alt="Top Guide" /> 
 						  </span>
 					  
 								<div class="ft-data" style="height:45px;font-size:11px;">
@@ -256,10 +255,10 @@ ul.rating {
 				<div class="row bom-contents"  ng-controller="placesCtrl" style="height:380px;">
 				<div class="col-md-11">
 				<div class="col-md-3" ng-repeat="x in places | filter:search" ng-show="$index<4"> 
-				   <a href="destination-detail-sidebar.php">
+				   <a href="destination-detail-sidebar.php?id3={{x.ID}}">
 				      <div	class="ft-item"> 
 						  <span class="ft-image">
-							 <img style="height:200px;" src="{{x.Media.Image[0]}}" alt="Top Destination" /> 
+							 <img style="height:200px;" src="{{'x.Media.Image[0]'=='' ? 'x.Media.Image[0]' :'img/custom1.jpg'}}" alt="Top Destination" /> 
 						  </span>
 					  
 								<div class="ft-data" style="height:45px;font-size:11px;">

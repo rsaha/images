@@ -64,6 +64,30 @@ app.controller('placeDetailCtrl',['$scope','$http', function($scope, $http) {
 			
 			
 }]); 
+    app.controller('AllplaceCtrl',['$scope','$http', function($scope, $http) {
+    $http.get("http://130.211.123.212/app/place?places")
+    .success(function (response) {
+		$scope.places = response.Places;
+		
+		})
+	.error(function() {
+				$scope.data = "error in fetching data";
+			});
+			
+		/*$scope.attractions=function()
+		{
+		     for(var i=0;i<3;i++)
+		     {
+			
+		     y+=$scope.tour.Itineary.Day.Spots[i].Spot+', '		
+			 }
+			 y=substring(0,lastIndexOf(',')-1);
+			 
+			 return y;
+		}*/
+			
+			
+}]); 
 app.directive('starRating', function () {
     return {
         restrict: 'A',

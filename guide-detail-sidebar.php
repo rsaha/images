@@ -1,3 +1,10 @@
+<?php
+ if(isset($_GET['id2']))
+	{
+	$guideid2 = $_GET['id2'];
+    //echo '<script>alert('.$guideid.');</script>';
+	}
+    ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -74,9 +81,9 @@ ul.rating {
 	<!-- END head -->
 
 	<!-- START body -->
-	<body ng-app="myAllGuide" ng-controller="guideControl">
+	<body ng-app="myAllGuide" ng-controller="TopGuideControl" >
 		<!-- START #wrapper -->
-		<div id="wrapper">
+		<div id="wrapper" ng-repeat="tg in TopGuides" ng-if="tg.id == <?php echo $guideid2; ?>">
 			<!-- START header -->
 			<?php 
 			
@@ -94,7 +101,7 @@ ul.rating {
 							
 							
 							
-								<h1 class="text-upper"><i class="fa fa-user-secret" style="color:black;"></i>&nbsp;&nbsp;{{allguides.name}}&nbsp;&nbsp;<span star-rating rating-value="allguides.ReviewSummary.Star" ></span></h1>	
+								<h1 class="text-upper"><i class="fa fa-user-secret" style="color:black;"></i>&nbsp;&nbsp;{{tg.name}}&nbsp;&nbsp;<span star-rating rating-value="tg.ReviewSummary.Star" ></span></h1>	
 							
 							
 							
@@ -115,11 +122,11 @@ ul.rating {
 			<!-- END #page-header -->
 			
 			<!-- START .main-contents -->
-			<div class="main-contents">
+			<div class="main-contents" >
 				<div class="container">
-					<div class="row">
+					<div class="row" >
 						<!-- START #page -->
-						<div id="page" class="col-md-8" ng-controller="guideControl">
+<div id="page" class="col-md-8" >
 							<!-- START .post-data -->
 							<div class="post-data">
 								<div class="plan-image">
@@ -128,9 +135,9 @@ ul.rating {
 								
 								<ul class="featured-btm single-ft-btm list-unstyled box-shadow1">
 									<li class="author-img"><img class="img-circle img-wt-border" style=height:80px;width:80px; src="img/featured_guide.jpg" alt="Guide" /></li>
-									<li class="post-author"><a class="text-upper" >{{allguides.gender}}</a></li>
-									<li class="fa fa-tree"><a class=""> {{allguides.city}}</a></li>
-									<li class="post-date"><span class="alignright" star-rating rating-value="allguides.ReviewSummary.Star" ></span></li>
+									<li class="post-author"><a class="text-upper" >{{tg.gender}}</a></li>
+									<li class="fa fa-tree"><a class=""> {{tg.city}}</a></li>
+									<li class="post-date"><span class="alignright" star-rating rating-value="tg.ReviewSummary.Star" ></span></li>
 									
 								</ul>
 							</div>
@@ -230,7 +237,7 @@ ul.rating {
 								<!-- START TABS -->
 								<ul class="nav nav-tabs text-upper">
 									<li class="active"><a href="#toptours" data-toggle="tab">Tours</a></li>
-									<li><a href="#relatedguides" data-toggle="tab">Guides</a></li>
+									<li><a href="#topreviews" data-toggle="tab">Reviews</a></li>
 									<li><a href="#toptips" data-toggle="tab">Advices</a></li>
 								</ul>
 								<!-- END TABS -->
@@ -272,18 +279,17 @@ ul.rating {
 									<!-- END TAB 1 -->
 									
 									<!-- START TAB 2 -->
-									<div class="tab-pane active" id="relatedguides" ng-controller="guidescontrol">
+									<div class="tab-pane" id="topreviews" ng-controller="TourControl">
 										<ul class="list-unstyled">
-											<li ng-repeat="z in guides" ng-show="$index<4">
-												<span class="rc-post-image">
-													<img class="img-responsive" style="height:80px; width:80px;" src="{{z.photo}}" alt="Recent Post 2" />
-												</span>
-											<h5><a href="#">{{z.name}}</a></h5>
-												<h5><a href="#">{{z.guide_territory}}</a></h5>
-												<h5>{{z.Speciality}}<span class="rc-post-date small">Speciality&nbsp;&nbsp;</span></h5>
-												<span star-rating rating-value="z.Review.Star" style="" class="" ></span>	
+											<li ng-repeat="x in alltours" ng-show="$index<2">
+												<span class="rc-post-image ">
+													<img class="img-responsive " style="height:80px;width:80px;" src="{{x.Media.Image[0]}}" alt="Recent Post 1" />
+												</span><br><br><br>
+												<span star-rating rating-value="x.Reviews.OverallRating"  class="" ></span>	
+												<span class="">{{x.Reviews.ReviewCount}} reviews</span><br><br>
+												
 											</li>
-										
+											
 										</ul>
 									</div>
 									<!-- END TAB 2 -->
@@ -291,7 +297,7 @@ ul.rating {
 									<!-- START TAB 3 -->
 									<div class="tab-pane" id="toptips">
 										<div class="inside-pane">
-                                            <p>Coming soon</p><br><br><br><br><br><br><br><br>
+											<p><br><br><br><br><br><br><br><br></p>
 										</div>
 									</div>
 									<!-- END TAB 3 -->
@@ -303,7 +309,7 @@ ul.rating {
 							<div class="sidebar-widget">
 								<!-- Sidebar Newsletter -->
 								<div class="styled-box gray">
-									<h3 class="text-upper">Contact Guide for Custom tour</h3>
+									<h3 class="text-upper">Contact for Custom tour</h3>
 									<form action="contactGuideMail.php" method="post">
 										<label>Email Address</label>
 										<input type="text" name="email" class="form-control input-style1 marb20" value="Enter Email Address" onfocus="if (this.value == 'Enter Email Address') { this.value = ''; }" onblur="if (this.value == '') { this.value = 'Enter Email Address'; }" />
