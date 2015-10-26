@@ -1,9 +1,10 @@
 <?php
-if(isset($_GET['id']))
-{
-    $tourID=$_GET['id'];
-}
-?>
+ if(isset($_GET['id']))
+	{
+	$tourid = $_GET['id'];
+    //echo '<script>alert('.$guideid.');</script>';
+	}
+    ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -100,9 +101,9 @@ ul.rating {
 	<!-- END head -->
 
 	<!-- START body -->
-	<body ng-app="topTours" ng-controller="tourDetailCtrl">
+	<body ng-app="topTours" ng-controller="toursCtrl">
 		<!-- START #wrapper --> 
-		<div id="wrapper">
+		<div id="wrapper" ng-repeat="tg in tours" ng-if="tg.tour_id == <?php echo $tourid; ?>">
 			<!-- START header -->
 			<?php 
 			
@@ -117,7 +118,7 @@ ul.rating {
 						<div class="row">
 							<section class="col-sm-6">
 								
-								<h1 class="text-upper"><i class="fa fa-plane" style="color:black;"></i>&nbsp;&nbsp;{{tour.Title}}</h1>	
+								<h1 class="text-upper"><i class="fa fa-plane" style="color:black;"></i>&nbsp;&nbsp;{{tg.tour_title}}</h1>	
 							</section>
 							
 							<!-- breadcrumbs -->
@@ -144,32 +145,30 @@ ul.rating {
 							<div class="col-md-12">
 							<div class="tour-plans">
 								<div class="plan-image">
-									<img class="img-responsive" src="{{tour.photo}}" alt="Tour Image" />
+									<img class="img-responsive" src="{{'tg.photo'=='' ? 'x.photo' :'img/1.jpg'}}" alt="TajMahal" />
 									<div class="offer-box">
 										<div class="offer-top">
-											<span class="ft-temp alignright">{{x.tour_category_id}}</span>
-											<span class="featured-cr text-upper">{{tour.tour_location}}</span>
-											<h2 class="featured-cy text-upper">{{tour.tour_duration}}</h2>
+											<span class="ft-temp alignright">19&#730;c</span>
+											<span class="featured-cr text-upper">{{tg.tour_location}}</span>
+											<h2 class="featured-cy text-upper">{{tg.tour_duration}}</h2>
 										</div>
 										
 										<div class="offer-bottom">
 											<span class="featured-stf">Per Person </span>
-											<span class="featured-spe">{{tour.tour_price}}</span>
+											<span class="featured-spe">{{tg.tour_price}}</span>
 										</div>
 									</div>
 								</div>
 								
-								<div class="featured-btm box-shadow1">
-									
-									<a class="ft-plane text-upper" style="font-weight:bold;" href="#">{{tour.tour_category_id}}</a>
-									<a class="ft-tea text-upper" style="font-weight:bold;" href="#">{{tour.tour_inclusive}}</a>
-                                    <a class="ft-hotel text-upper" style="font-weight:bold;" href="booking-form.php">From:&nbsp;&nbsp;{{tour.tour_startpoint}}&nbsp;&nbsp;-&nbsp;&nbsp;To:&nbsp;&nbsp;{{tour.tour_endpoint}}</a>
-									
+								<div class="featured-btm box-shadow1">									
+									<a class="ft-plane text-upper" style="font-weight:bold;" href="#">{{tg.tour_category_id}}</a>
+									<a class="ft-tea text-upper" style="font-weight:bold;" href="#">{{tg.inclusive}}</a>
+                                    <a class="ft-hotel text-upper" style="font-weight:bold;" href="booking-form.html">From:&nbsp;&nbsp;{{tour.start_point}}&nbsp;&nbsp;-&nbsp;&nbsp;To:&nbsp;&nbsp;{{tg.end_point}}</a>									
 								</div>
 								
 								<h2 class="text-upper">Tour Information</h2>
-								<p>"{{tour.tour_description}}"</p>
-								<p><h5>Start Point : {{tour.tour_startPoint}} &nbsp;&nbsp;&nbsp;&nbsp; End Point : {{tour.tour_endPoint}}</h5></p>
+								<p>"{{tg.tour_description}}"</p>
+								<p><h5>Start Point : {{tg.start_point}} &nbsp;&nbsp;&nbsp;&nbsp; End Point : {{tg.end_point}}</h5></p>
 								
 							</div>
 							<!-- END .tour-plans -->
@@ -190,9 +189,9 @@ ul.rating {
 										<li> -->
 										<div class="col-md-4" style="padding:15px 15px 15px 15px">
 											<div class="plan-info">
-												<h4 class="text-upper">{{tour.tour_duration}}</h4>
-												<p ng-repeat="x in tour.Itineary.Day.Spots"><span>{{x.Spot}}</span></p>
-											    <h5>Lunch&nbsp:&nbsp{{tour.Itineary.Day.Lunch}}</h5>
+												<h4 class="text-upper">{{tg.tour_duration}}</h4>
+												<p ng-repeat="x in tg.tour_itinerary"><span>{{x.tourist_spot}}</span></p>
+											    <h5>Lunch&nbsp:&nbsp{{tg.tour_itinerary.Day.Lunch}}</h5>
 											</div>
 										</div>
 										<div class="col-md-6 table-responsive" style="padding:15px 15px 15px 15px">
@@ -205,11 +204,11 @@ ul.rating {
 													<th>Entry Fees</th>
 												</tr>
 											</thead>
-											<tbody ng-repeat="x in tour.Itineary.Day.Spots">
+											<tbody ng-repeat="x in x in tg.tour_itinerary">
 												<tr class="dark-gray">
 													
-													<td><a ng-href="#mapLocation" ng-click="getdata(x.MapLocation.Latitude,x.MapLocation.Longitude);">{{x.Spot}}</a></td>
-													<td>{{x.Duration}}</td>
+													<td><a ng-href="#mapLocation" ng-click="getdata(x.MapLocation.Latitude,x.MapLocation.Longitude);">{{x.tourist_spot}}</a></td>
+													<td>{{x.intraday}}</td>
 													<td>{{x.Entreefees}}</td>
 												</tr>
 											
@@ -251,12 +250,12 @@ ul.rating {
 													
 												</tr>
 											</thead>
-											<tbody ng-repeat="x in tour.Itineary.Day.Spots">
+											<tbody ng-repeat="x in x in tg.tour_itinerary">
 												<tr class="dark-gray">
 													
-													<td>{{x.Description}}</td>
-													<td>{{x.Spot}}</td>
-													<td>{{x.Duration}}</td>
+													<td>{{x.description}}</td>
+													<td>{{x.tourist_spot}}</td>
+													<td>{{x.intraday}}</td>
 													
 												</tr>
 											
@@ -290,30 +289,15 @@ ul.rating {
 								<!-- Sidebar recent popular posts -->
 								<!-- START TABS -->
 								<ul class="nav nav-tabs text-upper">
-									<li class="active"><a href="#relatedtours" data-toggle="tab">Tours</a></li>
-									<li><a href="#topguides" data-toggle="tab">Guides</a></li>
-									<li><a href="#lodging" data-toggle="tab">Lodging</a></li>
+									<li class="active"><a href="#topguides" data-toggle="tab">Guides</a></li>
+									<li><a href="#topreview" data-toggle="tab">Reviews</a></li>
+									<li><a href="#lodging" data-toggle="tab">Hotels</a></li>
 								</ul>
 								<!-- END TABS -->
 								
 								<!-- START TAB CONTENT -->
 								<div class="tab-content gray box-shadow1 clearfix marb30">
-                                    <!-- START TAB 1 -->
-									<div class="tab-pane active"  id="relatedtours" ng-controller="toursCtrl">
-										<ul class="list-unstyled">
-											<li ng-repeat="k in alltours" ng-show="$index<4">
-												<span class="rc-post-image">
-													<img class="img-responsive" src="{{k.photo}}" alt="Tour 1" />
-												</span>
-												<h5>{{k.Title}}</h5>
-												<span class="rc-post-date small">Starting Price&nbsp;{{k.tour_price}}</span><br/>
-                                               <a href="booking-form.php?tour_id={{k.tour_id}}"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Book" /></a>
-											</li>
-										
-										</ul>
-									</div>
-									<!-- END TAB 1 -->
-									<!-- START TAB 2 -->
+									<!-- START TAB 1 -->
 									<div class="tab-pane active"  id="topguides" ng-controller="guidescontrol">
 										<ul class="list-unstyled">
 											<li ng-repeat="z in guides" ng-show="$index<16 && $index==5||$index==7||$index==12||$index==13">
@@ -328,12 +312,48 @@ ul.rating {
 										
 										</ul>
 									</div>
+									<!-- END TAB 1 -->
+									
+									<!-- START TAB 2 -->
+									<div class="tab-pane" id="topreview" ng-controller="tourDetailCtrl">
+										<ul class="list-unstyled">
+											<li ng-repeat="z in tour.Reviews.Reviews">
+												<span class="rc-post-image">
+													<img class="img-responsive"  src="http://placehold.it/80x65" alt="Recent Post 1" />
+												</span>
+												<h5>{{z.Comment}}</h5>
+												<span star-rating rating-value="z.Rating" style="" class="" ></span><br><br>
+												
+											</li>
+										<!--	<li>
+												<span class="rc-post-image">
+													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 2" />
+												</span>
+												<h5><a href="#">Limbaugh: Does 'Dark Knight Rise have it Bomb Found...</a></h5>
+												<span class="rc-post-date small">January 18, 2014</span>
+											</li>
+											<li>
+												<span class="rc-post-image">
+													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 3" />
+												</span>
+												<h5><a href="#">Shares suspende am Bankiaid 'Gloomy Forecast'</a></h5>
+												<span class="rc-post-date small">January 15, 2014</span>
+											</li>
+											<li class="last-rc-post">
+												<span class="rc-post-image">
+													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 4" />
+												</span>
+												<h5><a href="#">Shares suspende am Bankiaid 'Gloomy Forecast'</a></h5>
+												<span class="rc-post-date small">January 11, 2014</span>
+											</li>  -->
+										</ul>
+									</div>
 									<!-- END TAB 2 -->
+									
 									<!-- START TAB 3 -->
 									<div class="tab-pane" id="lodging">
 										<div class="inside-pane">
-											<p>Coming Soon</p>
-                                            <br><br><br><br><br><br><br><br><br><br>
+											<p><br><br><br><br><br><br><br><br><br><br></p>
 										</div>
 									</div>
 									<!-- END TAB 3 -->

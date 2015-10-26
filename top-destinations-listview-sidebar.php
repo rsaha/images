@@ -231,7 +231,7 @@ ul.rating {
 								<ul class="nav nav-tabs text-upper">
 									<li class="active"><a href="#toptours" data-toggle="tab">Tours</a></li>
 									<li><a href="#topguides" data-toggle="tab">Guides</a></li>
-									<li><a href="#lodging" data-toggle="tab">Lodging</a></li>
+									<li><a href="#lodging" data-toggle="tab">Hotels</a></li>
 								</ul>
 								<!-- END TABS -->
 								
@@ -269,10 +269,11 @@ ul.rating {
 										</ul>
 									</div>
 									<!-- END TAB 2 -->
+									
 									<!-- START TAB 3 -->
 									<div class="tab-pane" id="lodging">
 										<ul class="rc-posts-list list-unstyled">
-                                            <p>Coming Soon</p><br><br><br><br><br><br><br><br><br>
+                                            <br><br><br><br><br><br><br><br><br>
 <!--
 											<li>
 												<span class="rc-post-image">
@@ -309,11 +310,14 @@ ul.rating {
 								</div>
 								<!-- END TAB CONTENT -->
 							</div>
+								
+							
 							<div class="sidebar-widget" ng-controller="placesCtrl">
 								<!-- Sidebar Flickr Gallery -->
 								<h3 class="text-upper">Destination Gallery</h3>
 								<ul class="flickr-gal list-unstyled">
 									<li ng-repeat="z in places"><img style="height:70px; width:120px;" class="img-responsive" src="{{z.Media.Image[0]}}" alt="image" /></li>
+									
 								</ul>
 							</div>
 						</aside>

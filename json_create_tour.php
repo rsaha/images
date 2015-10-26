@@ -75,16 +75,25 @@ while( $row1 = mysql_fetch_array( $rs ) )
 			);
 		}
     
-    $tourTerritorys = $row1[ 'tour_territory' ];
+            $tourTerritorys = $row1[ 'tour_territory' ];
             $tour_territory = array_map('trim', explode("," , $tourTerritorys));
             if($tour_territory[0] == "")
             {
                 $tour_territory = null;
             }
+    
+    $tour_category_id = $row1[ 'tour_category_id' ];
+    $rs5 = mysql_query("SELECT `tour_category_title` FROM `tbl_tour_category` WHERE `tour_category_id` = '".$row1[ 'tour_category_id' ]."'");
+    if(mysql_num_rows($rs5) == 1)
+    {
+        $row5 = mysql_fetch_assoc( $rs5 );
+        $tour_category = $row5[ 'tour_category_title' ];
+    }
+    
 	
 		$rows1[] = array( 
 		'tour_id'=> $row1[ 'tour_id' ], 
-		'tour_category_id' => $row1[ 'tour_category_id' ],             
+		'tour_category' => $tour_category,             
 		'tour_title' => $row1[ 'tour_title' ], 
 		'tour_location' => $row1[ 'tour_location' ], 
 		'tour_territory'=> $tour_territory,

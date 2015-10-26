@@ -20,6 +20,15 @@ app.controller('toursCtrl',['$scope','$http', function($scope, $http) {
 			
 			
 }]); 
+    app.controller('guideIDCtrl',function($scope, $location) {
+    
+    $scope.setID=function(setGuideID){
+      $scope.gID=setGuideID;
+        alert(setGuideID);
+			$location.search("guideID",setGuideID);
+		}
+			
+});
 app.controller('guideCtrl',['$scope','$http', function($scope, $http) {
     $http.get("http://130.211.123.212/app/guides")
     .success(function (response) {
@@ -28,6 +37,9 @@ app.controller('guideCtrl',['$scope','$http', function($scope, $http) {
 	.error(function() {
 				$scope.data = "error in fetching data";
 			});
+  
+   
+			
 }]);
 
 app.controller('placesCtrl',['$scope','$http', function($scope, $http) {
