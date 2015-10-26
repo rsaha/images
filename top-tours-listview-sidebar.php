@@ -119,7 +119,6 @@ ul.rating {
 								<div class="col-md-12">
 									<div class="tour-plans">
 										<div class="plan-image">
-											<!-- <img class="img-responsive" src="{{x.Media.Image.gs}}" alt="Tour image" href="tour_detail_sidebar.html"/> -->
 											<img class="img-responsive" style="height:360px;" src="{{x.photo}}" alt="Tour image" href="tour_detail_sidebar.html"/>
 											<div class="offer-box">
 												<div class="offer-top">

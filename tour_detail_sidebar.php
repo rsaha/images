@@ -144,7 +144,7 @@ ul.rating {
 							<div class="col-md-12">
 							<div class="tour-plans">
 								<div class="plan-image">
-									<img class="img-responsive" src="{{tour.photo}}" alt="TajMahal" />
+									<img class="img-responsive" src="{{tour.photo}}" alt="Tour Image" />
 									<div class="offer-box">
 										<div class="offer-top">
 											<span class="ft-temp alignright">{{x.tour_category_id}}</span>
@@ -299,15 +299,15 @@ ul.rating {
 								<!-- START TAB CONTENT -->
 								<div class="tab-content gray box-shadow1 clearfix marb30">
                                     <!-- START TAB 1 -->
-									<div class="tab-pane active"  id="relatedtours" ng-controller="tourDetailCtrl">
+									<div class="tab-pane active"  id="relatedtours" ng-controller="toursCtrl">
 										<ul class="list-unstyled">
 											<li ng-repeat="k in alltours" ng-show="$index<4">
 												<span class="rc-post-image">
-													<img class="img-responsive" src="{{k.Media.Image[0]}}" alt="Tour 1" />
+													<img class="img-responsive" src="{{k.photo}}" alt="Tour 1" />
 												</span>
-												<h5><a href="#">{{k.Title}}</a></h5>
-												<span class="rc-post-date small">Starting Price&nbsp;{{k.Price}}</span><br/>
-                                               <a href="booking-form.php"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Book" /></a>
+												<h5>{{k.Title}}</h5>
+												<span class="rc-post-date small">Starting Price&nbsp;{{k.tour_price}}</span><br/>
+                                               <a href="booking-form.php?tour_id={{k.tour_id}}"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Book" /></a>
 											</li>
 										
 										</ul>
