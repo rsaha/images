@@ -144,32 +144,32 @@ ul.rating {
 							<div class="col-md-12">
 							<div class="tour-plans">
 								<div class="plan-image">
-									<img class="img-responsive" src="{{tour.Media.Image[0]}}" alt="TajMahal" />
+									<img class="img-responsive" src="{{tour.photo}}" alt="TajMahal" />
 									<div class="offer-box">
 										<div class="offer-top">
-											<span class="ft-temp alignright">19&#730;c</span>
-											<span class="featured-cr text-upper">{{tour.Localtion}}</span>
-											<h2 class="featured-cy text-upper">{{tour.Duration}}</h2>
+											<span class="ft-temp alignright">{{x.tour_category_id}}</span>
+											<span class="featured-cr text-upper">{{tour.tour_location}}</span>
+											<h2 class="featured-cy text-upper">{{tour.tour_duration}}</h2>
 										</div>
 										
 										<div class="offer-bottom">
 											<span class="featured-stf">Per Person </span>
-											<span class="featured-spe">{{tour.Price}}</span>
+											<span class="featured-spe">{{tour.tour_price}}</span>
 										</div>
 									</div>
 								</div>
 								
 								<div class="featured-btm box-shadow1">
 									
-									<a class="ft-plane text-upper" style="font-weight:bold;" href="#">{{tour.Category}}</a>
-									<a class="ft-tea text-upper" style="font-weight:bold;" href="#">{{tour.Inclusive}}</a>
-                                    <a class="ft-hotel text-upper" style="font-weight:bold;" href="booking-form.html">From:&nbsp;&nbsp;{{tour.StartPoint}}&nbsp;&nbsp;-&nbsp;&nbsp;To:&nbsp;&nbsp;{{tour.EndPoint}}</a>
+									<a class="ft-plane text-upper" style="font-weight:bold;" href="#">{{tour.tour_category_id}}</a>
+									<a class="ft-tea text-upper" style="font-weight:bold;" href="#">{{tour.tour_inclusive}}</a>
+                                    <a class="ft-hotel text-upper" style="font-weight:bold;" href="booking-form.php">From:&nbsp;&nbsp;{{tour.tour_startpoint}}&nbsp;&nbsp;-&nbsp;&nbsp;To:&nbsp;&nbsp;{{tour.tour_endpoint}}</a>
 									
 								</div>
 								
 								<h2 class="text-upper">Tour Information</h2>
-								<p>"{{tour.Description}}"</p>
-								<p><h5>Start Point : {{tour.StartPoint}} &nbsp;&nbsp;&nbsp;&nbsp; End Point : {{tour.EndPoint}}</h5></p>
+								<p>"{{tour.tour_description}}"</p>
+								<p><h5>Start Point : {{tour.tour_startPoint}} &nbsp;&nbsp;&nbsp;&nbsp; End Point : {{tour.tour_endPoint}}</h5></p>
 								
 							</div>
 							<!-- END .tour-plans -->
@@ -189,9 +189,8 @@ ul.rating {
 									<!-- <ul class="plans-list list-unstyled">
 										<li> -->
 										<div class="col-md-4" style="padding:15px 15px 15px 15px">
-										<!--	<img class="img-responsive" src="{{tour.Media.Image[0]}}" alt="Day 1" />  -->
 											<div class="plan-info">
-												<h4 class="text-upper">{{tour.Itineary.Duration}}</h4>
+												<h4 class="text-upper">{{tour.tour_duration}}</h4>
 												<p ng-repeat="x in tour.Itineary.Day.Spots"><span>{{x.Spot}}</span></p>
 											    <h5>Lunch&nbsp:&nbsp{{tour.Itineary.Day.Lunch}}</h5>
 											</div>
