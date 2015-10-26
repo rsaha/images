@@ -175,7 +175,7 @@ ul.rating {
 								<div class="tab-content gray box-shadow1 clearfix marb30" >
 									<!-- START TAB 1 -->
 									<div class="tab-pane active" id="toptours"  ng-controller="tourCtrl">
-										<ul class=" list-unstyled">
+										<ul class="list-unstyled">
 											<li ng-repeat="k in alltours" ng-show="$index<4">
 												<span class="rc-post-image">
 													<img class="img-responsive" style="height:80px;width:80px;" src="{{k.Media.Image[0]}}" alt="Tour 1" />
