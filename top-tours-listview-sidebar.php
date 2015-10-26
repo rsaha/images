@@ -156,15 +156,9 @@ ul.rating {
 								<!-- Sidebar recent popular posts -->
 								<!-- START TABS -->
 								<ul class="nav nav-tabs text-upper">
-<<<<<<< HEAD
 									<li class="active"><a href="#relatedtours" data-toggle="tab">Tours</a></li>
 									<li><a href="#topguides" data-toggle="tab">Guides</a></li>
 									<li><a href="#topdestinations" data-toggle="tab">Destinations</a></li>
-=======
-									<li class="active"><a href="#topguides" data-toggle="tab">Tours</a></li>
-									<li><a href="#topreviews" data-toggle="tab">Reviews</a></li>
-									<li><a href="#toptips" data-toggle="tab">Hotels</a></li>
->>>>>>> 625a6904b246d73bcdb92335837b8d7ce160abe6
 								</ul>
 								<!-- END TABS -->
 								
@@ -203,7 +197,6 @@ ul.rating {
 									<!-- END TAB 2 -->
 									
 									<!-- START TAB 3 -->
-<<<<<<< HEAD
 									<div class="tab-pane" id="topdestinations"  ng-controller="placeCtrl">
 										<ul class=" list-unstyled">
 											<li ng-repeat="k in allplaces" ng-show="$index<4">
@@ -215,13 +208,6 @@ ul.rating {
                                                <a href="booking-form.Php"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Book" /></a>
 											</li>
 										</ul>
-=======
-									<div class="tab-pane" id="toptips">
-										<div class="inside-pane">
-											<p><br><br><br></p>
-											<p><br><br><br><br><br><br></p>
-										</div>
->>>>>>> 625a6904b246d73bcdb92335837b8d7ce160abe6
 									</div>
 									<!-- END TAB 3 -->
 								</div>
@@ -232,11 +218,7 @@ ul.rating {
 								<!-- Sidebar Flickr Gallery -->
 								<h3 class="text-upper">Tours</h3>
 								<ul class="flickr-gal list-unstyled" ng-controller="toursCtrl">
-<<<<<<< HEAD
 									<li ng-repeat="tourslist in tours"><img class="img-responsive" src="{{tourslist.photo}}" alt="Tour Photo" /></li>
-=======
-									<li ng-repeat="tourslist in tours"><img class="img-responsive" src="{{tourslist.Media.Image[0]}}" alt="Flickr Photo" /></li>
->>>>>>> 625a6904b246d73bcdb92335837b8d7ce160abe6
 									
 								</ul>
 							</div>
