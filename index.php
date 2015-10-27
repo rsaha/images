@@ -214,7 +214,7 @@ ul.rating {
 				   <a href="guide-detail-sidebar.php?id2={{x.id}}" ng-controller="guideIDCtrl" ng-click="setID(x.id)">
 				      <div	class="ft-item"> 
 						  <span class="ft-image">
-							 <img style="height:200px;" src="{{'x.photo'=='' ? 'x.photo' :'img/custom1.jpg'}}" alt="Top Guide" /> 
+							 <img style="height:200px;" src="{{'x.photo'=='' ? 'img/custom1.jpg' :'x.photo'}}" alt="Top Guide" /> 
 						  </span>
 					  
 								<div class="ft-data" style="height:45px;font-size:11px;">
