@@ -28,9 +28,9 @@
     "other_experience": "dsfadsfadsf",
     "review": [
         {
-            "Count": 4,
-            "Star": 4,
-            "TopReviewComment": "He is organized."
+            "reviews": 16,
+            "rating": 4,
+            "TopReviewComment": "He is special guy."
         }
     ],
     "guide_interest": null,

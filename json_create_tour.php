@@ -24,33 +24,38 @@ unset($_SESSION['tType']);
     unset($fp);
     unset($rs);
 //=============================================================================
-	$sql = mysql_query("SELECT `tour_id`, `tour_title` FROM `tbl_tours` WHERE `status` = 1");
-	while ($roww = mysql_fetch_array($sql)){
-	$tour_ID=$roww['tour_id'];
-	
-	try
-		{
-			$rs = mysql_query("SELECT `tour_id`, `user_id`, `tour_category_id`, `tour_title`, `tour_location`, `tour_territory`, `tour_description`, `tour_duration`, `tour_price`, `start_point`, `end_point`, `inclusive`, `exclusive`, `cancelation_policy`, `restrictions`, `notes` FROM `tbl_tours` WHERE `tour_id` = ".$tour_ID.""); 
-		}
-		catch (Exception $e)
-		{
-			
-		}
-	
+	$sql = mysql_query("SELECT `tour_id`, `tour_title`, `status` FROM `tbl_tours` WHERE `status` = 1");
+	while ($roww = mysql_fetch_array($sql))
+    {
+        $tour_ID=$roww['tour_id'];
+        $oldStatus=$roww['status'];
+            try
+            {
+                $rs = mysql_query("SELECT `tour_id`, `user_id`, `tour_category_id`, `tour_title`, `tour_location`, `tour_territory`, `tour_description`, `tour_duration`, `tour_price`, `start_point`, `end_point`, `inclusive`, `exclusive`, `cancelation_policy`, `restrictions`, `notes` FROM `tbl_tours` WHERE `status` = 1 && `tour_id` = ".$tour_ID."");
+            }
+            catch (Exception $e)
+            {
+
+            }
+
+
+            $_SESSION["tType"]="individual";
+            $JsonReturn=myCode2($rs);
+            $_SESSION["tType"]=null;
+            unset($_SESSION['tType']);
+
+            $tourName= $jsonPath."tour_".$tour_ID.".json";
+            $fp = fopen($tourName, 'w');
+            fwrite($fp, $JsonReturn);
+            fclose($fp);
+
+            $update = mysql_query("UPDATE `tbl_tours` SET `status` = 2 WHERE `tour_id` = $tour_ID");
+
+            unset($tourName);
+            unset($fp);
+            unset($rs);
+            //unset(myCode($rs));
         
-    $_SESSION["tType"]="individual";
-    $JsonReturn=myCode2($rs);
-    $_SESSION["tType"]=null;
-    unset($_SESSION['tType']);
-        
-    $tourName= $jsonPath."tour_".$tour_ID.".json";
-    $fp = fopen($tourName, 'w');
-    fwrite($fp, $JsonReturn);
-    fclose($fp);
-    unset($tourName);
-    unset($fp);
-    unset($rs);
-	//unset(myCode($rs));
     
 }
 //==========================================================================
@@ -93,6 +98,7 @@ while( $row1 = mysql_fetch_array( $rs ) )
 	
 		$rows1[] = array( 
 		'tour_id'=> $row1[ 'tour_id' ], 
+        'guide_id'=> $row1[ 'user_id' ],
 		'tour_category' => $tour_category,             
 		'tour_title' => $row1[ 'tour_title' ], 
 		'tour_location' => $row1[ 'tour_location' ], 

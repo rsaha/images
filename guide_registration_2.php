@@ -352,7 +352,7 @@ else
 															<label style="font-size:14px; font-weight:bold">Language Known</label>
 															<select class="form-control" size="6" multiple name="languageKnown[]" id="languageKnown">
 															<?php 
-														  $select3 = mysql_query("SELECT * FROM `tbl_languages` WHERE `status` = 1 ORDER BY `lanugage_name`");
+														  $select3 = mysql_query("SELECT * FROM `tbl_languages` WHERE `status` != 0 ORDER BY `lanugage_name`");
 														  while($row33 = mysql_fetch_array($select3))
 															{
 																if(strtoupper($row33['lanugage_name']) == strtoupper("english"))

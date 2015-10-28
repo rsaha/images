@@ -81,6 +81,13 @@ ul.rating {
     color: #ff845e;
 }
 </style>
+         <style>
+            #bookButton{
+			top: 360px;
+			position: absolute;
+			right: 20px;
+		}
+        </style>
 
    <!-- <script src="https://maps.googleapis.com/maps/api/js"></script> -->
 	<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
@@ -163,9 +170,9 @@ ul.rating {
 								<div class="featured-btm box-shadow1">									
 									<a class="ft-plane text-upper" style="font-weight:bold;" href="#">{{tg.tour_category_id}}</a>
 									<a class="ft-tea text-upper" style="font-weight:bold;" href="#">{{tg.inclusive}}</a>
-                                    <a class="ft-hotel text-upper" style="font-weight:bold;" href="booking-form.html">From:&nbsp;&nbsp;{{tour.start_point}}&nbsp;&nbsp;-&nbsp;&nbsp;To:&nbsp;&nbsp;{{tg.end_point}}</a>									
-								</div>
-								
+                                    <a class="ft-hotel text-upper" style="font-weight:bold;" href="booking-form.php">From:&nbsp;&nbsp;{{tour.start_point}}&nbsp;&nbsp;-&nbsp;&nbsp;To:&nbsp;&nbsp;{{tg.end_point}}</a>
+																	</div>
+								<a id="bookButton" href="booking-form.php?id1=0&id2={{tg.tour_id}}" class="alignright"> <input type="submit" name="submit" class="btn btn-success text-upper " value="Book" /></a>
 								<h2 class="text-upper">Tour Information</h2>
 								<p>"{{tg.tour_description}}"</p>
 								<p><h5>Start Point : {{tg.start_point}} &nbsp;&nbsp;&nbsp;&nbsp; End Point : {{tg.end_point}}</h5></p>
@@ -281,7 +288,26 @@ ul.rating {
 							
 							<div class="col-md-12" id="mapLocation" hello-maps="" latitude="latit" longitude="longit" style="width: 100%; height: 300px;">
 							</div>
+                        <div class="about-author gray box-shadow1">
+<!--
+								<span class="author-image">
+									<img src="img/feature_guide_tour.jpg" alt="Reviewed Tour" />
+								</span>
+-->
+								<h5>What to Remember <small></small></h5>
+								<p></p>
+<ul>
+    <li>Please note that this is a walking tour</li>
+    <li>The visit to the Anne Frank House is self-guided</li>
+    <li>Tour plan is flexible and subject to changes depending on the guide, the weather, and the time</li>
+    <li>The visit to the local market doesn't take place on Sundays</li>
+</ul>
+
+								
+							</div>
 						</div>
+                    
+                    
 						<!-- END #page -->
 						<!-- START #sidebar -->
 						<aside id="sidebar" class="col-md-4">
@@ -381,13 +407,15 @@ ul.rating {
 								</div>
 							</div>
 							
-							<div class="sidebar-widget">
+							<div class="sidebar-widget"  ng-controller="toursCtrl">
 								<!-- Sidebar Flickr Gallery -->
 								<h3 class="text-upper">Tour Gallery</h3>
 								<ul class="flickr-gal list-unstyled">
-									<li><img class="img-responsive" src="{{tour.Media.Image[0]}}" alt="Flickr Photo" /></li>
-									<li><img class="img-responsive" src="{{tour.Media.Image[1]}}" alt="Flickr Photo" /></li>
-									
+								<li ng-repeat="x in tours">
+								    
+								<img class="img-responsive" src="{{'x.photo' ==''||'x.photo' ? 'img/custom1.jpg' : x.photo}}"           alt="Tour Image" />
+								    
+								</li>
 								</ul>
 							</div>
 						</aside>

@@ -22,9 +22,9 @@
     "other_experience": "Lots Of",
     "review": [
         {
-            "Count": 19,
-            "Star": 1,
-            "TopReviewComment": "He is special guy."
+            "reviews": 14,
+            "rating": 5,
+            "TopReviewComment": "He is organized."
         }
     ],
     "guide_interest": null,

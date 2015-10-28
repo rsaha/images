@@ -66,7 +66,7 @@ $communicationMechanism = "";
 $remark = "";
 }
 
-$select3 = mysql_query("SELECT * FROM `tbl_tours` WHERE `tour_id` = $tourID && `status` = 1");
+$select3 = mysql_query("SELECT * FROM `tbl_tours` WHERE `tour_id` = $tourID && `status` != 0");
 $row33 = mysql_fetch_assoc($select3);
 $user_id=$row33["user_id"];
 $tour_category_id = $row33["tour_category_id"];
@@ -292,7 +292,7 @@ $notes = $row33["notes"];
 								
 								<div class="featured-btm box-shadow1">
 									<a class="ft-hotel text-upper" href="#"><?php echo $tour_duration; ?> Day Tour</a>
-									<a class="ft-plane text-upper" href="#"><?php $select2 = mysql_query("SELECT `tour_category_title` FROM `tbl_tour_category` WHERE `tour_category_id` = $tour_category_id && `status` = 1"); echo mysql_result($select2, 0, 0); ?></a>
+									<a class="ft-plane text-upper" href="#"><?php $select2 = mysql_query("SELECT `tour_category_title` FROM `tbl_tour_category` WHERE `tour_category_id` = $tour_category_id && `status` != 0"); echo mysql_result($select2, 0, 0); ?></a>
 									<a class="ft-tea text-upper" href="#"><?php echo $inclusive; ?></a>
                                     <?php echo '<a class="ft-tea text-upper" style="cursor: pointer;" onclick="bookTour(' .$tourID.')">Book the Tour</a>'; ?>
 								</div>

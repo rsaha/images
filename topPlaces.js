@@ -65,7 +65,7 @@ app.controller('placeDetailCtrl',['$scope','$http', function($scope, $http) {
 			
 }]); 
     app.controller('AllplaceCtrl',['$scope','$http', function($scope, $http) {
-    $http.get("http://130.211.123.212/app/place?places")
+    $http.get("http://130.211.123.212/app/places")
     .success(function (response) {
 		$scope.places = response.Places;
 		
