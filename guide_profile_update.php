@@ -55,8 +55,7 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 			
 			
 			$update1 = mysql_query("UPDATE `tbl_user_profile` SET `f_name`='$firstName', `l_name`='$lastName', `email`='$emailID', 
-			`mobileNo`='$mobileNumber', `gender`='$gender', `d_o_b`='$birthday', `street_address`='$streetAddress', `city`='$city', 
-			`state`='$state', `country`='$country', `datecreated`=now() WHERE `user_id` = $userid") or die('Error : ' . mysql_error());
+			`mobileNo`='$mobileNumber', `gender`='$gender', `d_o_b`='$birthday', `street_address`='$streetAddress', `city`='$city', `state`='$state', `country`='$country', `status`=1, `datecreated`=now() WHERE `user_id` = $userid") or die('Error : ' . mysql_error());
 			if($update1)
 			{
 				$flag1=1;
@@ -246,6 +245,7 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 					`Best_time_for_contact`='$bestTimeToContact', 
 					`Communication_mechanism`='$communicationMechanism',
 					`guide_Remarks`='$remark',
+                    `status` = 1, 
 					`datecreated`=now() 
 					WHERE `user_id` = $userid") or die('Error : ' . mysql_error());
 					if($update2)
@@ -271,6 +271,7 @@ $upload_dir = parse_ini_file('config.ini',true)['imagePath'];
 					`Best_time_for_contact`='$bestTimeToContact', 
 					`Communication_mechanism`='$communicationMechanism',
 					`guide_Remarks`='$remark',
+                    `status` = 1,
 					`datecreated`=now() 
 					WHERE `user_id` = $userid") or die('Error : ' . mysql_error());
 					if($update2)

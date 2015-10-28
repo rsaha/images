@@ -92,7 +92,7 @@ ul.rating {
     font-weight: bold;
     cursor: pointer;
 	margin-top: -6px;
-    font-size: 14px;
+    font-size: 18px;
 }
 .rating .filled {
     color: #ff845e;
@@ -172,7 +172,7 @@ ul.rating {
 					 <div class="col-md-3" ng-repeat="x in tours | filter:search" ng-show="$index<4"> 
 							<a href="tour_detail_sidebar.php?id={{x.tour_id}}">
 							<div class="ft-item"> 
-							<span class="ft-image"><img style="height:200px;" src="{{'x.photo'=='' ? 'x.photo' :'img/custom1.jpg'}}" alt="Popular Tours" /> </span> 
+							<span class="ft-image"><img style="height:200px;" src="{{'x.photo' ==''||'x.photo' ? 'img/SAMPLE_TOUR.jpg' : x.photo}}" alt="Popular Tours" /> </span> 
 							   <div class="ft-data" style="height:45px;font-size:11px;" >
 							     <span  style="color:black;" class="text-upper fa fa-pagelines" href="#">{{x.Category}}</span> &nbsp;&nbsp;&nbsp;
 								 <!-- <span style="color:black;" class="fa text-upper">&nbsp;&nbsp;LOCATION :</span> &nbsp;&nbsp; -->
@@ -214,7 +214,7 @@ ul.rating {
 				   <a href="guide-detail-sidebar.php?id2={{x.id}}" ng-controller="guideIDCtrl" ng-click="setID(x.id)">
 				      <div	class="ft-item"> 
 						  <span class="ft-image">
-							 <img style="height:200px;" src="{{'x.photo'=='' ? 'x.photo' :'img/custom1.jpg'}}" alt="Top Guide" /> 
+							 <img style="height:200px;" src="{{'x.photo'=='' ? 'img/custom1.jpg' :x.photo}}" alt="Top Guide" /> 
 						  </span>
 					  
 								<div class="ft-data" style="height:45px;font-size:11px;">
@@ -258,7 +258,7 @@ ul.rating {
 				   <a href="destination-detail-sidebar.php?id3={{x.ID}}">
 				      <div	class="ft-item"> 
 						  <span class="ft-image">
-							 <img style="height:200px;" src="{{'x.Media.Image[0]'=='' ? 'x.Media.Image[0]' :'img/custom1.jpg'}}" alt="Top Destination" /> 
+							 <img style="height:200px;" src="{{'x.Media.Image[0]'=='' ? 'img/custom1.jpg' :x.Media.Image[0]}}" alt="Top Destination" /> 
 						  </span>
 					  
 								<div class="ft-data" style="height:45px;font-size:11px;">

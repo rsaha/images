@@ -18,6 +18,9 @@
             "Germen"
         ],
         [
+            "Hindi"
+        ],
+        [
             "Spanish"
         ]
     ],
@@ -28,8 +31,8 @@
     "other_experience": "no other experiance",
     "review": [
         {
-            "Count": 12,
-            "Star": 1,
+            "reviews": 14,
+            "rating": 3,
             "TopReviewComment": "He is organized."
         }
     ],
@@ -40,7 +43,7 @@
         "Punjab",
         "Delhi"
     ],
-    "landline_no": "01219999999",
+    "landline_no": "01219999998",
     "payment_currency": null,
     "payment_terms": "NO",
     "Best_time_for_contact": "04:00 PM - 08:00 PM",
@@ -67,7 +70,7 @@
         {
             "tour_id": "50002",
             "tour_category": "General",
-            "tour_title": "3 Days in UP",
+            "tour_title": "3 Days in Uttar Pradesh",
             "tour_location": "Uttar Pradesh",
             "tour_territory": "Uttar Pradesh, Delhi, West Bangal",
             "tour_description": "Visiting Uttar Pradesh",
