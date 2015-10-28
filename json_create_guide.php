@@ -12,7 +12,7 @@ $jsonPath = parse_ini_file('config.ini',true)['jsonFilePath'];
 //=============================================================================
         try
         {
-        $rs = mysql_query("SELECT `user_id`, `f_name`, `l_name`, `email`, `mobileNo`, `gender`, `d_o_b`, `street_address`, `city`, `state`, `country`, `guide_profile_pic`, `guide_Cover_pic`, `nick_name`, `license_Image`, `license_no`, `validity`, `guide_summary`, `experiance_in_year`, `other_experience`, `guide_interest`, `guide_territory`, `guide_facebook_profile`, `guide_linkedin_profile`, `guide_pinterest_profile`, `guide_skype_address`, `landline_no`, `payment_currency`, `payment_terms`, `Best_time_for_contact`, `Communication_mechanism`, `guide_Remarks` FROM `user_fulldetail` WHERE `user_type_id` = 1"); 
+            $rs = mysql_query("SELECT `user_id`, `user_type_id`, `f_name`, `l_name`, `email`, `mobileNo`, `gender`, `d_o_b`, `street_address`, `city`, `state`, `country`, `guide_detail_id`, `guide_profile_pic`, `guide_Cover_pic`, `nick_name`, `license_Image`, `license_no`, `validity`, `guide_summary`, `experiance_in_year`, `other_experience`, `guide_interest`, `guide_territory`, `guide_facebook_profile`, `guide_linkedin_profile`, `guide_pinterest_profile`, `guide_skype_address`, `landline_no`, `payment_currency`, `payment_terms`, `Best_time_for_contact`, `Communication_mechanism`, `guide_Remarks`, `status_user_profile`, `status_guide_detail_profile` FROM `user_fulldetail` WHERE `user_type_id` = 1"); 
         }
         catch (Exception $e)
         {
@@ -29,32 +29,39 @@ $jsonPath = parse_ini_file('config.ini',true)['jsonFilePath'];
         unset($fp);
         unset($rs);
 //=============================================================================
-	$sql = mysql_query("SELECT `user_id`, `f_name`, `l_name` FROM `user_fulldetail` WHERE `user_type_id` = 1");
+	$sql = mysql_query("SELECT `user_id`, `f_name`, `l_name`, `status_user_profile` FROM `user_fulldetail` WHERE `status_user_profile`=1 && `user_type_id` = 1");
 	while ($roww = mysql_fetch_array($sql))
     {    
-	$user_id=$roww['user_id'];
-	
-		try
-		{
-			$rs = mysql_query("SELECT `user_id`, `user_type_id`, `f_name`, `l_name`, `email`, `mobileNo`, `gender`, `d_o_b`, `street_address`, `city`, `state`, `country`, `guide_profile_pic`, `guide_Cover_pic`, `nick_name`, `license_Image`, `license_no`, `validity`, `guide_summary`, `experiance_in_year`, `other_experience`, `guide_interest`, `guide_territory`, `guide_facebook_profile`, `guide_linkedin_profile`, `guide_pinterest_profile`, `guide_skype_address`, `landline_no`, `payment_currency`, `payment_terms`, `Best_time_for_contact`, `Communication_mechanism`, `guide_Remarks` FROM `user_fulldetail` WHERE `user_id` = ".$user_id.""); 
-		}
-		catch (Exception $e)
-		{
-			
-		}
-        $_SESSION["tType"]="individual";
-        $JsonReturn=myCode1($rs);
-        $_SESSION["tType"]=null;
-        unset($_SESSION['tType']);
+        $user_id=$roww['user_id'];
+        $oldStatus=$roww['status_user_profile'];
+            try
+            {
+                $rs = mysql_query("SELECT `user_id`, `user_type_id`, `f_name`, `l_name`, `email`, `mobileNo`, `gender`, `d_o_b`, `street_address`, `city`, `state`, `country`, `guide_detail_id`, `guide_profile_pic`, `guide_Cover_pic`, `nick_name`, `license_Image`, `license_no`, `validity`, `guide_summary`, `experiance_in_year`, `other_experience`, `guide_interest`, `guide_territory`, `guide_facebook_profile`, `guide_linkedin_profile`, `guide_pinterest_profile`, `guide_skype_address`, `landline_no`, `payment_currency`, `payment_terms`, `Best_time_for_contact`, `Communication_mechanism`, `guide_Remarks`, `status_user_profile`, `status_guide_detail_profile` FROM `user_fulldetail` WHERE `status_user_profile` = 1 && `user_id` = ".$user_id."");
+            }
+            catch (Exception $e)
+            {
+
+            }
+
+            $_SESSION["tType"]="individual";
+            $JsonReturn=myCode1($rs);
+            $_SESSION["tType"]=null;
+            unset($_SESSION['tType']);
+
+            $userName= $jsonPath . "guide_".$user_id.".json";
+            $fp = fopen($userName, 'w');
+            fwrite($fp, $JsonReturn);
+            fclose($fp);
+
+            $update = mysql_query("UPDATE `tbl_user_profile` SET `status` = 2 WHERE `user_id` = $user_id");
+            $update = mysql_query("UPDATE `tbl_guide_detail_profile` SET `status` = 2 WHERE `user_id` = $user_id");
+
+            unset($userName);
+            unset($fp);
+
+            unset($rs);
+            //unset(myCode($rs));
         
-        $userName= $jsonPath . "guide_".$user_id.".json";
-        $fp = fopen($userName, 'w');
-        fwrite($fp, $JsonReturn);
-        fclose($fp);
-        unset($userName);
-        unset($fp);
-        unset($rs);
-	//unset(myCode($rs));
 }
 //=============================================================================
 function myCode1($rs)
@@ -87,7 +94,7 @@ function myCode1($rs)
 				$rows3[]=null;
 			}
 			
-			$rs2 = mysql_query("SELECT `tour_id`, `tour_category_id`, `tour_title`, `tour_location`, `tour_territory`, `tour_description`, `tour_duration`, `tour_price`, `start_point`, `end_point`, `inclusive`, `exclusive`, `cancelation_policy`, `restrictions`, `notes` FROM `tbl_tours` WHERE `status` = 1 && `user_id` = '".$row1[ 'user_id' ]."'");
+			$rs2 = mysql_query("SELECT `tour_id`, `tour_category_id`, `tour_title`, `tour_location`, `tour_territory`, `tour_description`, `tour_duration`, `tour_price`, `start_point`, `end_point`, `inclusive`, `exclusive`, `cancelation_policy`, `restrictions`, `notes` FROM `tbl_tours` WHERE `status` != 0 && `user_id` = '".$row1[ 'user_id' ]."'");
 			if(mysql_num_rows($rs2) > 0)
 			{
 					while($row2 = mysql_fetch_array( $rs2 ))
@@ -127,8 +134,8 @@ function myCode1($rs)
 			$randomTopReviewComment = $ran[array_rand($ran, 1)];
 
 			$review[] = array(
-				'Count'=> rand ( 1 , 20 ),
-				'Star'=> rand ( 1 , 5 ),
+				'reviews'=> rand ( 1 , 20 ),
+				'rating'=> rand ( 1 , 5 ),
 				'TopReviewComment' => $randomTopReviewComment
 			  );
 			
@@ -141,26 +148,26 @@ function myCode1($rs)
             else
             {
                 $photo = "https://storage.googleapis.com/guidedgateway_media/".$row1[ 'mobileNo' ]."_profile.jpg";
-                $profileImagePath = parse_ini_file('config.ini',true)['imagePath'];
-                //$photo = null;
-                if (file_exists($profileImagePath . $row1[ 'mobileNo' ]."_profile.jpg"))
-                {
-                    $photo = "https://storage.googleapis.com/guidedgateway_media/".$row1[ 'mobileNo' ]."_profile.jpg";
-                } 
-                else if (file_exists($profileImagePath . $row1[ 'mobileNo' ]."_profile.jpeg")) 
-                {
-                    $photo = "https://storage.googleapis.com/guidedgateway_media/".$row1[ 'mobileNo' ]."_profile.jpeg";
-                } 
-                else if (file_exists($profileImagePath . $row1[ 'mobileNo' ]."_profile.png")) 
-                {
-                    $photo = "https://storage.googleapis.com/guidedgateway_media/".$row1[ 'mobileNo' ]."_profile.png";
-                } 
-                else if (file_exists($profileImagePath . $row1[ 'mobileNo' ]."_profile.gif")) 
-                {
-                    $photo = "https://storage.googleapis.com/guidedgateway_media/".$row1[ 'mobileNo' ]."_profile.gif";
-                } else {
-                    $photo = null;
-                }
+//                $profileImagePath = parse_ini_file('config.ini',true)['imagePath'];
+//                //$photo = null;
+//                if (file_exists($profileImagePath . $row1[ 'mobileNo' ]."_profile.jpg"))
+//                {
+//                    $photo = "https://storage.googleapis.com/guidedgateway_media/".$row1[ 'mobileNo' ]."_profile.jpg";
+//                } 
+//                else if (file_exists($profileImagePath . $row1[ 'mobileNo' ]."_profile.jpeg")) 
+//                {
+//                    $photo = "https://storage.googleapis.com/guidedgateway_media/".$row1[ 'mobileNo' ]."_profile.jpeg";
+//                } 
+//                else if (file_exists($profileImagePath . $row1[ 'mobileNo' ]."_profile.png")) 
+//                {
+//                    $photo = "https://storage.googleapis.com/guidedgateway_media/".$row1[ 'mobileNo' ]."_profile.png";
+//                } 
+//                else if (file_exists($profileImagePath . $row1[ 'mobileNo' ]."_profile.gif")) 
+//                {
+//                    $photo = "https://storage.googleapis.com/guidedgateway_media/".$row1[ 'mobileNo' ]."_profile.gif";
+//                } else {
+//                    $photo = null;
+//                }
             }
             
             $guideTerritorys = $row1['guide_territory'];
@@ -199,6 +206,7 @@ function myCode1($rs)
 			'guide_Remarks' => $row1[ 'guide_Remarks' ], 
 			'tour' => $rows2
 			);
+            
 			unset($rows2);
 			unset($rows3);
 			unset($review);

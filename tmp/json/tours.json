@@ -2,6 +2,7 @@
     "Tours": [
         {
             "tour_id": "50001",
+            "guide_id": "10001",
             "tour_category": "General",
             "tour_title": "2 Days in Delhi",
             "tour_location": "Delhi",
@@ -47,8 +48,9 @@
         },
         {
             "tour_id": "50002",
+            "guide_id": "10001",
             "tour_category": "General",
-            "tour_title": "3 Days in UP",
+            "tour_title": "3 Days in Uttar Pradesh",
             "tour_location": "Uttar Pradesh",
             "tour_territory": [
                 "Uttar Pradesh",
@@ -98,6 +100,7 @@
         },
         {
             "tour_id": "50003",
+            "guide_id": "10001",
             "tour_category": "General",
             "tour_title": "1 Day in Panduchery",
             "tour_location": "Panduchery",
@@ -135,6 +138,7 @@
         },
         {
             "tour_id": "50004",
+            "guide_id": "10001",
             "tour_category": "General",
             "tour_title": "1 Day in Kolkata",
             "tour_location": "Kolkata",

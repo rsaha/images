@@ -335,7 +335,7 @@
 												<strong> Tour Type:</strong>
 												<select class="form-control" name="tourType" id="tourType" style="background-color:white">
 												<?php 
-												$sql = mysql_query("SELECT `tour_category_id`, `tour_category_title` FROM `tbl_tour_category` WHERE `status` = 1");
+												$sql = mysql_query("SELECT `tour_category_id`, `tour_category_title` FROM `tbl_tour_category` WHERE `status` != 0");
 												while ($row = mysql_fetch_array($sql)){
 												echo '<option value="' . $row['tour_category_id'] . '">' . $row['tour_category_title'] . '</option>';
 												}

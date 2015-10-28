@@ -71,10 +71,18 @@ ul.rating {
     font-size: 14px;
 }
 .rating .filled {
-    color: #ff845e;
+    color: #ffc203;
 }
 
 	</style>
+        
+        <style>
+            #bookButton{
+			top: 380px;
+			position: absolute;
+			right: 20px;
+		}
+        </style>
 	
   
 	</head>
@@ -101,7 +109,14 @@ ul.rating {
 							
 							
 							
-								<h1 class="text-upper"><i class="fa fa-user-secret" style="color:black;"></i>&nbsp;&nbsp;{{tg.name}}&nbsp;&nbsp;<span star-rating rating-value="tg.ReviewSummary.Star" ></span></h1>	
+								<h1 class="text-upper">
+								    
+								<i class="fa fa-user-secret" style="color:black;"></i>&nbsp;&nbsp;{{tg.name}}&nbsp;&nbsp;
+                                    <span style="color:black;" star-rating rating-value=5>
+								    
+<!--								</span><span star-rating rating-value="tg.ReviewSummary.Star"></span>-->
+								    
+								</h1>	
 							
 							
 							
@@ -130,45 +145,70 @@ ul.rating {
 							<!-- START .post-data -->
 							<div class="post-data">
 								<div class="plan-image">
-									<img class="img-responsive" src="img/custom3.jpg" alt="Kolkata, WB" />
+									<img class="img-responsive" src="{{'x.photo' ==''||'x.photo' ? 'img/SAMPLE_TAJ.jpg' : x.photo}}" alt="Kolkata, WB"/>
+									  
+								
+                                    
 								</div>
 								
 								<ul class="featured-btm single-ft-btm list-unstyled box-shadow1">
-									<li class="author-img"><img class="img-circle img-wt-border" style=height:80px;width:80px; src="img/featured_guide.jpg" alt="Guide" /></li>
+									<li class="author-img"><img class="img-circle img-wt-border" style=height:80px;width:80px; src="{{'x.photo' ==''||'x.photo' ? 'img/userDefaultIcon.png' : x.photo}}" alt="Guide" /></li>
 									<li class="post-author"><a class="text-upper" >{{tg.gender}}</a></li>
 									<li class="fa fa-tree"><a class=""> {{tg.city}}</a></li>
-									<li class="post-date"><span class="alignright" star-rating rating-value="tg.ReviewSummary.Star" ></span></li>
+                                    	<li class="fa fa-tree"><a class=""> {{tg.experiance_in_year}}</a></li>
+                                    <li class="fa fa-tree"><a class=""> {{tg.guide_interest}}</a></li>
+<!--									<li class="post-date"><span class="alignright" star-rating rating-value="tg.ReviewSummary.Star" ></span></li>-->
 									
 								</ul>
 							</div>
 							<!-- END .post-data -->
-							
+							 <a id="bookButton" href="booking-form.php?id1={{tg.id}}&id2=0"> <input type="submit" name="submit" class="btn btn-lg btn-success text-upper marb20" value="Book" /></a>
 							<!-- START .post-content -->
 							<article class="post-content">
-								<p>Augue sed platea sed non porta tincidunt augue? Odio platea, pulvinar habitasse vut! Pulvinar, integer odio. Ac pid! Habitasse montes elementum, et sagittis tincidunt magnis? Sociis! Elementum quis, integer natoque sed auctor nascetur enim parturient ridiculus ut amet porttitor dapibus phasellus tempor, natoque adipiscing aliquam. Amet. Dapibus proin, elit ut!</p> 
-								<p>Nec? Mid lundium, turpis sit sagittis, in porttitor augue, magna dis, ultrices vel porttitor dapibus tincidunt, elementum lorem, massa odio porta. Sit ac proin odio, platea adipiscing, tempor sagittis enim a, eros proin.</p>
+								<p>{{tg.guide_summary}}Guide is professional. He is trained, examined and registered with the Institute of Tourist Guiding which awards them the highly acclaimed Blue Badge. Have further professional, academic and other specialist qualifications to further illuminate your tour.</p> 
+								<p>
+
+He provide a number of example tours on our site, but we can completely customise to suit your needs. We cover many different languages - between them, our guide can speak over 40 different languages.</p>
 								<p>
 									<img class="alignleft" src="img/feature_detail_tour.jpg" alt="Top Tour" />
-									In! Vel magna nisi aliquam, magnis tempor, nunc dapibus sed porta vut porttitor tristique! Lectus turpis massa ridiculus sagittis tincidunt eros lundium etiam nisi non natoque ac arcu auctor elementum vel nunc sociis! Nunc lacus! Dictumst facilisis turpis, integer? Nec nec. Nunc scelerisque diam! Cum sit arcu, mus in, nisi non etiam arcu a magna etiam nisi porttitor turpis! Natoque ac porta pellentesque nunc placerat porttitor sed porta urna, est ut ut adipiscing, tortor montes, massa urna dictumst ac, pellentesque facilisis nisi arcu! Tortor lacus elementum eros, placerat arcu. Adipiscing platea purus sagittis ridiculus turpis, nunc dictumst ac?
+									<br>
+                                    
 								</p>
 								
 								<!-- BLOCKQUOTE -->
+<!--
 								<blockquote>
 									<p><strong>BLOCK QUOTE</strong></p>
 									<p>In! Vel magna nisi aliquam, magnis tempor, nunc dapibus sed porta vut porttitor tristique! Lectus turpis massa ridiculus sagittis tincidunt eros lundium etiam nisi non natoque ac arcu auctor elementum vel nunc sociis!</p>
 								</blockquote>
-								<p>Augue sed platea sed non porta tincidunt augue? Odio platea, pulvinar habitasse vut! Pulvinar, integer odio. Ac pid! Habitasse montes elementum, et sagittis tincidunt magnis? Sociis! Elementum quis, integer natoque sed auctor nascetur enim parturient ridiculus ut amet porttitor dapibus phasellus tempor, natoque adipiscing aliquam.</p>
+
+-->
+    <div style="padding-left:50px;">
+<h3 class="text-upper">About Tours</h3>
+								<ul>
+    <li>tour description 1</li>
+    <li>tour description 2</li>
+    <li>tour description 3</li>
+    <li>tour description 4</li>
+</ul>
+                                </div>
+                                <br><br>
 							</article>
 							<!-- END .post-content -->
 							
 							<!-- START .about-author -->
-							<div class="about-author gray box-shadow1">
-								<span class="author-image">
-									<img src="img/feature_guide_tour.jpg" alt="Reviewed Tour" />
-								</span>
-								<h5>NICK WILSON <small>Tourist , 2015</small></h5>
-								<p>In! Vel magna nisi aliquam, magnis tempor, nunc dapibus sed porta vut porttitor tristique! Lectus turpis massa ridiculus sagittis tincidunt eros lundium etiam nisi non natoque ac arcu auctor elementum vel nunc sociis! Nunc lacus! Dictumst facilisis turpis</p>
-								<a href="https://twitter.com/envato" class="twitter-follow-button" data-show-count="false">Follow Nick Wilson</a>
+							
+    <div class="sidebar-widget">
+								<!-- Sidebar Newsletter -->
+								<div class="styled-box gray">
+									<h3 class="text-upper">What people are saying About Guide</h3>
+									<form action="contactGuideMail.php" method="post">
+										<label></label>
+										<input type="text" name="email" class="form-control input-style1 marb20" value="Add comment here.." onfocus="if (this.value == 'Enter Email Address') { this.value = ''; }" onblur="if (this.value == '') { this.value = 'Enter Email Address'; }" />
+										<input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Add comment" />
+									</form>
+                                    <h5 class="text-upper">No previous reviews available, Be the first</h5>
+								</div>
 							</div>
 							<!-- END .about-author -->
 							
@@ -237,8 +277,9 @@ ul.rating {
 								<!-- START TABS -->
 								<ul class="nav nav-tabs text-upper">
 									<li class="active"><a href="#toptours" data-toggle="tab">Tours</a></li>
-									<li><a href="#topreviews" data-toggle="tab">Reviews</a></li>
+									<li><a href="#relatedGuides" data-toggle="tab">Guides</a></li>
 									<li><a href="#toptips" data-toggle="tab">Advices</a></li>
+                                    <li><a href="#topreviews" data-toggle="tab">Reviews</a></li>
 								</ul>
 								<!-- END TABS -->
 								
@@ -248,15 +289,16 @@ ul.rating {
 									
 									<div class="tab-pane active" id="toptours" ng-controller="TourControl">
 										<ul class="rc-posts-list list-unstyled">
-											<li ng-repeat="x in alltours" ng-show="$index<2">
+											<li ng-repeat="x in alltours" ng-show="$index<4">
 												<span class="rc-post-image">
-													<img class="img-responsive" src="{{x.Media.Image[0]}}" alt="Tour 1" />
+													<img class="img-responsive" src="{{'x.photo' ==''||'x.photo' ? 'img/SAMPLE_TOUR.jpg' : x.photo}}" alt="Tour 1" />
 												</span>
-												<h5><a href="#">{{x.Title}}</a></h5>
-												<span class="rc-post-date small">Starting Price&nbsp;{{x.Price}}</span><br/>
-                                               <a href="booking-form.html"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Book" /></a>
+												<h5><a href="#">{{x.tour_title}}</a></h5>
+												<span class="rc-post-date small">Starting Price&nbsp;{{x.tour_price}}</span><br/>
+                                               <a href="booking-form.php"> <input type="submit" name="submit" class="btn btn-primary  marb20" value="Book Now" /></a>
 											</li>
 											
+<!--
 											<li>
 												<span class="rc-post-image">
 													<img class="img-responsive" src="img/tour_3.jpg" alt="Tour 3" />
@@ -273,14 +315,30 @@ ul.rating {
 												<span class="rc-post-date small">Starting Price INR 1500</span><br/>
                                                <a href="booking-form.php"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Book" /></a>
 											</li>
+-->
 										</ul>
 									</div>
-									
+									<div class="tab-pane active"  id="relatedGuides" ng-controller="TopGuideControl">
+										<ul class="list-unstyled">
+											<li ng-repeat="z in TopGuides" ng-show="$index<16 && $index==5||$index==7||$index==12||$index==13">
+												<span class="rc-post-image">
+													<img class="img-responsive" style="height:80px; width:65px;" src="{{z.photo}}" alt="Recent Post 2" />
+												</span>
+											<h5><a href="#">{{z.name}}</a></h5>
+<!--												<h5><a href="#">{{z.guide_territory}}</a></h5>-->
+<!--												<h5>{{z.Speciality}}<span class="rc-post-date small">Speciality&nbsp;&nbsp;</span></h5>-->
+												<span star-rating rating-value="z.review.Star" style="" class="" ></span>	<br><br><br>
+											</li>
+										
+										</ul>
+									</div>
 									<!-- END TAB 1 -->
 									
 									<!-- START TAB 2 -->
 									<div class="tab-pane" id="topreviews" ng-controller="TourControl">
 										<ul class="list-unstyled">
+                                            <br><br><br><br><br><br>
+<!--
 											<li ng-repeat="x in alltours" ng-show="$index<2">
 												<span class="rc-post-image ">
 													<img class="img-responsive " style="height:80px;width:80px;" src="{{x.Media.Image[0]}}" alt="Recent Post 1" />
@@ -289,6 +347,7 @@ ul.rating {
 												<span class="">{{x.Reviews.ReviewCount}} reviews</span><br><br>
 												
 											</li>
+-->
 											
 										</ul>
 									</div>
@@ -320,10 +379,15 @@ ul.rating {
 							
 								<div class="sidebar-widget">
 								<!-- Sidebar Flickr Gallery -->
-								<h3 class="text-upper">Guide Gallery</h3>
-								<ul class="flickr-gal list-unstyled" ng-controller="TopGuideControl">
-									<li ng-repeat="x in TopGuides" ng-show="$index==5||$index==7||$index==12||$index==13" ><img style="height:70px; width:120px;" class="img-responsive" src="{{x.photo}}" alt="Guide" /></li>
-								
+								<h3 class="text-upper">Guide's Tours </h3>
+								<ul class="flickr-gal list-unstyled" ng-controller="TourControl">
+<!--									<li ng-repeat="x in TopGuides" ng-show="$index==5||$index==7||$index==12||$index==13" ><img style="height:70px; width:120px;" class="img-responsive" src="{{x.photo}}" alt="Guide" /></li>-->
+								<li ng-repeat="x in alltours">
+								    
+								<img class="img-responsive" src="{{'x.photo' ==''||'x.photo' ? 'img/SAMPLE_TOUR.jpg' : x.photo}}"           alt="Tour Image" />
+								    
+								</li>
+									
 								</ul>
 							</div>
 						</aside>

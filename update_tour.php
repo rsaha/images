@@ -51,6 +51,7 @@ if(isset($_SESSION['userId']))
 			`cancelation_policy`='$cancellationPolicy',
 			`restrictions`='$restriction',
 			`notes`='$notes',
+            `status` = 1, 
 			`datecreated`=now()
 			WHERE `tour_id`=$tourID && `user_id`=$userid");
 			
