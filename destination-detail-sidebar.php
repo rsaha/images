@@ -2,7 +2,7 @@
  if(isset($_GET['id3']))
 	{
 	$place3 = $_GET['id3'];
-    //echo '<script>alert('.$guideid.');</script>';
+    echo '<script>alert('.$place3.');</script>';
 	}
     ?>
 <!DOCTYPE html>
@@ -72,7 +72,7 @@ ul.rating {
 	<!-- START body -->
 	<body ng-app="topPlaces" ng-controller="AllplaceCtrl">
 		<!-- START #wrapper -->
-		<div id="wrapper" ng-repeat="tg in places" ng-if="tg.ID == <?php echo $place3; ?>">
+		<div id="wrapper" ng-repeat="tg in places" ng-if="tg.ID== <?php echo $place3; ?>">
 			<!-- START header -->
 			<?php 
 			
@@ -122,10 +122,10 @@ ul.rating {
 							
 							<!-- START .post-content -->
 							<article class="post-content">
-								<p>{{place.Description}}</p> 
+								<p>{{tg.Description}}</p> 
 								 <h5>Attractions</h5>
 											<p>
-											<ul><li ng-repeat="y in place.Attractions">{{y}}</li>
+											<ul><li ng-repeat="y in tg.Attractions">{{y}}</li>
 											</p>
 								<p>
 									<img class="alignleft" style="width:260px;height:168px;" src="{{tg.Media.Image[0]}}" alt="Image in Post" />

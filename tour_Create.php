@@ -317,7 +317,7 @@
 															</a>
 												<select class="form-control"  tabindex="1" name="tourType" style="background-color:white">
 												<?php 
-												$sql = mysql_query("SELECT `tour_category_id`, `tour_category_title` FROM `tbl_tour_category` WHERE `status` = 1");
+												$sql = mysql_query("SELECT `tour_category_id`, `tour_category_title` FROM `tbl_tour_category` WHERE `status` != 0");
 												while ($row = mysql_fetch_array($sql)){
 												echo '<option value="' . $row['tour_category_id'] . '">' . $row['tour_category_title'] . '</option>';
 												}
@@ -476,13 +476,13 @@
 											<div class="row">
 
 											<?php 
-											$sql2 = mysql_query("SELECT `street_address`, `city`, `state`, `country` FROM `tbl_user_profile` WHERE (`user_id` = $userid and `status` = 1)");
+											$sql2 = mysql_query("SELECT `street_address`, `city`, `state`, `country` FROM `tbl_user_profile` WHERE (`user_id` = $userid and `status` != 0)");
 											//$roww = mysql_fetch_assoc($sql2)
 											$guideCity = mysql_result($sql2, 0, 1);
 											
-											$sql1 = mysql_query("SELECT * FROM `tbl_tours` WHERE `user_id` = 10000 and `tour_territory` = '$guideTerritory' and `status` = 1");
+											$sql1 = mysql_query("SELECT * FROM `tbl_tours` WHERE `user_id` = 10000 and `tour_territory` = '$guideTerritory' and `status` != 0");
 											
-										  //$sql1 = mysql_query("SELECT * FROM `tbl_tours` WHERE ( `user_id` != $userid AND (`tour_id` NOT IN (select `created_added` from `tbl_tours` WHERE `user_id`= $userid and `created_added` != 0)) and `tour_location` = '$guideCity' and `status` = 1 )");
+										  //$sql1 = mysql_query("SELECT * FROM `tbl_tours` WHERE ( `user_id` != $userid AND (`tour_id` NOT IN (select `created_added` from `tbl_tours` WHERE `user_id`= $userid and `created_added` != 0)) and `tour_location` = '$guideCity' and `status` != 0 )");
 											if(mysql_num_rows($sql1) >= 1)
 											{
 											while ($row1 = mysql_fetch_array($sql1))

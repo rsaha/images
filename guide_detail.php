@@ -50,8 +50,8 @@
 				$licenceValidty = "";
 				$guideTerritory = "";
 				$summery = "";
+                $experianceInYear = "";
 				$otherExperiance = "";
-				$experianceInYear = "";
 				$intrest = "";
 				$landLineNumber = "";
 				$paymentCurrency = "";

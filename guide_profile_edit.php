@@ -471,7 +471,7 @@
 													  
 													  <select class="form-control" multiple name="languageKnown[]" id="languageKnown" style="background-color:#f7f7f7;">
 															<?php 
-														  $select3 = mysql_query("SELECT * FROM `tbl_languages` WHERE `status` = 1 ORDER BY `lanugage_name`");
+														  $select3 = mysql_query("SELECT * FROM `tbl_languages` WHERE `status` != 0 ORDER BY `lanugage_name`");
 														  while($row33 = mysql_fetch_array($select3))
 															{
 																$fish=0;
