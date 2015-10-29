@@ -141,7 +141,7 @@ ul.rating {
 				<div class="container">
 					<div class="row" >
 						<!-- START #page -->
-<div id="page" class="col-md-8" >
+                        <div id="page" class="col-md-8" >
 							<!-- START .post-data -->
 							<div class="post-data">
 								<div class="plan-image">
@@ -175,14 +175,6 @@ He provide a number of example tours on our site, but we can completely customis
                                     
 								</p>
 								
-								<!-- BLOCKQUOTE -->
-<!--
-								<blockquote>
-									<p><strong>BLOCK QUOTE</strong></p>
-									<p>In! Vel magna nisi aliquam, magnis tempor, nunc dapibus sed porta vut porttitor tristique! Lectus turpis massa ridiculus sagittis tincidunt eros lundium etiam nisi non natoque ac arcu auctor elementum vel nunc sociis!</p>
-								</blockquote>
-
--->
     <div style="padding-left:50px;">
 <h3 class="text-upper">Tours From {{tg.name}}</h3>
 <ul class="list-unstyled">
@@ -196,7 +188,6 @@ He provide a number of example tours on our site, but we can completely customis
 											</li>
 										</ul>
 									</div>
-                                </div>
                                 <br><br>
 							</article>
 							<!-- END .post-content -->
