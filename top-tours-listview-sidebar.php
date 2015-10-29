@@ -44,8 +44,8 @@
   ga('send', 'pageview');
 
 </script>
-<!-- <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script> -->
-<script type="text/javascript"  src= "js/angular.min.js"></script>
+ <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script> 
+<!--<script type="text/javascript"  src= "js/angular.min.js"></script>-->
 <script type="text/javascript"  src="topTour.js"></script>
 
 <style type="text/css">
@@ -119,82 +119,64 @@ ul.rating {
 								<div class="col-md-12">
 									<div class="tour-plans">
 										<div class="plan-image">
-											<!-- <img class="img-responsive" src="{{x.Media.Image.gs}}" alt="Tour image" href="tour_detail_sidebar.html"/> -->
-											<img class="img-responsive" style="height:360px;" src="{{x.Media.Image[0]}}" alt="Tour image" href="tour_detail_sidebar.html"/>
+                                            <a href="tour_detail_sidebar.php?id={{x.tour_id}}">
+											<img class="img-responsive" style="height:360px;" src="{{x.photo ==null ? 'img/SAMPLE_TOUR.jpg' : x.photo}}" alt="Tour image"/>
+                                            </a>
 											<div class="offer-box">
 												<div class="offer-top">
-													<span class="ft-temp alignright">{{x.Category}}</span>
-													<span class="featured-cr text-upper">{{x.Location}}</span>
-													<h2 class="featured-cy text-upper">{{x.Title}}</h2>
+													<span class="ft-temp alignright">{{x.tour_category}}</span>
+													<span class="featured-cr text-upper">{{x.tour_location}}</span>
+													<h2 class="featured-cy text-upper">{{x.tour_title}}</h2>
 												</div>
 												
 												<div class="offer-bottom">
 													<span class="featured-stf">Starting From </span>
-													<span class="featured-spe">{{x.Price}}</span>
+													<span class="featured-spe">{{x.tour_price}}</span>
 												</div>
-												<<!-- div class="act-date">
-													<span class="bold">{{x.}}</span>
-												</div> -->
 											</div>
 										</div>
 										<div class="featured-btm box-shadow1">
-											<span class="ft-hotel text-upper">{{x.Guide}}</span>
-											<span class="ft-plane text-upper">{{x.Duration}}</span>
-											<span class="ft-tea text-upper" star-rating rating-value="x.Reviews.OverallRating"></span>
-											<span class="alignleft fa fa-eye">&nbsp;&nbsp;{{x.Reviews.ReviewCount}} reviews</span> 
+											<span class="ft-hotel text-upper">{{x.tour_territory[0]}}</span>
+											<span class="ft-plane text-upper">{{x.tour_duration}}</span>
+											<span class="ft-tea text-upper" star-rating rating-value="5"></span>
+											<span class="alignleft fa fa-eye">&nbsp;&nbsp; reviews</span> 
 										</div>
 										<div class="post-desc">
-											<h4>{{x.Title}}</h4>
-											<!-- <p>{{x.Description}}</p> -->
-											<a class="btn btn-primary marb20" href="tour_detail_sidebar.php">DETAILS</a>
+											<h4 ></h4>
+											<a class="btn btn-primary marb20" href="tour_detail_sidebar.php?tour_id={{x.tour_id}}">DETAILS</a>
 										</div>
 									</div>
 								</div><br>
 							
-								<div class="clearfix"></div>
+<!--								<div class="clearfix"></div>-->
 							</div>
-							</a>
+							
 						</div>
+						</a>
 						<!-- START #sidebar -->
 						<aside id="sidebar" class="col-md-4">
 							<div class="sidebar-widget">
 								<!-- Sidebar recent popular posts -->
 								<!-- START TABS -->
 								<ul class="nav nav-tabs text-upper">
-									<li class="active"><a href="#topguides" data-toggle="tab">Tours</a></li>
-									<li><a href="#topreviews" data-toggle="tab">Reviews</a></li>
-									<li><a href="#toptips" data-toggle="tab">Hotels</a></li>
+									<li class="active"><a href="#relatedtours" data-toggle="tab">Tours</a></li>
+									<li><a href="#topguides" data-toggle="tab">Guides</a></li>
+									<li><a href="#topdestinations" data-toggle="tab">Destinations</a></li>
+                                    
 								</ul>
 								<!-- END TABS -->
 								
 								<!-- START TAB CONTENT -->
 								<div class="tab-content gray box-shadow1 clearfix marb30">
 									<!-- START TAB 1 -->
-									<div class="tab-pane active" id="topguides" ng-controller="toursCtrl">
+									<div class="tab-pane active" id="relatedtours" ng-controller="toursCtrl">
 										<ul class="rc-posts-list list-unstyled">
 											<li ng-repeat="x in tours" ng-show="$index<4">
 												<span class="rc-post-image">
-													<img class="img-responsive" src="{{x.Media.Image[0]}}" alt="Tour 1" />
+													<img class="img-responsive" src="{{'x.photo' ==''||'x.photo' ? 'img/SAMPLE_TOUR.jpg' : x.photo}}" alt="Tour x" />
 												</span>
-												<h5><a href="#">{{x.Title}}</a></h5>
-												<span class="rc-post-date small">Starting Price&nbsp;{{x.Price}}</span><br/>
-                                               <a href="booking-form.html"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Book" /></a>
-											</li>
-											
-											<li>
-												<span class="rc-post-image">
-													<img class="img-responsive" src="img/tour_3.jpg" alt="Tour 3" />
-												</span>
-												<h5><a href="#">Tour 3 </a></h5>
-												<span class="rc-post-date small">Starting Price INR 1500</span><br/>
-                                               <a href="booking-form.html"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Book" /> </a>
-											</li>
-											<li class="last-rc-post">
-												<span class="rc-post-image">
-													<img class="img-responsive" src="img/tour_4.jpg" alt="Tour 4" />
-												</span>
-												<h5><a href="#">Tour 4 </a></h5>
-												<span class="rc-post-date small">Starting Price INR 1500</span><br/>
+												<h5><a href="#">{{x.tour_title}}</a></h5>
+												<span class="rc-post-date small">Starting Price&nbsp;{{x.tour_price}}</span><br/>
                                                <a href="booking-form.html"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Book" /></a>
 											</li>
 										</ul>
@@ -202,16 +184,16 @@ ul.rating {
 									<!-- END TAB 1 -->
 									
 									<!-- START TAB 2 -->
-									<div class="tab-pane" id="topreviews">
-										<ul class=" list-unstyled" ng-controller="toursCtrl">
-											<li ng-repeat="z in tours">
+									<div class="tab-pane"  id="topguides" ng-controller="guidescontrol">
+										<ul class="list-unstyled">
+											<li ng-repeat="z in guides" ng-show="$index<18 && z.photo!=null">
 												<span class="rc-post-image">
-													<img class="img-responsive"  src="{{z.Media.Image[0]}}" alt="Recent Post 1" />
+													<img class="img-responsive" style="height:70px; width:60px;" src="{{z.photo==null ? 'img/SAMPLE_TOUR.jpg' :z.photo}}" alt="Recent Post 2" />
 												</span>
-												<h5>{{z.Title}}</h5>
-                                                <span>{{z.Location}}</span>
-												<span star-rating rating-value="z.Reviews.OverallRating" style="" class="" ></span><br><br>
-												
+											<h5><a href="#">{{z.name}}</a></h5>
+												<h5><a href="#">{{z.guide_territory[0]}}</a></h5>
+												<h5>{{z.Speciality}}<span class="rc-post-date small">Speciality&nbsp;&nbsp;</span></h5>
+												<span star-rating rating-value="z.review.rating" style="" class="" ></span>	<br><br><br>
 											</li>
 										
 										</ul>
@@ -219,25 +201,33 @@ ul.rating {
 									<!-- END TAB 2 -->
 									
 									<!-- START TAB 3 -->
-									<div class="tab-pane" id="toptips">
-										<div class="inside-pane">
-											<p><br><br><br></p>
-											<p><br><br><br><br><br><br></p>
-										</div>
+									<div class="tab-pane" id="topdestinations"  ng-controller="placesCtrl">
+										<ul class=" list-unstyled">
+											<li ng-repeat="k in places" ng-show="$index<4">
+												<span class="rc-post-image">
+													<img class="img-responsive" style="height:80px;width:80px;" src="{{k.Media.Image[0]}}" alt="Tour 1" />
+												</span>
+												<h5><a href="#">{{k.Name}}</a></h5>
+												<span class="rc-post-date small">Best Visit:&nbsp;&nbsp;&nbsp;{{k.BestTimeToVisit}}</span><br/>
+                                               <a href="booking-form.Php"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Book" /></a>
+											</li>
+										</ul>
 									</div>
 									<!-- END TAB 3 -->
 								</div>
 								<!-- END TAB CONTENT -->
 							</div>
 							
+<!--
 							<div class="sidebar-widget">
-								<!-- Sidebar Flickr Gallery -->
-								<h3 class="text-upper">Tours</h3>
+							
+								<h3 class="text-upper">Related Tours</h3>
 								<ul class="flickr-gal list-unstyled" ng-controller="toursCtrl">
-									<li ng-repeat="tourslist in tours"><img class="img-responsive" src="{{tourslist.Media.Image[0]}}" alt="Flickr Photo" /></li>
+									<li ng-repeat="tourslist in tours"><img class="img-responsive" src="{{tourslist.photo}}" alt="Tour Photo" /></li>
 									
 								</ul>
 							</div>
+-->
 						</aside>
 						<!-- END #sidebar -->
 					</div>

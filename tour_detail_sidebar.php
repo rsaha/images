@@ -167,13 +167,11 @@ ul.rating {
 									</div>
 								</div>
 								
-								<div class="featured-btm box-shadow1">
-									
+								<div class="featured-btm box-shadow1">									
 									<a class="ft-plane text-upper" style="font-weight:bold;" href="#">{{tg.tour_category_id}}</a>
 									<a class="ft-tea text-upper" style="font-weight:bold;" href="#">{{tg.inclusive}}</a>
                                     <a class="ft-hotel text-upper" style="font-weight:bold;" href="booking-form.php">From:&nbsp;&nbsp;{{tour.start_point}}&nbsp;&nbsp;-&nbsp;&nbsp;To:&nbsp;&nbsp;{{tg.end_point}}</a>
-									
-								</div>
+																	</div>
 								<a id="bookButton" href="booking-form.php?id1=0&id2={{tg.tour_id}}" class="alignright"> <input type="submit" name="submit" class="btn btn-success text-upper " value="Book" /></a>
 								<h2 class="text-upper">Tour Information</h2>
 								<p>"{{tg.tour_description}}"</p>
@@ -197,7 +195,6 @@ ul.rating {
 									<!-- <ul class="plans-list list-unstyled">
 										<li> -->
 										<div class="col-md-4" style="padding:15px 15px 15px 15px">
-										<!--	<img class="img-responsive" src="{{tour.Media.Image[0]}}" alt="Day 1" />  -->
 											<div class="plan-info">
 												<h4 class="text-upper">{{tg.tour_duration}}</h4>
 												<p ng-repeat="x in tg.tour_itinerary"><span>{{x.tourist_spot}}</span></p>
@@ -319,8 +316,10 @@ ul.rating {
 								<!-- START TABS -->
 								<ul class="nav nav-tabs text-upper">
 									<li class="active"><a href="#topguides" data-toggle="tab">Guides</a></li>
-									<li><a href="#topreview" data-toggle="tab">Reviews</a></li>
+                                    <li class=""><a href="#toptours" data-toggle="tab">Tours</a></li>
+									
 									<li><a href="#lodging" data-toggle="tab">Hotels</a></li>
+                                    <li><a href="#topreview" data-toggle="tab">Reviews</a></li>
 								</ul>
 								<!-- END TABS -->
 								
@@ -329,9 +328,9 @@ ul.rating {
 									<!-- START TAB 1 -->
 									<div class="tab-pane active"  id="topguides" ng-controller="guidescontrol">
 										<ul class="list-unstyled">
-											<li ng-repeat="z in guides" ng-show="$index<16 && $index==5||$index==7||$index==12||$index==13">
+											<li ng-repeat="z in guides" ng-show="$index<18 && z.photo!=null">
 												<span class="rc-post-image">
-													<img class="img-responsive" style="height:80px; width:65px;" src="{{z.photo}}" alt="Recent Post 2" />
+													<img class="img-responsive" style="height:80px; width:65px;" src="{{z.photo==null ? 'img/SAMPLE_TOUR.jpg' :z.photo}}" alt="Recent Post 2" />
 												</span>
 											<h5><a href="#">{{z.name}}</a></h5>
 <!--												<h5><a href="#">{{z.guide_territory}}</a></h5>-->
@@ -342,7 +341,37 @@ ul.rating {
 										</ul>
 									</div>
 									<!-- END TAB 1 -->
-									
+									<div class="tab-pane" id="toptours" ng-controller="toursCtrl">
+										<ul class="rc-posts-list list-unstyled">
+											<li ng-repeat="x in tours" ng-show="$index<4">
+												<span class="rc-post-image">
+													<img class="img-responsive" src="{{'x.photo' ==''||'x.photo' ? 'img/SAMPLE_TOUR.jpg' : x.photo}}" alt="Tour 1" />
+												</span>
+												<h5><a href="#">{{x.tour_title}}</a></h5>
+												<span class="rc-post-date small">Starting Price&nbsp;{{x.tour_price}}</span><br/>
+                                               <a href="booking-form.php?id2={{x.tour_id}}"> <input type="submit" name="submit" class="btn btn-primary  marb20" value="Book Now" /></a>
+											</li>
+											
+<!--
+											<li>
+												<span class="rc-post-image">
+													<img class="img-responsive" src="img/tour_3.jpg" alt="Tour 3" />
+												</span>
+												<h5><a href="#">Tour 3 </a></h5>
+												<span class="rc-post-date small">Starting Price INR 1500</span><br/>
+                                               <a href="booking-form.html"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Book" /> </a>
+											</li>
+											<li class="last-rc-post">
+												<span class="rc-post-image">
+													<img class="img-responsive" src="img/tour_4.jpg" alt="Tour 4" />
+												</span>
+												<h5><a href="#">Tour 4 </a></h5>
+												<span class="rc-post-date small">Starting Price INR 1500</span><br/>
+                                               <a href="booking-form.php"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Book" /></a>
+											</li>
+-->
+										</ul>
+									</div>
 									<!-- START TAB 2 -->
 									<div class="tab-pane" id="topreview" ng-controller="tourDetailCtrl">
 										<ul class="list-unstyled">
@@ -354,27 +383,7 @@ ul.rating {
 												<span star-rating rating-value="z.Rating" style="" class="" ></span><br><br>
 												
 											</li>
-										<!--	<li>
-												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 2" />
-												</span>
-												<h5><a href="#">Limbaugh: Does 'Dark Knight Rise have it Bomb Found...</a></h5>
-												<span class="rc-post-date small">January 18, 2014</span>
-											</li>
-											<li>
-												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 3" />
-												</span>
-												<h5><a href="#">Shares suspende am Bankiaid 'Gloomy Forecast'</a></h5>
-												<span class="rc-post-date small">January 15, 2014</span>
-											</li>
-											<li class="last-rc-post">
-												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 4" />
-												</span>
-												<h5><a href="#">Shares suspende am Bankiaid 'Gloomy Forecast'</a></h5>
-												<span class="rc-post-date small">January 11, 2014</span>
-											</li>  -->
+										
 										</ul>
 									</div>
 									<!-- END TAB 2 -->
