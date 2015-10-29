@@ -119,7 +119,9 @@ ul.rating {
 								<div class="col-md-12">
 									<div class="tour-plans">
 										<div class="plan-image">
-											<img class="img-responsive" style="height:360px;" src="{{x.photo}}" alt="Tour image" href="tour_detail_sidebar.html"/>
+                                            <a href="tour_detail_sidebar.php?id={{x.tour_id}}">
+											<img class="img-responsive" style="height:360px;" src="{{'x.photo' ==''||'x.photo' ? 'img/SAMPLE_TOUR.jpg' : x.photo}}" alt="Tour image"/>
+                                            </a>
 											<div class="offer-box">
 												<div class="offer-top">
 													<span class="ft-temp alignright">{{x.tour_category_id}}</span>
