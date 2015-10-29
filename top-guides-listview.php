@@ -132,11 +132,11 @@ ul.rating {
 					<div class="row ">
 					  <div class="col-md-8">
 							<div class="row bom-contents" ng-controller="guideCtrl">
-						<div class="col-md-4" ng-repeat="x in allguides" ng-show="$index<12 && $index==5||$index==7||$index==12||$index==13" >
+						<div class="col-md-4" ng-repeat="x in allguides" ng-show="$index<12" >
 							 <div	class="ft-item"> 
 						  <span class="ft-image">
-						  <a href="guide-detail-sidebar.php">
-							 <img style="height:180px;width:160;" class="img-responsive"  src="{{x.photo}}" alt="Top Guide" /> </a>
+						  <a href="guide-detail-sidebar.php?id2={{x.id}}">
+							 <img style="height:180px;width:160;" class="img-responsive"  src="{{'x.photo' == ''||'x.photo' ? 'img/userDefaultIcon.png' : x.photo}}" alt="Top Guide" /> </a>
 <!--                               <img style="height:230px;width:180;" class="img-responsive"  src="img/author-img.jpg" alt="Top Guide" /> </a>-->
 						  </span>
 					  

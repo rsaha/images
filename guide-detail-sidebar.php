@@ -184,13 +184,18 @@ He provide a number of example tours on our site, but we can completely customis
 
 -->
     <div style="padding-left:50px;">
-<h3 class="text-upper">About Tours</h3>
-								<ul>
-    <li>tour description 1</li>
-    <li>tour description 2</li>
-    <li>tour description 3</li>
-    <li>tour description 4</li>
-</ul>
+<h3 class="text-upper">Tours From {{tg.name}}</h3>
+<ul class="rc-posts-list list-unstyled">
+											<li ng-repeat="x in alltours" ng-show="$index<4">
+												<span class="rc-post-image">
+													<img class="img-responsive" src="{{'x.photo' ==''||'x.photo' ? 'img/SAMPLE_TOUR.jpg' : x.photo}}" alt="Tour 1" />
+												</span>
+												<h5><a href="#">{{x.tour_title}}</a></h5>
+												<span class="rc-post-date small">Starting Price&nbsp;{{x.tour_price}}</span><br/>
+                                               <a href="booking-form.php?id2={{x.tour_id}}"> <input type="submit" name="submit" class="btn btn-primary  marb20" value="Book Now" /></a>
+											</li>
+										</ul>
+									</div>
                                 </div>
                                 <br><br>
 							</article>
@@ -295,7 +300,7 @@ He provide a number of example tours on our site, but we can completely customis
 												</span>
 												<h5><a href="#">{{x.tour_title}}</a></h5>
 												<span class="rc-post-date small">Starting Price&nbsp;{{x.tour_price}}</span><br/>
-                                               <a href="booking-form.php"> <input type="submit" name="submit" class="btn btn-primary  marb20" value="Book Now" /></a>
+                                               <a href="booking-form.php?id2={{x.tour_id}}"> <input type="submit" name="submit" class="btn btn-primary  marb20" value="Book Now" /></a>
 											</li>
 											
 <!--
@@ -318,16 +323,18 @@ He provide a number of example tours on our site, but we can completely customis
 -->
 										</ul>
 									</div>
-									<div class="tab-pane active"  id="relatedGuides" ng-controller="TopGuideControl">
+									<div class="tab-pane"  id="relatedGuides" ng-controller="TopGuideControl">
 										<ul class="list-unstyled">
 											<li ng-repeat="z in TopGuides" ng-show="$index<16 && $index==5||$index==7||$index==12||$index==13">
 												<span class="rc-post-image">
-													<img class="img-responsive" style="height:80px; width:65px;" src="{{z.photo}}" alt="Recent Post 2" />
+                                                  <a href="guide-detail-sidebar.php?id2={{z.id}}">
+													<img class="img-responsive" style="height:80px; width:65px;" src="{{z.photo}}" alt="Guide Image" />
+                                                    </a>
 												</span>
-											<h5><a href="#">{{z.name}}</a></h5>
-<!--												<h5><a href="#">{{z.guide_territory}}</a></h5>-->
-<!--												<h5>{{z.Speciality}}<span class="rc-post-date small">Speciality&nbsp;&nbsp;</span></h5>-->
-												<span star-rating rating-value="z.review.Star" style="" class="" ></span>	<br><br><br>
+											<h5>{{z.name}}</h5>
+												<h5>{{z.guide_territory}}</a></h5>
+												<h5>{{z.experiance_in_year}}<span class="rc-post-date small">Years Experience</span></h5>
+												<span star-rating rating-value="{{z.review.Star}}" style="" class="" ></span><br><br><br>
 											</li>
 										
 										</ul>
@@ -337,7 +344,7 @@ He provide a number of example tours on our site, but we can completely customis
 									<!-- START TAB 2 -->
 									<div class="tab-pane" id="topreviews" ng-controller="TourControl">
 										<ul class="list-unstyled">
-                                            <br><br><br><br><br><br>
+                                            No Reviews Yet<br><br><br><br><br><br>
 <!--
 											<li ng-repeat="x in alltours" ng-show="$index<2">
 												<span class="rc-post-image ">
@@ -356,7 +363,7 @@ He provide a number of example tours on our site, but we can completely customis
 									<!-- START TAB 3 -->
 									<div class="tab-pane" id="toptips">
 										<div class="inside-pane">
-											<p><br><br><br><br><br><br><br><br></p>
+											<p>Coming Soon<br><br><br><br><br><br><br><br></p>
 										</div>
 									</div>
 									<!-- END TAB 3 -->
