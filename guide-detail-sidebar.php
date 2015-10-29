@@ -185,14 +185,14 @@ He provide a number of example tours on our site, but we can completely customis
 -->
     <div style="padding-left:50px;">
 <h3 class="text-upper">Tours From {{tg.name}}</h3>
-<ul class="rc-posts-list list-unstyled">
-											<li ng-repeat="x in alltours" ng-show="$index<4">
+<ul class="list-unstyled">
+											<li>
 												<span class="rc-post-image">
-													<img class="img-responsive" src="{{'x.photo' ==''||'x.photo' ? 'img/SAMPLE_TOUR.jpg' : x.photo}}" alt="Tour 1" />
+													<img class="img-responsive" src="img/SAMPLE_TOUR.jpg" alt="Tour 1" />
 												</span>
-												<h5><a href="#">{{x.tour_title}}</a></h5>
-												<span class="rc-post-date small">Starting Price&nbsp;{{x.tour_price}}</span><br/>
-                                               <a href="booking-form.php?id2={{x.tour_id}}"> <input type="submit" name="submit" class="btn btn-primary  marb20" value="Book Now" /></a>
+												<h5><a href="tour_detail_sidebar.php?id2=50001">Very nice tour of historic Bengal></h5>
+												<span class="rc-post-date small">Starting Price</span>INR 1500 per Person<br/>
+                                               <a href="booking-form.php?id2=50001"> <input type="submit" name="submit" class="btn btn-primary  marb20" value="Book Now" /></a>
 											</li>
 										</ul>
 									</div>
@@ -200,11 +200,6 @@ He provide a number of example tours on our site, but we can completely customis
                                 <br><br>
 							</article>
 							<!-- END .post-content -->
-							
-							<!-- START .about-author -->
-							
-    <div class="sidebar-widget">
-								<!-- Sidebar Newsletter -->
 								<div class="styled-box gray">
 									<h3 class="text-upper">What people are saying About Guide</h3>
 									<form action="contactGuideMail.php" method="post">
@@ -214,64 +209,6 @@ He provide a number of example tours on our site, but we can completely customis
 									</form>
                                     <h5 class="text-upper">No previous reviews available, Be the first</h5>
 								</div>
-							</div>
-							<!-- END .about-author -->
-							
-							<!-- START #commentForm -->
-						<!-- 	<section id="commentForm">
-								<h2 class="ft-heading text-upper">Contact Guide</h2>
-								<form action="contactGuideMail.php" method="post" ng-controller="validateCtrlNew" name="myForm"  novalidate>
-									<fieldset>
-										<ul class="formFields list-unstyled">
-											<li class="row">
-												<div class="col-md-6">
-													<label>Name </label>
-													<input type="text" class="form-control" name="name" value="name" ng-model="name" required ng-pattern="/^[a-z A-Z]+$/" />
-														 <span style="color:red" ng-show="myForm.name.$dirty && myForm.name.$invalid">
-											 <span ng-show="myForm.name.$error.required">*Name is required.</span>
-											   <span ng-show="myForm.name.$error.pattern">*Invalid Name ...</span>
-											  </span>
-												</div>
-												<div class="col-md-6">
-													<label>Email</label>
-													<input type="text" class="form-control" name="email" value="email" ng-model="email" required ng-pattern="/^[a-zA-Z0-9._-]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,5}(\.[a-zA-Z]{2,5}){0,1}$/" />
-												 <span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
-											 <span ng-show="myForm.email.$error.required">*email is required.</span>
-											   <span ng-show="myForm.email.$error.pattern">*Invalid Name ...</span>
-											  </span>
-												</div>
-											</li>
-											<li class="row">
-												<div class="col-md-12">
-													<label>Subject </label>
-													<input type="text" class="form-control" name="subject" value="subject" required ng-model="subject" ng-pattern="/^[a-z A-Z]+$/"/>
-													 <span style="color:red" ng-show="myForm.subject.$dirty && myForm.subject.$invalid">
-											 <span ng-show="myForm.subject.$error.required">*subject is required.</span>
-											   <span ng-show="myForm.subject.$error.pattern">*Invalid Name ...</span>
-											  </span>
-												</div>
-											</li>
-											<li class="row">
-												<div class="col-md-12">
-													<label>Message </label>
-													<textarea class="form-control" ng-model="Message" value="Message" required ng-pattern="/^[a-z A-Z]+$/"></textarea>
-													 <span style="color:red" ng-show="myForm.Message.$dirty && myForm.Message.$invalid">
-											 <span ng-show="myForm.Message.$error.required">*Message is required.</span>
-											   <span ng-show="myForm.Message.$error.pattern">*Invalid Name ...</span>
-											  </span>
-												</div>
-											</li>
-											<li class="row">
-												<div class="col-md-12">
-													<input type="submit" class="btn btn-primary btn-lg text-upper" name="submit" value="Submit" />
-													<span class="required small">*Your email will never published.</span>
-												</div>
-											</li>
-										</ul>
-									</fieldset>
-								</form>
-							</section> -->
-							<!-- END #commentForm -->
 						</div>
 						<!-- END #page -->
 						
