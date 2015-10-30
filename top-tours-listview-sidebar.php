@@ -120,19 +120,11 @@ ul.rating {
 									<div class="tour-plans">
 										<div class="plan-image">
                                             <a href="tour_detail_sidebar.php?id={{x.tour_id}}">
-<<<<<<< HEAD
-											<img class="img-responsive" style="height:360px;" src="{{'x.photo' ==''||'x.photo' ? 'img/SAMPLE_TOUR.jpg' : x.photo}}" alt="Tour image"/>
-                                            </a>
-											<div class="offer-box">
-												<div class="offer-top">
-													<span class="ft-temp alignright">{{x.tour_category_id}}</span>
-=======
 											<img class="img-responsive" style="height:360px;" src="{{x.photo ==null ? 'img/SAMPLE_TOUR.jpg' : x.photo}}" alt="Tour image"/>
                                             </a>
 											<div class="offer-box">
 												<div class="offer-top">
 													<span class="ft-temp alignright">{{x.tour_category}}</span>
->>>>>>> 5a515311d1839e69e8e51996573d17d4f22d7035
 													<span class="featured-cr text-upper">{{x.tour_location}}</span>
 													<h2 class="featured-cy text-upper">{{x.tour_title}}</h2>
 												</div>
@@ -146,19 +138,11 @@ ul.rating {
 										<div class="featured-btm box-shadow1">
 											<span class="ft-hotel text-upper">{{x.tour_territory[0]}}</span>
 											<span class="ft-plane text-upper">{{x.tour_duration}}</span>
-<<<<<<< HEAD
-											<span class="ft-tea text-upper" star-rating rating-value="{{x.Reviews.OverallRating}}"></span>
-											<span class="alignleft fa fa-eye">&nbsp;&nbsp;{{x.Reviews.ReviewCount}} reviews</span> 
-										</div>
-										<div class="post-desc">
-											<h4>{{x.tour_description}}</h4>
-=======
 											<span class="ft-tea text-upper" star-rating rating-value="5"></span>
 											<span class="alignleft fa fa-eye">&nbsp;&nbsp; reviews</span> 
 										</div>
 										<div class="post-desc">
 											<h4 ></h4>
->>>>>>> 5a515311d1839e69e8e51996573d17d4f22d7035
 											<a class="btn btn-primary marb20" href="tour_detail_sidebar.php?tour_id={{x.tour_id}}">DETAILS</a>
 										</div>
 									</div>
@@ -178,10 +162,6 @@ ul.rating {
 									<li class="active"><a href="#relatedtours" data-toggle="tab">Tours</a></li>
 									<li><a href="#topguides" data-toggle="tab">Guides</a></li>
 									<li><a href="#topdestinations" data-toggle="tab">Destinations</a></li>
-<<<<<<< HEAD
-=======
-                                    
->>>>>>> 5a515311d1839e69e8e51996573d17d4f22d7035
 								</ul>
 								<!-- END TABS -->
 								
@@ -192,11 +172,7 @@ ul.rating {
 										<ul class="rc-posts-list list-unstyled">
 											<li ng-repeat="x in tours" ng-show="$index<4">
 												<span class="rc-post-image">
-<<<<<<< HEAD
-													<img class="img-responsive" src="{{x.photo}}" alt="Tour x" />
-=======
 													<img class="img-responsive" src="{{'x.photo' ==''||'x.photo' ? 'img/SAMPLE_TOUR.jpg' : x.photo}}" alt="Tour x" />
->>>>>>> 5a515311d1839e69e8e51996573d17d4f22d7035
 												</span>
 												<h5><a href="#">{{x.tour_title}}</a></h5>
 												<span class="rc-post-date small">Starting Price&nbsp;{{x.tour_price}}</span><br/>
@@ -207,19 +183,11 @@ ul.rating {
 									<!-- END TAB 1 -->
 									
 									<!-- START TAB 2 -->
-<<<<<<< HEAD
-									<div class="tab-pane" id="topguides">
-										<ul class=" list-unstyled" ng-controller="toursCtrl">
-											<li ng-repeat="z in tours">
-												<span class="rc-post-image">
-													<img class="img-responsive"  src="{{z.photo}}" alt="Recent Post 1" />
-=======
 									<div class="tab-pane"  id="topguides" ng-controller="guidescontrol">
 										<ul class="list-unstyled">
 											<li ng-repeat="z in guides" ng-show="$index<18 && z.photo!=null">
 												<span class="rc-post-image">
 													<img class="img-responsive" style="height:70px; width:60px;" src="{{z.photo==null ? 'img/SAMPLE_TOUR.jpg' :z.photo}}" alt="Recent Post 2" />
->>>>>>> 5a515311d1839e69e8e51996573d17d4f22d7035
 												</span>
 											<h5><a href="#">{{z.name}}</a></h5>
 												<h5><a href="#">{{z.guide_territory[0]}}</a></h5>
@@ -232,15 +200,9 @@ ul.rating {
 									<!-- END TAB 2 -->
 									
 									<!-- START TAB 3 -->
-<<<<<<< HEAD
-									<div class="tab-pane" id="topdestinations"  ng-controller="placeCtrl">
-										<ul class=" list-unstyled">
-											<li ng-repeat="k in allplaces" ng-show="$index<4">
-=======
 									<div class="tab-pane" id="topdestinations"  ng-controller="placesCtrl">
 										<ul class=" list-unstyled">
 											<li ng-repeat="k in places" ng-show="$index<4">
->>>>>>> 5a515311d1839e69e8e51996573d17d4f22d7035
 												<span class="rc-post-image">
 													<img class="img-responsive" style="height:80px;width:80px;" src="{{k.Media.Image[0]}}" alt="Tour 1" />
 												</span>

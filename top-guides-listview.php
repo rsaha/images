@@ -136,11 +136,7 @@ ul.rating {
 							 <div	class="ft-item"> 
 						  <span class="ft-image">
 						  <a href="guide-detail-sidebar.php?id2={{x.id}}">
-<<<<<<< HEAD
-							 <img style="height:180px;width:160;" class="img-responsive"  src="{{'x.photo' == ''||'x.photo' ? 'img/userDefaultIcon.png' : x.photo}}" alt="Top Guide" /> </a>
-=======
 							 <img style="height:150px;" class="img-responsive"  src="{{x.photo == null ? 'img/userDefaultIcon.png' : x.photo}}" alt="Top Guide" /> </a>
->>>>>>> 5a515311d1839e69e8e51996573d17d4f22d7035
 <!--                               <img style="height:230px;width:180;" class="img-responsive"  src="img/author-img.jpg" alt="Top Guide" /> </a>-->
 						  </span>
 					  
