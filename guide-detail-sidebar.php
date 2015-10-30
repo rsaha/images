@@ -141,7 +141,7 @@ ul.rating {
 				<div class="container">
 					<div class="row" >
 						<!-- START #page -->
-<div id="page" class="col-md-8" >
+                        <div id="page" class="col-md-8" >
 							<!-- START .post-data -->
 							<div class="post-data">
 								<div class="plan-image">
@@ -175,14 +175,6 @@ He provide a number of example tours on our site, but we can completely customis
                                     
 								</p>
 								
-								<!-- BLOCKQUOTE -->
-<!--
-								<blockquote>
-									<p><strong>BLOCK QUOTE</strong></p>
-									<p>In! Vel magna nisi aliquam, magnis tempor, nunc dapibus sed porta vut porttitor tristique! Lectus turpis massa ridiculus sagittis tincidunt eros lundium etiam nisi non natoque ac arcu auctor elementum vel nunc sociis!</p>
-								</blockquote>
-
--->
     <div style="padding-left:50px;">
 <h3 class="text-upper">Tours From {{tg.name}}</h3>
 <ul class="list-unstyled">
@@ -196,7 +188,6 @@ He provide a number of example tours on our site, but we can completely customis
 											</li>
 										</ul>
 									</div>
-                                </div>
                                 <br><br>
 							</article>
 							<!-- END .post-content -->
@@ -262,16 +253,14 @@ He provide a number of example tours on our site, but we can completely customis
 									</div>
 									<div class="tab-pane"  id="relatedGuides" ng-controller="TopGuideControl">
 										<ul class="list-unstyled">
-											<li ng-repeat="z in TopGuides" ng-show="$index<16 && $index==5||$index==7||$index==12||$index==13">
+											<li ng-repeat="z in TopGuides" ng-show="$index<18 && z.photo!=null">
 												<span class="rc-post-image">
-                                                  <a href="guide-detail-sidebar.php?id2={{z.id}}">
-													<img class="img-responsive" style="height:80px; width:65px;" src="{{z.photo}}" alt="Guide Image" />
-                                                    </a>
+													<img class="img-responsive" style="height:70px; width:60px;" src="{{z.photo==null ? 'img/SAMPLE_TOUR.jpg' :z.photo}}" alt="Recent Post 2" />
 												</span>
-											<h5>{{z.name}}</h5>
-												<h5>{{z.guide_territory}}</a></h5>
-												<h5>{{z.experiance_in_year}}<span class="rc-post-date small">Years Experience</span></h5>
-												<span star-rating rating-value="{{z.review.Star}}" style="" class="" ></span><br><br><br>
+											<h5><a href="#">{{z.name}}</a></h5>
+												<h5><a href="#">{{z.guide_territory[0]}}</a></h5>
+												<h5>{{z.Speciality}}<span class="rc-post-date small">Speciality&nbsp;&nbsp;</span></h5>
+												<span star-rating rating-value="z.review.Star" style="" class="" ></span>	<br><br><br>
 											</li>
 										
 										</ul>
@@ -314,8 +303,12 @@ He provide a number of example tours on our site, but we can completely customis
 								<div class="styled-box gray">
 									<h3 class="text-upper">Contact for Custom tour</h3>
 									<form action="contactGuideMail.php" method="post">
-										<label>Email Address</label>
-										<input type="text" name="email" class="form-control input-style1 marb20" value="Enter Email Address" onfocus="if (this.value == 'Enter Email Address') { this.value = ''; }" onblur="if (this.value == '') { this.value = 'Enter Email Address'; }" />
+                                        <label>Email Address</label>
+										<input type="text" name="email" class="form-control input-style1 marb20" value="Enter Email Address.." onfocus="if (this.value == 'Enter Email Address') { this.value = ''; }" onblur="if (this.value == '') { this.value = 'Enter Email Address'; }" />
+                                        <label>Name</label>
+										<input type="text" name="name" class="form-control input-style1 marb20" value="Enter Full Name.."  />
+										<label>Mobile Number</label>
+										<input type="text" name="mobile" class="form-control input-style1 marb20" value="Enter Mobile Number.."  />
 										<input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Send" />
 									</form>
 								</div>

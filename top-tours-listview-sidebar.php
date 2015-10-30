@@ -44,8 +44,8 @@
   ga('send', 'pageview');
 
 </script>
-<!-- <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script> -->
-<script type="text/javascript"  src= "js/angular.min.js"></script>
+ <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script> 
+<!--<script type="text/javascript"  src= "js/angular.min.js"></script>-->
 <script type="text/javascript"  src="topTour.js"></script>
 
 <style type="text/css">
@@ -120,11 +120,11 @@ ul.rating {
 									<div class="tour-plans">
 										<div class="plan-image">
                                             <a href="tour_detail_sidebar.php?id={{x.tour_id}}">
-											<img class="img-responsive" style="height:360px;" src="{{'x.photo' ==''||'x.photo' ? 'img/SAMPLE_TOUR.jpg' : x.photo}}" alt="Tour image"/>
+											<img class="img-responsive" style="height:360px;" src="{{x.photo ==null ? 'img/SAMPLE_TOUR.jpg' : x.photo}}" alt="Tour image"/>
                                             </a>
 											<div class="offer-box">
 												<div class="offer-top">
-													<span class="ft-temp alignright">{{x.tour_category_id}}</span>
+													<span class="ft-temp alignright">{{x.tour_category}}</span>
 													<span class="featured-cr text-upper">{{x.tour_location}}</span>
 													<h2 class="featured-cy text-upper">{{x.tour_title}}</h2>
 												</div>
@@ -138,20 +138,21 @@ ul.rating {
 										<div class="featured-btm box-shadow1">
 											<span class="ft-hotel text-upper">{{x.tour_territory[0]}}</span>
 											<span class="ft-plane text-upper">{{x.tour_duration}}</span>
-											<span class="ft-tea text-upper" star-rating rating-value="{{x.Reviews.OverallRating}}"></span>
-											<span class="alignleft fa fa-eye">&nbsp;&nbsp;{{x.Reviews.ReviewCount}} reviews</span> 
+											<span class="ft-tea text-upper" star-rating rating-value="5"></span>
+											<span class="alignleft fa fa-eye">&nbsp;&nbsp; reviews</span> 
 										</div>
 										<div class="post-desc">
-											<h4>{{x.tour_description}}</h4>
+											<h4 ></h4>
 											<a class="btn btn-primary marb20" href="tour_detail_sidebar.php?tour_id={{x.tour_id}}">DETAILS</a>
 										</div>
 									</div>
 								</div><br>
 							
-								<div class="clearfix"></div>
+<!--								<div class="clearfix"></div>-->
 							</div>
-							</a>
+							
 						</div>
+						</a>
 						<!-- START #sidebar -->
 						<aside id="sidebar" class="col-md-4">
 							<div class="sidebar-widget">
@@ -171,7 +172,7 @@ ul.rating {
 										<ul class="rc-posts-list list-unstyled">
 											<li ng-repeat="x in tours" ng-show="$index<4">
 												<span class="rc-post-image">
-													<img class="img-responsive" src="{{x.photo}}" alt="Tour x" />
+													<img class="img-responsive" src="{{'x.photo' ==''||'x.photo' ? 'img/SAMPLE_TOUR.jpg' : x.photo}}" alt="Tour x" />
 												</span>
 												<h5><a href="#">{{x.tour_title}}</a></h5>
 												<span class="rc-post-date small">Starting Price&nbsp;{{x.tour_price}}</span><br/>
@@ -182,16 +183,16 @@ ul.rating {
 									<!-- END TAB 1 -->
 									
 									<!-- START TAB 2 -->
-									<div class="tab-pane" id="topguides">
-										<ul class=" list-unstyled" ng-controller="toursCtrl">
-											<li ng-repeat="z in tours">
+									<div class="tab-pane"  id="topguides" ng-controller="guidescontrol">
+										<ul class="list-unstyled">
+											<li ng-repeat="z in guides" ng-show="$index<18 && z.photo!=null">
 												<span class="rc-post-image">
-													<img class="img-responsive"  src="{{z.photo}}" alt="Recent Post 1" />
+													<img class="img-responsive" style="height:70px; width:60px;" src="{{z.photo==null ? 'img/SAMPLE_TOUR.jpg' :z.photo}}" alt="Recent Post 2" />
 												</span>
-												<h5>{{z.Title}}</h5>
-                                                <span>{{z.Location}}</span>
-												<span star-rating rating-value="z.Reviews.OverallRating" style="" class="" ></span><br><br>
-												
+											<h5><a href="#">{{z.name}}</a></h5>
+												<h5><a href="#">{{z.guide_territory[0]}}</a></h5>
+												<h5>{{z.Speciality}}<span class="rc-post-date small">Speciality&nbsp;&nbsp;</span></h5>
+												<span star-rating rating-value="z.review.rating" style="" class="" ></span>	<br><br><br>
 											</li>
 										
 										</ul>
@@ -199,9 +200,9 @@ ul.rating {
 									<!-- END TAB 2 -->
 									
 									<!-- START TAB 3 -->
-									<div class="tab-pane" id="topdestinations"  ng-controller="placeCtrl">
+									<div class="tab-pane" id="topdestinations"  ng-controller="placesCtrl">
 										<ul class=" list-unstyled">
-											<li ng-repeat="k in allplaces" ng-show="$index<4">
+											<li ng-repeat="k in places" ng-show="$index<4">
 												<span class="rc-post-image">
 													<img class="img-responsive" style="height:80px;width:80px;" src="{{k.Media.Image[0]}}" alt="Tour 1" />
 												</span>
@@ -216,14 +217,16 @@ ul.rating {
 								<!-- END TAB CONTENT -->
 							</div>
 							
+<!--
 							<div class="sidebar-widget">
-								<!-- Sidebar Flickr Gallery -->
-								<h3 class="text-upper">Tours</h3>
+							
+								<h3 class="text-upper">Related Tours</h3>
 								<ul class="flickr-gal list-unstyled" ng-controller="toursCtrl">
 									<li ng-repeat="tourslist in tours"><img class="img-responsive" src="{{tourslist.photo}}" alt="Tour Photo" /></li>
 									
 								</ul>
 							</div>
+-->
 						</aside>
 						<!-- END #sidebar -->
 					</div>

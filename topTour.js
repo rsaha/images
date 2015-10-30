@@ -74,6 +74,18 @@ app.controller('tourDetailCtrl',['$scope','$http', function($scope, $http) {
 		}
 			
 }]); 
+    app.controller('placesCtrl',['$scope','$http', function($scope, $http) {
+    $http.get("http://130.211.123.212/app/places")
+    .success(function (response) {
+		$scope.places = response.Places;
+	   
+		})
+	.error(function() {
+				$scope.data = "error in fetching data";
+			});
+			
+			
+}]); 
 app.controller('guideDetailCtrl',['$scope','$http', function($scope, $http) {
     $http.get("http://130.211.123.212/app/guide")
     .success(function (response) {
