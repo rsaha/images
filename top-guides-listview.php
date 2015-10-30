@@ -166,6 +166,7 @@ ul.rating {
 								<!-- START TABS -->
 								<ul class="nav nav-tabs text-upper">
 									<li class="active"><a href="#toptours" data-toggle="tab">Tours</a></li>
+                                    <li class="active"><a href="#relatedguides" data-toggle="tab">Tours</a></li>
 									<li><a href="#topdestinations" data-toggle="tab">Destinations</a></li>
 									<li><a href="#toptips" data-toggle="tab">Hotels</a></li>
 								</ul>
@@ -178,38 +179,59 @@ ul.rating {
 										<ul class="list-unstyled">
 											<li ng-repeat="x in alltours" ng-show="$index<4">
 												<span class="rc-post-image">
+                                                <a href="tour_detail_sidebar.php?id2={{x.tour_id}}">
 													<img class="img-responsive" src="{{'x.photo' ==''||'x.photo' ? 'img/SAMPLE_TOUR.jpg' : x.photo}}" alt="Tour 1" />
+                                                    </a>
 												</span>
-												<h5><a href="#">{{x.tour_title}}</a></h5>
+												<h5>{{x.tour_title}}</h5>
 												<span class="rc-post-date small">Starting Price&nbsp;{{x.tour_price}}</span><br/>
                                                <a href="booking-form.php?id2={{x.tour_id}}"> <input type="submit" name="submit" class="btn btn-primary  marb20" value="Book Now" /></a>
 											</li>
 										</ul>
 									</div>
 									<!-- END TAB 1 -->
-									
 									<!-- START TAB 2 -->
+									<div class="tab-pane active"  id="relatedguides" ng-controller="guideCtrl">
+										<ul class="list-unstyled">
+											<li ng-repeat="z in guides" ng-show="$index<18 && z.photo!=null">
+												<span class="rc-post-image">
+                                                <a href="guide-detail-sidebar.php?id={{z.id}}">
+													<img class="img-responsive" style="height:80px; width:65px;" src="{{z.photo==null ? 'img/SAMPLE_TOUR.jpg' :z.photo}}" alt="Recent Post 2" />
+                                                    </a>
+												</span>
+											<h5>{{z.name}}</h5>
+<!--												<h5><a href="#">{{z.guide_territory}}</a></h5>-->
+<!--												<h5>{{z.Speciality}}<span class="rc-post-date small">Speciality&nbsp;&nbsp;</span></h5>-->
+												<span star-rating rating-value="z.review.Star" style="" class="" ></span>	<br><br><br>
+											</li>
+										
+										</ul>
+									</div>
+									<!-- END TAB 2 -->
+									<!-- START TAB 3 -->
 									<div class="tab-pane" id="topdestinations"  ng-controller="placeCtrl">
 										<ul class=" list-unstyled">
 											<li ng-repeat="k in allplaces" ng-show="$index<4">
 												<span class="rc-post-image">
+                                                <a href="destination-detail-sidebar.php?id3={{k.ID}}">
 													<img class="img-responsive" style="height:80px;width:80px;" src="{{k.Media.Image[0]}}" alt="Tour 1" />
+                                                </a>
 												</span>
-												<h5><a href="#">{{k.Name}}</a></h5>
-												<span class="rc-post-date small">Best Visit:&nbsp;&nbsp;&nbsp;{{k.BestTimeToVisit}}</span><br/>
-                                               <a href="booking-form.Php"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Book" /></a>
+												<h5>{{k.Name}}</h5>
+												<span class="rc-post-date small">Best Time to Visit:&nbsp;{{k.BestTimeToVisit}}</span><br/>
+                                               <a href="destination-detail-sidebar.php?id3={{k.ID}}"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Explore" /></a>
 											</li>
 										</ul>
 									</div>
-									<!-- END TAB 2 -->
+									<!-- END TAB 3 -->
 									
-									<!-- START TAB 3 -->
+									<!-- START TAB 4 -->
 									<div class="tab-pane" id="toptips">
 										<div class="inside-pane">
 											<p><h3>Coming Soon</h3><br><br><br><br><br><br><br><br></p>
 										</div>
 									</div>
-									<!-- END TAB 3 -->
+									<!-- END TAB 4 -->
 								</div>
 								<!-- END TAB CONTENT -->
 							</div>

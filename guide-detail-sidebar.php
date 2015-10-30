@@ -255,10 +255,12 @@ He provide a number of example tours on our site, but we can completely customis
 										<ul class="list-unstyled">
 											<li ng-repeat="z in TopGuides" ng-show="$index<18 && z.photo!=null">
 												<span class="rc-post-image">
-													<img class="img-responsive" style="height:70px; width:60px;" src="{{z.photo==null ? 'img/SAMPLE_TOUR.jpg' :z.photo}}" alt="Recent Post 2" />
+                                                <a href="guide-detail-sidebar.php?id={{z.id}}">
+													<img class="img-responsive" style="height:70px; width:60px;" src="{{z.photo==null ? 'img/SAMPLE_TOUR.jpg' :z.photo}}" alt="Guide Img" />
+                                                    </a>
 												</span>
 											<h5><a href="#">{{z.name}}</a></h5>
-												<h5><a href="#">{{z.guide_territory[0]}}</a></h5>
+												<h5>{{z.guide_territory[0]}}</h5>
 												<h5>{{z.Speciality}}<span class="rc-post-date small">Speciality&nbsp;&nbsp;</span></h5>
 												<span star-rating rating-value="z.review.Star" style="" class="" ></span>	<br><br><br>
 											</li>

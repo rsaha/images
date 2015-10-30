@@ -262,7 +262,7 @@ ul.rating {
 						  </span>
 					  
 								<div class="ft-data" style="height:45px;font-size:11px;">
-							  <span style="color:black;" class="fa fa-book text-upper">&nbsp;&nbsp;Attractions:&nbsp;&nbsp;{{x.BestTimeToVisit}}</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							  <span style="color:black;" class="fa fa-book text-upper">&nbsp;&nbsp;BestTimeToVisit:&nbsp;&nbsp;{{x.BestTimeToVisit}}</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							  <!-- <span style="color:black;" class="fa fa-book text-upper" >&nbsp;&nbsp;{{x.Speciality}}</span>&nbsp;&nbsp;&nbsp;&nbsp;
 							  <span style="color:black;" class="fa fa-plane text-upper" >&nbsp;&nbsp;{{x.LanguageKnown}}</span> -->
 								</div> 
