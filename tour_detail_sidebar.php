@@ -325,11 +325,11 @@ ul.rating {
 								<!-- START TAB CONTENT -->
 								<div class="tab-content gray box-shadow1 clearfix marb30">
 									<!-- START TAB 1 -->
-                                    <div class="tab-pane" id="toptours" ng-controller="toursCtrl">
+                                    <div class="tab-pane active" id="toptours" ng-controller="toursCtrl">
 										<ul class="rc-posts-list list-unstyled">
 											<li ng-repeat="x in tours" ng-show="$index<4">
 												<span class="rc-post-image">
-                                                    <a href="tour_detail_sidebar.php?id2={{x.tour_id}}">
+                                                    <a href="tour_detail_sidebar.php?id={{x.tour_id}}">
 													<img class="img-responsive" src="{{'x.photo' ==''||'x.photo' ? 'img/SAMPLE_TOUR.jpg' : x.photo}}" alt="Tour 1" />
                                                     </a>
 												</span>
@@ -341,11 +341,11 @@ ul.rating {
 									</div>
                                     <!-- END TAB 1 -->
                                     <!-- START TAB 2 -->
-									<div class="tab-pane active"  id="topguides" ng-controller="guidescontrol">
+									<div class="tab-pane"  id="topguides" ng-controller="guidescontrol">
 										<ul class="list-unstyled">
 											<li ng-repeat="z in guides" ng-show="$index<18 && z.photo!=null">
 												<span class="rc-post-image">
-                                                <a href="guide-detail-sidebar.php?id={{z.id}}">
+                                                <a href="guide-detail-sidebar.php?id2={{z.id}}">
 													<img class="img-responsive" style="height:80px; width:65px;" src="{{z.photo==null ? 'img/SAMPLE_TOUR.jpg' :z.photo}}" alt="Recent Post 2" />
                                                     </a>
 												</span>
