@@ -136,7 +136,11 @@ ul.rating {
 							 <div	class="ft-item"> 
 						  <span class="ft-image">
 						  <a href="guide-detail-sidebar.php?id2={{x.id}}">
+<<<<<<< HEAD
 							 <img style="height:180px;width:160;" class="img-responsive"  src="{{'x.photo' == ''||'x.photo' ? 'img/userDefaultIcon.png' : x.photo}}" alt="Top Guide" /> </a>
+=======
+							 <img style="height:150px;" class="img-responsive"  src="{{x.photo == null ? 'img/userDefaultIcon.png' : x.photo}}" alt="Top Guide" /> </a>
+>>>>>>> 5a515311d1839e69e8e51996573d17d4f22d7035
 <!--                               <img style="height:230px;width:180;" class="img-responsive"  src="img/author-img.jpg" alt="Top Guide" /> </a>-->
 						  </span>
 					  
@@ -176,13 +180,13 @@ ul.rating {
 									<!-- START TAB 1 -->
 									<div class="tab-pane active" id="toptours"  ng-controller="tourCtrl">
 										<ul class="list-unstyled">
-											<li ng-repeat="k in alltours" ng-show="$index<4">
+											<li ng-repeat="x in alltours" ng-show="$index<4">
 												<span class="rc-post-image">
-													<img class="img-responsive" style="height:80px;width:80px;" src="{{k.Media.Image[0]}}" alt="Tour 1" />
+													<img class="img-responsive" src="{{'x.photo' ==''||'x.photo' ? 'img/SAMPLE_TOUR.jpg' : x.photo}}" alt="Tour 1" />
 												</span>
-												<h5><a href="#">{{k.Title}}</a></h5>
-												<span class="rc-post-date small">Starting Price&nbsp;{{k.Price}}</span><br/>
-                                               <a href="booking-form.php"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Book" /></a>
+												<h5><a href="#">{{x.tour_title}}</a></h5>
+												<span class="rc-post-date small">Starting Price&nbsp;{{x.tour_price}}</span><br/>
+                                               <a href="booking-form.php?id2={{x.tour_id}}"> <input type="submit" name="submit" class="btn btn-primary  marb20" value="Book Now" /></a>
 											</li>
 										</ul>
 									</div>
@@ -206,7 +210,7 @@ ul.rating {
 									<!-- START TAB 3 -->
 									<div class="tab-pane" id="toptips">
 										<div class="inside-pane">
-											<p><br><br><br><br><br><br><br><br></p>
+											<p><h3>Coming Soon</h3><br><br><br><br><br><br><br><br></p>
 										</div>
 									</div>
 									<!-- END TAB 3 -->
@@ -215,13 +219,15 @@ ul.rating {
 							</div>
 							
 							
+<!--
 							<div class="sidebar-widget">
-								<!-- Sidebar Flickr Gallery -->
+								
 								<h3 class="text-upper">Guide Gallery</h3>
 								<ul class="flickr-gal list-unstyled" ng-controller="guideCtrl">
 									<li ng-repeat="x in allguides" ng-show="$index==5||$index==7||$index==12||$index==13" ><img style="height:70px; width:120px;" class="img-responsive" src="{{x.photo}}" alt="Guide" /></li>
 								</ul>
 							</div>
+-->
 						</aside>
 					</div><br>
 					<!-- START .pagination -->
