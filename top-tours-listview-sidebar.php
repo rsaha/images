@@ -161,7 +161,8 @@ ul.rating {
 								<ul class="nav nav-tabs text-upper">
 									<li class="active"><a href="#relatedtours" data-toggle="tab">Tours</a></li>
 									<li><a href="#topguides" data-toggle="tab">Guides</a></li>
-									<li><a href="#topdestinations" data-toggle="tab">Destinations</a></li>
+									<li><a href="#topdestinations" data-toggle="tab">Places</a></li>
+                                    <li><a href="#Hotels" data-toggle="tab">Hotels</a></li>
 								</ul>
 								<!-- END TABS -->
 								
@@ -213,7 +214,7 @@ ul.rating {
                                                     </a>
 												</span>
 												<h5><a href="#">{{k.Name}}</a></h5>
-												<span class="rc-post-date small">Best Time to Visit:&nbsp;&nbsp;&nbsp;{{k.BestTimeToVisit}}</span><br/>
+												<span class="rc-post-date small">Best Time to Visit:&nbsp;&nbsp;{{k.BestTimeToVisit}}</span><br/>
                                                <a href="destination-detail-sidebar.php?id3={{k.ID}}"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Explore" /></a>
 											</li>
 										</ul>
@@ -243,9 +244,6 @@ ul.rating {
 						<li><a href="#">2</a></li>
 						<li><a href="#">3</a></li>
 						<li><a href="#">4</a></li>
-						<li><a href="#">5</a></li>
-						<li><a href="#">6</a></li>
-						<li><a href="#">7</a></li>
 						<li><a href="#">&rsaquo;</a></li>
 					</ul>
 					<!-- END .pagination -->

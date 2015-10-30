@@ -166,8 +166,8 @@ ul.rating {
 								<!-- START TABS -->
 								<ul class="nav nav-tabs text-upper">
 									<li class="active"><a href="#toptours" data-toggle="tab">Tours</a></li>
-                                    <li><a href="#relatedguides" data-toggle="tab">Tours</a></li>
-									<li><a href="#topdestinations" data-toggle="tab">Destinations</a></li>
+                                    <li><a href="#relatedguides" data-toggle="tab">Guides</a></li>
+									<li><a href="#topdestinations" data-toggle="tab">Places</a></li>
 									<li><a href="#toptips" data-toggle="tab">Hotels</a></li>
 								</ul>
 								<!-- END TABS -->
