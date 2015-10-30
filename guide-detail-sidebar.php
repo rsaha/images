@@ -145,14 +145,14 @@ ul.rating {
 							<!-- START .post-data -->
 							<div class="post-data">
 								<div class="plan-image">
-									<img class="img-responsive" src="{{'x.photo' ==''||'x.photo' ? 'img/SAMPLE_TAJ.jpg' : x.photo}}" alt="Kolkata, WB"/>
+									<img class="img-responsive" src="{{tg.cover_photo ==null ? 'img/SAMPLE_TAJ.jpg' : tg.photo}}" alt="Kolkata, WB"/>
 									  
 								
                                     
 								</div>
 								
 								<ul class="featured-btm single-ft-btm list-unstyled box-shadow1">
-									<li class="author-img"><img class="img-circle img-wt-border" style=height:80px;width:80px; src="{{'x.photo' ==''||'x.photo' ? 'img/userDefaultIcon.png' : x.photo}}" alt="Guide" /></li>
+									<li class="author-img"><img class="img-circle img-wt-border" style=height:80px;width:80px; src="{{ tg.photo ==null ? 'img/userDefaultIcon.png' : tg.photo}}" alt="Guide" /></li>
 									<li class="post-author"><a class="text-upper" >{{tg.gender}}</a></li>
 									<li class="fa fa-tree"><a class=""> {{tg.city}}</a></li>
                                     	<li class="fa fa-tree"><a class=""> {{tg.experiance_in_year}}</a></li>
@@ -162,7 +162,7 @@ ul.rating {
 								</ul>
 							</div>
 							<!-- END .post-data -->
-							 <a id="bookButton" href="booking-form.php?id1={{tg.id}}&id2=0"> <input type="submit" name="submit" class="btn btn-lg btn-success text-upper marb20" value="Book" /></a>
+							 <a id="bookButton" href="booking-form.php?id1={{tg.id}}&id2=0"> <input type="submit" name="submit" class="btn btn-md btn-success text-upper marb20" value="Book" /></a>
 							<!-- START .post-content -->
 							<article class="post-content">
 								<p>{{tg.guide_summary}}Guide is professional. He is trained, examined and registered with the Institute of Tourist Guiding which awards them the highly acclaimed Blue Badge. Have further professional, academic and other specialist qualifications to further illuminate your tour.</p> 
@@ -224,11 +224,11 @@ He provide a number of example tours on our site, but we can completely customis
 										<ul class="rc-posts-list list-unstyled">
 											<li ng-repeat="x in alltours" ng-show="$index<4">
 												<span class="rc-post-image">
-													<img class="img-responsive" src="{{'x.photo' ==''||'x.photo' ? 'img/SAMPLE_TOUR.jpg' : x.photo}}" alt="Tour 1" />
+                                                    <a href="tour_detail_sidebar.php?id={{x.tour_id}}"	><img class="img-responsive" src="{{'x.photo' ==''||'x.photo' ? 'img/SAMPLE_TOUR.jpg' : x.photo}}" alt="Tour 1" /></a>
 												</span>
 												<h5><a href="#">{{x.tour_title}}</a></h5>
 												<span class="rc-post-date small">Starting Price&nbsp;{{x.tour_price}}</span><br/>
-                                               <a href="booking-form.php?id2={{x.tour_id}}"> <input type="submit" name="submit" class="btn btn-primary  marb20" value="Book Now" /></a>
+                                               <a href="booking-form.php?id1=0&&id2={{x.tour_id}}"> <input type="submit" name="submit" class="btn btn-primary  marb20" value="Book Now" /></a>
 											</li>
 											
 <!--
@@ -255,12 +255,13 @@ He provide a number of example tours on our site, but we can completely customis
 										<ul class="list-unstyled">
 											<li ng-repeat="z in TopGuides" ng-show="$index<18 && z.photo!=null">
 												<span class="rc-post-image">
-													<img class="img-responsive" style="height:70px; width:60px;" src="{{z.photo==null ? 'img/SAMPLE_TOUR.jpg' :z.photo}}" alt="Recent Post 2" />
+                                                    <a href="guide-detail-sidebar.php?id2={{z.id}}"	><img class="img-responsive" style="height:70px; width:60px;" src="{{z.photo==null ? 'img/SAMPLE_TOUR.jpg' :z.photo}}" alt="Recent Post 2" /></a>
 												</span>
 											<h5><a href="#">{{z.name}}</a></h5>
 												<h5><a href="#">{{z.guide_territory[0]}}</a></h5>
-												<h5>{{z.Speciality}}<span class="rc-post-date small">Speciality&nbsp;&nbsp;</span></h5>
-												<span star-rating rating-value="z.review.Star" style="" class="" ></span>	<br><br><br>
+<!--												<h5>{{z.Speciality}}<span class="rc-post-date small">Speciality&nbsp;&nbsp;</span></h5>-->
+												<span star-rating rating-value="z.review.Star" style="" class="" ></span>	
+                                                 <a href="booking-form.php?id1={{z.id}}&&id2=0"> <input type="submit" name="submit" class="btn btn-primary  marb20" value="Book Now" /></a>
 											</li>
 										
 										</ul>

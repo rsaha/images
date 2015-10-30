@@ -132,7 +132,7 @@ ul.rating {
 					<div class="row ">
 					  <div class="col-md-8">
 							<div class="row bom-contents" ng-controller="guideCtrl">
-						<div class="col-md-4" ng-repeat="x in allguides" ng-show="$index<12" >
+						<div class="col-md-4" ng-repeat="x in allguides" ng-show="$index<40 && x.photo != null" >
 							 <div	class="ft-item"> 
 						  <span class="ft-image">
 						  <a href="guide-detail-sidebar.php?id2={{x.id}}">
@@ -143,7 +143,7 @@ ul.rating {
 								<div class="ft-data">
 							  <span style="color:black;" class="fa fa-odnoklassniki text-upper">{{x.city}}</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							  <span style="color:black;" class="fa fa-book text-upper" >&nbsp;&nbsp;{{x.experiance_in_year}}</span>
-							  <br><span style=" font-size:11px;color:black;" class="fa fa-plane text-upper">{{x.language_known[0]}}</span>
+							  <br><span style=" font-size:11px;color:black;" class="fa fa-plane text-upper">{{x.language_known[0][0]}}</span>
 								</div> 
 					
 							<div class="ft-foot">
@@ -178,11 +178,11 @@ ul.rating {
 										<ul class="list-unstyled">
 											<li ng-repeat="x in alltours" ng-show="$index<4">
 												<span class="rc-post-image">
-													<img class="img-responsive" src="{{'x.photo' ==''||'x.photo' ? 'img/SAMPLE_TOUR.jpg' : x.photo}}" alt="Tour 1" />
+                                                    <a href="tour_detail_sidebar.php?id={{x.tour_id}}"><img class="img-responsive" src="{{'x.photo' ==''||'x.photo' ? 'img/SAMPLE_TOUR.jpg' : x.photo}}" alt="Tour 1" /></a>
 												</span>
 												<h5><a href="#">{{x.tour_title}}</a></h5>
 												<span class="rc-post-date small">Starting Price&nbsp;{{x.tour_price}}</span><br/>
-                                               <a href="booking-form.php?id2={{x.tour_id}}"> <input type="submit" name="submit" class="btn btn-primary  marb20" value="Book Now" /></a>
+                                               <a href="booking-form.php?id1=0&&id2={{x.tour_id}}"> <input type="submit" name="submit" class="btn btn-primary  marb20" value="Book Now" /></a>
 											</li>
 										</ul>
 									</div>
@@ -193,11 +193,11 @@ ul.rating {
 										<ul class=" list-unstyled">
 											<li ng-repeat="k in allplaces" ng-show="$index<4">
 												<span class="rc-post-image">
-													<img class="img-responsive" style="height:80px;width:80px;" src="{{k.Media.Image[0]}}" alt="Tour 1" />
+                                                    <a href="destination-detail-sidebar.php?id3={{k.ID}}">	<img class="img-responsive" style="height:80px;width:80px;" src="{{k.Media.Image[0]}}" alt="Tour 1" /></a>
 												</span>
 												<h5><a href="#">{{k.Name}}</a></h5>
 												<span class="rc-post-date small">Best Visit:&nbsp;&nbsp;&nbsp;{{k.BestTimeToVisit}}</span><br/>
-                                               <a href="booking-form.Php"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Book" /></a>
+                                               <a href="booking-form.Php"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Explore" /></a>
 											</li>
 										</ul>
 									</div>
