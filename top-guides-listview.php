@@ -166,7 +166,7 @@ ul.rating {
 								<!-- START TABS -->
 								<ul class="nav nav-tabs text-upper">
 									<li class="active"><a href="#toptours" data-toggle="tab">Tours</a></li>
-                                    <li class="active"><a href="#relatedguides" data-toggle="tab">Tours</a></li>
+                                    <li><a href="#relatedguides" data-toggle="tab">Tours</a></li>
 									<li><a href="#topdestinations" data-toggle="tab">Destinations</a></li>
 									<li><a href="#toptips" data-toggle="tab">Hotels</a></li>
 								</ul>
@@ -179,7 +179,7 @@ ul.rating {
 										<ul class="list-unstyled">
 											<li ng-repeat="x in alltours" ng-show="$index<4">
 												<span class="rc-post-image">
-                                                <a href="tour_detail_sidebar.php?id2={{x.tour_id}}">
+                                                <a href="tour_detail_sidebar.php?id={{x.tour_id}}">
 													<img class="img-responsive" src="{{'x.photo' ==''||'x.photo' ? 'img/SAMPLE_TOUR.jpg' : x.photo}}" alt="Tour 1" />
                                                     </a>
 												</span>
@@ -191,11 +191,11 @@ ul.rating {
 									</div>
 									<!-- END TAB 1 -->
 									<!-- START TAB 2 -->
-									<div class="tab-pane active"  id="relatedguides" ng-controller="guideCtrl">
+									<div class="tab-pane"  id="relatedguides" ng-controller="guideCtrl">
 										<ul class="list-unstyled">
 											<li ng-repeat="z in guides" ng-show="$index<18 && z.photo!=null">
 												<span class="rc-post-image">
-                                                <a href="guide-detail-sidebar.php?id={{z.id}}">
+                                                <a href="guide-detail-sidebar.php?id2={{z.id}}">
 													<img class="img-responsive" style="height:80px; width:65px;" src="{{z.photo==null ? 'img/SAMPLE_TOUR.jpg' :z.photo}}" alt="Recent Post 2" />
                                                     </a>
 												</span>
@@ -254,10 +254,6 @@ ul.rating {
 						<li class="active"><a href="#">1</a></li>
 						<li><a href="#">2</a></li>
 						<li><a href="#">3</a></li>
-						<li><a href="#">4</a></li>
-						<li><a href="#">5</a></li>
-						<li><a href="#">6</a></li>
-						<li><a href="#">7</a></li>
 						<li><a href="#">&rsaquo;</a></li>
 					</ul>
 					<!-- END .pagination -->
