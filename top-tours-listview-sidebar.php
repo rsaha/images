@@ -173,7 +173,7 @@ ul.rating {
 										<ul class="rc-posts-list list-unstyled">
 											<li ng-repeat="x in tours" ng-show="$index<4">
 												<span class="rc-post-image">
-                                                <a href="tour_detail_sidebar.php?id2={{x.tour_id}}">
+                                                <a href="tour_detail_sidebar.php?id={{x.tour_id}}">
 													<img class="img-responsive" src="{{'x.photo' ==''||'x.photo' ? 'img/SAMPLE_TOUR.jpg' : x.photo}}" alt="Tour x" />
                                                     </a>
 												</span>
