@@ -2,7 +2,6 @@
  if(isset($_GET['id']))
 	{
 	$tourid = $_GET['id'];
-    //echo '<script>alert('.$guideid.');</script>';
 	}
     ?>
 <!DOCTYPE html>
