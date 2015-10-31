@@ -113,15 +113,15 @@ ul.rating {
 							<!-- START .post-data -->
 							<div class="post-data">
 								<div class="plan-image">
-									<img class="img-responsive" style="width:770px; height:320px;" src="{{tg.Media.Image[0]}}" alt="Kolkata, WB" />
+									<img class="img-responsive" style="width:770px; height:320px;" src="{{tg.Media.Image[0]}}" alt="Destination Image" />
 								</div>
 								
 								<ul class="featured-btm single-ft-btm list-unstyled box-shadow1">
-<!--									<li class="author-img"><img class="img-circle img-wt-border" src="http://placehold.it/80x80" alt="Admin" />{{place.History}}</li>-->
+                                    <li class="post-date"><a class="text-upper" href="#">{{tg.State}}</a></li>
 									<li class="post-date"><a class="text-upper" href="#">{{tg.Category}}</a></li>
 									<li class="post-category"><a class="text-upper" href="#">{{tg.BestTimeToVisit}}</a></li>
-									<li class="post-category"><a class="text-upper" href="#">Popularity: {{tg.TravelIndex}}</a></li>
-									<li class="post-author"><a class="text-upper" href="place.Wikipedia">Follow on Wikipedia</a></li>
+									<li class="post-category"><a class="text-upper" href="#">{{tg.TravelIndex}}</a></li>
+									<li class="post-author"><a class="text-upper" href="{{tg.Wiki}}">Wikipedia</a></li>
 								</ul>
 							</div>
 							<!-- END .post-data -->
@@ -129,16 +129,17 @@ ul.rating {
 							<!-- START .post-content -->
 							<article class="post-content">
 								<p>{{tg.Description}}</p> 
-<!--
+
 								 <h5>Attractions</h5>
 											<p>
-											<ul><li ng-repeat="y in tg.Attractions">{{y}}</li>
+											<!-- ul><li ng-repeat="y in tg.Attractions">{{y}}</li></ul -->
+                                                <p>{{tg.Attractions[0]}}</p>
 											</p>
--->
 								<p>
 									<img class="alignleft" style="width:260px;height:168px;" src="{{tg.Media.Image[0]}}" alt="Image in Post" />
 									<h5>Transport Availability</h5>											
-											<ul><li ng-repeat="y in tg.Transport">{{y}}</li>										
+                                <!-- ul><li ng-repeat="y in tg.Transport">{{y}}</li></ul -->	
+                                <p>{{tg.Transport}}</p>
 								</p>
 								
 								<!-- BLOCKQUOTE -->
