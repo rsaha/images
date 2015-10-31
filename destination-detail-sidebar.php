@@ -2,7 +2,6 @@
  if(isset($_GET['id3']))
 	{
 	$place3 = $_GET['id3'];
-    echo '<script>alert('.$place3.');</script>';
 	}
     ?>
 <!DOCTYPE html>
@@ -126,7 +125,7 @@ ul.rating {
 								</ul>
 							</div>
 							<!-- END .post-data -->
-							<a id="bookButton" href="#"> <input type="submit" name="submit" class="btn btn-md btn-success text-upper marb20" value="Book" /></a>
+							<a id="bookButton" href="#"> <input type="submit" name="submit" class="btn btn-md btn-success text-upper marb20" value="Custom Tour" /></a>
 							<!-- START .post-content -->
 							<article class="post-content">
 								<p>{{tg.Description}}</p> 
@@ -138,73 +137,14 @@ ul.rating {
 -->
 								<p>
 									<img class="alignleft" style="width:260px;height:168px;" src="{{tg.Media.Image[0]}}" alt="Image in Post" />
-<!--
 									<h5>Transport Availability</h5>											
 											<ul><li ng-repeat="y in tg.Transport">{{y}}</li>										
--->
 								</p>
 								
 								<!-- BLOCKQUOTE -->
-								<br><br><br><br><blockquote>
-									<p><strong>BLOCK QUOTE</strong></p>
-									<p>In! Vel magna nisi aliquam, magnis tempor, nunc dapibus sed porta vut porttitor tristique! Lectus turpis massa ridiculus sagittis tincidunt eros lundium etiam nisi non natoque ac arcu auctor elementum vel nunc sociis!</p>
-								</blockquote>
-								<p>Augue sed platea sed non porta tincidunt augue? Odio platea, pulvinar habitasse vut! Pulvinar, integer odio. Ac pid! Habitasse montes elementum, et sagittis tincidunt magnis? Sociis! Elementum quis, integer natoque sed auctor nascetur enim parturient ridiculus ut amet porttitor dapibus phasellus tempor, natoque adipiscing aliquam.</p>
+								<br><br><br><br>
 							</article>
 							<!-- END .post-content -->
-							
-							<!-- START .about-author -->
-							<div class="about-author gray box-shadow1">
-								<span class="author-image">
-									<img src="http://placehold.it/70x70" alt="Author Image" />
-								</span>
-								<h5>NICK WILSON <small>Admin</small></h5>
-								<p>In! Vel magna nisi aliquam, magnis tempor, nunc dapibus sed porta vut porttitor tristique! Lectus turpis massa ridiculus sagittis tincidunt eros lundium etiam nisi non natoque ac arcu auctor elementum vel nunc sociis! Nunc lacus! Dictumst facilisis turpis</p>
-								<a href="https://twitter.com/envato" class="twitter-follow-button" data-show-count="false">Follow Nick Wilson</a>
-							</div>
-							<!-- END .about-author -->
-							
-							<!-- START #commentForm -->
-<!--
-							<section id="commentForm">
-								<h2 class="ft-heading text-upper">Leave Us a Reply</h2>
-								<form action="comment.php" method="post">
-									<fieldset>
-										<ul class="formFields list-unstyled">
-											<li class="row">
-												<div class="col-md-6">
-													<label>Name <span class="required small">(Required)</span></label>
-													<input type="text" class="form-control" name="name" value="" />
-												</div>
-												<div class="col-md-6">
-													<label>Email <span class="required small">(Required)</span></label>
-													<input type="text" class="form-control" name="email" value="" />
-												</div>
-											</li>
-											<li class="row">
-												<div class="col-md-12">
-													<label>Subject <span class="required small">(Required)</span></label>
-													<input type="text" class="form-control" name="subject" value="" />
-												</div>
-											</li>
-											<li class="row">
-												<div class="col-md-12">
-													<label>Message <span class="required small">(Required)</span></label>
-													<textarea class="form-control"></textarea>
-												</div>
-											</li>
-											<li class="row">
-												<div class="col-md-12">
-													<input type="submit" class="btn btn-primary btn-lg text-upper" name="submit" value="Submit" />
-													<span class="required small">*Your email will never published.</span>
-												</div>
-											</li>
-										</ul>
-									</fieldset>
-								</form>
-							</section>
--->
-							<!-- END #commentForm -->
 						</div>
 						<!-- END #page -->
 						
@@ -260,36 +200,6 @@ ul.rating {
                                             <br><br>
                                                 COMING SOON..
                                             <br><br><br><br><br><br><br>
-<!--
-											<li>
-												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 1" />
-												</span>
-												<h5><a href="#">Apple Fails to Fix iPhone Daylight Saving Time Alarm Bug</a></h5>
-												<span class="rc-post-date small">January 20, 2014</span>
-											</li>
-											<li>
-												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 2" />
-												</span>
-												<h5><a href="#">Limbaugh: Does 'Dark Knight Rise have it Bomb Found...</a></h5>
-												<span class="rc-post-date small">January 18, 2014</span>
-											</li>
-											<li>
-												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 3" />
-												</span>
-												<h5><a href="#">Shares suspende am Bankiaid 'Gloomy Forecast'</a></h5>
-												<span class="rc-post-date small">January 15, 2014</span>
-											</li>
-											<li class="last-rc-post">
-												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 4" />
-												</span>
-												<h5><a href="#">Shares suspende am Bankiaid 'Gloomy Forecast'</a></h5>
-												<span class="rc-post-date small">January 11, 2014</span>
-											</li>
--->
 										</ul>
 									</div>
 									<!-- END TAB 3 -->

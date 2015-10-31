@@ -2,7 +2,6 @@
  if(isset($_GET['id2']))
 	{
 	$guideid2 = $_GET['id2'];
-    //echo '<script>alert('.$guideid.');</script>';
 	}
     ?>
 <!DOCTYPE html>
