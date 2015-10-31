@@ -10,6 +10,15 @@ if($_GET["id2"]==0)
 	$tourID=0;
 }
 
+if($tourID == 0)
+{
+    //id1;     user- name, territory, gender, photo
+}
+else if($userID == 0)
+{
+    //id2;     tour- title, duration, location, price, tour category, Inclusive, Exclusive, Cancelation Policy
+}
+/* 
 include_once('db.php');
 
 $select1 = mysql_query("SELECT * FROM `tbl_user_profile` WHERE `user_id` = $userID");
@@ -81,7 +90,7 @@ $inclusive = $row33["inclusive"];
 $exclusive = $row33["exclusive"];
 $cancelation_policy = $row33["cancelation_policy"];
 $restrictions = $row33["restrictions"];
-$notes = $row33["notes"];
+$notes = $row33["notes"]; */
 
 
 
@@ -120,7 +129,9 @@ $notes = $row33["notes"];
 		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Karla:400,700,400italic,700italic" />
 		<!-- color scheme -->
 		<link rel="stylesheet" type="text/css" href="css/colors/color3.css" title="color3" />
-		
+        
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        
 		<style type="text/css">
 			#registration-form 
 			{
@@ -132,7 +143,8 @@ $notes = $row33["notes"];
 				border-radius: 10px;
 			}
 		</style>
-
+<script src= "js/angular.min.js"></script>
+    <script src="booking.js."></script>
 		<script type="text/javascript" src="anki/jquery-1.10.2.min.js"></script>
 		<script type="text/javascript">
 		$(document).ready(function() {
@@ -160,9 +172,9 @@ $notes = $row33["notes"];
 	<!-- END head -->
 
 	<!-- START body -->
-	<body>
+	<body ng-app="mybookingPage">
 		<!-- START #wrapper -->
-		<div id="wrapper">
+		<div id="wrapper" ng-controller="guides_booking" >
 			<!-- START header -->
 			<?php include_once('MasterTopHeader.php'); ?>
 			<!-- END header -->
@@ -172,64 +184,330 @@ $notes = $row33["notes"];
 			<div class="main-contents">
 				<div class="container">
 					<div class="row">
+					
 						<!-- START #page -->
-						<div id="page" class="col-md-8">
-						<div class="row">
-						<div class="" id="registration-form">
-						<label for="email">Sign in to auto-fill</label><br><br>
-						<div class="form-inline">
-						<input name="email" class="form-control" type="text" id="email" >
-						<span id="email-result"></span>
-						</div>
-						</div>
-						</div>
-							<!-- START #contactForm -->
+						<div id="page" class="col-md-8" >
+						<!-- START #contactForm -->
 							<section id="booking-form">
 								<h2 class="ft-heading text-upper">Provide Your Booking Information</h2>
-								<form action="contact.php" method="post">
+<!--								<form action="booking-form-code.php" method="post">-->
 									<fieldset>
 										<ul class="formFields list-unstyled">
 											<li class="row">
-												<div class="col-md-6">
+												<div class="col-md-12" >
 													<label>Name <span class="required small">(Required)</span></label>
 													<input type="text" class="form-control" name="name" value="" />
-												</div>
+                                                   
+                                                  
+                                                </div>
+                                            </li>
+                                            <li class="row">
 												<div class="col-md-6">
 													<label>Email <span class="required small">(Required)</span></label>
 													<input type="text" class="form-control" name="email" value="" />
 												</div>
-											</li>
-											<li class="row">
-												<div class="col-md-6">
-													<label>Payment Method <span class="required small">(Required)</span></label>
-													<input type="text" class="form-control" name="zipcode" value="" />
-												</div>
-												<div class="col-md-6">
-													<label>Options <span class="required small">(Required)</span></label>
-													<input type="text" class="form-control" name="method" value="" />
+                                                <div class="col-md-6">
+													<label>Contact Number <span class="required small">(Required)</span></label>
+													<input type="text" class="form-control" name="email" value="" />
 												</div>
 											</li>
+                                            
+                                            <li class="row">
+                                                <div class="col-md-6">
+                                                    <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label>ADULT <span class="required small">(12+ YRS)</span></label>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon" style="cursor:pointer" onclick="adultMinus();"><i style="font-size:12px" class="fa fa-minus"></i></span>
+                                                  <input type="text" id="adult" name="adult" class="form-control" value="1">
+                                                    <span class="input-group-addon" style="cursor:pointer" onclick="adultPlus();"><i style="font-size:12px" class="fa fa-plus"></i></span>
+                                                </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label>CHILD <span class="required small">(0-11 YRS)</span></label>
+                                                <div class="input-group">
+                                                  <span class="input-group-addon" style="cursor:pointer" onclick="childMinus();"><i style="font-size:12px" class="fa fa-minus"></i></span>
+                                                  <input type="text" id="child" name="child" class="form-control" value="0">
+                                                  <span class="input-group-addon" style="cursor:pointer" onclick="childPlus();"><i style="font-size:12px" class="fa fa-plus"></i></span>
+                                                </div>
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                                
+                                            </li>
+                                            <li class="row">
+                                            <div class="col-md-6">
+                                                <label>Date of Tour <span class="required small">(Required)</span></label>
+													<input type="date" class="form-control" name="zipcode" value="" />
+                                                </div>
+                                            <?php
+                                                if($tourID == 0)
+                                                {
+                                            ?>
+                                            
+												<div class="col-md-6">
+													<label>Tour Duratios [In Days] <span class="required small">(Required)</span></label>
+                                                    <div class="input-group">
+                                                      <span class="input-group-addon" style="cursor:pointer" onclick="tourDurationMinus();"><i style="font-size:12px" class="fa fa-minus"></i></span>
+                                                      <input type="text" id="tourDuration" name="tourDuration" class="form-control" value="1">
+                                                      <span class="input-group-addon">Days</span>
+                                                    <span class="input-group-addon" style="cursor:pointer" onclick="tourDurationPlus();"><i style="font-size:12px" class="fa fa-plus"></i></span>
+                                                    </div>
+												</div>
+											
+                                            <?php
+                                                }
+                                            ?>
+											</li>
+                                            
+                                            <li class="row">
+                                                <div class="col-md-12">
+                                            <div class="sidebar-widget">
+                                                    <!-- Sidebar What We Do -->
+                                                    <div class="panel-group" id="accordion">
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-heading">
+                                                                <a class="panel-title collapsed" data-toggle="collapse" href="#collapseOne">
+                                                                    Hotels &amp; Inn
+                                                                </a>
+                                                            </div>
+                                                            <div id="collapseOne" class="panel-collapse collapse">
+                                                                <div class="panel-body">
+                                                                    <div class="col-md-12">
+                                                                        
+                                                                        
+                                                                        
+            <div class="col-md-3" > 
+				   <a href="#">
+				      <div	class="ft-item"> 
+						  <span class="ft-image">
+							 <img style="" src="img/hotel.jpg" alt="Top Destination" /> 
+						  </span>
+					  
+								<div class="ft-data" style="font-size:11px;">
+							  <span style="color:black;" class="fa fa-book text-upper">&nbsp;&nbsp;Attractions:&nbsp;&nbsp;</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							  <!-- <span style="color:black;" class="fa fa-book text-upper" >&nbsp;&nbsp;{{x.Speciality}}</span>&nbsp;&nbsp;&nbsp;&nbsp;
+							  <span style="color:black;" class="fa fa-plane text-upper" >&nbsp;&nbsp;{{x.LanguageKnown}}</span> -->
+								</div> 
+					
+							<div class="ft-foot" style="word-wrap:break-word; ">
+							<h4 class="ft-title text-upper" style="color:#686868">Name</h4> 
+							<span class="ft-offer text-upper">Category</span> 
+							</div>
+					</div>
+					</a>
+					 </div>
+                    
+                    <div class="col-md-3" > 
+				   <a href="#">
+				      <div	class="ft-item"> 
+						  <span class="ft-image">
+							 <img style="" src="img/hotel.jpg" alt="Top Destination" /> 
+						  </span>
+					  
+								<div class="ft-data" style="font-size:11px;">
+							  <span style="color:black;" class="fa fa-book text-upper">&nbsp;&nbsp;Attractions:&nbsp;&nbsp;</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							  <!-- <span style="color:black;" class="fa fa-book text-upper" >&nbsp;&nbsp;{{x.Speciality}}</span>&nbsp;&nbsp;&nbsp;&nbsp;
+							  <span style="color:black;" class="fa fa-plane text-upper" >&nbsp;&nbsp;{{x.LanguageKnown}}</span> -->
+								</div> 
+					
+							<div class="ft-foot" style="word-wrap:break-word; ">
+							<h4 class="ft-title text-upper" style="color:#686868">Name</h4> 
+							<span class="ft-offer text-upper">Category</span> 
+							</div>
+					</div>
+					</a>
+					 </div>
+                    
+                    <div class="col-md-3" > 
+				   <a href="#">
+				      <div	class="ft-item"> 
+						  <span class="ft-image">
+							 <img style="" src="img/hotel.jpg" alt="Top Destination" /> 
+						  </span>
+					  
+								<div class="ft-data" style="font-size:11px;">
+							  <span style="color:black;" class="fa fa-book text-upper">&nbsp;&nbsp;Attractions:&nbsp;&nbsp;</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							  <!-- <span style="color:black;" class="fa fa-book text-upper" >&nbsp;&nbsp;{{x.Speciality}}</span>&nbsp;&nbsp;&nbsp;&nbsp;
+							  <span style="color:black;" class="fa fa-plane text-upper" >&nbsp;&nbsp;{{x.LanguageKnown}}</span> -->
+								</div> 
+					
+							<div class="ft-foot" style="word-wrap:break-word; ">
+							<h4 class="ft-title text-upper" style="color:#686868">Name</h4> 
+							<span class="ft-offer text-upper">Category</span> 
+							</div>
+					</div>
+					</a>
+					 </div>
+                    
+                    <div class="col-md-3" > 
+				   <a href="#">
+				      <div	class="ft-item"> 
+						  <span class="ft-image">
+							 <img style="" src="img/hotel.jpg" alt="Top Destination" /> 
+						  </span>
+					  
+								<div class="ft-data" style="font-size:11px;">
+							  <span style="color:black;" class="fa fa-book text-upper">&nbsp;&nbsp;Attractions:&nbsp;&nbsp;</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							  <!-- <span style="color:black;" class="fa fa-book text-upper" >&nbsp;&nbsp;{{x.Speciality}}</span>&nbsp;&nbsp;&nbsp;&nbsp;
+							  <span style="color:black;" class="fa fa-plane text-upper" >&nbsp;&nbsp;{{x.LanguageKnown}}</span> -->
+								</div> 
+					
+							<div class="ft-foot" style="word-wrap:break-word; ">
+							<h4 class="ft-title text-upper" style="color:#686868">Name</h4> 
+							<span class="ft-offer text-upper">Category</span> 
+							</div>
+					</div>
+					</a>
+					 </div>
+                                                                        
+                                                                        
+                                                                        
+<!--
+                                                                        <label>Select Hotel<span class="required small">(Required)</span></label>
+                                                                        <select class="form-control" name="hotelName" id="hotelName">
+                                                                            <option value="">Select Hotel</option>
+                                                                            <option value="5000 Rs">Hotel 1</option>
+                                                                            <option value="1500 Rs">Hotel 2</option>
+                                                                            <option value="2000 Rs">Hotel 3</option>
+                                                                            <option value="3000 Rs">Hotel 4</option>
+                                                                        </select>
+-->
+                                                                    </div>
+                                                                    </div>
+                                                            </div>
+                                                        </div><br>
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-heading">
+                                                                <a class="panel-title collapsed" data-toggle="collapse" href="#collapseTwo">
+                                                                    Car Service
+                                                                </a>
+                                                            </div>
+                                                            <div id="collapseTwo" class="panel-collapse collapse">
+                                                                <div class="panel-body">
+                                                                    <div class="col-md-12">
+                                                                        
+                                                                        
+                                                                        
+            <div class="col-md-3" > 
+				   <a href="#">
+				      <div	class="ft-item"> 
+						  <span class="ft-image">
+							 <img style="" src="img/cab.jpg" alt="Top Destination" /> 
+						  </span>
+					  
+								<div class="ft-data" style="font-size:11px;">
+							  <span style="color:black;" class="fa fa-book text-upper">&nbsp;&nbsp;Attractions:&nbsp;&nbsp;</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							  <!-- <span style="color:black;" class="fa fa-book text-upper" >&nbsp;&nbsp;{{x.Speciality}}</span>&nbsp;&nbsp;&nbsp;&nbsp;
+							  <span style="color:black;" class="fa fa-plane text-upper" >&nbsp;&nbsp;{{x.LanguageKnown}}</span> -->
+								</div> 
+					
+							<div class="ft-foot" style="word-wrap:break-word; ">
+							<h4 class="ft-title text-upper" style="color:#686868">Name</h4> 
+							<span class="ft-offer text-upper">Category</span> 
+							</div>
+					</div>
+					</a>
+					 </div>
+                    
+                    <div class="col-md-3" > 
+				   <a href="#">
+				      <div	class="ft-item"> 
+						  <span class="ft-image">
+							 <img style="" src="img/cab.jpg" alt="Top Destination" /> 
+						  </span>
+					  
+								<div class="ft-data" style="font-size:11px;">
+							  <span style="color:black;" class="fa fa-book text-upper">&nbsp;&nbsp;Attractions:&nbsp;&nbsp;</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							  <!-- <span style="color:black;" class="fa fa-book text-upper" >&nbsp;&nbsp;{{x.Speciality}}</span>&nbsp;&nbsp;&nbsp;&nbsp;
+							  <span style="color:black;" class="fa fa-plane text-upper" >&nbsp;&nbsp;{{x.LanguageKnown}}</span> -->
+								</div> 
+					
+							<div class="ft-foot" style="word-wrap:break-word; ">
+							<h4 class="ft-title text-upper" style="color:#686868">Name</h4> 
+							<span class="ft-offer text-upper">Category</span> 
+							</div>
+					</div>
+					</a>
+					 </div>
+                    
+                    <div class="col-md-3" > 
+				   <a href="#">
+				      <div	class="ft-item"> 
+						  <span class="ft-image">
+							 <img style="" src="img/cab.jpg" alt="Top Destination" /> 
+						  </span>
+					  
+								<div class="ft-data" style="font-size:11px;">
+							  <span style="color:black;" class="fa fa-book text-upper">&nbsp;&nbsp;Attractions:&nbsp;&nbsp;</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							  <!-- <span style="color:black;" class="fa fa-book text-upper" >&nbsp;&nbsp;{{x.Speciality}}</span>&nbsp;&nbsp;&nbsp;&nbsp;
+							  <span style="color:black;" class="fa fa-plane text-upper" >&nbsp;&nbsp;{{x.LanguageKnown}}</span> -->
+								</div> 
+					
+							<div class="ft-foot" style="word-wrap:break-word; ">
+							<h4 class="ft-title text-upper" style="color:#686868">Name</h4> 
+							<span class="ft-offer text-upper">Category</span> 
+							</div>
+					</div>
+					</a>
+					 </div>
+                    
+                    <div class="col-md-3" > 
+				   <a href="#">
+				      <div	class="ft-item"> 
+						  <span class="ft-image">
+							 <img style="" src="img/cab.jpg" alt="Top Destination" /> 
+						  </span>
+					  
+								<div class="ft-data" style="font-size:11px;">
+							  <span style="color:black;" class="fa fa-book text-upper">&nbsp;&nbsp;Attractions:&nbsp;&nbsp;</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							  <!-- <span style="color:black;" class="fa fa-book text-upper" >&nbsp;&nbsp;{{x.Speciality}}</span>&nbsp;&nbsp;&nbsp;&nbsp;
+							  <span style="color:black;" class="fa fa-plane text-upper" >&nbsp;&nbsp;{{x.LanguageKnown}}</span> -->
+								</div> 
+					
+							<div class="ft-foot" style="word-wrap:break-word; ">
+							<h4 class="ft-title text-upper" style="color:#686868">Name</h4> 
+							<span class="ft-offer text-upper">Category</span> 
+							</div>
+					</div>
+					</a>
+					 </div>
+                                                                        
+                                                                        
+                                                                        
+<!--
+                                                                        <label>Select Hotel<span class="required small">(Required)</span></label>
+                                                                        <select class="form-control" name="hotelName" id="hotelName">
+                                                                            <option value="">Select Hotel</option>
+                                                                            <option value="5000 Rs">Hotel 1</option>
+                                                                            <option value="1500 Rs">Hotel 2</option>
+                                                                            <option value="2000 Rs">Hotel 3</option>
+                                                                            <option value="3000 Rs">Hotel 4</option>
+                                                                        </select>
+-->
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                    </div>
+                                            </li>
 											<li class="row">
 												<div class="col-md-12">
-													<label>Payment Gateway</label>
-													<input type="text" class="form-control" name="account" value="" />
-												</div>
-											</li>
-											<li class="row">
-												<div class="col-md-12">
-													<input type="submit" class="btn btn-primary btn-lg text-upper" name="save" value="Save" />
+													<input type="submit" class="btn btn-primary btn-lg text-upper" onclick="bookNow();" name="booknow" value="Book Now" />
 													<span class="required small">*Your email will never published.</span>
 												</div>
 											</li>
 											
 										</ul>
 									</fieldset>
-								</form>
+<!--								</form>-->
 							</section>
 							<!-- END #contactForm -->
 						</div>
 						<!-- END #page -->
-						
+						<br>
 						<!-- START #sidebar -->
 						<aside id="sidebar" class="col-md-4">
 							<div class="sidebar-widget">
@@ -254,93 +532,49 @@ $notes = $row33["notes"];
 								<!-- START TAB CONTENT -->
 								<div class="tab-content gray box-shadow1 clearfix marb30">
 									<!-- START TAB 1 -->
-									<div class="tab-pane active" id="popular-posts">
+									<div class="tab-pane active" id="popular-posts" ng-controller="tours_booking" >
 										<?php 
 										if($userID == 0)
-									{
+									{ 
 										?>
+                                        <div  ng-repeat="x in toursbook |  filter:{ tour_id:<?php echo $tourID; ?> }">
+                                            
 										<div class="tour-plans" style="padding:10px 10px 10px 10px;">
 								<div class="plan-image">
-								<?php
+						
+
+								<img class="img-responsive" alt="featured Scroller" draggable="false" src="{{'x.photo' ==''||'x.photo' ? 'img/custom11.jpg' : x.photo}}"/>
 								
-		
-								$select4Tvid = mysql_query("SELECT * FROM `tbl_tour_media_videos` WHERE `tour_id` = $tourID");
-								$select4Tpic = mysql_query("SELECT * FROM `tbl_tour_media_pictures` WHERE `tour_id` = $tourID");
-								$count4Tpic = mysql_num_rows($select4Tpic);
-								if ($count4Tpic==0)
-								{
-									echo '<img class="img-responsive" alt="featured Scroller" draggable="false" src="img/custom11.jpg"/>';
-								}
-								else
-								{
-									echo '<img class="img-responsive" alt="featured Scroller" draggable="false" src="showMediaPicture.php?id=' . mysql_result($select4Tpic, 0, 0) . '"/>';
-								}
-								?>
+							
 									<!--<img class="img-responsive" src="img/custom2.jpg" alt="TajMahal" />-->
 									<div class="offer-box">
 										<div class="offer-top">
 											<!--<span class="ft-temp alignright">19&#730;c</span>-->
-											<span class="featured-cr text-upper" style="font-size:15px"><?php echo $tour_location ; ?></span>
-											<h2 class="featured-cy text-upper" style="font-size:15px"><?php echo $tour_title; ?></h2>
+											<span class="featured-cr text-upper" style="font-size:15px">{{x.tour_location}}</span>
+											<h2 class="featured-cy text-upper" style="font-size:15px">{{x.tour_title}}</h2>
 										</div>
 										
 										<div class="offer-bottom">
-											<span class="featured-spe" style="font-size:15px"><?php echo $tour_price; ?></span>
+											<span class="featured-spe" style="font-size:15px">{{x.tour_price}}</span>
 										</div>
 									</div>
 								</div>
 								
 								<div class="featured-btm box-shadow1">
-									<a class="ft-hotel text-upper" href="#"><?php echo $tour_duration; ?> Day Tour</a>
-									<a class="ft-plane text-upper" href="#"><?php $select2 = mysql_query("SELECT `tour_category_title` FROM `tbl_tour_category` WHERE `tour_category_id` = $tour_category_id && `status` != 0"); echo mysql_result($select2, 0, 0); ?></a>
-									<a class="ft-tea text-upper" href="#"><?php echo $inclusive; ?></a>
-                                    <?php echo '<a class="ft-tea text-upper" style="cursor: pointer;" onclick="bookTour(' .$tourID.')">Book the Tour</a>'; ?>
+									<a class="ft-hotel text-upper" href="#">{{x.tour_duration}} Day Tour</a>
+									<a class="ft-plane text-upper" href="#">{{x.tour_category}}</a>
+									<a class="ft-tea text-upper" href="#">{{x.inclusive}}</a>
 								</div>
 								
 							</div>
 							<div style="text-align:justify; padding:10px 10px 10px 10px;">
-							<div class="row">
-							<div class="col-md-5">
-							Tour Description :
-							</div>
-							<div class="col-md-7">
-							<?php echo $tour_description; ?>
-							</div>
-							</div>
-							
-							<div class="row">
-							<div class="col-md-5">
-							Start Point :
-							</div>
-							<div class="col-md-7">
-							<?php echo $start_point; ?>
-							</div>
-							</div>
-							
-							<div class="row">
-							<div class="col-md-5">
-							End Point :
-							</div>
-							<div class="col-md-7">
-							<?php echo $end_point; ?>
-							</div>
-							</div>
-							
-							<div class="row">
-							<div class="col-md-5">
-							Inclusive :
-							</div>
-							<div class="col-md-7">
-							<?php echo $inclusive; ?>
-							</div>
-							</div>
 							
 							<div class="row">
 							<div class="col-md-5">
 							Exclusive :
 							</div>
 							<div class="col-md-7">
-							<?php echo $exclusive; ?>
+							{{x.exclusive}}
 							</div>
 							</div>
 							
@@ -349,112 +583,47 @@ $notes = $row33["notes"];
 							Cancelation Policy :
 							</div>
 							<div class="col-md-7">
-							<?php echo $cancelation_policy; ?>
+							{{x.cancelation_policy}}
 							</div>
 							</div>
 							
-							<div class="row">
-							<div class="col-md-5">
-							Restruction :
+							<br><br><br>
 							</div>
-							<div class="col-md-7">
-							<?php echo $restrictions; ?>
-							</div>
-							</div>
-							
-							<div class="row">
-							<div class="col-md-5">
-							Note :
-							</div>
-							<div class="col-md-7">
-							<?php echo $notes; ?>
-							</div>
-							</div>
-							</div>
-							<div style="text-align:justify; padding:10px 10px 10px 10px;">
-							<?php echo '<a class="pull-right btn btn-sm btn-warning" onclick="detailTour(' . $tourID . ');">Detail</a>'; ?>
-							
-							<br><br>
 							</div>
 										<?php
 									}
 									else if($tourID == 0)
 									{
-										
-										
 										?>
-										<div style="text-align:justify; padding:10px 10px 10px 10px;">
-										<div class="row">
+                                        
+										<div style="text-align:justify; padding:10px 10px 10px 10px;" ng-controller="guides_booking">
+										<div class="row" ng-repeat="y in guidesbook |  filter:{ id:<?php echo $userID; ?> }">
 										<div class="col-md-4 col-sm-4 plan-image">
-										<?php 
-										$count4pic = mysql_num_rows($select2);
-										if ($count4pic==0)
-										{
-											echo '<img class="hover img-responsive" src="img/userDefaultIcon.png"/>';
-										}
-										else
-										{
-											if($profilePicture==null)
-											{
-												echo '<img class="hover img-responsive" src="img/userDefaultIcon.png"/>';
-											}
-											else
-											{
-												echo '<img class="hover img-responsive" src="showImage.php?id=' . $userID . '"/>';
-											}
-										}
+									
+									
+												<img class="hover img-responsive"  src="{{ 'y.photo' == null ? 'img/userDefaultIcon.png' : y.photo}}"/>
 											
-										?>
+											
+								
 										
 										</div>
 										<div class="col-md-8 col-sm-8">
 										<div class="row">
 										<div class="col-md-3 col-sm-4 col-xs-4">Name:</div>
-										<div class="col-md-9 col-sm-8 col-xs-8"><?php echo $username; ?></div>
+										<div class="col-md-8 col-sm-8 col-xs-8 alignright">{{y.name}} </div>
 										</div>
 										<div class="row">
-										<div class="col-md-3 col-sm-4 col-xs-4">Gender:</div>
-										<div class="col-md-9 col-sm-8 col-xs-8"><?php echo $gender; ?></div>
+										<div class="col-md-4 col-sm-4 col-xs-4">Territory:</div>
+										<div class="col-md-8 col-sm-8 col-xs-8 alignright" ng-repeat="z in y.guide_territory">{{z}}, </div>
+										</div>
+										
+										</div>
 										</div>
 										<div class="row">
-										<div class="col-md-3 col-sm-4 col-xs-4">DOB:</div>
-										<div class="col-md-9 col-sm-8 col-xs-8"><?php echo $birthday; ?></div>
 										</div>
-										<div class="row">
-										<div class="col-md-3 col-sm-4 col-xs-4">Mobile:</div>
-										<div class="col-md-9 col-sm-8 col-xs-8"><?php echo $mobileNumber; ?></div>
+                                            <br><br><br>
 										</div>
-										<div class="row">
-										<div class="col-md-3 col-sm-4 col-xs-4">Email:</div>
-										<div class="col-md-9 col-sm-8 col-xs-8"><?php echo $emailID; ?></div>
-										</div>
-										</div>
-										</div>
-										<div class="row"><br>
-										<div class="col-md-12">
-										<div class="row">
-										<div class="col-md-4 col-sm-4 col-xs-4">Address:</div>
-										<div class="col-md-8 col-sm-8 col-xs-8"><?php echo $streetAddress . ", " . $city. ", " . $state. ", " . $country; ?></div>
-										</div>
-										<div class="row">
-										<div class="col-md-4 col-sm-4 col-xs-4">Guide Territory:</div>
-										<div class="col-md-8 col-sm-8 col-xs-8"><?php echo $guideTerritory; ?></div>
-										</div>
-										<div class="row">
-										<div class="col-md-4 col-sm-4 col-xs-4">Licence No.:</div>
-										<div class="col-md-8 col-sm-8 col-xs-8"><?php echo $licenceNumber; ?></div>
-										</div>
-										<div class="row">
-										<div class="col-md-4 col-sm-4 col-xs-4">Experiance:</div>
-										<div class="col-md-8 col-sm-8 col-xs-8"><?php echo $experianceInYear . " Year Experiance, " . $otherExperiance . "." ; ?></div>
-										</div>
-</div>
-										</div>
-										</div>
-										<div style="text-align:justify; padding:10px 10px 10px 10px;">
-										<?php echo '<a class="pull-right btn btn-sm btn-warning" onclick="detailGuide(' . $userID . ');">Detail</a>'; ?>
-										<br><br>
-										</div>
+										
 										
 										<?php
 									}
@@ -533,8 +702,62 @@ $notes = $row33["notes"];
 		<script type="text/javascript" src="js/script.js"></script>
 		<script type="text/javascript" src="js/styleswitcher.js"></script>
 		
+        <script>
+            function bookNow()
+            {
+                alert("Booking feature will be available soon......");
+            }
+            
+            
+        function adultMinus()
+            {
+                var oldValue = document.getElementById("adult").value;
+                if(oldValue>1)
+                    {
+                var newValue = parseInt(oldValue) - 1;
+                document.getElementById("adult").value = newValue;
+                    }
+            }
+            function adultPlus()
+            {
+                var oldValue = document.getElementById("adult").value;
+                var newValue = parseInt(oldValue) + 1;
+                document.getElementById("adult").value = newValue;
+            }
+            function childMinus()
+            {
+                var oldValue = document.getElementById("child").value;
+                if(oldValue>0)
+                    {
+                var newValue = parseInt(oldValue) - 1;
+                document.getElementById("child").value = newValue;
+                    }
+            }
+            function childPlus()
+            {
+                var oldValue = document.getElementById("child").value;
+                var newValue = parseInt(oldValue) + 1;
+                document.getElementById("child").value = newValue;
+            }
+            function tourDurationMinus()
+            {
+                var oldValue = document.getElementById("tourDuration").value;
+                if(oldValue>1)
+                    {
+                var newValue = parseInt(oldValue) - 1;
+                document.getElementById("tourDuration").value = newValue;
+                    }
+            }
+            function tourDurationPlus()
+            {
+                var oldValue = document.getElementById("tourDuration").value;
+                var newValue = parseInt(oldValue) + 1;
+                document.getElementById("tourDuration").value = newValue;
+            }
+        </script>
 		
 		<script>
+            
 		function detailTour(id) 
 				{
 					window.location.href = "tour_detail_sidebar.php?id="+id+"";
