@@ -76,7 +76,7 @@ ul.rating {
 	<!-- END head -->
 
 	<!-- START body -->
-	<body ng-app="topPlaces" ng-controller="AllplaceCtrl">
+	<body ng-app="topPlaces" ng-controller="placeDetailCtrl">
 		<!-- START #wrapper -->
 		<div id="wrapper" ng-repeat="tg in places" ng-if="tg.ID== <?php echo $place3; ?>">
 			<!-- START header -->
