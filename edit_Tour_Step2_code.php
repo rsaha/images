@@ -103,7 +103,7 @@ session_start();
 			}
 			else
 			{
-				echo "<script type='text/javascript'>alert('12');</script>";
+				//echo "<script type='text/javascript'>alert('12');</script>";
 			}
 		}
 	}

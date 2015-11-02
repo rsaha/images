@@ -133,6 +133,14 @@ $notes = $row33["notes"]; */
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
         
 		<style type="text/css">
+		
+		#addExtraService{
+			top: 5px;     
+			height: 29px;
+			position: absolute;
+			right: 20px;
+		}
+            
 			#registration-form 
 			{
 				background: #FDFDFD;
@@ -278,213 +286,195 @@ $notes = $row33["notes"]; */
                                                                         
                                                                         
             <div class="col-md-3" > 
-				   <a href="#">
+				   <a id="addExtraService" style="height:20px" class="btn btn-xs btn-default" data-toggle="tab" onclick="CommingSoon();" >Add</a>
+                       <a style="cursor:pointer"  data-toggle="modal" data-target=".hotelDetail">
 				      <div	class="ft-item"> 
 						  <span class="ft-image">
 							 <img style="" src="img/hotel.jpg" alt="Top Destination" /> 
 						  </span>
 					  
 								<div class="ft-data" style="font-size:11px;">
-							  <span style="color:black;" class="fa fa-book text-upper">&nbsp;&nbsp;Attractions:&nbsp;&nbsp;</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							  <span style="color:black;" class="fa fa-book text-upper">&nbsp;&nbsp;Hotel Name&nbsp;&nbsp;</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							  <!-- <span style="color:black;" class="fa fa-book text-upper" >&nbsp;&nbsp;{{x.Speciality}}</span>&nbsp;&nbsp;&nbsp;&nbsp;
 							  <span style="color:black;" class="fa fa-plane text-upper" >&nbsp;&nbsp;{{x.LanguageKnown}}</span> -->
 								</div> 
 					
 							<div class="ft-foot" style="word-wrap:break-word; ">
-							<h4 class="ft-title text-upper" style="color:#686868">Name</h4> 
-							<span class="ft-offer text-upper">Category</span> 
+							<h4 class="ft-title text-upper" style="color:#686868">City</h4>
+							<span class="ft-offer text-upper">Price</span> 
 							</div>
 					</div>
 					</a>
 					 </div>
                     
                     <div class="col-md-3" > 
-				   <a href="#">
-				      <div	class="ft-item"> 
+				   <a id="addExtraService" style="height:20px" class="btn btn-xs btn-default" data-toggle="tab" onclick="CommingSoon();" >Add</a>
+				      <a style="cursor:pointer" data-toggle="modal" data-target=".hotelDetail">
+                       <div	class="ft-item"> 
 						  <span class="ft-image">
 							 <img style="" src="img/hotel.jpg" alt="Top Destination" /> 
 						  </span>
 					  
 								<div class="ft-data" style="font-size:11px;">
-							  <span style="color:black;" class="fa fa-book text-upper">&nbsp;&nbsp;Attractions:&nbsp;&nbsp;</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							  <span style="color:black;" class="fa fa-book text-upper">&nbsp;&nbsp;Hotel Name&nbsp;&nbsp;</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							  <!-- <span style="color:black;" class="fa fa-book text-upper" >&nbsp;&nbsp;{{x.Speciality}}</span>&nbsp;&nbsp;&nbsp;&nbsp;
 							  <span style="color:black;" class="fa fa-plane text-upper" >&nbsp;&nbsp;{{x.LanguageKnown}}</span> -->
 								</div> 
 					
 							<div class="ft-foot" style="word-wrap:break-word; ">
-							<h4 class="ft-title text-upper" style="color:#686868">Name</h4> 
-							<span class="ft-offer text-upper">Category</span> 
+							<h4 class="ft-title text-upper" style="color:#686868">City</h4> 
+							<span class="ft-offer text-upper">Price</span> 
 							</div>
 					</div>
 					</a>
 					 </div>
                     
                     <div class="col-md-3" > 
-				   <a href="#">
+				   <a id="addExtraService" style="height:20px" class="btn btn-xs btn-default" data-toggle="tab" onclick="CommingSoon();" >Add</a>
+                       <a style="cursor:pointer"  data-toggle="modal" data-target=".hotelDetail">
 				      <div	class="ft-item"> 
 						  <span class="ft-image">
 							 <img style="" src="img/hotel.jpg" alt="Top Destination" /> 
 						  </span>
 					  
 								<div class="ft-data" style="font-size:11px;">
-							  <span style="color:black;" class="fa fa-book text-upper">&nbsp;&nbsp;Attractions:&nbsp;&nbsp;</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							  <span style="color:black;" class="fa fa-book text-upper">&nbsp;&nbsp;Hotel Name&nbsp;&nbsp;</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							  <!-- <span style="color:black;" class="fa fa-book text-upper" >&nbsp;&nbsp;{{x.Speciality}}</span>&nbsp;&nbsp;&nbsp;&nbsp;
 							  <span style="color:black;" class="fa fa-plane text-upper" >&nbsp;&nbsp;{{x.LanguageKnown}}</span> -->
 								</div> 
 					
 							<div class="ft-foot" style="word-wrap:break-word; ">
-							<h4 class="ft-title text-upper" style="color:#686868">Name</h4> 
-							<span class="ft-offer text-upper">Category</span> 
+							<h4 class="ft-title text-upper" style="color:#686868">City</h4> 
+							<span class="ft-offer text-upper">Price</span> 
 							</div>
 					</div>
 					</a>
 					 </div>
                     
                     <div class="col-md-3" > 
-				   <a href="#">
+				  <a id="addExtraService" style="height:20px" class="btn btn-xs btn-default" data-toggle="tab" onclick="CommingSoon();" >Add</a>
+                        <a style="cursor:pointer"  data-toggle="modal" data-target=".hotelDetail">
 				      <div	class="ft-item"> 
 						  <span class="ft-image">
 							 <img style="" src="img/hotel.jpg" alt="Top Destination" /> 
 						  </span>
 					  
 								<div class="ft-data" style="font-size:11px;">
-							  <span style="color:black;" class="fa fa-book text-upper">&nbsp;&nbsp;Attractions:&nbsp;&nbsp;</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							  <span style="color:black;" class="fa fa-book text-upper">&nbsp;&nbsp;Hotel Name&nbsp;&nbsp;</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							  <!-- <span style="color:black;" class="fa fa-book text-upper" >&nbsp;&nbsp;{{x.Speciality}}</span>&nbsp;&nbsp;&nbsp;&nbsp;
 							  <span style="color:black;" class="fa fa-plane text-upper" >&nbsp;&nbsp;{{x.LanguageKnown}}</span> -->
 								</div> 
 					
 							<div class="ft-foot" style="word-wrap:break-word; ">
-							<h4 class="ft-title text-upper" style="color:#686868">Name</h4> 
-							<span class="ft-offer text-upper">Category</span> 
+							<h4 class="ft-title text-upper" style="color:#686868">City</h4> 
+							<span class="ft-offer text-upper">Price</span> 
 							</div>
 					</div>
 					</a>
 					 </div>
-                                                                        
-                                                                        
-                                                                        
-<!--
-                                                                        <label>Select Hotel<span class="required small">(Required)</span></label>
-                                                                        <select class="form-control" name="hotelName" id="hotelName">
-                                                                            <option value="">Select Hotel</option>
-                                                                            <option value="5000 Rs">Hotel 1</option>
-                                                                            <option value="1500 Rs">Hotel 2</option>
-                                                                            <option value="2000 Rs">Hotel 3</option>
-                                                                            <option value="3000 Rs">Hotel 4</option>
-                                                                        </select>
--->
-                                                                    </div>
-                                                                    </div>
-                                                            </div>
-                                                        </div><br>
-                                                        <div class="panel panel-default">
-                                                            <div class="panel-heading">
-                                                                <a class="panel-title collapsed" data-toggle="collapse" href="#collapseTwo">
-                                                                    Car Service
-                                                                </a>
-                                                            </div>
-                                                            <div id="collapseTwo" class="panel-collapse collapse">
-                                                                <div class="panel-body">
-                                                                    <div class="col-md-12">
+                        </div>
+                        </div>
+                </div>
+            </div><br>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <a class="panel-title collapsed" data-toggle="collapse" href="#collapseTwo">
+                        Car Service
+                    </a>
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <div class="col-md-12">
                                                                         
                                                                         
                                                                         
             <div class="col-md-3" > 
-				   <a href="#">
-				      <div	class="ft-item"> 
+				   <a id="addExtraService" style="height:20px" class="btn btn-xs btn-default" data-toggle="tab" onclick="CommingSoon();" >Add</a>
+				      <a style="cursor:pointer"  data-toggle="modal" data-target=".cabDetail">
+                       <div	class="ft-item"> 
 						  <span class="ft-image">
 							 <img style="" src="img/cab.jpg" alt="Top Destination" /> 
 						  </span>
 					  
 								<div class="ft-data" style="font-size:11px;">
-							  <span style="color:black;" class="fa fa-book text-upper">&nbsp;&nbsp;Attractions:&nbsp;&nbsp;</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							  <span style="color:black;" class="fa fa-book text-upper">&nbsp;&nbsp;Cab Service&nbsp;&nbsp;</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							  <!-- <span style="color:black;" class="fa fa-book text-upper" >&nbsp;&nbsp;{{x.Speciality}}</span>&nbsp;&nbsp;&nbsp;&nbsp;
 							  <span style="color:black;" class="fa fa-plane text-upper" >&nbsp;&nbsp;{{x.LanguageKnown}}</span> -->
 								</div> 
 					
 							<div class="ft-foot" style="word-wrap:break-word; ">
-							<h4 class="ft-title text-upper" style="color:#686868">Name</h4> 
-							<span class="ft-offer text-upper">Category</span> 
+							<h4 class="ft-title text-upper" style="color:#686868">City</h4> 
+							<span class="ft-offer text-upper">Price</span> 
 							</div>
 					</div>
 					</a>
 					 </div>
                     
                     <div class="col-md-3" > 
-				   <a href="#">
+				   <a id="addExtraService" style="height:20px" class="btn btn-xs btn-default" data-toggle="tab" onclick="CommingSoon();" >Add</a>
+                       <a style="cursor:pointer"  data-toggle="modal" data-target=".cabDetail">
 				      <div	class="ft-item"> 
 						  <span class="ft-image">
 							 <img style="" src="img/cab.jpg" alt="Top Destination" /> 
 						  </span>
 					  
 								<div class="ft-data" style="font-size:11px;">
-							  <span style="color:black;" class="fa fa-book text-upper">&nbsp;&nbsp;Attractions:&nbsp;&nbsp;</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							  <span style="color:black;" class="fa fa-book text-upper">&nbsp;&nbsp;Cab Service&nbsp;&nbsp;</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							  <!-- <span style="color:black;" class="fa fa-book text-upper" >&nbsp;&nbsp;{{x.Speciality}}</span>&nbsp;&nbsp;&nbsp;&nbsp;
 							  <span style="color:black;" class="fa fa-plane text-upper" >&nbsp;&nbsp;{{x.LanguageKnown}}</span> -->
 								</div> 
 					
 							<div class="ft-foot" style="word-wrap:break-word; ">
-							<h4 class="ft-title text-upper" style="color:#686868">Name</h4> 
-							<span class="ft-offer text-upper">Category</span> 
+							<h4 class="ft-title text-upper" style="color:#686868">City</h4> 
+							<span class="ft-offer text-upper">Price</span> 
 							</div>
 					</div>
 					</a>
 					 </div>
                     
                     <div class="col-md-3" > 
-				   <a href="#">
+				   <a id="addExtraService" style="height:20px" class="btn btn-xs btn-default" data-toggle="tab" onclick="CommingSoon();" >Add</a>
+                       <a style="cursor:pointer"  data-toggle="modal" data-target=".cabDetail">
 				      <div	class="ft-item"> 
 						  <span class="ft-image">
 							 <img style="" src="img/cab.jpg" alt="Top Destination" /> 
 						  </span>
 					  
 								<div class="ft-data" style="font-size:11px;">
-							  <span style="color:black;" class="fa fa-book text-upper">&nbsp;&nbsp;Attractions:&nbsp;&nbsp;</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							  <span style="color:black;" class="fa fa-book text-upper">&nbsp;&nbsp;Cab Service&nbsp;&nbsp;</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							  <!-- <span style="color:black;" class="fa fa-book text-upper" >&nbsp;&nbsp;{{x.Speciality}}</span>&nbsp;&nbsp;&nbsp;&nbsp;
 							  <span style="color:black;" class="fa fa-plane text-upper" >&nbsp;&nbsp;{{x.LanguageKnown}}</span> -->
 								</div> 
 					
 							<div class="ft-foot" style="word-wrap:break-word; ">
-							<h4 class="ft-title text-upper" style="color:#686868">Name</h4> 
-							<span class="ft-offer text-upper">Category</span> 
+							<h4 class="ft-title text-upper" style="color:#686868">City</h4> 
+							<span class="ft-offer text-upper">Price</span> 
 							</div>
 					</div>
 					</a>
 					 </div>
                     
                     <div class="col-md-3" > 
-				   <a href="#">
-				      <div	class="ft-item"> 
+				   <a id="addExtraService" style="height:20px" class="btn btn-xs btn-default" data-toggle="tab" onclick="CommingSoon();" >Add</a>
+                      <a style="cursor:pointer" data-toggle="modal" data-target=".cabDetail">
+				       <div	class="ft-item"> 
 						  <span class="ft-image">
 							 <img style="" src="img/cab.jpg" alt="Top Destination" /> 
 						  </span>
 					  
 								<div class="ft-data" style="font-size:11px;">
-							  <span style="color:black;" class="fa fa-book text-upper">&nbsp;&nbsp;Attractions:&nbsp;&nbsp;</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							  <span style="color:black;" class="fa fa-book text-upper">&nbsp;&nbsp;Cab Service&nbsp;&nbsp;</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							  <!-- <span style="color:black;" class="fa fa-book text-upper" >&nbsp;&nbsp;{{x.Speciality}}</span>&nbsp;&nbsp;&nbsp;&nbsp;
 							  <span style="color:black;" class="fa fa-plane text-upper" >&nbsp;&nbsp;{{x.LanguageKnown}}</span> -->
 								</div> 
 					
 							<div class="ft-foot" style="word-wrap:break-word; ">
-							<h4 class="ft-title text-upper" style="color:#686868">Name</h4> 
-							<span class="ft-offer text-upper">Category</span> 
+							<h4 class="ft-title text-upper" style="color:#686868">City</h4> 
+							<span class="ft-offer text-upper">Price</span> 
 							</div>
 					</div>
 					</a>
 					 </div>
-                                                                        
-                                                                        
-                                                                        
-<!--
-                                                                        <label>Select Hotel<span class="required small">(Required)</span></label>
-                                                                        <select class="form-control" name="hotelName" id="hotelName">
-                                                                            <option value="">Select Hotel</option>
-                                                                            <option value="5000 Rs">Hotel 1</option>
-                                                                            <option value="1500 Rs">Hotel 2</option>
-                                                                            <option value="2000 Rs">Hotel 3</option>
-                                                                            <option value="3000 Rs">Hotel 4</option>
-                                                                        </select>
--->
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -495,7 +485,7 @@ $notes = $row33["notes"]; */
                                             </li>
 											<li class="row">
 												<div class="col-md-12">
-													<input type="submit" class="btn btn-primary btn-lg text-upper" onclick="bookNow();" name="booknow" value="Book Now" />
+													<input type="submit" class="btn btn-primary btn-lg text-upper" onclick="CommingSoon();" name="booknow" value="Book Now" />
 													<span class="required small">*Your email will never published.</span>
 												</div>
 											</li>
@@ -692,6 +682,46 @@ $notes = $row33["notes"]; */
 		</div>
 		<!-- END #wrapper -->
 
+        
+<div id="cabDetail" class="modal fade cabDetail" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="gridModalLabel">Cab Detail</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          We will be right back here soon...
+        </div>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+        </div>
+        
+        <div id="hotelDetail" class="modal fade hotelDetail" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="gridModalLabel">Hotel Detail</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          We will be right back here soon...
+        </div>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+        </div>
 		
 				<!-- javascripts -->
 		<script type="text/javascript" src="js/modernizr.custom.17475.js"></script>
@@ -703,9 +733,9 @@ $notes = $row33["notes"]; */
 		<script type="text/javascript" src="js/styleswitcher.js"></script>
 		
         <script>
-            function bookNow()
+            function CommingSoon()
             {
-                alert("Booking feature will be available soon......");
+                alert("This feature will be available soon......");
             }
             
             

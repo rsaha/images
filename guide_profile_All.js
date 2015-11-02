@@ -14,7 +14,7 @@
     
     valueID = $location.search().guideID;
        
-  alert(valueID);
+  //alert(valueID);
 			
 }]);
 app.controller('guideControl',['$scope','$http', function($scope, $http) {
