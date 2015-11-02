@@ -27,19 +27,17 @@ nnecting with culture and learning from it is any way the main purpose of my vis
  from the awesome foods. Thank you.</p>
 									<div class="tl-author">
 										<span class="tl-author-img">
-											<img class="img-circle" src="http://placehold.it/70x70" alt="Testimonial Author" />
+											<img class="img-circle" src="img/011.jpg" alt="Testimonial Author" />
 										</span>
-										<span class="tl-author-title">Jassem Elrakesh</span>
+										<span class="tl-author-title">Anonymous</span>
 										<span class="tl-author-desc">Visited Kolkata recently</span>
 									</div>
 								</section>
 								
 								<!-- twitter -->
 								<section class="col-md-6">
-									<h3 class="tw-feeds">Twitter Feeds</h3>
-									<p>The only netball team that takes a team photo after every game #envato <a href="#">http://instagram.com/p/gXSJNTwBJe/</a></p>
-									<p>Very excited that Envato is joining the big-ticket Macaw backers list - <a href="#">http://macaw.co</a>  - very intuitive looking new web design app!</p>
-									<p>Remember, you really are your own boss. Sink or swim, but do it like a boss. (10/10) <a href="#">#10BootstrappingTips</a></p>
+									<h3 class="tw-feeds">Twitter &amp; Pinterest Feeds</h3>
+									<p>Coming soon</p>
 								</section>
 							</div>
 						</div>
