@@ -77,9 +77,9 @@ ul.rating {
 	<!-- END head -->
 
 	<!-- START body -->
-	<body ng-app="topPlaces" ng-controller="AllplaceCtrl">
+	<body ng-app="topPlaces" ng-controller="placeDetailCtrl">
 		<!-- START #wrapper -->
-		<div id="wrapper" ng-repeat="tg in places" ng-if="tg.ID== <?php echo $place3; ?>">
+		<div id="wrapper">
 			<!-- START header -->
 			<?php 
 			
@@ -94,7 +94,7 @@ ul.rating {
 					<div class="container">
 						<div class="row">
 							<section class="col-sm-6">
-								<h1 class="text-upper"><i class="fa fa-leaf" style="color:black;"></i>&nbsp;&nbsp;{{tg.Name}}</h1>
+								<h1 class="text-upper"><i class="fa fa-leaf" style="color:black;"></i>&nbsp;&nbsp;{{place.Name}}</h1>
 							</section>
 							
 							<!-- breadcrumbs -->
@@ -114,22 +114,22 @@ ul.rating {
 							<!-- START .post-data -->
 							<div class="post-data">
 								<div class="plan-image">
-									<img class="img-responsive" style="width:770px; height:320px;" src="{{tg.Media.Image[0]}}" alt="Kolkata, WB" />
+									<img class="img-responsive" style="width:770px; height:320px;" src="{{place.Media.Image[0]}}" alt="Kolkata, WB" />
 								</div>
 								
 								<ul class="featured-btm single-ft-btm list-unstyled box-shadow1">
 <!--									<li class="author-img"><img class="img-circle img-wt-border" src="http://placehold.it/80x80" alt="Admin" />{{place.History}}</li>-->
-									<li class="post-date"><a class="text-upper" href="#">{{tg.Category}}</a></li>
-									<li class="post-category"><a class="text-upper" href="#">{{tg.BestTimeToVisit}}</a></li>
-									<li class="post-category"><a class="text-upper" href="#">Popularity: {{tg.TravelIndex}}</a></li>
-									<li class="post-author"><a class="text-upper" href="place.Wikipedia">Follow on Wikipedia</a></li>
+									<li class="post-date"><a class="text-upper" href="#">{{place.Category}}</a></li>
+									<li class="post-category"><a class="text-upper" href="#">{{place.BestTimeToVisit}}</a></li>
+									<li class="post-category"><a class="text-upper" href="#">Popularity: {{place.TravelIndex}}</a></li>
+									<li class="post-author"><a class="text-upper" href="#"></a></li>
 								</ul>
 							</div>
 							<!-- END .post-data -->
 							<a id="bookButton" href="#"> <input type="submit" name="submit" class="btn btn-md btn-success text-upper marb20" value="Book" /></a>
 							<!-- START .post-content -->
 							<article class="post-content">
-								<p>{{tg.Description}}</p> 
+								<p>{{place.Description}}</p> 
 <!--
 								 <h5>Attractions</h5>
 											<p>
@@ -137,7 +137,7 @@ ul.rating {
 											</p>
 -->
 								<p>
-									<img class="alignleft" style="width:260px;height:168px;" src="{{tg.Media.Image[0]}}" alt="Image in Post" />
+									<img class="alignleft" style="width:260px;height:168px;" src="{{place.Media.Image[0]}}" alt="Image in Post" />
 <!--
 									<h5>Transport Availability</h5>											
 											<ul><li ng-repeat="y in tg.Transport">{{y}}</li>										
@@ -227,11 +227,11 @@ ul.rating {
 										<ul class=" list-unstyled">
 											<li ng-repeat="k in alltours" ng-show="$index<4">
 												<span class="rc-post-image">
-                                                    <a href="tour_detail_sidebar.php?id={{k.tour_id}}"	>	<img class="img-responsive" src="{{'k.photo' ==''||'k.photo' ? 'img/SAMPLE_TOUR.jpg' : k.photo}}" alt="Tour x" /></a>
+                                                    <a href="tour_detail_sidebar.php#?id={{k.tour_id}}"	>	<img class="img-responsive" src="{{'k.photo' ==''||'k.photo' ? 'img/SAMPLE_TOUR.jpg' : k.photo}}" alt="Tour x" /></a>
 												</span>
 												<h5><a href="#">{{k.tour_title}}</a></h5>
 												<span class="rc-post-date small">Starting Price&nbsp;{{k.tour_price}}</span><br/>
-                                               <a href="booking-form.php?id1=0&&id2={{k.tour_id}}"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Book" /></a>
+                                               <a href="booking-form.php#?id1=0&&id2={{k.tour_id}}"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Book Now" /></a>
 											</li>
 										</ul>
 									</div>
@@ -242,54 +242,33 @@ ul.rating {
 										<ul class="list-unstyled">
 											<li ng-repeat="z in guides" ng-show="$index<18 && z.photo!=null">
 												<span class="rc-post-image">
-                                                    <a href="guide-detail-sidebar.php?id2={{z.id}}"	>	<img class="img-responsive" style="height:70px; width:60px;" src="{{z.photo==null ? 'img/SAMPLE_TOUR.jpg' :z.photo}}" alt="Recent Post 2" /></a>
+                                                    <a href="guide-detail-sidebar.php#?id2={{z.id}}"	>	<img class="img-responsive" style="height:70px; width:60px;" src="{{z.photo==null ? 'img/SAMPLE_TOUR.jpg' :z.photo}}" alt="Recent Post 2" /></a>
 												</span>
 											<h5><a href="#">{{z.name}}</a></h5>
 												<h5><a href="#">{{z.guide_territory[0]}}</a></h5>
 <!--												<h5>{{z.Speciality}}<span class="rc-post-date small">Speciality&nbsp;&nbsp;</span></h5>-->
 												<span star-rating rating-value="z.review.rating" style="" class="" ></span>	
-                                                <a href="booking-form.php?id1={{z.id}}&&id2=0"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Book" /></a>
+                                                <a href="booking-form.php#?id1={{z.id}}&&id2=0"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Book Now" /></a>
 											</li>
 										</ul>
 									</div>
 									<!-- END TAB 2 -->
 									
-									<!-- START TAB 3 -->
-									<div class="tab-pane" id="lodging">
-										<ul class="rc-posts-list list-unstyled">
-                                            <br><br>
-                                                COMING SOON..
-                                            <br><br><br><br><br><br><br>
-<!--
-											<li>
+								<!-- START TAB 3 -->
+									  <!-- lodging hotels -->
+                                    <div class="tab-pane"  id="lodging" ng-controller="hotelControl">
+										<ul class="list-unstyled">
+											<li ng-repeat="lodge in lodging" ng-show="$index<4 ">
 												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 1" />
+                                                    <a href="guide-detail-sidebar.php#?id2={{lodge.id}}">	<img class="img-responsive" style="height:80px; width:65px;" src="{{lodge.Media.Image[0]}}" alt="Hotel" /></a>
 												</span>
-												<h5><a href="#">Apple Fails to Fix iPhone Daylight Saving Time Alarm Bug</a></h5>
-												<span class="rc-post-date small">January 20, 2014</span>
-											</li>
-											<li>
-												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 2" />
-												</span>
-												<h5><a href="#">Limbaugh: Does 'Dark Knight Rise have it Bomb Found...</a></h5>
-												<span class="rc-post-date small">January 18, 2014</span>
-											</li>
-											<li>
-												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 3" />
-												</span>
-												<h5><a href="#">Shares suspende am Bankiaid 'Gloomy Forecast'</a></h5>
-												<span class="rc-post-date small">January 15, 2014</span>
-											</li>
-											<li class="last-rc-post">
-												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 4" />
-												</span>
-												<h5><a href="#">Shares suspende am Bankiaid 'Gloomy Forecast'</a></h5>
-												<span class="rc-post-date small">January 11, 2014</span>
-											</li>
--->
+											<h5><a href="#">{{lodge.Address}}</a></h5>
+											
+												<span  style="" class="" >{{lodge.Description}}</span>
+                                                <span  style="" class="" >{{lodge.PricePerNight}}Per Night</span><br><br>
+                                                 <a href="#" style="margin-left:110px;"> <input type="submit" name="submit" class="btn btn-primary  marb20" value="Explore" /></a>
+											</li> 
+										
 										</ul>
 									</div>
 									<!-- END TAB 3 -->

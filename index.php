@@ -170,7 +170,7 @@ ul.rating {
 					 <div class="row bom-contents"  ng-controller="toursCtrl" style="height:380px;"> 
 						<div class="col-md-11" >
 					 <div class="col-md-3" ng-repeat="x in tours | filter:search" ng-show="$index<4"> 
-							<a href="tour_detail_sidebar.php?id={{x.tour_id}}">
+							<a href="tour_detail_sidebar.php#?id={{x.tour_id}}">
 							<div class="ft-item"> 
 							<span class="ft-image"><img style="height:200px;" src="{{'x.photo' ==''||'x.photo' ? 'img/SAMPLE_TOUR.jpg' : x.photo}}" alt="Popular Tours" /> </span> 
 							   <div class="ft-data" style="height:45px;font-size:11px;" >
@@ -211,7 +211,7 @@ ul.rating {
 				<div class="row bom-contents"  ng-controller="guideCtrl" style="height:380px;">
 				<div class="col-md-11 col-xs-11">
 				<div class="col-md-3" ng-repeat="x in allguides | filter:search"  ng-show="$index<18 && x.photo!=null "> 
-				   <a href="guide-detail-sidebar.php?id2={{x.id}}" ng-controller="guideIDCtrl" ng-click="setID(x.id)">
+				   <a href="guide-detail-sidebar.php#?id2={{x.id}}" ng-controller="guideIDCtrl" ng-click="setID(x.id)">
 				      <div	class="ft-item"> 
 						  <span class="ft-image">
 							 <img style="height:200px;" src="{{x.photo==null ? 'img/SAMPLE_TOUR.jpg' :x.photo}}" alt="Top Guide" /> 
@@ -255,7 +255,7 @@ ul.rating {
 				<div class="row bom-contents"  ng-controller="placesCtrl" style="height:380px;">
 				<div class="col-md-11">
 				<div class="col-md-3" ng-repeat="x in places | filter:search" ng-show="$index<4"> 
-				   <a href="destination-detail-sidebar.php?id3={{x.ID}}">
+				   <a href="destination-detail-sidebar.php#?id3={{x.ID}}">
 				      <div	class="ft-item"> 
 						  <span class="ft-image">
 							 <img style="height:200px;" src="{{'x.Media.Image[0]'=='' ? 'img/custom1.jpg' :x.Media.Image[0]}}" alt="Top Destination" /> 

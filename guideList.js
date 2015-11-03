@@ -34,6 +34,18 @@ app.controller('guideCtrl',['$scope','$http', function($scope, $http) {
 				$scope.data = "error in fetching data";
 			});
 }]);
+     app.controller('hotelControl',['$scope','$http', function($scope, $http) {
+    $http.get("http://130.211.123.212/app/lodging")
+    .success(function (response) {
+		$scope.lodging = response.Lodging;
+	   
+		})
+	.error(function() {
+				$scope.data = "error in fetching data";
+			});
+			
+			
+}]);
 app.directive('starRating', function () {
     return {
         restrict: 'A',

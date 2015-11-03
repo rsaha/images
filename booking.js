@@ -7,7 +7,7 @@
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
 }]);
     
-
+ 
 app.controller('tours_booking',['$scope','$http', function($scope, $http) {
     $http.get("http://130.211.123.212/app/tours")
     .success(function (response) {
@@ -33,7 +33,46 @@ app.controller('guides_booking',['$scope','$http', function($scope, $http) {
    
 			
 }]);
-
+app.controller('Singleguide',['$scope','$http','$location', function($scope, $http,$location)  {
+    // alert(valueID);
+                               debugger;
+     var guideID = $location.search();
+    if(guideID.id2==0)
+        {
+             $scope.guideValue=1;
+            $scope.tourValue=guideID.id2;
+        }
+    $http.get("http://130.211.123.212/app/guide?id="+guideID.id1)
+   // $http.get("http://130.211.123.212/app/guide?id=10011")
+    .success(function (response) {
+		$scope.guide=response;
+		})
+	.error(function() {
+				$scope.data = "error in fetching data";
+			});
+}]);
+    
+    app.controller('Singletour',['$scope','$http','$location', function($scope, $http,$location) {
+    
+                               debugger;
+     var tourID = $location.search();
+         if(tourID.id1==0)
+        {
+             $scope.tourValue=1;
+            $scope.guideValue=tourID.id1;
+        }
+    $http.get("http://130.211.123.212/app/tour?tourid="+tourID.id2)
+    .success(function (response) {
+		$scope.tour = response;
+		
+		})
+	.error(function() {
+				$scope.data = "error in fetching data";
+			});
+			
+		
+			
+}]); 
 app.controller('placesCtrl',['$scope','$http', function($scope, $http) {
     $http.get("http://130.211.123.212/app/places")
     .success(function (response) {
