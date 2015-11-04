@@ -166,14 +166,9 @@ ul.rating {
 								<!-- START TABS -->
 								<ul class="nav nav-tabs text-upper">
 									<li class="active"><a href="#toptours" data-toggle="tab">Tours</a></li>
-<<<<<<< HEAD
                                     <li><a href="#relatedguides" data-toggle="tab">Guides</a></li>
 									<li><a href="#topdestinations" data-toggle="tab">Places</a></li>
-									<li><a href="#toptips" data-toggle="tab">Hotels</a></li>
-=======
-									<li><a href="#topdestinations" data-toggle="tab">Destinations</a></li>
 									<li><a href="#lodging" data-toggle="tab">Hotels</a></li>
->>>>>>> fc7c6bbce2b7e12d4e606dd56a5d83b2b90079e4
 								</ul>
 								<!-- END TABS -->
 								
@@ -227,15 +222,7 @@ ul.rating {
 										</ul>
 									</div>
 									<!-- END TAB 3 -->
-									
-<<<<<<< HEAD
 									<!-- START TAB 4 -->
-									<div class="tab-pane" id="toptips">
-										<div class="inside-pane">
-											<p><h3>Coming Soon</h3><br><br><br><br><br><br><br><br></p>
-										</div>
-=======
-									<!-- START TAB 3 -->
 									  <!-- lodging hotels -->
                                     <div class="tab-pane"  id="lodging" ng-controller="hotelControl">
 										<ul class="list-unstyled">
@@ -251,7 +238,6 @@ ul.rating {
 											</li> 
 										
 										</ul>
->>>>>>> fc7c6bbce2b7e12d4e606dd56a5d83b2b90079e4
 									</div>
 									<!-- END TAB 4 -->
 								</div>
