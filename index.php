@@ -120,7 +120,7 @@ ul.rating {
 						<div class="row">
 						<br>
 						<div class="col-md-10 col-sm-10 col-sm-offset-1 col-md-offset-1 col-xs-10 col-xs-offset-1 input-group">
-						<input type="text" class="form-control" style="background-color:white;" ng-model="search" placeholder="Where to go?" />
+						<input type="text" class="form-control" style="background-color:white;" ng-model="search" placeholder="Coming soon" />
 						<span class="input-group-addon">
 						<i class="fa fa-search"></i>
 						</span>
@@ -215,15 +215,14 @@ ul.rating {
 							 <img style="height:200px;" src="{{x.photo==null ? 'img/SAMPLE_TOUR.jpg' :x.photo}}" alt="Top Guide" /> 
 						  </span>
 					  
-								<div class="ft-data" style="height:45px;font-size:11px;">
-							  <span style="color:black;" class="fa fa-location text-upper">{{x.city}}</span>
+				<div class="ft-data" style="height:45px;font-size:11px;">
 							   <span style="color:black;" class="fa fa-registered text-upper" >{{x.license_no}}</span>
 							  <span style="color:black;" class="fa fa-user-times text-upper alignright" >{{x.experiance_in_year}}</span><br>
 							 
 								</div> 
 					
 							<div class="ft-foot" style="word-wrap:break-word; height:50px;">
-							<h4 class="ft-title text-upper" style="color:#686868">{{x.name}},&nbsp{{x.guide_territory[0]}}</h4> 
+							<h4 class="fa fa-location text-upper" style="color:#686868">{{x.name}},&nbsp{{x.guide_territory[0]}}</h4> 
 							<!-- <span class="ft-offer text-upper">{{x.Tours.Count}} Tours</span>  -->
 							</div> 
 					

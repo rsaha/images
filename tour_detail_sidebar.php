@@ -119,22 +119,11 @@ ul.rating {
 			?>
 			<!-- START #page-header -->
 			<div id="" style="color:#ff845e;">
-				
 					<div class="container">
 						<div class="row">
 							<section class="col-sm-6">
-								
-								<h1 class="text-upper"><i class="fa fa-trophy" style="color:black;"></i>{{tour.tour_title}}</h1>	
+								<h1 class="text-upper"><i class="fa fa-trophy" style="color:black;"></i>&nbsp; {{tour.tour_title}}</h1>	
 							</section>
-							
-							<!-- breadcrumbs -->
-							<!-- <section class="col-sm-6">
-								<ol class="breadcrumb">
-									<li class="home"><a href="#"  style="color:black;">Home</a></li>
-									<li><a href="#" style="color:black;">Tour #2</a></li>
-									<li class="active"><span  style="color:black;">Agra, UP</span></li>
-								</ol>
-							</section> -->
 						</div>
 					</div>
 				
@@ -154,9 +143,9 @@ ul.rating {
 									<img class="img-responsive" src="{{'tour.photo'=='' ? 'tour.photo' :'img/SAMPLE_TAJ.jpg'}}" alt="TajMahal" />
 									<div class="offer-box">
 										<div class="offer-top">
-											<span class="ft-temp alignright">19&#730;c</span>
-											<span class="fa fa-location-arrow">{{tour.tour_location}}</span>
-											<h2 class="featured-cy text-upper">{{tour.tour_duration}}</h2>
+											<span class="fa fa-tag alignright">{{tour.tour_category_id}}</span>
+											<span class="fa fa-location-arrow" style="font-weight:bold;">{{tour.tour_location}}</span>
+											<h2 class="featured-cy text-upper">{{tour.tour_duration}} days</h2>
 										</div>
 										
 										<div class="offer-bottom">
@@ -166,15 +155,17 @@ ul.rating {
 								</div>
 								
 								<div class="featured-btm box-shadow1">									
-									<a class="ft-plane text-upper" style="font-weight:bold;" href="#">{{tour.tour_category_id}}</a>
-									<a class="ft-tea text-upper" style="font-weight:bold;" href="#">{{tour.inclusive}}</a>
-                                    <a class="ft-hotel text-upper" style="font-weight:bold;" href="booking-form.php">From:&nbsp;&nbsp;{{tour.start_point}}&nbsp;&nbsp;-&nbsp;&nbsp;To:&nbsp;&nbsp;{{tour.end_point}}</a>
-																	</div>
+									<a class="fa fa-map-pin text-upper" style="font-weight:bold;" href="#">{{tour.tour_territory}}</a>
+									<a class="fa fa-user text-upper" style="font-weight:bold;" href="#">{{tour.guide_id}}</a>
+                                    <a class="fa fa-map-marker text-upper" style="font-weight:bold;" href="#">{{tour.start_point}}</a>
+								</div>
 								<a id="bookButton" href="booking-form.php?id1=0&id2={{tg.tour_id}}" class="alignright"> <input type="submit" name="submit" class="btn btn-success text-upper " value="Book" /></a>
 								<h2 class="text-upper">Tour Information</h2>
-								<p>"{{tour.tour_description}}"</p>
-								<p><h5>Start Point : {{tour.start_point}} &nbsp;&nbsp;&nbsp;&nbsp; End Point : {{tour.end_point}}</h5></p>
-								
+								<p>Description : {{tour.tour_description}}</p>
+								<p><h5>End Point : {{tour.end_point}}</h5></p>
+                                <p><h5>Cancellation Policy : {{tour.cancelation_policy}}</h5></p>
+                                <p><h5>Restrcitions: {{tour.restrictions}}</h5></p>
+                                <p>Notes &amp; Summary : <br/>{{tour.notes}}</h5></p>
 							</div>
 							<!-- END .tour-plans -->
 							
