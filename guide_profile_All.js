@@ -57,7 +57,10 @@ app.controller('TopGuideControl',['$scope','$http', function($scope, $http) {
 		$scope.Message = '';
 		
 	});
-app.controller('TourControl',['$scope','$http', function($scope, $http) {
+app.controller('TourControl',['$scope','$http','$location', function($scope, $http,$location) {
+    var ids = $location.search().id2;
+    $scope.idn=ids;
+  
     $http.get("http://130.211.123.212/app/tours")
     .success(function (response) {
 		$scope.alltours = response.Tours;

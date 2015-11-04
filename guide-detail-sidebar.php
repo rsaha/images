@@ -2,7 +2,6 @@
  if(isset($_GET['id2']))
 	{
 	$guideid2 = $_GET['id2'];
-    //echo '<script>alert('.$guideid.');</script>';
 	}
     ?>
 <!DOCTYPE html>
@@ -163,7 +162,7 @@ ul.rating {
 								</ul>
 							</div>
 							<!-- END .post-data -->
-							 <a id="bookButton" href="booking-form.php?id1={{guidesdetail.id}}&id2=0"> <input type="submit" name="submit" class="btn btn-md btn-success text-upper marb20" value="Book" /></a>
+							 <a id="bookButton" href="booking-form.php#?id1={{guidesdetail.id}}&id2=0"> <input type="submit" name="submit" class="btn btn-md btn-success text-upper marb20" value="Book" /></a>
 							<!-- START .post-content -->
 							<article class="post-content">
 								<p>{{guidesdetail.guide_summary}}Guide is professional. He is trained, examined and registered with the Institute of Tourist Guiding which awards them the highly acclaimed Blue Badge. Have further professional, academic and other specialist qualifications to further illuminate your tour.</p> 
@@ -221,9 +220,10 @@ He provide a number of example tours on our site, but we can completely customis
 								<div class="tab-content gray box-shadow1 clearfix marb30">
 									<!-- START TAB 1 -->
 									
-									<div class="tab-pane active" id="toptours" ng-controller="TourControl">
+									<div class="tab-pane active" style="height:500px;" id="toptours" ng-controller="TourControl">
+                                      
 										<ul class="rc-posts-list list-unstyled">
-											<li ng-repeat="x in alltours | filter:{ tour_id:<?php echo $guideid2; ?> }" ng-show="$index<4">
+											<li ng-repeat="x in alltours | filter:{ guide_id:idn }"  ng-if="x.guide_id==idn" ng-show="$index<4">
 												<span class="rc-post-image">
                                                     <a href="tour_detail_sidebar.php#?id={{x.tour_id}}"	><img class="img-responsive" src="{{'x.photo' ==''||'x.photo' ? 'img/SAMPLE_TOUR.jpg' : x.photo}}" alt="Tour 1" /></a>
 												</span>
@@ -231,7 +231,7 @@ He provide a number of example tours on our site, but we can completely customis
 												<span class="rc-post-date small">Starting Price&nbsp;{{x.tour_price}}</span><br/>
                                                <a href="booking-form.php#?id1=0&&id2={{x.tour_id}}"> <input type="submit" name="submit" class="btn btn-primary  marb20" value="Book Now" /></a>
 											</li>
-											
+										
 <!--
 											<li>
 												<span class="rc-post-image">
@@ -252,11 +252,11 @@ He provide a number of example tours on our site, but we can completely customis
 -->
 										</ul>
 									</div>
-									<div class="tab-pane"  id="relatedGuides" ng-controller="TopGuideControl">
+									<div class="tab-pane" style="height:500px;" id="relatedGuides" ng-controller="TopGuideControl">
 										<ul class="list-unstyled">
 											<li ng-repeat="z in TopGuides" ng-show="$index<18 && z.photo!=null">
 												<span class="rc-post-image">
-                                                    <a href="guide-detail-sidebar.php#?id2={{z.id}}"	><img class="img-responsive" style="height:70px; width:60px;" src="{{z.photo==null ? 'img/SAMPLE_TOUR.jpg' :z.photo}}" alt="Recent Post 2" /></a>
+                                                    <a href="guide-detail-sidebar.php#?id2={{z.id}}"	><img class="img-responsive" style="height:70px; width:60px;" src="{{z.photo==null ? 'img/SAMPLE_TOUR.jpg' :z.photo}}" alt="Guide Image" /></a>
 												</span>
 											<h5><a href="#">{{z.name}}</a></h5>
 												<h5><a href="#">{{z.guide_territory[0]}}</a></h5>
@@ -270,7 +270,7 @@ He provide a number of example tours on our site, but we can completely customis
 									<!-- END TAB 1 -->
 									
 									<!-- START TAB 2 -->
-									<div class="tab-pane" id="topreviews" ng-controller="TourControl">
+									<div class="tab-pane" style="height:500px;" id="topreviews" ng-controller="TourControl">
 										<ul class="list-unstyled">
                                             No Reviews Yet<br><br><br><br><br><br>
 <!--
@@ -289,7 +289,7 @@ He provide a number of example tours on our site, but we can completely customis
 									<!-- END TAB 2 -->
 									
 									<!-- START TAB 3 -->
-									<div class="tab-pane" id="toptips">
+									<div class="tab-pane" style="height:500px;" id="toptips">
 										<div class="inside-pane">
 											<p>Coming Soon<br><br><br><br><br><br><br><br></p>
 										</div>

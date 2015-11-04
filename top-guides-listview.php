@@ -132,7 +132,7 @@ ul.rating {
 					<div class="row ">
 					  <div class="col-md-8">
 							<div class="row bom-contents" ng-controller="guideCtrl">
-						<div class="col-md-4" ng-repeat="x in allguides" ng-show="$index<40 && x.photo != null" >
+						<div class="col-md-4" ng-repeat="x in allguides" ng-show="$index<18" >
 							 <div	class="ft-item"> 
 						  <span class="ft-image">
 						  <a href="guide-detail-sidebar.php#?id2={{x.id}}">
@@ -174,7 +174,7 @@ ul.rating {
 								<!-- START TAB CONTENT -->
 								<div class="tab-content gray box-shadow1 clearfix marb30" >
 									<!-- START TAB 1 -->
-									<div class="tab-pane active" id="toptours"  ng-controller="tourCtrl">
+									<div class="tab-pane active"  style="height:600px;" id="toptours"  ng-controller="tourCtrl">
 										<ul class="list-unstyled">
 											<li ng-repeat="x in alltours" ng-show="$index<4">
 												<span class="rc-post-image">
@@ -189,7 +189,7 @@ ul.rating {
 									<!-- END TAB 1 -->
 									
 									<!-- START TAB 2 -->
-									<div class="tab-pane" id="topdestinations"  ng-controller="placeCtrl">
+									<div class="tab-pane" id="topdestinations"  style="height:600px;" ng-controller="placeCtrl">
 										<ul class=" list-unstyled">
 											<li ng-repeat="k in allplaces" ng-show="$index<4">
 												<span class="rc-post-image">
@@ -205,7 +205,7 @@ ul.rating {
 									
 									<!-- START TAB 3 -->
 									  <!-- lodging hotels -->
-                                    <div class="tab-pane"  id="lodging" ng-controller="hotelControl">
+                                    <div class="tab-pane"  id="lodging"  style="height:600px;" ng-controller="hotelControl">
 										<ul class="list-unstyled">
 											<li ng-repeat="lodge in lodging" ng-show="$index<4 ">
 												<span class="rc-post-image">
