@@ -40,8 +40,14 @@ app.controller('placesCtrl',['$scope','$http', function($scope, $http) {
 			
 			
 }]);
+<<<<<<< HEAD
 app.controller('placeDetailCtrl',['$scope','$http', function($scope, $http) {
     $http.get("http://130.211.123.212/app/place?placeid=1001")
+=======
+app.controller('placeDetailCtrl',['$scope','$http','$location', function($scope, $http,$location) {
+    var placeid = $location.search();
+    $http.get("http://130.211.123.212/app/place?placeid="+placeid.id3)
+>>>>>>> fc7c6bbce2b7e12d4e606dd56a5d83b2b90079e4
     .success(function (response) {
 		$scope.place = response;
 		
@@ -64,6 +70,18 @@ app.controller('placeDetailCtrl',['$scope','$http', function($scope, $http) {
 			
 			
 }]); 
+     app.controller('hotelControl',['$scope','$http', function($scope, $http) {
+    $http.get("http://130.211.123.212/app/lodging")
+    .success(function (response) {
+		$scope.lodging = response.Lodging;
+	   
+		})
+	.error(function() {
+				$scope.data = "error in fetching data";
+			});
+			
+			
+}]);
     app.controller('AllplaceCtrl',['$scope','$http', function($scope, $http) {
     $http.get("http://130.211.123.212/app/places")
     .success(function (response) {

@@ -112,14 +112,14 @@ ul.rating {
 			<div class="main-contents">
 				<div class="container" ng-app="topTours">
 				  
-					<div class="row">
-					<a href="tour_detail_sidebar.php">
-						<div class="col-md-8" ng-controller="toursCtrl" >
+					<div class="row"  ng-controller="toursCtrl">
+					<a href="tour_detail_sidebar.php#?id={{x.tour_id}}">
+						<div class="col-md-8" >
 							<div class="row" ng-repeat="x in tours">
 								<div class="col-md-12">
 									<div class="tour-plans">
 										<div class="plan-image">
-                                            <a href="tour_detail_sidebar.php?id={{x.tour_id}}">
+                                            <a href="tour_detail_sidebar.php#?id={{x.tour_id}}">
 											<img class="img-responsive" style="height:360px;" src="{{x.photo ==null ? 'img/SAMPLE_TAJ.jpg' : x.photo}}" alt="Tour image"/>
                                             </a>
 											<div class="offer-box">
@@ -143,7 +143,7 @@ ul.rating {
 										</div>
 										<div class="post-desc">
 																						<a class="btn btn-primary marb20" href="tour_detail_sidebar.php?tour_id={{x.tour_id}}">DETAILS</a>
-                                             <a id="bookButton" class="alignright" href="booking-form.php?id1=0&id2={{x.tour_id}}"> <input type="submit" name="submit" class="btn btn-sm btn-success text-upper marb20" value="Book" /></a>
+                                             <a id="bookButton" class="alignright" href="booking-form.php#?id1=0&id2={{x.tour_id}}"> <input type="submit" name="submit" class="btn btn-sm btn-success text-upper marb20" value="Book" /></a>
 										</div>
 									</div>
 								</div><br>
@@ -177,7 +177,7 @@ ul.rating {
 												</span>
 												<h5><a href="#">{{x.tour_title}}</a></h5>
 												<span class="rc-post-date small">Starting Price&nbsp;{{x.tour_price}}</span><br/>
-                                               <a href="booking-form.php?id1=0&id2={{x.tour_id}}"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Book" /></a>
+                                               <a href="booking-form.php#?id1=0&id2={{x.tour_id}}"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Book" /></a>
 											</li>
 										</ul>
 									</div>
@@ -194,7 +194,7 @@ ul.rating {
 												<h5><a href="#">{{z.guide_territory[0]}}</a></h5>
 <!--												<h5>{{z.Speciality}}<span class="rc-post-date small">Speciality&nbsp;&nbsp;</span></h5>-->
 												<span star-rating rating-value="z.review.rating" style="" class="" ></span>	
-                                                 <a href="booking-form.php?id1={{z.id}}&id2=0"> <input type="submit" name="submit" class="btn btn-primary  marb20" value="Book Now" /></a>
+                                                 <a href="booking-form.php#?id1={{z.id}}&id2=0"> <input type="submit" name="submit" class="btn btn-primary  marb20" value="Book Now" /></a>
 											</li>
 										
 										</ul>
@@ -210,7 +210,7 @@ ul.rating {
 												</span>
 												<h5><a href="#">{{k.Name}}</a></h5>
 												<span class="rc-post-date small">Best Visit:&nbsp;&nbsp;&nbsp;{{k.BestTimeToVisit}}</span><br/>
-                                               <a href="booking-form.Php"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Explore" /></a>
+                                               <a href="#"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Explore" /></a>
 											</li>
 										</ul>
 									</div>
