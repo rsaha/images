@@ -193,15 +193,6 @@ ul.rating {
 										</ul>
 									</div>
 									<!-- END TAB 2 -->
-									
-<<<<<<< HEAD
-									<!-- START TAB 3 -->
-									<div class="tab-pane" id="lodging">
-										<ul class="rc-posts-list list-unstyled">
-                                            <br><br>
-                                                COMING SOON..
-                                            <br><br><br><br><br><br><br>
-=======
 								<!-- START TAB 3 -->
 									  <!-- lodging hotels -->
                                     <div class="tab-pane"  id="lodging" ng-controller="hotelControl">
@@ -216,8 +207,6 @@ ul.rating {
                                                 <span  style="" class="" >{{lodge.PricePerNight}}Per Night</span><br><br>
                                                  <a href="#" style="margin-left:110px;"> <input type="submit" name="submit" class="btn btn-primary  marb20" value="Explore" /></a>
 											</li> 
-										
->>>>>>> fc7c6bbce2b7e12d4e606dd56a5d83b2b90079e4
 										</ul>
 									</div>
 									<!-- END TAB 3 -->
