@@ -117,11 +117,7 @@ ul.rating {
 								<div class="col-md-12">
 									<div class="tour-plans">
 										<div class="plan-image">
-<<<<<<< HEAD
-											<img class="img-responsive" style="height:360px;" src="{{x.Media.Image[0]}}" alt="{{x.Name}}" href="destination-detail-sidebar.php?id3={{x.ID}}"/>
-=======
-											<img class="img-responsive" style="height:360px;" src="{{x.Media.Image[0]}}" alt="{{x.Name}}" href="destination-detail-sidebar.php#?id3={{x.ID}}"/>
->>>>>>> fc7c6bbce2b7e12d4e606dd56a5d83b2b90079e4
+									<img class="img-responsive" style="height:360px;" src="{{x.Media.Image[0]}}" alt="{{x.Name}}" href="destination-detail-sidebar.php#?id3={{x.ID}}"/>
 											<div class="offer-box">
 												<div class="offer-top">
 													<span class="ft-temp alignright">19&#730;c</span>
@@ -149,19 +145,8 @@ ul.rating {
 										</div>
 										<div class="post-desc">
 											<h4>{{x.Description}}</h4>
-<<<<<<< HEAD
-											<a class="btn btn-primary marb20" href="destination-detail-sidebar.php?id3={{x.ID}}">DETAILS</a>
-                                             <a id="bookButton" class="alignright" href="#"> <input type="submit" name="submit" class="btn btn-sm btn-success text-upper marb20" value="Explore" /></a>
-=======
-<!--
-											 <h5>Attractions</h5>
-											<p>
-											<ul><li ng-repeat="y in x.Attractions">{{y}}</li>
-											</p>
--->
 											<a class="btn btn-primary marb20" href="destination-detail-sidebar.php#?id3={{x.ID}}">DETAILS</a>
-                                             <a id="bookButton" class="alignright" href="#"> <input type="submit" name="submit" class="btn btn-sm btn-success text-upper marb20" value="Book" /></a>
->>>>>>> fc7c6bbce2b7e12d4e606dd56a5d83b2b90079e4
+                                             <a id="bookButton" class="alignright" href="#"> <input type="submit" name="submit" class="btn btn-sm btn-success text-upper marb20" value="Explore" /></a>
 										</div>
 									</div>
 								</div>
