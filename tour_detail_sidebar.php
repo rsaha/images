@@ -124,7 +124,7 @@ ul.rating {
 						<div class="row">
 							<section class="col-sm-6">
 								
-								<h1 class="text-upper"><i class="fa fa-plane" style="color:black;"></i>&nbsp;&nbsp;{{tour.tour_title}}</h1>	
+								<h1 class="text-upper"><i class="fa fa-trophy" style="color:black;"></i>{{tour.tour_title}}</h1>	
 							</section>
 							
 							<!-- breadcrumbs -->
@@ -155,12 +155,11 @@ ul.rating {
 									<div class="offer-box">
 										<div class="offer-top">
 											<span class="ft-temp alignright">19&#730;c</span>
-											<span class="featured-cr text-upper">{{tour.tour_location}}</span>
+											<span class="fa fa-location-arrow">{{tour.tour_location}}</span>
 											<h2 class="featured-cy text-upper">{{tour.tour_duration}}</h2>
 										</div>
 										
 										<div class="offer-bottom">
-											<span class="featured-stf">Per Person </span>
 											<span class="featured-spe">{{tour.tour_price}}</span>
 										</div>
 									</div>
@@ -324,7 +323,7 @@ ul.rating {
 								<!-- START TAB CONTENT -->
 								<div class="tab-content gray box-shadow1 clearfix marb30">
 									<!-- START TAB 1 -->
-									<div class="tab-pane active"  id="topguides" ng-controller="guidescontrol">
+									<div class="tab-pane"  id="topguides" ng-controller="guidescontrol">
 										<ul class="list-unstyled">
 											<li ng-repeat="z in guides" ng-show="$index<4 ">
 												<span class="rc-post-image">
@@ -340,7 +339,7 @@ ul.rating {
 										</ul>
 									</div>
 									<!-- END TAB 1 -->
-									<div class="tab-pane" id="toptours" ng-controller="toursCtrl">
+									<div class="tab-pane active" id="toptours" ng-controller="toursCtrl">
 										<ul class="rc-posts-list list-unstyled">
 											<li ng-repeat="x in tours" ng-show="$index<4">
 												<span class="rc-post-image">
@@ -357,7 +356,7 @@ ul.rating {
 										<ul class="list-unstyled">
 											<li ng-repeat="lodge in lodging" ng-show="$index<4 ">
 												<span class="rc-post-image">
-                                                    <a href="guide-detail-sidebar.php#?id2={{lodge.id}}">	<img class="img-responsive" style="height:80px; width:65px;" src="{{lodge.Media.Image[0]}}" alt="Hotel" /></a>
+                                                    <a href="">	<img class="img-responsive" style="height:80px; width:65px;" src="{{lodge.Media.Image[0]}}" alt="Hotel" /></a>
 												</span>
 											<h5><a href="#">{{lodge.Address}}</a></h5>
 											

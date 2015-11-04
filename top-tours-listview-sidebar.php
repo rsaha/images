@@ -92,7 +92,7 @@ ul.rating {
 					<div class="container">
 						<div class="row">
 							<section class="col-sm-6">
-								<h1 class="text-upper"><i class="fa fa-plane" style="color:black;"></i>&nbsp;&nbsp;Top Tours</h1>
+								<h1 class="text-upper"><i class="fa fa-trophy" style="color:black;"></i>Top Tours</h1>
 							</section>
 							
 							<!-- breadcrumbs -->
@@ -139,7 +139,7 @@ ul.rating {
 											<span class="ft-hotel text-upper">{{x.tour_territory[0]}}</span>
 											<span class="ft-plane text-upper">{{x.tour_duration}}</span>
 											<span class="ft-tea text-upper" star-rating rating-value="5"></span>
-											<span class="alignleft fa fa-eye">&nbsp;&nbsp; reviews</span> 
+											<span class="alignleft fa fa-life-ring">&nbsp;&nbsp; reviews</span> 
 										</div>
 										<div class="post-desc">
 																						<a class="btn btn-primary marb20" href="tour_detail_sidebar.php?tour_id={{x.tour_id}}">DETAILS</a>
