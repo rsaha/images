@@ -1,23 +1,5 @@
 <?php
-if($_GET["id1"] == 0)
-{
-	$tourID=$_GET["id2"];
-	$userID=0;
-}
-if($_GET["id2"]==0)
-{
-	$userID=$_GET["id1"];
-	$tourID=0;
-}
 
-if($tourID == 0)
-{
-    //id1;     user- name, territory, gender, photo
-}
-else if($userID == 0)
-{
-    //id2;     tour- title, duration, location, price, tour category, Inclusive, Exclusive, Cancelation Policy
-}
 /* 
 include_once('db.php');
 
@@ -248,12 +230,9 @@ $notes = $row33["notes"]; */
                                                 <label>Date of Tour <span class="required small">(Required)</span></label>
 													<input type="date" class="form-control" name="zipcode" value="" />
                                                 </div>
-                                            <?php
-                                                if($tourID == 0)
-                                                {
-                                            ?>
                                             
-												<div class="col-md-6">
+                                            
+												<div class="col-md-6" ng-controller="Singleguide" ng-show="{{guideValue}}">
 													<label>Tour Duratios [In Days] <span class="required small">(Required)</span></label>
                                                     <div class="input-group">
                                                       <span class="input-group-addon" style="cursor:pointer" onclick="tourDurationMinus();"><i style="font-size:12px" class="fa fa-minus"></i></span>
@@ -263,9 +242,15 @@ $notes = $row33["notes"]; */
                                                     </div>
 												</div>
 											
-                                            <?php
-                                                }
-                                            ?>
+                                          <div class="col-md-6" ng-controller="Singletour" ng-show="{{tourValue}}">
+													<label>Tour Duratios [In Days] <span class="required small">(Required)</span></label>
+                                                    <div class="input-group">
+                                                      <span class="input-group-addon" style="cursor:pointer" onclick="tourDurationMinus();"><i style="font-size:12px" class="fa fa-minus"></i></span>
+                                                      <input type="text" id="tourDuration" name="tourDuration" value="{{tour.tour_duration}}" class="form-control" readonly>
+                                                      <span class="input-group-addon">Days</span>
+                                                    <span class="input-group-addon" style="cursor:pointer" onclick="tourDurationPlus();"><i style="font-size:12px" class="fa fa-plus"></i></span>
+                                                    </div>
+												</div>
 											</li>
                                             
                                             <li class="row">
@@ -505,55 +490,45 @@ $notes = $row33["notes"]; */
 								<!-- START TABS -->
 								
 								<ul class="nav nav-tabs text-upper" style="background-color:#ff845e;">
-									<?php
-									if($userID == 0)
-									{
-										echo '<li class="active"><a href="#popular-posts" data-toggle="tab">Requested Tour Detail</a></li>';
-									}
-									else if($tourID == 0)
-									{
-										echo '<li class="active"><a href="#popular-posts" data-toggle="tab">Requested Guide Detail</a></li>';
-									}
 									
-									?>
+                                    <li class="active" ng-controller="Singletour" ng-show="{{tourValue}}"><a href="#popular-posts" data-toggle="tab">Requested Tour Detail</a></li>
+										<li ng-controller="Singleguide" class="active" ng-show="{{guideValue}}"><a href="#popular-posts" data-toggle="tab">Requested Guide Detail</a></li>
+									
 								</ul>
 								<!-- END TABS -->
 								
 								<!-- START TAB CONTENT -->
 								<div class="tab-content gray box-shadow1 clearfix marb30">
 									<!-- START TAB 1 -->
-									<div class="tab-pane active" id="popular-posts" ng-controller="tours_booking" >
-										<?php 
-										if($userID == 0)
-									{ 
-										?>
-                                        <div  ng-repeat="x in toursbook |  filter:{ tour_id:<?php echo $tourID; ?> }">
+									<div class="tab-pane active" id="popular-posts" ng-controller="Singletour" >
+										
+                                        <div ng-show="{{tourValue}}">
                                             
 										<div class="tour-plans" style="padding:10px 10px 10px 10px;">
 								<div class="plan-image">
 						
 
-								<img class="img-responsive" alt="featured Scroller" draggable="false" src="{{'x.photo' ==''||'x.photo' ? 'img/custom11.jpg' : x.photo}}"/>
+								<img class="img-responsive" alt="featured Scroller" draggable="false" src="{{tour.photo == null ? 'img/custom11.jpg' : tour.photo}}"/>
 								
 							
 									<!--<img class="img-responsive" src="img/custom2.jpg" alt="TajMahal" />-->
 									<div class="offer-box">
 										<div class="offer-top">
 											<!--<span class="ft-temp alignright">19&#730;c</span>-->
-											<span class="featured-cr text-upper" style="font-size:15px">{{x.tour_location}}</span>
-											<h2 class="featured-cy text-upper" style="font-size:15px">{{x.tour_title}}</h2>
+											<span class="featured-cr text-upper" style="font-size:15px">{{tour.tour_location}}</span>
+											<h2 class="featured-cy text-upper" style="font-size:15px">{{tour.tour_title}}</h2>
 										</div>
 										
 										<div class="offer-bottom">
-											<span class="featured-spe" style="font-size:15px">{{x.tour_price}}</span>
+											<span class="featured-spe" style="font-size:15px">{{tour.tour_price}}</span>
 										</div>
 									</div>
 								</div>
 								
 								<div class="featured-btm box-shadow1">
-									<a class="ft-hotel text-upper" href="#">{{x.tour_duration}} Day Tour</a>
-									<a class="ft-plane text-upper" href="#">{{x.tour_category}}</a>
-									<a class="ft-tea text-upper" href="#">{{x.inclusive}}</a>
+									<a class="ft-hotel text-upper" href="#">{{tour.tour_duration}} Day Tour</a>
+									<a class="ft-plane text-upper" href="#">{{tour.tour_category}}</a>
+									<a class="ft-tea text-upper" href="#">{{tour.inclusive}}</a>
 								</div>
 								
 							</div>
@@ -564,7 +539,7 @@ $notes = $row33["notes"]; */
 							Exclusive :
 							</div>
 							<div class="col-md-7">
-							{{x.exclusive}}
+							{{tour.exclusive}}
 							</div>
 							</div>
 							
@@ -573,25 +548,22 @@ $notes = $row33["notes"]; */
 							Cancelation Policy :
 							</div>
 							<div class="col-md-7">
-							{{x.cancelation_policy}}
+							{{tour.cancelation_policy}}
 							</div>
 							</div>
 							
 							<br><br><br>
 							</div>
 							</div>
-										<?php
-									}
-									else if($tourID == 0)
-									{
-										?>
+									
                                         
-										<div style="text-align:justify; padding:10px 10px 10px 10px;" ng-controller="guides_booking">
-										<div class="row" ng-repeat="y in guidesbook |  filter:{ id:<?php echo $userID; ?> }">
+										<div style="text-align:justify; padding:10px 10px 10px 10px;" ng-controller="Singleguide">
+                                          
+										<div ng-show="{{guideValue}}">
 										<div class="col-md-4 col-sm-4 plan-image">
 									
 									
-												<img class="hover img-responsive"  src="{{ 'y.photo' == null ? 'img/userDefaultIcon.png' : y.photo}}"/>
+												<img class="hover img-responsive"  src="{{ guide.photo == null ? 'img/userDefaultIcon.png' : guide.photo}}"/>
 											
 											
 								
@@ -600,11 +572,11 @@ $notes = $row33["notes"]; */
 										<div class="col-md-8 col-sm-8">
 										<div class="row">
 										<div class="col-md-3 col-sm-4 col-xs-4">Name:</div>
-										<div class="col-md-8 col-sm-8 col-xs-8 alignright">{{y.name}} </div>
+										<div class="col-md-8 col-sm-8 col-xs-8 alignright">{{guide.name}} </div>
 										</div>
 										<div class="row">
 										<div class="col-md-4 col-sm-4 col-xs-4">Territory:</div>
-										<div class="col-md-8 col-sm-8 col-xs-8 alignright" ng-repeat="z in y.guide_territory">{{z}}, </div>
+										<div class="col-md-8 col-sm-8 col-xs-8 alignright" ng-repeat="z in guide.guide_territory">{{z}}, </div>
 										</div>
 										
 										</div>
@@ -614,10 +586,7 @@ $notes = $row33["notes"]; */
                                             <br><br><br>
 										</div>
 										
-										
-										<?php
-									}
-										?>
+									
 										
 									</div>
 									<!-- END TAB 1 -->

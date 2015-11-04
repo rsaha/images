@@ -112,12 +112,16 @@ ul.rating {
 				<div class="container">
 					<div class="row">
 						<div class="col-md-8">
-						<a href="destination-detail-sidebar.php?id3={{x.ID}}">
+						<a href="destination-detail-sidebar.php#?id3={{x.ID}}">
 							<div class="row" ng-repeat="x in places">
 								<div class="col-md-12">
 									<div class="tour-plans">
 										<div class="plan-image">
+<<<<<<< HEAD
 											<img class="img-responsive" style="height:360px;" src="{{x.Media.Image[0]}}" alt="{{x.Name}}" href="destination-detail-sidebar.php?id3={{x.ID}}"/>
+=======
+											<img class="img-responsive" style="height:360px;" src="{{x.Media.Image[0]}}" alt="{{x.Name}}" href="destination-detail-sidebar.php#?id3={{x.ID}}"/>
+>>>>>>> fc7c6bbce2b7e12d4e606dd56a5d83b2b90079e4
 											<div class="offer-box">
 												<div class="offer-top">
 													<span class="ft-temp alignright">19&#730;c</span>
@@ -145,8 +149,19 @@ ul.rating {
 										</div>
 										<div class="post-desc">
 											<h4>{{x.Description}}</h4>
+<<<<<<< HEAD
 											<a class="btn btn-primary marb20" href="destination-detail-sidebar.php?id3={{x.ID}}">DETAILS</a>
                                              <a id="bookButton" class="alignright" href="#"> <input type="submit" name="submit" class="btn btn-sm btn-success text-upper marb20" value="Explore" /></a>
+=======
+<!--
+											 <h5>Attractions</h5>
+											<p>
+											<ul><li ng-repeat="y in x.Attractions">{{y}}</li>
+											</p>
+-->
+											<a class="btn btn-primary marb20" href="destination-detail-sidebar.php#?id3={{x.ID}}">DETAILS</a>
+                                             <a id="bookButton" class="alignright" href="#"> <input type="submit" name="submit" class="btn btn-sm btn-success text-upper marb20" value="Book" /></a>
+>>>>>>> fc7c6bbce2b7e12d4e606dd56a5d83b2b90079e4
 										</div>
 									</div>
 								</div>
@@ -243,7 +258,7 @@ ul.rating {
 												</span>
 												<h5><a href="#">{{k.tour_title}}</a></h5>
 												<span class="rc-post-date small">Starting Price&nbsp;{{k.tour_price}}</span><br/>
-                                               <a href="booking-form.php?id1=0&&id2={{k.tour_id}}"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Book" /></a>
+                                               <a href="booking-form.php#?id1=0&&id2={{k.tour_id}}"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Book" /></a>
 											</li>
 										</ul>
 									</div>
@@ -260,49 +275,28 @@ ul.rating {
 												<h5><a href="#">{{z.guide_territory[0]}}</a></h5>
 <!--												<h5>{{z.Speciality}}<span class="rc-post-date small">Speciality&nbsp;&nbsp;</span></h5>-->
 												<span star-rating rating-value="z.review.rating" style="" class="" ></span>	
-                                                <a href="booking-form.php?id1={{z.id}}&&id2=0"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Book" /></a>
+                                                <a href="booking-form.php#?id1={{z.id}}&&id2=0"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Book" /></a>
 											</li>
 											
 										</ul>
 									</div>
 									<!-- END TAB 2 -->
 									
-									<!-- START TAB 3 -->
-									<div class="tab-pane" id="lodging">
-										<ul class="rc-posts-list list-unstyled">
-                                            <br><br>
-                                                COMING SOON..
-                                            <br><br><br><br><br><br><br>
-<!--
-											<li>
+								<!-- START TAB 3 -->
+									  <!-- lodging hotels -->
+                                    <div class="tab-pane"  id="lodging" ng-controller="hotelControl">
+										<ul class="list-unstyled">
+											<li ng-repeat="lodge in lodging" ng-show="$index<4 ">
 												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 1" />
+                                                    <a href="guide-detail-sidebar.php#?id2={{lodge.id}}">	<img class="img-responsive" style="height:80px; width:65px;" src="{{lodge.Media.Image[0]}}" alt="Hotel" /></a>
 												</span>
-												<h5><a href="#">Apple Fails to Fix iPhone Daylight Saving Time Alarm Bug</a></h5>
-												<span class="rc-post-date small">January 20, 2014</span>
-											</li>
-											<li>
-												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 2" />
-												</span>
-												<h5><a href="#">Limbaugh: Does 'Dark Knight Rise have it Bomb Found...</a></h5>
-												<span class="rc-post-date small">January 18, 2014</span>
-											</li>
-											<li>
-												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 3" />
-												</span>
-												<h5><a href="#">Shares suspende am Bankiaid 'Gloomy Forecast'</a></h5>
-												<span class="rc-post-date small">January 15, 2014</span>
-											</li>
-											<li class="last-rc-post">
-												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 4" />
-												</span>
-												<h5><a href="#">Shares suspende am Bankiaid 'Gloomy Forecast'</a></h5>
-												<span class="rc-post-date small">January 11, 2014</span>
-											</li>
--->
+											<h5><a href="#">{{lodge.Address}}</a></h5>
+											
+												<span  style="" class="" >{{lodge.Description}}</span>
+                                                <span  style="" class="" >{{lodge.PricePerNight}}Per Night</span><br><br>
+                                                 <a href="#" style="margin-left:110px;"> <input type="submit" name="submit" class="btn btn-primary  marb20" value="Explore" /></a>
+											</li> 
+										
 										</ul>
 									</div>
 									<!-- END TAB 3 -->

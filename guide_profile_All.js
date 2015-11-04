@@ -10,19 +10,21 @@
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
 }]);
 
-     app.controller('Ctrl',['$scope','$scope',function($scope, $location) {
-    
-    valueID = $location.search().guideID;
-       
-  //alert(valueID);
-			
-}]);
-app.controller('guideControl',['$scope','$http', function($scope, $http) {
+//     app.controller('Ctrl',['$scope','$scope',function($scope, $location) {
+//    
+//    valueID = $location.search().guideID;
+//       
+//  alert(valueID);
+//			
+//}]);
+app.controller('guideControl',['$scope','$http','$location', function($scope, $http,$location)  {
     // alert(valueID);
-    //$http.get("http://130.211.123.212/app/guide?id="+valueID)
-    $http.get("http://130.211.123.212/app/guide?id=10011")
+                               debugger;
+     var guideID = $location.search();
+    $http.get("http://130.211.123.212/app/guide?id="+guideID.id2)
+   // $http.get("http://130.211.123.212/app/guide?id=10011")
     .success(function (response) {
-		$scope.allguides=response;
+		$scope.guidesdetail=response;
 		})
 	.error(function() {
 				$scope.data = "error in fetching data";

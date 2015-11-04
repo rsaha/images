@@ -71,7 +71,7 @@ ul.rating {
 	</style>
 <script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
    <script src="guideList.js"></script>
-    <script src="topTour.js"></script>
+<!--    <script src="topTour.js"></script>-->
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	</head> <!-- END head -->
 
@@ -135,7 +135,7 @@ ul.rating {
 						<div class="col-md-4" ng-repeat="x in allguides" ng-show="$index<40 && x.photo != null" >
 							 <div	class="ft-item"> 
 						  <span class="ft-image">
-						  <a href="guide-detail-sidebar.php?id2={{x.id}}">
+						  <a href="guide-detail-sidebar.php#?id2={{x.id}}">
 							 <img style="height:150px;" class="img-responsive"  src="{{x.photo == null ? 'img/userDefaultIcon.png' : x.photo}}" alt="Top Guide" /> </a>
 <!--                               <img style="height:230px;width:180;" class="img-responsive"  src="img/author-img.jpg" alt="Top Guide" /> </a>-->
 						  </span>
@@ -166,9 +166,14 @@ ul.rating {
 								<!-- START TABS -->
 								<ul class="nav nav-tabs text-upper">
 									<li class="active"><a href="#toptours" data-toggle="tab">Tours</a></li>
+<<<<<<< HEAD
                                     <li><a href="#relatedguides" data-toggle="tab">Guides</a></li>
 									<li><a href="#topdestinations" data-toggle="tab">Places</a></li>
 									<li><a href="#toptips" data-toggle="tab">Hotels</a></li>
+=======
+									<li><a href="#topdestinations" data-toggle="tab">Destinations</a></li>
+									<li><a href="#lodging" data-toggle="tab">Hotels</a></li>
+>>>>>>> fc7c6bbce2b7e12d4e606dd56a5d83b2b90079e4
 								</ul>
 								<!-- END TABS -->
 								
@@ -183,7 +188,7 @@ ul.rating {
 												</span>
 												<h5>{{x.tour_title}}</h5>
 												<span class="rc-post-date small">Starting Price&nbsp;{{x.tour_price}}</span><br/>
-                                               <a href="booking-form.php?id1=0&&id2={{x.tour_id}}"> <input type="submit" name="submit" class="btn btn-primary  marb20" value="Book Now" /></a>
+                                               <a href="booking-form.php#?id1=0&&id2={{x.tour_id}}"> <input type="submit" name="submit" class="btn btn-primary  marb20" value="Book Now" /></a>
 											</li>
 										</ul>
 									</div>
@@ -223,11 +228,30 @@ ul.rating {
 									</div>
 									<!-- END TAB 3 -->
 									
+<<<<<<< HEAD
 									<!-- START TAB 4 -->
 									<div class="tab-pane" id="toptips">
 										<div class="inside-pane">
 											<p><h3>Coming Soon</h3><br><br><br><br><br><br><br><br></p>
 										</div>
+=======
+									<!-- START TAB 3 -->
+									  <!-- lodging hotels -->
+                                    <div class="tab-pane"  id="lodging" ng-controller="hotelControl">
+										<ul class="list-unstyled">
+											<li ng-repeat="lodge in lodging" ng-show="$index<4 ">
+												<span class="rc-post-image">
+                                                    <a href="guide-detail-sidebar.php#?id2={{lodge.id}}">	<img class="img-responsive" style="height:80px; width:65px;" src="{{lodge.Media.Image[0]}}" alt="Hotel" /></a>
+												</span>
+											<h5><a href="#">{{lodge.Address}}</a></h5>
+											
+												<span  style="" class="" >{{lodge.Description}}</span>
+                                                <span  style="" class="" >{{lodge.PricePerNight}}Per Night</span><br><br>
+                                                 <a href="#" style="margin-left:110px;"> <input type="submit" name="submit" class="btn btn-primary  marb20" value="Explore" /></a>
+											</li> 
+										
+										</ul>
+>>>>>>> fc7c6bbce2b7e12d4e606dd56a5d83b2b90079e4
 									</div>
 									<!-- END TAB 4 -->
 								</div>
