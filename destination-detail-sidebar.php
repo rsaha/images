@@ -113,55 +113,32 @@ ul.rating {
 							<!-- START .post-data -->
 							<div class="post-data">
 								<div class="plan-image">
-<<<<<<< HEAD
-									<img class="img-responsive" style="width:770px; height:320px;" src="{{tg.Media.Image[0]}}" alt="Destination Image" />
-								</div>
-								
-								<ul class="featured-btm single-ft-btm list-unstyled box-shadow1">
-                                    <li class="post-date"><a class="text-upper" href="#">{{tg.State}}</a></li>
-									<li class="post-date"><a class="text-upper" href="#">{{tg.Category}}</a></li>
-									<li class="post-category"><a class="text-upper" href="#">{{tg.BestTimeToVisit}}</a></li>
-									<li class="post-category"><a class="text-upper" href="#">{{tg.TravelIndex}}</a></li>
-									<li class="post-author"><a class="text-upper" href="{{tg.Wiki}}">Wikipedia</a></li>
-=======
 									<img class="img-responsive" style="width:770px; height:320px;" src="{{place.Media.Image[0]}}" alt="Kolkata, WB" />
 								</div>
 								
 								<ul class="featured-btm single-ft-btm list-unstyled box-shadow1">
-<!--									<li class="author-img"><img class="img-circle img-wt-border" src="http://placehold.it/80x80" alt="Admin" />{{place.History}}</li>-->
+                                    <li class="post-date"><a class="text-upper" href="#">{{place.State}}</a></li>
 									<li class="post-date"><a class="text-upper" href="#">{{place.Category}}</a></li>
 									<li class="post-category"><a class="text-upper" href="#">{{place.BestTimeToVisit}}</a></li>
 									<li class="post-category"><a class="text-upper" href="#">Popularity: {{place.TravelIndex}}</a></li>
-									<li class="post-author"><a class="text-upper" href="#"></a></li>
->>>>>>> fc7c6bbce2b7e12d4e606dd56a5d83b2b90079e4
+									<li class="post-author"><a class="text-upper" href="{{place.Wiki}}">Wikipedia</a></li>
 								</ul>
 							</div>
 							<!-- END .post-data -->
 							<a id="bookButton" href="#"> <input type="submit" name="submit" class="btn btn-md btn-success text-upper marb20" value="Custom Tour" /></a>
 							<!-- START .post-content -->
 							<article class="post-content">
-<<<<<<< HEAD
-								<p>{{tg.Description}}</p> 
-
-=======
 								<p>{{place.Description}}</p> 
-<!--
->>>>>>> fc7c6bbce2b7e12d4e606dd56a5d83b2b90079e4
 								 <h5>Attractions</h5>
 											<p>
-											<!-- ul><li ng-repeat="y in tg.Attractions">{{y}}</li></ul -->
-                                                <p>{{tg.Attractions[0]}}</p>
+                                <ul><li ng-repeat="y in place.Attractions">{{y}}</li></ul>
+                                                <p>{{y}}</p>
 											</p>
 								<p>
-<<<<<<< HEAD
-									<img class="alignleft" style="width:260px;height:168px;" src="{{tg.Media.Image[0]}}" alt="Image in Post" />
-=======
 									<img class="alignleft" style="width:260px;height:168px;" src="{{place.Media.Image[0]}}" alt="Image in Post" />
-<!--
->>>>>>> fc7c6bbce2b7e12d4e606dd56a5d83b2b90079e4
 									<h5>Transport Availability</h5>											
-                                <!-- ul><li ng-repeat="y in tg.Transport">{{y}}</li></ul -->	
-                                <p>{{tg.Transport}}</p>
+                                <ul><li ng-repeat="y in tg.Transport">{{y}}</li></ul>	
+                                <p>{{y}}</p>
 								</p>
 								
 								<!-- BLOCKQUOTE -->

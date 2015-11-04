@@ -352,18 +352,6 @@ ul.rating {
 											</li>
 										</ul>
 									</div>
-<<<<<<< HEAD
-                                    <!-- START TAB 3 -->
-									<div class="tab-pane" id="lodging">
-										<div class="inside-pane">
-											<p><br>
-											    <h3>COMING SOON</h3>
-											<br><br><br><br><br><br><br><br><br></p>
-										</div>
-									</div>
-									<!-- END TAB 3 -->
-									<!-- START TAB 4 -->
-=======
                                     <!-- lodging hotels -->
                                     <div class="tab-pane"  id="lodging" ng-controller="hotelControl">
 										<ul class="list-unstyled">
@@ -381,7 +369,6 @@ ul.rating {
 										</ul>
 									</div>
 									<!-- START TAB 2 -->
->>>>>>> fc7c6bbce2b7e12d4e606dd56a5d83b2b90079e4
 									<div class="tab-pane" id="topreview" ng-controller="tourDetailCtrl">
 										<ul class="list-unstyled">
 											<li ng-repeat="z in tour.Reviews.Reviews">
