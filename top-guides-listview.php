@@ -141,9 +141,9 @@ ul.rating {
 						  </span>
 					  
 								<div class="ft-data">
-							  <span style="color:black;" class="fa fa-odnoklassniki text-upper">{{x.city}}</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							  <span style="color:black;" class="fa fa-book text-upper" >&nbsp;&nbsp;{{x.experiance_in_year}}</span>
-							  <br><span style=" font-size:11px;color:black;" class="fa fa-plane text-upper">{{x.language_known[0][0]}}</span>
+							  <span style="color:black;" class="fa fa-map-marker text-upper">{{x.city}}</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							  <span style="color:black;" class="fa fa-hourglass text-upper" >&nbsp;&nbsp;{{x.experiance_in_year}}</span>
+							  <br><span style=" font-size:11px;color:black;" class="fa fa-book text-upper">{{x.language_known[0][0]}}</span>
 								</div> 
 					
 							<div class="ft-foot">
@@ -152,9 +152,9 @@ ul.rating {
 							</div> 
 					
 							<div class="ft-foot-ex"> 
-								<span class="fa fa-shield text-upper alignleft">&nbsp;&nbsp;{{x.Tours.Count}} Tours&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;
+								<span class="fa fa-trophy text-upper alignleft">&nbsp;&nbsp;{{x.Tours.Count}} Tours&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;
 								<span star-rating rating-value="x.Review.Star" class="aligncenter"></span>
-								<span class="alignright fa fa-eye">{{x.Review.Count}} reviews</span> 							
+								<span class="alignright">{{x.Review.Count}} reviews</span> 							
 							</div> 
 					       </div>
 						</div>
