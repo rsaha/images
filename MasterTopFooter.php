@@ -27,7 +27,7 @@ nnecting with culture and learning from it is any way the main purpose of my vis
  from the awesome foods. Thank you.</p>
 									<div class="tl-author">
 										<span class="tl-author-img">
-											<img class="img-circle" src="img/011.jpg" alt="Testimonial Author" />
+											<img class="img-circle" src="img/userDefaultIcon.png" alt="Testimonial Author" />
 										</span>
 										<span class="tl-author-title">Anonymous</span>
 										<span class="tl-author-desc">Visited Kolkata recently</span>
