@@ -194,7 +194,7 @@ ul.rating {
 												<h5><a href="#">{{z.guide_territory[0]}}</a></h5>
 <!--												<h5>{{z.Speciality}}<span class="rc-post-date small">Speciality&nbsp;&nbsp;</span></h5>-->
 												<span star-rating rating-value="z.review.rating" style="" class="" ></span>	
-                                                 <a href="booking-form.php#?id1={{z.id}}&id2=0"> <input type="submit" name="submit" class="btn btn-primary  marb20" value="Book Now" /></a>
+                                                 <a href="booking-form.php#?id1={{z.id}}&id2=0"> <input type="submit" name="submit" class="btn btn-primary  marb20" value="Book Now" /></a><br><br>
 											</li>
 										
 										</ul>
@@ -203,14 +203,14 @@ ul.rating {
 									
 									<!-- START TAB 3 -->
 									<div class="tab-pane" id="topdestinations" style="height:500px;" ng-controller="placesCtrl">
-										<ul class=" list-unstyled">
+										<ul class="rc-posts-list list-unstyled">
 											<li ng-repeat="k in places" ng-show="$index<4">
 												<span class="rc-post-image">
                                                     <a href="destination-detail-sidebar.php?id3={{k.ID}}">	<img class="img-responsive" style="height:80px;width:80px;" src="{{k.Media.Image[0]}}" alt="Tour 1" /></a>
 												</span>
 												<h5><a href="#">{{k.Name}}</a></h5>
 												<span class="rc-post-date small">Best Visit:&nbsp;&nbsp;&nbsp;{{k.BestTimeToVisit}}</span><br/>
-                                               <a href="#"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Explore" /></a>
+                                               <a href="#"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Explore" /></a><br>
 											</li>
 										</ul>
 									</div>

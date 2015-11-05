@@ -33,6 +33,33 @@ app.controller('guides_booking',['$scope','$http', function($scope, $http) {
    
 			
 }]);
+    
+    app.controller('hotel_booking',['$scope','$http', function($scope, $http) {
+    $http.get("http://130.211.123.212/app/lodging")
+    .success(function (response) {
+		$scope.lodging =response.Lodging;
+		})
+	.error(function() {
+				$scope.data = "error in fetching data";
+			});
+  
+   
+			
+}]);
+    
+      app.controller('transport_booking',['$scope','$http', function($scope, $http) {
+    $http.get("http://130.211.123.212/app/transport")
+    .success(function (response) {
+		$scope.transport =response.Transport;
+		})
+	.error(function() {
+				$scope.data = "error in fetching data";
+			});
+  
+   
+			
+}]);
+    
 app.controller('Singleguide',['$scope','$http','$location', function($scope, $http,$location)  {
     // alert(valueID);
                                debugger;

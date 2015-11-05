@@ -336,7 +336,7 @@ ul.rating {
 <!--												<h5><a href="#">{{z.guide_territory}}</a></h5>-->
 <!--												<h5>{{z.Speciality}}<span class="rc-post-date small">Speciality&nbsp;&nbsp;</span></h5>-->
 												<span star-rating rating-value="z.review.Star" style="" class="" ></span>	<br>
-                                                 <a href="booking-form.php#?id1={{z.id}}&id2=0"> <input type="submit" name="submit" class="btn btn-primary  marb20" value="Book Now" /></a>
+                                                 <a href="booking-form.php#?id1={{z.id}}&id2=0"> <input type="submit" name="submit" class="btn btn-primary  marb20" value="Book Now" /></a><br><br>
 											</li>
 										
 										</ul>
@@ -350,7 +350,7 @@ ul.rating {
 												</span>
 												<h5><a href="#">{{x.tour_title}}</a></h5>
 												<span class="rc-post-date small">Starting Price&nbsp;{{x.tour_price}}</span><br/>
-                                               <a href="booking-form.php#?id1=0&id2={{x.tour_id}}"> <input type="submit" name="submit" class="btn btn-primary  marb20" value="Book Now" /></a>
+                                               <a href="booking-form.php#?id1=0&id2={{x.tour_id}}"> <input type="submit" name="submit" class="btn btn-primary  marb20" value="Book Now" /></a><br><br>
 											</li>
 											
 <!--
@@ -375,7 +375,7 @@ ul.rating {
 									</div>
                                     <!-- lodging hotels -->
                                     <div class="tab-pane"  id="lodging" style="height:600px;" ng-controller="hotelControl">
-										<ul class="list-unstyled">
+										<ul class="rc-posts-list list-unstyled">
 											<li ng-repeat="lodge in lodging" ng-show="$index<4 ">
 												<span class="rc-post-image">
                                                     <a href="guide-detail-sidebar.php#?id2={{lodge.id}}">	<img class="img-responsive" style="height:80px; width:65px;" src="{{lodge.Media.Image[0]}}" alt="Hotel" /></a>

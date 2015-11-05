@@ -175,14 +175,14 @@ ul.rating {
 								<div class="tab-content gray box-shadow1 clearfix marb30" >
 									<!-- START TAB 1 -->
 									<div class="tab-pane active"  style="height:600px;" id="toptours"  ng-controller="tourCtrl">
-										<ul class="list-unstyled">
+										<ul class="rc-posts-list list-unstyled">
 											<li ng-repeat="x in alltours" ng-show="$index<4">
 												<span class="rc-post-image">
                                                     <a href="tour_detail_sidebar.php?id={{x.tour_id}}"><img class="img-responsive" src="{{'x.photo' ==''||'x.photo' ? 'img/SAMPLE_TOUR.jpg' : x.photo}}" alt="Tour 1" /></a>
 												</span>
 												<h5><a href="#">{{x.tour_title}}</a></h5>
 												<span class="rc-post-date small">Starting Price&nbsp;{{x.tour_price}}</span><br/>
-                                               <a href="booking-form.php#?id1=0&&id2={{x.tour_id}}"> <input type="submit" name="submit" class="btn btn-primary  marb20" value="Book Now" /></a>
+                                               <a href="booking-form.php#?id1=0&&id2={{x.tour_id}}"> <input type="submit" name="submit" class="btn btn-primary  marb20" value="Book Now" /></a><br><br>
 											</li>
 										</ul>
 									</div>
@@ -190,14 +190,14 @@ ul.rating {
 									
 									<!-- START TAB 2 -->
 									<div class="tab-pane" id="topdestinations"  style="height:600px;" ng-controller="placeCtrl">
-										<ul class=" list-unstyled">
+										<ul class="rc-posts-list list-unstyled">
 											<li ng-repeat="k in allplaces" ng-show="$index<4">
 												<span class="rc-post-image">
                                                     <a href="destination-detail-sidebar.php?id3={{k.ID}}">	<img class="img-responsive" style="height:80px;width:80px;" src="{{k.Media.Image[0]}}" alt="Tour 1" /></a>
 												</span>
 												<h5><a href="#">{{k.Name}}</a></h5>
 												<span class="rc-post-date small">Best Visit:&nbsp;&nbsp;&nbsp;{{k.BestTimeToVisit}}</span><br/>
-                                               <a href="booking-form.Php"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Explore" /></a>
+                                               <a href="booking-form.Php"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Explore" /></a><br><br>
 											</li>
 										</ul>
 									</div>
@@ -206,7 +206,7 @@ ul.rating {
 									<!-- START TAB 3 -->
 									  <!-- lodging hotels -->
                                     <div class="tab-pane"  id="lodging"  style="height:600px;" ng-controller="hotelControl">
-										<ul class="list-unstyled">
+										<ul class="rc-posts-list list-unstyled">
 											<li ng-repeat="lodge in lodging" ng-show="$index<4 ">
 												<span class="rc-post-image">
                                                     <a href="guide-detail-sidebar.php#?id2={{lodge.id}}">	<img class="img-responsive" style="height:80px; width:65px;" src="{{lodge.Media.Image[0]}}" alt="Hotel" /></a>
