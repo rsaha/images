@@ -398,10 +398,9 @@ ul.rating {
 							
 							<div class="sidebar-widget"  ng-controller="toursCtrl">
 								<!-- Sidebar Flickr Gallery -->
-								<h3 class="text-upper">Tour Gallery</h3>
+								<h3 class="text-upper">Image Gallery</h3>
 								<ul class="flickr-gal list-unstyled">
-								<li ng-repeat="x in tours">
-								    
+								<li ng-repeat="x in tours">  
 								<img class="img-responsive" src="{{'x.photo' ==''||'x.photo' ? 'img/custom1.jpg' : x.photo}}"           alt="Tour Image" />
 								    
 								</li>
