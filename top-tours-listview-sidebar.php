@@ -92,7 +92,7 @@ ul.rating {
 					<div class="container">
 						<div class="row">
 							<section class="col-sm-6">
-								<h1 class="text-upper"><i class="fa fa-plane" style="color:black;"></i>&nbsp;&nbsp;Top Tours</h1>
+								<h1 class="text-upper"><i class="fa fa-trophy" style="color:black;"></i>&nbsp;&nbsp;Top Tours</h1>
 							</section>
 							
 							<!-- breadcrumbs -->
@@ -124,7 +124,7 @@ ul.rating {
                                             </a>
 											<div class="offer-box">
 												<div class="offer-top">
-													<span class="ft-temp alignright">{{x.tour_category}}</span>
+													<span class="fa fa-tag alignright">{{x.tour_category}}</span>
 													<span class="featured-cr text-upper">{{x.tour_location}}</span>
 													<h2 class="featured-cy text-upper">{{x.tour_title}}</h2>
 												</div>
@@ -136,10 +136,10 @@ ul.rating {
 											</div>
 										</div>
 										<div class="featured-btm box-shadow1">
-											<span class="ft-hotel text-upper">{{x.tour_territory[0]}}</span>
-											<span class="ft-plane text-upper">{{x.tour_duration}}</span>
-											<span class="ft-tea text-upper" star-rating rating-value="5"></span>
-											<span class="alignleft fa fa-eye">&nbsp;&nbsp; reviews</span> 
+											<span class="fa fa-map-pin text-upper">&nbsp;&nbsp;{{x.tour_territory[0]}}&nbsp;&nbsp;&nbsp;&nbsp;</span>
+											<span class="fa fa-hourglass text-upper">&nbsp;&nbsp;{{x.tour_duration}}&nbsp;&nbsp;&nbsp;&nbsp;</span>
+											<span class="fa fa-thumbs-up text-upper" star-rating rating-value="5"></span>
+											<span class="alignleft fa fa-life-ring">&nbsp;&nbsp; reviews&nbsp;&nbsp;&nbsp;&nbsp;</span> 
 										</div>
 										<div class="post-desc">
 																						<a class="btn btn-primary marb20" href="tour_detail_sidebar.php?tour_id={{x.tour_id}}">DETAILS</a>
@@ -161,8 +161,8 @@ ul.rating {
 								<ul class="nav nav-tabs text-upper">
 									<li class="active"><a href="#relatedtours" data-toggle="tab">Tours</a></li>
 									<li><a href="#topguides" data-toggle="tab">Guides</a></li>
-									<li><a href="#topdestinations" data-toggle="tab">Destinations</a></li>
-                                    
+									<li><a href="#topdestinations" data-toggle="tab">Places</a></li>
+                                    <li><a href="#tophotels" data-toggle="tab">Hotels</a></li>
 								</ul>
 								<!-- END TABS -->
 								

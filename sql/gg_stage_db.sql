@@ -1,31 +1,24 @@
-ALTER TABLE `tbl_booking` (
-  `tour_booking_id` bigint(20) NOT NULL,
-  `user_id` bigint(20) NOT NULL,
-  `booking_number` varchar(20) NOT NULL,
-  `book_reff_id` bigint(20) NOT NULL,
-  `booking_type` bigint(5) NOT NULL,
-  `status` varchar(100) NOT NULL,
-  `date_created` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Booking tour and guide table';
+-- phpMyAdmin SQL Dump
+-- version 4.3.11
+-- http://www.phpmyadmin.net
+--
+-- Host: 127.0.0.1
+-- Generation Time: Sep 22, 2015 at 01:42 PM
+-- Server version: 5.6.24
+-- PHP Version: 5.6.8
 
--- --------------------------------------------------------
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
 
 --
--- Table structure for table `tbl_custom_tours`
+-- Database: `gg_stage_db`
 --
-
-ALTER TABLE `tbl_custom_tours` (
-  `custom_tour_id` bigint(20) NOT NULL,
-  `titile` varchar(100) NOT NULL,
-  `destination` varchar(200) NOT NULL,
-  `start_point` varchar(200) NOT NULL,
-  `end_point` varchar(200) NOT NULL,
-  `duration` varchar(10) NOT NULL,
-  `price` varchar(100) NOT NULL,
-  `inclusive` varchar(500) NOT NULL,
-  `status` int(1) NOT NULL,
-  `date_created` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -33,7 +26,7 @@ ALTER TABLE `tbl_custom_tours` (
 -- Table structure for table `tbl_guide_detail_profile`
 --
 
-ALTER TABLE `tbl_guide_detail_profile` (
+CREATE TABLE IF NOT EXISTS `tbl_guide_detail_profile` (
   `guide_detail_id` bigint(20) NOT NULL,
   `user_id` bigint(20) NOT NULL,
   `guide_profile_pic` longblob,
@@ -43,8 +36,7 @@ ALTER TABLE `tbl_guide_detail_profile` (
   `license_no` varchar(200) DEFAULT NULL,
   `validity` date DEFAULT NULL,
   `guide_summary` text,
-  `experiance_in_year` int(2) NOT NULL DEFAULT '0',
-  `other_experience` text,
+  `guide_experience` text,
   `guide_interest` text,
   `guide_territory` varchar(100) DEFAULT NULL,
   `guide_facebook_profile` varchar(200) DEFAULT NULL,
@@ -59,7 +51,17 @@ ALTER TABLE `tbl_guide_detail_profile` (
   `guide_Remarks` text,
   `status` tinyint(4) NOT NULL,
   `datecreated` date NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='Guide Detail Profile data';
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='Guide Detail Profile data';
+
+--
+-- Dumping data for table `tbl_guide_detail_profile`
+--
+
+INSERT INTO `tbl_guide_detail_profile` (`guide_detail_id`, `user_id`, `guide_profile_pic`, `guide_Cover_pic`, `nick_name`, `license_Image`, `license_no`, `validity`, `guide_summary`, `guide_experience`, `guide_interest`, `guide_territory`, `guide_facebook_profile`, `guide_linkedin_profile`, `guide_pinterest_profile`, `guide_skype_address`, `landline_no`, `payment_currency`, `payment_terms`, `Best_time_for_contact`, `Communication_mechanism`, `guide_Remarks`, `status`, `datecreated`) VALUES
+(1, 10000, NULL, NULL, 'Admin', NULL, '[DE/01/2015/R]', '2017-02-22', NULL, 'ADMIN', NULL, 'All India', 'ADMIN', 'ADMIN', 'ADMIN', 'ADMIN', '01219999999', NULL, 'ADMIN', 'ANY TIME', 'Mobile & Email', 'ADMIN', 1, '2015-09-22'),
+(2, 10001, NULL, NULL, 'Anki', NULL, '[UC/01/2014/R]', '2017-02-22', NULL, '10 Year Experiance in Guiding', NULL, 'UP, MP, WB, HP, DELHI', 'ankitbhagat.ab@gmail.com', 'ankitbhagat.ab@gmail.com', 'ankitbhagat.ab@gmail.com', 'ankitbhagat.ab@gmail.com', '01219999999', NULL, 'NO', '04:00 PM - 08:00 PM', 'Email', 'Best Of All', 1, '2015-09-22'),
+(3, 10002, NULL, NULL, 'Vaibhi', '', '[TI/21/GOD/28]', '2018-12-31', NULL, 'Lots Of', NULL, NULL, 'www.facebook.com/vaibhav', 'https://in.linkedin.com/pub/vaibhav/65/6b0/958', 'vaibhav@gmail.com', 'vaibhav', '012187236788', NULL, 'no terms yer', '08:00 AM - 12:00 PM', 'Mobile', 'no', 1, '2015-09-22'),
+(4, 10003, NULL, NULL, 'Sallu', '', '[RE/343/DSJ]', '2020-12-31', NULL, 'Lots of Experiance', NULL, 'Uttar Pradesh, Himachal Pradesh, Punjab', 'salman@gmail.com', 'salman@gmail.com', 'salman@gmail.com', 'salman@gmail.com', '012187236788', NULL, 'no', '08:00 AM - 12:00 PM', 'Mobile & Email', 'No', 1, '2015-09-22');
 
 -- --------------------------------------------------------
 
@@ -67,11 +69,24 @@ ALTER TABLE `tbl_guide_detail_profile` (
 -- Table structure for table `tbl_guide_known_languages`
 --
 
-ALTER TABLE `tbl_guide_known_languages` (
+CREATE TABLE IF NOT EXISTS `tbl_guide_known_languages` (
   `guide_known_language_id` bigint(20) NOT NULL,
   `user_id` bigint(20) NOT NULL,
   `language_id` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=137 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tbl_guide_known_languages`
+--
+
+INSERT INTO `tbl_guide_known_languages` (`guide_known_language_id`, `user_id`, `language_id`) VALUES
+(16, 10000, 2),
+(17, 10000, 4),
+(19, 10002, 2),
+(20, 10003, 2),
+(24, 10001, 2),
+(25, 10001, 5),
+(26, 10001, 3);
 
 -- --------------------------------------------------------
 
@@ -79,7 +94,7 @@ ALTER TABLE `tbl_guide_known_languages` (
 -- Table structure for table `tbl_guide_tour_locations`
 --
 
-ALTER TABLE `tbl_guide_tour_locations` (
+CREATE TABLE IF NOT EXISTS `tbl_guide_tour_locations` (
   `guide_tour_location_id` bigint(20) NOT NULL,
   `guide_detail_id` bigint(20) NOT NULL,
   `tour_location_id` int(11) NOT NULL
@@ -91,7 +106,7 @@ ALTER TABLE `tbl_guide_tour_locations` (
 -- Table structure for table `tbl_languages`
 --
 
-ALTER TABLE `tbl_languages` (
+CREATE TABLE IF NOT EXISTS `tbl_languages` (
   `language_id` int(11) NOT NULL,
   `user_id` bigint(20) NOT NULL,
   `lanugage_name` varchar(100) NOT NULL,
@@ -99,13 +114,24 @@ ALTER TABLE `tbl_languages` (
   `datecreated` date NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='Language Master Table';
 
+--
+-- Dumping data for table `tbl_languages`
+--
+
+INSERT INTO `tbl_languages` (`language_id`, `user_id`, `lanugage_name`, `status`, `datecreated`) VALUES
+(1, 10000, 'Hindi', 1, '2015-09-22'),
+(2, 10000, 'English', 1, '2015-09-22'),
+(3, 10000, 'Spanish', 1, '2015-09-22'),
+(4, 10000, 'Germen', 1, '2015-09-22'),
+(5, 10000, 'Franch', 1, '2015-09-22');
+
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `tbl_messages`
 --
 
-ALTER TABLE `tbl_messages` (
+CREATE TABLE IF NOT EXISTS `tbl_messages` (
   `message_id` bigint(20) NOT NULL,
   `sender_user_id` bigint(20) NOT NULL,
   `receiver_user_id` bigint(20) NOT NULL,
@@ -120,7 +146,7 @@ ALTER TABLE `tbl_messages` (
 -- Table structure for table `tbl_referrals`
 --
 
-ALTER TABLE `tbl_referrals` (
+CREATE TABLE IF NOT EXISTS `tbl_referrals` (
   `referral_id` bigint(20) NOT NULL,
   `referrer_id` bigint(20) NOT NULL,
   `referral_name` varchar(20) DEFAULT NULL,
@@ -136,7 +162,7 @@ ALTER TABLE `tbl_referrals` (
 -- Table structure for table `tbl_tours`
 --
 
-ALTER TABLE `tbl_tours` (
+CREATE TABLE IF NOT EXISTS `tbl_tours` (
   `tour_id` bigint(20) NOT NULL,
   `user_id` bigint(20) NOT NULL,
   `tour_category_id` int(11) NOT NULL,
@@ -156,7 +182,7 @@ ALTER TABLE `tbl_tours` (
   `status` tinyint(4) NOT NULL,
   `datecreated` date NOT NULL,
   `created_added` bigint(20) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB AUTO_INCREMENT=50005 DEFAULT CHARSET=utf8 COMMENT='Tour Master repository';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tour Master repository';
 
 -- --------------------------------------------------------
 
@@ -164,7 +190,7 @@ ALTER TABLE `tbl_tours` (
 -- Table structure for table `tbl_tours_location`
 --
 
-ALTER TABLE `tbl_tours_location` (
+CREATE TABLE IF NOT EXISTS `tbl_tours_location` (
   `tour_location_id` int(11) NOT NULL,
   `user_id` bigint(20) NOT NULL,
   `location_name` varchar(200) NOT NULL,
@@ -177,10 +203,24 @@ ALTER TABLE `tbl_tours_location` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_tour_booking`
+--
+
+CREATE TABLE IF NOT EXISTS `tbl_tour_booking` (
+  `tour_booking_id` bigint(20) NOT NULL,
+  `guide_user_id` bigint(20) NOT NULL,
+  `tourist_user_id` bigint(20) NOT NULL,
+  `booking_status` varchar(100) NOT NULL,
+  `tour_id` bigint(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Booking tour table';
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_tour_category`
 --
 
-ALTER TABLE `tbl_tour_category` (
+CREATE TABLE IF NOT EXISTS `tbl_tour_category` (
   `tour_category_id` int(11) NOT NULL,
   `user_id` bigint(20) NOT NULL,
   `tour_category_title` varchar(200) NOT NULL,
@@ -188,13 +228,25 @@ ALTER TABLE `tbl_tour_category` (
   `datecreated` date NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='Tour Category Master Table';
 
+--
+-- Dumping data for table `tbl_tour_category`
+--
+
+INSERT INTO `tbl_tour_category` (`tour_category_id`, `user_id`, `tour_category_title`, `status`, `datecreated`) VALUES
+(1, 4, 'General', 1, '2015-08-20'),
+(2, 4, 'Adventure', 1, '2015-08-20'),
+(3, 4, 'Religious', 1, '2015-08-20'),
+(4, 4, 'Art', 1, '2015-08-20'),
+(5, 4, 'History', 1, '2015-08-20'),
+(6, 4, 'Custom', 1, '2015-08-20');
+
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `tbl_tour_experiences`
 --
 
-ALTER TABLE `tbl_tour_experiences` (
+CREATE TABLE IF NOT EXISTS `tbl_tour_experiences` (
   `experience_id` bigint(20) NOT NULL,
   `tour_id` bigint(20) NOT NULL,
   `tour_experience` text NOT NULL,
@@ -208,7 +260,7 @@ ALTER TABLE `tbl_tour_experiences` (
 -- Table structure for table `tbl_tour_itinerary`
 --
 
-ALTER TABLE `tbl_tour_itinerary` (
+CREATE TABLE IF NOT EXISTS `tbl_tour_itinerary` (
   `tour_Itinerary_id` bigint(20) NOT NULL,
   `tour_id` bigint(20) NOT NULL,
   `day` int(10) NOT NULL,
@@ -216,7 +268,7 @@ ALTER TABLE `tbl_tour_itinerary` (
   `description` text,
   `transport` varchar(100) DEFAULT NULL,
   `tourist_spot` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -224,11 +276,11 @@ ALTER TABLE `tbl_tour_itinerary` (
 -- Table structure for table `tbl_tour_media_pictures`
 --
 
-ALTER TABLE `tbl_tour_media_pictures` (
+CREATE TABLE IF NOT EXISTS `tbl_tour_media_pictures` (
   `picture_media_id` bigint(20) NOT NULL,
   `tour_id` bigint(20) NOT NULL,
   `tour_picture` longblob NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -236,7 +288,7 @@ ALTER TABLE `tbl_tour_media_pictures` (
 -- Table structure for table `tbl_tour_media_videos`
 --
 
-ALTER TABLE `tbl_tour_media_videos` (
+CREATE TABLE IF NOT EXISTS `tbl_tour_media_videos` (
   `video_media_id` bigint(20) NOT NULL,
   `tour_id` bigint(20) NOT NULL,
   `tour_video` longblob NOT NULL
@@ -248,7 +300,7 @@ ALTER TABLE `tbl_tour_media_videos` (
 -- Table structure for table `tbl_user_profile`
 --
 
-ALTER TABLE `tbl_user_profile` (
+CREATE TABLE IF NOT EXISTS `tbl_user_profile` (
   `user_id` bigint(20) NOT NULL,
   `user_type_id` tinyint(4) NOT NULL,
   `user_password` varchar(50) NOT NULL,
@@ -264,7 +316,17 @@ ALTER TABLE `tbl_user_profile` (
   `country` varchar(100) DEFAULT NULL,
   `status` tinyint(4) NOT NULL,
   `datecreated` date NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=10006 DEFAULT CHARSET=utf8 COMMENT='Users Basic Profile';
+) ENGINE=InnoDB AUTO_INCREMENT=10004 DEFAULT CHARSET=utf8 COMMENT='Users Basic Profile';
+
+--
+-- Dumping data for table `tbl_user_profile`
+--
+
+INSERT INTO `tbl_user_profile` (`user_id`, `user_type_id`, `user_password`, `f_name`, `l_name`, `email`, `mobileNo`, `gender`, `d_o_b`, `street_address`, `city`, `state`, `country`, `status`, `datecreated`) VALUES
+(10000, 4, '21232f297a57a5a743894a0e4a801fc3', 'Administrator', '', 'admin@admin.com', '9999999999', 'Male', '1987-06-28', 'Phool bagh Colony', 'Meerut', 'Uttar Pradesh', 'India', 1, '2015-09-22'),
+(10001, 1, 'a70ca1454267d4e4fc0bf2f130ba1a74', 'Ankit', 'Bhagat', 'ankit@waltrump.com', '8532859600', 'Male', '1987-06-28', 'Phool bagh Colony', 'Meerut', 'Uttar Pradesh', 'India', 1, '2015-09-22'),
+(10002, 1, '310a87565a48526e9d096f917007dbfe', 'Vaibhav', 'Kumar', 'vaibhav@waltrump.com', '9888888888', 'Male', '1985-12-31', 'Shastri Nagar', 'Meerut', 'Uttar Pradesh', 'India', 1, '2015-09-22'),
+(10003, 1, '03346657feea0490a4d4f677faa0583d', 'Salman', 'Ahmad', 'salman@gmail.com', '9777777777', 'Male', '1988-12-31', 'Shastri Nagar', 'Meerut', 'Uttar Pradesh', 'India', 1, '2015-09-22');
 
 -- --------------------------------------------------------
 
@@ -272,126 +334,32 @@ ALTER TABLE `tbl_user_profile` (
 -- Table structure for table `tbl_user_type`
 --
 
-ALTER TABLE `tbl_user_type` (
+CREATE TABLE IF NOT EXISTS `tbl_user_type` (
   `user_type_id` tinyint(4) NOT NULL,
   `user_type_name` varchar(10) NOT NULL,
   `status` tinyint(4) NOT NULL,
   `datecreated` date NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='User Type Master Table';
 
--- --------------------------------------------------------
-
 --
--- Stand-in structure for view `tour_fulldetail`
+-- Dumping data for table `tbl_user_type`
 --
-ALTER TABLE `tour_fulldetail` (
-`tour_id` bigint(20)
-,`user_id` bigint(20)
-,`tour_category_id` int(11)
-,`tour_title` varchar(100)
-,`tour_location` varchar(100)
-,`tour_territory` varchar(500)
-,`tour_description` varchar(500)
-,`tour_duration` varchar(100)
-,`tour_price` varchar(100)
-,`start_point` varchar(200)
-,`end_point` varchar(200)
-,`inclusive` varchar(200)
-,`exclusive` varchar(200)
-,`cancelation_policy` varchar(300)
-,`restrictions` varchar(300)
-,`notes` text
-,`day` int(10)
-,`intraday` varchar(20)
-,`description` text
-,`transport` varchar(100)
-,`tourist_spot` varchar(100)
-);
 
--- --------------------------------------------------------
-
---
--- Stand-in structure for view `user_fulldetail`
---
-ALTER TABLE `user_fulldetail` (
-`user_id` bigint(20)
-,`user_type_id` tinyint(4)
-,`f_name` varchar(50)
-,`l_name` varchar(50)
-,`email` varchar(50)
-,`mobileNo` varchar(50)
-,`gender` varchar(20)
-,`d_o_b` date
-,`street_address` varchar(100)
-,`city` varchar(100)
-,`state` varchar(100)
-,`country` varchar(100)
-,`guide_detail_id` bigint(20)
-,`guide_profile_pic` longblob
-,`guide_Cover_pic` longblob
-,`nick_name` varchar(100)
-,`license_Image` longblob
-,`license_no` varchar(200)
-,`validity` date
-,`guide_summary` text
-,`experiance_in_year` int(2)
-,`other_experience` text
-,`guide_interest` text
-,`guide_territory` varchar(100)
-,`guide_facebook_profile` varchar(200)
-,`guide_linkedin_profile` varchar(200)
-,`guide_pinterest_profile` varchar(200)
-,`guide_skype_address` varchar(200)
-,`landline_no` varchar(50)
-,`payment_currency` varchar(100)
-,`payment_terms` varchar(300)
-,`Best_time_for_contact` varchar(100)
-,`Communication_mechanism` varchar(100)
-,`guide_Remarks` text
-,`status_user_profile` tinyint(4)
-,`status_guide_detail_profile` tinyint(4)
-);
-
--- --------------------------------------------------------
-
---
--- Structure for view `tour_fulldetail`
---
-DROP TABLE IF EXISTS `tour_fulldetail`;
-
-ALTER VIEW `tour_fulldetail` AS select `tbl_tours`.`tour_id` AS `tour_id`,`tbl_tours`.`user_id` AS `user_id`,`tbl_tours`.`tour_category_id` AS `tour_category_id`,`tbl_tours`.`tour_title` AS `tour_title`,`tbl_tours`.`tour_location` AS `tour_location`,`tbl_tours`.`tour_territory` AS `tour_territory`,`tbl_tours`.`tour_description` AS `tour_description`,`tbl_tours`.`tour_duration` AS `tour_duration`,`tbl_tours`.`tour_price` AS `tour_price`,`tbl_tours`.`start_point` AS `start_point`,`tbl_tours`.`end_point` AS `end_point`,`tbl_tours`.`inclusive` AS `inclusive`,`tbl_tours`.`exclusive` AS `exclusive`,`tbl_tours`.`cancelation_policy` AS `cancelation_policy`,`tbl_tours`.`restrictions` AS `restrictions`,`tbl_tours`.`notes` AS `notes`,`tbl_tour_itinerary`.`day` AS `day`,`tbl_tour_itinerary`.`intraday` AS `intraday`,`tbl_tour_itinerary`.`description` AS `description`,`tbl_tour_itinerary`.`transport` AS `transport`,`tbl_tour_itinerary`.`tourist_spot` AS `tourist_spot` from (`tbl_tours` join `tbl_tour_itinerary` on((`tbl_tour_itinerary`.`tour_id` = `tbl_tours`.`tour_id`))) where (`tbl_tours`.`status` = 1);
-
--- --------------------------------------------------------
-
---
--- Structure for view `user_fulldetail`
---
-DROP TABLE IF EXISTS `user_fulldetail`;
-
-ALTER VIEW `user_fulldetail` AS select `tbl_user_profile`.`user_id` AS `user_id`,`tbl_user_profile`.`user_type_id` AS `user_type_id`,`tbl_user_profile`.`f_name` AS `f_name`,`tbl_user_profile`.`l_name` AS `l_name`,`tbl_user_profile`.`email` AS `email`,`tbl_user_profile`.`mobileNo` AS `mobileNo`,`tbl_user_profile`.`gender` AS `gender`,`tbl_user_profile`.`d_o_b` AS `d_o_b`,`tbl_user_profile`.`street_address` AS `street_address`,`tbl_user_profile`.`city` AS `city`,`tbl_user_profile`.`state` AS `state`,`tbl_user_profile`.`country` AS `country`,`tbl_guide_detail_profile`.`guide_detail_id` AS `guide_detail_id`,`tbl_guide_detail_profile`.`guide_profile_pic` AS `guide_profile_pic`,`tbl_guide_detail_profile`.`guide_Cover_pic` AS `guide_Cover_pic`,`tbl_guide_detail_profile`.`nick_name` AS `nick_name`,`tbl_guide_detail_profile`.`license_Image` AS `license_Image`,`tbl_guide_detail_profile`.`license_no` AS `license_no`,`tbl_guide_detail_profile`.`validity` AS `validity`,`tbl_guide_detail_profile`.`guide_summary` AS `guide_summary`,`tbl_guide_detail_profile`.`experiance_in_year` AS `experiance_in_year`,`tbl_guide_detail_profile`.`other_experience` AS `other_experience`,`tbl_guide_detail_profile`.`guide_interest` AS `guide_interest`,`tbl_guide_detail_profile`.`guide_territory` AS `guide_territory`,`tbl_guide_detail_profile`.`guide_facebook_profile` AS `guide_facebook_profile`,`tbl_guide_detail_profile`.`guide_linkedin_profile` AS `guide_linkedin_profile`,`tbl_guide_detail_profile`.`guide_pinterest_profile` AS `guide_pinterest_profile`,`tbl_guide_detail_profile`.`guide_skype_address` AS `guide_skype_address`,`tbl_guide_detail_profile`.`landline_no` AS `landline_no`,`tbl_guide_detail_profile`.`payment_currency` AS `payment_currency`,`tbl_guide_detail_profile`.`payment_terms` AS `payment_terms`,`tbl_guide_detail_profile`.`Best_time_for_contact` AS `Best_time_for_contact`,`tbl_guide_detail_profile`.`Communication_mechanism` AS `Communication_mechanism`,`tbl_guide_detail_profile`.`guide_Remarks` AS `guide_Remarks`,`tbl_user_profile`.`status` AS `status_user_profile`,`tbl_guide_detail_profile`.`status` AS `status_guide_detail_profile` from (`tbl_user_profile` left join `tbl_guide_detail_profile` on((`tbl_guide_detail_profile`.`user_id` = `tbl_user_profile`.`user_id`)));
+INSERT INTO `tbl_user_type` (`user_type_id`, `user_type_name`, `status`, `datecreated`) VALUES
+(1, 'GUIDE', 1, '2015-08-20'),
+(2, 'AGENT', 1, '2015-08-20'),
+(3, 'TOURIST', 1, '2015-08-20'),
+(4, 'ADMIN', 1, '2015-08-20');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `tbl_booking`
---
-ALTER TABLE `tbl_booking`
-  ADD PRIMARY KEY (`tour_booking_id`);
-
---
--- Indexes for table `tbl_custom_tours`
---
-ALTER TABLE `tbl_custom_tours`
-  ADD PRIMARY KEY (`custom_tour_id`);
-
---
 -- Indexes for table `tbl_guide_detail_profile`
 --
 ALTER TABLE `tbl_guide_detail_profile`
-  ADD PRIMARY KEY (`guide_detail_id`),
-  ADD UNIQUE KEY `user_id` (`user_id`);
+  ADD PRIMARY KEY (`guide_detail_id`), ADD UNIQUE KEY `user_id` (`user_id`);
 
 --
 -- Indexes for table `tbl_guide_known_languages`
@@ -436,6 +404,12 @@ ALTER TABLE `tbl_tours_location`
   ADD PRIMARY KEY (`tour_location_id`);
 
 --
+-- Indexes for table `tbl_tour_booking`
+--
+ALTER TABLE `tbl_tour_booking`
+  ADD PRIMARY KEY (`tour_booking_id`);
+
+--
 -- Indexes for table `tbl_tour_category`
 --
 ALTER TABLE `tbl_tour_category`
@@ -469,12 +443,7 @@ ALTER TABLE `tbl_tour_media_videos`
 -- Indexes for table `tbl_user_profile`
 --
 ALTER TABLE `tbl_user_profile`
-  ADD PRIMARY KEY (`user_id`),
-  ADD UNIQUE KEY `ui_Email` (`email`),
-  ADD UNIQUE KEY `ui_mobileNo` (`mobileNo`),
-  ADD KEY `user_type_id` (`user_type_id`),
-  ADD KEY `user_type_id_2` (`user_type_id`),
-  ADD KEY `user_type_id_3` (`user_type_id`);
+  ADD PRIMARY KEY (`user_id`), ADD UNIQUE KEY `ui_Email` (`email`), ADD UNIQUE KEY `ui_mobileNo` (`mobileNo`), ADD KEY `user_type_id` (`user_type_id`), ADD KEY `user_type_id_2` (`user_type_id`), ADD KEY `user_type_id_3` (`user_type_id`);
 
 --
 -- Indexes for table `tbl_user_type`
@@ -487,25 +456,15 @@ ALTER TABLE `tbl_user_type`
 --
 
 --
--- AUTO_INCREMENT for table `tbl_booking`
---
-ALTER TABLE `tbl_booking`
-  MODIFY `tour_booking_id` bigint(20) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `tbl_custom_tours`
---
-ALTER TABLE `tbl_custom_tours`
-  MODIFY `custom_tour_id` bigint(20) NOT NULL AUTO_INCREMENT;
---
 -- AUTO_INCREMENT for table `tbl_guide_detail_profile`
 --
 ALTER TABLE `tbl_guide_detail_profile`
-  MODIFY `guide_detail_id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+  MODIFY `guide_detail_id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `tbl_guide_known_languages`
 --
 ALTER TABLE `tbl_guide_known_languages`
-  MODIFY `guide_known_language_id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=137;
+  MODIFY `guide_known_language_id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=27;
 --
 -- AUTO_INCREMENT for table `tbl_guide_tour_locations`
 --
@@ -530,12 +489,17 @@ ALTER TABLE `tbl_referrals`
 -- AUTO_INCREMENT for table `tbl_tours`
 --
 ALTER TABLE `tbl_tours`
-  MODIFY `tour_id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=50005;
+  MODIFY `tour_id` bigint(20) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `tbl_tours_location`
 --
 ALTER TABLE `tbl_tours_location`
   MODIFY `tour_location_id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `tbl_tour_booking`
+--
+ALTER TABLE `tbl_tour_booking`
+  MODIFY `tour_booking_id` bigint(20) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `tbl_tour_category`
 --
@@ -550,12 +514,12 @@ ALTER TABLE `tbl_tour_experiences`
 -- AUTO_INCREMENT for table `tbl_tour_itinerary`
 --
 ALTER TABLE `tbl_tour_itinerary`
-  MODIFY `tour_Itinerary_id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=48;
+  MODIFY `tour_Itinerary_id` bigint(20) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `tbl_tour_media_pictures`
 --
 ALTER TABLE `tbl_tour_media_pictures`
-  MODIFY `picture_media_id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
+  MODIFY `picture_media_id` bigint(20) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `tbl_tour_media_videos`
 --
@@ -565,9 +529,12 @@ ALTER TABLE `tbl_tour_media_videos`
 -- AUTO_INCREMENT for table `tbl_user_profile`
 --
 ALTER TABLE `tbl_user_profile`
-  MODIFY `user_id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10006;
+  MODIFY `user_id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10004;
 --
 -- AUTO_INCREMENT for table `tbl_user_type`
 --
 ALTER TABLE `tbl_user_type`
   MODIFY `user_type_id` tinyint(4) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

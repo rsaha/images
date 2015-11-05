@@ -253,9 +253,9 @@ $notes = $row33["notes"]; */
 												</div>
 											</li>
                                             
-                                            <li class="row">
+                                            <li class="row"   >
                                                 <div class="col-md-12">
-                                            <div class="sidebar-widget">
+                                            <div class="sidebar-widget" >
                                                     <!-- Sidebar What We Do -->
                                                     <div class="panel-group" id="accordion">
                                                         <div class="panel panel-default">
@@ -266,11 +266,11 @@ $notes = $row33["notes"]; */
                                                             </div>
                                                             <div id="collapseOne" class="panel-collapse collapse">
                                                                 <div class="panel-body">
-                                                                    <div class="col-md-12">
+                                                                    <div class="col-md-12" ng-controller="Singletour">
                                                                         
                 <div ng-controller="hotel_booking">                                                        
-                                                                        
-              <div class="col-md-3"   ng-repeat="lodge in lodging "> 
+                      
+              <div class="col-md-3"   ng-repeat="lodge in lodging | filter:{ City: tour.tour_location} "> 
 				   <a id="addExtraService" style="height:20px" class="btn btn-xs btn-default" data-toggle="tab" onclick="CommingSoon();" >Add</a>
 				      <a style="cursor:pointer"  data-toggle="modal" data-target=".cabDetail">
                        <div	class="ft-item"> 
@@ -311,11 +311,11 @@ $notes = $row33["notes"]; */
                 </div>
                 <div id="collapseTwo" class="panel-collapse collapse">
                     <div class="panel-body">
-                        <div class="col-md-12">
+                        <div class="col-md-12" ng-controller="Singletour">
                                                                         
                                                                         
                         <div ng-controller="transport_booking">                                                 
-            <div class="col-md-3"  ng-repeat="trans in transport "> 
+            <div class="col-md-3"  ng-repeat="trans in transport | filter:{ City: tour.tour_location}"> 
 				   <a id="addExtraService" style="height:20px" class="btn btn-xs btn-default" data-toggle="tab" onclick="CommingSoon();" >Add</a>
 				      <a style="cursor:pointer"  data-toggle="modal" data-target=".cabDetail">
                        <div	class="ft-item"> 
@@ -386,7 +386,7 @@ $notes = $row33["notes"]; */
 										
                                         <div ng-show="{{tourValue}}">
                                             
-										<div class="tour-plans" style="padding:10px 10px 10px 10px;">
+										<div class="tour-plans" style="padding:10px 10px 10px 10px;" data-model="tour.tour_location">
 								<div class="plan-image">
 						
 

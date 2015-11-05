@@ -141,20 +141,20 @@ ul.rating {
 						  </span>
 					  
 								<div class="ft-data">
-							  <span style="color:black;" class="fa fa-odnoklassniki text-upper">{{x.city}}</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							  <span style="color:black;" class="fa fa-book text-upper" >&nbsp;&nbsp;{{x.experiance_in_year}}</span>
-							  <br><span style=" font-size:11px;color:black;" class="fa fa-plane text-upper">{{x.language_known[0][0]}}</span>
+							  <span style="color:black;" class="fa fa-map-marker text-upper">&nbsp;{{x.city}}&nbsp;</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							  <span style="color:black;" class="fa fa-hourglass text-upper" >&nbsp;{{x.experiance_in_year}}&nbsp;</span>
+							  <br><span style=" font-size:11px;color:black;" class="fa fa-book text-upper">&nbsp;{{x.language_known[0][0]}}&nbsp;</span>
 								</div> 
 					
 							<div class="ft-foot">
-							<h4 class="ft-title text-upper" style="color:#686868">{{x.name}},&nbsp{{x.gender}}</h4> 
+							<h4 class="ft-title text-upper" style="color:#686868">&nbsp;{{x.name}},&nbsp{{x.gender}}&nbsp;</h4> 
 							<!-- <span class="ft-offer text-upper">{{x.Tours.Count}} Tours</span>  -->
 							</div> 
 					
 							<div class="ft-foot-ex"> 
-								<span class="fa fa-shield text-upper alignleft">&nbsp;&nbsp;{{x.Tours.Count}} Tours&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;
+								<span class="fa fa-trophy text-upper alignleft">&nbsp;{{x.Tours.Count}} Tours&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;
 								<span star-rating rating-value="x.Review.Star" class="aligncenter"></span>
-								<span class="alignright fa fa-eye">{{x.Review.Count}} reviews</span> 							
+								<span class="alignright ">&nbsp;{{x.Review.Count}} reviews&nbsp;</span> 							
 							</div> 
 					       </div>
 						</div>
@@ -166,7 +166,8 @@ ul.rating {
 								<!-- START TABS -->
 								<ul class="nav nav-tabs text-upper">
 									<li class="active"><a href="#toptours" data-toggle="tab">Tours</a></li>
-									<li><a href="#topdestinations" data-toggle="tab">Destinations</a></li>
+                                    <li class=""><a href="#topGuides" data-toggle="tab">Guides</a></li>
+									<li><a href="#topdestinations" data-toggle="tab">Places</a></li>
 									<li><a href="#lodging" data-toggle="tab">Hotels</a></li>
 								</ul>
 								<!-- END TABS -->

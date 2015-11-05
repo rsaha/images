@@ -34,7 +34,8 @@ app.controller('guides_booking',['$scope','$http', function($scope, $http) {
 			
 }]);
     
-    app.controller('hotel_booking',['$scope','$http', function($scope, $http) {
+    app.controller('hotel_booking',['$scope','$http','$location', function($scope, $http,$location) {
+        debugger;
     $http.get("http://130.211.123.212/app/lodging")
     .success(function (response) {
 		$scope.lodging =response.Lodging;
@@ -91,12 +92,14 @@ app.controller('Singleguide',['$scope','$http','$location', function($scope, $ht
     $http.get("http://130.211.123.212/app/tour?tourid="+tourID.id2)
     .success(function (response) {
 		$scope.tour = response;
+  
 		
 		})
 	.error(function() {
 				$scope.data = "error in fetching data";
 			});
 			
+        
 		
 			
 }]); 

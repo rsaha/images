@@ -30,14 +30,14 @@
 				<!-- START #main-header --> <div id="main-header"> <div
 				class="container"> <div class="row"> <div
 				class="col-md-3"> <a id="site-logo" href="#"> <img
-				src="img/logo.png" alt="Guided Gateway" /> </a> </div> <div
+				src="images/logo.png" alt="Guided Gateway" /> </a> </div> <div
 				class="col-md-9"> <nav class="main-nav">
 				<span>MENU</span> <ul id="main-menu"> 
 				<li><a href="index.php" title="">HOME</a></li> 
 				<li><a href="top-tours-listview-sidebar.php" title="">Tours</a></li> 
 				<li><a href="top-guides-listview.php" title="">Guides</a></li>
 				<li><a href="top-destinations-listview-sidebar.php" title="">Destinations</a> </li>
-                <li><a href="#" title="">Travelogue</a> </li>
+                <li><a href="blog-listview-sidebar.php" title="">Travelogue</a> </li>
                 <!-- li><a
 				href="#" title="">Themed Tours</a> </li-->
 		
