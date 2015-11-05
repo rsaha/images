@@ -318,7 +318,7 @@ He provide a number of example tours on our site, but we can completely customis
 							
 								<div class="sidebar-widget">
 								<!-- Sidebar Flickr Gallery -->
-								<h3 class="text-upper">Guide's Tours </h3>
+								<h3 class="text-upper">Image Gallery</h3>
 								<ul class="flickr-gal list-unstyled" ng-controller="TourControl">
 <!--									<li ng-repeat="x in TopGuides" ng-show="$index==5||$index==7||$index==12||$index==13" ><img style="height:70px; width:120px;" class="img-responsive" src="{{x.photo}}" alt="Guide" /></li>-->
 								<li ng-repeat="x in alltours">
