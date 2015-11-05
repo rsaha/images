@@ -144,8 +144,8 @@ ul.rating {
 									<div class="offer-box">
 										<div class="offer-top">
 											<span class="fa fa-tag alignright">{{tour.tour_category_id}}</span>
-											<span class="fa fa-location-arrow" style="font-weight:bold;">{{tour.tour_location}}</span>
-											<h2 class="featured-cy text-upper">{{tour.tour_duration}} days</h2>
+											<span class="fa fa-location-arrow" style="font-weight:bold;color:white">{{tour.tour_location}}</span>
+											<h2 class="featured-cy text-upper">{{tour.tour_duration}} day(s)</h2>
 										</div>
 										
 										<div class="offer-bottom">
@@ -313,8 +313,20 @@ ul.rating {
 								
 								<!-- START TAB CONTENT -->
 								<div class="tab-content gray box-shadow1 clearfix marb30">
+                                    <div class="tab-pane active" style="height:600px;" id="toptours" ng-controller="toursCtrl">
+										<ul class="rc-posts-list list-unstyled">
+											<li ng-repeat="x in tours" ng-show="$index<4">
+												<span class="rc-post-image">
+                                                    <a href="tour_detail_sidebar.php#?id={{x.tour_id}}"	>	<img class="img-responsive" src="{{'x.photo' ==''||'x.photo' ? 'img/SAMPLE_TOUR.jpg' : x.photo}}" alt="Tour 1" /></a>
+												</span>
+												<h5>{{x.tour_title}}</h5>
+												<span class="rc-post-date small">Starting Price&nbsp;{{x.tour_price}}</span><br/>
+                                               <a href="booking-form.php#?id1=0&id2={{x.tour_id}}"> <input type="submit" name="submit" class="btn btn-primary  marb20" value="Book Now" /></a>
+											</li>
+										</ul>
+									</div>
 									<!-- START TAB 1 -->
-									<div class="tab-pane active" style="height:600px;" id="topguides" ng-controller="guidescontrol">
+									<div class="tab-pane" style="height:600px;" id="topguides" ng-controller="guidescontrol">
 										<ul class="list-unstyled">
 											<li ng-repeat="z in guides" ng-show="$index<4 ">
 												<span class="rc-post-image">
@@ -330,18 +342,6 @@ ul.rating {
 										</ul>
 									</div>
 									<!-- END TAB 1 -->
-									<div class="tab-pane" style="height:600px;" id="toptours" ng-controller="toursCtrl">
-										<ul class="rc-posts-list list-unstyled">
-											<li ng-repeat="x in tours" ng-show="$index<4">
-												<span class="rc-post-image">
-                                                    <a href="tour_detail_sidebar.php#?id={{x.tour_id}}"	>	<img class="img-responsive" src="{{'x.photo' ==''||'x.photo' ? 'img/SAMPLE_TOUR.jpg' : x.photo}}" alt="Tour 1" /></a>
-												</span>
-												<h5>{{x.tour_title}}</h5>
-												<span class="rc-post-date small">Starting Price&nbsp;{{x.tour_price}}</span><br/>
-                                               <a href="booking-form.php#?id1=0&id2={{x.tour_id}}"> <input type="submit" name="submit" class="btn btn-primary  marb20" value="Book Now" /></a>
-											</li>
-										</ul>
-									</div>
                                     <!-- lodging hotels -->
                                     <div class="tab-pane"  id="lodging" style="height:600px;" ng-controller="hotelControl">
 										<ul class="list-unstyled">
