@@ -162,7 +162,7 @@ ul.rating {
 									<li class="active"><a href="#relatedtours" data-toggle="tab">Tours</a></li>
 									<li><a href="#topguides" data-toggle="tab">Guides</a></li>
 									<li><a href="#topdestinations" data-toggle="tab">Places</a></li>
-                                    <li><a href="#Hotels" data-toggle="tab">Hotels</a></li>
+                                    <li><a href="#lodging" data-toggle="tab">Hotels</a></li>
 								</ul>
 								<!-- END TABS -->
 								
@@ -216,20 +216,25 @@ ul.rating {
 										</ul>
 									</div>
 									<!-- END TAB 3 -->
+                                    <!-- lodging hotels -->
+                                    <div class="tab-pane"  id="lodging" style="height:600px;" ng-controller="hotelControl">
+										<ul class="list-unstyled">
+											<li ng-repeat="lodge in lodging" ng-show="$index<4 ">
+												<span class="rc-post-image">
+                                                    <a href="">	<img class="img-responsive" style="height:80px; width:65px;" src="{{lodge.Media.Image[0]}}" alt="Hotel" /></a>
+												</span>
+											<h5><a href="#">{{lodge.Address}}</a></h5>
+											
+												<span  style="" class="" >{{lodge.Description}}</span>
+                                                <span  style="" class="" >{{lodge.PricePerNight}}Per Night</span><br><br>
+                                                 <a href="#" style="margin-left:110px;"> <input type="submit" name="submit" class="btn btn-primary  marb20" value="Explore" /></a>
+											</li> 
+										
+										</ul>
+									</div>
 								</div>
 								<!-- END TAB CONTENT -->
 							</div>
-							
-<!--
-							<div class="sidebar-widget">
-							
-								<h3 class="text-upper">Related Tours</h3>
-								<ul class="flickr-gal list-unstyled" ng-controller="toursCtrl">
-									<li ng-repeat="tourslist in tours"><img class="img-responsive" src="{{tourslist.photo}}" alt="Tour Photo" /></li>
-									
-								</ul>
-							</div>
--->
 						</aside>
 						<!-- END #sidebar -->
 					</div>
