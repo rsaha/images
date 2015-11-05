@@ -37,7 +37,10 @@ nnecting with culture and learning from it is any way the main purpose of my vis
 								<!-- twitter -->
 								<section class="col-md-6">
 									<h3 class="tw-feeds">Twitter &amp; Pinterest Feeds</h3>
-									<p>Coming soon</p>
+									<a data-pin-do="embedBoard" href
+="https://www.pinterest.com/guidedgateway/guided-gateway/"data-pin-scale-width="80" data-pin-scale-height="200" 
+data-pin-board-width="400">Follow Guided Gateway's board on Pinterest.</a><script type="text/javascript" async s
+rc="//assets.pinterest.com/js/pinit.js"></script>
 								</section>
 							</div>
 						</div>
