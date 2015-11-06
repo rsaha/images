@@ -8,7 +8,7 @@ $jsonPath = parse_ini_file('config.ini',true)['jsonFilePath'];
 //==========================================================================
         try
 		{
-			$rs = mysql_query("SELECT `tour_id`, `user_id`, `tour_category_id`, `tour_title`, `tour_location`, `tour_territory`, `tour_description`, `tour_duration`, `tour_price`, `start_point`, `end_point`, `inclusive`, `exclusive`, `cancelation_policy`, `restrictions`, `notes` FROM `tbl_tours`"); 
+			$rs = mysql_query("SELECT `tbl_tours`.`tour_id`, `tbl_tours`.`tour_category_id`, `tbl_tours`.`user_id`, `tbl_user_type`.`user_type_id`,  `tbl_tours`.`tour_title`, `tbl_tours`.`tour_location`, `tbl_tours`.`tour_territory`, `tbl_tours`.`tour_description`, `tbl_tours`.`tour_duration`, `tbl_tours`.`tour_price`, `tbl_tours`.`start_point`, `tbl_tours`.`end_point`, `tbl_tours`.`inclusive`, `tbl_tours`.`exclusive`, `tbl_tours`.`cancelation_policy`, `tbl_tours`.`restrictions`, `tbl_tours`.`notes` FROM `tbl_tours` JOIN `tbl_user_profile` ON `tbl_user_profile`.`user_id`=`tbl_tours`.`user_id` JOIN `tbl_user_type` ON `tbl_user_type`.`user_type_id`=`tbl_user_profile`.`user_type_id` WHERE `tbl_user_type`.`user_type_id`= 1");
 		}
 		catch (Exception $e)
 		{
@@ -24,14 +24,14 @@ unset($_SESSION['tType']);
     unset($fp);
     unset($rs);
 //=============================================================================
-	$sql = mysql_query("SELECT `tour_id`, `tour_title`, `status` FROM `tbl_tours` WHERE `status` = 1");
+	$sql = mysql_query("SELECT `tbl_tours`.`tour_id`, `tbl_tours`.`user_id`, `tbl_user_type`.`user_type_id`,  `tbl_tours`.`tour_title`, `tbl_tours`.`status` FROM `tbl_tours` JOIN `tbl_user_profile` ON `tbl_user_profile`.`user_id`=`tbl_tours`.`user_id` JOIN `tbl_user_type` ON `tbl_user_type`.`user_type_id`=`tbl_user_profile`.`user_type_id` WHERE `tbl_user_type`.`user_type_id`=1 and `tbl_tours`.`status` = 1");
 	while ($roww = mysql_fetch_array($sql))
     {
         $tour_ID=$roww['tour_id'];
         $oldStatus=$roww['status'];
             try
             {
-                $rs = mysql_query("SELECT `tour_id`, `user_id`, `tour_category_id`, `tour_title`, `tour_location`, `tour_territory`, `tour_description`, `tour_duration`, `tour_price`, `start_point`, `end_point`, `inclusive`, `exclusive`, `cancelation_policy`, `restrictions`, `notes` FROM `tbl_tours` WHERE `status` = 1 && `tour_id` = ".$tour_ID."");
+                $rs = mysql_query("SELECT `tour_id`, `user_id`, `tour_category_id`, `tour_title`, `tour_location`, `tour_territory`, `tour_description`, `tour_duration`, `tour_price`, `start_point`, `end_point`, `inclusive`, `exclusive`, `cancelation_policy`, `restrictions`, `notes` FROM `tbl_tours` WHERE `tour_id` = ".$tour_ID."");
             }
             catch (Exception $e)
             {

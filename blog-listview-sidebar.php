@@ -143,7 +143,7 @@
 								<ul class="nav nav-tabs text-upper">
 									<li class="active"><a href="#toptours" data-toggle="tab">Tours</a></li>
 									<li><a href="#topguides" data-toggle="tab">Guides</a></li>
-									<li><a href="#topdestinations" data-toggle="tab">Destinations</a></li>
+									<li><a href="#topdestinations" data-toggle="tab">Places</a></li>
 								</ul>
 								<!-- END TABS -->
 								

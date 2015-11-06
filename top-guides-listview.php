@@ -67,11 +67,19 @@ ul.rating {
 .rating .filled {
     color: #ff845e;
 }
+    
+    div.short-text
+        {
+        white-space:nowrap; 
+        width:13em; 
+        overflow:hidden; 
+        }
+
 
 	</style>
 <script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
    <script src="guideList.js"></script>
-<!--    <script src="topTour.js"></script>-->
+<!--<script type="text/javascript"  src="topTour.js"></script>-->
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	</head> <!-- END head -->
 
@@ -140,11 +148,15 @@ ul.rating {
 						  </span>
 							  <span style="color:black;" class="fa fa-map-marker text-upper">&nbsp;{{x.city}}&nbsp;</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							  <span style="color:black;" class="fa fa-hourglass text-upper" >&nbsp;{{x.experiance_in_year}}&nbsp;</span>
-							  <br><span style=" font-size:11px;color:black;" class="fa fa-book text-upper">&nbsp;{{x.language_known[0][0]}}&nbsp;</span>
+							  <br>
+                            <span style=" font-size:11px;color:black;" class="fa fa-book text-upper">&nbsp;{{x.language_known[0][0]}}&nbsp;</span>
 								</div> 
 					
 							<div class="ft-foot">
-							<h4 class="ft-title text-upper" style="color:#686868">&nbsp;{{x.name}},&nbsp{{x.gender}}&nbsp;</h4> 
+                                <div class="short-text ft-title text-upper" style="font-size:16px ; color:white; text-overflow:ellipsis;" title="{{x.name}},&nbsp;&nbsp;{{x.gender}}">
+                                &nbsp;{{x.name}},&nbsp;&nbsp;{{x.gender}}&nbsp;
+                                </div>
+<!--							<h4 class="ft-title text-upper" style="color:#686868">&nbsp;{{x.name}},&nbsp;&nbsp;{{x.gender}}&nbsp;</h4> -->
 							<!-- <span class="ft-offer text-upper">{{x.Tours.Count}} Tours</span>  -->
 							</div> 
 					
@@ -185,19 +197,18 @@ ul.rating {
 										</ul>
 									</div>
 									<!-- END TAB 1 -->
-									<!-- START TAB 2 -->
-									<div class="tab-pane"  id="relatedguides" ng-controller="guideCtrl">
+                                    <!-- START TAB 2 -->
+									<div class="tab-pane"  id="relatedguides" style="height:500px;" ng-controller="guidescontrol">
 										<ul class="list-unstyled">
 											<li ng-repeat="z in guides" ng-show="$index<18 && z.photo!=null">
 												<span class="rc-post-image">
-                                                <a href="guide-detail-sidebar.php?id2={{z.id}}">
-													<img class="img-responsive" style="height:80px; width:65px;" src="{{z.photo==null ? 'img/SAMPLE_TOUR.jpg' :z.photo}}" alt="Recent Post 2" />
-                                                    </a>
+                                                    <a href="guide-detail-sidebar.php?id2={{z.id}}"	>	<img class="img-responsive" style="height:70px; width:60px;" src="{{z.photo==null ? 'img/SAMPLE_TOUR.jpg' :z.photo}}" alt="Recent Post 2" /></a>
 												</span>
-											<h5>{{z.name}}</h5>
-<!--												<h5><a href="#">{{z.guide_territory}}</a></h5>-->
+											<h5><a href="#">{{z.name}}</a></h5>
+												<h5><a href="#">{{z.guide_territory[0]}}</a></h5>
 <!--												<h5>{{z.Speciality}}<span class="rc-post-date small">Speciality&nbsp;&nbsp;</span></h5>-->
-												<span star-rating rating-value="z.review.Star" style="" class="" ></span>	<br><br><br>
+												<span star-rating rating-value="z.review.rating" style="" class="" ></span>	
+                                                 <a href="booking-form.php#?id1={{z.id}}&id2=0"> <input type="submit" name="submit" class="btn btn-primary  marb20" value="Book Now" /></a><br><br>
 											</li>
 										
 										</ul>
