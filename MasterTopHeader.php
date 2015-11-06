@@ -35,7 +35,6 @@
                     </div> 
                 </div> 
                 <!-- END #top-header -->
-
     <!-- START #main-header --> 
     <div id="main-header"> 
         <div class="container"> 

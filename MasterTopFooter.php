@@ -1,9 +1,5 @@
 <html lang="en">
   <head>
-   
-	
-	
-	
   </head>
   
     <!-- Navigation
@@ -29,7 +25,7 @@ nnecting with culture and learning from it is any way the main purpose of my vis
 										<span class="tl-author-img">
 											<img class="img-circle" src="img/testimonial_1.png" alt="Testimonial Author" />
 										</span>
-										<span class="tl-author-title">Anonymous</span>
+										<span class="tl-author-title">Jassem Elrakesh</span>
 										<span class="tl-author-desc">Visited Kolkata recently</span>
 									</div>
 								</section>

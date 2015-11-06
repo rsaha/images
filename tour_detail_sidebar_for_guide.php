@@ -1,10 +1,56 @@
 <?php
- if(isset($_GET['id']))
+	session_start();
+	
+	/* if(isset($_SESSION['userId']))
+	{ */
+		if(isset($_GET['id']))
+		{
+		$tourID = $_GET['id'];
+		}
+		include_once('db.php');
+
+		$select1 = mysql_query("SELECT * FROM `tbl_tours` WHERE `tour_id` = $tourID && `status` != 0");
+		$row1 = mysql_fetch_assoc($select1);
+		$user_id=$row1["user_id"];
+		$tour_category_id = $row1["tour_category_id"];
+		$tour_title = $row1["tour_title"];
+		$tour_location = $row1["tour_location"];
+		$tour_description = $row1["tour_description"];
+		$tour_duration = $row1["tour_duration"];
+		$tour_price = $row1["tour_price"];
+		$start_point = $row1["start_point"];
+		$end_point = $row1["end_point"];
+		$inclusive = $row1["inclusive"];
+		$exclusive = $row1["exclusive"];
+		$cancelation_policy = $row1["cancelation_policy"];
+		$restrictions = $row1["restrictions"];
+		$notes = $row1["notes"];
+			
+		$select2 = mysql_query("SELECT * FROM `tbl_tour_media_pictures` WHERE `tour_id` = $tourID");
+		$row2 = mysql_fetch_assoc($select2);
+		if(mysql_num_rows($select2) > 0 )
+		{
+			$picture_media_id = $row2["picture_media_id"];
+			$tour_picture = $row2["tour_picture"];
+		}
+		
+		$select3 = mysql_query("SELECT * FROM `tbl_tour_media_videos` WHERE `tour_id` = $tourID");
+		$row3 = mysql_fetch_assoc($select3);
+		if(mysql_num_rows($select3) > 0 )
+		{
+			$video_media_id = $row3["video_media_id"];
+			$tour_video = $row3["tour_video"];
+		}
+		
+	/* }
+	else
 	{
-	$tourid = $_GET['id'];
-	}
-    ?>
-<!DOCTYPE html>
+		include_once("signOut.php");
+        header('Location:login.php');
+		exit;
+	} */
+?>
+
 <html lang="en" dir="ltr">
 
 	<!-- START head -->
@@ -81,8 +127,9 @@ ul.rating {
 }
 </style>
          <style>
-            #bookButton{
-			top: 360px;
+           #editButton{
+			top: 20px;     
+			height: 29px;
 			position: absolute;
 			right: 20px;
 		}
@@ -119,11 +166,22 @@ ul.rating {
 			?>
 			<!-- START #page-header -->
 			<div id="" style="color:#ff845e;">
+				
 					<div class="container">
 						<div class="row">
 							<section class="col-sm-6">
-								<h1 class="text-upper"><i class="fa fa-trophy" style="color:black;"></i>&nbsp; {{tour.tour_title}}</h1>	
+								
+								<h1 class="text-upper"><i class="fa fa-plane" style="color:black;"></i>&nbsp;&nbsp;<?php echo $tour_title; ?></h1>	
 							</section>
+							
+							<!-- breadcrumbs -->
+							<!-- <section class="col-sm-6">
+								<ol class="breadcrumb">
+									<li class="home"><a href="#"  style="color:black;">Home</a></li>
+									<li><a href="#" style="color:black;">Tour #2</a></li>
+									<li class="active"><span  style="color:black;">Agra, UP</span></li>
+								</ol>
+							</section> -->
 						</div>
 					</div>
 				
@@ -143,35 +201,30 @@ ul.rating {
 									<img class="img-responsive" src="{{'tour.photo'=='' ? 'tour.photo' :'img/SAMPLE_TAJ.jpg'}}" alt="TajMahal" />
 									<div class="offer-box">
 										<div class="offer-top">
-											<span class="fa fa-tag alignright"> {{tour.tour_category}}</span>
+											<span class="fa fa-tag alignright"> <?php echo $tour_category_id; ?> </span>
 											
-                                        <span class="fa fa-location-arrow" style="font-weight:bold;color:white"> {{tour.tour_location}}</span>
-                                        <h2 class="featured-cy text-upper">{{tour.tour_duration}} day(s)</h2>
+                                        <span class="fa fa-location-arrow" style="font-weight:bold;color:white"> <?php echo $tour_location; ?> </span>
+                                        <h2 class="featured-cy text-upper"> <?php echo $tour_duration; ?> day(s)</h2>
 										</div>
 										
 										<div class="offer-bottom">
 <!--											<span class="featured-stf">Per Person </span>-->
-											<span class="featured-spe">{{tour.tour_price}}</span>
+											<span class="featured-spe"> <?php echo $tour_price; ?></span>
 										</div>
 									</div>
 								</div>
 								
 								<div class="featured-btm box-shadow1">									
-									<a class="fa fa-map-pin text-upper" style="color:black; font-size:12px; font-weight:bold;" href="#">{{tour.tour_territory[0]}}</a>
-									<a class="fa fa-user text-upper" style="color:black; font-size:12px; font-weight:bold;" href="#">{{tour.guide_id}}</a>
-                                    <a class="fa fa-map-marker text-upper" style="color:black; font-size:12px; font-weight:bold;" href="#">Start Point:&nbsp;&nbsp;{{tour.start_point}}&nbsp;&nbsp;-&nbsp;&nbsp;End Point:&nbsp;&nbsp;{{tour.end_point}}</a>
+									<a class="fa fa-map-pin text-upper" style="color:black; font-size:12px; font-weight:bold;" href="#"> #### </a>
+									<a class="fa fa-user text-upper" style="color:black; font-size:12px; font-weight:bold;" href="#"> <?php echo $user_id; ?> </a>
+                                    <a class="fa fa-map-marker text-upper" style="color:black; font-size:12px; font-weight:bold;" href="#"> Start Point:&nbsp;&nbsp;<?php echo $start_point ?>&nbsp;&nbsp;-&nbsp;&nbsp; End Point:&nbsp;&nbsp;<?php echo $end_point; ?></a>
 																	</div>
-								<a id="bookButton" href="booking-form.php?id1=0&id2={{tg.tour_id}}" class="alignright"> <input type="submit" name="submit" class="btn btn-success text-upper " value="Book" /></a>
-								<h2 class="text-upper">Tour Information</h2>
-<p>Description : {{tour.tour_description}}</p>
-<p><h5>End Point : {{tour.end_point}}</h5></p>
-                               <p><h5>Cancellation Policy : {{tour.cancelation_policy}}</h5></p>
-                               <p><h5>Restrcitions: {{tour.restrictions}}</h5></p>
-                               <p>Notes &amp; Summary : <br/>{{tour.notes}}</h5></p>
+								<?php echo '<a id="editButton" onclick="editTour(' . $user_id . ',' . $row1['tour_id'] . ');" class="alignright"> <input type="submit" name="submit" class="btn btn-success text-upper " value="Edit" /></a>'; ?>
+								
 								
 							</div>
 							<!-- END .tour-plans -->
-							
+							<br><br><br>
 							<!-- START TABS -->
 							<ul class="nav nav-tabs text-upper">
 								<li class="active"><a href="#tourPlan" data-toggle="tab">Tour Plan</a></li>
@@ -276,27 +329,8 @@ ul.rating {
 							</div>
 							</div>
 							<!-- END TAB CONTENT -->
-							{{latit}}
 							
-							<div class="col-md-12" ng-controller="tourDetailCtrl" id="mapLocation" hello-maps="" latitude="{{latit}}" longitude="{{longit}}" style="width: 100%; height: 300px;">
-							</div>
-                        <div class="about-author gray box-shadow1">
-<!--
-								<span class="author-image">
-									<img src="img/feature_guide_tour.jpg" alt="Reviewed Tour" />
-								</span>
--->
-								<h5>What to Remember <small></small></h5>
-								<p></p>
-<ul>
-    <li>Please note that this is a walking tour</li>
-    <li>The visit to the Anne Frank House is self-guided</li>
-    <li>Tour plan is flexible and subject to changes depending on the guide, the weather, and the time</li>
-    <li>The visit to the local market doesn't take place on Sundays</li>
-</ul>
-
-								
-							</div>
+                        
 						</div>
                     
                     
@@ -307,107 +341,28 @@ ul.rating {
 								<!-- Sidebar recent popular posts -->
 								<!-- START TABS -->
 								<ul class="nav nav-tabs text-upper">
-                                    <li class="active"><a href="#toptours" data-toggle="tab">Tours</a></li>
-									<li><a href="#topguides" data-toggle="tab">Guides</a></li>
-									<li><a href="#lodging" data-toggle="tab">Hotels</a></li>
-                                    <li><a href="#topreview" data-toggle="tab">Reviews</a></li>
+									<li class="active"><a data-toggle="tab">Tour Information</a></li>
 								</ul>
 								<!-- END TABS -->
 								
 								<!-- START TAB CONTENT -->
 								<div class="tab-content gray box-shadow1 clearfix marb30">
-                                    <div class="tab-pane active" style="height:600px;" id="toptours" ng-controller="toursCtrl">
-										<ul class="rc-posts-list list-unstyled">
-											<li ng-repeat="x in tours" ng-show="$index<4">
-												<span class="rc-post-image">
-                                                    <a href="tour_detail_sidebar.php#?id={{x.tour_id}}"	>	<img class="img-responsive" src="{{'x.photo' ==''||'x.photo' ? 'img/SAMPLE_TOUR.jpg' : x.photo}}" alt="Tour 1" /></a>
-												</span>
-												<h5>{{x.tour_title}}</h5>
-												<span class="rc-post-date small">Starting Price&nbsp;{{x.tour_price}}</span><br/>
-                                               <a href="booking-form.php#?id1=0&id2={{x.tour_id}}"> <input type="submit" name="submit" class="btn btn-primary  marb20" value="Book Now" /></a>
-											</li>
-										</ul>
-									</div>
 									<!-- START TAB 1 -->
-									<div class="tab-pane" style="height:600px;" id="topguides" ng-controller="guidescontrol">
-										<ul class="list-unstyled">
-											<li ng-repeat="z in guides" ng-show="$index<4 ">
-												<span class="rc-post-image">
-                                                    <a href="guide-detail-sidebar.php#?id2={{z.id}}"	>	<img class="img-responsive" style="height:80px; width:65px;" src="{{z.photo==null ? 'img/SAMPLE_TOUR.jpg' :z.photo}}" alt="Recent Post 2" /></a>
-												</span>
-											<h5><a href="#">{{z.name}}</a></h5>
-<!--												<h5><a href="#">{{z.guide_territory}}</a></h5>-->
-<!--												<h5>{{z.Speciality}}<span class="rc-post-date small">Speciality&nbsp;&nbsp;</span></h5>-->
-												<span star-rating rating-value="z.review.Star" style="" class="" ></span>	<br>
-                                                 <a href="booking-form.php#?id1={{z.id}}&id2=0"> <input type="submit" name="submit" class="btn btn-primary  marb20" value="Book Now" /></a><br><br>
-											</li>
-										
-										</ul>
-									</div>
-                                    <!-- lodging hotels -->
-                                    <div class="tab-pane"  id="lodging" style="height:600px;" ng-controller="hotelControl">
-										<ul class="rc-posts-list list-unstyled">
-											<li ng-repeat="lodge in lodging" ng-show="$index<4 ">
-												<span class="rc-post-image">
-                                                    <a href="">	<img class="img-responsive" style="height:80px; width:65px;" src="{{lodge.Media.Image[0]}}" alt="Hotel" /></a>
-												</span>
-											<h5><a href="#">{{lodge.Address}}</a></h5>
-											
-												<span  style="" class="" >{{lodge.Description}}</span>
-                                                <span  style="" class="" >{{lodge.PricePerNight}}Per Night</span><br><br>
-                                                 <a href="#" style="margin-left:110px;"> <input type="submit" name="submit" class="btn btn-primary  marb20" value="Explore" /></a>
-											</li> 
-										
-										</ul>
-									</div>
-									<!-- START TAB 2 -->
-									<div class="tab-pane" id="topreview" style="height:600px;" ng-controller="tourDetailCtrl">
-<!--
-										<ul class="list-unstyled">
-											<li ng-repeat="z in tour.Reviews.Reviews">
-												<span class="rc-post-image">
-													<img class="img-responsive"  src="http://placehold.it/80x65" alt="Recent Post 1" />
-												</span>
-												<h5>{{z.Comment}}</h5>
-												<span star-rating rating-value="z.Rating" style="" class="" ></span><br><br>	
-											</li>
-										</ul>
-									</div>
-									<!-- END TAB 4 -->
+									<div class="tab-pane active" style="height:600px;" id="topguides" ng-controller="guidescontrol">
+										<br>
+                                        <div class="col-md-12">
+                                <p>Description : <?php echo $tour_description; ?></p>
+                                <p><h5>Start Point : <?php echo $start_point; ?></h5></p>
+                                <p><h5>End Point : <?php echo $end_point; ?></h5></p>
+                               <p><h5>Cancellation Policy : <?php echo $cancelation_policy; ?></h5></p>
+                               <p><h5>Restrcitions: <?php echo $restrictions; ?></h5></p>
+                               <p>Notes &amp; Summary : <br/><?php echo $notes; ?></h5></p>
+                        </div>
+                </div>
 								</div>
 								<!-- END TAB CONTENT -->
 							</div>
 							
-							  <div class="col-sm-6 sidebar-widget">
-                    <h3 class="column-title">Video Intro</h3>
-                    <!-- 16:9 aspect ratio -->
-                    <div class="embed-responsive embed-responsive-16by9">
-					<iframe width="360" height="315" src="https://www.youtube.com/embed/0ohZyqgIyQI?autoplay=0" frameborder="0" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>
-					
-                    </div>
-                </div>
-							<div class="sidebar-widget">
-								<!-- Sidebar Newsletter -->
-								<div class="styled-box gray">
-									<h3 class="text-upper">Mail Us for Custom Tour</h3>
-									<form action="#" method="post">
-										<label>Email Address</label>
-										<input type="text" name="email" class="form-control input-style1 marb20" value="Enter Email Address" onfocus="if (this.value == 'Enter Email Address') { this.value = ''; }" onblur="if (this.value == '') { this.value = 'Enter Email Address'; }" />
-										<input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Send" />
-									</form>
-								</div>
-							</div>
-							
-							<div class="sidebar-widget"  ng-controller="toursCtrl">
-								<!-- Sidebar Flickr Gallery -->
-								<h3 class="text-upper">Image Gallery</h3>
-								<ul class="flickr-gal list-unstyled">
-								<li ng-repeat="x in tours">  
-								<img class="img-responsive" src="{{'x.photo' ==''||'x.photo' ? 'img/custom1.jpg' : x.photo}}"           alt="Tour Image" />
-								    
-								</li>
-								</ul>
-							</div>
 						</aside>
 						<!-- END #sidebar -->
 					</div>
@@ -429,6 +384,13 @@ ul.rating {
 		<script type="text/javascript" src="js/jquery.min.js"></script>
 		<script type="text/javascript" src="bs3/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="js/script.js"></script>
+<script>
+function editTour(id1,id2) 
+				{
+					window.location.href = "edit_Tour.php?id1="+id1+"&id2="+id2+"";
+					return false;
+				}
+</script>
 		<!--[if lt IE 9]>
 			<script type="text/javascript" src="js/html5shiv.js"></script>
 		<![endif]-->
