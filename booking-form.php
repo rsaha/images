@@ -253,9 +253,9 @@ $notes = $row33["notes"]; */
 												</div>
 											</li>
                                             
-                                            <li class="row">
+                                            <li class="row"   >
                                                 <div class="col-md-12">
-                                            <div class="sidebar-widget">
+                                            <div class="sidebar-widget" >
                                                     <!-- Sidebar What We Do -->
                                                     <div class="panel-group" id="accordion">
                                                         <div class="panel panel-default">
@@ -266,97 +266,39 @@ $notes = $row33["notes"]; */
                                                             </div>
                                                             <div id="collapseOne" class="panel-collapse collapse">
                                                                 <div class="panel-body">
-                                                                    <div class="col-md-12">
+                                                                    <div class="col-md-12" ng-controller="Singletour">
                                                                         
-                                                                        
-                                                                        
-            <div class="col-md-3" > 
+                <div ng-controller="hotel_booking">                                                        
+                      
+              <div class="col-md-3"   ng-repeat="lodge in lodging | filter:{ City: tour.tour_location} "> 
 				   <a id="addExtraService" style="height:20px" class="btn btn-xs btn-default" data-toggle="tab" onclick="CommingSoon();" >Add</a>
-                       <a style="cursor:pointer"  data-toggle="modal" data-target=".hotelDetail">
-				      <div	class="ft-item"> 
-						  <span class="ft-image">
-							 <img style="" src="img/hotel.jpg" alt="Top Destination" /> 
-						  </span>
-					  
-								<div class="ft-data" style="font-size:11px;">
-							  <span style="color:black;" class="fa fa-book text-upper">&nbsp;&nbsp;Hotel Name&nbsp;&nbsp;</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							  <!-- <span style="color:black;" class="fa fa-book text-upper" >&nbsp;&nbsp;{{x.Speciality}}</span>&nbsp;&nbsp;&nbsp;&nbsp;
-							  <span style="color:black;" class="fa fa-plane text-upper" >&nbsp;&nbsp;{{x.LanguageKnown}}</span> -->
-								</div> 
-					
-							<div class="ft-foot" style="word-wrap:break-word; ">
-							<h4 class="ft-title text-upper" style="color:#686868">City</h4>
-							<span class="ft-offer text-upper">Price</span> 
-							</div>
-					</div>
-					</a>
-					 </div>
-                    
-                    <div class="col-md-3" > 
-				   <a id="addExtraService" style="height:20px" class="btn btn-xs btn-default" data-toggle="tab" onclick="CommingSoon();" >Add</a>
-				      <a style="cursor:pointer" data-toggle="modal" data-target=".hotelDetail">
+				      <a style="cursor:pointer"  data-toggle="modal" data-target=".cabDetail">
                        <div	class="ft-item"> 
 						  <span class="ft-image">
-							 <img style="" src="img/hotel.jpg" alt="Top Destination" /> 
+							 <img style="" src="{{lodge.Media.Image[0]}}" alt="Top Destination" /> 
 						  </span>
 					  
 								<div class="ft-data" style="font-size:11px;">
-							  <span style="color:black;" class="fa fa-book text-upper">&nbsp;&nbsp;Hotel Name&nbsp;&nbsp;</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							  <span style="color:black;"  class="fa fa-book text-upper">{{lodge.Address}}</span> &nbsp;&nbsp;&nbsp;&nbsp;
 							  <!-- <span style="color:black;" class="fa fa-book text-upper" >&nbsp;&nbsp;{{x.Speciality}}</span>&nbsp;&nbsp;&nbsp;&nbsp;
 							  <span style="color:black;" class="fa fa-plane text-upper" >&nbsp;&nbsp;{{x.LanguageKnown}}</span> -->
 								</div> 
 					
 							<div class="ft-foot" style="word-wrap:break-word; ">
-							<h4 class="ft-title text-upper" style="color:#686868">City</h4> 
-							<span class="ft-offer text-upper">Price</span> 
+							<h4 class="ft-title text-upper" style="color:#686868">{{lodge.City}}</h4> 
+							<span class="ft-offer text-upper">{{lodge.PricePerNight}}/Night</span> 
 							</div>
 					</div>
 					</a>
+					 </div>
+					     
 					 </div>
                     
-                    <div class="col-md-3" > 
-				   <a id="addExtraService" style="height:20px" class="btn btn-xs btn-default" data-toggle="tab" onclick="CommingSoon();" >Add</a>
-                       <a style="cursor:pointer"  data-toggle="modal" data-target=".hotelDetail">
-				      <div	class="ft-item"> 
-						  <span class="ft-image">
-							 <img style="" src="img/hotel.jpg" alt="Top Destination" /> 
-						  </span>
-					  
-								<div class="ft-data" style="font-size:11px;">
-							  <span style="color:black;" class="fa fa-book text-upper">&nbsp;&nbsp;Hotel Name&nbsp;&nbsp;</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							  <!-- <span style="color:black;" class="fa fa-book text-upper" >&nbsp;&nbsp;{{x.Speciality}}</span>&nbsp;&nbsp;&nbsp;&nbsp;
-							  <span style="color:black;" class="fa fa-plane text-upper" >&nbsp;&nbsp;{{x.LanguageKnown}}</span> -->
-								</div> 
-					
-							<div class="ft-foot" style="word-wrap:break-word; ">
-							<h4 class="ft-title text-upper" style="color:#686868">City</h4> 
-							<span class="ft-offer text-upper">Price</span> 
-							</div>
-					</div>
-					</a>
-					 </div>
+                   
                     
-                    <div class="col-md-3" > 
-				  <a id="addExtraService" style="height:20px" class="btn btn-xs btn-default" data-toggle="tab" onclick="CommingSoon();" >Add</a>
-                        <a style="cursor:pointer"  data-toggle="modal" data-target=".hotelDetail">
-				      <div	class="ft-item"> 
-						  <span class="ft-image">
-							 <img style="" src="img/hotel.jpg" alt="Top Destination" /> 
-						  </span>
-					  
-								<div class="ft-data" style="font-size:11px;">
-							  <span style="color:black;" class="fa fa-book text-upper">&nbsp;&nbsp;Hotel Name&nbsp;&nbsp;</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							  <!-- <span style="color:black;" class="fa fa-book text-upper" >&nbsp;&nbsp;{{x.Speciality}}</span>&nbsp;&nbsp;&nbsp;&nbsp;
-							  <span style="color:black;" class="fa fa-plane text-upper" >&nbsp;&nbsp;{{x.LanguageKnown}}</span> -->
-								</div> 
-					
-							<div class="ft-foot" style="word-wrap:break-word; ">
-							<h4 class="ft-title text-upper" style="color:#686868">City</h4> 
-							<span class="ft-offer text-upper">Price</span> 
-							</div>
-					</div>
-					</a>
-					 </div>
+                  
+                    
+                   
                         </div>
                         </div>
                 </div>
@@ -369,97 +311,37 @@ $notes = $row33["notes"]; */
                 </div>
                 <div id="collapseTwo" class="panel-collapse collapse">
                     <div class="panel-body">
-                        <div class="col-md-12">
+                        <div class="col-md-12" ng-controller="Singletour">
                                                                         
                                                                         
-                                                                        
-            <div class="col-md-3" > 
+                        <div ng-controller="transport_booking">                                                 
+            <div class="col-md-3"  ng-repeat="trans in transport | filter:{ City: tour.tour_location}"> 
 				   <a id="addExtraService" style="height:20px" class="btn btn-xs btn-default" data-toggle="tab" onclick="CommingSoon();" >Add</a>
 				      <a style="cursor:pointer"  data-toggle="modal" data-target=".cabDetail">
                        <div	class="ft-item"> 
 						  <span class="ft-image">
-							 <img style="" src="img/cab.jpg" alt="Top Destination" /> 
+							 <img style="" src="{{trans.Media.Image[0]}}" alt="Top Destination" /> 
 						  </span>
 					  
 								<div class="ft-data" style="font-size:11px;">
-							  <span style="color:black;" class="fa fa-book text-upper">&nbsp;&nbsp;Cab Service&nbsp;&nbsp;</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							  <span style="color:black;" class="fa fa-book text-upper">&nbsp;&nbsp;{{trans.Category}}&nbsp;&nbsp;</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							  <!-- <span style="color:black;" class="fa fa-book text-upper" >&nbsp;&nbsp;{{x.Speciality}}</span>&nbsp;&nbsp;&nbsp;&nbsp;
 							  <span style="color:black;" class="fa fa-plane text-upper" >&nbsp;&nbsp;{{x.LanguageKnown}}</span> -->
 								</div> 
 					
 							<div class="ft-foot" style="word-wrap:break-word; ">
-							<h4 class="ft-title text-upper" style="color:#686868">City</h4> 
-							<span class="ft-offer text-upper">Price</span> 
+							<h4 class="ft-title text-upper" style="color:#686868">{{trans.City}}</h4> 
+							<span class="ft-offer text-upper">{{trans.PriceForDay}}Per Day</span> 
 							</div>
 					</div>
 					</a>
 					 </div>
+                            </div>
+                   
                     
-                    <div class="col-md-3" > 
-				   <a id="addExtraService" style="height:20px" class="btn btn-xs btn-default" data-toggle="tab" onclick="CommingSoon();" >Add</a>
-                       <a style="cursor:pointer"  data-toggle="modal" data-target=".cabDetail">
-				      <div	class="ft-item"> 
-						  <span class="ft-image">
-							 <img style="" src="img/cab.jpg" alt="Top Destination" /> 
-						  </span>
-					  
-								<div class="ft-data" style="font-size:11px;">
-							  <span style="color:black;" class="fa fa-book text-upper">&nbsp;&nbsp;Cab Service&nbsp;&nbsp;</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							  <!-- <span style="color:black;" class="fa fa-book text-upper" >&nbsp;&nbsp;{{x.Speciality}}</span>&nbsp;&nbsp;&nbsp;&nbsp;
-							  <span style="color:black;" class="fa fa-plane text-upper" >&nbsp;&nbsp;{{x.LanguageKnown}}</span> -->
-								</div> 
-					
-							<div class="ft-foot" style="word-wrap:break-word; ">
-							<h4 class="ft-title text-upper" style="color:#686868">City</h4> 
-							<span class="ft-offer text-upper">Price</span> 
-							</div>
-					</div>
-					</a>
-					 </div>
+                   
                     
-                    <div class="col-md-3" > 
-				   <a id="addExtraService" style="height:20px" class="btn btn-xs btn-default" data-toggle="tab" onclick="CommingSoon();" >Add</a>
-                       <a style="cursor:pointer"  data-toggle="modal" data-target=".cabDetail">
-				      <div	class="ft-item"> 
-						  <span class="ft-image">
-							 <img style="" src="img/cab.jpg" alt="Top Destination" /> 
-						  </span>
-					  
-								<div class="ft-data" style="font-size:11px;">
-							  <span style="color:black;" class="fa fa-book text-upper">&nbsp;&nbsp;Cab Service&nbsp;&nbsp;</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							  <!-- <span style="color:black;" class="fa fa-book text-upper" >&nbsp;&nbsp;{{x.Speciality}}</span>&nbsp;&nbsp;&nbsp;&nbsp;
-							  <span style="color:black;" class="fa fa-plane text-upper" >&nbsp;&nbsp;{{x.LanguageKnown}}</span> -->
-								</div> 
-					
-							<div class="ft-foot" style="word-wrap:break-word; ">
-							<h4 class="ft-title text-upper" style="color:#686868">City</h4> 
-							<span class="ft-offer text-upper">Price</span> 
-							</div>
-					</div>
-					</a>
-					 </div>
-                    
-                    <div class="col-md-3" > 
-				   <a id="addExtraService" style="height:20px" class="btn btn-xs btn-default" data-toggle="tab" onclick="CommingSoon();" >Add</a>
-                      <a style="cursor:pointer" data-toggle="modal" data-target=".cabDetail">
-				       <div	class="ft-item"> 
-						  <span class="ft-image">
-							 <img style="" src="img/cab.jpg" alt="Top Destination" /> 
-						  </span>
-					  
-								<div class="ft-data" style="font-size:11px;">
-							  <span style="color:black;" class="fa fa-book text-upper">&nbsp;&nbsp;Cab Service&nbsp;&nbsp;</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							  <!-- <span style="color:black;" class="fa fa-book text-upper" >&nbsp;&nbsp;{{x.Speciality}}</span>&nbsp;&nbsp;&nbsp;&nbsp;
-							  <span style="color:black;" class="fa fa-plane text-upper" >&nbsp;&nbsp;{{x.LanguageKnown}}</span> -->
-								</div> 
-					
-							<div class="ft-foot" style="word-wrap:break-word; ">
-							<h4 class="ft-title text-upper" style="color:#686868">City</h4> 
-							<span class="ft-offer text-upper">Price</span> 
-							</div>
-					</div>
-					</a>
-					 </div>
+                   
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -504,7 +386,7 @@ $notes = $row33["notes"]; */
 										
                                         <div ng-show="{{tourValue}}">
                                             
-										<div class="tour-plans" style="padding:10px 10px 10px 10px;">
+										<div class="tour-plans" style="padding:10px 10px 10px 10px;" data-model="tour.tour_location">
 								<div class="plan-image">
 						
 

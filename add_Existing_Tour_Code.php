@@ -34,7 +34,7 @@
 			$restriction = mysql_real_escape_string($_POST['restriction']);
 			$notes = mysql_real_escape_string($_POST['notes']);
 			$oldTourId = mysql_real_escape_string($_POST['oldTourId']);
-			//echo "<script type='text/javascript'>alert('$oldTourId');</script>";
+			echo "<script type='text/javascript'>alert('$oldTourId');</script>";
 			
 			$insert = mysql_query("INSERT INTO `tbl_tours`(
 			`user_id`,
