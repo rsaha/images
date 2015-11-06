@@ -137,7 +137,6 @@ ul.rating {
 						  <span class="ft-image">
 						  <a href="guide-detail-sidebar.php#?id2={{x.id}}">
 							 <img style="height:150px;" class="img-responsive"  src="{{x.photo == null ? 'img/userDefaultIcon.png' : x.photo}}" alt="Top Guide" /> </a>
-<!--                               <img style="height:230px;width:180;" class="img-responsive"  src="img/author-img.jpg" alt="Top Guide" /> </a>-->
 						  </span>
 							  <span style="color:black;" class="fa fa-map-marker text-upper">&nbsp;{{x.city}}&nbsp;</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							  <span style="color:black;" class="fa fa-hourglass text-upper" >&nbsp;{{x.experiance_in_year}}&nbsp;</span>
