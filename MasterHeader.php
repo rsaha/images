@@ -91,10 +91,10 @@
 					<div class="col-md-6">
 						<div class="right-part alignright"> 
 							<span class="top-link small pull-left">
-								<a href="sign-in.html" style="color:#292c2f" title="">SIGN IN</a>
+								<a href="sign-in.html" style="color:#292c2f;" title="">SIGN IN</a>
 							</span> 
 							<span class="top-link small pull-left">
-								<a href="login.php" style="color:#292c2f" title="">Guide SIGN IN</a>
+								<a href="login.php" style="color:#292c2f;" title="">Guide SIGN IN</a>
 							</span> 
 							<form action="#" method="get"> 
 								<fieldset class="pull-left">
@@ -113,7 +113,7 @@
 				<div class="container">
 				<div class="row">
 				<div class="col-md-3">
-				<a id="site-logo" href="#">
+				<a id="site-logo" href="index.php">
 				<img src="images/logo.png" alt="Guided Gateway" />
 				</a>
 				</div>

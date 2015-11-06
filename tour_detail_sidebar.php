@@ -161,7 +161,7 @@ ul.rating {
 									<a class="fa fa-user text-upper" style="color:black; font-size:12px; font-weight:bold;" href="#">{{tour.guide_id}}</a>
                                     <a class="fa fa-map-marker text-upper" style="color:black; font-size:12px; font-weight:bold;" href="#">Start Point:&nbsp;&nbsp;{{tour.start_point}}&nbsp;&nbsp;-&nbsp;&nbsp;End Point:&nbsp;&nbsp;{{tour.end_point}}</a>
 																	</div>
-								<a id="bookButton" href="booking-form.php?id1=0&id2={{tg.tour_id}}" class="alignright"> <input type="submit" name="submit" class="btn btn-success text-upper " value="Book" /></a>
+								<a id="bookButton" href="booking-form.php#?id1=0&id2={{tour.tour_id}}" class="alignright"> <input type="submit" name="submit" class="btn btn-success text-upper " value="Book" /></a>
 								<h2 class="text-upper">Tour Information</h2>
 <p>Description : {{tour.tour_description}}</p>
 <p><h5>End Point : {{tour.end_point}}</h5></p>

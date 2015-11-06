@@ -70,6 +70,14 @@ ul.rating {
 .rating .filled {
     color: #292c2f;
 }
+    
+    div.short-text
+        {
+        white-space:nowrap; 
+        width:13em; 
+        overflow:hidden; 
+        }
+
 </style>
 	</head>
 	<!-- END head -->
@@ -126,7 +134,7 @@ ul.rating {
 												<div class="offer-top">
 													<span class="fa fa-tag alignright">{{x.tour_category}}</span>
 													<span class="featured-cr text-upper">{{x.tour_location}}</span>
-													<h2 class="featured-cy text-upper">{{x.tour_title}}</h2>
+                                                    <div class="short-text featured-cy text-upper" style="text-overflow:ellipsis;" title="{{x.tour_title}}">{{x.tour_title}}</div>
 												</div>
 												
 												<div class="offer-bottom">
@@ -159,8 +167,8 @@ ul.rating {
 								<!-- Sidebar recent popular posts -->
 								<!-- START TABS -->
 								<ul class="nav nav-tabs text-upper">
-									<li class="active"><a href="#relatedtours" data-toggle="tab">Tours</a></li>
-									<li><a href="#topguides" data-toggle="tab">Guides</a></li>
+<!--									<li><a href="#relatedtours" data-toggle="tab">Tours</a></li>-->
+									<li class="active"><a href="#topguides" data-toggle="tab">Guides</a></li>
 									<li><a href="#topdestinations" data-toggle="tab">Places</a></li>
                                     <li><a href="#lodging" data-toggle="tab">Hotels</a></li>
 								</ul>
