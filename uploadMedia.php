@@ -90,7 +90,7 @@ if((isset($_SESSION['userId'])) && (($_SESSION['phase'] == "signin") || ($_SESSI
 				}
 				else
 				{
-					//echo "<script type='text/javascript'>alert('7');</script>";
+					echo "<script type='text/javascript'>alert('7');</script>";
 					$errormsg="Tour Media Picture could not uploaded.";
 					error_log($errormsg,0);
 				}

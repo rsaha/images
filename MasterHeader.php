@@ -114,7 +114,7 @@
 				<div class="row">
 				<div class="col-md-3">
 				<a id="site-logo" href="#">
-				<img src="img/logo.png" alt="Guided Gateway" />
+				<img src="images/logo.png" alt="Guided Gateway" />
 				</a>
 				</div>
 				<div class="col-md-9">
@@ -124,16 +124,16 @@
 				<li><a href="index.php" title="">HOME</a>
 				</li> 
 				<li>
-				<a href="top-guides-listview.php" title="">Guides</a></li>
-				<li><a href="top-destinations-listview-sidebar.php" title="">Destinations</a> </li>
-                <li><a href="top-tours-listview-sidebar.php" title="">Tours</a> </li>
-                <li><a href="#" title="blog">Travelogue</a> </li>
+				<a href="guides.html" title="">Guides</a></li>
+				<li><a href="top-destinations-listview-sidebar.html" title="">Destinations</a> </li>
+                <li><a href="top-themes-listview-sidebar.html" title="">Themes</a> </li>
+                <li><a href="blog.html" title="blog">Travelogue</a> </li>
 				
 				<li><a href="#" onclick="return false;" title="">SIGN IN</a>
 				
 				<ul> 
-				<li><a href="#" title="">Tourist SIGN IN</a></li>
-				<li><a href="login.php" title="">Vendor SIGN IN</a></li>
+				<li><a href="#" title="">Touriest SIGN IN</a></li>
+				<li><a href="login.php" title="">Guide SIGN IN</a></li>
 				</ul>
 				
 				</li>

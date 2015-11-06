@@ -749,7 +749,7 @@ $_SESSION['notification']="Congratulation! Welcome to Guided Gateway, you are no
 				
 				function detailTour(id) 
 				{
-					window.location.href = "tour_detail_sidebar.php?id="+id+"";
+					window.location.href = "tour_detail_sidebar_for_guide.php?id="+id+"";
 					return false;
 				}
 		</script>

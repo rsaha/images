@@ -139,22 +139,20 @@ ul.rating {
 							 <img style="height:150px;" class="img-responsive"  src="{{x.photo == null ? 'img/userDefaultIcon.png' : x.photo}}" alt="Top Guide" /> </a>
 <!--                               <img style="height:230px;width:180;" class="img-responsive"  src="img/author-img.jpg" alt="Top Guide" /> </a>-->
 						  </span>
-					  
-								<div class="ft-data">
-							  <span style="color:black;" class="fa fa-map-marker text-upper">{{x.city}}</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							  <span style="color:black;" class="fa fa-hourglass text-upper" >&nbsp;&nbsp;{{x.experiance_in_year}}</span>
-							  <br><span style=" font-size:11px;color:black;" class="fa fa-book text-upper">{{x.language_known[0][0]}}</span>
+							  <span style="color:black;" class="fa fa-map-marker text-upper">&nbsp;{{x.city}}&nbsp;</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							  <span style="color:black;" class="fa fa-hourglass text-upper" >&nbsp;{{x.experiance_in_year}}&nbsp;</span>
+							  <br><span style=" font-size:11px;color:black;" class="fa fa-book text-upper">&nbsp;{{x.language_known[0][0]}}&nbsp;</span>
 								</div> 
 					
 							<div class="ft-foot">
-							<h4 class="ft-title text-upper" style="color:#686868">{{x.name}},&nbsp{{x.gender}}</h4> 
+							<h4 class="ft-title text-upper" style="color:#686868">&nbsp;{{x.name}},&nbsp{{x.gender}}&nbsp;</h4> 
 							<!-- <span class="ft-offer text-upper">{{x.Tours.Count}} Tours</span>  -->
 							</div> 
 					
 							<div class="ft-foot-ex"> 
-								<span class="fa fa-trophy text-upper alignleft">&nbsp;&nbsp;{{x.Tours.Count}} Tours&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;
+								<span class="fa fa-trophy text-upper alignleft">&nbsp;{{x.Tours.Count}} Tours&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;
 								<span star-rating rating-value="x.Review.Star" class="aligncenter"></span>
-								<span class="alignright">{{x.Review.Count}} reviews</span> 							
+								<span class="alignright ">&nbsp;{{x.Review.Count}} reviews&nbsp;</span> 							
 							</div> 
 					       </div>
 						</div>
@@ -176,14 +174,14 @@ ul.rating {
 								<div class="tab-content gray box-shadow1 clearfix marb30" >
 									<!-- START TAB 1 -->
 									<div class="tab-pane active"  style="height:600px;" id="toptours"  ng-controller="tourCtrl">
-										<ul class="list-unstyled">
+										<ul class="rc-posts-list list-unstyled">
 											<li ng-repeat="x in alltours" ng-show="$index<4">
 												<span class="rc-post-image">
                                                     <a href="tour_detail_sidebar.php?id={{x.tour_id}}"><img class="img-responsive" src="{{'x.photo' ==''||'x.photo' ? 'img/SAMPLE_TOUR.jpg' : x.photo}}" alt="Tour 1" /></a>
 												</span>
 												<h5>{{x.tour_title}}</h5>
 												<span class="rc-post-date small">Starting Price&nbsp;{{x.tour_price}}</span><br/>
-                                               <a href="booking-form.php#?id1=0&&id2={{x.tour_id}}"> <input type="submit" name="submit" class="btn btn-primary  marb20" value="Book Now" /></a>
+                                               <a href="booking-form.php#?id1=0&&id2={{x.tour_id}}"> <input type="submit" name="submit" class="btn btn-primary  marb20" value="Book Now" /></a><br><br>
 											</li>
 										</ul>
 									</div>
@@ -208,7 +206,7 @@ ul.rating {
 									<!-- END TAB 2 -->
 									<!-- START TAB 3 -->
 									<div class="tab-pane" id="topdestinations"  style="height:600px;" ng-controller="placeCtrl">
-										<ul class=" list-unstyled">
+										<ul class="rc-posts-list list-unstyled">
 											<li ng-repeat="k in allplaces" ng-show="$index<4">
 												<span class="rc-post-image">
                                                 <a href="destination-detail-sidebar.php?id3={{k.ID}}">
@@ -225,7 +223,7 @@ ul.rating {
 									<!-- START TAB 4 -->
 									  <!-- lodging hotels -->
                                     <div class="tab-pane"  id="lodging"  style="height:600px;" ng-controller="hotelControl">
-										<ul class="list-unstyled">
+										<ul class="rc-posts-list list-unstyled">
 											<li ng-repeat="lodge in lodging" ng-show="$index<4 ">
 												<span class="rc-post-image">
                                                     <a href="guide-detail-sidebar.php#?id2={{lodge.id}}">	<img class="img-responsive" style="height:80px; width:65px;" src="{{lodge.Media.Image[0]}}" alt="Hotel" /></a>

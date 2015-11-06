@@ -480,7 +480,7 @@
 											//$roww = mysql_fetch_assoc($sql2)
 											$guideCity = mysql_result($sql2, 0, 1);
 											
-											$sql1 = mysql_query("SELECT * FROM `tbl_tours` WHERE `user_id` = 10000 and `tour_territory` = '$guideTerritory' and `status` != 0");
+											$sql1 = mysql_query("SELECT * FROM `tbl_tours` WHERE `user_id` = 10000 and `status` != 0");
 											
 										  //$sql1 = mysql_query("SELECT * FROM `tbl_tours` WHERE ( `user_id` != $userid AND (`tour_id` NOT IN (select `created_added` from `tbl_tours` WHERE `user_id`= $userid and `created_added` != 0)) and `tour_location` = '$guideCity' and `status` != 0 )");
 											if(mysql_num_rows($sql1) >= 1)
