@@ -90,16 +90,9 @@
 					</div> 
 					<div class="col-md-6">
 						<div class="right-part alignright">
-							<span class="top-link small pull-left">
-								<a href="signOut.php" style="color:#292c2f" title="">Sign Out</a>
+							<span class="small pull-right">
+								<a href="signOut.php" style="color:#292c2f;" title="">SIGN-OUT</a>
 							</span> 
-							<form action="#" method="get"> 
-								<fieldset class="pull-left">
-									<input type="text" name="s" class="search-input" value="Search..." onfocus="if (this.value == 'Search...') { this.value = ''; }"
-									onblur="if (this.value == '') { this.value = 'Search...'; }" />
-									<input type="submit" name="submit" class="search-submit" value="" />
-								</fieldset> 
-							</form>
 						</div>
 					</div> 
 				</div> 
@@ -110,7 +103,7 @@
 				<div class="container">
 				<div class="row">
 				<div class="col-md-3">
-				<a id="site-logo" href="#">
+				<a id="site-logo" href="login.php">
 				<img src="images/logo.png" alt="Guided Gateway" />
 				</a>
 				</div>

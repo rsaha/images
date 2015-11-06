@@ -98,6 +98,15 @@ ul.rating {
     color: #ff845e;
 }
 
+        
+        div.short-text-popular-tour
+        {
+        white-space:nowrap; 
+        width:11em; 
+        overflow:hidden; 
+        }
+
+        
 	</style>
 	
 	</head> <!-- END head -->
@@ -181,7 +190,7 @@ ul.rating {
 							   </div> 
 							   
 								<div class="ft-foot"> <h4 class="ft-title text-upper" style="color:#686868">{{x.Guide}}</h4> 
-								<span class="ft-offer text-upper">Starting&nbsp&nbsp{{x.tour_price}}</span> 
+								<span class="ft-offer text-upper">Starting&nbsp;&nbsp;{{x.tour_price}}</span> 
 								</div>
 								<div class="ft-foot-ex" > 
 								<span class="fa fa-image text-upper alignleft">&nbsp;&nbsp;{{x.tour_duration}}&nbsp;&nbsp;</span>&nbsp;&nbsp;

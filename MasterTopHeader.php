@@ -15,21 +15,19 @@
 	href="#"><span>Pinterest</span></a></li> <li><a class="sm-windows"
 	href="#"><span>Youtube</span></a></li> <li><a class="sm-stumble"
 	href="#"><span>Twitter</span></a></li> </ul> </div> </div> <div
-	class="col-md-6"> <div class="right-part alignright"> <form
-	action="#" method="get"> <fieldset class="alignright"> <input
-	type="text" name="s" class="search-input" value="Search..."
-	onfocus="if (this.value == 'Search...') { this.value = ''; }"
-	onblur="if (this.value == '') { this.value = 'Search...'; }" />
-	<input type="submit" name="submit" class="search-submit" value="" />
-	</fieldset> </form> <span class="top-link small"><a
-										href="login.php" title="">Guide
-										Sign-in</a></span> <span class="top-link small"><a href="sign-in.html"
-										title="">SIGN IN</a></span> </div>
+	class="col-md-6"> <div class="right-part alignright">  
+    <span class="small pull-right">
+        <a href="#" style="color:#292c2f;" title="">SIGN IN</a>
+    </span> 
+    <span class="top-link small ">
+        <a href="login.php" style="color:#292c2f;" title="">GUIDE SIGN-IN</a>
+    </span> 
+    </div>
 	</div> </div> </div> </div> <!-- END #top-header -->
 
 				<!-- START #main-header --> <div id="main-header"> <div
 				class="container"> <div class="row"> <div
-				class="col-md-3"> <a id="site-logo" href="#"> <img
+				class="col-md-3"> <a id="site-logo" href="index.php"> <img
 				src="images/logo.png" alt="Guided Gateway" /> </a> </div> <div
 				class="col-md-9"> <nav class="main-nav">
 				<span>MENU</span> <ul id="main-menu"> 
