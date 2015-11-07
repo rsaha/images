@@ -158,9 +158,10 @@ $_SESSION['notification']="Congratulation! Welcome to Guided Gateway, you are no
             
         div.short-text
         {
-        white-space:nowrap; 
-        width:11em; 
-        overflow:hidden; 
+            white-space:nowrap; 
+            width:10em; 
+            overflow:hidden; 
+            text-overflow:ellipsis;
         }
  
 		
@@ -591,7 +592,7 @@ $_SESSION['notification']="Congratulation! Welcome to Guided Gateway, you are no
 																
 															</span>
 															<div class="ft-data2">
-																<span style="color:white" class="ft-title text-upper"><div class="short-text" style="text-overflow:ellipsis;" title="<?php echo $row1['tour_title'] ?>"><?php echo $row1['tour_title'] ?></div></span>
+																<span style="color:white" class="ft-title text-upper"><div class="short-text"" title="<?php echo $row1['tour_title'] ?>"><?php echo $row1['tour_title'] ?></div></span>
 																<span class="ft-offer text-upper"><?php echo $row1['tour_price'] ?></span>
 															</div>
 															<div class="ft-foot">

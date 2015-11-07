@@ -135,9 +135,10 @@ $notes = $row33["notes"]; */
             
             div.short-text
         {
-        white-space:nowrap; 
-        width:13em; 
-        overflow:hidden; 
+            white-space:nowrap; 
+            width:10em; 
+            overflow:hidden; 
+            text-overflow:ellipsis;
         }
             
 		</style>
@@ -399,7 +400,7 @@ $notes = $row33["notes"]; */
 										<div class="offer-top">
 											<!--<span class="ft-temp alignright">19&#730;c</span>-->
 											<span class="featured-cr text-upper" style="font-size:15px">{{tour.tour_location}}</span>
-											<div class="short-text featured-cy text-upper" style="font-size:15px; text-overflow:ellipsis;" title="{{tour.tour_title}}">{{tour.tour_title}}</div>
+											<div class="short-text featured-cy text-upper" style="font-size:15px;" title="{{tour.tour_title}}">{{tour.tour_title}}</div>
 										</div>
 										
 										<div class="offer-bottom">
