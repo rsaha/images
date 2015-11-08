@@ -99,11 +99,12 @@ ul.rating {
 }
 
         
-        div.short-text-popular-tour
+        div.short-text
         {
-        white-space:nowrap; 
-        width:11em; 
-        overflow:hidden; 
+            white-space:nowrap; 
+            width:10em; 
+            overflow:hidden; 
+            text-overflow:ellipsis;
         }
 
         
