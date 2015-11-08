@@ -169,7 +169,6 @@ ul.rating {
 					       </div>
 						</div>
 					  </div>
-					 </div>
 					        <aside id="sidebar" class="col-md-4">
 							<div class="sidebar-widget">
 								<!-- Sidebar recent popular posts -->
@@ -189,7 +188,7 @@ ul.rating {
 										<ul class="rc-posts-list list-unstyled">
 											<li ng-repeat="x in alltours" ng-show="$index<4">
 												<span class="rc-post-image">
-                                                    <a href="tour_detail_sidebar.php?id={{x.tour_id}}"><img class="img-responsive" src="{{'x.photo' ==''||'x.photo' ? 'img/SAMPLE_TOUR.jpg' : x.photo}}" alt="Tour 1" /></a>
+                                                    <a href="tour_detail_sidebar.php#?id={{x.tour_id}}"><img class="img-responsive" src="{{'x.photo' ==''||'x.photo' ? 'img/SAMPLE_TOUR.jpg' : x.photo}}" alt="Tour 1" /></a>
 												</span>
 												<h5>{{x.tour_title}}</h5>
 												<span class="rc-post-date small">Starting Price&nbsp;{{x.tour_price}}</span><br/>
@@ -242,7 +241,7 @@ ul.rating {
 											<h5><a href="#">{{lodge.Address}}</a></h5>
 											
 												<span  style="" class="" >{{lodge.Description}}</span>
-                                                <span  style="" class="" >{{lodge.PricePerNight}}Per Night</span><br><br>
+                                                <span  style="" class="" >Coming Soon from our partners</span><br><br>
                                                  <a href="#" style="margin-left:110px;"> <input type="submit" name="submit" class="btn btn-primary  marb20" value="Explore" /></a>
 											</li> 
 										

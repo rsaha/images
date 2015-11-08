@@ -204,7 +204,7 @@ ul.rating {
 											<h5><a href="#">{{lodge.Address}}</a></h5>
 											
 												<span  style="" class="" >{{lodge.Description}}</span>
-                                                <span  style="" class="" >{{lodge.PricePerNight}}Per Night</span><br><br>
+                                                <span  style="" class="" >Coming Soon from our partners</span><br><br>
                                                  <a href="#" style="margin-left:110px;"> <input type="submit" name="submit" class="btn btn-primary  marb20" value="Explore" /></a>
 											</li> 
 										</ul>

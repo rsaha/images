@@ -272,18 +272,7 @@ He provide a number of example tours on our site, but we can completely customis
 									<!-- START TAB 2 -->
 									<div class="tab-pane" style="height:500px;" id="topreviews" ng-controller="TourControl">
 										<ul class="list-unstyled">
-                                            No Reviews Yet<br><br><br><br><br><br>
-<!--
-											<li ng-repeat="x in alltours" ng-show="$index<2">
-												<span class="rc-post-image ">
-													<img class="img-responsive " style="height:80px;width:80px;" src="{{x.Media.Image[0]}}" alt="Recent Post 1" />
-												</span><br><br><br>
-												<span star-rating rating-value="x.Reviews.OverallRating"  class="" ></span>	
-												<span class="">{{x.Reviews.ReviewCount}} reviews</span><br><br>
-												
-											</li>
--->
-											
+                                            <p>No Reviews Yet<br><br><br><br><br><br><br><br></p>										
 										</ul>
 									</div>
 									<!-- END TAB 2 -->
@@ -298,8 +287,6 @@ He provide a number of example tours on our site, but we can completely customis
 								</div>
 								<!-- END TAB CONTENT -->
 							</div>
-							
-							
 							<div class="sidebar-widget">
 								<!-- Sidebar Newsletter -->
 								<div class="styled-box gray">
@@ -320,11 +307,8 @@ He provide a number of example tours on our site, but we can completely customis
 								<!-- Sidebar Flickr Gallery -->
 								<h3 class="text-upper">Image Gallery</h3>
 								<ul class="flickr-gal list-unstyled" ng-controller="TourControl">
-<!--									<li ng-repeat="x in TopGuides" ng-show="$index==5||$index==7||$index==12||$index==13" ><img style="height:70px; width:120px;" class="img-responsive" src="{{x.photo}}" alt="Guide" /></li>-->
 								<li ng-repeat="x in alltours">
-								    
 								<img class="img-responsive" src="{{'x.photo' ==''||'x.photo' ? 'img/SAMPLE_TOUR.jpg' : x.photo}}"           alt="Tour Image" />
-								    
 								</li>
 									
 								</ul>
