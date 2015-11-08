@@ -132,6 +132,15 @@ $notes = $row33["notes"]; */
 				border: 1px solid #E9E9E9;
 				border-radius: 10px;
 			}
+            
+            div.short-text
+        {
+            white-space:nowrap; 
+            width:10em; 
+            overflow:hidden; 
+            text-overflow:ellipsis;
+        }
+            
 		</style>
 <script src= "js/angular.min.js"></script>
     <script src="booking.js."></script>
@@ -245,10 +254,9 @@ $notes = $row33["notes"]; */
                                           <div class="col-md-6" ng-controller="Singletour" ng-show="{{tourValue}}">
 													<label>Tour Duratios [In Days] <span class="required small">(Required)</span></label>
                                                     <div class="input-group">
-                                                      <span class="input-group-addon" style="cursor:pointer" onclick="tourDurationMinus();"><i style="font-size:12px" class="fa fa-minus"></i></span>
+                                                      <span class="input-group-addon" onclick="tourDurationMinus();"></span>
                                                       <input type="text" id="tourDuration" name="tourDuration" value="{{tour.tour_duration}}" class="form-control" readonly>
                                                       <span class="input-group-addon">Days</span>
-                                                    <span class="input-group-addon" style="cursor:pointer" onclick="tourDurationPlus();"><i style="font-size:12px" class="fa fa-plus"></i></span>
                                                     </div>
 												</div>
 											</li>
@@ -293,12 +301,6 @@ $notes = $row33["notes"]; */
 					 </div>
 					     
 					 </div>
-                    
-                   
-                    
-                  
-                    
-                   
                         </div>
                         </div>
                 </div>
@@ -398,11 +400,11 @@ $notes = $row33["notes"]; */
 										<div class="offer-top">
 											<!--<span class="ft-temp alignright">19&#730;c</span>-->
 											<span class="featured-cr text-upper" style="font-size:15px">{{tour.tour_location}}</span>
-											<h2 class="featured-cy text-upper" style="font-size:15px">{{tour.tour_title}}</h2>
+											<div class="short-text featured-cy text-upper" style="font-size:15px;" title="{{tour.tour_title}}">{{tour.tour_title}}</div>
 										</div>
 										
 										<div class="offer-bottom">
-											<span class="featured-spe" style="font-size:15px">{{tour.tour_price}}</span>
+											<span class="featured-spe" style="font-size:15px">Rs. {{tour.tour_price}} /-</span>
 										</div>
 									</div>
 								</div>

@@ -1,8 +1,8 @@
 <?php
 	session_start();
 	
-	/* if(isset($_SESSION['userId']))
-	{ */
+	if(isset($_SESSION['userId']))
+	{ 
 		if(isset($_GET['id']))
 		{
 		$tourID = $_GET['id'];
@@ -42,13 +42,13 @@
 			$tour_video = $row3["tour_video"];
 		}
 		
-	/* }
+	 }
 	else
 	{
 		include_once("signOut.php");
         header('Location:login.php');
 		exit;
-	} */
+	} 
 ?>
 
 <html lang="en" dir="ltr">
@@ -133,6 +133,15 @@ ul.rating {
 			position: absolute;
 			right: 20px;
 		}
+             
+        div.short-text
+        {
+            white-space:nowrap; 
+            width:10em; 
+            overflow:hidden; 
+            text-overflow:ellipsis;
+        }
+
         </style>
 
    <!-- <script src="https://maps.googleapis.com/maps/api/js"></script> -->
@@ -160,7 +169,7 @@ ul.rating {
 			<!-- START header -->
 			<?php 
 			
-				include('MasterTopHeader.php'); 
+				include('MasterHeaderAfterLogin.php'); 
 			
 			
 			?>
@@ -184,7 +193,6 @@ ul.rating {
 							</section> -->
 						</div>
 					</div>
-				
 			</div>
 			<!-- END #page-header -->
 			
@@ -198,13 +206,25 @@ ul.rating {
 							<div class="col-md-12">
 							<div class="tour-plans">
 								<div class="plan-image">
-									<img class="img-responsive" src="{{'tour.photo'=='' ? 'tour.photo' :'img/SAMPLE_TAJ.jpg'}}" alt="TajMahal" />
-									<div class="offer-box">
+									<?php
+                                        $select4Tpic = mysql_query("SELECT * FROM `tbl_tour_media_pictures` WHERE `tour_id` = $tourID");
+                                        $count4Tpic = mysql_num_rows($select4Tpic);
+                                        if ($count4Tpic==0)
+                                        {
+                                            echo '<img alt="featured Scroller" class="img-responsive" draggable="false" src="img/custom11.jpg"/>';
+                                        }
+                                        else
+                                        {
+                                            echo '<img alt="featured Scroller" class="img-responsive" draggable="false" src="showMediaPicture.php?id=' . mysql_result($select4Tpic, 0, 0) . '"/>';
+                                        }
+                                        ?>
+
+                                    <div class="offer-box">
 										<div class="offer-top">
-											<span class="fa fa-tag alignright"> <?php echo $tour_category_id; ?> </span>
+											<span class="fa fa-tag alignright"> <?php echo $tour_category_id; ?></span>
 											
                                         <span class="fa fa-location-arrow" style="font-weight:bold;color:white"> <?php echo $tour_location; ?> </span>
-                                        <h2 class="featured-cy text-upper"> <?php echo $tour_duration; ?> day(s)</h2>
+                                        <h2 class="featured-cy text-upper"> <?php echo $tour_duration; ?> day(s)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>
 										</div>
 										
 										<div class="offer-bottom">
@@ -224,12 +244,13 @@ ul.rating {
 								
 							</div>
 							<!-- END .tour-plans -->
-							<br><br><br>
-							<!-- START TABS -->
+							<br><br>
+                                
+                                
+						<!-- START TABS -->
 							<ul class="nav nav-tabs text-upper">
 								<li class="active"><a href="#tourPlan" data-toggle="tab">Tour Plan</a></li>
 								<li><a href="#flightSchedule" data-toggle="tab">Places Covered</a></li>
-								<li><a href="#additionalInfo" data-toggle="tab">Reviews</a></li>
 							</ul>
 							<!-- END TABS -->
 							
@@ -237,96 +258,99 @@ ul.rating {
 							<div class="tab-content gray box-shadow1 clearfix marb30">
 								<!-- START TAB 1 -->
 								<div class="tab-pane active" id="tourPlan">
-									<!-- <ul class="plans-list list-unstyled">
-										<li> -->
-										<div class="col-md-4" style="padding:15px 15px 15px 15px">
-											<div class="plan-info">
-												<h4 class="text-upper">{{tour.tour_duration}}</h4>
-												<p ng-repeat="x in tour.tour_itinerary"><span>{{x.tourist_spot}}</span></p>
-											    <h5>Lunch&nbsp:&nbsp{{tour.tour_itinerary.Day.Lunch}}</h5>
-											</div>
-										</div>
-										<div class="col-md-6 table-responsive" style="padding:15px 15px 15px 15px">
-										<table class="table">
-											<thead>
-												<tr>
-													
-													<th>MapLocation</th>
-													<th>Duration</th>
-													<th>Entry Fees</th>
-												</tr>
-											</thead>
-											<tbody ng-repeat="x in tour.tour_itinerary">
-												<tr class="dark-gray">
-													
-													<td><a ng-href="#mapLocation" ng-click="getdata(x.MapLocation.Latitude,x.MapLocation.Longitude);">{{x.tourist_spot}}</a></td>
-													<td>{{x.intraday}}</td>
-													<td>{{x.Entreefees}}</td>
-												</tr>
-											
-											</tbody>
-										</table>
-									</div>
-										
-										<!-- </li> -->
-										
-										<!-- <li>
-											<img class="img-responsive" src="img/custom2.jpg" alt="Day 2" />
-											<div class="plan-info">
-												<h4 class="text-upper">Day 2</h4>
-												<p>Amet turpis tristique, nec in aliquet dis amet, proin egestas in tempor, cras et dapibus.</p>
-											</div>
-										</li>
-										
-										<li>
-											<img class="img-responsive" src="img/custom2.jpg" alt="Day 3" />
-											<div class="plan-info">
-												<h4 class="text-upper">Day 3</h4>
-												<p>Amet turpis tristique, nec in aliquet dis amet, proin egestas in tempor, cras et dapibus.</p>
-											</div>
-										</li> -->
-									
+									<ul class="row list-unstyled" style="padding: 5px 5px 5px 5px;">
+										<?php
+										for($p=1; $p<=$tour_duration; $p++)
+										{
+											$select5 = mysql_query("SELECT * FROM `tbl_tour_itinerary` WHERE `tour_id` = $tourID and `day` = $p");
+											$count5 = mysql_num_rows($select5);
+											?>
+											<li class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+												<img class="img-responsive" src="img/custom2.jpg" alt="Days" />
+												<div  style="height:100px" class="plan-info">
+													<p style="font-size:12px; font-weight:bold;" class="text-upper">Day <?php echo $p; ?></p>
+													<?php
+													if($count5 > 0)
+													{
+														echo '<p>';
+														while($row5 = mysql_fetch_array($select5))
+														{
+                                                            echo '<div class="short-text" title="' . $row5["description"]. '">' . $row5["description"]. '.</div>';
+															//echo $row5["description"].". ";
+														}
+														echo '</p>';
+													}
+													else
+													{
+														echo "<p>Description is not provided</p>";
+													}
+													?>
+												</div>
+											</li>
+											<?php
+										}
+										?>
+									</ul>
 								</div>
 								<!-- END TAB 1 -->
 								
 								<!-- START TAB 2 -->
+								<?php
+								$select4 = mysql_query("SELECT * FROM `tbl_tour_itinerary` WHERE `tour_id` = $tourID");
+								
+								$count4 = mysql_num_rows($select4);
+								
+								?>
 								<div class="tab-pane" id="flightSchedule">
 									<div class="table-responsive">
 										<table class="table">
 											<thead>
 												<tr>
-													
-													<th>Tour Description</th>
-													<th>Spot</th>
-													<th>Time Duration</th>
-													
+													<th>Place</th>
+													<th>Day</th>
+													<th>Time</th>
+													<th>Description</th>
+													<th>Transport</th>
 												</tr>
 											</thead>
-											<tbody ng-repeat="x in tour.tour_itinerary">
-												<tr class="dark-gray">
-													
-													<td>{{x.description}}</td>
-													<td>{{x.tourist_spot}}</td>
-													<td>{{x.intraday}}</td>
-													
+											<tbody>
+											<?php
+											if($count4 > 0)
+									{
+										while($row4 = mysql_fetch_array($select4))
+										{
+											?>
+											<tr class="dark-gray">
+													<td><?php echo $row4["tourist_spot"]; ?></td>
+													<td>Day <?php echo $row4["day"]; ?></td>
+													<td><?php echo $row4["intraday"]; ?></td>
+													<td><?php echo $row4["description"]; ?></td>
+													<td><?php echo $row4["transport"]; ?></td>
 												</tr>
-											
+										<?php
+										}
+									}
+									else
+									{
+										?>
+										<tr class="dark-gray">
+													<td></td>
+													<td></td>
+													<td></td>
+													<td></td>
+													<td></td>
+												</tr>
+												<?php
+									}
+									?>
 											</tbody>
 										</table>
 									</div>
 								</div>
 								<!-- END TAB 2 -->
-								
-								<!-- START TAB 3 -->
-								<div class="tab-pane" id="additionalInfo">
-									<div class="inside-pane">
-										Overall Rating&nbsp:&nbsp<span star-rating rating-value="tour.Reviews.Overall_rating"></span>
-										<p>{{tour.Reviews.Overall_rating}}</p>
-										
-									</div>
-								</div>
-								<!-- END TAB 3 -->
 							</div>
+							<!-- END TAB CONTENT -->
+                               
 							</div>
 							<!-- END TAB CONTENT -->
 							
@@ -348,20 +372,51 @@ ul.rating {
 								<!-- START TAB CONTENT -->
 								<div class="tab-content gray box-shadow1 clearfix marb30">
 									<!-- START TAB 1 -->
-									<div class="tab-pane active" style="height:600px;" id="topguides" ng-controller="guidescontrol">
+									<div class="tab-pane active"  id="topguides" ng-controller="guidescontrol">
 										<br>
                                         <div class="col-md-12">
                                 <p>Description : <?php echo $tour_description; ?></p>
                                 <p><h5>Start Point : <?php echo $start_point; ?></h5></p>
                                 <p><h5>End Point : <?php echo $end_point; ?></h5></p>
+                                <p>Inclusive : <?php echo $inclusive; ?></p>
+                                <p>Exclusive : <?php echo $exclusive; ?></p>
                                <p><h5>Cancellation Policy : <?php echo $cancelation_policy; ?></h5></p>
                                <p><h5>Restrcitions: <?php echo $restrictions; ?></h5></p>
                                <p>Notes &amp; Summary : <br/><?php echo $notes; ?></h5></p>
+                    <br><br><br><br><br><br>
                         </div>
+                </div>
+            <div class="col-md-12">
+            <?php
+							$select4Tpic2 = mysql_query("SELECT * FROM `tbl_tour_media_pictures` WHERE `tour_id` = $tourID");
+							$count4Tpic2 = mysql_num_rows($select4Tpic2);
+							?>	
+							<div class="sidebar-widget">
+								<!-- Sidebar Flickr Gallery -->
+								<h3 class="text-upper">Tour Gallery</h3>
+								<ul class="col-md-12 list-unstyled">
+									<?php
+									if($count4Tpic2 > 0)
+									{
+										while($row1 = mysql_fetch_array($select4Tpic2))
+										{
+											echo '<li class="col-md-4"><img class="img-responsive" src="showMediaPicture.php?id=' . $row1['picture_media_id'] . '"  /></li>';
+										}
+									}
+									else
+									{
+										echo '<li class="col-md-4"><img class="img-responsive" src="http://placehold.it/85x62"  /></li>';
+									}
+									?>
+									
+								</ul>
+							</div>
                 </div>
 								</div>
 								<!-- END TAB CONTENT -->
 							</div>
+    
+    
 							
 						</aside>
 						<!-- END #sidebar -->

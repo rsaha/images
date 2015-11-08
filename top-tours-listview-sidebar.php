@@ -70,6 +70,15 @@ ul.rating {
 .rating .filled {
     color: #292c2f;
 }
+    
+    div.short-text
+        {
+            white-space:nowrap; 
+            width:10em; 
+            overflow:hidden; 
+            text-overflow:ellipsis;
+        }
+
 </style>
 	</head>
 	<!-- END head -->
@@ -126,7 +135,7 @@ ul.rating {
 												<div class="offer-top">
 													<span class="fa fa-tag alignright">{{x.tour_category}}</span>
 													<span class="featured-cr text-upper">{{x.tour_location}}</span>
-													<h2 class="featured-cy text-upper">{{x.tour_title}}</h2>
+                                                    <div class="short-text featured-cy text-upper" title="{{x.tour_title}}">{{x.tour_title}}</div>
 												</div>
 												
 												<div class="offer-bottom">
@@ -142,7 +151,7 @@ ul.rating {
 											<span class="alignleft fa fa-life-ring">&nbsp;&nbsp; reviews&nbsp;&nbsp;&nbsp;&nbsp;</span> 
 										</div>
 										<div class="post-desc">
-								<a class="btn btn-primary marb20" href="tour_detail_sidebar.php?tour_id={{x.tour_id}}">DETAILS</a>
+										<a class="btn btn-primary marb20" href="tour_detail_sidebar.php#?id={{x.tour_id}}">DETAILS</a>
                                              <a id="bookButton" class="alignright" href="booking-form.php#?id1=0&id2={{x.tour_id}}"> <input type="submit" name="submit" class="btn btn-sm btn-success text-upper marb20" value="Book" /></a>
 										</div>
 									</div>
@@ -159,8 +168,8 @@ ul.rating {
 								<!-- Sidebar recent popular posts -->
 								<!-- START TABS -->
 								<ul class="nav nav-tabs text-upper">
-									<li class="active"><a href="#relatedtours" data-toggle="tab">Tours</a></li>
-									<li><a href="#topguides" data-toggle="tab">Guides</a></li>
+<!--									<li><a href="#relatedtours" data-toggle="tab">Tours</a></li>-->
+									<li class="active"><a href="#topguides" data-toggle="tab">Guides</a></li>
 									<li><a href="#topdestinations" data-toggle="tab">Places</a></li>
                                     <li><a href="#lodging" data-toggle="tab">Hotels</a></li>
 								</ul>

@@ -122,7 +122,8 @@ ul.rating {
 					<div class="container">
 						<div class="row">
 							<section class="col-sm-6">
-								<h1 class="text-upper"><i class="fa fa-trophy" style="color:black;"></i>&nbsp; {{tour.tour_title}}</h1>	
+								
+								<h1 class="text-upper"><i class="fa fa-plane" style="color:black;"></i>&nbsp;&nbsp; {{tour.tour_title}}</h1>	
 							</section>
 						</div>
 					</div>
@@ -146,22 +147,22 @@ ul.rating {
 											<span class="fa fa-tag alignright"> {{tour.tour_category}}</span>
 											
                                         <span class="fa fa-location-arrow" style="font-weight:bold;color:white"> {{tour.tour_location}}</span>
-                                        <h2 class="featured-cy text-upper">{{tour.tour_duration}} day(s)</h2>
+                                        <h2 class="featured-cy text-upper"> {{tour.tour_duration}} day(s)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>
 										</div>
 										
 										<div class="offer-bottom">
 <!--											<span class="featured-stf">Per Person </span>-->
-											<span class="featured-spe">{{tour.tour_price}}</span>
+											<span class="featured-spe"> {{tour.tour_price}}</span>
 										</div>
 									</div>
 								</div>
 								
 								<div class="featured-btm box-shadow1">									
-									<a class="fa fa-map-pin text-upper" style="color:black; font-size:12px; font-weight:bold;" href="#">{{tour.tour_territory[0]}}</a>
-									<a class="fa fa-user text-upper" style="color:black; font-size:12px; font-weight:bold;" href="#">{{tour.guide_id}}</a>
+									<a class="fa fa-map-pin text-upper" style="color:black; font-size:12px; font-weight:bold;" href="#"> {{tour.tour_territory[0]}}</a>
+									<a class="fa fa-user text-upper" style="color:black; font-size:12px; font-weight:bold;" href="#"> {{tour.guide_id}}</a>
                                     <a class="fa fa-map-marker text-upper" style="color:black; font-size:12px; font-weight:bold;" href="#">Start Point:&nbsp;&nbsp;{{tour.start_point}}&nbsp;&nbsp;-&nbsp;&nbsp;End Point:&nbsp;&nbsp;{{tour.end_point}}</a>
 																	</div>
-								<a id="bookButton" href="booking-form.php?id1=0&id2={{tg.tour_id}}" class="alignright"> <input type="submit" name="submit" class="btn btn-success text-upper " value="Book" /></a>
+								<a id="bookButton" href="booking-form.php#?id1=0&id2={{tour.tour_id}}" class="alignright"> <input type="submit" name="submit" class="btn btn-success text-upper " value="Book" /></a>
 								<h2 class="text-upper">Tour Information</h2>
 <p>Description : {{tour.tour_description}}</p>
 <p><h5>End Point : {{tour.end_point}}</h5></p>
@@ -344,6 +345,39 @@ ul.rating {
 										
 										</ul>
 									</div>
+									<!-- END TAB 1 -->
+									<div class="tab-pane" style="height:600px;" id="toptours" ng-controller="toursCtrl">
+										<ul class="rc-posts-list list-unstyled">
+											<li ng-repeat="x in tours" ng-show="$index<4">
+												<span class="rc-post-image">
+                                                    <a href="tour_detail_sidebar.php#?id={{x.tour_id}}"	target="_blank">	<img class="img-responsive" src="{{'x.photo' ==''||'x.photo' ? 'img/SAMPLE_TOUR.jpg' : x.photo}}" alt="Tour 1" /></a>
+												</span>
+												<h5><a href="#">{{x.tour_title}}</a></h5>
+												<span class="rc-post-date small">Starting Price&nbsp;{{x.tour_price}}</span><br/>
+                                               <a href="booking-form.php#?id1=0&id2={{x.tour_id}}"> <input type="submit" name="submit" class="btn btn-primary  marb20" value="Book Now" /></a><br><br>
+											</li>
+											
+<!--
+											<li>
+												<span class="rc-post-image">
+													<img class="img-responsive" src="img/tour_3.jpg" alt="Tour 3" />
+												</span>
+												<h5><a href="#">Tour 3 </a></h5>
+												<span class="rc-post-date small">Starting Price INR 1500</span><br/>
+                                               <a href="booking-form.html"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Book" /> </a>
+											</li>
+											<li class="last-rc-post">
+												<span class="rc-post-image">
+													<img class="img-responsive" src="img/tour_4.jpg" alt="Tour 4" />
+												</span>
+												<h5><a href="#">Tour 4 </a></h5>
+												<span class="rc-post-date small">Starting Price INR 1500</span><br/>
+                                               <a href="booking-form.php"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Book" /></a>
+											</li>
+-->
+										</ul>
+									</div>
+>>>>>>> 0ad15a7ea03f9f28b0c83f8080b2409bbaad6036
                                     <!-- lodging hotels -->
                                     <div class="tab-pane"  id="lodging" style="height:600px;" ng-controller="hotelControl">
 										<ul class="rc-posts-list list-unstyled">
