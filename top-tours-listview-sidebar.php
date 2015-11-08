@@ -171,7 +171,7 @@ ul.rating {
 <!--									<li><a href="#relatedtours" data-toggle="tab">Tours</a></li>-->
 									<li class="active"><a href="#topguides" data-toggle="tab">Guides</a></li>
 									<li><a href="#topdestinations" data-toggle="tab">Places</a></li>
-                                    <li><a href="#lodging" data-toggle="tab">Hotels</a></li>
+                                    <li><a href="#lodging" data-toggle="tab">Lodging</a></li>
 								</ul>
 								<!-- END TABS -->
 								
@@ -197,7 +197,7 @@ ul.rating {
 										<ul class="list-unstyled">
 											<li ng-repeat="z in guides" ng-show="$index<18 && z.photo!=null">
 												<span class="rc-post-image">
-                                                    <a href="guide-detail-sidebar.php#?id2={{z.id}}"	>	
+                                                    <a href="guide-detail-sidebar.php#?id2={{z.id}}" target="_blank">	
                                                         <img class="img-responsive" style="height:70px; width:60px;" src="{{z.photo==null ? 'img/SAMPLE_TOUR.jpg' :z.photo}}" alt="Recent Post 2" /></a>
 												</span>
 											<h5><a href="#">{{z.name}}</a></h5>
