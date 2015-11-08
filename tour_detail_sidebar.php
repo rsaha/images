@@ -352,7 +352,8 @@ ul.rating {
 										<ul class="rc-posts-list list-unstyled">
 											<li ng-repeat="x in tours" ng-show="$index<4">
 												<span class="rc-post-image">
-                                                    <a href="tour_detail_sidebar.php#?id={{x.tour_id}}"	target="_blank">	<img class="img-responsive" src="{{'x.photo' ==''||'x.photo' ? 'img/SAMPLE_TOUR.jpg' : x.photo}}" alt="Tour 1" /></a>
+                                                    <a href="tour_detail_sidebar.php#?id={{x.tour_id}}"	target="_blank">	
+                                                        <img class="img-responsive" src="{{'x.photo' ==''||'x.photo' ? 'img/SAMPLE_TOUR.jpg' : x.photo}}" alt="Tour 1" /></a>
 												</span>
 												<h5><a href="#">{{x.tour_title}}</a></h5>
 												<span class="rc-post-date small">Starting Price&nbsp;{{x.tour_price}}</span><br/>

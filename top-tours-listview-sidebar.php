@@ -168,7 +168,7 @@ ul.rating {
 								<!-- Sidebar recent popular posts -->
 								<!-- START TABS -->
 								<ul class="nav nav-tabs text-upper">
-<!--									<li><a href="#relatedtours" data-toggle="tab">Tours</a></li>-->
+									<li><a href="#relatedtours" data-toggle="tab">Tours</a></li>
 									<li class="active"><a href="#topguides" data-toggle="tab">Guides</a></li>
 									<li><a href="#topdestinations" data-toggle="tab">Places</a></li>
                                     <li><a href="#lodging" data-toggle="tab">Lodging</a></li>
@@ -182,7 +182,9 @@ ul.rating {
 										<ul class="rc-posts-list list-unstyled">
 											<li ng-repeat="x in tours" ng-show="$index<4">
 												<span class="rc-post-image">
-                                                    <a href="tour_detail_sidebar.php#?id={{x.tour_id}}"	>	<img class="img-responsive" src="{{'x.photo' ==''||'x.photo' ? 'img/SAMPLE_TOUR.jpg' : x.photo}}" alt="Tour x" /></a>
+                                                    <a href="tour_detail_sidebar.php#?id={{x.tour_id}}"	target="_blank">	
+                                                     <img class="img-responsive" src="{{'x.photo' ==''||'x.photo' ? 'img/SAMPLE_TOUR.jpg' : x.photo}}" alt="Tour x" />
+                                                    </a>
 												</span>
 												<h5><a href="#">{{x.tour_title}}</a></h5>
 												<span class="rc-post-date small">Starting Price&nbsp;{{x.tour_price}}</span>
