@@ -374,9 +374,8 @@ $notes = $row33["notes"]; */
 								<!-- START TABS -->
 								
 								<ul class="nav nav-tabs text-upper" style="background-color:#ff845e;">
-									
-                                    <li class="active" ng-controller="Singletour" ng-show="{{tourValue}}"><a href="#popular-posts" data-toggle="tab">Requested Tour Detail</a></li>
-										<li ng-controller="Singleguide" class="active" ng-show="{{guideValue}}"><a href="#popular-posts" data-toggle="tab">Requested Guide Detail</a></li>
+									<li class="active" ng-controller="Singletour" ng-show="{{tourValue}}"><a href="#tour" data-toggle="tab">Tour</a></li>
+                                    <li ng-controller="Singleguide" class="active" ng-show="{{guideValue}}"><a href="#guide" data-toggle="tab">Guide</a></li>
 									
 								</ul>
 								<!-- END TABS -->
@@ -384,14 +383,10 @@ $notes = $row33["notes"]; */
 								<!-- START TAB CONTENT -->
 								<div class="tab-content gray box-shadow1 clearfix marb30">
 									<!-- START TAB 1 -->
-									<div class="tab-pane active" id="popular-posts" ng-controller="Singletour" >
-										
-                                        <div ng-show="{{tourValue}}">
-                                            
+									<div class="tab-pane active" id="tour" ng-controller="Singletour" >
+                                        <div ng-show="{{tourValue}}">   
 										<div class="tour-plans" style="padding:10px 10px 10px 10px;" data-model="tour.tour_location">
 								<div class="plan-image">
-						
-
 								<img class="img-responsive" alt="featured Scroller" draggable="false" src="{{tour.photo == null ? 'img/custom11.jpg' : tour.photo}}"/>
 								
 							
@@ -474,50 +469,6 @@ $notes = $row33["notes"]; */
 										
 									</div>
 									<!-- END TAB 1 -->
-									
-									<!-- START TAB 2 -->
-									<div class="tab-pane" id="recent-posts">
-										<ul class="rc-posts-list list-unstyled">
-											<li>
-												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 1" />
-												</span>
-												<h5><a href="#">Apple Fails to Fix iPhone Daylight Saving Time Alarm Bug</a></h5>
-												<span class="rc-post-date small">January 20, 2014</span>
-											</li>
-											<li>
-												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 2" />
-												</span>
-												<h5><a href="#">Limbaugh: Does 'Dark Knight Rise have it Bomb Found...</a></h5>
-												<span class="rc-post-date small">January 18, 2014</span>
-											</li>
-											<li>
-												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 3" />
-												</span>
-												<h5><a href="#">Shares suspende am Bankiaid 'Gloomy Forecast'</a></h5>
-												<span class="rc-post-date small">January 15, 2014</span>
-											</li>
-											<li class="last-rc-post">
-												<span class="rc-post-image">
-													<img class="img-responsive" src="http://placehold.it/80x65" alt="Recent Post 4" />
-												</span>
-												<h5><a href="#">Shares suspende am Bankiaid 'Gloomy Forecast'</a></h5>
-												<span class="rc-post-date small">January 11, 2014</span>
-											</li>
-										</ul>
-									</div>
-									<!-- END TAB 2 -->
-									
-									<!-- START TAB 3 -->
-									<div class="tab-pane" id="recent-comments">
-										<div class="inside-pane">
-											<p>Amet turpis tristique, nec in aliquet dis amet, proin egestas in tempor, cras et dapibus, lectus pellentesque enim odio elementum eu tincidunt diam a et. Dapibus sed cum, aliquam cras egestas enim elit in mattis? Scelerisque, ultrices mid! Lorem. Scelerisque? Pid cras, mattis vel, porta, quis! Porttitor turpis cras, odio ultricies parturient pulvinar tempor.</p>
-											<p>eu turpis enim dapibus diam tristique cursus egestas quis phasellus montes! Parturient porta purus quis scelerisque? Vel proin, ac odio cras penatibus magnis non? Aliquam elementum, dis? Elementum ac.</p>
-										</div>
-									</div>
-									<!-- END TAB 3 -->
 								</div>
 								<!-- END TAB CONTENT -->
 							</div>
