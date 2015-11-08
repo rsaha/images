@@ -329,7 +329,7 @@ ul.rating {
 											</li>
 										</ul>
 									</div>
-									<!-- START TAB 1 -->
+									<!-- START TAB 2 -->
 									<div class="tab-pane" style="height:600px;" id="topguides" ng-controller="guidescontrol">
 										<ul class="list-unstyled">
 											<li ng-repeat="z in guides" ng-show="$index<4 ">
@@ -347,39 +347,7 @@ ul.rating {
 										
 										</ul>
 									</div>
-									<!-- END TAB 1 -->
-									<div class="tab-pane" style="height:600px;" id="toptours" ng-controller="toursCtrl">
-										<ul class="rc-posts-list list-unstyled">
-											<li ng-repeat="x in tours" ng-show="$index<4">
-												<span class="rc-post-image">
-                                                    <a href="tour_detail_sidebar.php#?id={{x.tour_id}}"	target="_blank">	
-                                                        <img class="img-responsive" src="{{'x.photo' ==''||'x.photo' ? 'img/SAMPLE_TOUR.jpg' : x.photo}}" alt="Tour 1" /></a>
-												</span>
-												<h5><a href="#">{{x.tour_title}}</a></h5>
-												<span class="rc-post-date small">Starting Price&nbsp;{{x.tour_price}}</span><br/>
-                                               <a href="booking-form.php#?id1=0&id2={{x.tour_id}}"> <input type="submit" name="submit" class="btn btn-primary  marb20" value="Book Now" /></a>
-											</li>
-											
-<!--
-											<li>
-												<span class="rc-post-image">
-													<img class="img-responsive" src="img/tour_3.jpg" alt="Tour 3" />
-												</span>
-												<h5><a href="#">Tour 3 </a></h5>
-												<span class="rc-post-date small">Starting Price INR 1500</span><br/>
-                                               <a href="booking-form.html"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Book" /> </a>
-											</li>
-											<li class="last-rc-post">
-												<span class="rc-post-image">
-													<img class="img-responsive" src="img/tour_4.jpg" alt="Tour 4" />
-												</span>
-												<h5><a href="#">Tour 4 </a></h5>
-												<span class="rc-post-date small">Starting Price INR 1500</span><br/>
-                                               <a href="booking-form.php"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Book" /></a>
-											</li>
--->
-										</ul>
-									</div>
+									<!-- END TAB 2 -->
                                     <!-- lodging hotels -->
                                     <div class="tab-pane"  id="lodging" style="height:600px;" ng-controller="hotelControl">
 										<ul class="rc-posts-list list-unstyled">
