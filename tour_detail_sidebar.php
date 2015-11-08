@@ -310,7 +310,7 @@ ul.rating {
 								<ul class="nav nav-tabs text-upper">
                                     <li class="active"><a href="#toptours" data-toggle="tab">Tours</a></li>
 									<li><a href="#topguides" data-toggle="tab">Guides</a></li>
-									<li><a href="#lodging" data-toggle="tab">Hotels</a></li>
+									<li><a href="#lodging" data-toggle="tab">Lodging</a></li>
                                     <li><a href="#topreview" data-toggle="tab">Reviews</a></li>
 								</ul>
 								<!-- END TABS -->
@@ -377,7 +377,6 @@ ul.rating {
 -->
 										</ul>
 									</div>
->>>>>>> 0ad15a7ea03f9f28b0c83f8080b2409bbaad6036
                                     <!-- lodging hotels -->
                                     <div class="tab-pane"  id="lodging" style="height:600px;" ng-controller="hotelControl">
 										<ul class="rc-posts-list list-unstyled">
@@ -388,7 +387,7 @@ ul.rating {
 											<h5><a href="#">{{lodge.Address}}</a></h5>
 											
 												<span  style="" class="" >{{lodge.Description}}</span>
-                                                <span  style="" class="" >{{lodge.PricePerNight}}Per Night</span><br><br>
+                                                <span  style="" class="" >Coming Soon from our partners</span><br><br>
                                                  <a href="#" style="margin-left:110px;"> <input type="submit" name="submit" class="btn btn-primary  marb20" value="Explore" /></a>
 											</li> 
 										
