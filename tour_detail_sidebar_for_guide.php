@@ -1,8 +1,8 @@
 <?php
 	session_start();
 	
-	/* if(isset($_SESSION['userId']))
-	{ */
+	if(isset($_SESSION['userId']))
+	{ 
 		if(isset($_GET['id']))
 		{
 		$tourID = $_GET['id'];
@@ -42,13 +42,13 @@
 			$tour_video = $row3["tour_video"];
 		}
 		
-	/* }
+	 }
 	else
 	{
 		include_once("signOut.php");
         header('Location:login.php');
 		exit;
-	} */
+	} 
 ?>
 
 <html lang="en" dir="ltr">
@@ -133,6 +133,15 @@ ul.rating {
 			position: absolute;
 			right: 20px;
 		}
+             
+        div.short-text
+        {
+            white-space:nowrap; 
+            width:10em; 
+            overflow:hidden; 
+            text-overflow:ellipsis;
+        }
+
         </style>
 
    <!-- <script src="https://maps.googleapis.com/maps/api/js"></script> -->
@@ -184,7 +193,6 @@ ul.rating {
 							</section> -->
 						</div>
 					</div>
-				
 			</div>
 			<!-- END #page-header -->
 			
@@ -216,11 +224,10 @@ ul.rating {
 											<span class="fa fa-tag alignright"> <?php echo $tour_category_id; ?></span>
 											
                                         <span class="fa fa-location-arrow" style="font-weight:bold;color:white"> <?php echo $tour_location; ?> </span>
-                                        <h2 class="featured-cy text-upper"> <?php echo $tour_title; ?> day(s)</h2>
+                                        <h2 class="featured-cy text-upper"> <?php echo $tour_duration; ?> day(s)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>
 										</div>
 										
 										<div class="offer-bottom">
-                                            <span class="fa fa-hourglass alignright" style="color:white"> <?php echo $tour_duration; ?> Day (s) </span>
 <!--											<span class="featured-stf">Per Person </span>-->
 											<span class="featured-spe"> <?php echo $tour_price; ?></span>
 										</div>
@@ -260,17 +267,18 @@ ul.rating {
 											?>
 											<li class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
 												<img class="img-responsive" src="img/custom2.jpg" alt="Days" />
-												<div class="plan-info">
-													<h4 class="text-upper">Day <?php echo $p; ?></h4>
+												<div  style="height:100px" class="plan-info">
+													<p style="font-size:12px; font-weight:bold;" class="text-upper">Day <?php echo $p; ?></p>
 													<?php
 													if($count5 > 0)
 													{
-														echo "<p>";
+														echo '<p>';
 														while($row5 = mysql_fetch_array($select5))
 														{
-															echo $row5["description"].". ";
+                                                            echo '<div class="short-text" title="' . $row5["description"]. '">' . $row5["description"]. '.</div>';
+															//echo $row5["description"].". ";
 														}
-														echo "</p>";
+														echo '</p>';
 													}
 													else
 													{

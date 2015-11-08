@@ -70,9 +70,10 @@ ul.rating {
     
     div.short-text
         {
-        white-space:nowrap; 
-        width:13em; 
-        overflow:hidden; 
+            white-space:nowrap; 
+            width:10em; 
+            overflow:hidden; 
+            text-overflow:ellipsis;
         }
 
 
@@ -153,7 +154,7 @@ ul.rating {
 								</div> 
 					
 							<div class="ft-foot">
-                                <div class="short-text ft-title text-upper" style="font-size:16px ; color:white; text-overflow:ellipsis;" title="{{x.name}},&nbsp;&nbsp;{{x.gender}}">
+                                <div class="short-text ft-title text-upper" style="font-size:16px ; color:white;" title="{{x.name}},&nbsp;&nbsp;{{x.gender}}">
                                 &nbsp;{{x.name}},&nbsp;&nbsp;{{x.gender}}&nbsp;
                                 </div>
 <!--							<h4 class="ft-title text-upper" style="color:#686868">&nbsp;{{x.name}},&nbsp;&nbsp;{{x.gender}}&nbsp;</h4> -->
