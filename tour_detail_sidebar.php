@@ -334,7 +334,9 @@ ul.rating {
 										<ul class="list-unstyled">
 											<li ng-repeat="z in guides" ng-show="$index<4 ">
 												<span class="rc-post-image">
-                                                    <a href="guide-detail-sidebar.php#?id2={{z.id}}"	>	<img class="img-responsive" style="height:80px; width:65px;" src="{{z.photo==null ? 'img/SAMPLE_TOUR.jpg' :z.photo}}" alt="Recent Post 2" /></a>
+                                                    <a href="guide-detail-sidebar.php#?id2={{z.id}}" target="_blank">	
+                                                        <img class="img-responsive" style="height:80px; width:65px;" src="{{z.photo==null ? 'img/SAMPLE_TOUR.jpg' :z.photo}}" alt="Recent Post 2" />
+                                                    </a>
 												</span>
 											<h5><a href="#">{{z.name}}</a></h5>
 <!--												<h5><a href="#">{{z.guide_territory}}</a></h5>-->
@@ -393,25 +395,18 @@ ul.rating {
 										
 										</ul>
 									</div>
-									<!-- START TAB 2 -->
+									<!-- START TAB 4 -->
 									<div class="tab-pane" id="topreview" style="height:600px;" ng-controller="tourDetailCtrl">
-<!--
-										<ul class="list-unstyled">
-											<li ng-repeat="z in tour.Reviews.Reviews">
-												<span class="rc-post-image">
-													<img class="img-responsive"  src="http://placehold.it/80x65" alt="Recent Post 1" />
-												</span>
-												<h5>{{z.Comment}}</h5>
-												<span star-rating rating-value="z.Rating" style="" class="" ></span><br><br>	
-											</li>
+                                        <ul class="list-unstyled">
+                                            <p>No Reviews Yet<br><br><br><br><br><br><br><br></p>										
 										</ul>
-									</div>
-									<!-- END TAB 4 -->
-								</div>
-								<!-- END TAB CONTENT -->
+								    </div>
+                                    <!-- END TAB 4 -->
 							</div>
-							
-							  <div class="col-sm-6 sidebar-widget">
+                            <!-- END TAB CONTENT -->
+
+                            <br/><br/>
+							<div class="col-sm-6 sidebar-widget">
                     <h3 class="column-title">Video Intro</h3>
                     <!-- 16:9 aspect ratio -->
                     <div class="embed-responsive embed-responsive-16by9">

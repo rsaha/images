@@ -231,25 +231,6 @@ He provide a number of example tours on our site, but we can completely customis
 												<span class="rc-post-date small">Starting Price&nbsp;{{x.tour_price}}</span><br/>
                                                <a href="booking-form.php#?id1=0&&id2={{x.tour_id}}"> <input type="submit" name="submit" class="btn btn-primary  marb20" value="Book Now" /></a>
 											</li>
-										
-<!--
-											<li>
-												<span class="rc-post-image">
-													<img class="img-responsive" src="img/tour_3.jpg" alt="Tour 3" />
-												</span>
-												<h5><a href="#">Tour 3 </a></h5>
-												<span class="rc-post-date small">Starting Price INR 1500</span><br/>
-                                               <a href="booking-form.html"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Book" /> </a>
-											</li>
-											<li class="last-rc-post">
-												<span class="rc-post-image">
-													<img class="img-responsive" src="img/tour_4.jpg" alt="Tour 4" />
-												</span>
-												<h5><a href="#">Tour 4 </a></h5>
-												<span class="rc-post-date small">Starting Price INR 1500</span><br/>
-                                               <a href="booking-form.php"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Book" /></a>
-											</li>
--->
 										</ul>
 									</div>
 									<div class="tab-pane" style="height:500px;" id="relatedGuides" ng-controller="TopGuideControl">
