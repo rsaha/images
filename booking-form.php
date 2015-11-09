@@ -143,7 +143,7 @@ $notes = $row33["notes"]; */
             
 		</style>
 <script src= "js/angular.min.js"></script>
-    <script src="booking.js."></script>
+    <script src="booking.js"></script>
 		<script type="text/javascript" src="anki/jquery-1.10.2.min.js"></script>
 		<script type="text/javascript">
 		$(document).ready(function() {
@@ -269,7 +269,7 @@ $notes = $row33["notes"]; */
                                                         <div class="panel panel-default">
                                                             <div class="panel-heading">
                                                                 <a class="panel-title collapsed" data-toggle="collapse" href="#collapseOne">
-                                                                    Hotels &amp; Inn
+                                                                    Lodging (Coming Soon)
                                                                 </a>
                                                             </div>
                                                             <div id="collapseOne" class="panel-collapse collapse">
@@ -308,7 +308,7 @@ $notes = $row33["notes"]; */
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <a class="panel-title collapsed" data-toggle="collapse" href="#collapseTwo">
-                        Car Service
+                        Transport (Coming Soon)
                     </a>
                 </div>
                 <div id="collapseTwo" class="panel-collapse collapse">
@@ -354,8 +354,8 @@ $notes = $row33["notes"]; */
                                             </li>
 											<li class="row">
 												<div class="col-md-12">
-													<input type="submit" class="btn btn-primary btn-lg text-upper" onclick="CommingSoon();" name="booknow" value="Book Now" />
-													<span class="required small">*Your email will never published.</span>
+													<input type="submit" class="btn btn-primary btn-lg text-upper" onclick="CommingSoon();" name="booknow" value="Booking Request" />
+													<span class="required small">*Your information will never published.</span>
 												</div>
 											</li>
 											
@@ -539,7 +539,7 @@ $notes = $row33["notes"]; */
         <script>
             function CommingSoon()
             {
-                alert("This feature will be available soon......");
+                alert("We received your booking request.Our customer service will contact you soon.");
             }
             
             

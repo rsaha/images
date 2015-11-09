@@ -168,7 +168,6 @@ ul.rating {
 								<!-- Sidebar recent popular posts -->
 								<!-- START TABS -->
 								<ul class="nav nav-tabs text-upper">
-									<li><a href="#relatedtours" data-toggle="tab">Tours</a></li>
 									<li class="active"><a href="#topguides" data-toggle="tab">Guides</a></li>
 									<li><a href="#topdestinations" data-toggle="tab">Places</a></li>
                                     <li><a href="#lodging" data-toggle="tab">Lodging</a></li>
@@ -177,23 +176,6 @@ ul.rating {
 								
 								<!-- START TAB CONTENT -->
 								<div class="tab-content gray box-shadow1 clearfix marb30">
-									<!-- START TAB 1 -->
-									<div class="tab-pane active" style="height:500px;" id="relatedtours" ng-controller="toursCtrl">
-										<ul class="rc-posts-list list-unstyled">
-											<li ng-repeat="x in tours" ng-show="$index<4">
-												<span class="rc-post-image">
-                                                    <a href="tour_detail_sidebar.php#?id={{x.tour_id}}"	target="_blank">	
-                                                     <img class="img-responsive" src="{{'x.photo' ==''||'x.photo' ? 'img/SAMPLE_TOUR.jpg' : x.photo}}" alt="Tour x" />
-                                                    </a>
-												</span>
-												<h5><a href="#">{{x.tour_title}}</a></h5>
-												<span class="rc-post-date small">Starting Price&nbsp;{{x.tour_price}}</span>
-                                               <a href="booking-form.php#?id1=0&id2={{x.tour_id}}"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Book" /></a>
-											</li>
-										</ul>
-									</div>
-									<!-- END TAB 1 -->
-									
 									<!-- START TAB 2 -->
 									<div class="tab-pane"  id="topguides" style="height:500px;" ng-controller="guidescontrol">
 										<ul class="list-unstyled">
