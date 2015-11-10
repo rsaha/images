@@ -572,7 +572,7 @@ $_SESSION['notification']="Congratulation! Welcome to Guided Gateway, you are no
 													echo '<a id="editButton" style="height:20px" class="btn btn-xs btn-default" data-toggle="tab" onclick="editTour(' . $userid . ',' . $row1['tour_id'] . ');" >EDIT</a>';
 														echo '<a style="cursor: pointer;" onclick="detailTour(' . $row1['tour_id'] . ');" >';
 														$tour_id = $row1['tour_id'];
-                                                        $created_added = $row['created_added'];
+                                                        $created_added = $row1['created_added'];
 														?>
 														<input type="hidden" name="tourid" id="tourid" value=" <?php echo $row1['tour_id'] ?> " />
 														<div class="ft-item">
