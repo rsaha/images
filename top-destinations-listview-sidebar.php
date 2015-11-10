@@ -117,7 +117,7 @@ ul.rating {
 								<div class="col-md-12">
 									<div class="tour-plans">
 										<div class="plan-image">
-											<img class="img-responsive" style="height:360px;" src="{{x.Media.Image[0]}}" alt="{{x.Name}}" href="destination-detail-sidebar.php#?id3={{x.ID}}"/>
+									<img class="img-responsive" style="height:360px;" src="{{x.Media.Image[0]}}" alt="{{x.Name}}" href="destination-detail-sidebar.php#?id3={{x.ID}}"/>
 											<div class="offer-box">
 												<div class="offer-top">
 													<span class="ft-temp alignright">19&#730;c</span>
@@ -145,14 +145,8 @@ ul.rating {
 										</div>
 										<div class="post-desc">
 											<h4>{{x.Description}}</h4>
-<!--
-											 <h5>Attractions</h5>
-											<p>
-											<ul><li ng-repeat="y in x.Attractions">{{y}}</li>
-											</p>
--->
 											<a class="btn btn-primary marb20" href="destination-detail-sidebar.php#?id3={{x.ID}}">DETAILS</a>
-                                             <a id="bookButton" class="alignright" href="#"> <input type="submit" name="submit" class="btn btn-sm btn-success text-upper marb20" value="Book" /></a>
+                                             <a id="bookButton" class="alignright" href="#"> <input type="submit" name="submit" class="btn btn-sm btn-success text-upper marb20" value="Explore" /></a>
 										</div>
 									</div>
 								</div>
@@ -234,7 +228,7 @@ ul.rating {
 								<ul class="nav nav-tabs text-upper">
 									<li class="active"><a href="#toptours" data-toggle="tab">Tours</a></li>
 									<li><a href="#topguides" data-toggle="tab">Guides</a></li>
-									<li><a href="#lodging" data-toggle="tab">Hotels</a></li>
+									<li><a href="#lodging" data-toggle="tab">Lodging</a></li>
 								</ul>
 								<!-- END TABS -->
 								
@@ -284,7 +278,7 @@ ul.rating {
 											<h5><a href="#">{{lodge.Address}}</a></h5>
 											
 												<span  style="" class="" >{{lodge.Description}}</span>
-                                                <span  style="" class="" >{{lodge.PricePerNight}}Per Night</span><br><br>
+                                                <span  style="" class="" >Coming Soon from our partners</span><br><br>
                                                  <a href="#" style="margin-left:110px;"> <input type="submit" name="submit" class="btn btn-primary  marb20" value="Explore" /></a>
 											</li> 
 										

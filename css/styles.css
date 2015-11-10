@@ -497,7 +497,7 @@ blockquote strong {font-size:16px;}
 
 
 /* footer */
-#ft-footer {color:#d4d5d5; background:url(../img/footer-banner.jpg) center 0 no-repeat;}
+#ft-footer {color:#d4d5d5;}
 .footer-overlay {padding:30px 0; background:rgba(42,46,47, .9);}
 #ft-footer p {font-size:12px; margin-bottom:20px;}
 #ft-footer a {color:#ff845e;}

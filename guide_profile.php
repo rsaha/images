@@ -541,7 +541,7 @@ $_SESSION['notification']="Congratulation! Welcome to Guided Gateway, you are no
 											<div class="row">
 
 											<?php 
-											$sql1 = mysql_query("SELECT `tour_id`, `tour_category_id`, `tour_title`, `tour_location`, `tour_description`, `tour_duration`, `tour_price`, `start_point`, `end_point`, `inclusive`, `exclusive`, `cancelation_policy`, `restrictions`, `notes`, `status`, `datecreated` FROM `tbl_tours` WHERE (`user_id` = $userid and `status` != 0)");
+											$sql1 = mysql_query("SELECT `tour_id`, `tour_category_id`, `tour_title`, `tour_location`, `tour_description`, `tour_duration`, `tour_price`, `start_point`, `end_point`, `inclusive`, `exclusive`, `cancelation_policy`, `restrictions`, `notes`, `status`, `datecreated`,`created_added` FROM `tbl_tours` WHERE (`user_id` = $userid and `status` != 0)");
 											if(mysql_num_rows($sql1) < 1)
 											{
 											?>
@@ -572,13 +572,14 @@ $_SESSION['notification']="Congratulation! Welcome to Guided Gateway, you are no
 													echo '<a id="editButton" style="height:20px" class="btn btn-xs btn-default" data-toggle="tab" onclick="editTour(' . $userid . ',' . $row1['tour_id'] . ');" >EDIT</a>';
 														echo '<a style="cursor: pointer;" onclick="detailTour(' . $row1['tour_id'] . ');" >';
 														$tour_id = $row1['tour_id'];
+                                                        $created_added = $row1['created_added'];
 														?>
 														<input type="hidden" name="tourid" id="tourid" value=" <?php echo $row1['tour_id'] ?> " />
 														<div class="ft-item">
 														
 															<span class="ft-image">
 																<?php
-																$select4Tpic = mysql_query("SELECT * FROM `tbl_tour_media_pictures` WHERE `tour_id` = $tour_id");
+																$select4Tpic = mysql_query("SELECT * FROM `tbl_tour_media_pictures` WHERE `tour_id` = $tour_id or `tour_id` = $created_added");
 																$count4Tpic = mysql_num_rows($select4Tpic);
 																if ($count4Tpic==0)
 																{

@@ -130,7 +130,7 @@ ul.rating {
 						<div class="row">
 						<br>
 						<div class="col-md-10 col-sm-10 col-sm-offset-1 col-md-offset-1 col-xs-10 col-xs-offset-1 input-group">
-						<input type="text" class="form-control" style="background-color:white;" ng-model="search" placeholder="Where to go?" />
+						<input type="text" class="form-control" style="background-color:white;" ng-model="search" placeholder="Coming soon" />
 						<span class="input-group-addon">
 						<i class="fa fa-search"></i>
 						</span>
@@ -171,7 +171,7 @@ ul.rating {
                   
 					<!-- END Search Container -->
 <div class="row">
-				<h2 class="ft-heading text-upper col-md-12" ng-show="checkboxModel.value1"><i class="fa fa-ship"></i>&nbsp;&nbsp; Popular Tours<span class="alignright"> <a class="btn btn-primary" href="top-tours-listview-sidebar.php"><span style="">More&nbsp;<i class="fa fa-angle-double-right"></i></span></a></span></h2>
+				<h2 class="ft-heading text-upper col-md-12" ng-show="checkboxModel.value1"><i class="fa fa-trophy"></i>&nbsp;&nbsp; Popular Tours<span class="alignright"> <a class="btn btn-primary" href="top-tours-listview-sidebar.php"><span style="">More&nbsp;<i class="fa fa-angle-double-right"></i></span></a></span></h2>
 </div>
 					<div class="carousel" ng-show="checkboxModel.value1"> 
 					  <ul class="slides">
@@ -184,18 +184,15 @@ ul.rating {
 							<div class="ft-item"> 
 							<span class="ft-image"><img style="height:200px;" src="{{'x.photo' ==''||'x.photo' ? 'img/SAMPLE_TOUR.jpg' : x.photo}}" alt="Popular Tours" /> </span> 
 							   <div class="ft-data" style="height:45px;font-size:11px;" >
-							     <span  style="color:black;" class="text-upper fa fa-pagelines" href="#">{{x.Category}}</span> &nbsp;&nbsp;&nbsp;
-								 <!-- <span style="color:black;" class="fa text-upper">&nbsp;&nbsp;LOCATION :</span> &nbsp;&nbsp; -->
+							     <span  style="color:black;" class="text-upper fa fa-tag" href="#">{{x.tour_category}}</span>
 								   <span style="color:black;" class="fa aligncenter wrapword">{{x.tour_title}}</span>
-								   <span style="color:black;" class="fa text-upper wrapword"><i  style="color:black;" class="fa text-upper" ></i>&nbsp;&nbsp;{{x.tour_Location}}</span>
+								   <span style="color:black;" class="fa text-upper wrapword"><i  style="color:black;" class="fa text-upper" ></i>{{x.tour_Location}}</span>
 							   </div> 
-							   
 								<div class="ft-foot"> <h4 class="ft-title text-upper" style="color:#686868">{{x.Guide}}</h4> 
 								<span class="ft-offer text-upper">Starting&nbsp;&nbsp;{{x.tour_price}}</span> 
 								</div>
 								<div class="ft-foot-ex" > 
-								<span class="fa fa-image text-upper alignleft">&nbsp;&nbsp;{{x.tour_duration}}&nbsp;&nbsp;</span>&nbsp;&nbsp;
-								
+								<span class="fa fa-hourglass text-upper alignleft">{{x.tour_duration}}&nbsp;&nbsp;</span>
 								<span star-rating rating-value="x.Reviews.OverallRating" style="margin-left:20px;" class="" ></span>	
 <span class="alignright">{{x.Reviews.ReviewCount}} reviews</span> 								
 								
@@ -227,20 +224,19 @@ ul.rating {
 							 <img style="height:200px;" src="{{x.photo==null ? 'img/SAMPLE_TOUR.jpg' :x.photo}}" alt="Top Guide" /> 
 						  </span>
 					  
-								<div class="ft-data" style="height:45px;font-size:11px;">
-							  <span style="color:black;" class="fa fa-odnoklassniki text-upper">&nbsp;&nbsp;{{x.gender}}</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							   <span style="color:black;" class="fa fa-plane text-upper" >&nbsp;&nbsp;{{x.language_known[0]}}</span>
-							  <span style="color:black;" class="fa fa-book text-upper alignright" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{x.Speciality}}</span><br>
+				<div class="ft-data" style="height:45px;font-size:11px;">
+							   <span style="color:black;" class="fa fa-registered text-upper" >{{x.license_no}}</span>
+							  <span style="color:black;" class="fa fa-user-times text-upper alignright" >{{x.experiance_in_year}}</span><br>
 							 
 								</div> 
 					
 							<div class="ft-foot" style="word-wrap:break-word; height:50px;">
-							<h4 class="ft-title text-upper" style="color:#686868">{{x.name}},&nbsp{{x.guide_territory[0]}}</h4> 
+							<h4 class="fa fa-location text-upper" style="color:#686868">{{x.name}},&nbsp{{x.guide_territory[0]}}</h4> 
 							<!-- <span class="ft-offer text-upper">{{x.Tours.Count}} Tours</span>  -->
 							</div> 
 					
 							<div class="ft-foot-ex"> 
-								<span class="fa fa-shield text-upper alignleft">&nbsp;&nbsp;{{x.Tours.Count}} Tours&nbsp;&nbsp;</span>&nbsp;&nbsp;
+								<span class="fa fa-trophy text-upper alignleft">{{x.Tours.Count}}</span>
 								<span star-rating rating-value="x.Review.Star" style="margin-left:20px;" class="aligncenter"></span>
 								<span class="alignright">{{x.review.Count}} reviews</span> 							
 							</div> 
@@ -272,9 +268,7 @@ ul.rating {
 						  </span>
 					  
 								<div class="ft-data" style="height:45px;font-size:11px;">
-							  <span style="color:black;" class="fa fa-book text-upper">&nbsp;&nbsp;Attractions:&nbsp;&nbsp;{{x.BestTimeToVisit}}</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							  <!-- <span style="color:black;" class="fa fa-book text-upper" >&nbsp;&nbsp;{{x.Speciality}}</span>&nbsp;&nbsp;&nbsp;&nbsp;
-							  <span style="color:black;" class="fa fa-plane text-upper" >&nbsp;&nbsp;{{x.LanguageKnown}}</span> -->
+							  <span style="color:black;" class="fa fa-calendar-check-o text-upper">{{x.BestTimeToVisit}}</span>
 								</div> 
 					
 							<div class="ft-foot" style="word-wrap:break-word; height:50px;">
@@ -283,9 +277,9 @@ ul.rating {
 							</div> 
 					
 							<div class="ft-foot-ex"> 
-								<span class="fa fa-shield text-upper alignleft">{{x.TourCount}}&nbsp;&nbsp;Tours</span>
+								<span class="fa fa-trophy text-upper alignleft">{{x.TourCount}}&nbsp;&nbsp;Tours</span>
 								
-								<span class="alignright fa fa-eye">{{x.GuideCount}}&nbsp;&nbsp;Guides</span> 						
+								<span class="alignright fa fa-life-ring">{{x.GuideCount}}&nbsp;&nbsp;Guides</span> 						
 							</div> 
 					</div>
 					</a>
