@@ -230,14 +230,14 @@
                                         <ul class="rc-posts-list list-unstyled">
                                             <li ng-repeat="k in allplaces" ng-show="$index<4">
                                                 <span class="rc-post-image">
-                                                <a ng-href="destination-detail-sidebar.php?id3={{k.ID}}">
+                                                <a ng-href="destination-detail-sidebar.php#?id3={{k.ID}}">
 													<img class="img-responsive" style="height:80px;width:80px;" ng-src="{{k.Media.Image[0]}}" alt="Tour 1" />
                                                 </a>
 												</span>
                                                 <h5>{{k.Name}}</h5>
                                                 <span class="rc-post-date small">Best Time to Visit:&nbsp;{{k.BestTimeToVisit}}</span>
                                                 <br/>
-                                                <a ng-href="destination-detail-sidebar.php?id3={{k.ID}}">
+                                                <a ng-href="destination-detail-sidebar.php#?id3={{k.ID}}">
                                                     <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Explore" />
                                                 </a>
                                             </li>
@@ -250,16 +250,15 @@
                                         <ul class="rc-posts-list list-unstyled">
                                             <li ng-repeat="lodge in lodging" ng-show="$index<4 ">
                                                 <span class="rc-post-image">
-                                                    <a ng-href="guide-detail-sidebar.php#?id2={{lodge.id}}">	<img class="img-responsive" style="height:80px; width:65px;" ng-src="{{lodge.Media.Image[0]}}" alt="Hotel" /></a>
+                                                    <a ng-href="#">	
+                                                        <img class="img-responsive" style="height:80px; width:65px;" ng-src="{{lodge.Media.Image[0]}}" alt="Hotel" /></a>
 												</span>
                                                 <h5><a ng-href="#">{{lodge.Address}}</a></h5>
-
-                                                <span style="" class="">{{lodge.Description}}</span>
                                                 <span style="" class="">Coming Soon from our partners</span>
                                                 <br>
                                                 <br>
                                                 <a href="#" style="margin-left:110px;">
-                                                    <input type="submit" name="submit" class="btn btn-primary  marb20" value="Explore" />
+                                                    <input type="submit" name="submit" class="btn btn-primary  marb20" value="Coming Soon" />
                                                 </a>
                                             </li>
 
