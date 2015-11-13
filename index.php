@@ -218,7 +218,7 @@ ul.rating {
 				<li> 
 				<div class="row bom-contents"  ng-controller="guideCtrl" style="height:380px;">
 				<div class="col-md-11 col-xs-11">
-				<div class="col-md-3" ng-repeat="x in allguides | filter:search"  ng-show="$index<18 && x.photo!=null "> 
+				<div class="col-md-3" ng-repeat="x in allguides | filter:search"  ng-show="$index<17 && x.photo!=null "> 
 				   <a href="guide-detail-sidebar.php#?id2={{x.id}}" ng-controller="guideIDCtrl" ng-click="setID(x.id)">
 				      <div	class="ft-item"> 
 						  <span class="ft-image">
