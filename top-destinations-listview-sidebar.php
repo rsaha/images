@@ -239,7 +239,9 @@ ul.rating {
 										<ul class="rc-posts-list list-unstyled">
 											<li ng-repeat="k in alltours" ng-show="$index<4">
 												<span class="rc-post-image">
-                                                    <a href="tour_detail_sidebar.php?id={{k.tour_id}}"	>	<img class="img-responsive" src="{{'k.photo' ==''||'k.photo' ? 'img/SAMPLE_TOUR.jpg' : k.photo}}" alt="Tour x" /></a>
+                                                    <a href="tour_detail_sidebar.php?id={{k.tour_id}}"	>	
+                                                        <img class="img-responsive" src="{{'k.photo' == null ? 'img/SAMPLE_TOUR.jpg' : k.photo}}" alt="Tour Image" />
+                                                    </a>
 												</span>
 												<h5><a href="#">{{k.tour_title}}</a></h5>
 												<span class="rc-post-date small">Starting Price&nbsp;{{k.tour_price}}</span><br/>
@@ -254,7 +256,8 @@ ul.rating {
 										<ul class="list-unstyled">
 											<li ng-repeat="z in guides" ng-show="$index<18 && z.photo!=null">
 												<span class="rc-post-image">
-                                                    <a href="guide-detail-sidebar.php#?id2={{z.id}}"	>	<img class="img-responsive" style="height:70px; width:60px;" src="{{z.photo==null ? 'img/SAMPLE_TOUR.jpg' :z.photo}}" alt="Recent Post 2" /></a>
+                                                    <a href="guide-detail-sidebar.php#?id2={{z.id}}">	
+                                                        <img class="img-responsive" style="height:70px; width:60px;" src="{{z.photo==null ? 'img/SAMPLE_TOUR.jpg' :z.photo}}" alt="Guide Image" /></a>
 												</span>
 											<h5><a href="#">{{z.name}}</a></h5>
 												<h5><a href="#">{{z.guide_territory[0]}}</a></h5>
@@ -309,10 +312,6 @@ ul.rating {
 						<li class="active"><a href="#">1</a></li>
 						<li><a href="#">2</a></li>
 						<li><a href="#">3</a></li>
-						<li><a href="#">4</a></li>
-						<li><a href="#">5</a></li>
-						<li><a href="#">6</a></li>
-						<li><a href="#">7</a></li>
 						<li><a href="#">&rsaquo;</a></li>
 					</ul>
 					<!-- END .pagination -->
