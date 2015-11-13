@@ -43,7 +43,7 @@
                     <a id="site-logo" href="#"> 
                         <img src="img/logo.png" alt="Guided Gateway" /> 
                     </a> 
-                    <img src="img/Header_BetaBadge.png" alt="Guided Gateway Beta" />
+                    
                 </div> 
                 <div class="col-md-9"> 
                     <nav class="main-nav">
@@ -60,6 +60,7 @@
 						</ul> 
                     </nav> 
                 </div> 
+                <img src="img/Header_BetaBadge.png" alt="Guided Gateway Beta" />
             </div> 
         </div>
         <br><br><br><br><br><br><br>
