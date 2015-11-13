@@ -151,7 +151,6 @@ ul.rating {
 					<img data-src="https://storage.googleapis.com/guidedgateway_media/9380119512_profile.jpg" data-src-2x="https://storage.googleapis.com/guidedgateway_media/9380119512_profile.jpg" alt="Slide 1" />
 					<img data-src="https://storage.googleapis.com/guidedgateway_media/50003_profile.jpg" data-src-2x="https://storage.googleapis.com/guidedgateway_media/50003_profile.jpg" src="" alt="Slide 2" />
 					<img data-src="img/tour_3.jpg" data-src-2x="img/tour_3.jpg" src="" alt="Slide 3" />
-					<img data-src="img/tour_4.jpg" data-src-2x="img/tour_4.jpg" src="" alt="Slide 4" />
 				</div>
 				 <script>
 					var slider = new IdealImageSlider.Slider('#slider');
