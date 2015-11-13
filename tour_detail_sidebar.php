@@ -141,7 +141,7 @@ ul.rating {
 							<div class="col-md-12">
 							<div class="tour-plans">
 								<div class="plan-image">
-									<img class="img-responsive" src="{{'tour.photo'=='' ? 'tour.photo' :'img/SAMPLE_TAJ.jpg'}}" alt="TajMahal" />
+									<img class="img-responsive" src="{{tour.photo ==null ? 'img/SAMPLE_TAJ.jpg' : tour.photo}}"  alt="Tour Img" />
 									<div class="offer-box">
 										<div class="offer-top">
 											<span class="fa fa-tag alignright"> {{tour.tour_category}}</span>
@@ -321,7 +321,7 @@ ul.rating {
 										<ul class="rc-posts-list list-unstyled">
 											<li ng-repeat="x in tours" ng-show="$index<4">
 												<span class="rc-post-image">
-                                                    <a href="tour_detail_sidebar.php#?id={{x.tour_id}}"	>	<img class="img-responsive" src="{{'x.photo' ==''||'x.photo' ? 'img/SAMPLE_TOUR.jpg' : x.photo}}" alt="Tour 1" /></a>
+                                                    <a href="tour_detail_sidebar.php#?id={{x.tour_id}}"	>	<img class="img-responsive"  src="{{x.photo ==null ? 'img/SAMPLE_TAJ.jpg' : x.photo}}" alt="Tour 1" /></a>
 												</span>
 												<h5>{{x.tour_title}}</h5>
 												<span class="rc-post-date small">Starting Price&nbsp;{{x.tour_price}}</span><br/>
