@@ -288,8 +288,8 @@ He provide a number of example tours on our site, but we can completely customis
 								<!-- Sidebar Flickr Gallery -->
 								<h3 class="text-upper">Image Gallery</h3>
 								<ul class="flickr-gal list-unstyled" ng-controller="TourControl">
-								<li ng-repeat="x in alltours">
-								<img class="img-responsive" src="{{'x.photo' ==''||'x.photo' ? 'img/SAMPLE_TOUR.jpg' : x.photo}}"           alt="Tour Image" />
+								<li ng-repeat="x in alltours" ng-show="$index<4">
+								<img class="img-responsive" src="{{'x.photo' == null ? 'img/SAMPLE_TOUR.jpg' : x.photo}}"           alt="Tour Image" />
 								</li>
 									
 								</ul>

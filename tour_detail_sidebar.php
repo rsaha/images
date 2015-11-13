@@ -400,7 +400,7 @@ ul.rating {
 								<h3 class="text-upper">Image Gallery</h3>
 								<ul class="flickr-gal list-unstyled">
 								<li ng-repeat="x in tours" ng-show="$index<4">  
-								<img class="img-responsive" src="{{'x.photo' ==''||'x.photo' ? 'img/custom1.jpg' : x.photo}}"           alt="Tour Image" />
+								<img class="img-responsive" src="{{x.photo ==null ? 'img/SAMPLE_TAJ.jpg' : x.photo}}"  alt="Tour Img"/>
 								    
 								</li>
 								</ul>
