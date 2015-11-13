@@ -179,7 +179,7 @@ ul.rating {
 									<!-- START TAB 2 -->
 									<div class="tab-pane"  id="topguides" style="height:500px;" ng-controller="guidescontrol">
 										<ul class="list-unstyled">
-											<li ng-repeat="z in guides" ng-show="$index<18 && z.photo!=null">
+											<li ng-repeat="z in guides" ng-show="$index<17 && z.photo!=null">
 												<span class="rc-post-image">
                                                     <a href="guide-detail-sidebar.php#?id2={{z.id}}" target="_blank">	
                                                         <img class="img-responsive" style="height:70px; width:60px;" src="{{z.photo==null ? 'img/SAMPLE_TOUR.jpg' :z.photo}}" alt="Recent Post 2" /></a>

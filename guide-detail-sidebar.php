@@ -235,7 +235,7 @@ He provide a number of example tours on our site, but we can completely customis
 									</div>
 									<div class="tab-pane" style="height:500px;" id="relatedGuides" ng-controller="TopGuideControl">
 										<ul class="list-unstyled">
-											<li ng-repeat="z in TopGuides" ng-show="$index<18 && z.photo!=null">
+											<li ng-repeat="z in TopGuides" ng-show="$index<17 && z.photo!=null">
 												<span class="rc-post-image">
                                                     <a href="guide-detail-sidebar.php#?id2={{z.id}}" target="_blank"><img class="img-responsive" style="height:70px; width:60px;" src="{{z.photo==null ? 'img/SAMPLE_TOUR.jpg' :z.photo}}" alt="Guide Image" /></a>
 												</span>
