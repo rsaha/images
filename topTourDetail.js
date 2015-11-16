@@ -1,7 +1,7 @@
 (function () {
     'use strict';
   
-	 var app = angular.module('topTours',  ['ui.bootstrap']);
+	 var app = angular.module('topTours',  []);
 	 app.config(['$httpProvider', function ($httpProvider) {
     $httpProvider.defaults.useXDomain = true;
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
@@ -123,28 +123,7 @@ app.controller('guideDetailCtrl',['$scope','$http', function($scope, $http) {
         return [];
     }
 });
-app.controller('customersCrtl',['$scope','$http', function ($scope, $http, $timeout) {
-    $http.get('http://130.211.123.212/app/tours')
-	.success(function(data){
-        $scope.list = data.Tours;
-        $scope.currentPage = 1; //current page
-        $scope.entryLimit = 3; //max no of items to display in a page
-        $scope.filteredItems = $scope.list.length; //Initially for no filter  
-        $scope.totalItems = $scope.list.length;
-    });
-    $scope.setPage = function(pageNo) {
-        $scope.currentPage = pageNo;
-    };
-    $scope.filter = function() {
-        $timeout(function() { 
-            $scope.filteredItems = $scope.filtered.length;
-        }, 10);
-    };
-//    $scope.sort_by = function(predicate) {
-//        $scope.predicate = predicate;
-//        $scope.reverse = !$scope.reverse;
-//    };
-}]);
+
 
 app.directive('starRating', function () {
     return {

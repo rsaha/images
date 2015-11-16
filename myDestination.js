@@ -24,7 +24,6 @@ app.controller('toursCtrl',['$scope','$http', function($scope, $http) {
     
     $scope.setID=function(setGuideID){
       $scope.gID=setGuideID;
-        alert(setGuideID);
 			$location.search("guideID",setGuideID);
 		}
 			

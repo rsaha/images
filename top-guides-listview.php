@@ -213,7 +213,8 @@
                                         <ul class="rc-posts-list list-unstyled">
                                             <li ng-repeat="x in alltours" ng-show="$index<4">
                                                 <span class="rc-post-image">
-                                                    <a ng-href="tour_detail_sidebar.php#?id={{x.tour_id}}"><img class="img-responsive" ng-src="{{'x.photo' ==''||'x.photo' ? 'img/SAMPLE_TOUR.jpg' : x.photo}}" alt="Tour 1" /></a>
+                                                    <a ng-href="tour_detail_sidebar.php#?id={{x.tour_id}}">
+                                                        <img class="img-responsive" ng-src="{{x.photo ==null ? 'img/SAMPLE_TAJ.jpg' : x.photo}}" alt="Tour 1" /></a>
 												</span>
                                                 <h5>{{x.tour_title}}</h5>
                                                 <span class="rc-post-date small">Starting Price&nbsp;{{x.tour_price}}</span>
@@ -230,14 +231,14 @@
                                         <ul class="rc-posts-list list-unstyled">
                                             <li ng-repeat="k in allplaces" ng-show="$index<4">
                                                 <span class="rc-post-image">
-                                                <a ng-href="destination-detail-sidebar.php?id3={{k.ID}}">
+                                                <a ng-href="destination-detail-sidebar.php#?id3={{k.ID}}">
 													<img class="img-responsive" style="height:80px;width:80px;" ng-src="{{k.Media.Image[0]}}" alt="Tour 1" />
                                                 </a>
 												</span>
                                                 <h5>{{k.Name}}</h5>
                                                 <span class="rc-post-date small">Best Time to Visit:&nbsp;{{k.BestTimeToVisit}}</span>
                                                 <br/>
-                                                <a ng-href="destination-detail-sidebar.php?id3={{k.ID}}">
+                                                <a ng-href="destination-detail-sidebar.php#?id3={{k.ID}}">
                                                     <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Explore" />
                                                 </a>
                                             </li>
@@ -250,16 +251,15 @@
                                         <ul class="rc-posts-list list-unstyled">
                                             <li ng-repeat="lodge in lodging" ng-show="$index<4 ">
                                                 <span class="rc-post-image">
-                                                    <a ng-href="guide-detail-sidebar.php#?id2={{lodge.id}}">	<img class="img-responsive" style="height:80px; width:65px;" ng-src="{{lodge.Media.Image[0]}}" alt="Hotel" /></a>
+                                                    <a ng-href="#">	
+                                                        <img class="img-responsive" style="height:80px; width:65px;" ng-src="{{lodge.Media.Image[0]}}" alt="Hotel" /></a>
 												</span>
                                                 <h5><a ng-href="#">{{lodge.Address}}</a></h5>
-
-                                                <span style="" class="">{{lodge.Description}}</span>
                                                 <span style="" class="">Coming Soon from our partners</span>
                                                 <br>
                                                 <br>
                                                 <a href="#" style="margin-left:110px;">
-                                                    <input type="submit" name="submit" class="btn btn-primary  marb20" value="Explore" />
+                                                    <input type="submit" name="submit" class="btn btn-primary  marb20" value="Coming Soon" />
                                                 </a>
                                             </li>
 
@@ -269,17 +269,6 @@
                                 </div>
                                 <!-- END TAB CONTENT -->
                             </div>
-
-
-                            <!--
-							<div class="sidebar-widget">
-								
-								<h3 class="text-upper">Guide Gallery</h3>
-								<ul class="flickr-gal list-unstyled" ng-controller="guideCtrl">
-									<li ng-repeat="x in allguides" ng-show="$index==5||$index==7||$index==12||$index==13" ><img style="height:70px; width:120px;" class="img-responsive" src="{{x.photo}}" alt="Guide" /></li>
-								</ul>
-							</div>
--->
                         </aside>
                     </div>
                     <br>
@@ -291,7 +280,6 @@
                 </div>
             </div>
             <!-- END .main-contents -->
-
             <!-- START footer -->
             <?php include('MasterTopFooter.php'); ?>
                 <!-- END footer -->

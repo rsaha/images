@@ -239,7 +239,9 @@ ul.rating {
 										<ul class="rc-posts-list list-unstyled">
 											<li ng-repeat="k in alltours" ng-show="$index<4">
 												<span class="rc-post-image">
-                                                    <a href="tour_detail_sidebar.php?id={{k.tour_id}}"	>	<img class="img-responsive" src="{{'k.photo' ==''||'k.photo' ? 'img/SAMPLE_TOUR.jpg' : k.photo}}" alt="Tour x" /></a>
+                                                    <a href="tour_detail_sidebar.php?id={{k.tour_id}}"	>	
+                                                        <img class="img-responsive" src="{{'k.photo' == null ? 'img/SAMPLE_TOUR.jpg' : k.photo}}" alt="Tour Image" />
+                                                    </a>
 												</span>
 												<h5><a href="#">{{k.tour_title}}</a></h5>
 												<span class="rc-post-date small">Starting Price&nbsp;{{k.tour_price}}</span><br/>
@@ -254,13 +256,16 @@ ul.rating {
 										<ul class="list-unstyled">
 											<li ng-repeat="z in guides" ng-show="$index<18 && z.photo!=null">
 												<span class="rc-post-image">
-                                                    <a href="guide-detail-sidebar.php?id2={{z.id}}"	>	<img class="img-responsive" style="height:70px; width:60px;" src="{{z.photo==null ? 'img/SAMPLE_TOUR.jpg' :z.photo}}" alt="Recent Post 2" /></a>
+                                                    <a href="guide-detail-sidebar.php#?id2={{z.id}}">	
+                                                        <img class="img-responsive" style="height:70px; width:60px;" src="{{z.photo==null ? 'img/SAMPLE_TOUR.jpg' :z.photo}}" alt="Guide Image" /></a>
 												</span>
 											<h5><a href="#">{{z.name}}</a></h5>
 												<h5><a href="#">{{z.guide_territory[0]}}</a></h5>
 <!--												<h5>{{z.Speciality}}<span class="rc-post-date small">Speciality&nbsp;&nbsp;</span></h5>-->
 												<span star-rating rating-value="z.review.rating" style="" class="" ></span>	
-                                                <a href="booking-form.php#?id1={{z.id}}&&id2=0"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Book" /></a><br><br>
+                                                <a href="guide-detail-sidebar.php#?id2={{z.id}}"> 
+                                                    <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="View Details" />
+                                                </a><br><br>
 											</li>
 											
 										</ul>
@@ -273,13 +278,13 @@ ul.rating {
 										<ul class="rc-posts-list list-unstyled">
 											<li ng-repeat="lodge in lodging" ng-show="$index<4 ">
 												<span class="rc-post-image">
-                                                    <a href="guide-detail-sidebar.php#?id2={{lodge.id}}">	<img class="img-responsive" style="height:80px; width:65px;" src="{{lodge.Media.Image[0]}}" alt="Hotel" /></a>
+                                                    <a href="#">	<img class="img-responsive" style="height:80px; width:65px;" src="{{lodge.Media.Image[0]}}" alt="Hotel" /></a>
 												</span>
-											<h5><a href="#">{{lodge.Address}}</a></h5>
-											
-												<span  style="" class="" >{{lodge.Description}}</span>
+											<h5><a href="#">{{lodge.Address}}</a></h5>											
                                                 <span  style="" class="" >Coming Soon from our partners</span><br><br>
-                                                 <a href="#" style="margin-left:110px;"> <input type="submit" name="submit" class="btn btn-primary  marb20" value="Explore" /></a>
+                                                 <a href="#" style="margin-left:110px;"> 
+                                                     <input type="submit" name="submit" class="btn btn-primary  marb20" value="Coming Soon" />
+                                                </a>
 											</li> 
 										
 										</ul>
@@ -307,10 +312,6 @@ ul.rating {
 						<li class="active"><a href="#">1</a></li>
 						<li><a href="#">2</a></li>
 						<li><a href="#">3</a></li>
-						<li><a href="#">4</a></li>
-						<li><a href="#">5</a></li>
-						<li><a href="#">6</a></li>
-						<li><a href="#">7</a></li>
 						<li><a href="#">&rsaquo;</a></li>
 					</ul>
 					<!-- END .pagination -->

@@ -1,5 +1,6 @@
 <html lang="en">
-  <head>
+
+<head>
     <!-- Basic Page Needs
     ================================================== -->
     <meta charset="utf-8">
@@ -9,7 +10,7 @@
     <meta name="description" content="Guided Gateway Website">
     <meta name="keywords" content="">
     <meta name="author" content="GuidedGateway">
-    
+
     <!-- Favicons
     ================================================== -->
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
@@ -18,30 +19,30 @@
     <link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" type="text/css"  href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="fonts/font-awesome/css/font-awesome.css">
 
-	<link rel="stylesheet" type="text/css" href="bs3/css/bootstrap.css" media="all" />
-	
-		<!--template stylesheet --> 
-		
-		<link rel="stylesheet" type="text/css" href="css/styles.css" media="all" />
-		<link rel="stylesheet" href="css/flexslider.css" type="text/css" 	media="screen" />
-		
-		<!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
-		<link rel="stylesheet" type="text/css"	href="js/rs-plugin/css/settings.css" media="all" /> 
-		
-		<!--responsive stylesheet -->
+    <link rel="stylesheet" type="text/css" href="bs3/css/bootstrap.css" media="all" />
 
-		<link rel="stylesheet" type="text/css" href="css/responsive.css" media="all" />
-		
-		<!-- Load Fonts via	Google Fonts API --> 
-		
-		<link rel="stylesheet" type="text/css"	href="http://fonts.googleapis.com/css?family=Karla:400,700,400italic,700italic" />
+    <!--template stylesheet -->
 
-		<!-- color scheme --> 
-				<link rel="stylesheet" type="text/css" href="css/colors/color3.css" 	title="color3" />
-				
+    <link rel="stylesheet" type="text/css" href="css/styles.css" media="all" />
+    <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
+
+    <!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
+    <link rel="stylesheet" type="text/css" href="js/rs-plugin/css/settings.css" media="all" />
+
+    <!--responsive stylesheet -->
+
+    <link rel="stylesheet" type="text/css" href="css/responsive.css" media="all" />
+
+    <!-- Load Fonts via	Google Fonts API -->
+
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Karla:400,700,400italic,700italic" />
+
+    <!-- color scheme -->
+    <link rel="stylesheet" type="text/css" href="css/colors/color3.css" title="color3" />
+
     <!-- Slider
     ================================================== -->
     <link href="css/owl.carousel.css" rel="stylesheet" media="screen">
@@ -49,7 +50,7 @@
 
     <!-- Stylesheet
     ================================================== -->
-    <link rel="stylesheet" type="text/css"  href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/responsive2.css">
 
     <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
@@ -63,88 +64,106 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <style>
+        #betaImg {
+            top: 110px;
+            position: absolute;
+            right: 0px;
+            z-index: 99999;
+        }
+    </style>
+
+</head>
+
+<!-- Navigation
 	
-	
-	
-  </head>
-  
-    <!-- Navigation
-	
-	<!-- START body --> <body> 
-	<!-- START #wrapper --> <div id="wrapper"> 
-	<!-- START header --> <header> <!-- START #top-header --> 
-		<div id="top-header"> 
-			<div class="container"> 
-				<div class="row top-row"> 
-					<div class="col-md-6"> 
-						<div class="left-part alignleft">
-							<span class="contact-email small">support@guidedgateway.com</span>
-							<span class="contact-phone small">+91 9830032920</span> 
-							<ul class="social-media header-social"> 
-								<li><a class="sm-facebook" href="#"><span>Facebook</span></a></li> 
-								<li><a class="sm-pinterest" href="#"><span>Pinterest</span></a></li> 
-								<li><a class="sm-youtube" href="#"><span>Youtube</span></a></li> 
-								<li><a class="sm-twitter" href="#"><span>Twitter</span></a></li> 
-							</ul> 
-						</div> 
-					</div> 
-					<div class="col-md-6">
-						<div class="right-part alignright"> 
-							<span class="top-link small pull-left">
+	<!-- START body -->
+
+<body>
+    <!-- START #wrapper -->
+    <div id="wrapper">
+        <!-- START header -->
+        <header>
+            <!-- START #top-header -->
+            <div id="top-header">
+                <div class="container">
+                    <div class="row top-row">
+                        <div class="col-md-6">
+                            <div class="left-part alignleft">
+                                <span class="contact-email small">support@guidedgateway.com</span>
+                                <span class="contact-phone small">+91 9830032920</span>
+                                <ul class="social-media header-social">
+                                    <li><a class="sm-facebook" href="#"><span>Facebook</span></a></li>
+                                    <li><a class="sm-pinterest" href="#"><span>Pinterest</span></a></li>
+                                    <li><a class="sm-youtube" href="#"><span>Youtube</span></a></li>
+                                    <li><a class="sm-twitter" href="#"><span>Twitter</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="right-part alignright">
+                                <span class="top-link small pull-left">
 								<a href="sign-in.html" style="color:#292c2f;" title="">SIGN IN</a>
-							</span> 
-							<span class="top-link small pull-left">
+							</span>
+                                <span class="top-link small pull-left">
 								<a href="login.php" style="color:#292c2f;" title="">Guide SIGN IN</a>
-							</span> 
-							<form action="#" method="get"> 
-								<fieldset class="pull-left">
-									<input type="text" name="s" class="search-input" value="Search..." onfocus="if (this.value == 'Search...') { this.value = ''; }"
-									onblur="if (this.value == '') { this.value = 'Search...'; }" />
-									<input type="submit" name="submit" class="search-submit" value="" />
-								</fieldset> 
-							</form>
-						</div>
-					</div> 
-				</div> 
-			</div> 
-		</div> <!-- END #top-header -->
+							</span>
+                                <form action="#" method="get">
+                                    <fieldset class="pull-left">
+                                        <input type="text" name="s" class="search-input" value="Search..." onfocus="if (this.value == 'Search...') { this.value = ''; }" onblur="if (this.value == '') { this.value = 'Search...'; }" />
+                                        <input type="submit" name="submit" class="search-submit" value="" />
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+                        <img id="betaImg" src="img/Header_BetaBadge.png" alt="Guided Gateway Beta" />
+                    </div>
+                </div>
+            </div>
+            <!-- END #top-header -->
 
-				<!-- START #main-header --> <div id="main-header">
-				<div class="container">
-				<div class="row">
-				<div class="col-md-3">
-				<a id="site-logo" href="index.php">
-				<img src="images/logo.png" alt="Guided Gateway" />
-				</a>
-				</div>
-				<div class="col-md-9">
-				<nav class="main-nav">
-				<span>MENU</span>
-				<ul id="main-menu">
-				<li><a href="index.php" title="">HOME</a>
-				</li> 
-				<li>
-				<a href="guides.html" title="">Guides</a></li>
-				<li><a href="top-destinations-listview-sidebar.html" title="">Destinations</a> </li>
-                <li><a href="top-themes-listview-sidebar.html" title="">Themes</a> </li>
-                <li><a href="blog.html" title="blog">Travelogue</a> </li>
-				
-				<li><a href="#" onclick="return false;" title="">SIGN IN</a>
-				
-				<ul> 
-				<li><a href="#" title="">Touriest SIGN IN</a></li>
-				<li><a href="login.php" title="">Guide SIGN IN</a></li>
-				</ul>
-				
-				</li>
+            <!-- START #main-header -->
+            <div id="main-header">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <a id="site-logo" href="index.php">
+                                <img src="images/logo.png" alt="Guided Gateway" />
+                            </a>
+                        </div>
+                        <div class="col-md-9">
+                            <nav class="main-nav">
+                                <span>MENU</span>
+                                <ul id="main-menu">
+                                    <li><a href="index.php" title="">HOME</a>
+                                    </li>
+                                    <li>
+                                        <a href="guides.html" title="">Guides</a></li>
+                                    <li><a href="top-destinations-listview-sidebar.html" title="">Destinations</a> </li>
+                                    <li><a href="top-themes-listview-sidebar.html" title="">Themes</a> </li>
+                                    <li><a href="blog.html" title="blog">Travelogue</a> </li>
 
-				</ul>
-				</nav>
-				</div>
-				</div>
-				</div>
-				</div> <!-- END #main-header -->
-				</header> <!-- END header -->
-	<!-- START #wrapper --> </div> 
-	</body>
-	</html>
+                                    <li><a href="#" onclick="return false;" title="">SIGN IN</a>
+
+                                        <ul>
+                                            <li><a href="#" title="">Touriest SIGN IN</a></li>
+                                            <li><a href="login.php" title="">Guide SIGN IN</a></li>
+                                        </ul>
+
+                                    </li>
+
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END #main-header -->
+        </header>
+        <!-- END header -->
+        <!-- START #wrapper -->
+    </div>
+</body>
+
+</html>

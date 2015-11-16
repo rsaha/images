@@ -1,9 +1,4 @@
-<?php
- if(isset($_GET['id']))
-	{
-	$tourid = $_GET['id'];
-	}
-    ?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -55,7 +50,7 @@
         </script>
        
         <script type="text/javascript"  src= "js/angular.min.js"></script>
-        <script type="text/javascript"  src="topTour.js"></script>
+        <script type="text/javascript"  src="topTourDetail.js"></script>
 		 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
 		<style type="text/css">
 .rating {

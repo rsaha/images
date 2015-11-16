@@ -95,6 +95,16 @@ while( $row1 = mysql_fetch_array( $rs ) )
         $tour_category = $row5[ 'tour_category_title' ];
     }
     
+    $rs5 = mysql_query("SELECT `picture_media_id` FROM `tbl_tour_media_pictures` WHERE `tour_id` = '".$row1[ 'tour_id' ]."'");
+    if(mysql_num_rows($rs5) == 1)
+    {
+        $photo = "https://storage.googleapis.com/guidedgateway_media/".$row1[ 'tour_id' ]."_profile.jpg";
+    }
+    else 
+    {
+        $photo = null;
+    }
+    
 	
 		$rows1[] = array( 
 		'tour_id'=> $row1[ 'tour_id' ], 
@@ -113,7 +123,8 @@ while( $row1 = mysql_fetch_array( $rs ) )
 		'exclusive' => $row1[ 'exclusive' ], 
 		'cancelation_policy' => $row1[ 'end_point' ],             
 		'restrictions' => $row1[ 'inclusive' ], 
-		'notes' => $row1[ 'exclusive' ]
+		'notes' => $row1[ 'exclusive' ],
+        'photo' => $photo
 		);
 		unset($rows2);
     unset($tour_territory);

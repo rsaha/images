@@ -130,7 +130,7 @@ ul.rating {
 						<div class="row">
 						<br>
 						<div class="col-md-10 col-sm-10 col-sm-offset-1 col-md-offset-1 col-xs-10 col-xs-offset-1 input-group">
-						<input type="text" class="form-control" style="background-color:white;" ng-model="search" placeholder="Coming soon" />
+						<input type="text" class="form-control" style="background-color:white;" ng-model="search" placeholder="Coming Soon" />
 						<span class="input-group-addon">
 						<i class="fa fa-search"></i>
 						</span>
@@ -138,20 +138,19 @@ ul.rating {
 						</div>
 						<div class="row">
 						<div class="col-md-7 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1"> <br>
-						<label >Search via</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<label><input class="input-cb"	type="checkbox" name="inc_Tour" checked ng-model="checkboxModel.value1" value=""/> Tours</label>&nbsp;&nbsp;&nbsp;&nbsp;
-						<label><input class="input-cb" type="checkbox" name="inc_Guide" value="1" ng-model="checkboxModel.value2" checked /> Guides </label>&nbsp;&nbsp;&nbsp;&nbsp;
-						<label><input class="input-cb" type="checkbox"	name="inc_Destination" value="1" ng-model="checkboxModel.value3" checked /> Destinations</label>&nbsp;&nbsp; 
+						<label >Duration </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<label><input class="input-cb"	type="checkbox" name="inc_Tour" checked ng-model="checkboxModel.value1" value=""/> Hours</label>&nbsp;&nbsp;&nbsp;&nbsp;
+						<label><input class="input-cb" type="checkbox" name="inc_Guide" value="1" ng-model="checkboxModel.value2" checked /> Single Day</label>&nbsp;&nbsp;&nbsp;&nbsp;
+						<label><input class="input-cb" type="checkbox"	name="inc_Destination" value="1" ng-model="checkboxModel.value3" checked /> Multi Day</label>&nbsp;&nbsp; 
 						</div> 
 						</div>
 					
 					</form>
 				</div>
 		        <div id="slider">
-					<img src="img/tour_1.jpg" data-src-2x="img/tour_1.jpg" alt="Slide 1" />
+					<img data-src="img/tour_1.jpg" data-src-2x="img/tour_1.jpg" src="" alt="Slide 1" />
 					<img data-src="img/tour_2.jpg" data-src-2x="img/tour_2.jpg" src="" alt="Slide 2" />
 					<img data-src="img/tour_3.jpg" data-src-2x="img/tour_3.jpg" src="" alt="Slide 3" />
-					<img data-src="img/tour_4.jpg" data-src-2x="img/tour_4.jpg" src="" alt="Slide 4" />
 				</div>
 				 <script>
 					var slider = new IdealImageSlider.Slider('#slider');
@@ -182,7 +181,8 @@ ul.rating {
 					 <div class="col-md-3" ng-repeat="x in tours | filter:search" ng-show="$index<4"> 
 							<a href="tour_detail_sidebar.php#?id={{x.tour_id}}">
 							<div class="ft-item"> 
-							<span class="ft-image"><img style="height:200px;" src="{{'x.photo' ==''||'x.photo' ? 'img/SAMPLE_TOUR.jpg' : x.photo}}" alt="Popular Tours" /> </span> 
+							<span class="ft-image">
+                                <img style="height:200px;" src="{{x.photo ==null ? 'img/SAMPLE_TAJ.jpg' : x.photo}}"   alt="Popular Tours" /> </span> 
 							   <div class="ft-data" style="height:45px;font-size:11px;" >
 							     <span  style="color:black;" class="text-upper fa fa-tag" href="#">{{x.tour_category}}</span>
 								   <span style="color:black;" class="fa aligncenter wrapword">{{x.tour_title}}</span>
@@ -217,7 +217,7 @@ ul.rating {
 				<li> 
 				<div class="row bom-contents"  ng-controller="guideCtrl" style="height:380px;">
 				<div class="col-md-11 col-xs-11">
-				<div class="col-md-3" ng-repeat="x in allguides | filter:search"  ng-show="$index<18 && x.photo!=null "> 
+				<div class="col-md-3" ng-repeat="x in allguides | filter:search"  ng-show="$index<17 && x.photo!=null "> 
 				   <a href="guide-detail-sidebar.php#?id2={{x.id}}" ng-controller="guideIDCtrl" ng-click="setID(x.id)">
 				      <div	class="ft-item"> 
 						  <span class="ft-image">

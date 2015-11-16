@@ -59,7 +59,6 @@
             overflow: hidden;
             text-overflow: ellipsis;
         }
-        
         div.short-text2 {
             white-space: nowrap;
             width: 25em;
@@ -216,13 +215,12 @@
                                                         <div class="panel panel-default">
                                                             <div class="panel-heading">
                                                                 <a class="panel-title collapsed" data-toggle="collapse" href="#collapseOne">
-                                                                    Hotels &amp; Inn
+                                                                    Lodging (Coming Soon)
                                                                 </a>
                                                             </div>
                                                             <div id="collapseOne" class="panel-collapse collapse">
                                                                 <div class="panel-body">
                                                                     <div class="col-md-12" ng-controller="Singletour">
-
                                                                         <div ng-controller="hotel_booking">
 
                                                                             <div class="col-md-3" ng-repeat="lodge in lodging | filter:{ City: tour.tour_location} ">
@@ -446,7 +444,6 @@
                                                 <h4>Total for Car: Rs 1500 /-</h4></div>
                                             <hr style="margin: 20px 0; border: 1px solid #808080;">
                                         </div>
-
                                         <div style="text-align:justify; padding:10px 10px 10px 10px;">
                                             <div id="toptours" class="row">
 
