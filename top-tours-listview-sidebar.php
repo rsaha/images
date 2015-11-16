@@ -47,6 +47,7 @@
  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script> 
 <!--<script type="text/javascript"  src= "js/angular.min.js"></script>-->
 <script type="text/javascript"  src="topTour.js"></script>
+         <script src="js/ui-bootstrap-tpls-0.10.0.min.js"></script>
 
 <style type="text/css">
 .rating {
@@ -80,11 +81,17 @@ ul.rating {
         }
 
 </style>
+         <style type="text/css">
+        ul>li,
+        a {
+            cursor: pointer;
+        }
+    </style>
 	</head>
 	<!-- END head -->
 
 	<!-- START body -->
-	<body>
+	<body ng-app="topTours">
 		<!-- START #wrapper -->
 		<div id="wrapper">
 			<!-- START header -->
@@ -118,48 +125,49 @@ ul.rating {
 			<!-- END #page-header -->
 			
 			<!-- START .main-contents -->
-			<div class="main-contents">
-				<div class="container" ng-app="topTours">
+			<div class="main-contents"  ng-controller="customersCrtl">
+				<div class="container" >
 				  
-					<div class="row"  ng-controller="toursCtrl">
-					<a href="tour_detail_sidebar.php#?id={{x.tour_id}}">
+					<div class="row" >
+					<a href="tour_detail_sidebar.php#?id=">
 						<div class="col-md-8" >
-							<div class="row" ng-repeat="x in tours">
+                             <div ng-show="filteredItems > 0">
+							<div class="row" ng-repeat="data in filtered = (list) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
 								<div class="col-md-12">
 									<div class="tour-plans">
 										<div class="plan-image">
-                                            <a href="tour_detail_sidebar.php#?id={{x.tour_id}}">
-											<img class="img-responsive" style="height:360px;" src="{{x.photo ==null ? 'img/SAMPLE_TAJ.jpg' : x.photo}}" alt="Tour image"/>
+                                            <a ng-href="tour_detail_sidebar.php#?id={{data.tour_id}}">
+											<img class="img-responsive" style="height:360px;" ng-src="{{data.photo ==null ? 'img/SAMPLE_TAJ.jpg' : data.photo}}" alt="Tour image"/>
                                             </a>
 											<div class="offer-box">
 												<div class="offer-top">
-													<span class="fa fa-tag alignright">{{x.tour_category}}</span>
-													<span class="featured-cr text-upper">{{x.tour_location}}</span>
-                                                    <div class="short-text featured-cy text-upper" title="{{x.tour_title}}">{{x.tour_title}}</div>
+													<span class="fa fa-tag alignright">{{data.tour_category}}</span>
+													<span class="featured-cr text-upper">{{data.tour_location}}</span>
+                                                    <div class="short-text featured-cy text-upper" title="{{data.tour_title}}">{{data.tour_title}}</div>
 												</div>
 												
 												<div class="offer-bottom">
 													<span class="featured-stf">Starting From </span>
-													<span class="featured-spe">{{x.tour_price}}</span>
+													<span class="featured-spe">{{data.tour_price}}</span>
 												</div>
 											</div>
 										</div>
 										<div class="featured-btm box-shadow1">
-											<span class="fa fa-map-pin text-upper">&nbsp;&nbsp;{{x.tour_territory[0]}}&nbsp;&nbsp;&nbsp;&nbsp;</span>
-											<span class="fa fa-hourglass text-upper">&nbsp;&nbsp;{{x.tour_duration}}&nbsp;&nbsp;&nbsp;&nbsp;</span>
+											<span class="fa fa-map-pin text-upper">&nbsp;&nbsp;{{data.tour_territory[0]}}&nbsp;&nbsp;&nbsp;&nbsp;</span>
+											<span class="fa fa-hourglass text-upper">&nbsp;&nbsp;{{data.tour_duration}}&nbsp;&nbsp;&nbsp;&nbsp;</span>
 											<span class="fa fa-thumbs-up text-upper" star-rating rating-value="5"></span>
 											<span class="alignleft fa fa-life-ring">&nbsp;&nbsp; reviews&nbsp;&nbsp;&nbsp;&nbsp;</span> 
 										</div>
 										<div class="post-desc">
-										<a class="btn btn-primary marb20" href="tour_detail_sidebar.php#?id={{x.tour_id}}">DETAILS</a>
-                                             <a id="bookButton" class="alignright" href="booking-form.php#?id1=0&id2={{x.tour_id}}"> <input type="submit" name="submit" class="btn btn-sm btn-success text-upper marb20" value="Book" /></a>
+										<a class="btn btn-primary marb20" ng-href="tour_detail_sidebar.php#?id={{data.tour_id}}">DETAILS</a>
+                                             <a id="bookButton" class="alignright" ng-href="booking-form.php#?id1=0&id2={{data.tour_id}}"> <input type="submit" name="submit" class="btn btn-sm btn-success text-upper marb20" value="Book" /></a>
 										</div>
 									</div>
 								</div><br>
 							
 <!--								<div class="clearfix"></div>-->
 							</div>
-							
+                        </div>
 						</div>
 						</a>
 						<!-- START #sidebar -->
@@ -231,14 +239,11 @@ ul.rating {
 						<!-- END #sidebar -->
 					</div>
 					<!-- START .pagination -->
-					<ul class="pagination">
-						<li><a href="#">&lsaquo;</a></li>
-						<li class="active"><a href="#">1</a></li>
-						<li><a href="#">2</a></li>
-						<li><a href="#">3</a></li>
-						<li><a href="#">4</a></li>
-						<li><a href="#">&rsaquo;</a></li>
-					</ul>
+					 <div class="col-md-12">
+                    <div pagination="" style="background-color:yellow;" page="currentPage" on-select-page="setPage(page)" boundary-links="true" total-items="filteredItems" items-per-page="entryLimit" class="pagination-small" previous-text="&laquo;" next-text="&raquo;"></div>
+
+
+                </div>
 					<!-- END .pagination -->
 				</div>
 			</div>
