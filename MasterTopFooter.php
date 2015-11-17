@@ -37,6 +37,8 @@ nnecting with culture and learning from it is any way the main purpose of my vis
 ="https://www.pinterest.com/guidedgateway/guided-gateway/"data-pin-scale-width="80" data-pin-scale-height="200" 
 data-pin-board-width="400">Follow Guided Gateway's board on Pinterest.</a><script type="text/javascript" async s
 rc="//assets.pinterest.com/js/pinit.js"></script>
+                                    <a class="twitter-timeline" href="https://twitter.com/GuidedG" data-widget-id="666720148024233985">Tweets by Guided Gateway</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 								</section>
 							</div>
 						</div>
