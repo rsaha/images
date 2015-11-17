@@ -42,6 +42,8 @@
 		
 		 <script type="text/javascript"  src= "js/angular.min.js"></script>
         <script type="text/javascript"  src="topPlaces.js"></script>
+        <!-- Please call pinit.js only once per page -->
+        <script async defer src="//assets.pinterest.com/js/pinit.js"></script>
         <style type="text/css">
 .rating {
     color: #a9a9a9;
@@ -236,6 +238,12 @@ ul.rating {
 								<ul class="flickr-gal list-unstyled">
 									<li ng-repeat="z in places"><img style="height:70px; width:120px;" class="img-responsive" src="{{z.Media.Image[0]}}" alt="image" /></li>
 									
+								</ul>
+							</div>
+                            <div class="sidebar-widget" ng-controller="placesCtrl">
+								<!-- Sidebar Flickr Gallery -->
+								<h3 class="text-upper">Pinterest Gallery</h3>
+								<a data-pin-do="embedBoard" data-pin-board-width="400" data-pin-scale-height="240" data-pin-scale-width="80" href="https://www.pinterest.com/guidedgateway/northern-india/"></a>
 								</ul>
 							</div>
 						</aside>
