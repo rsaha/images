@@ -9,6 +9,8 @@
             z-index: 99999;
         }
     </style>
+    <!-- Please call pinit.js only once per page -->
+    <script async defer src="//assets.pinterest.com/js/pinit.js"></script>
 </head>
 <!-- Navigation
 	<!-- START body -->

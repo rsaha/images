@@ -42,8 +42,6 @@
 		
 		 <script type="text/javascript"  src= "js/angular.min.js"></script>
         <script type="text/javascript"  src="topPlaces.js"></script>
-        <!-- Please call pinit.js only once per page -->
-        <script async defer src="//assets.pinterest.com/js/pinit.js"></script>
         <style type="text/css">
 .rating {
     color: #a9a9a9;
