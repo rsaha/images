@@ -113,7 +113,7 @@ while( $row1 = mysql_fetch_array( $rs ) )
         }
        // $photo = "https://storage.googleapis.com/guidedgateway_media/".$row1[ 'tour_id' ]."_profile.jpg";
     }
-    else 
+    else
     {
         $rows6 = null;
     }

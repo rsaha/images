@@ -238,6 +238,12 @@ ul.rating {
 									
 								</ul>
 							</div>
+                            <div class="sidebar-widget" ng-controller="placesCtrl">
+								<!-- Sidebar Flickr Gallery -->
+								<h3 class="text-upper">Pinterest Gallery</h3>
+								<a data-pin-do="embedBoard" data-pin-board-width="400" data-pin-scale-height="240" data-pin-scale-width="80" href="https://www.pinterest.com/guidedgateway/northern-india/"></a>
+								</ul>
+							</div>
 						</aside>
 						<!-- END #sidebar -->
 					</div>
