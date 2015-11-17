@@ -3,6 +3,7 @@ include_once('db.php');
 session_start();
 
 $jsonPath = parse_ini_file('config.ini',true)['jsonFilePath'];
+$mediaImagePath = parse_ini_file('config.ini',true)['mediaImagePath'];
 
  $JsonReturn="";
 //==========================================================================
@@ -67,7 +68,6 @@ while( $row1 = mysql_fetch_array( $rs ) )
 	{
 		
 		$rs2 = mysql_query("SELECT `tour_Itinerary_id`, `day`, `intraday`, `description`, `transport`, `tourist_spot` FROM `tbl_tour_itinerary` WHERE `tour_id` = '".$row1[ 'tour_id' ]."'");
-
 		while($row2 = mysql_fetch_array( $rs2 ))
 		{
 			
@@ -95,24 +95,37 @@ while( $row1 = mysql_fetch_array( $rs ) )
         $tour_category = $row5[ 'tour_category_title' ];
     }
     
-    $rs5 = mysql_query("SELECT `picture_media_id` FROM `tbl_tour_media_pictures` WHERE `tour_id` = '".$row1[ 'tour_id' ]."'");
-    if(mysql_num_rows($rs5) == 1)
+    $mediaImagePath = parse_ini_file('config.ini',true)['mediaImagePath'];
+	$cntt=1;
+    $rs6 = mysql_query("SELECT `picture_media_id`, `tour_picture` FROM `tbl_tour_media_pictures` WHERE `tour_id` = '".$row1[ 'tour_id' ]."'");
+    $rows6 = array();
+    if(mysql_num_rows($rs6) > 0)
     {
-        $photo = "https://storage.googleapis.com/guidedgateway_media/".$row1[ 'tour_id' ]."_profile.jpg";
+        while($row6 = mysql_fetch_array( $rs6 ))
+		{
+            $data = base64_decode($row6[ 'tour_picture' ]);
+            $mdeaPath = $mediaImagePath . $row1[ 'user_id' ]. '_'.$row1[ 'tour_id' ].'_'.$cntt.'.jpg';
+            file_put_contents($mdeaPath, $data);
+            $cntt=$cntt+1;
+        
+            array_push($rows6, $mdeaPath);
+
+        }
+       // $photo = "https://storage.googleapis.com/guidedgateway_media/".$row1[ 'tour_id' ]."_profile.jpg";
     }
     else 
     {
-        $photo = null;
+        $rows6 = null;
     }
     
 	
 		$rows1[] = array( 
-		'tour_id'=> $row1[ 'tour_id' ], 
-        'guide_id'=> $row1[ 'user_id' ],
+		'tour_id' => $row1[ 'tour_id' ], 
+        'guide_id' => $row1[ 'user_id' ],
 		'tour_category' => $tour_category,             
 		'tour_title' => $row1[ 'tour_title' ], 
 		'tour_location' => $row1[ 'tour_location' ], 
-		'tour_territory'=> $tour_territory,
+		'tour_territory' => $tour_territory,
 		'tour_description' => $row1[ 'tour_description' ], 
 		'tour_duration' => $row1[ 'tour_duration' ],
 		'tour_itinerary' => $rows2,	
@@ -124,10 +137,11 @@ while( $row1 = mysql_fetch_array( $rs ) )
 		'cancelation_policy' => $row1[ 'end_point' ],             
 		'restrictions' => $row1[ 'inclusive' ], 
 		'notes' => $row1[ 'exclusive' ],
-        'photo' => $photo
+        'photo' => $rows6
 		);
 		unset($rows2);
-    unset($tour_territory);
+        unset($rows6);
+        unset($tour_territory);
 	}
     }
     else
