@@ -163,18 +163,18 @@
                             <div class="row bom-contents">
                                 <div ng-show="filteredItems > 0">
                                     <div class="col-md-4" ng-repeat="data in filtered = (list) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
-                                        <div class="" >
-<!--                                            ft-item-->
+                                        <div class="">
+                                            <!--                                            ft-item-->
                                             <span class="ft-image">
                                           <a href="guide-detail-sidebar.php#?id2={{data.id}}">
                                              <img style="height:150px;" class="img-responsive"  ng-src="{{data.photo == null ? 'img/userDefaultIcon.png' : data.photo}}" alt="Top Guide" /> </a>
                                           </span>
                                             <div class="col-md-12" style="background-color:#ff845e;">
                                                 <span style="color:black;" class="fa fa-map-marker text-upper">&nbsp;{{data.city}}&nbsp;</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                            <span style="color:black;" class="fa fa-hourglass text-upper">&nbsp;{{data.experiance_in_year}}&nbsp;</span>
-                                            <br>
-                                            <span style=" font-size:11px;color:black;" class="fa fa-book text-upper">&nbsp;{{data.language_known[0][0]}}&nbsp;</span>
-                                                </div>
+                                                <span style="color:black;" class="fa fa-hourglass text-upper">&nbsp;{{data.experiance_in_year}}&nbsp;</span>
+                                                <br>
+                                                <span style=" font-size:11px;color:black;" class="fa fa-book text-upper">&nbsp;{{data.language_known[0][0]}}&nbsp;</span>
+                                            </div>
                                         </div>
 
                                         <div class="ft-foot">
@@ -189,7 +189,8 @@
                                             <span class="fa fa-trophy text-upper alignleft">&nbsp;{{x.Tours.Count}} Tours&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;
                                             <span star-rating rating-value="data.Review.Star" class="aligncenter"></span>
                                             <span class="alignright ">&nbsp;{{data.Review.Count}} reviews&nbsp;</span>
-                                            <br><br>
+                                            <br>
+                                            <br>
                                         </div>
                                     </div>
                                 </div>

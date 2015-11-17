@@ -254,7 +254,7 @@
                                                         <br>
                                                         <div class="panel panel-default">
                                                             <div class="panel-heading">
-                                                                <a class="panel-title collapsed" data-toggle="collapse" href="#collapseTwo"> Car Service </a>
+                                                                <a class="panel-title collapsed" data-toggle="collapse" href="#collapseTwo"> Transport Service </a>
                                                             </div>
                                                             <div id="collapseTwo" class="panel-collapse collapse">
                                                                 <div class="panel-body">
@@ -310,8 +310,10 @@
                             <div class="sidebar-widget">
                                 <!-- START TABS -->
                                 <ul class="nav nav-tabs text-upper" style="background-color:#ff845e;">
-                                    <li class="active" ng-controller="Singletour" ng-show="{{tourValue}}"><a href="#popular-posts" data-toggle="tab">Requested Tour Detail</a></li>
-                                    <li ng-controller="Singleguide" class="active" ng-show="{{guideValue}}"><a href="#popular-posts" data-toggle="tab">Requested Guide Detail</a></li>
+                                    <li class="active" ng-controller="Singletour" ng-show="{{tourValue}}">
+                                        <a href="#popular-posts" data-toggle="tab">Requested Tour Detail</a></li>
+                                    <li ng-controller="Singleguide" class="active" ng-show="{{guideValue}}">
+                                        <a href="#popular-posts" data-toggle="tab">Requested Guide Detail</a></li>
                                 </ul>
                                 <!-- END TABS -->
 
@@ -321,16 +323,12 @@
 
                                         <div ng-controller="Singletour">
                                             <div ng-show="{{tourValue}}">
-
                                                 <div class="tour-plans" style="padding:10px 10px 10px 10px;">
                                                     <div data-model="tour.tour_location">
                                                         <div class="plan-image">
-
-
                                                             <img class="img-responsive" alt="featured Scroller" draggable="false" src="{{tour.photo == null ? 'img/custom11.jpg' : tour.photo}}" />
 
 
-                                                            <!--<img class="img-responsive" src="img/custom2.jpg" alt="TajMahal" />-->
                                                             <div class="offer-box">
                                                                 <div class="offer-top">
                                                                     <!--<span class="ft-temp alignright">19&#730;c</span>-->
@@ -339,14 +337,14 @@
                                                                 </div>
 
                                                                 <div class="offer-bottom">
-                                                                    <span class="featured-spe" style="font-size:15px">Rs. {{tour.tour_price}} /-</span>
+                                                                    <span class="featured-spe" style="font-size:15px"> {{tour.tour_price}} /-</span>
                                                                 </div>
                                                             </div>
                                                         </div>
 
                                                         <div class="featured-btm box-shadow1">
                                                             <a class="ft-hotel text-upper" href="#">{{tour.tour_duration}} Day Tour</a>
-                                                            <a class="ft-plane text-upper" href="#">{{tour.tour_category}}</a>
+                                                            <a class="ft-plane text-upper" href="#">{{tour.guide_id}}</a>
                                                             <a class="ft-tea text-upper" href="#">
                                                                 <div class="short-text2" title="{{tour.inclusive}}">{{tour.inclusive}}</div>
                                                             </a>
@@ -371,7 +369,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="alignright">
-                                                        <h4>Total for Tour: Rs 1500 /-</h4></div>
+                                                        <h4>Total for Tour: {{tour.tour_price}}</h4></div>
                                                     <hr style="margin: 20px 0; border: 1px solid #808080;">
                                                 </div>
 
@@ -411,15 +409,15 @@
 												</span>
                                                         </div>
                                                         <div class="col-md-8">
-                                                            <h5><a href="#">Hotel Name</a></h5>
-                                                            <span class="rc-post-date small">Price&nbsp;3500</span>
+                                                            <h5><a href="#">Lodging </a></h5>
+                                                            <span class="rc-post-date small">{{tour.tour_duration}}</span>
                                                             <br/>
                                                         </div>
                                                     </li>
                                                 </ul>
                                             </div>
                                             <div class="alignright">
-                                                <h4>Total for Hotel: Rs 3500 /-</h4></div>
+                                                <h4>Lodging charges: Coming Soon</h4></div>
                                             <hr style="margin: 20px 0; border: 1px solid #808080;">
                                         </div>
 
@@ -429,19 +427,21 @@
                                                     <li class="col-md-12">
                                                         <div class="col-md-4">
                                                             <span class="rc-post-image ">
-                                                    <a href="#"><img class="img-responsive" src="img/SAMPLE_TOUR.jpg" alt="Tour 1" /></a>
+                                                    <a href="#">
+                                                        <img class="img-responsive" src="img/SAMPLE_TOUR.jpg" alt="Tour 1" />
+                                                    </a>
 												</span>
                                                         </div>
                                                         <div class="col-md-8">
-                                                            <h5><a href="#">Cab Service Name</a></h5>
-                                                            <span class="rc-post-date small">Price&nbsp;1500</span>
+                                                            <h5><a href="#">Transport Service </a></h5>
+                                                            <span class="rc-post-date small">Coming soon</span>
                                                             <br/>
                                                         </div>
                                                     </li>
                                                 </ul>
                                             </div>
                                             <div class="alignright">
-                                                <h4>Total for Car: Rs 1500 /-</h4></div>
+                                                <h4>Transport charges: Coming Soon </h4></div>
                                             <hr style="margin: 20px 0; border: 1px solid #808080;">
                                         </div>
                                         <div style="text-align:justify; padding:10px 10px 10px 10px;">
@@ -449,7 +449,7 @@
 
                                             </div>
                                             <div class="alignright">
-                                                <h4>Grand Total: Rs 6500 /-</h4></div>
+                                                <h4>Grand Total: {{tour.tour_price}}</h4></div>
                                         </div>
 
                                     </div>
@@ -475,12 +475,12 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="lodgingDetailModalLabel">Hotel Detail</h4>
+                    <h4 class="modal-title" id="lodgingDetailModalLabel">Lodging options</h4>
                 </div>
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-md-12">
-                            We will be right back here soon...
+                            We will have many more lodging options for you soon...
                         </div>
                     </div>
 
@@ -498,11 +498,11 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="transportDetailModalLabel">Cab Detail</h4>
+                    <h4 class="modal-title" id="transportDetailModalLabel">Transport Services</h4>
                 </div>
                 <div class="modal-body">
                     <div class="col-md-12">
-                        We will be right back here soon...
+                        We will have many more transport service options for you soon...
                     </div>
                 </div>
                 <div class="modal-footer">
