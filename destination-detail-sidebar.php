@@ -230,18 +230,17 @@ ul.rating {
 								</div>
 							</div>
 							
-								<div class="sidebar-widget" ng-controller="placesCtrl">
-								<!-- Sidebar Flickr Gallery -->
+								<!-- div class="sidebar-widget" ng-controller="placesCtrl">
 								<h3 class="text-upper">Destination Gallery</h3>
 								<ul class="flickr-gal list-unstyled">
 									<li ng-repeat="z in places"><img style="height:70px; width:120px;" class="img-responsive" src="{{z.Media.Image[0]}}" alt="image" /></li>
 									
 								</ul>
-							</div>
+							</div -->
                             <div class="sidebar-widget" ng-controller="placesCtrl">
 								<!-- Sidebar Flickr Gallery -->
 								<h3 class="text-upper">Pinterest Gallery</h3>
-								<a data-pin-do="embedBoard" data-pin-board-width="400" data-pin-scale-height="240" data-pin-scale-width="80" href="https://www.pinterest.com/guidedgateway/northern-india/"></a>
+								<a data-pin-do="embedBoard" data-pin-board-width="400" data-pin-scale-height="240" data-pin-scale-width="80" href="https://www.pinterest.com/guidedgateway/northern-region/"></a>
 								</ul>
 							</div>
 						</aside>
