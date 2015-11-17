@@ -1,0 +1,30 @@
+{
+    "tour_id": "50005",
+    "guide_id": "10001",
+    "tour_category": "General",
+    "tour_title": "dsfadsdsfads",
+    "tour_location": "delhi",
+    "tour_territory": [
+        "dfadsfds"
+    ],
+    "tour_description": "fds",
+    "tour_duration": "1",
+    "tour_itinerary": [
+        {
+            "day": "1",
+            "intraday": "dsaf",
+            "description": "dsf",
+            "transport": "dsfsd",
+            "tourist_spot": "fds"
+        }
+    ],
+    "tour_price": "3423",
+    "start_point": "afdf",
+    "end_point": "adsf",
+    "inclusive": "dfa",
+    "exclusive": "dsds",
+    "cancelation_policy": "adsf",
+    "restrictions": "dfa",
+    "notes": "dsds",
+    "photo": null
+}

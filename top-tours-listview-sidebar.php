@@ -185,7 +185,7 @@ ul.rating {
 								<!-- START TAB CONTENT -->
 								<div class="tab-content gray box-shadow1 clearfix marb30">
 									<!-- START TAB 2 -->
-									<div class="tab-pane"  id="topguides" style="height:500px;" ng-controller="guidescontrol">
+									<div class="tab-pane active"  id="topguides" style="height:500px;" ng-controller="guidescontrol">
 										<ul class="list-unstyled">
 											<li ng-repeat="z in guides" ng-show="$index<17 && z.photo!=null">
 												<span class="rc-post-image">
@@ -241,7 +241,7 @@ ul.rating {
 					</div>
 					<!-- START .pagination -->
 					 <div class="col-md-12">
-                    <div pagination="" style="background-color:yellow;" page="currentPage" on-select-page="setPage(page)" boundary-links="true" total-items="filteredItems" items-per-page="entryLimit" class="pagination-small" previous-text="&laquo;" next-text="&raquo;"></div>
+                    <div pagination="" style="background-color:white;" page="currentPage" on-select-page="setPage(page)" boundary-links="true" total-items="filteredItems" items-per-page="entryLimit" class="pagination-small" previous-text="&laquo;" next-text="&raquo;"></div>
 
 
                 </div>

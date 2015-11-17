@@ -1,0 +1,47 @@
+{
+    "tour_id": "50001",
+    "guide_id": "10001",
+    "tour_category": "General",
+    "tour_title": "2 Days in Delhi",
+    "tour_location": "Delhi",
+    "tour_territory": [
+        "Uttar Pradesh",
+        "Himachal Pradesh",
+        "Punjab",
+        "Delhi"
+    ],
+    "tour_description": "Visiting Delhi",
+    "tour_duration": "2",
+    "tour_itinerary": [
+        {
+            "day": "1",
+            "intraday": "09:00 AM - 01:00 PM",
+            "description": "Visiting Red Fort",
+            "transport": "Bus",
+            "tourist_spot": "Red Fort"
+        },
+        {
+            "day": "1",
+            "intraday": "01:00 AM - 06:00 PM",
+            "description": "Chandni Chowk Market",
+            "transport": "On Feet ",
+            "tourist_spot": "Chandni Chowk"
+        },
+        {
+            "day": "2",
+            "intraday": "09:00 AM - 06:00 PM",
+            "description": "India Gate",
+            "transport": "Bus",
+            "tourist_spot": "Central Secretrate"
+        }
+    ],
+    "tour_price": "700 Rs",
+    "start_point": "Delhi Airport",
+    "end_point": "Delhi Airport",
+    "inclusive": "Transport, All meals, Entry Fee",
+    "exclusive": "Shoping, Drink",
+    "cancelation_policy": "Delhi Airport",
+    "restrictions": "Transport, All meals, Entry Fee",
+    "notes": "Shoping, Drink",
+    "photo": null
+}
