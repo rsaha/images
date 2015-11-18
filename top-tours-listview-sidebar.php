@@ -225,10 +225,9 @@ ul.rating {
                                                     <a href="">	<img class="img-responsive" style="height:80px; width:65px;" src="{{lodge.Media.Image[0]}}" alt="Hotel" /></a>
 												</span>
 											<h5><a href="#">{{lodge.Address}}</a></h5>
-											
-												<span  style="" class="" >{{lodge.Description}}</span>
                                                 <span  style="" class="" >Coming Soon from our partners</span><br><br>
-                                                <a href="#" style="margin-left:110px;"> <input type="submit" name="submit" class="btn btn-primary  marb20" value="Explore" /></a>
+                                                <a href="#" style="margin-left:110px;"> 
+                                                    <input type="submit" name="submit" class="btn btn-primary  marb20" value="Coming Soon" /></a>
 											</li> 
 										
 										</ul>

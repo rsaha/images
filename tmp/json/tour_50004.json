@@ -36,8 +36,11 @@
     "restrictions": "Transport, All meals, Entry Fee",
     "notes": "Shoping, Drink",
     "photo": [
-        "tmp\/media_image\/10001_50004_1.jpg",
-        "tmp\/media_image\/10001_50004_2.jpg",
-        "tmp\/media_image\/10001_50004_3.jpg"
+        "https:\/\/storage.googleapis.com\/guidedgateway_media\/50004_Profile_1.jpg",
+        "https:\/\/storage.googleapis.com\/guidedgateway_media\/50004_Profile_2.jpg",
+        "https:\/\/storage.googleapis.com\/guidedgateway_media\/50004_Profile_3.jpg",
+        "https:\/\/storage.googleapis.com\/guidedgateway_media\/50004_Profile_4.jpg",
+        "https:\/\/storage.googleapis.com\/guidedgateway_media\/50004_Profile_5.jpg",
+        "https:\/\/storage.googleapis.com\/guidedgateway_media\/50004_Profile_6.jpg"
     ]
 }

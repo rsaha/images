@@ -45,7 +45,11 @@
             "cancelation_policy": "Delhi Airport",
             "restrictions": "Transport, All meals, Entry Fee",
             "notes": "Shoping, Drink",
-            "photo": null
+            "photo": [
+                "https:\/\/storage.googleapis.com\/guidedgateway_media\/50001_Profile_1.jpg",
+                "https:\/\/storage.googleapis.com\/guidedgateway_media\/50001_Profile_2.jpg",
+                "https:\/\/storage.googleapis.com\/guidedgateway_media\/50001_Profile_3.jpg"
+            ]
         },
         {
             "tour_id": "50002",
@@ -99,9 +103,12 @@
             "restrictions": "Transport, All meals, Entry Fee",
             "notes": "Shoping, Drink",
             "photo": [
-                "tmp\/media_image\/10001_50002_1.jpg",
-                "tmp\/media_image\/10001_50002_2.jpg",
-                "tmp\/media_image\/10001_50002_3.jpg"
+                "https:\/\/storage.googleapis.com\/guidedgateway_media\/50002_Profile_1.jpg",
+                "https:\/\/storage.googleapis.com\/guidedgateway_media\/50002_Profile_2.jpg",
+                "https:\/\/storage.googleapis.com\/guidedgateway_media\/50002_Profile_3.jpg",
+                "https:\/\/storage.googleapis.com\/guidedgateway_media\/50002_Profile_4.jpg",
+                "https:\/\/storage.googleapis.com\/guidedgateway_media\/50002_Profile_5.jpg",
+                "https:\/\/storage.googleapis.com\/guidedgateway_media\/50002_Profile_6.jpg"
             ]
         },
         {
@@ -142,9 +149,9 @@
             "restrictions": "Transport, All meals, Entry Fee",
             "notes": "Shoping, Drink",
             "photo": [
-                "tmp\/media_image\/10001_50003_1.jpg",
-                "tmp\/media_image\/10001_50003_2.jpg",
-                "tmp\/media_image\/10001_50003_3.jpg"
+                "https:\/\/storage.googleapis.com\/guidedgateway_media\/50003_Profile_1.jpg",
+                "https:\/\/storage.googleapis.com\/guidedgateway_media\/50003_Profile_2.jpg",
+                "https:\/\/storage.googleapis.com\/guidedgateway_media\/50003_Profile_3.jpg"
             ]
         },
         {
@@ -185,9 +192,12 @@
             "restrictions": "Transport, All meals, Entry Fee",
             "notes": "Shoping, Drink",
             "photo": [
-                "tmp\/media_image\/10001_50004_1.jpg",
-                "tmp\/media_image\/10001_50004_2.jpg",
-                "tmp\/media_image\/10001_50004_3.jpg"
+                "https:\/\/storage.googleapis.com\/guidedgateway_media\/50004_Profile_1.jpg",
+                "https:\/\/storage.googleapis.com\/guidedgateway_media\/50004_Profile_2.jpg",
+                "https:\/\/storage.googleapis.com\/guidedgateway_media\/50004_Profile_3.jpg",
+                "https:\/\/storage.googleapis.com\/guidedgateway_media\/50004_Profile_4.jpg",
+                "https:\/\/storage.googleapis.com\/guidedgateway_media\/50004_Profile_5.jpg",
+                "https:\/\/storage.googleapis.com\/guidedgateway_media\/50004_Profile_6.jpg"
             ]
         },
         {

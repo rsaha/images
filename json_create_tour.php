@@ -9,7 +9,7 @@ $mediaImagePath = parse_ini_file('config.ini',true)['mediaImagePath'];
 //==========================================================================
         try
 		{
-			$rs = mysql_query("SELECT `tbl_tours`.`tour_id`, `tbl_tours`.`tour_category_id`, `tbl_tours`.`user_id`, `tbl_user_type`.`user_type_id`,  `tbl_tours`.`tour_title`, `tbl_tours`.`tour_location`, `tbl_tours`.`tour_territory`, `tbl_tours`.`tour_description`, `tbl_tours`.`tour_duration`, `tbl_tours`.`tour_price`, `tbl_tours`.`start_point`, `tbl_tours`.`end_point`, `tbl_tours`.`inclusive`, `tbl_tours`.`exclusive`, `tbl_tours`.`cancelation_policy`, `tbl_tours`.`restrictions`, `tbl_tours`.`notes` FROM `tbl_tours` JOIN `tbl_user_profile` ON `tbl_user_profile`.`user_id`=`tbl_tours`.`user_id` JOIN `tbl_user_type` ON `tbl_user_type`.`user_type_id`=`tbl_user_profile`.`user_type_id` WHERE `tbl_user_type`.`user_type_id`= 1");
+			$rs = mysql_query("SELECT `tbl_tours`.`tour_id`, `tbl_tours`.`tour_category_id`, `tbl_tours`.`user_id`, `tbl_user_type`.`user_type_id`,  `tbl_tours`.`tour_title`, `tbl_tours`.`tour_location`, `tbl_tours`.`tour_territory`, `tbl_tours`.`tour_description`, `tbl_tours`.`tour_duration`, `tbl_tours`.`tour_price`, `tbl_tours`.`start_point`, `tbl_tours`.`end_point`, `tbl_tours`.`inclusive`, `tbl_tours`.`exclusive`, `tbl_tours`.`cancelation_policy`, `tbl_tours`.`restrictions`, `tbl_tours`.`notes`, `tbl_tours`.`created_added` FROM `tbl_tours` JOIN `tbl_user_profile` ON `tbl_user_profile`.`user_id`=`tbl_tours`.`user_id` JOIN `tbl_user_type` ON `tbl_user_type`.`user_type_id`=`tbl_user_profile`.`user_type_id` WHERE `tbl_user_type`.`user_type_id`= 1");
 		}
 		catch (Exception $e)
 		{
@@ -32,7 +32,7 @@ unset($_SESSION['tType']);
         $oldStatus=$roww['status'];
             try
             {
-                $rs = mysql_query("SELECT `tour_id`, `user_id`, `tour_category_id`, `tour_title`, `tour_location`, `tour_territory`, `tour_description`, `tour_duration`, `tour_price`, `start_point`, `end_point`, `inclusive`, `exclusive`, `cancelation_policy`, `restrictions`, `notes` FROM `tbl_tours` WHERE `tour_id` = ".$tour_ID."");
+                $rs = mysql_query("SELECT `tour_id`, `user_id`, `tour_category_id`, `tour_title`, `tour_location`, `tour_territory`, `tour_description`, `tour_duration`, `tour_price`, `start_point`, `end_point`, `inclusive`, `exclusive`, `cancelation_policy`, `restrictions`, `notes`, `created_added` FROM `tbl_tours` WHERE `tour_id` = ".$tour_ID."");
             }
             catch (Exception $e)
             {
@@ -56,8 +56,6 @@ unset($_SESSION['tType']);
             unset($fp);
             unset($rs);
             //unset(myCode($rs));
-        
-    
 }
 //==========================================================================
 function myCode2($rs)
@@ -95,30 +93,36 @@ while( $row1 = mysql_fetch_array( $rs ) )
         $tour_category = $row5[ 'tour_category_title' ];
     }
     
+    $created_added = $row1['created_added'];
     $mediaImagePath = parse_ini_file('config.ini',true)['mediaImagePath'];
 	$cntt=1;
-    $rs6 = mysql_query("SELECT `picture_media_id`, `tour_picture` FROM `tbl_tour_media_pictures` WHERE `tour_id` = '".$row1[ 'tour_id' ]."'");
+    if($created_added == 0)
+    {
+        $rs6 = mysql_query("SELECT `picture_media_id`, `tour_picture` FROM `tbl_tour_media_pictures` WHERE `tour_id` = '".$row1[ 'tour_id' ]."'");
+    }
+    else
+    {
+        $rs6 = mysql_query("SELECT `tbl_tour_media_pictures`.`picture_media_id`, `tbl_tour_media_pictures`.`tour_id`, `tbl_tour_media_pictures`.`tour_picture`, `tbl_tours`.`created_added` FROM `tbl_tour_media_pictures` JOIN `tbl_tours` ON `tbl_tours`.`tour_id` = '".$row1[ 'tour_id' ]."' WHERE `tbl_tour_media_pictures`.`tour_id` = '".$row1[ 'tour_id' ]."' OR `tbl_tour_media_pictures`.`tour_id` = `tbl_tours`.`created_added`");
+    }
     $rows6 = array();
     if(mysql_num_rows($rs6) > 0)
     {
         while($row6 = mysql_fetch_array( $rs6 ))
 		{
             $data = base64_decode($row6[ 'tour_picture' ]);
-            $mdeaPath = $mediaImagePath . $row1[ 'user_id' ]. '_'.$row1[ 'tour_id' ].'_'.$cntt.'.jpg';
-            file_put_contents($mdeaPath, $data);
+            $mdeaPathToSave = $mediaImagePath . $row1[ 'user_id' ]. '_'.$row1[ 'tour_id' ].'_'.$cntt.'.jpg';
+            $mdeaPathToCloud = "https://storage.googleapis.com/guidedgateway_media/" . $row1[ 'tour_id' ].'_Profile_'.$cntt.'.jpg';
+            file_put_contents($mdeaPathToSave, $data);
             $cntt=$cntt+1;
-        
-            array_push($rows6, $mdeaPath);
-
+            
+            array_push($rows6, $mdeaPathToCloud);
         }
-       // $photo = "https://storage.googleapis.com/guidedgateway_media/".$row1[ 'tour_id' ]."_profile.jpg";
     }
-    else 
+    else
     {
         $rows6 = null;
     }
     
-	
 		$rows1[] = array( 
 		'tour_id' => $row1[ 'tour_id' ], 
         'guide_id' => $row1[ 'user_id' ],

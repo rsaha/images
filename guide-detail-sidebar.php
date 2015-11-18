@@ -209,6 +209,7 @@
                                         <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Add comment" />
                                     </form>
                                     <h5 class="text-upper">No previous reviews available, Be the first</h5>
+
                                 </div>
                             </div>
                             <!-- END #page -->
@@ -250,7 +251,7 @@
                                                 <div class="row">
                                                 <div class="panel panel-default">
                                                     <div class="panel-heading">
-                                                        <a class="panel-title collapsed" data-toggle="collapse" href="#collapseTwo"> Contact Us </a>
+                                                        <a class="panel-title collapsed" data-toggle="collapse" href="#collapseTwo"> Contact For Custom Tour </a>
                                                     </div>
                                                     <div id="collapseTwo" class="panel-collapse collapse">
                                                         <div class="panel-body">
@@ -258,15 +259,14 @@
 
                                                                     <!-- Sidebar Newsletter -->
                                                                     <div class="styled-box gray">
-                                                                        <h3 class="text-upper">Contact for Custom tour</h3>
                                                                         <form action="contactGuideMail.php" method="post">
                                                                             <label>Email Address</label>
                                                                             <input type="text" name="email" class="form-control input-style1 marb20" value="Enter Email Address.." onfocus="if (this.value == 'Enter Email Address') { this.value = ''; }" onblur="if (this.value == '') { this.value = 'Enter Email Address'; }" />
                                                                             <label>Name</label>
-                                                                            <input type="text" name="name" class="form-control input-style1 marb20" value="Enter Full Name.." />
+                                                                            <input type="text" name="name" class="form-control input-style1 marb20" placeholder="Enter Full Name.." />
                                                                             <label>Mobile Number</label>
-                                                                            <input type="text" name="mobile" class="form-control input-style1 marb20" value="Enter Mobile Number.." />
-                                                                            <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Send" />
+                                                                            <input type="text" name="mobile" class="form-control input-style1 marb20" placeholder="Enter Mobile Number.." />
+                                                                            <input type="submit" name="submit" class="btn btn-primary text-upper marb20" placeholder="Send" />
                                                                         </form>
                                                                     </div>
 
@@ -351,7 +351,6 @@
                     </div>
                 </div>
                 <!-- END .main-contents -->
-
                 <!-- START footer -->
                 <?php include('MasterTopFooter.php'); ?>
                     <!-- END footer -->

@@ -43,5 +43,9 @@
     "cancelation_policy": "Delhi Airport",
     "restrictions": "Transport, All meals, Entry Fee",
     "notes": "Shoping, Drink",
-    "photo": null
+    "photo": [
+        "https:\/\/storage.googleapis.com\/guidedgateway_media\/50001_Profile_1.jpg",
+        "https:\/\/storage.googleapis.com\/guidedgateway_media\/50001_Profile_2.jpg",
+        "https:\/\/storage.googleapis.com\/guidedgateway_media\/50001_Profile_3.jpg"
+    ]
 }

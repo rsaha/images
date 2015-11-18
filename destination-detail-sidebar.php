@@ -167,7 +167,8 @@ ul.rating {
 										<ul class=" list-unstyled">
 											<li ng-repeat="k in alltours" ng-show="$index<4">
 												<span class="rc-post-image">
-                                                    <a href="tour_detail_sidebar.php#?id={{k.tour_id}}"	>	<img class="img-responsive" src="{{'k.photo' ==''||'k.photo' ? 'img/SAMPLE_TOUR.jpg' : k.photo}}" alt="Tour x" /></a>
+                                                    <a href="tour_detail_sidebar.php#?id={{k.tour_id}}"	>	
+                                                        <img class="img-responsive" src="{{'k.photo' == null ? 'img/SAMPLE_TOUR.jpg' : k.photo}}" alt="Tour Image" /></a>
 												</span>
 												<h5><a href="#">{{k.tour_title}}</a></h5>
 												<span class="rc-post-date small">Starting Price&nbsp;{{k.tour_price}}</span><br/>
@@ -182,7 +183,8 @@ ul.rating {
 										<ul class="list-unstyled">
 											<li ng-repeat="z in guides" ng-show="$index<18 && z.photo!=null">
 												<span class="rc-post-image">
-                                                    <a href="guide-detail-sidebar.php#?id2={{z.id}}"	>	<img class="img-responsive" style="height:70px; width:60px;" src="{{z.photo==null ? 'img/SAMPLE_TOUR.jpg' :z.photo}}" alt="Recent Post 2" /></a>
+                                                    <a href="guide-detail-sidebar.php#?id2={{z.id}}">	
+                                                        <img class="img-responsive" style="height:70px; width:60px;" src="{{z.photo==null ? 'img/SAMPLE_TOUR.jpg' :z.photo}}" alt="Guide Image" /></a>
 												</span>
 											<h5><a href="#">{{z.name}}</a></h5>
 												<h5><a href="#">{{z.guide_territory[0]}}</a></h5>
@@ -228,12 +230,17 @@ ul.rating {
 								</div>
 							</div>
 							
-								<div class="sidebar-widget" ng-controller="placesCtrl">
-								<!-- Sidebar Flickr Gallery -->
+								<!-- div class="sidebar-widget" ng-controller="placesCtrl">
 								<h3 class="text-upper">Destination Gallery</h3>
 								<ul class="flickr-gal list-unstyled">
 									<li ng-repeat="z in places"><img style="height:70px; width:120px;" class="img-responsive" src="{{z.Media.Image[0]}}" alt="image" /></li>
 									
+								</ul>
+							</div -->
+                            <div class="sidebar-widget" ng-controller="placesCtrl">
+								<!-- Sidebar Flickr Gallery -->
+								<h3 class="text-upper">Pinterest Gallery</h3>
+								<a data-pin-do="embedBoard" data-pin-board-width="400" data-pin-scale-height="240" data-pin-scale-width="80" href="https://www.pinterest.com/guidedgateway/northern-region/"></a>
 								</ul>
 							</div>
 						</aside>
