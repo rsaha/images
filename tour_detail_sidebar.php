@@ -276,23 +276,6 @@ ul.rating {
 							
 							<div class="col-md-12" ng-controller="tourDetailCtrl" id="mapLocation" hello-maps="" latitude="{{latit}}" longitude="{{longit}}" style="width: 100%; height: 300px;">
 							</div>
-                        <div class="about-author gray box-shadow1">
-<!--
-								<span class="author-image">
-									<img src="img/feature_guide_tour.jpg" alt="Reviewed Tour" />
-								</span>
--->
-								<h5>What to Remember <small></small></h5>
-								<p></p>
-<ul>
-    <li>Please note that this is a walking tour</li>
-    <li>The visit to the Anne Frank House is self-guided</li>
-    <li>Tour plan is flexible and subject to changes depending on the guide, the weather, and the time</li>
-    <li>The visit to the local market doesn't take place on Sundays</li>
-</ul>
-
-								
-							</div>
 						</div>
                     
                     
@@ -316,11 +299,11 @@ ul.rating {
 										<ul class="rc-posts-list list-unstyled">
 											<li ng-repeat="x in tours" ng-show="$index<4">
 												<span class="rc-post-image">
-                                                    <a href="tour_detail_sidebar.php#?id={{x.tour_id}}"	>	<img class="img-responsive"  src="{{x.photo ==null ? 'img/SAMPLE_TAJ.jpg' : x.photo}}" alt="Tour 1" /></a>
+                                                    <a href="tour_detail_sidebar.php#?id={{x.tour_id}}"	>	
+                                                        <img class="img-responsive"  src="{{x.photo ==null ? 'img/SAMPLE_TAJ.jpg' : x.photo}}" alt="Tour 1" /></a>
 												</span>
 												<h5>{{x.tour_title}}</h5>
-												<span class="rc-post-date small">Starting Price&nbsp;{{x.tour_price}}</span><br/>
-                                               <a href="booking-form.php#?id1=0&id2={{x.tour_id}}"> <input type="submit" name="submit" class="btn btn-primary  marb20" value="Book Now" /></a>
+												<span class="rc-post-date small">Starting Price&nbsp;{{x.tour_price}}</span>
 											</li>
 										</ul>
 									</div>
@@ -354,7 +337,8 @@ ul.rating {
 											
 												<span  style="" class="" >{{lodge.Description}}</span>
                                                 <span  style="" class="" >Coming Soon from our partners</span><br><br>
-                                                 <a href="#" style="margin-left:110px;"> <input type="submit" name="submit" class="btn btn-primary  marb20" value="Explore" /></a>
+                                                 <a href="#" style="margin-left:110px;"> 
+                                                     <input type="submit" name="submit" class="btn btn-primary  marb20" value="Explore" /></a>
 											</li> 
 										
 										</ul>
