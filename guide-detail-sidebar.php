@@ -149,7 +149,7 @@
                                 <!-- START .post-data -->
                                 <div class="post-data">
                                     <div class="plan-image">
-                                        <img class="img-responsive" src="{{guidesdetail.cover_photo ==null ? 'img/SAMPLE_TAJ.jpg' : guidesdetail.photo}}" alt="Kolkata, WB" />
+                                        <img class="img-responsive" src="{{guidesdetail.cover_photo == null ? 'img/SAMPLE_TAJ.jpg' : guidesdetail.photo}}" alt="Guide Cover" />
                                     </div>
 
                                     <ul class="featured-btm single-ft-btm list-unstyled box-shadow1">
@@ -235,9 +235,8 @@
 												</span>
                                                         <h5><a href="#">{{x.tour_title}}</a></h5>
                                                         <span class="rc-post-date small">Starting Price&nbsp;{{x.tour_price}}</span>
-                                                        <br/>
-                                                        <a href="booking-form.php#?id1=0&&id2={{x.tour_id}}">
-                                                            <input type="submit" name="submit" class="btn btn-primary  marb20" value="Book Now" />
+                                                        <a href="tour_detail_sidebar.php#?id={{x.tour_id}}">
+                                                            <input type="submit" name="submit" class="btn btn-primary  marb20" value="Explore" />
                                                         </a>
                                                     </li>
                                                 </ul>
@@ -275,7 +274,7 @@
                                             <ul class="list-unstyled">
                                                 <li ng-repeat="z in TopGuides" ng-show="$index<17 && z.photo!=null">
                                                     <span class="rc-post-image">
-                                                    <a href="guide-detail-sidebar.php#?id2={{z.id}}" target="_blank"><img class="img-responsive" style="height:70px; width:60px;" src="{{z.photo==null ? 'img/SAMPLE_TOUR.jpg' :z.photo}}" alt="Guide Image" /></a>
+                                                    <a href="guide-detail-sidebar.php#?id2={{z.id}}" target="_blank"><img class="img-responsive" style="height:70px; width:60px;" src="{{z.photo==null ? 'img/userDefaultIcon.png' :z.photo}}" alt="Guide Image" /></a>
 												</span>
                                                     <h5><a href="#">{{z.name}}</a></h5>
                                                     <h5><a href="#">{{z.guide_territory[0]}}</a></h5>
