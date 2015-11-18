@@ -1,0 +1,60 @@
+{
+    "tour_id": "50002",
+    "guide_id": "10001",
+    "tour_category": "General",
+    "tour_title": "3 Days in Uttar Pradesh",
+    "tour_location": "Uttar Pradesh",
+    "tour_territory": [
+        "Uttar Pradesh",
+        "Delhi",
+        "West Bangal"
+    ],
+    "tour_description": "Visiting Uttar Pradesh",
+    "tour_duration": "3",
+    "tour_itinerary": [
+        {
+            "day": "1",
+            "intraday": "09:00 AM - 01:00 PM",
+            "description": "Visiting Red Fort",
+            "transport": "Bus",
+            "tourist_spot": "Red Fort"
+        },
+        {
+            "day": "1",
+            "intraday": "01:00 AM - 06:00 PM",
+            "description": "Chandni Chowk Market",
+            "transport": "On Feet ",
+            "tourist_spot": "Chandni Chowk"
+        },
+        {
+            "day": "2",
+            "intraday": "09:00 AM - 06:00 PM",
+            "description": "India Gate",
+            "transport": "Bus",
+            "tourist_spot": "Central Secretrate"
+        },
+        {
+            "day": "3",
+            "intraday": "09:00 AM - 06:00 PM",
+            "description": "Humayu Tomb",
+            "transport": "Bus",
+            "tourist_spot": "Pragti Maidan"
+        }
+    ],
+    "tour_price": "700 Rs",
+    "start_point": "Delhi Airport",
+    "end_point": "Delhi Airport",
+    "inclusive": "Transport, All meals, Entry Fee",
+    "exclusive": "Shoping, Drink",
+    "cancelation_policy": "Delhi Airport",
+    "restrictions": "Transport, All meals, Entry Fee",
+    "notes": "Shoping, Drink",
+    "photo": [
+        "https:\/\/storage.googleapis.com\/guidedgateway_media\/50002_Profile_1.jpg",
+        "https:\/\/storage.googleapis.com\/guidedgateway_media\/50002_Profile_2.jpg",
+        "https:\/\/storage.googleapis.com\/guidedgateway_media\/50002_Profile_3.jpg",
+        "https:\/\/storage.googleapis.com\/guidedgateway_media\/50002_Profile_4.jpg",
+        "https:\/\/storage.googleapis.com\/guidedgateway_media\/50002_Profile_5.jpg",
+        "https:\/\/storage.googleapis.com\/guidedgateway_media\/50002_Profile_6.jpg"
+    ]
+}
