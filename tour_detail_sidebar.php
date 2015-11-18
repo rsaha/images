@@ -330,7 +330,7 @@ ul.rating {
 											<li ng-repeat="z in guides" ng-show="$index<4 ">
 												<span class="rc-post-image">
                                                     <a href="guide-detail-sidebar.php#?id2={{z.id}}" target="_blank">	
-                                                        <img class="img-responsive" style="height:80px; width:65px;" src="{{z.photo==null ? 'img/SAMPLE_TOUR.jpg' :z.photo}}" alt="Recent Post 2" />
+                                                        <img class="img-responsive" style="height:80px; width:65px;" src="{{z.photo==null ? 'img/userDefaultIcon.png' :z.photo}}" alt="Recent Post 2" />
                                                     </a>
 												</span>
 											<h5><a href="#">{{z.name}}</a></h5>
