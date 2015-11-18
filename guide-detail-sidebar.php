@@ -150,9 +150,6 @@
                                 <div class="post-data">
                                     <div class="plan-image">
                                         <img class="img-responsive" src="{{guidesdetail.cover_photo ==null ? 'img/SAMPLE_TAJ.jpg' : guidesdetail.photo}}" alt="Kolkata, WB" />
-
-
-
                                     </div>
 
                                     <ul class="featured-btm single-ft-btm list-unstyled box-shadow1">
@@ -161,7 +158,7 @@
                                         <li class="fa fa-map-marker"><a class=""> {{guidesdetail.city}}</a></li>
                                         <li class="fa fa-hourglass"><a class=""> {{guidesdetail.experiance_in_year}}</a></li>
                                         <li class="fa fa-book"><a class=""> {{guidesdetail.guide_interest}}</a></li>
-                                        <!--									<li class="post-date"><span class="alignright" star-rating rating-value="tg.ReviewSummary.Star" ></span></li>-->
+                                        <!--<li class="post-date"><span class="alignright" star-rating rating-value="tg.ReviewSummary.Star" ></span></li>-->
 
                                     </ul>
                                 </div>
@@ -171,10 +168,7 @@
                                 </a>
                                 <!-- START .post-content -->
                                 <article class="post-content">
-                                    <p>{{guidesdetail.guide_summary}}Guide is professional. He is trained, examined and registered with the Institute of Tourist Guiding which awards them the highly acclaimed Blue Badge. Have further professional, academic and other specialist qualifications to further illuminate your tour.</p>
-                                    <p>
-
-                                        He provide a number of example tours on our site, but we can completely customise to suit your needs. We cover many different languages - between them, our guide can speak over 40 different languages.</p>
+                                    <p>{{guidesdetail.guide_summary}}</p>
                                     <p>
                                         <img class="alignleft" src="img/feature_detail_tour.jpg" alt="Top Tour" />
                                         <br>
