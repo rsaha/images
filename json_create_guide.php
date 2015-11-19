@@ -138,7 +138,9 @@ function myCode1($rs)
 				'rating'=> rand ( 1 , 5 ),
 				'TopReviewComment' => $randomTopReviewComment
 			  );
-			
+            
+            
+            
            
             
             if($row1['guide_profile_pic']==null)
@@ -147,27 +149,40 @@ function myCode1($rs)
             }
             else
             {
-                $photo = "https://storage.googleapis.com/guidedgateway_media/".$row1[ 'mobileNo' ]."_profile.jpg";
-//                $profileImagePath = parse_ini_file('config.ini',true)['imagePath'];
-//                //$photo = null;
-//                if (file_exists($profileImagePath . $row1[ 'mobileNo' ]."_profile.jpg"))
-//                {
-//                    $photo = "https://storage.googleapis.com/guidedgateway_media/".$row1[ 'mobileNo' ]."_profile.jpg";
-//                } 
-//                else if (file_exists($profileImagePath . $row1[ 'mobileNo' ]."_profile.jpeg")) 
-//                {
-//                    $photo = "https://storage.googleapis.com/guidedgateway_media/".$row1[ 'mobileNo' ]."_profile.jpeg";
-//                } 
-//                else if (file_exists($profileImagePath . $row1[ 'mobileNo' ]."_profile.png")) 
-//                {
-//                    $photo = "https://storage.googleapis.com/guidedgateway_media/".$row1[ 'mobileNo' ]."_profile.png";
-//                } 
-//                else if (file_exists($profileImagePath . $row1[ 'mobileNo' ]."_profile.gif")) 
-//                {
-//                    $photo = "https://storage.googleapis.com/guidedgateway_media/".$row1[ 'mobileNo' ]."_profile.gif";
-//                } else {
-//                    $photo = null;
-//                }
+                $photoData = base64_decode($row1['guide_profile_pic']);
+                $photoToSave = "tmp/" . $row1[ 'mobileNo' ].'_profile.jpg';
+                $photo = "https://storage.googleapis.com/guidedgateway_media/" . $row1[ 'mobileNo' ].'_profile.jpg';
+                file_put_contents($photoToSave, $photoData);
+
+                //$photo = "https://storage.googleapis.com/guidedgateway_media/".$row1[ 'mobileNo' ] . "_profile.jpg";
+            }
+            
+             if($row1['guide_Cover_pic']==null)
+            {
+                $cover = null;
+            }
+            else
+            {
+                $coverData = base64_decode($row1['guide_Cover_pic']);
+                $coverToSave = "tmp/" . $row1[ 'mobileNo' ].'_cover.jpg';
+                $cover = "https://storage.googleapis.com/guidedgateway_media/" . $row1[ 'mobileNo' ].'_cover.jpg';
+                file_put_contents($coverToSave, $coverData);
+                
+                //$photo = "https://storage.googleapis.com/guidedgateway_media/".$row1[ 'mobileNo' ] . "_profile.jpg";
+            }
+            
+             if($row1['license_Image']==null)
+            {
+                $cover = null;
+            }
+            else
+            {
+                $licenceData = base64_decode($row1['license_Image']);
+                $licenceToSave = "tmp/" . $row1[ 'mobileNo' ].'_licence.jpg';
+                $licence = "https://storage.googleapis.com/guidedgateway_media/" . $row1[ 'mobileNo' ].'_licence.jpg';
+                file_put_contents($licenceToSave, $licenceData);
+                
+                //$photo = "https://storage.googleapis.com/guidedgateway_media/".$row1[ 'mobileNo' ] . "_profile.jpg";
             }
             
             $guideTerritorys = $row1['guide_territory'];
@@ -181,6 +196,8 @@ function myCode1($rs)
 			'id'=> $row1[ 'user_id' ],             
 			'name' => $row1[ 'f_name' ]." ".$row1[ 'l_name' ],
 			'photo' => $photo,
+            'cover' => $cover,
+            'licence' => $licence,
 			'email'=> $row1[ 'email' ], 
 			'mobileNo' => $row1[ 'mobileNo' ], 
 			'gender' => $row1[ 'gender' ],

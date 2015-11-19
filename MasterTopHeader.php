@@ -54,7 +54,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-3">
-                            <a id="site-logo" href="#">
+                            <a id="site-logo" href="index.php">
                                 <img src="img/logo.png" alt="Guided Gateway" />
                             </a>
 

@@ -130,7 +130,6 @@
 							</section> -->
                     </div>
                 </div>
-
             </div>
             <!-- END #page-header -->
             <!-- <div class="main-contents col-md-8 col-md-offset-2" id="searchDiv">
@@ -221,7 +220,7 @@
                                                 <span class="rc-post-date small">Starting Price&nbsp;{{x.tour_price}}</span>
                                                 <br/>
                                                 <a ng-href="booking-form.php#?id1=0&&id2={{x.tour_id}}">
-                                                    <input type="submit" name="submit" class="btn btn-primary  marb20" value="Book Now" />
+                                                    <input type="submit" name="submit" class="pull-right btn btn-sm btn-primary  marb20" value="Book Now" />
                                                 </a>
                                             </li>
                                         </ul>
@@ -240,7 +239,7 @@
                                                 <span class="rc-post-date small">Best Time to Visit:&nbsp;{{k.BestTimeToVisit}}</span>
                                                 <br/>
                                                 <a ng-href="destination-detail-sidebar.php#?id3={{k.ID}}">
-                                                    <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Explore" />
+                                                    <input type="submit" name="submit" class="pull-right btn btn-sm btn-primary text-upper marb20" value="Explore" />
                                                 </a>
                                             </li>
                                         </ul>
@@ -260,7 +259,7 @@
                                                 <br>
                                                 <br>
                                                 <a href="#" style="margin-left:110px;">
-                                                    <input type="submit" name="submit" class="btn btn-primary  marb20" value="Coming Soon" />
+                                                    <input type="submit" name="submit" class="pull-right btn btn-sm btn-primary  marb20" value="Coming Soon" />
                                                 </a>
                                             </li>
 

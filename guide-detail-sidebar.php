@@ -228,64 +228,65 @@
                                         <div class="tab-pane active" style="" id="toptours" ng-controller="TourControl">
                                             <div class="col-md-12">
                                                 <div class="row">
-                                                <ul class="rc-posts-list list-unstyled">
-                                                    <li ng-repeat="x in alltours | filter:{ guide_id:idn }" ng-if="x.guide_id==idn" ng-show="$index<4">
-                                                        <span class="rc-post-image">
+                                                    <div class="col-md-12">
+                                                        <ul class="list-unstyled">
+                                                            <li ng-repeat="x in alltours | filter:{ guide_id:idn }" ng-if="x.guide_id==idn" ng-show="$index<4">
+                                                                <span class="rc-post-image">
                                                     <a href="tour_detail_sidebar.php#?id={{x.tour_id}}"	><img class="img-responsive" src="{{x.photo ==null ? 'img/SAMPLE_TAJ.jpg' : x.photo}}" alt="Tour 1" /></a>
 												</span>
-                                                        <h5><a href="#">{{x.tour_title}}</a></h5>
-                                                        <span class="rc-post-date small">Starting Price&nbsp;{{x.tour_price}}</span>
-                                                        <a href="tour_detail_sidebar.php#?id={{x.tour_id}}">
-                                                            <input type="submit" name="submit" class="btn btn-primary  marb20" value="Explore" />
-                                                        </a>
-                                                    </li>
-                                                </ul>
+                                                                <h5><a href="#">{{x.tour_title}}</a></h5>
+                                                                <span class="rc-post-date small">Starting Price&nbsp;{{x.tour_price}}</span>
+                                                                <a href="tour_detail_sidebar.php#?id={{x.tour_id}}">
+                                                                    <input type="submit" name="submit" class="pull-right btn btn-sm btn-primary  marb20" value="Explore" />
+                                                                </a>
+                                                            </li>
+                                                        </ul>
                                                     </div>
+                                                </div>
                                                 <div class="row">
-                                                <div class="panel panel-default">
-                                                    <div class="panel-heading">
-                                                        <a class="panel-title collapsed" data-toggle="collapse" href="#collapseTwo"> Contact For Custom Tour </a>
-                                                    </div>
-                                                    <div id="collapseTwo" class="panel-collapse collapse">
-                                                        <div class="panel-body">
-
-
-                                                                    <!-- Sidebar Newsletter -->
-                                                                    <div class="styled-box gray">
-                                                                        <form action="contactGuideMail.php" method="post">
-                                                                            <label>Email Address</label>
-                                                                            <input type="text" name="email" class="form-control input-style1 marb20" value="Enter Email Address.." onfocus="if (this.value == 'Enter Email Address') { this.value = ''; }" onblur="if (this.value == '') { this.value = 'Enter Email Address'; }" />
-                                                                            <label>Name</label>
-                                                                            <input type="text" name="name" class="form-control input-style1 marb20" placeholder="Enter Full Name.." />
-                                                                            <label>Mobile Number</label>
-                                                                            <input type="text" name="mobile" class="form-control input-style1 marb20" placeholder="Enter Mobile Number.." />
-                                                                            <input type="submit" name="submit" class="btn btn-primary text-upper marb20" placeholder="Send" />
-                                                                        </form>
-                                                                    </div>
-
-
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <a class="panel-title collapsed" data-toggle="collapse" href="#collapseTwo"> Contact For Custom Tour </a>
+                                                        </div>
+                                                        <div id="collapseTwo" class="panel-collapse collapse">
+                                                            <div class="panel-body">
+                                                                <!-- Sidebar Newsletter -->
+                                                                <div class="styled-box gray">
+                                                                    <form action="contactGuideMail.php" method="post">
+                                                                        <label>Email Address</label>
+                                                                        <input type="text" name="email" class="form-control input-style1 marb20" value="Enter Email Address.." onfocus="if (this.value == 'Enter Email Address') { this.value = ''; }" onblur="if (this.value == '') { this.value = 'Enter Email Address'; }" />
+                                                                        <label>Name</label>
+                                                                        <input type="text" name="name" class="form-control input-style1 marb20" placeholder="Enter Full Name.." />
+                                                                        <label>Mobile Number</label>
+                                                                        <input type="text" name="mobile" class="form-control input-style1 marb20" placeholder="Enter Mobile Number.." />
+                                                                        <input type="submit" name="submit" class="btn btn-primary text-upper marb20" placeholder="Send" />
+                                                                    </form>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                    </div>
                                             </div>
                                         </div>
                                         <div class="tab-pane" style="height:500px;" id="relatedGuides" ng-controller="TopGuideControl">
-                                            <ul class="list-unstyled">
-                                                <li ng-repeat="z in TopGuides" ng-show="$index<17 && z.photo!=null">
-                                                    <span class="rc-post-image">
+                                            <div class="col-md-12">
+                                                <ul class="list-unstyled">
+                                                    <li ng-repeat="z in TopGuides" ng-show="$index<17 && z.photo!=null">
+                                                        <span class="rc-post-image">
                                                     <a href="guide-detail-sidebar.php#?id2={{z.id}}" target="_blank"><img class="img-responsive" style="height:70px; width:60px;" src="{{z.photo==null ? 'img/userDefaultIcon.png' :z.photo}}" alt="Guide Image" /></a>
 												</span>
-                                                    <h5><a href="#">{{z.name}}</a></h5>
-                                                    <h5><a href="#">{{z.guide_territory[0]}}</a></h5>
-                                                    <!--												<h5>{{z.Speciality}}<span class="rc-post-date small">Speciality&nbsp;&nbsp;</span></h5>-->
-                                                    <span star-rating rating-value="z.review.Star" style="" class=""></span>
-                                                    <a href="booking-form.php#?id1={{z.id}}&&id2=0">
-                                                        <input type="submit" name="submit" class="btn btn-primary  marb20" value="Book Now" />
-                                                    </a>
-                                                </li>
-
-                                            </ul>
+                                                        <h5><a href="#">{{z.name}}</a></h5>
+                                                        <h5><a href="#">{{z.guide_territory[0]}}</a></h5>
+                                                        <!--												<h5>{{z.Speciality}}<span class="rc-post-date small">Speciality&nbsp;&nbsp;</span></h5>-->
+                                                        <span star-rating rating-value="z.review.Star" style="" class=""></span>
+                                                        <a href="booking-form.php#?id1={{z.id}}&&id2=0">
+                                                            <input type="submit" name="submit" class="pull-right btn btn-sm btn-primary  marb20" value="Book Now" />
+                                                        </a>
+                                                        <br>
+                                                        <br>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </div>
                                         <!-- END TAB 1 -->
 
@@ -325,7 +326,7 @@
                                     </div>
                                     <!-- END TAB CONTENT -->
                                 </div>
-                               
+
 
                                 <div class="sidebar-widget">
                                     <!-- Sidebar Flickr Gallery -->
