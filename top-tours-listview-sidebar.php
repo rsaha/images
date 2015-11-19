@@ -137,7 +137,7 @@ ul.rating {
 									<div class="tour-plans">
 										<div class="plan-image">
                                             <a ng-href="tour_detail_sidebar.php#?id={{data.tour_id}}">
-											<img class="img-responsive" style="height:360px;" ng-src="{{data.photo ==null ? 'img/SAMPLE_TAJ.jpg' : data.photo}}" alt="Tour image"/>
+											<img class="img-responsive" style="height:360px;" ng-src="{{data.photo ==null ? 'img/SAMPLE_TAJ.jpg' : data.photo[0]}}" alt="Tour image"/>
                                             </a>
 											<div class="offer-box">
 												<div class="offer-top">
