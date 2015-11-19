@@ -69,6 +69,20 @@ app.controller('TourControl',['$scope','$http','$location', function($scope, $ht
 				$scope.data = "error in fetching data";
 			});
 }]);
+    
+    app.controller('NewTour',['$scope','$http','$location', function($scope, $http,$location) {
+    var ids = $location.search().id2;
+    //$scope.idn=ids;
+  
+    $http.get("http://130.211.123.212/app/tours")
+    .success(function (response) {
+		$scope.alltours = response.Tours;
+		})
+	.error(function() {
+				$scope.data = "error in fetching data";
+			});
+}]);
+    
 app.directive('starRating', function () {
     return {
         restrict: 'A',

@@ -165,14 +165,15 @@ ul.rating {
 									<!-- START TAB 1 -->
 									<div class="tab-pane active" id="toptours"  ng-controller="tourCtrl">
 										<ul class=" list-unstyled">
-											<li ng-repeat="k in alltours" ng-show="$index<4">
+											<li ng-repeat="k in alltours" ng-show="$index<3">
 												<span class="rc-post-image">
                                                     <a href="tour_detail_sidebar.php#?id={{k.tour_id}}"	>	
                                                         <img class="img-responsive" src="{{'k.photo' == null ? 'img/SAMPLE_TOUR.jpg' : k.photo}}" alt="Tour Image" /></a>
 												</span>
 												<h5><a href="#">{{k.tour_title}}</a></h5>
-												<span class="rc-post-date small">Starting Price&nbsp;{{k.tour_price}}</span><br/>
-                                               <a href="booking-form.php#?id1=0&&id2={{k.tour_id}}"> <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Book Now" /></a>
+												<span class="rc-post-date small">Starting Price&nbsp;{{k.tour_price}}</span>
+                                               <a href="tour_detail_sidebar.php#?id={{k.tour_id}}"> 
+                                                   <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Explore" /></a>
 											</li>
 										</ul>
 									</div>
@@ -218,8 +219,8 @@ ul.rating {
 							
 							
 							
-							<div class="sidebar-widget">
-								<!-- Sidebar Newsletter -->
+							<!-- div class="sidebar-widget">
+								<!-- Sidebar Newsletter >
 								<div class="styled-box gray">
 									<h3 class="text-upper">Contact for Custom Tour</h3>
 									<form action="#" method="post">
@@ -228,7 +229,7 @@ ul.rating {
 										<input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Submit" />
 									</form>
 								</div>
-							</div>
+							</div -->
 							
 								<!-- div class="sidebar-widget" ng-controller="placesCtrl">
 								<h3 class="text-upper">Destination Gallery</h3>
