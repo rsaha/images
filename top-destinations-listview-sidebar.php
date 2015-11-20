@@ -199,7 +199,7 @@
                         <li ng-repeat="k in alltours" ng-show="$index<4">
                             <span class="rc-post-image">
                                                     <a ng-href="tour_detail_sidebar.php?id={{k.tour_id}}"	>	
-                                                        <img class="img-responsive" ng-src="{{'k.photo' == null ? 'img/SAMPLE_TOUR.jpg' : k.photo}}" alt="Tour Image" />
+                                                        <img class="img-responsive" ng-src="{{'k.photo' == null ? 'img/SAMPLE_TOUR.jpg' : k.photo[0]}}" alt="Tour Image" />
                                                     </a>
 												</span>
                             <h5><a ng-href="#">{{k.tour_title}}</a></h5>

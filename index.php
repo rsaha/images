@@ -182,7 +182,7 @@ ul.rating {
 							<a href="tour_detail_sidebar.php#?id={{x.tour_id}}">
 							<div class="ft-item"> 
 							<span class="ft-image">
-                                <img style="height:200px;" src="{{x.photo ==null ? 'img/SAMPLE_TAJ.jpg' : x.photo}}"   alt="Popular Tours" /> </span> 
+                                <img style="height:200px;" src="{{x.photo ==null ? 'img/SAMPLE_TAJ.jpg' : x.photo[0]}}"   alt="Popular Tours" /> </span> 
 							   <div class="ft-data" style="height:45px;font-size:11px;" >
 							     <span  style="color:black;" class="text-upper fa fa-tag" href="#">{{x.tour_category}}</span>
 								   <span style="color:black;" class="fa aligncenter wrapword">{{x.tour_title}}</span>

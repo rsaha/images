@@ -232,7 +232,7 @@
                                                         <ul class="list-unstyled">
                                                             <li ng-repeat="x in alltours | filter:{ guide_id:idn }" ng-if="x.guide_id==idn" ng-show="$index<4">
                                                                 <span class="rc-post-image">
-                                                    <a href="tour_detail_sidebar.php#?id={{x.tour_id}}"	><img class="img-responsive" src="{{x.photo ==null ? 'img/SAMPLE_TAJ.jpg' : x.photo}}" alt="Tour 1" /></a>
+                                                    <a href="tour_detail_sidebar.php#?id={{x.tour_id}}"	><img class="img-responsive" src="{{x.photo ==null ? 'img/SAMPLE_TAJ.jpg' : x.photo[0]}}" alt="Tour 1" /></a>
 												</span>
                                                                 <h5><a href="#">{{x.tour_title}}</a></h5>
                                                                 <span class="rc-post-date small">Starting Price&nbsp;{{x.tour_price}}</span>
