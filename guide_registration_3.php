@@ -248,7 +248,7 @@ else
 														
 														
 														<div class="col-md-6">
-															<label style="font-size:14px; font-weight:bold">Other Experience</label>
+															<label style="font-size:14px; font-weight:bold">Experience</label>
 															<textarea class="form-control" name="OtherExperience" ></textarea>
 														</div>
 														
