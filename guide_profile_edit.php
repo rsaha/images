@@ -77,98 +77,95 @@
 		exit;
 	}
 ?>
-<html lang="en" dir="ltr">
+    <html lang="en" dir="ltr">
 
-	<!-- START head -->
-	<head>
-		<!-- Site meta charset -->
-		<meta charset="UTF-8">
-		
-		<!-- title -->
-		<title>Guide Profile | Guided Gateway</title>
-		
-		<!-- meta description -->
-		<meta name="description" content="Guided Gateway" />
-		
-		<!-- meta keywords -->
-		<meta name="keywords" content="Travel India Tourist Guide" />
-		
-		<!-- meta viewport -->
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-		
-		<!-- favicon -->
-		<link rel="icon" href="favicon.ico" type="image/x-icon" />
-		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-		
-		<!-- bootstrap 3 stylesheets -->
-		<link rel="stylesheet" type="text/css" href="bs3/css/bootstrap.css" media="all" />
-		<!-- template stylesheet -->
-		<link rel="stylesheet" type="text/css" href="css/styles.css" media="all" />
-		<!-- responsive stylesheet -->
-		<link rel="stylesheet" type="text/css" href="css/responsive.css" media="all" />
-		<!-- Load Fonts via Google Fonts API -->
-		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Karla:400,700,400italic,700italic" />
-		<!-- color scheme -->
-		<link rel="stylesheet" type="text/css" href="css/colors/color1.css" title="color1" />
-		
-		<style type="text/css" >
-		
-		.hovera a:hover
-		{
-		opacity:0.5;
-		filter:alpha(opacity=50);
-		}
-		
-		.hovera :hover .text
-		{
-		visibility:visible;
-		color:black;
-		}
-		
-		.hovera .text
-		{
-		position:relative;
-		bottom:100px;
-		left:0px;
-		visibility:hidden;
-		}
-		
-		.uploadImg{
-		background-color:#ff845e;
-		border:1px solid #fff;
-		font-weight:700;
-		font-size:18px;
-		color:#fff;
-		width:170px;
-		height:30px;
-		border-radius:3px;
-		padding:0px;
-		box-shadow:0 1px 1px 0 #a9a9a9;
-		}
-		
-		</style>
-	</head>
-	<!-- END head -->
+    <!-- START head -->
 
-	<!-- START body -->
-	<body>
-		<!-- START #wrapper -->
-		<div id="wrapper">
-			
-			
-			<?php include_once('MasterHeaderAfterLogin.php'); ?>
-			
-			
-			
-			 <div class="row">
-					   <center>
-						<div class="row">
-						<div class="hovera text-center" style="border: 0px solid black;">
-						<form action="uploadphp.php" enctype="multipart/form-data" method="post" id="formCover" name="formCover">
-							<table>
-								<tr>
-									<td>
-										<a href="" onclick="document.getElementById('file1').click(); return false">
+    <head>
+        <!-- Site meta charset -->
+        <meta charset="UTF-8">
+
+        <!-- title -->
+        <title>Guide Profile | Guided Gateway</title>
+
+        <!-- meta description -->
+        <meta name="description" content="Guided Gateway" />
+
+        <!-- meta keywords -->
+        <meta name="keywords" content="Travel India Tourist Guide" />
+
+        <!-- meta viewport -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+        <!-- favicon -->
+        <link rel="icon" href="favicon.ico" type="image/x-icon" />
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+
+        <!-- bootstrap 3 stylesheets -->
+        <link rel="stylesheet" type="text/css" href="bs3/css/bootstrap.css" media="all" />
+        <!-- template stylesheet -->
+        <link rel="stylesheet" type="text/css" href="css/styles.css" media="all" />
+        <!-- responsive stylesheet -->
+        <link rel="stylesheet" type="text/css" href="css/responsive.css" media="all" />
+        <!-- Load Fonts via Google Fonts API -->
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Karla:400,700,400italic,700italic" />
+        <!-- color scheme -->
+        <link rel="stylesheet" type="text/css" href="css/colors/color1.css" title="color1" />
+
+        <style type="text/css">
+            .hovera a:hover {
+                opacity: 0.5;
+                filter: alpha(opacity=50);
+            }
+            
+            .hovera:hover .text {
+                visibility: visible;
+                color: black;
+            }
+            
+            .hovera .text {
+                position: relative;
+                bottom: 100px;
+                left: 0px;
+                visibility: hidden;
+            }
+            
+            .uploadImg {
+                background-color: #ff845e;
+                border: 1px solid #fff;
+                font-weight: 700;
+                font-size: 18px;
+                color: #fff;
+                width: 170px;
+                height: 30px;
+                border-radius: 3px;
+                padding: 0px;
+                box-shadow: 0 1px 1px 0 #a9a9a9;
+            }
+        </style>
+    </head>
+    <!-- END head -->
+
+    <!-- START body -->
+
+    <body>
+        <!-- START #wrapper -->
+        <div id="wrapper">
+
+
+            <?php include_once('MasterHeaderAfterLogin.php'); ?>
+
+
+
+                <div class="row">
+                    <center>
+                        <div class="row">
+                            <div class="hovera text-center" style="border: 0px solid black;">
+                                <form action="uploadphp.php" enctype="multipart/form-data" method="post" id="formCover" name="formCover">
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <a href="" onclick="document.getElementById('file1').click(); return false">
 										<?php 		
 											$count4pic = mysql_num_rows($select2);
 											if ($count4pic==0)
@@ -188,35 +185,35 @@
 											}
 											?><br>
 										</a>
-									</td>
-								</tr>
-								
-							</table>
-							<input type="hidden" name="cover_pic" value="cover_pic" />
-							<input type="hidden" name="userid" value="<?php echo $userid; ?>" />
-							<input id="file1" name="file1" type="file" style="visibility: hidden;" onchange="formCover.submit();"/>
-						</form>
-						</div>
-						</div>
-						</center>
-					   </div>
-			
-			<!-- END #page-header -->
-			
-			<!-- START .main-contents -->
-			<div class="main-contents">
-				<div class="container">
-				<div class="row">
-					<div id="page" class="col-md-2 col-sm-12">
-					 
-					   <div class="row">
-					   
-					   <center>
-						<div class="col-md-11">
-						<div class="hovera text-center" style="border: 0px solid black;">
-						<form action="uploadphp.php" enctype="multipart/form-data" method="post"  id="formProfile" name="formProfile">
-							
-							<a href="" onclick="document.getElementById('file2').click(); return false">
+                                            </td>
+                                        </tr>
+
+                                    </table>
+                                    <input type="hidden" name="cover_pic" value="cover_pic" />
+                                    <input type="hidden" name="userid" value="<?php echo $userid; ?>" />
+                                    <input id="file1" name="file1" type="file" style="visibility: hidden;" onchange="formCover.submit();" />
+                                </form>
+                            </div>
+                        </div>
+                    </center>
+                </div>
+
+                <!-- END #page-header -->
+
+                <!-- START .main-contents -->
+                <div class="main-contents">
+                    <div class="container">
+                        <div class="row">
+                            <div id="page" class="col-md-2 col-sm-12">
+
+                                <div class="row">
+
+                                    <center>
+                                        <div class="col-md-11">
+                                            <div class="hovera text-center" style="border: 0px solid black;">
+                                                <form action="uploadphp.php" enctype="multipart/form-data" method="post" id="formProfile" name="formProfile">
+
+                                                    <a href="" onclick="document.getElementById('file2').click(); return false">
 							
 							<?php 
 						$count4pic = mysql_num_rows($select2);
@@ -238,37 +235,48 @@
 							
 						?>
 							</a>
-							<input type="hidden" name="profile_pic" value="profile_pic" />
-							<input type="hidden" name="userid" value="<?php echo $userid; ?>" />
-							<input id="file2" name="file2" type="file" style="visibility: hidden;"  onchange="formProfile.submit();"/>
-							</form>
-							</div>
-							</div>
-							</center>
-						   </div>
-					
-					        <br /><br />
-				<form action="guide_profile_update.php" enctype="multipart/form-data" method="post">
-					   <div class="row">
-					   <div class="col-md-11">
-					   <a href="login.php" style="color:#5a5a5a;" title=""><center><u><span style="font-size:18px;font-weight:bold;"><?php echo strtoupper($username) ?></span></u></center></a>
-					<br /><br />
-					<label style="font-size:14px;">Licence Number. :</label><br><br />
-					<input name="licenceNumber" class="form-control" type="text" value="<?php echo $licenceNumber ?>" /><br />
-					  <hr>
-					<label style="font-size:14px;">Licence Expiry Date :</label><br><br />
-					<input name="licenceValidty" class="form-control" min="2015-01-01" type="date" value="<?php echo $licenceValidty ?>" />
-					<hr>
-					<label style="font-size:14px;">Licence Image :</label><br><br />
-							
-					    <div class="hovera text-center" style="border: 0px solid black;">
-						<table >
-							<tr style="">
-							<td>
-							<a href="" onclick="document.getElementById('licenceImage').click(); return false">
-							
-							<div style="max-height: 180px; max-width: 250px;">
-							<?php 
+                                                    <input type="hidden" name="profile_pic" value="profile_pic" />
+                                                    <input type="hidden" name="userid" value="<?php echo $userid; ?>" />
+                                                    <input id="file2" name="file2" type="file" style="visibility: hidden;" onchange="formProfile.submit();" />
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </center>
+                                </div>
+
+                                <br />
+                                <br />
+                                <form action="guide_profile_update.php" enctype="multipart/form-data" method="post">
+                                    <div class="row">
+                                        <div class="col-md-11">
+                                            <a href="login.php" style="color:#5a5a5a;" title="">
+                                                <center><u><span style="font-size:18px;font-weight:bold;"><?php echo strtoupper($username) ?></span></u></center>
+                                            </a>
+                                            <br />
+                                            <br />
+                                            <label style="font-size:14px;">Licence Number. :</label>
+                                            <br>
+                                            <br />
+                                            <input name="licenceNumber" class="form-control" type="text" value="<?php echo $licenceNumber ?>" />
+                                            <br />
+                                            <hr>
+                                            <label style="font-size:14px;">Licence Expiry Date :</label>
+                                            <br>
+                                            <br />
+                                            <input name="licenceValidty" class="form-control" min="2015-01-01" type="date" value="<?php echo $licenceValidty ?>" />
+                                            <hr>
+                                            <label style="font-size:14px;">Licence Image :</label>
+                                            <br>
+                                            <br />
+
+                                            <div class="hovera text-center" style="border: 0px solid black;">
+                                                <table>
+                                                    <tr style="">
+                                                        <td>
+                                                            <a href="" onclick="document.getElementById('licenceImage').click(); return false">
+
+                                                                <div style="max-height: 180px; max-width: 250px;">
+                                                                    <?php 
 							$count4pic = mysql_num_rows($select2);
 							if ($count4pic==0)
 							{
@@ -286,191 +294,207 @@
 								}
 							}
 							?>
-							</div>
-							</a>
-							</td>
-							</tr>
-							</table>
-							<input id="licenceImage" name="licenceImage" type="file" style="visibility: hidden;"/>
-							</div>
-							
-						<br>
-							
-					   </div>
-					    </div>
-			      </div>
-						<!-- START #page -->
-						<div id="page" class="col-md-10 col-sm-12 col-xs-12">
-							<div class="user-profile">
-								<!-- START TABS -->
-								<ul class="nav nav-tabs text-upper" style="background-color:#FFA98E;">
-									<li class="active"><?php echo '<a href="guide_profile.php?id=' . $userid . '" data-toggle="tab">My Profile</a>' ?></li>
-								</ul>
-								<!-- END TABS -->
-								
-								<!-- START TAB CONTENT -->
-								<div class="tab-content clearfix ">
-									<!-- START TAB 1 -->
-									<div class="tab-pane active " id="userinfo">
-										<div class="booking gray clearfix box-shadow1">
-											<fieldset>
-												
-										<div >
-					
-<button type="submit" class="btn btn-default pull-right" style="background-color:#ffa98e"> 
-					<i class="fa fa-save"></i> Save Details	
-					</button>
-					
-					<?php
+                                                                </div>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                                <input id="licenceImage" name="licenceImage" type="file" style="visibility: hidden;" />
+                                            </div>
+
+                                            <br>
+
+                                        </div>
+                                    </div>
+                            </div>
+                            <!-- START #page -->
+                            <div id="page" class="col-md-10 col-sm-12 col-xs-12">
+                                <div class="user-profile">
+                                    <!-- START TABS -->
+                                    <ul class="nav nav-tabs text-upper" style="background-color:#FFA98E;">
+                                        <li class="active">
+                                            <?php echo '<a href="guide_profile.php?id=' . $userid . '" data-toggle="tab">My Profile</a>' ?></li>
+                                    </ul>
+                                    <!-- END TABS -->
+
+                                    <!-- START TAB CONTENT -->
+                                    <div class="tab-content clearfix ">
+                                        <!-- START TAB 1 -->
+                                        <div class="tab-pane active " id="userinfo">
+                                            <div class="booking gray clearfix box-shadow1">
+                                                <fieldset>
+
+                                                    <div>
+
+                                                        <button type="submit" class="btn btn-default pull-right" style="background-color:#ffa98e">
+                                                            <i class="fa fa-save"></i> Save Details
+                                                        </button>
+
+                                                        <?php
 					echo '<button type="button" onclick="myFunction(' . $userid. ')" class="btn btn-default pull-right" style="background-color:#ffa98e"> 
 					<i class="fa fa-times-circle"></i> Cancel
 					</button>';
-						?>				
-										</div> <br> 
-											<input type="hidden" name="userid" value="<?php echo $userid; ?>" />										
-												<h3 class=" mgtp-10 font-semibold"><i class="icon-user mgr-10 profile-icon"></i> ABOUT</h3>
-												<div class="row">
-												  <div class="col-sm-6 form-group">
-													<div class="row mgbt-xs-0">
-													  <label class="col-xs-5 control-label">First Name:</label>
-													  <div class="col-xs-7 controls"><input name="firstName" class="form-control" type="text" style="background-color:#f7f7f7;" value="<?php echo $firstName ?>" /></div>
-													  <!-- col-sm-10 --> 
-													</div>
-												  </div>
-												   <div class="col-sm-6 form-group">
-													<div class="row mgbt-xs-0">
-													  <label class="col-xs-5 control-label">Last Name:</label>
-													  <div class="col-xs-7 controls"><input name="lastName" class="form-control" type="text" style="background-color:#f7f7f7;" value="<?php echo $lastName ?>" /></div>
-													  <!-- col-sm-10 --> 
-													</div>
-												  </div>
-												  <div class="col-sm-6 form-group">
-													<div class="row mgbt-xs-0">
-													  <label class="col-xs-5 control-label">Gender:</label>
-													  
-													  <div class="col-xs-7 controls">
-													  <select class="form-control" id="gender" name="gender" style="background-color:#f7f7f7;">
-														  <option value="Male">Male</option>
-														  <option value="Female">Female</option>
-														</select>
-													  </div>
-													  <!-- col-sm-10 --> 
-													</div>
-												  </div>
-												   <div class="col-sm-6 form-group">
-													<div class="row mgbt-xs-0">
-													  <label class="col-xs-5 control-label">Birthday:</label>
-													  <div class="col-xs-7 controls"><input name="birthday" class="form-control" type="date" max="1999-12-31" style="background-color:#f7f7f7;" value="<?php echo $birthday ?>" /></div>
-													  <!-- col-sm-10 --> 
-													</div>
-												  </div>
-												  
-												  
-												</div>
-												
-												<h3 class=" mgtp-10 font-semibold"><i class="icon-user mgr-10 profile-icon"></i> ADDRESS</h3>
-												<div class="row">
-												<div class="col-sm-6 form-group">
-													<div class="row mgbt-xs-0">
-													  <label class="col-xs-5 control-label">Street Address:</label>
-													  <div class="col-xs-7 controls"><input name="streetAddress" class="form-control" type="text" style="background-color:#f7f7f7;" value="<?php echo $streetAddress ?>" /></div>
-													  <!-- col-sm-10 --> 
-													</div>
-												  </div>
-												  <div class="col-sm-6 form-group">
-													<div class="row mgbt-xs-0">
-													  <label class="col-xs-5 control-label">City:</label>
-													  <div class="col-xs-7 controls">
-													  <input name="city" class="form-control" type="text" id="guideCity" style="background-color:#f7f7f7;" value="<?php echo $city ?>"  autocomplete="on"/>
-													  </div>
-													  <!-- col-sm-10 --> 
-													</div>
-												  </div>
-												  <div class="col-sm-6 form-group">
-													<div class="row mgbt-xs-0">
-													  <label class="col-xs-5 control-label">State</label>
-													  
-													  <div class="col-xs-7 controls">
-													  <select name="state" id="state" class="form-control" style="background-color:#f7f7f7;">
-													  <?php include_once('state.php'); ?>
-														</select>
-													  </div>
-													  <!-- col-sm-10 --> 
-													</div>
-												  </div>
-												  <div class="col-sm-6 form-group">
-													<div class="row mgbt-xs-0">
-													  <label class="col-xs-5 control-label">Country:</label>
-													  
-													  <div class="col-xs-7 controls">
-													  <select id="country" name="country" class="form-control" style="background-color:#f7f7f7;" >
-													  <option value="India" selected>India</option>
-													  </select>
-													  </div>
-													  <!-- col-sm-10 --> 
-													</div>
-												  </div>
-												</div>
-												
-												<h3 class=" mgtp-10 font-semibold"><i class="icon-user mgr-10 profile-icon"></i> CONTACT INFORMATION</h3>
-												<div class="row">
-												<div class="col-sm-6 form-group">
-													<div class="row mgbt-xs-0">
-													  <label class="col-xs-5 control-label">Mobile Number:</label>
-													  <div class="col-xs-7 controls"><input name="mobileNumber" class="form-control" type="text" style="background-color:#f7f7f7;" value="<?php echo $mobileNumber ?>" readonly/></div>
-													  <!-- col-sm-10 --> 
-													</div>
-												  </div>
-												  <div class="col-sm-6 form-group">
-													<div class="row mgbt-xs-0">
-													  <label class="col-xs-5 control-label">Email:</label>
-													  <div class="col-xs-7 controls"><input name="emailID" class="form-control" type="text" style="background-color:#f7f7f7;" value="<?php echo $emailID ?>" readonly/></div>
-													  <!-- col-sm-10 --> 
-													</div>
-												  </div>
-												  
-												   <div class="col-sm-6 form-group">
-													<div class="row mgbt-xs-0">
-													  <label class="col-xs-5 control-label">Alternate Number:</label>
-													  <div class="col-xs-7 controls"><input name="landLineNumber" class="form-control" type="tel" maxlength="15" style="background-color:#f7f7f7;" value="<?php echo $landLineNumber ?>" /></div>
-													  <!-- col-sm-10 --> 
-													</div>
-												  </div>
-												   <div class="col-sm-6 form-group">
-													<div class="row mgbt-xs-0">
-													  <label class="col-xs-5 control-label">Communication Mechanism:</label>
-													  <div class="col-xs-7 controls">
-													  <select class="form-control"  style="background-color:#f7f7f7;" name="communicationMechanism" id="communicationMechanism">
-														<option value="Mobile & Email">Mobile &amp; Email</option>
-                                                        <option value="Mobile">Mobile</option>
-														<option value="Email">Email</option>
-														</select>
-													  </div>
-													  <!-- col-sm-10 --> 
-													</div>
-												  </div>
-												   <div class="col-sm-6 form-group">
-													<div class="row mgbt-xs-0">
-													  <label class="col-xs-5 control-label">Best time to contact:</label>
-													  <div class="col-xs-7 controls">
-													  <select class="form-control" style="background-color:#f7f7f7;" name="bestTimeToContact" id="bestTimeToContact">
-															<option value="ANY TIME">ANY TIME</option>
-															<option value="08:00 AM - 12:00 PM">08:00 AM - 12:00 PM</option>
-															<option value="12:00 PM - 04:00 PM">12:00 PM - 04:00 PM</option>
-															<option value="04:00 PM - 08:00 PM">04:00 PM - 08:00 PM</option>
-															</select>
-													  </div>
-													  <!-- col-sm-10 --> 
-													</div>
-												  </div> 
-												  
-												  <div class="col-sm-6 form-group">
-													<div class="row mgbt-xs-0">
-													  <label class="col-xs-5 control-label">Language Known:</label>
-													  <div class="col-xs-7 controls">
-													  
-													  <select class="form-control" multiple name="languageKnown[]" id="languageKnown" style="background-color:#f7f7f7;">
-															<?php 
+						?>
+                                                    </div>
+                                                    <br>
+                                                    <input type="hidden" name="userid" value="<?php echo $userid; ?>" />
+                                                    <h3 class=" mgtp-10 font-semibold"><i class="icon-user mgr-10 profile-icon"></i> ABOUT</h3>
+                                                    <div class="row">
+                                                        <div class="col-sm-6 form-group">
+                                                            <div class="row mgbt-xs-0">
+                                                                <label class="col-xs-5 control-label">First Name:</label>
+                                                                <div class="col-xs-7 controls">
+                                                                    <input name="firstName" class="form-control" type="text" style="background-color:#f7f7f7;" value="<?php echo $firstName ?>" />
+                                                                </div>
+                                                                <!-- col-sm-10 -->
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6 form-group">
+                                                            <div class="row mgbt-xs-0">
+                                                                <label class="col-xs-5 control-label">Last Name:</label>
+                                                                <div class="col-xs-7 controls">
+                                                                    <input name="lastName" class="form-control" type="text" style="background-color:#f7f7f7;" value="<?php echo $lastName ?>" />
+                                                                </div>
+                                                                <!-- col-sm-10 -->
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6 form-group">
+                                                            <div class="row mgbt-xs-0">
+                                                                <label class="col-xs-5 control-label">Gender:</label>
+
+                                                                <div class="col-xs-7 controls">
+                                                                    <select class="form-control" id="gender" name="gender" style="background-color:#f7f7f7;">
+                                                                        <option value="Male">Male</option>
+                                                                        <option value="Female">Female</option>
+                                                                    </select>
+                                                                </div>
+                                                                <!-- col-sm-10 -->
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6 form-group">
+                                                            <div class="row mgbt-xs-0">
+                                                                <label class="col-xs-5 control-label">Birthday:</label>
+                                                                <div class="col-xs-7 controls">
+                                                                    <input name="birthday" class="form-control" type="date" max="1999-12-31" style="background-color:#f7f7f7;" value="<?php echo $birthday ?>" />
+                                                                </div>
+                                                                <!-- col-sm-10 -->
+                                                            </div>
+                                                        </div>
+
+
+                                                    </div>
+
+                                                    <h3 class=" mgtp-10 font-semibold"><i class="icon-user mgr-10 profile-icon"></i> ADDRESS</h3>
+                                                    <div class="row">
+                                                        <div class="col-sm-6 form-group">
+                                                            <div class="row mgbt-xs-0">
+                                                                <label class="col-xs-5 control-label">Street Address:</label>
+                                                                <div class="col-xs-7 controls">
+                                                                    <input name="streetAddress" class="form-control" type="text" style="background-color:#f7f7f7;" value="<?php echo $streetAddress ?>" />
+                                                                </div>
+                                                                <!-- col-sm-10 -->
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6 form-group">
+                                                            <div class="row mgbt-xs-0">
+                                                                <label class="col-xs-5 control-label">City:</label>
+                                                                <div class="col-xs-7 controls">
+                                                                    <input name="city" class="form-control" type="text" id="guideCity" style="background-color:#f7f7f7;" value="<?php echo $city ?>" autocomplete="on" />
+                                                                </div>
+                                                                <!-- col-sm-10 -->
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6 form-group">
+                                                            <div class="row mgbt-xs-0">
+                                                                <label class="col-xs-5 control-label">State</label>
+
+                                                                <div class="col-xs-7 controls">
+                                                                    <select name="state" id="state" class="form-control" style="background-color:#f7f7f7;">
+                                                                        <?php include_once('state.php'); ?>
+                                                                    </select>
+                                                                </div>
+                                                                <!-- col-sm-10 -->
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6 form-group">
+                                                            <div class="row mgbt-xs-0">
+                                                                <label class="col-xs-5 control-label">Country:</label>
+
+                                                                <div class="col-xs-7 controls">
+                                                                    <select id="country" name="country" class="form-control" style="background-color:#f7f7f7;">
+                                                                        <option value="India" selected>India</option>
+                                                                    </select>
+                                                                </div>
+                                                                <!-- col-sm-10 -->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <h3 class=" mgtp-10 font-semibold"><i class="icon-user mgr-10 profile-icon"></i> CONTACT INFORMATION</h3>
+                                                    <div class="row">
+                                                        <div class="col-sm-6 form-group">
+                                                            <div class="row mgbt-xs-0">
+                                                                <label class="col-xs-5 control-label">Mobile Number:</label>
+                                                                <div class="col-xs-7 controls">
+                                                                    <input name="mobileNumber" class="form-control" type="text" style="background-color:#f7f7f7;" value="<?php echo $mobileNumber ?>" readonly/>
+                                                                </div>
+                                                                <!-- col-sm-10 -->
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6 form-group">
+                                                            <div class="row mgbt-xs-0">
+                                                                <label class="col-xs-5 control-label">Email:</label>
+                                                                <div class="col-xs-7 controls">
+                                                                    <input name="emailID" class="form-control" type="text" style="background-color:#f7f7f7;" value="<?php echo $emailID ?>" readonly/>
+                                                                </div>
+                                                                <!-- col-sm-10 -->
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-sm-6 form-group">
+                                                            <div class="row mgbt-xs-0">
+                                                                <label class="col-xs-5 control-label">Alternate Number:</label>
+                                                                <div class="col-xs-7 controls">
+                                                                    <input name="landLineNumber" class="form-control" type="tel" maxlength="15" style="background-color:#f7f7f7;" value="<?php echo $landLineNumber ?>" />
+                                                                </div>
+                                                                <!-- col-sm-10 -->
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6 form-group">
+                                                            <div class="row mgbt-xs-0">
+                                                                <label class="col-xs-5 control-label">Communication Mechanism:</label>
+                                                                <div class="col-xs-7 controls">
+                                                                    <select class="form-control" style="background-color:#f7f7f7;" name="communicationMechanism" id="communicationMechanism">
+                                                                        <option value="Mobile & Email">Mobile &amp; Email</option>
+                                                                        <option value="Mobile">Mobile</option>
+                                                                        <option value="Email">Email</option>
+                                                                    </select>
+                                                                </div>
+                                                                <!-- col-sm-10 -->
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6 form-group">
+                                                            <div class="row mgbt-xs-0">
+                                                                <label class="col-xs-5 control-label">Best time to contact:</label>
+                                                                <div class="col-xs-7 controls">
+                                                                    <select class="form-control" style="background-color:#f7f7f7;" name="bestTimeToContact" id="bestTimeToContact">
+                                                                        <option value="ANY TIME">ANY TIME</option>
+                                                                        <option value="08:00 AM - 12:00 PM">08:00 AM - 12:00 PM</option>
+                                                                        <option value="12:00 PM - 04:00 PM">12:00 PM - 04:00 PM</option>
+                                                                        <option value="04:00 PM - 08:00 PM">04:00 PM - 08:00 PM</option>
+                                                                    </select>
+                                                                </div>
+                                                                <!-- col-sm-10 -->
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-sm-6 form-group">
+                                                            <div class="row mgbt-xs-0">
+                                                                <label class="col-xs-5 control-label">Language Known:</label>
+                                                                <div class="col-xs-7 controls">
+
+                                                                    <select class="form-control" multiple name="languageKnown[]" id="languageKnown" style="background-color:#f7f7f7;">
+                                                                        <?php 
 														  $select3 = mysql_query("SELECT * FROM `tbl_languages` WHERE `status` != 0 ORDER BY `lanugage_name`");
 														  while($row33 = mysql_fetch_array($select3))
 															{
@@ -491,136 +515,159 @@
 																	}
 															}
 															?>
-															</select>
-													  </div>
-													  <!-- col-sm-10 --> 
-													</div>
-												  </div> 
-												  
-												  <div class="col-sm-6 form-group">
-													<div class="row mgbt-xs-0">
-													<label class="col-xs-5 control-label">Experiance (in years) :</label>
-													  <div class="col-xs-7 controls">
-													 <div class="input-group">
-													  <input type="tel" maxlength="2" class="form-control" style="background-color:#f7f7f7;" value="<?php echo $experianceInYear; ?>" name="experianceInYear" id="experianceInYear">
-													  <span class="input-group-addon" style="background-color:#f7f7f7;" id="basic-addon2">Years</span>
-													</div>
-													  </div>
-													  <!-- col-sm-10 --> 
-													</div>
-												  </div> 
-												  
-												  
-												</div>
-												
-												<h3 class=" mgtp-10 font-semibold"><i class="icon-user mgr-10 profile-icon"></i>TERRITORY</h3>
-												<div class="row">
-												<div class="col-sm-12">
-												<textarea name="guideTerritory" class="form-control" style="background-color:#f7f7f7;" rows="2" style="width:100%;" ><?php echo $guideTerritory ?></textarea>
-												</div>
-												</div>
+                                                                    </select>
+                                                                </div>
+                                                                <!-- col-sm-10 -->
+                                                            </div>
+                                                        </div>
 
-												<h3 class=" mgtp-10 font-semibold"><i class="icon-user mgr-10 profile-icon"></i> PAYMENT TERMS</h3>
-												<div class="row">
-												<div class="col-sm-12">
-												<textarea name="paymentTerm" class="form-control" style="background-color:#f7f7f7;" rows="2" style="width:100%;" ><?php echo $paymentTerm ?></textarea>
-												</div>
-												</div>
-												<hr class="pd-10">
-												<div class="row">
-												  <div class="col-sm-6">
-												 <h3 class=" font-semibold"><i class="fa fa-file-text-o mgr-10 profile-icon"></i> OTHER EXPERIENCE</h3>
-													
-													<div class="content-list content-menu col-sm-12">
-													   <span class="menu-text"><textarea name="otherExperiance" class="form-control" rows="5" style="width:100%; background-color:#f7f7f7;"><?php echo $otherExperiance ?></textarea></span>
-													</div>
-												  </div>
-												  <div class="col-sm-6">
-													<h3 class=" font-semibold"><i class="fa fa-trophy mgr-10 profile-icon"></i> NOTE</h3>
-													<div class="content-list content-menu  col-sm-12">
-														<span class="menu-text"><textarea name="remark" class="form-control" rows="5" style="width:100%; background-color:#f7f7f7;"><?php echo $remark ?></textarea></span>
-													</div>
-												  </div>
-												</div>
-												
-												<!-- row --> 
-												</fieldset>
-											</div>
-											</div>
-											
-					
-								</div>
-								<!-- END TAB CONTENT -->
-							</div>
-						</div>
-						<!-- END #page -->
-						</form>
-					</div>
-					<!-- END .row -->
-				</div>
-			</div>
-			<!-- END .main-contents -->
-			
-			<?php include_once('MasterFooter.php'); ?>
-		</div>
-		<!-- END #wrapper -->
-			<script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places" type="text/javascript"></script>
-			<script type="text/javascript">
-			function initialize() {
+                                                        <div class="col-sm-6 form-group">
+                                                            <div class="row mgbt-xs-0">
+                                                                <label class="col-xs-5 control-label">Experiance (in years) :</label>
+                                                                <div class="col-xs-7 controls">
+                                                                    <div class="input-group">
+                                                                        <input type="tel" maxlength="2" class="form-control" style="background-color:#f7f7f7;" value="<?php echo $experianceInYear; ?>" name="experianceInYear" id="experianceInYear">
+                                                                        <span class="input-group-addon" style="background-color:#f7f7f7;" id="basic-addon2">Year(s)</span>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- col-sm-10 -->
+                                                            </div>
+                                                        </div>
 
-			 var options = {
-			  types: ['(cities)'],
-			  componentRestrictions: {country: "in"}
-			 };
 
-			 var input = document.getElementById('guideCity');
-			 var autocomplete = new google.maps.places.Autocomplete(input, options);
-			}
-			google.maps.event.addDomListener(window, 'load', initialize);
-			</script>
-			
-			<script>
-			$(function() {
-			$('#DOB').datepicker({
-			numberOfMonths: 3,
-			showButtonPanel: true
-			});
-			
-			$('#LicenceExpiry').datepicker({
-			numberOfMonths: 3,
-			showButtonPanel: true
-			});
-			});
+                                                    </div>
 
-			</script>
-			
-			<script>
-				document.getElementById("gender").value = "<?php echo $gender ?>";
-				document.getElementById("state").value = "<?php echo $state ?>";
-				document.getElementById("country").value = "India";
-				document.getElementById("bestTimeToContact").value = "<?php echo $bestTimeToContact ?>";
-				document.getElementById("communicationMechanism").value = "<?php echo $communicationMechanism ?>";
-			</script>
-			
-			
-			
-			<script>
-		function myFunction(id) {
-		window.location.href = "guide_profile.php?id="+id;
-		return false;
-		}
-		</script>
-			
-				<!-- javascripts -->
-		<script type="text/javascript" src="js/modernizr.custom.17475.js"></script>
+                                                    <div class="col-sm-6 form-group">
+                                                        <h3 class=" mgtp-10 font-semibold"><i class="icon-user mgr-10 profile-icon"></i>TERRITORY</h3>
+                                                        <div class="row">
+                                                            <div class="col-sm-12">
+                                                                <select class="form-control" name="guideTerritory" style="background-color:#f7f7f7;">
+                                                                    <option value="">Select Territory</option>
+                                                                    <option value="Central Region">Central Region</option>
+                                                                    <option value="Eastern Region">Eastern Region</option>
+                                                                    <option value="Western Region">Western Region</option>
+                                                                    <option value="Northen Region">Northen Region</option>
+                                                                    <option value="Southern Region">Southern Region</option>
+                                                                    <option value="Northeast Region">Northeast Region</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6 form-group">
+                                                        <h3 class=" mgtp-10 font-semibold"><i class="icon-user mgr-10 profile-icon"></i> PAYMENT TERMS</h3>
+                                                        <div class="row">
+                                                            <div class="col-sm-12">
+                                                                <select class="form-control" name="paymentTerm" style="background-color:#f7f7f7;">
+                                                                    <option value="">Select Payment Terms</option>
+                                                                    <option value="Bank">Bank</option>
+                                                                    <option value="Cash">Cash</option>
+                                                                    <option value="Cheque">Cheque</option>
+                                                                    <option value="Other">Other</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
 
-		<script type="text/javascript" src="js/jquery.min.js"></script>
-		<script type="text/javascript" src="bs3/js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="js/check-radio-box.js"></script>
-		<script type="text/javascript" src="js/script.js"></script>
-		<!--[if lt IE 9]>
+
+                                                    <hr class="pd-10">
+                                                    <div class="row">
+                                                        <div class="col-sm-6">
+                                                            <h3 class=" font-semibold"><i class="fa fa-file-text-o mgr-10 profile-icon"></i> OTHER EXPERIENCE</h3>
+
+                                                            <div class="content-list content-menu col-sm-12">
+                                                                <span class="menu-text"><textarea name="otherExperiance" class="form-control" rows="5" style="width:100%; background-color:#f7f7f7;"><?php echo $otherExperiance ?></textarea></span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <h3 class=" font-semibold"><i class="fa fa-trophy mgr-10 profile-icon"></i> NOTE</h3>
+                                                            <div class="content-list content-menu  col-sm-12">
+                                                                <span class="menu-text"><textarea name="remark" class="form-control" rows="5" style="width:100%; background-color:#f7f7f7;"><?php echo $remark ?></textarea></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- row -->
+                                                </fieldset>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                    <!-- END TAB CONTENT -->
+                                </div>
+                            </div>
+                            <!-- END #page -->
+                            </form>
+                        </div>
+                        <!-- END .row -->
+                    </div>
+                </div>
+                <!-- END .main-contents -->
+
+                <?php include_once('MasterFooter.php'); ?>
+        </div>
+        <!-- END #wrapper -->
+        <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places" type="text/javascript"></script>
+        <script type="text/javascript">
+            function initialize() {
+
+                var options = {
+                    types: ['(cities)'],
+                    componentRestrictions: {
+                        country: "in"
+                    }
+                };
+
+                var input = document.getElementById('guideCity');
+                var autocomplete = new google.maps.places.Autocomplete(input, options);
+            }
+            google.maps.event.addDomListener(window, 'load', initialize);
+        </script>
+
+        <script>
+            $(function () {
+                $('#DOB').datepicker({
+                    numberOfMonths: 3,
+                    showButtonPanel: true
+                });
+
+                $('#LicenceExpiry').datepicker({
+                    numberOfMonths: 3,
+                    showButtonPanel: true
+                });
+            });
+        </script>
+
+        <script>
+            document.getElementById("gender").value = "<?php echo $gender ?>";
+            document.getElementById("state").value = "<?php echo $state ?>";
+            document.getElementById("country").value = "India";
+            document.getElementById("bestTimeToContact").value = "<?php echo $bestTimeToContact ?>";
+            document.getElementById("communicationMechanism").value = "<?php echo $communicationMechanism ?>";
+            document.getElementById("guideTerritory").value = "<?php echo $guideTerritory ?>";
+            document.getElementById("paymentTerm").value = "<?php echo $paymentTerm ?>";
+        </script>
+
+
+
+        <script>
+            function myFunction(id) {
+                window.location.href = "guide_profile.php?id=" + id;
+                return false;
+            }
+        </script>
+
+        <!-- javascripts -->
+        <script type="text/javascript" src="js/modernizr.custom.17475.js"></script>
+
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="bs3/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/check-radio-box.js"></script>
+        <script type="text/javascript" src="js/script.js"></script>
+        <!--[if lt IE 9]>
 			<script type="text/javascript" src="js/html5shiv.js"></script>
 		<![endif]-->
 
-	</body>
-</html>
+    </body>
+
+    </html>

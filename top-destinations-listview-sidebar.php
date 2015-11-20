@@ -132,13 +132,14 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-8">
-                            <a ng-href="destination-detail-sidebar.php#?id3=">
                             <div ng-show="filteredItems > 0">
 							<div class="row" ng-repeat="data in filtered = (list) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
 								<div class="col-md-12">
 									<div class="tour-plans">
 										<div class="plan-image">
+                                            <a ng-href="destination-detail-sidebar.php#?id3={{data.ID}}">
 									<img class="img-responsive" style="height:360px;" ng-src="{{data.Media.Image[0]}}" alt="{{data.Name}}" ng-href="destination-detail-sidebar.php#?id3={{data.ID}}"/>
+                                            </a>
 											<div class="offer-box">
 												<div class="offer-top">
 													<span class="ft-temp alignright">19&#730;c</span>
@@ -177,7 +178,6 @@
                 <div class="clearfix"></div>
             </div>
     </div>
-    </a>
     </div>
     <!-- START #sidebar -->
     <aside id="sidebar" class="col-md-4">
@@ -199,14 +199,14 @@
                         <li ng-repeat="k in alltours" ng-show="$index<4">
                             <span class="rc-post-image">
                                                     <a ng-href="tour_detail_sidebar.php?id={{k.tour_id}}"	>	
-                                                        <img class="img-responsive" ng-src="{{'k.photo' == null ? 'img/SAMPLE_TOUR.jpg' : k.photo}}" alt="Tour Image" />
+                                                        <img class="img-responsive" ng-src="{{'k.photo' == null ? 'img/SAMPLE_TOUR.jpg' : k.photo[0]}}" alt="Tour Image" />
                                                     </a>
 												</span>
                             <h5><a ng-href="#">{{k.tour_title}}</a></h5>
                             <span class="rc-post-date small">Starting Price&nbsp;{{k.tour_price}}</span>
                             <br/>
                             <a ng-href="booking-form.php#?id1=0&&id2={{k.tour_id}}">
-                                <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Book" />
+                                <input type="submit" name="submit" class="pull-right btn btn-sm btn-primary text-upper marb20" value="Book" />
                             </a>
                         </li>
                     </ul>
@@ -215,7 +215,8 @@
 
                 <!-- START TAB 2 -->
                 <div class="tab-pane" id="topguides" style="height:600px;" ng-controller="guidescontrol">
-                    <ul class="list-unstyled">
+                    <div class="col-md-12">
+                        <ul class="list-unstyled">
                         <li ng-repeat="z in guides" ng-show="$index<18 && z.photo!=null">
                             <span class="rc-post-image">
                                                     <a ng-href="guide-detail-sidebar.php#?id2={{z.id}}">	
@@ -226,13 +227,14 @@
                             <!--												<h5>{{z.Speciality}}<span class="rc-post-date small">Speciality&nbsp;&nbsp;</span></h5>-->
                             <span star-rating rating-value="z.review.rating" style="" class=""></span>
                             <a ng-href="guide-detail-sidebar.php#?id2={{z.id}}">
-                                <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="View Details" />
+                                <input type="submit" name="submit" class="pull-right btn btn-sm btn-primary text-upper marb20" value="View Details" />
                             </a>
                             <br>
                             <br>
                         </li>
 
                     </ul>
+                        </div>
                 </div>
                 <!-- END TAB 2 -->
 
@@ -249,7 +251,7 @@
                             <br>
                             <br>
                             <a href="#" style="margin-left:110px;">
-                                <input type="submit" name="submit" class="btn btn-primary  marb20" value="Coming Soon" />
+                                <input type="submit" name="submit" class="pull-right btn btn-sm btn-primary  marb20" value="Coming Soon" />
                             </a>
                         </li>
 
