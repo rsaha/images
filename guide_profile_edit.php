@@ -555,11 +555,11 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-6 form-group">
-                                                        <h3 class=" mgtp-10 font-semibold"><i class="icon-user mgr-10 profile-icon"></i> PAYMENT TERMS</h3>
+                                                        <h3 class=" mgtp-10 font-semibold"><i class="icon-user mgr-10 profile-icon"></i> Preferred Payment Method</h3>
                                                         <div class="row">
                                                             <div class="col-sm-12">
                                                                 <select class="form-control" name="paymentTerm" style="background-color:#f7f7f7;">
-                                                                    <option value="">Select Payment Terms</option>
+                                                                    <option value="Any">No Preference</option>
                                                                     <option value="Bank">Bank</option>
                                                                     <option value="Cash">Cash</option>
                                                                     <option value="Cheque">Cheque</option>
@@ -576,7 +576,7 @@
                                                             <h3 class=" font-semibold"><i class="fa fa-file-text-o mgr-10 profile-icon"></i> OTHER EXPERIENCE</h3>
 
                                                             <div class="content-list content-menu col-sm-12">
-                                                                <span class="menu-text"><textarea name="otherExperiance" class="form-control" rows="5" style="width:100%; background-color:#f7f7f7;"><?php echo $otherExperiance ?></textarea></span>
+                                                                <span class="menu-text"><textarea name="Experiance" class="form-control" rows="5" style="width:100%; background-color:#f7f7f7;"><?php echo $otherExperiance ?></textarea></span>
                                                             </div>
                                                         </div>
                                                         <div class="col-sm-6">
