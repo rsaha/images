@@ -297,12 +297,13 @@ ul.rating {
 								<div class="tab-content gray box-shadow1 clearfix marb30">
                                     <div class="tab-pane active" style="height:600px;" id="toptours" ng-controller="toursCtrl">
 										<ul class="rc-posts-list list-unstyled">
-											<li ng-repeat="x in tours" ng-show="$index<4">
+											<li ng-repeat="x in tours" ng-show="$index<3">
 												<span class="rc-post-image">
                                                     <a href="tour_detail_sidebar.php#?id={{x.tour_id}}"	>	
                                                         <img class="img-responsive"  src="{{x.photo ==null ? 'img/SAMPLE_TAJ.jpg' : x.photo[0]}}" alt="Tour 1" /></a>
 												</span>
 												<h5>{{x.tour_title}}</h5>
+                                                <h5>{{x.tour_location}}</h5>
 												<span class="rc-post-date small">Starting Price&nbsp;{{x.tour_price}}</span>
 											</li>
 										</ul>
@@ -310,7 +311,7 @@ ul.rating {
 									<!-- START TAB 2 -->
 									<div class="tab-pane" style="height:600px;" id="topguides" ng-controller="guidescontrol">
 										<div class="row"><ul class="list-unstyled"><br>
-											<li class="" ng-repeat="z in guides" ng-show="$index<4 ">
+											<li class="" ng-repeat="z in guides" ng-show="$index<3 ">
 												<div class="col-md-11 col-md-offset-1"><span class="rc-post-image">
                                                     <a href="guide-detail-sidebar.php#?id2={{z.id}}" target="_blank">	
                                                         <img class="img-responsive" style="height:80px; width:65px;" src="{{z.photo==null ? 'img/userDefaultIcon.png' :z.photo}}" alt="Recent Post 2" />
@@ -320,7 +321,7 @@ ul.rating {
 <!--												<h5><a href="#">{{z.guide_territory}}</a></h5>-->
 <!--												<h5>{{z.Speciality}}<span class="rc-post-date small">Speciality&nbsp;&nbsp;</span></h5>-->
 												<span star-rating rating-value="z.review.Star" style="" class="" ></span>	<br>
-                                                 <a href="booking-form.php#?id1={{z.id}}&id2=0"> <input type="submit" name="submit" class="pull-right btn btn-sm btn-primary  marb20" value="Book Now" /></a>
+                                                 <!-- a href="booking-form.php#?id1={{z.id}}&id2=0"> <input type="submit" name="submit" class="pull-right btn btn-sm btn-primary  marb20" value="Book Now" /></a-->
                                                     </div>
 											</li>
 										</ul></div>
