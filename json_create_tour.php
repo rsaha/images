@@ -111,8 +111,8 @@ while( $row1 = mysql_fetch_array( $rs ) )
 		{
             $data = base64_decode($row6[ 'tour_picture' ]);
             if($cntt > 1){
-              $mdeaPathToSave = $mediaImagePath.$row1[ 'tour_id' ].'_profile_'.$cntt.'.jpg';
-              $mdeaPathToCloud = "https://storage.googleapis.com/guidedgateway_media/" . $row1[ 'tour_id' ].'_profile_'.$cntt.'.jpg';
+              $mdeaPathToSave = $mediaImagePath.$row1[ 'tour_id' ].'_profile_'.($cntt-1).'.jpg';
+              $mdeaPathToCloud = "https://storage.googleapis.com/guidedgateway_media/" . $created_added.'_profile_'.($cntt-1).'.jpg';
             }
             else {
               $mdeaPathToSave = $mediaImagePath .$row1[ 'tour_id' ].'_profile.jpg';
