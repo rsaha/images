@@ -233,8 +233,8 @@ else
 														<div class="col-md-6"><br>
 															<label style="font-size:14px; font-weight:bold">Experience in years</label><br><br>
 															<div class="input-group">
-															  <input type="tel" id="ExperienceInYear"  class="form-control" maxlength="2" name="ExperienceInYear" id="ExperienceInYear" ng-model="ExperienceInYear" ng-pattern="/^[0-9]+/$" />
-															  <span class="input-group-addon" style="background-color:#f7f7f7;" id="basic-addon2">Years</span>
+															  <input type="tel" id="ExperienceInYear"  class="form-control" maxlength="2" name="ExperienceInYear" id="ExperienceInYear" ng-model="ExperienceInYear" value="10" ng-pattern="/^[0-9]+/$" />
+															  <span class="input-group-addon" style="background-color:#f7f7f7;" id="basic-addon2">Year(s)</span>
 															</div>
 															<span style="color:red" ng-show="myForm.ExperienceInYear.$dirty && myForm.ExperienceInYear.$invalid">
 															<span ng-show="myForm.ExperienceInYear.$error.pattern">*in numbers only ...</span>

@@ -214,7 +214,7 @@
                                             <li ng-repeat="x in alltours" ng-show="$index<4">
                                                 <span class="rc-post-image">
                                                     <a ng-href="tour_detail_sidebar.php#?id={{x.tour_id}}">
-                                                        <img class="img-responsive" ng-src="{{x.photo ==null ? 'img/SAMPLE_TAJ.jpg' : x.photo}}" alt="Tour 1" /></a>
+                                                        <img class="img-responsive" ng-src="{{x.photo ==null ? 'img/SAMPLE_TAJ.jpg' : x.photo[0]}}" alt="Tour 1" /></a>
 												</span>
                                                 <h5>{{x.tour_title}}</h5>
                                                 <span class="rc-post-date small">Starting Price&nbsp;{{x.tour_price}}</span>
