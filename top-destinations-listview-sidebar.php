@@ -132,13 +132,14 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-8">
-                            <a ng-href="destination-detail-sidebar.php#?id3=">
                             <div ng-show="filteredItems > 0">
 							<div class="row" ng-repeat="data in filtered = (list) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
 								<div class="col-md-12">
 									<div class="tour-plans">
 										<div class="plan-image">
+                                            <a ng-href="destination-detail-sidebar.php#?id3={{data.ID}}">
 									<img class="img-responsive" style="height:360px;" ng-src="{{data.Media.Image[0]}}" alt="{{data.Name}}" ng-href="destination-detail-sidebar.php#?id3={{data.ID}}"/>
+                                            </a>
 											<div class="offer-box">
 												<div class="offer-top">
 													<span class="ft-temp alignright">19&#730;c</span>
@@ -177,7 +178,6 @@
                 <div class="clearfix"></div>
             </div>
     </div>
-    </a>
     </div>
     <!-- START #sidebar -->
     <aside id="sidebar" class="col-md-4">
