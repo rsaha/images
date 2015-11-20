@@ -326,7 +326,7 @@
                                                 <div class="tour-plans" style="padding:10px 10px 10px 10px;">
                                                     <div data-model="tour.tour_location">
                                                         <div class="plan-image">
-                                                            <img class="img-responsive" alt="featured Scroller" draggable="false" src="{{tour.photo == null ? 'img/custom11.jpg' : tour.photo}}" />
+                                                            <img class="img-responsive" alt="Tour Image Scroller" draggable="false" src="{{tour.photo == null ? 'img/custom11.jpg' : tour.photo[0]}}" />
 
 
                                                             <div class="offer-box">
@@ -370,7 +370,6 @@
                                                     </div>
                                                     <div class="alignright">
                                                         <h4>Total for Tour: {{tour.tour_price}}</h4></div>
-                                                    <hr style="margin: 20px 0; border: 1px solid #808080;">
                                                 </div>
 
                                             </div>
@@ -399,7 +398,7 @@
                                             </div>
                                         </div>
 
-                                        <div style="text-align:justify; padding:10px 10px 10px 10px;">
+                                        <!-- div style="text-align:justify; padding:10px 10px 10px 10px;">
                                             <div id="toptours" class="row">
                                                 <ul class=" list-unstyled">
                                                     <li class="col-md-12">
@@ -450,7 +449,7 @@
                                             </div>
                                             <div class="alignright">
                                                 <h4>Grand Total: {{tour.tour_price}}</h4></div>
-                                        </div>
+                                        </div -->
 
                                     </div>
                                 </div>

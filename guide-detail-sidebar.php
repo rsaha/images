@@ -153,7 +153,8 @@
                                     </div>
 
                                     <ul class="featured-btm single-ft-btm list-unstyled box-shadow1">
-                                        <li class="author-img"><img class="img-circle img-wt-border" style=height:80px;width:80px; src="{{ guidesdetail.photo ==null ? 'img/userDefaultIcon.png' : guidesdetail.photo}}" alt="Guide" /></li>
+                                        <li class="author-img">
+                                            <img class="img-circle img-wt-border" style=height:80px;width:80px; src="{{ guidesdetail.photo ==null ? 'img/userDefaultIcon.png' : guidesdetail.photo}}" alt="Guide" /></li>
                                         <li class="post-author"><a class="text-upper">{{guidesdetail.gender}}</a></li>
                                         <li class="fa fa-map-marker"><a class=""> {{guidesdetail.city}}</a></li>
                                         <li class="fa fa-hourglass"><a class=""> {{guidesdetail.experiance_in_year}}</a></li>
@@ -277,7 +278,7 @@
                                         <div class="tab-pane" style="height:500px;" id="relatedGuides" ng-controller="TopGuideControl">
                                             <div class="col-md-12">
                                                 <ul class="list-unstyled">
-                                                    <li ng-repeat="z in TopGuides" ng-show="$index<17 && z.photo!=null">
+                                                    <li ng-repeat="z in TopGuides" ng-show="$index<15 && z.photo!=null">
                                                         <span class="rc-post-image">
                                                     <a href="guide-detail-sidebar.php#?id2={{z.id}}" target="_blank"><img class="img-responsive" style="height:70px; width:60px;" src="{{z.photo==null ? 'img/userDefaultIcon.png' :z.photo}}" alt="Guide Image" /></a>
 												</span>
@@ -334,16 +335,15 @@
                                 </div>
 
 
-                                <div class="sidebar-widget">
-                                    <!-- Sidebar Flickr Gallery -->
+                                <!-- div class="sidebar-widget">
                                     <h3 class="text-upper">Image Gallery</h3>
                                     <ul class="flickr-gal list-unstyled" ng-controller="TourControl">
                                         <li ng-repeat="x in alltours" ng-show="$index<4">
-                                            <img class="img-responsive" src="{{'x.photo' == null ? 'img/SAMPLE_TOUR.jpg' : x.photo}}" alt="Tour Image" />
+                                            <img class="img-responsive" src="{{'x.photo' == null ? 'img/SAMPLE_TOUR.jpg' : x.photo[0]}}" alt="Tour Image" />
                                         </li>
 
                                     </ul>
-                                </div>
+                                </div -->
                             </aside>
                             <!-- END #sidebar -->
                         </div>
