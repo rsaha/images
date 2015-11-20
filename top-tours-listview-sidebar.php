@@ -221,7 +221,8 @@ ul.rating {
 									<!-- END TAB 3 -->
                                     <!-- lodging hotels -->
                                     <div class="tab-pane"  id="lodging" style="height:600px;" ng-controller="hotelControl">
-										<ul class="list-unstyled">
+										<div class="col-md-12">
+                                            <ul class="list-unstyled">
 											<li ng-repeat="lodge in lodging" ng-show="$index<4 ">
 												<span class="rc-post-image">
                                                     <a href="">	<img class="img-responsive" style="height:80px; width:65px;" src="{{lodge.Media.Image[0]}}" alt="Hotel" /></a>
@@ -232,6 +233,7 @@ ul.rating {
                                                     <input type="submit" name="submit" class="pull-right btn btn-sm btn-primary  marb20" value="Coming Soon" /></a>
 											</li> 
 										</ul>
+                                            </div>
 									</div>
 								</div>
 								<!-- END TAB CONTENT -->

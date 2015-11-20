@@ -231,14 +231,20 @@
                                                     <div class="col-md-12">
                                                         <ul class="list-unstyled">
                                                             <li ng-repeat="x in alltours | filter:{ guide_id:idn }" ng-if="x.guide_id==idn" ng-show="$index<4">
-                                                                <span class="rc-post-image">
-                                                    <a href="tour_detail_sidebar.php#?id={{x.tour_id}}"	><img class="img-responsive" src="{{x.photo ==null ? 'img/SAMPLE_TAJ.jpg' : x.photo[0]}}" alt="Tour 1" /></a>
-												</span>
-                                                                <h5><a href="#">{{x.tour_title}}</a></h5>
-                                                                <span class="rc-post-date small">Starting Price&nbsp;{{x.tour_price}}</span>
-                                                                <a href="tour_detail_sidebar.php#?id={{x.tour_id}}">
-                                                                    <input type="submit" name="submit" class="pull-right btn btn-sm btn-primary  marb20" value="Explore" />
-                                                                </a>
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <span class="rc-post-image">
+                                                                    <a href="tour_detail_sidebar.php#?id={{x.tour_id}}"	>
+                                                                        <img class="img-responsive" src="{{x.photo == null ? 'img/SAMPLE_TAJ.jpg' : x.photo[0]}}" alt="Tour 1" />
+                                                                    </a>
+                                                                </span>
+                                                                        <h5><a href="#">{{x.tour_title}}</a></h5>
+                                                                        <span class="rc-post-date small">Starting Price&nbsp;{{x.tour_price}}</span>
+                                                                        <a href="tour_detail_sidebar.php#?id={{x.tour_id}}">
+                                                                            <input type="submit" name="submit" class="pull-right btn btn-sm btn-primary  marb20" value="Explore" />
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
                                                             </li>
                                                         </ul>
                                                     </div>

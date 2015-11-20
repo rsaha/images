@@ -206,7 +206,7 @@
                             <span class="rc-post-date small">Starting Price&nbsp;{{k.tour_price}}</span>
                             <br/>
                             <a ng-href="booking-form.php#?id1=0&&id2={{k.tour_id}}">
-                                <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Book" />
+                                <input type="submit" name="submit" class="pull-right btn btn-sm btn-primary text-upper marb20" value="Book" />
                             </a>
                         </li>
                     </ul>
@@ -215,7 +215,8 @@
 
                 <!-- START TAB 2 -->
                 <div class="tab-pane" id="topguides" style="height:600px;" ng-controller="guidescontrol">
-                    <ul class="list-unstyled">
+                    <div class="col-md-12">
+                        <ul class="list-unstyled">
                         <li ng-repeat="z in guides" ng-show="$index<18 && z.photo!=null">
                             <span class="rc-post-image">
                                                     <a ng-href="guide-detail-sidebar.php#?id2={{z.id}}">	
@@ -226,13 +227,14 @@
                             <!--												<h5>{{z.Speciality}}<span class="rc-post-date small">Speciality&nbsp;&nbsp;</span></h5>-->
                             <span star-rating rating-value="z.review.rating" style="" class=""></span>
                             <a ng-href="guide-detail-sidebar.php#?id2={{z.id}}">
-                                <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="View Details" />
+                                <input type="submit" name="submit" class="pull-right btn btn-sm btn-primary text-upper marb20" value="View Details" />
                             </a>
                             <br>
                             <br>
                         </li>
 
                     </ul>
+                        </div>
                 </div>
                 <!-- END TAB 2 -->
 
@@ -249,7 +251,7 @@
                             <br>
                             <br>
                             <a href="#" style="margin-left:110px;">
-                                <input type="submit" name="submit" class="btn btn-primary  marb20" value="Coming Soon" />
+                                <input type="submit" name="submit" class="pull-right btn btn-sm btn-primary  marb20" value="Coming Soon" />
                             </a>
                         </li>
 
