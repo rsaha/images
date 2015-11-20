@@ -543,12 +543,13 @@
                                                             <div class="col-sm-12">
                                                                 <select class="form-control" name="guideTerritory" style="background-color:#f7f7f7;">
                                                                     <option value="">Select Territory</option>
-                                                                    <option value="Central Region">Central Region</option>
-                                                                    <option value="Eastern Region">Eastern Region</option>
-                                                                    <option value="Western Region">Western Region</option>
-                                                                    <option value="Northen Region">Northen Region</option>
-                                                                    <option value="Southern Region">Southern Region</option>
-                                                                    <option value="Northeast Region">Northeast Region</option>
+                                                                    <option value="Central Region" title="Central India States">Central Region</option>
+                                                                    <option value="Eastern Region" title="East India States">Eastern Region</option>
+                                                                    <option value="Western Region" title="West India States">Western Region</option>
+                                                                    <option value="Northen Region" title="North India States">Northen Region</option>
+                                                                    <option value="Southern Region" title="South India States">Southern Region</option>
+                                                                    <option value="Northeast Region" title="North East India States">Northeast Region</option>
+                                                                    <option value="Other">Other</option>
                                                                 </select>
                                                             </div>
                                                         </div>
