@@ -477,7 +477,7 @@ $_SESSION['notification']="Congratulation! Welcome to Guided Gateway, you are no
 												
 												<hr class="pd-10">
 												<div class="row">
-												 <div class="col-sm-12 col-xs-12">
+												 <div class="col-sm-6 col-xs-12">
 													<div class="form-group">
 													  <h3 class=" font-semibold">TERRITORY</h3>
 													<div class="content-list content-menu col-sm-11">
@@ -485,12 +485,8 @@ $_SESSION['notification']="Congratulation! Welcome to Guided Gateway, you are no
 													</div>
 												  </div>
 												  </div>
-												  </div>
 												  
-												  
-												<hr class="pd-10">
-												<div class="row">
-												 <div class="col-sm-12 col-xs-12">
+												 <div class="col-sm-6 col-xs-12">
 													<div class="form-group">
 													  <h3 class=" font-semibold">PAYMENT TERMS</h3>
 													<div class="content-list content-menu col-sm-11">
@@ -510,11 +506,11 @@ $_SESSION['notification']="Congratulation! Welcome to Guided Gateway, you are no
 													   <?php 
 													   if($experianceInYear!= NULL || $experianceInYear!= "" || $experianceInYear != 0)
 													   {
-														   $exper = $experianceInYear . " Year Experiace in Guiding.<br>"; 
+														   $exper = $experianceInYear . " Year(s) Experiace in Guiding.<br>"; 
 													   } 
 													   else 
 													   { 
-															$exper = ""; 
+															$exper = "";
 													   } 
 														echo $exper . "" . $otherExperiance 
 													   ?>
@@ -593,7 +589,7 @@ $_SESSION['notification']="Congratulation! Welcome to Guided Gateway, you are no
 																
 															</span>
 															<div class="ft-data2">
-																<span style="color:white" class="ft-title text-upper"><div class="short-text"" title="<?php echo $row1['tour_title'] ?>"><?php echo $row1['tour_title'] ?></div></span>
+																<span style="color:white" class="ft-title text-upper"><div class="short-text" title="<?php echo $row1['tour_title'] ?>"><?php echo $row1['tour_title'] ?></div></span>
 																<span class="ft-offer text-upper"><?php echo $row1['tour_price'] ?></span>
 															</div>
 															<div class="ft-foot">
