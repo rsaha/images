@@ -344,7 +344,7 @@
 
                                                         <div class="featured-btm box-shadow1">
                                                             <a class="ft-hotel text-upper" href="#">{{tour.tour_duration}} Day Tour</a>
-                                                            <a class="ft-plane text-upper" href="#">{{tour.guide_id}}</a>
+                                                            <a class="fa fa-user text-upper" href="guide-detail-sidebar.php#?id={{tour.guide_id}}">{{tour.guide_id}}</a>
                                                             <a class="ft-tea text-upper" href="#">
                                                                 <div class="short-text2" title="{{tour.inclusive}}">{{tour.inclusive}}</div>
                                                             </a>
@@ -368,8 +368,7 @@
                                                             {{tour.cancelation_policy}}
                                                         </div>
                                                     </div>
-                                                    <div class="alignright">
-                                                        <h4>Total for Tour: {{tour.tour_price}}</h4></div>
+                                                    <h4>Total for Tour: {{tour.tour_price}}</h4>
                                                 </div>
 
                                             </div>
@@ -388,12 +387,11 @@
                                                         </div>
                                                         <div class="row">
                                                             <div class="col-md-4 col-sm-4 col-xs-4">Territory:</div>
-                                                            <div class="col-md-8 col-sm-8 col-xs-8 alignright" ng-repeat="z in guide.guide_territory">{{z}}, </div>
+                                                            <div class="col-md-8 col-sm-8 col-xs-8 alignright" ng-repeat="z in guide.guide_territory">{{z}}</div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="alignright">
-                                                    <h4>Total for Guide: Rs 1500 /-</h4></div>
+                                                    <h4>Total for Guide: Will contact you</h4>
                                                 <hr style="margin: 20px 0; border: 1px solid #808080;">
                                             </div>
                                         </div>
@@ -602,19 +600,6 @@
             var oldValue = document.getElementById("tourDuration").value;
             var newValue = parseInt(oldValue) + 1;
             document.getElementById("tourDuration").value = newValue;
-        }
-    </script>
-
-    <script>
-        function detailTour(id) {
-            window.location.href = "tour_detail_sidebar.php?id=" + id + "";
-            return false;
-        }
-
-        function detailGuide(id) {
-            //alert("user id - " + id);
-            window.location.href = "guide_detail.php?id=" + id + "";
-            return false;
         }
     </script>
 
