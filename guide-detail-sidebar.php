@@ -158,7 +158,7 @@
                                         <li class="post-author"><a class="text-upper">{{guidesdetail.gender}}</a></li>
                                         <li class="fa fa-map-marker"><a class=""> {{guidesdetail.city}}</a></li>
                                         <li class="fa fa-hourglass"><a class=""> {{guidesdetail.experiance_in_year}}</a></li>
-                                        <li class="fa fa-book"><a class=""> {{guidesdetail.guide_interest}}</a></li>
+                                        <li class="fa fa-book"><a class=""> {{guidesdetail.language_known.length}}</a></li>
                                         <!--<li class="post-date"><span class="alignright" star-rating rating-value="tg.ReviewSummary.Star" ></span></li>-->
 
                                     </ul>
@@ -170,26 +170,10 @@
                                 <!-- START .post-content -->
                                 <article class="post-content">
                                     <p>{{guidesdetail.guide_summary}}</p>
-                                    <p>
-                                        <img class="alignleft" src="img/feature_detail_tour.jpg" alt="Top Tour" />
-                                        <br>
-
-                                    </p>
-
                                     <div style="padding-left:50px;">
-                                        <h3 class="text-upper">Tours From {{guidesdetail.name}}</h3>
+                                        <h3 class="text-upper">Language Known {{guidesdetail.language_known.length}} :</h3>
                                         <ul class="list-unstyled">
-                                            <li>
-                                                <span class="rc-post-image">
-													<img class="img-responsive" src="img/SAMPLE_TOUR.jpg" alt="Tour 1" />
-												</span>
-                                                <h5><a href="tour_detail_sidebar.php?id2=50001">Very nice tour of historic Bengal></h5>
-                                                <span class="rc-post-date small">Starting Price</span>INR 1500 per Person
-                                                <br/>
-                                                <a href="booking-form.php?id2=50001">
-                                                    <input type="submit" name="submit" class="btn btn-primary  marb20" value="Book Now" />
-                                                </a>
-                                            </li>
+                                            <li class="fa fa-book">{{guidesdetail.language_known.[0].[0]}}</li>
                                         </ul>
                                     </div>
                                     <br>
@@ -203,8 +187,7 @@
                                         <input type="text" name="email" class="form-control input-style1 marb20" value="Add comment here.." onfocus="if (this.value == 'Enter Email Address') { this.value = ''; }" onblur="if (this.value == '') { this.value = 'Enter Email Address'; }" />
                                         <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Add comment" />
                                     </form>
-                                    <h5 class="text-upper">No previous reviews available, Be the first</h5>
-
+                                    <h5 class="text-upper">No previous reviews available, Be the first and get discount for your next tour</h5>
                                 </div>
                             </div>
                             <!-- END #page -->
@@ -239,11 +222,12 @@
                                                                         <img class="img-responsive" src="{{x.photo == null ? 'img/SAMPLE_TAJ.jpg' : x.photo[0]}}" alt="Tour 1" />
                                                                     </a>
                                                                 </span>
-                                                                        <h5><a href="#">{{x.tour_title}}</a></h5>
+                                                                        <h5>{{x.tour_title}}</h5>
+                                                                        <h5><a href="top-tours-listview-sidebar.php">{{x.tour_location}}</a></h5>
                                                                         <span class="rc-post-date small">Starting Price&nbsp;{{x.tour_price}}</span>
-                                                                        <a href="tour_detail_sidebar.php#?id={{x.tour_id}}">
+                                                                        <!-- a href="tour_detail_sidebar.php#?id={{x.tour_id}}">
                                                                             <input type="submit" name="submit" class="pull-right btn btn-sm btn-primary  marb20" value="Explore" />
-                                                                        </a>
+                                                                        </a-->
                                                                     </div>
                                                                 </div>
                                                             </li>

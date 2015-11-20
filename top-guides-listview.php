@@ -180,12 +180,10 @@
                                             <div class="short-text ft-title text-upper" style="font-size:16px ; color:white;" title="{{x.name}},&nbsp;&nbsp;{{x.gender}}">
                                                 &nbsp;{{data.name}},&nbsp;&nbsp;{{data.gender}}&nbsp;
                                             </div>
-                                            <!--							<h4 class="ft-title text-upper" style="color:#686868">&nbsp;{{x.name}},&nbsp;&nbsp;{{x.gender}}&nbsp;</h4> -->
-                                            <!-- <span class="ft-offer text-upper">{{x.Tours.Count}} Tours</span>  -->
                                         </div>
 
                                         <div class="ft-foot-ex">
-                                            <span class="fa fa-trophy text-upper alignleft">&nbsp;{{x.Tours.Count}} Tours&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;
+                                            <span class="fa fa-trophy text-upper alignleft">&nbsp;{{data.tours.length}} Tours&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;
                                             <span star-rating rating-value="data.Review.Star" class="aligncenter"></span>
                                             <span class="alignright ">&nbsp;{{data.Review.Count}} reviews&nbsp;</span>
                                             <br>
