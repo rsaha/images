@@ -171,9 +171,9 @@
                                 <article class="post-content">
                                     <p>{{guidesdetail.guide_summary}}</p>
                                     <div style="padding-left:50px;">
-                                        <h3 class="text-upper">Language Known {{guidesdetail.language_known.length}} :</h3>
+                                        <h3 class="text-upper">Language Known : <b>{{guidesdetail.language_known.length}}</b></h3>
                                         <ul class="list-unstyled">
-                                            <li class="fa fa-book">{{guidesdetail.language_known.[0].[0]}}</li>
+                                            <li class="fa fa-book">{{guidesdetail.language_known[0][0]}}</li>
                                         </ul>
                                     </div>
                                     <br>
