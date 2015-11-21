@@ -227,16 +227,14 @@ ul.rating {
 				<div class="ft-data" style="height:45px;font-size:11px;">
 							   <span style="color:black;" class="fa fa-registered text-upper" >{{x.license_no}}</span>
 							  <span style="color:black;" class="fa fa-user-times text-upper alignright" >{{x.experiance_in_year}}</span><br>
-							 
 								</div> 
 					
 							<div class="ft-foot" style="word-wrap:break-word; height:50px;">
 							<h4 class="fa fa-location text-upper" style="color:#686868">{{x.name}},&nbsp{{x.guide_territory[0]}}</h4> 
-				            <span class="ft-offer text-upper">{{x.tour.length}} Tours</span>
 							</div> 
 					
 							<div class="ft-foot-ex"> 
-								<span class="fa fa-trophy text-upper alignleft">{{x.Tours.Count}}</span>
+								<span class="fa fa-trophy text-upper alignleft">{{x.tour.length}}</span>
 								<span star-rating rating-value="x.Review.Star" style="margin-left:20px;" class="aligncenter"></span>
 								<span class="alignright">{{x.review.Count}} reviews</span> 							
 							</div> 

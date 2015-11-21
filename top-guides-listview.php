@@ -173,7 +173,7 @@
                                                 <span style="color:black;" class="fa fa-hourglass text-upper">&nbsp;{{data.experiance_in_year}}&nbsp;</span>
                                                 <br>
                                                 <span style="font-size:11px;color:black;" class="fa fa-book text-upper">&nbsp;{{data.language_known[0][0]}}&nbsp;</span>
-                                                 <span style="font-size:11px;color:black;" class "fa fa-registered text-upper" >{{data.license_no}}</span>
+                                                 <span style="font-size:11px;color:black;" class="fa fa-registered text-upper" >{{data.license_no}}</span>
                                             </div>
                                         </div>
 
