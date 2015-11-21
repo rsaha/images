@@ -232,7 +232,7 @@ ul.rating {
 					
 							<div class="ft-foot" style="word-wrap:break-word; height:50px;">
 							<h4 class="fa fa-location text-upper" style="color:#686868">{{x.name}},&nbsp{{x.guide_territory[0]}}</h4> 
-							<!-- <span class="ft-offer text-upper">{{x.Tours.Count}} Tours</span>  -->
+				            <span class="ft-offer text-upper">{{x.tour.length}} Tours</span>
 							</div> 
 					
 							<div class="ft-foot-ex"> 

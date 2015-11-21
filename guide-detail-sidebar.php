@@ -154,11 +154,12 @@
 
                                     <ul class="featured-btm single-ft-btm list-unstyled box-shadow1">
                                         <li class="author-img">
-                                            <img class="img-circle img-wt-border" style=height:80px;width:80px; src="{{ guidesdetail.photo ==null ? 'img/userDefaultIcon.png' : guidesdetail.photo}}" alt="Guide" /></li>
+                                        <img class="img-circle img-wt-border" style=height:80px;width:80px; src="{{ guidesdetail.photo ==null ? 'img/userDefaultIcon.png' : guidesdetail.photo}}" alt="Guide" /></li>
                                         <li class="post-author"><a class="text-upper">{{guidesdetail.gender}}</a></li>
                                         <li class="fa fa-map-marker"><a class=""> {{guidesdetail.city}}</a></li>
-                                        <li class="fa fa-hourglass"><a class=""> {{guidesdetail.experiance_in_year}}</a></li>
-                                        <li class="fa fa-book"><a class=""> {{guidesdetail.language_known.length}}</a></li>
+                                        <li class="fa fa-hourglass">{{guidesdetail.experiance_in_year}}</li>
+                                        <li class="fa fa-book">{{guidesdetail.tour.length}}</li>
+                                        <li class "fa fa-registered text-upper" >{{x.license_no}}</li>
                                         <!--<li class="post-date"><span class="alignright" star-rating rating-value="tg.ReviewSummary.Star" ></span></li>-->
 
                                     </ul>

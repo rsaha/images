@@ -172,18 +172,19 @@
                                                 <span style="color:black;" class="fa fa-map-marker text-upper">&nbsp;{{data.city}}&nbsp;</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                 <span style="color:black;" class="fa fa-hourglass text-upper">&nbsp;{{data.experiance_in_year}}&nbsp;</span>
                                                 <br>
-                                                <span style=" font-size:11px;color:black;" class="fa fa-book text-upper">&nbsp;{{data.language_known[0][0]}}&nbsp;</span>
+                                                <span style="font-size:11px;color:black;" class="fa fa-book text-upper">&nbsp;{{data.language_known[0][0]}}&nbsp;</span>
+                                                 <span style="font-size:11px;color:black;" class "fa fa-registered text-upper" >{{data.license_no}}</span>
                                             </div>
                                         </div>
 
                                         <div class="ft-foot">
-                                            <div class="short-text ft-title text-upper" style="font-size:16px ; color:white;" title="{{x.name}},&nbsp;&nbsp;{{x.gender}}">
+                                            <div class="short-text ft-title text-upper" style="font-size:16px ; color:white;" title="{{data.name}},&nbsp;&nbsp;{{data.gender}}">
                                                 &nbsp;{{data.name}},&nbsp;&nbsp;{{data.gender}}&nbsp;
                                             </div>
                                         </div>
 
                                         <div class="ft-foot-ex">
-                                            <span class="fa fa-trophy text-upper alignleft">&nbsp;{{data.tours.length}} Tours&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;
+                                            <span class="fa fa-trophy text-upper alignleft">&nbsp;{{data.tour.length}} Tours&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;
                                             <span star-rating rating-value="data.Review.Star" class="aligncenter"></span>
                                             <span class="alignright ">&nbsp;{{data.Review.Count}} reviews&nbsp;</span>
                                             <br>
