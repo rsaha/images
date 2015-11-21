@@ -234,7 +234,7 @@ ul.rating {
 							</div> 
 					
 							<div class="ft-foot-ex"> 
-								<span class="fa fa-trophy text-upper alignleft">{{x.tour.length}}</span>
+								<span class="fa fa-trophy text-upper alignleft">{{x.tour.length}} Tours</span>
 								<span star-rating rating-value="x.Review.Star" style="margin-left:20px;" class="aligncenter"></span>
 								<span class="alignright">{{x.review.Count}} reviews</span> 							
 							</div> 
