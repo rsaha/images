@@ -73,9 +73,7 @@ else
 								<div class="col-sm-12">
 										<div class="row">
 										<div class="text-center">
-										<a href="Index.html" style="color: black; font-size:47px; font-weight:bold; font-family:Pacifico; text-decoration:none;">Guided Gateway</a><br>
-										<a href="Index.html" style="color:#444454; font-size:28px; font-weight:bold; font-family:Pacifico; text-decoration:none;">Sign In Here</a>
-											
+										<a href="index.php" style="color: black; font-size:47px; font-weight:bold; font-family:Pacifico; text-decoration:none;">Guided Gateway</a><br>
 										</div>
 										</div>
 										<br /><br />
@@ -121,7 +119,7 @@ else
 			</div>
 			<!-- END .main-contents -->
 			
-			<?php include_once('MasterFooter.php'); ?>
+			<?php include_once('MasterTopFooter.php'); ?>
 			
 		</div>
 		<!-- END #wrapper -->

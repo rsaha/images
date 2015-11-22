@@ -77,21 +77,25 @@
 				<!-- START #ex-footer --> <div id="#ex-footer"> <div
 				class="container"> <div class="row"> <nav
 				class="col-md-12"> <ul class="footer-menu"> 
-                <li><a href="howitworks_guide.html">How it works</a></li> 
-                <li><a href="#">Cancellation Policy</a>
-                </li> <li><a href="termofuse.html">Website Terms of
-				Use</a></li> <li><a href="privacy.html">Privacy Statement</a></li>
-				<li><a href="#">Join Us</a></li> 
+                <li><a href="https://storage.googleapis.com/guidedgateway_media/GG_Tourist.pdf">
+Why Tourist Choose Us</a></li>
+                                <li><a href="registration.php">Why Join Us</a></li>
+                                <li><a href="termsofuse.html">Terms of Use</a></li>
+                                <li><a href="privacy.html">Privacy Statement</a></li>
+                                <li class="last-item"><a href="">Help Us</a></li>
 				</ul> </nav>
 
 				<div class="foot-boxs"> <div class="foot-box
-							col-md-4 text-right"> <span>Stay
-							Connected</span> <ul class="social-media
-							footer-social"><li><a class="sm-facebook"
-	href="#"><span>Facebook</span></a></li> <li><a class="sm-flickr"
-	href="#"><span>Pinterest</span></a></li> <li><a class="sm-windows"
-	href="#"><span>Youtube</span></a></li> <li><a class="sm-stumble"
-	href="#"><span>Twitter</span></a></li>
+							col-md-4 text-right"> 
+                    <span>Stay Connected</span> 
+                    <ul class="social-media
+							footer-social">
+                    <li><a href="https://storage.googleapis.com/guidedgateway_media/GG_Tourist.pdf">
+Why Guided Gateway</a></li>
+                                <li><a href="registration.php">Join Us</a></li>
+                                <li><a href="termsofuse.html">Terms of Use</a></li>
+                                <li><a href="privacy.html">Privacy Statement</a></li>
+                                <li class="last-item"><a href="">Help Us</a></li>
 							</ul> </div> <div class="foot-box
 							foot-box-md col-md-4"> <span
 							class="contact-email">
