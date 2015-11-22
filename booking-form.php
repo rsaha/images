@@ -454,7 +454,7 @@
                             </div>
                             <div class="sidebar-widget">
 								<!-- Sidebar About -->
-								<h3 class="text-upper"><a href="https://storage.googleapis.com/guidedgateway_media/GG_Tourist.pdf">Why GuidedGateway</a></h3>
+								<h3 class="text-upper"><i><a href="https://storage.googleapis.com/guidedgateway_media/GG_Tourist.pdf">Why GuidedGateway</a></i></h3>
 								<p>Unique marketplace to promote Travel Entreprenures across India. 
                                    Offering toursts an integrated authentic tsightseeing tour of real India with the help of a local expert.</p>
 							</div>
@@ -483,7 +483,7 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-md-12">
-                            We will have many more lodging options for you soon...
+                            We will have lodging options for you soon...
                         </div>
                     </div>
 
@@ -505,7 +505,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="col-md-12">
-                        We will have many more transport service options for you soon...
+                        We will have transport options for you soon...
                     </div>
                 </div>
                 <div class="modal-footer">
