@@ -254,7 +254,7 @@
                                                         <br>
                                                         <div class="panel panel-default">
                                                             <div class="panel-heading">
-                                                                <a class="panel-title collapsed" data-toggle="collapse" href="#collapseTwo"> Transport Service </a>
+                                                                <a class="panel-title collapsed" data-toggle="collapse" href="#collapseTwo"> Transport Service Coming Soon </a>
                                                             </div>
                                                             <div id="collapseTwo" class="panel-collapse collapse">
                                                                 <div class="panel-body">
@@ -452,6 +452,12 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="sidebar-widget">
+								<!-- Sidebar About -->
+								<h3 class="text-upper"><a href="https://storage.googleapis.com/guidedgateway_media/GG_Tourist.pdf">Why GuidedGateway</a></h3>
+								<p>Unique marketplace to promote Travel Entreprenures across India. 
+                                   Offering toursts an integrated authentic tsightseeing tour of real India with the help of a local expert.</p>
+							</div>
                         </aside>
                         <!-- END #sidebar -->
                     </div>

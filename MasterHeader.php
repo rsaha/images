@@ -142,7 +142,7 @@
 
                                         <ul>
                                             <li><a href="#" title="">Touriest SIGN IN</a></li>
-                                            <li><a href="login.php" title="">Guide SIGN IN</a></li>
+                                            <li><a href="login.php" title="">Provider SIGN IN</a></li>
                                         </ul>
 
                                     </li>
