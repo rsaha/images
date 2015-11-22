@@ -96,7 +96,7 @@ Why Guided Gateway</a></li>
                             </div>
                             <div class="foot-box foot-box-md col-md-4">
                                 <span class="contact-email"> touchus@guidedgateway.com</span>
-                                <span class="contact-phone"> +1 510 938 2562</span>
+                                <span class="contact-phone">+1 510 938 2562</span>
                             </div>
                             <div class="foot-box col-md-4">
                                 <span class="">&copy; 2015 Guided Gateway. All Rights Reserved.</span>
