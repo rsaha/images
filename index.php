@@ -263,7 +263,7 @@ ul.rating {
 				   <a href="destination-detail-sidebar.php#?id3={{z.ID}}">
 				      <div	class="ft-item"> 
 						  <span class="ft-image">
-							 <img style="height:200px;" src="{{'z.Media.Image[0]'=='' ? 'img/custom1.jpg' :z.Media.Image[0]}}" alt="Top Destination" /> 
+							 <img style="height:200px;" src="{{z.Media.Image[0]=='' ? 'img/custom1.jpg' :z.Media.Image[0]}}" alt="Top Destination" /> 
 						  </span>
 					  
 								<div class="ft-data" style="height:45px;font-size:11px;">
