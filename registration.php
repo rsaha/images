@@ -136,11 +136,11 @@
                     <h1><strong>Make tourists happier and earn more</strong></h1>
                     <h3><strong>Be great at what you do!</strong></h3><br/>
                     <h2><strong>Attract More Tourists through our marketing programs</strong></h2>
-                        <h2><strong>Make more from each tourist with our low commission & other services</strong></h2>
-                        <h2><strong>ENable offering complete tour package with our partners</strong></h2>
+                        <h2><strong>Make more from each tourist with our low commission &amp; other services</strong></h2>
+                        <h2><strong>Optionally offer lodging and transport service from our partners</strong></h2>
                         <h2><strong>Compensation for no-show or late cancellation</strong></h2></br/>
 					<span class="btn-center">
-					<a class="btn btn-primary text-upper" href="Why_GuidedGateway.html" title="Learn More">Learn More</a>
+					<a class="btn btn-primary text-upper" href="https://storage.googleapis.com/guidedgateway_media/GG_Guide.pdf" title="Learn More">Learn More</a>
 					</span> 
 				</div>
 			</div>
