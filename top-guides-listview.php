@@ -208,7 +208,7 @@
                                 <!-- START TAB CONTENT -->
                                 <div class="tab-content gray box-shadow1 clearfix marb30">
                                     <!-- START TAB 1 -->
-                                    <div class="tab-pane active" style="height:600px;" id="toptours" ng-controller="tourCtrl">
+                                    <div class="tab-pane active" style="height:600px;" id="toptours">
                                         <ul class="rc-posts-list list-unstyled">
                                             <li ng-repeat="x in alltours" ng-show="$index<4">
                                                 <span class="rc-post-image">
@@ -226,7 +226,7 @@
                                     </div>
                                     <!-- END TAB 1 -->
                                     <!-- START TAB 3 -->
-                                    <div class="tab-pane" id="topdestinations" style="height:600px;" ng-controller="placeCtrl">
+                                    <div class="tab-pane" id="topdestinations" style="height:600px;">
                                         <ul class="rc-posts-list list-unstyled">
                                             <li ng-repeat="k in allplaces" ng-show="$index<4">
                                                 <span class="rc-post-image">
@@ -246,7 +246,7 @@
                                     <!-- END TAB 3 -->
                                     <!-- START TAB 4 -->
                                     <!-- lodging hotels -->
-                                    <div class="tab-pane" id="lodging" style="height:600px;" ng-controller="hotelControl">
+                                    <div class="tab-pane" id="lodging" style="height:600px;">
                                         <ul class="rc-posts-list list-unstyled">
                                             <li ng-repeat="lodge in lodging" ng-show="$index<4 ">
                                                 <span class="rc-post-image">

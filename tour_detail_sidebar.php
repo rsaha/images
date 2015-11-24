@@ -295,7 +295,7 @@ ul.rating {
 								
 								<!-- START TAB CONTENT -->
 								<div class="tab-content gray box-shadow1 clearfix marb30">
-                                    <div class="tab-pane active" style="height:600px;" id="toptours" ng-controller="toursCtrl">
+                                    <div class="tab-pane active" style="height:600px;" id="toptours">
 										<ul class="rc-posts-list list-unstyled">
 											<li ng-repeat="x in tours" ng-show="$index<3">
 												<span class="rc-post-image">
@@ -309,7 +309,7 @@ ul.rating {
 										</ul>
 									</div>
 									<!-- START TAB 2 -->
-									<div class="tab-pane" style="height:600px;" id="topguides" ng-controller="guidescontrol">
+									<div class="tab-pane" style="height:600px;" id="topguides">
 										<div class="row"><ul class="list-unstyled"><br>
 											<li class="" ng-repeat="z in guides" ng-show="$index<3 ">
 												<div class="col-md-11 col-md-offset-1"><span class="rc-post-image">
@@ -328,7 +328,7 @@ ul.rating {
 									</div>
 									<!-- END TAB 2 -->
                                     <!-- lodging hotels -->
-                                    <div class="tab-pane"  id="lodging" style="height:600px;" ng-controller="hotelControl">
+                                    <div class="tab-pane"  id="lodging" style="height:600px;">
 										<ul class="rc-posts-list list-unstyled">
 											<li ng-repeat="lodge in lodging" ng-show="$index<4 ">
 												<span class="rc-post-image">
@@ -345,7 +345,7 @@ ul.rating {
 										</ul>
 									</div>
 									<!-- START TAB 4 -->
-									<div class="tab-pane" id="topreview" style="height:600px;" ng-controller="tourDetailCtrl">
+									<div class="tab-pane" id="topreview" style="height:600px;" >
                                         <ul class="list-unstyled">
                                             <p>No Reviews Yet<br><br><br><br><br><br><br><br></p>										
 										</ul>
