@@ -164,7 +164,8 @@ ul.rating {
  
 			<!-- START .main-contents --> 
         <div class="main-contents">
-			<div class="container" id="home-page">
+			<div class="container" id="home-page" >
+                <div ng-controller="MultipleCtrl">
                <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 					<!-- START Search Container --> 
                   
@@ -176,7 +177,7 @@ ul.rating {
 					  <ul class="slides">
 					  <li > 
 					   
-					 <div class="row bom-contents"  ng-controller="toursCtrl" style="height:380px;"> 
+					 <div class="row bom-contents"  style="height:380px;"> 
 						<div class="col-md-11" >
 					 <div class="col-md-3" ng-repeat="x in tours | filter:search" ng-show="$index<4"> 
 							<a href="tour_detail_sidebar.php#?id={{x.tour_id}}">
@@ -215,30 +216,28 @@ ul.rating {
 			   <div class="carousel" ng-show="checkboxModel.value2"> 
 				<ul class="slides">
 				<li> 
-				<div class="row bom-contents"  ng-controller="guideCtrl" style="height:380px;">
+				<div class="row bom-contents"  style="height:380px;">
 				<div class="col-md-11 col-xs-11">
-				<div class="col-md-3" ng-repeat="x in allguides | filter:search"  ng-show="$index<16 && x.photo!=null "> 
-				   <a href="guide-detail-sidebar.php#?id2={{x.id}}" ng-controller="guideIDCtrl" ng-click="setID(x.id)">
+				<div class="col-md-3" ng-repeat="y in allguides | filter:search"  ng-show="$index<16 && y.photo!=null "> 
+				   <a href="guide-detail-sidebar.php#?id2={{y.id}}" ng-controller="guideIDCtrl" ng-click="setID(y.id)">
 				      <div	class="ft-item"> 
 						  <span class="ft-image">
-							 <img style="height:200px;" src="{{x.photo==null ? 'img/SAMPLE_TOUR.jpg' :x.photo}}" alt="Top Guide" /> 
+							 <img style="height:200px;" src="{{y.photo==null ? 'img/SAMPLE_TOUR.jpg' :y.photo}}" alt="Top Guide" /> 
 						  </span>
 					  
 				<div class="ft-data" style="height:45px;font-size:11px;">
-							   <span style="color:black;" class="fa fa-registered text-upper" >{{x.license_no}}</span>
-							  <span style="color:black;" class="fa fa-user-times text-upper alignright" >{{x.experiance_in_year}}</span><br>
-							 
+							   <span style="color:black;" class="fa fa-registered text-upper" >{{y.license_no}}</span>
+							  <span style="color:black;" class="fa fa-user-times text-upper alignright" >{{y.experiance_in_year}}</span><br>
 								</div> 
 					
 							<div class="ft-foot" style="word-wrap:break-word; height:50px;">
-							<h4 class="fa fa-location text-upper" style="color:#686868">{{x.name}},&nbsp{{x.guide_territory[0]}}</h4> 
-							<!-- <span class="ft-offer text-upper">{{x.Tours.Count}} Tours</span>  -->
+							<h4 class="fa fa-location text-upper" style="color:#686868">{{y.name}},&nbsp{{y.guide_territory[0]}}</h4> 
 							</div> 
 					
 							<div class="ft-foot-ex"> 
-								<span class="fa fa-trophy text-upper alignleft">{{x.Tours.Count}}</span>
-								<span star-rating rating-value="x.Review.Star" style="margin-left:20px;" class="aligncenter"></span>
-								<span class="alignright">{{x.review.Count}} reviews</span> 							
+								<span class="fa fa-trophy text-upper alignleft">{{y.tour.length}} Tours</span>
+								<span star-rating rating-value="y.Review.Star" style="margin-left:20px;" class="aligncenter"></span>
+								<span class="alignright">{{y.review.Count}} reviews</span> 							
 							</div> 
 					</div>
 					</a>
@@ -258,28 +257,28 @@ ul.rating {
 			   <div class="carousel" ng-show="checkboxModel.value3"> 
 				<ul class="slides">
 				<li> 
-				<div class="row bom-contents"  ng-controller="placesCtrl" style="height:380px;">
+				<div class="row bom-contents"  style="height:380px;">
 				<div class="col-md-11">
-				<div class="col-md-3" ng-repeat="x in places | filter:search" ng-show="$index<4"> 
-				   <a href="destination-detail-sidebar.php#?id3={{x.ID}}">
+				<div class="col-md-3" ng-repeat="z in places | filter:search" ng-show="$index<4"> 
+				   <a href="destination-detail-sidebar.php#?id3={{z.ID}}">
 				      <div	class="ft-item"> 
 						  <span class="ft-image">
-							 <img style="height:200px;" src="{{'x.Media.Image[0]'=='' ? 'img/custom1.jpg' :x.Media.Image[0]}}" alt="Top Destination" /> 
+							 <img style="height:200px;" src="{{'z.Media.Image[0]'=='' ? 'img/custom1.jpg' :z.Media.Image[0]}}" alt="Top Destination" /> 
 						  </span>
 					  
 								<div class="ft-data" style="height:45px;font-size:11px;">
-							  <span style="color:black;" class="fa fa-calendar-check-o text-upper">{{x.BestTimeToVisit}}</span>
+							  <span style="color:black;" class="fa fa-calendar-check-o text-upper">{{z.BestTimeToVisit}}</span>
 								</div> 
 					
 							<div class="ft-foot" style="word-wrap:break-word; height:50px;">
-							<h4 class="ft-title text-upper" style="color:#686868">{{x.Name}}</h4> 
-							<span class="ft-offer text-upper">{{x.Category}}</span> 
+							<h4 class="ft-title text-upper" style="color:#686868">{{z.Name}}</h4> 
+							<span class="ft-offer text-upper">{{z.Category}}</span> 
 							</div> 
 					
 							<div class="ft-foot-ex"> 
-								<span class="fa fa-trophy text-upper alignleft">{{x.TourCount}}&nbsp;&nbsp;Tours</span>
+								<span class="fa fa-trophy text-upper alignleft">{{z.TourCount}}&nbsp;&nbsp;Tours</span>
 								
-								<span class="alignright fa fa-life-ring">{{x.GuideCount}}&nbsp;&nbsp;Guides</span> 						
+								<span class="alignright fa fa-life-ring">{{z.GuideCount}}&nbsp;&nbsp;Guides</span> 						
 							</div> 
 					</div>
 					</a>
@@ -293,7 +292,7 @@ ul.rating {
 				</li> 
 				</ul>
 				</div>
-				
+            </div>
 				</div>
 				</div> <!-- END .main-contents -->
 

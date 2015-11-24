@@ -381,22 +381,24 @@ else
                                                                 <label style="font-size:14px; font-weight:bold">Territory</label>
                                                                 <select class="form-control" name="guideTerritory">
                                                                     <option value="">Select Territory</option>
-                                                                    <option value="Central Region">Central Region</option>
-                                                                    <option value="Eastern Region">Eastern Region</option>
-                                                                    <option value="Western Region">Western Region</option>
-                                                                    <option value="Northen Region">Northen Region</option>
-                                                                    <option value="Southern Region">Southern Region</option>
-                                                                    <option value="Northeast Region">Northeast Region</option>
+                                                                    <option value="Central Region" title="Central India States">Central Region</option>
+                                                                    <option value="Eastern Region" title="East India States">Eastern Region</option>
+                                                                    <option value="Western Region" title="West India States">Western Region</option>
+                                                                    <option value="Northen Region" title="North India States">Northen Region</option>
+                                                                    <option value="Southern Region" title="South India States">Southern Region</option>
+                                                                    <option value="Northeast Region" title="North East India States">Northeast Region</option>
+                                                                    <option value="Other">Other</option>
                                                                 </select>
                                                                 <!--															<textarea class="form-control" name="guideTerritory" ></textarea>-->
                                                             </div>
 
                                                             <div class="col-md-4">
-                                                                <label style="font-size:14px; font-weight:bold">Payment Terms</label>
+                                                                <label style="font-size:14px; font-weight:bold">Preferred Payment Method</label>
                                                                 <select class="form-control" name="paymentterms">
-                                                                    <option value="">Select Payment Terms</option>
+                                                                    <option value="Any">No Preference</option>
                                                                     <option value="Bank">Bank</option>
                                                                     <option value="Cash">Cash</option>
+                                                                    <option value="Online">Online</option>
                                                                     <option value="Cheque">Cheque</option>
                                                                     <option value="Other">Other</option>
                                                                 </select>

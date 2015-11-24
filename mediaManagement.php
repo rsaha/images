@@ -110,10 +110,7 @@
 		<!-- template stylesheet -->
 		<link rel="stylesheet" type="text/css" href="css/styles.css" media="all" />
 		<!-- responsive stylesheet -->
-		<link rel="stylesheet" type="text/css" href="css/responsive.css" media="all" />
-		
-		<link rel="stylesheet" type="text/css" href="css/quiker1.js" media="all" />
-		
+		<link rel="stylesheet" type="text/css" href="css/responsive.css" media="all" />		
 		<!-- Load Fonts via Google Fonts API -->
 		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Karla:400,700,400italic,700italic" />
 		<!-- color scheme -->

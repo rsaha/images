@@ -543,22 +543,23 @@
                                                             <div class="col-sm-12">
                                                                 <select class="form-control" name="guideTerritory" style="background-color:#f7f7f7;">
                                                                     <option value="">Select Territory</option>
-                                                                    <option value="Central Region">Central Region</option>
-                                                                    <option value="Eastern Region">Eastern Region</option>
-                                                                    <option value="Western Region">Western Region</option>
-                                                                    <option value="Northen Region">Northen Region</option>
-                                                                    <option value="Southern Region">Southern Region</option>
-                                                                    <option value="Northeast Region">Northeast Region</option>
+                                                                    <option value="Central Region" title="Central India States">Central Region</option>
+                                                                    <option value="Eastern Region" title="East India States">Eastern Region</option>
+                                                                    <option value="Western Region" title="West India States">Western Region</option>
+                                                                    <option value="Northen Region" title="North India States">Northen Region</option>
+                                                                    <option value="Southern Region" title="South India States">Southern Region</option>
+                                                                    <option value="Northeast Region" title="North East India States">Northeast Region</option>
+                                                                    <option value="Other">Other</option>
                                                                 </select>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-6 form-group">
-                                                        <h3 class=" mgtp-10 font-semibold"><i class="icon-user mgr-10 profile-icon"></i> PAYMENT TERMS</h3>
+                                                        <h3 class=" mgtp-10 font-semibold"><i class="icon-user mgr-10 profile-icon"></i> Preferred Payment Method</h3>
                                                         <div class="row">
                                                             <div class="col-sm-12">
                                                                 <select class="form-control" name="paymentTerm" style="background-color:#f7f7f7;">
-                                                                    <option value="">Select Payment Terms</option>
+                                                                    <option value="Any">No Preference</option>
                                                                     <option value="Bank">Bank</option>
                                                                     <option value="Cash">Cash</option>
                                                                     <option value="Cheque">Cheque</option>
@@ -575,7 +576,7 @@
                                                             <h3 class=" font-semibold"><i class="fa fa-file-text-o mgr-10 profile-icon"></i> OTHER EXPERIENCE</h3>
 
                                                             <div class="content-list content-menu col-sm-12">
-                                                                <span class="menu-text"><textarea name="otherExperiance" class="form-control" rows="5" style="width:100%; background-color:#f7f7f7;"><?php echo $otherExperiance ?></textarea></span>
+                                                                <span class="menu-text"><textarea name="Experiance" class="form-control" rows="5" style="width:100%; background-color:#f7f7f7;"><?php echo $otherExperiance ?></textarea></span>
                                                             </div>
                                                         </div>
                                                         <div class="col-sm-6">

@@ -91,13 +91,12 @@
                     <div class="row top-row">
                         <div class="col-md-6">
                             <div class="left-part alignleft">
-                                <span class="contact-email small">touchus@guidedgateway.com</span>
-                                <span class="contact-phone small">+1 510 938 2562</span>
+                                <span class="contact-email small">support@guidedgateway.com</span>
+                                <span class="contact-phone small">+91 9830032920</span>
                                 <ul class="social-media header-social">
-                                    <li><a class="sm-facebook" href="#"><span>Facebook</span></a></li>
-                                    <li><a class="sm-pinterest" href="#"><span>Pinterest</span></a></li>
-                                    <li><a class="sm-youtube" href="#"><span>Youtube</span></a></li>
-                                    <li><a class="sm-twitter" href="#"><span>Twitter</span></a></li>
+                                    <li><a class="sm-facebook" href="https://www.facebook.com/Guided-Gateway-1462689710717715"><span>Facebook</span></a></li>
+                                    <li><a class="sm-pinterest" href="https://www.pinterest.com/guidedgateway/"><span>Pinterest</span></a></li>
+                                    <li><a class="sm-twitter" href="https://twitter.com/GuidedG"><span>Twitter</span></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -125,24 +124,14 @@
                             <nav class="main-nav">
                                 <span>MENU</span>
                                 <ul style="width:100%" id="main-menu">
-                                    <li class="pull-right"><a href="signOut.php" title=""><i class="fa fa-lock"></i> Sign Out</a></li>
                                     <li class="pull-right"><a href="#" title=""><i class="fa fa-cog"></i> Setting</a>
-
                                         <ul>
                                             <li><a onclick="editProfile(<?php echo $userid; ?>)" title="">Edit Profile</a></li>
                                             <li><a onclick="myFunctionSetting(<?php echo $userid; ?>)" title="">Change Password</a></li>
                                         </ul>
                                     </li>
-                                    <li class="pull-right"><a href="login.php" title=""><i class="fa fa-home"></i> Home</a></li>
-                                    <!--li><a href="" title=""> </a></li> 
-				<li><a href="" title=""> </a></li>
-				<li><a href="" title=""> </a></li> 
-				<li><a href="" title=""> </a></li>
-				<li><a href="" title=""> </a></li> 
-				<li><a href="" title=""> </a></li>
-				<li><a href="" title=""> </a></li>
-				<li><a href="" title=""> </a></li-->
-
+                                    <li class="pull-right"><a href="#" title=""><i class="fa fa-inbox"></i>Messages (Coming Soon)</a></li>
+                                    <li class="pull-right"><a href="login.php" title=""><i class="fa fa-home"></i>Home</a></li>
                                 </ul>
                             </nav>
                         </div>

@@ -28,10 +28,9 @@
                                 <span class="contact-email small">touchus@guidedgateway.com</span>
                                 <span class="contact-phone small">+1 510 938 2562</span>
                                 <ul class="social-media header-social">
-                                    <li><a class="sm-facebook" href="#"><span>Facebook</span></a></li>
-                                    <li><a class="sm-flickr" href="#"><span>Pinterest</span></a></li>
-                                    <li><a class="sm-windows" href="#"><span>Youtube</span></a></li>
-                                    <li><a class="sm-stumble" href="#"><span>Twitter</span></a></li>
+                                    <li><a class="sm-facebook" href="https://www.facebook.com/Guided-Gateway-1462689710717715"><span>Facebook</span></a></li>
+                                    <li><a class="sm-pinterest" href="https://www.pinterest.com/guidedgateway/"><span>Pinterest</span></a></li>
+                                    <li><a class="sm-twitter" href="https://twitter.com/GuidedG"><span>Twitter</span></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -39,10 +38,7 @@
                             <div class="right-part alignright">
                                 <span class="top-link small">
                                         <a href="login.php" title="">Provider Sign-in</a>
-                                    </span>
-                                <span class="top-link small">
-                                        <a href="#" title="">Sign-in</a>
-                                    </span>
+                                </span>
                             </div>
                         </div>
                     </div>

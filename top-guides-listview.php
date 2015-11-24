@@ -172,20 +172,19 @@
                                                 <span style="color:black;" class="fa fa-map-marker text-upper">&nbsp;{{data.city}}&nbsp;</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                 <span style="color:black;" class="fa fa-hourglass text-upper">&nbsp;{{data.experiance_in_year}}&nbsp;</span>
                                                 <br>
-                                                <span style=" font-size:11px;color:black;" class="fa fa-book text-upper">&nbsp;{{data.language_known[0][0]}}&nbsp;</span>
+                                                <span style="font-size:11px;color:black;" class="fa fa-book text-upper">&nbsp;{{data.language_known[0][0]}}&nbsp;</span>
+                                                 <span style="font-size:11px;color:black;" class="fa fa-registered text-upper" >{{data.license_no}}</span>
                                             </div>
                                         </div>
 
                                         <div class="ft-foot">
-                                            <div class="short-text ft-title text-upper" style="font-size:16px ; color:white;" title="{{x.name}},&nbsp;&nbsp;{{x.gender}}">
+                                            <div class="short-text ft-title text-upper" style="font-size:16px ; color:white;" title="{{data.name}},&nbsp;&nbsp;{{data.gender}}">
                                                 &nbsp;{{data.name}},&nbsp;&nbsp;{{data.gender}}&nbsp;
                                             </div>
-                                            <!--							<h4 class="ft-title text-upper" style="color:#686868">&nbsp;{{x.name}},&nbsp;&nbsp;{{x.gender}}&nbsp;</h4> -->
-                                            <!-- <span class="ft-offer text-upper">{{x.Tours.Count}} Tours</span>  -->
                                         </div>
 
                                         <div class="ft-foot-ex">
-                                            <span class="fa fa-trophy text-upper alignleft">&nbsp;{{x.Tours.Count}} Tours&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;
+                                            <span class="fa fa-trophy text-upper alignleft">&nbsp;{{data.tour.length}} Tours&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;
                                             <span star-rating rating-value="data.Review.Star" class="aligncenter"></span>
                                             <span class="alignright ">&nbsp;{{data.Review.Count}} reviews&nbsp;</span>
                                             <br>
@@ -209,7 +208,7 @@
                                 <!-- START TAB CONTENT -->
                                 <div class="tab-content gray box-shadow1 clearfix marb30">
                                     <!-- START TAB 1 -->
-                                    <div class="tab-pane active" style="height:600px;" id="toptours" ng-controller="tourCtrl">
+                                    <div class="tab-pane active" style="height:600px;" id="toptours">
                                         <ul class="rc-posts-list list-unstyled">
                                             <li ng-repeat="x in alltours" ng-show="$index<4">
                                                 <span class="rc-post-image">
@@ -227,7 +226,7 @@
                                     </div>
                                     <!-- END TAB 1 -->
                                     <!-- START TAB 3 -->
-                                    <div class="tab-pane" id="topdestinations" style="height:600px;" ng-controller="placeCtrl">
+                                    <div class="tab-pane" id="topdestinations" style="height:600px;">
                                         <ul class="rc-posts-list list-unstyled">
                                             <li ng-repeat="k in allplaces" ng-show="$index<4">
                                                 <span class="rc-post-image">
@@ -247,7 +246,7 @@
                                     <!-- END TAB 3 -->
                                     <!-- START TAB 4 -->
                                     <!-- lodging hotels -->
-                                    <div class="tab-pane" id="lodging" style="height:600px;" ng-controller="hotelControl">
+                                    <div class="tab-pane" id="lodging" style="height:600px;">
                                         <ul class="rc-posts-list list-unstyled">
                                             <li ng-repeat="lodge in lodging" ng-show="$index<4 ">
                                                 <span class="rc-post-image">

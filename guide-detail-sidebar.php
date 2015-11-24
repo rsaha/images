@@ -148,16 +148,21 @@
                             <div id="page" class="col-md-8">
                                 <!-- START .post-data -->
                                 <div class="post-data">
-                                    <div class="plan-image">
-                                        <img class="img-responsive" src="{{guidesdetail.cover_photo == null ? 'img/SAMPLE_TAJ.jpg' : guidesdetail.photo}}" alt="Guide Cover" />
+                                    <div class="plan-image" >
+<!--                                        <img class="img-responsive" ng-src="{{guidesdetail.cover == null ? tourfound : guidesdetail.photo}}" alt="Guide Cover" />-->
+                                     
+                                       <img class="img-responsive" ng-src="{{guidesdetail.cover == null ? tourfound != ''? tourfound : (guidesdetail.city==null ? 'img/SAMPLE_TAJ.jpg' : 'img/city/'+guidesdetail.city+'.jpg') : guidesdetail.photo}}" alt="Guide Cover" />
+<!--                                         <img class="img-responsive" ng-src="{{guidesdetail.cover == null ? tourfound != ''? tourfound :  'img/city/'+guidesdetail.city+'.jpg' : guidesdetail.photo}}" alt="Guide Cover" />-->
                                     </div>
 
                                     <ul class="featured-btm single-ft-btm list-unstyled box-shadow1">
-                                        <li class="author-img"><img class="img-circle img-wt-border" style=height:80px;width:80px; src="{{ guidesdetail.photo ==null ? 'img/userDefaultIcon.png' : guidesdetail.photo}}" alt="Guide" /></li>
+                                        <li class="author-img">
+                                        <img class="img-circle img-wt-border" style=height:80px;width:80px; src="{{ guidesdetail.photo ==null ? 'img/userDefaultIcon.png' : guidesdetail.photo}}" alt="Guide" /></li>
                                         <li class="post-author"><a class="text-upper">{{guidesdetail.gender}}</a></li>
                                         <li class="fa fa-map-marker"><a class=""> {{guidesdetail.city}}</a></li>
-                                        <li class="fa fa-hourglass"><a class=""> {{guidesdetail.experiance_in_year}}</a></li>
-                                        <li class="fa fa-book"><a class=""> {{guidesdetail.guide_interest}}</a></li>
+                                        <li class="fa fa-hourglass">{{guidesdetail.experiance_in_year}}</li>
+                                        <li class="fa fa-book">{{guidesdetail.tour.length}}</li>
+                                        <li class "fa fa-registered text-upper" >{{x.license_no}}</li>
                                         <!--<li class="post-date"><span class="alignright" star-rating rating-value="tg.ReviewSummary.Star" ></span></li>-->
 
                                     </ul>
@@ -169,26 +174,10 @@
                                 <!-- START .post-content -->
                                 <article class="post-content">
                                     <p>{{guidesdetail.guide_summary}}</p>
-                                    <p>
-                                        <img class="alignleft" src="img/feature_detail_tour.jpg" alt="Top Tour" />
-                                        <br>
-
-                                    </p>
-
                                     <div style="padding-left:50px;">
-                                        <h3 class="text-upper">Tours From {{guidesdetail.name}}</h3>
+                                        <h3 class="text-upper">Language Known : <b>{{guidesdetail.language_known.length}}</b></h3>
                                         <ul class="list-unstyled">
-                                            <li>
-                                                <span class="rc-post-image">
-													<img class="img-responsive" src="img/SAMPLE_TOUR.jpg" alt="Tour 1" />
-												</span>
-                                                <h5><a href="tour_detail_sidebar.php?id2=50001">Very nice tour of historic Bengal></h5>
-                                                <span class="rc-post-date small">Starting Price</span>INR 1500 per Person
-                                                <br/>
-                                                <a href="booking-form.php?id2=50001">
-                                                    <input type="submit" name="submit" class="btn btn-primary  marb20" value="Book Now" />
-                                                </a>
-                                            </li>
+                                            <li class="fa fa-book">{{guidesdetail.language_known[0][0]}}</li>
                                         </ul>
                                     </div>
                                     <br>
@@ -202,8 +191,7 @@
                                         <input type="text" name="email" class="form-control input-style1 marb20" value="Add comment here.." onfocus="if (this.value == 'Enter Email Address') { this.value = ''; }" onblur="if (this.value == '') { this.value = 'Enter Email Address'; }" />
                                         <input type="submit" name="submit" class="btn btn-primary text-upper marb20" value="Add comment" />
                                     </form>
-                                    <h5 class="text-upper">No previous reviews available, Be the first</h5>
-
+                                    <h5 class="text-upper">No previous reviews available, Be the first and get discount for your next tour</h5>
                                 </div>
                             </div>
                             <!-- END #page -->
@@ -238,11 +226,12 @@
                                                                         <img class="img-responsive" src="{{x.photo == null ? 'img/SAMPLE_TAJ.jpg' : x.photo[0]}}" alt="Tour 1" />
                                                                     </a>
                                                                 </span>
-                                                                        <h5><a href="#">{{x.tour_title}}</a></h5>
+                                                                        <h5>{{x.tour_title}}</h5>
+                                                                        <h5><a href="top-tours-listview-sidebar.php">{{x.tour_location}}</a></h5>
                                                                         <span class="rc-post-date small">Starting Price&nbsp;{{x.tour_price}}</span>
-                                                                        <a href="tour_detail_sidebar.php#?id={{x.tour_id}}">
+                                                                        <!-- a href="tour_detail_sidebar.php#?id={{x.tour_id}}">
                                                                             <input type="submit" name="submit" class="pull-right btn btn-sm btn-primary  marb20" value="Explore" />
-                                                                        </a>
+                                                                        </a-->
                                                                     </div>
                                                                 </div>
                                                             </li>
@@ -277,7 +266,7 @@
                                         <div class="tab-pane" style="height:500px;" id="relatedGuides" ng-controller="TopGuideControl">
                                             <div class="col-md-12">
                                                 <ul class="list-unstyled">
-                                                    <li ng-repeat="z in TopGuides" ng-show="$index<17 && z.photo!=null">
+                                                    <li ng-repeat="z in TopGuides" ng-show="$index<15 && z.photo!=null">
                                                         <span class="rc-post-image">
                                                     <a href="guide-detail-sidebar.php#?id2={{z.id}}" target="_blank"><img class="img-responsive" style="height:70px; width:60px;" src="{{z.photo==null ? 'img/userDefaultIcon.png' :z.photo}}" alt="Guide Image" /></a>
 												</span>
@@ -297,7 +286,7 @@
                                         <!-- END TAB 1 -->
 
                                         <!-- START TAB 2 -->
-                                        <div class="tab-pane" style="height:500px;" id="topreviews" ng-controller="TourControl">
+                                        <div class="tab-pane" style="height:500px;" id="topreviews" >
                                             <ul class="list-unstyled">
                                                 <p>No Reviews Yet
                                                     <br>
@@ -334,16 +323,15 @@
                                 </div>
 
 
-                                <div class="sidebar-widget">
-                                    <!-- Sidebar Flickr Gallery -->
+                                <!-- div class="sidebar-widget">
                                     <h3 class="text-upper">Image Gallery</h3>
                                     <ul class="flickr-gal list-unstyled" ng-controller="TourControl">
                                         <li ng-repeat="x in alltours" ng-show="$index<4">
-                                            <img class="img-responsive" src="{{'x.photo' == null ? 'img/SAMPLE_TOUR.jpg' : x.photo}}" alt="Tour Image" />
+                                            <img class="img-responsive" src="{{'x.photo' == null ? 'img/SAMPLE_TOUR.jpg' : x.photo[0]}}" alt="Tour Image" />
                                         </li>
 
                                     </ul>
-                                </div>
+                                </div -->
                             </aside>
                             <!-- END #sidebar -->
                         </div>

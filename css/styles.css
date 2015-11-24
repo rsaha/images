@@ -14,8 +14,8 @@
 .social-media li a.sm-yahoo {width:20px; background:url(../img/icons/yahoo.png) center center no-repeat;}
 .social-media li a.sm-facebook {width:10px; background:url(../img/icons/facebook.png) center center no-repeat;}
 .social-media li a.sm-rss {background:url(../img/icons/rss.png) center center no-repeat;}
-.social-media li a.sm-flickr {background:url(../img/icons/flickr.png) center center no-repeat;}
-.social-media li a.sm-pinterest {background:url(../img/icons/icon-pinterest_0.png) center center no-repeat;}
+.social-media li a.sm-twitter {background:url(../img/icons/icon-twitter.png) center center no-repeat;}
+.social-media li a.sm-pinterest {background:url(../img/icons/icon-pinterest.png) center center no-repeat;}
 .social-media li a.sm-youtube {background:url(../img/icons/youtube.png) center center no-repeat;}
 .social-media li a span {text-indent:-9999px; font-size:0; line-height:0;}
 .right-part {width:400px;}
@@ -566,10 +566,8 @@ blockquote strong {font-size:16px;}
 
 .social-media li a.sm-yahoo-dark {width:20px; background: url(../img/icons/yahoo-dark.png) center center no-repeat;}
 .social-media li a.sm-facebook-dark  {width:10px; background: url(../img/icons/fb-dark.png) center center no-repeat;}
-.social-media li a.sm-rss-dark  {background: url(../img/icons/rss-dark.png) center center no-repeat;}
-.social-media li a.sm-flickr-dark  {background: url(../img/icons/flickr-dark.png) center center no-repeat;}
-.social-media li a.sm-windows-dark  {background: url(../img/icons/windows-dark.png) center center no-repeat;}
-.social-media li a.sm-stumble-dark  {background: url(../img/icons/tumblr-dark.png) center center no-repeat;}
+.social-media li a.sm-pinterest-dark  {background: url(../img/icons/flickr-dark.png) center center no-repeat;}
+.social-media li a.sm-twitter-dark  {background: url(../img/icons/tumblr-dark.png) center center no-repeat;}
 
 .widget-ads {
 	list-style:none;
