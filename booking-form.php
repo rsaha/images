@@ -254,7 +254,7 @@
                                                         <br>
                                                         <div class="panel panel-default">
                                                             <div class="panel-heading">
-                                                                <a class="panel-title collapsed" data-toggle="collapse" href="#collapseTwo"> Transport Service Coming Soon </a>
+                                                                <a class="panel-title collapsed" data-toggle="collapse" href="#collapseTwo"> Transport Service </a>
                                                             </div>
                                                             <div id="collapseTwo" class="panel-collapse collapse">
                                                                 <div class="panel-body">
@@ -452,12 +452,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="sidebar-widget">
-								<!-- Sidebar About -->
-								<h3 class="text-upper"><i><a href="https://storage.googleapis.com/guidedgateway_media/GG_Tourist.pdf">Why GuidedGateway</a></i></h3>
-								<p>Unique marketplace to promote Travel Entreprenures across India. 
-                                   Offering toursts an integrated authentic tsightseeing tour of real India with the help of a local expert.</p>
-							</div>
                         </aside>
                         <!-- END #sidebar -->
                     </div>
@@ -483,7 +477,7 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-md-12">
-                            We will have lodging options for you soon...
+                            We will have many more lodging options for you soon...
                         </div>
                     </div>
 
@@ -505,7 +499,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="col-md-12">
-                        We will have transport options for you soon...
+                        We will have many more transport service options for you soon...
                     </div>
                 </div>
                 <div class="modal-footer">

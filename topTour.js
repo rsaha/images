@@ -144,6 +144,32 @@ app.controller('customersCrtl',['$scope','$http', function ($scope, $http, $time
 //        $scope.predicate = predicate;
 //        $scope.reverse = !$scope.reverse;
 //    };
+    
+      $http.get("http://130.211.123.212/app/guides")
+    .success(function (response) {
+		$scope.guides = response.Guides;
+	   
+		})
+	.error(function() {
+				$scope.data = "error in fetching data";
+			});
+    
+    $http.get("http://130.211.123.212/app/places")
+    .success(function (response) {
+		$scope.places = response.Places;
+	   
+		})
+	.error(function() {
+				$scope.data = "error in fetching data";
+			});
+		$http.get("http://130.211.123.212/app/lodging")
+    .success(function (response) {
+		$scope.lodging = response.Lodging;
+	   
+		})
+	.error(function() {
+				$scope.data = "error in fetching data";
+			});	
 }]);
 
 app.directive('starRating', function () {

@@ -148,8 +148,11 @@
                             <div id="page" class="col-md-8">
                                 <!-- START .post-data -->
                                 <div class="post-data">
-                                    <div class="plan-image">
-                                        <img class="img-responsive" src="{{guidesdetail.cover_photo == null ? 'img/SAMPLE_TAJ.jpg' : guidesdetail.photo}}" alt="Guide Cover" />
+                                    <div class="plan-image" >
+<!--                                        <img class="img-responsive" ng-src="{{guidesdetail.cover == null ? tourfound : guidesdetail.photo}}" alt="Guide Cover" />-->
+                                     
+                                       <img class="img-responsive" ng-src="{{guidesdetail.cover == null ? tourfound != ''? tourfound : (guidesdetail.city==null ? 'img/SAMPLE_TAJ.jpg' : 'img/city/'+guidesdetail.city+'.jpg') : guidesdetail.photo}}" alt="Guide Cover" />
+<!--                                         <img class="img-responsive" ng-src="{{guidesdetail.cover == null ? tourfound != ''? tourfound :  'img/city/'+guidesdetail.city+'.jpg' : guidesdetail.photo}}" alt="Guide Cover" />-->
                                     </div>
 
                                     <ul class="featured-btm single-ft-btm list-unstyled box-shadow1">
@@ -283,7 +286,7 @@
                                         <!-- END TAB 1 -->
 
                                         <!-- START TAB 2 -->
-                                        <div class="tab-pane" style="height:500px;" id="topreviews" ng-controller="TourControl">
+                                        <div class="tab-pane" style="height:500px;" id="topreviews" >
                                             <ul class="list-unstyled">
                                                 <p>No Reviews Yet
                                                     <br>

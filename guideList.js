@@ -96,6 +96,32 @@ app.controller('customersCrtl',['$scope','$http', function ($scope, $http, $time
             $scope.filteredItems = $scope.filtered.length;
         }, 10);
     };
+    
+    
+     $http.get("http://130.211.123.212/app/tours")
+    .success(function (response) {
+		$scope.alltours =response.Tours;
+		})
+	.error(function() {
+				$scope.data = "error in fetching data";
+			});
+    
+     $http.get("http://130.211.123.212/app/places")
+    .success(function (response) {
+		$scope.allplaces =response.Places;
+		})
+	.error(function() {
+				$scope.data = "error in fetching data";
+			});
+    
+     $http.get("http://130.211.123.212/app/lodging")
+    .success(function (response) {
+		$scope.lodging = response.Lodging;
+	   
+		})
+	.error(function() {
+				$scope.data = "error in fetching data";
+			});
 //    $scope.sort_by = function(predicate) {
 //        $scope.predicate = predicate;
 //        $scope.reverse = !$scope.reverse;

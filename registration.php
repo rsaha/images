@@ -259,7 +259,7 @@
 </div>
 <!-- END .main-contents -->
 			
-			<?php include_once('MasterFooter.php'); ?>
+			<?php include_once('MasterTopFooter.php'); ?>
     
     <?php
 

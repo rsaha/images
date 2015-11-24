@@ -87,7 +87,35 @@ app.controller('tourDetailCtrl',['$scope','$http','$location', function($scope, 
 			$scope.latit=latitude;
 			alert($scope.latit);
 		}
-			
+		
+       $http.get("http://130.211.123.212/app/tours")
+    .success(function (response) {
+		$scope.tours = response.Tours;
+	   
+		})
+	.error(function() {
+				$scope.data = "error in fetching data";
+			});  
+    
+      $http.get("http://130.211.123.212/app/guides")
+    .success(function (response) {
+		$scope.guides = response.Guides;
+	   
+		})
+	.error(function() {
+				$scope.data = "error in fetching data";
+			});
+    
+    
+     $http.get("http://130.211.123.212/app/lodging")
+    .success(function (response) {
+		$scope.lodging = response.Lodging;
+	   
+		})
+	.error(function() {
+				$scope.data = "error in fetching data";
+			});
+        
 }]); 
     app.controller('placesCtrl',['$scope','$http', function($scope, $http) {
     $http.get("http://130.211.123.212/app/places")
