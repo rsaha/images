@@ -77,7 +77,7 @@ ul.rating {
 </style>
          <style>
             #bookButton{
-			top: 360px;
+			top: 300px;
 			position: absolute;
 			right: 20px;
 		}
@@ -136,7 +136,7 @@ ul.rating {
 							<div class="col-md-12">
 							<div class="tour-plans">
 								<div class="plan-image">
-									<img class="img-responsive" src="{{tour.photo ==null ? 'img/SAMPLE_TAJ.jpg' : tour.photo[0]}}"  alt="Tour Img" />
+									<img class="img-responsive" style="width:770px; height:320px;" src="{{tour.photo ==null ? 'img/SAMPLE_TAJ.jpg' : tour.photo[0]}}"  alt="Tour Img" />
 									<div class="offer-box">
 										<div class="offer-top">
 											<span class="fa fa-tag alignright"> {{tour.tour_category}}</span>
@@ -295,7 +295,7 @@ ul.rating {
 								
 								<!-- START TAB CONTENT -->
 								<div class="tab-content gray box-shadow1 clearfix marb30">
-                                    <div class="tab-pane active" style="height:600px;" id="toptours">
+                                    <div class="tab-pane active" style="height:310px;" id="toptours">
 										<ul class="rc-posts-list list-unstyled">
 											<li ng-repeat="x in tours" ng-show="$index<3">
 												<span class="rc-post-image">
@@ -309,43 +309,43 @@ ul.rating {
 										</ul>
 									</div>
 									<!-- START TAB 2 -->
-									<div class="tab-pane" style="height:600px;" id="topguides">
+									<div class="tab-pane" style="height:310px;" id="topguides">
 										<div class="row"><ul class="list-unstyled"><br>
 											<li class="" ng-repeat="z in guides" ng-show="$index<3 ">
 												<div class="col-md-11 col-md-offset-1"><span class="rc-post-image">
                                                     <a href="guide-detail-sidebar.php#?id2={{z.id}}" target="_blank">	
-                                                        <img class="img-responsive" style="height:80px; width:65px;" src="{{z.photo==null ? 'img/userDefaultIcon.png' :z.photo}}" alt="Recent Post 2" />
+                                                        <img class="img-responsive" src="{{z.photo==null ? 'img/new_user.png' :z.photo}}" alt="Recent Post 2" />
                                                     </a>
 												</span>
 											     <h5><a href="#">{{z.name}}</a></h5>
-<!--												<h5><a href="#">{{z.guide_territory}}</a></h5>-->
+												<h5><a href="#">{{z.guide_territory[0]}}</a></h5>
 <!--												<h5>{{z.Speciality}}<span class="rc-post-date small">Speciality&nbsp;&nbsp;</span></h5>-->
-												<span star-rating rating-value="z.review.Star" style="" class="" ></span>	<br>
+												<span star-rating rating-value="z.review.Star" style="" class="" ></span>	<br><br>
                                                  <!-- a href="booking-form.php#?id1={{z.id}}&id2=0"> <input type="submit" name="submit" class="pull-right btn btn-sm btn-primary  marb20" value="Book Now" /></a-->
-                                                    </div>
+                                                    </div><br><br><br><br>
 											</li>
 										</ul></div>
 									</div>
 									<!-- END TAB 2 -->
                                     <!-- lodging hotels -->
-                                    <div class="tab-pane"  id="lodging" style="height:600px;">
+                                    <div class="tab-pane" style="height:310px;"  id="lodging">
 										<ul class="rc-posts-list list-unstyled">
-											<li ng-repeat="lodge in lodging" ng-show="$index<4 ">
+											<li ng-repeat="lodge in lodging" ng-show="$index<2 ">
 												<span class="rc-post-image">
-                                                    <a href="">	<img class="img-responsive" style="height:80px; width:65px;" src="{{lodge.Media.Image[0]}}" alt="Hotel" /></a>
+                                                    <a href="">	<img class="img-responsive" src="{{lodge.Media.Image[0]}}" alt="Hotel" /></a>
 												</span>
 											<h5><a href="#">{{lodge.Address}}</a></h5>
 											
 												<span  style="" class="" >{{lodge.Description}}</span>
-                                                <span  style="" class="" >Coming Soon from our partners</span><br><br>
-                                                 <a href="#" style="margin-left:110px;"> 
+<!--                                                <span  style="" class="" >Coming Soon from our partners</span>-->
+                                                 <a href="#" > 
                                                      <input type="submit" name="submit" class="pull-right btn btn-sm btn-primary  marb20" value="Explore" /></a>
 											</li> 
 										
 										</ul>
 									</div>
 									<!-- START TAB 4 -->
-									<div class="tab-pane" id="topreview" style="height:600px;" >
+									<div class="tab-pane" id="topreview" style="height:310px;" >
                                         <ul class="list-unstyled">
                                             <p>No Reviews Yet<br><br><br><br><br><br><br><br></p>										
 										</ul>
