@@ -80,7 +80,7 @@
 
         <style>
             #bookButton {
-                top: 380px;
+                top: 300px;
                 position: absolute;
                 right: 20px;
             }
@@ -151,7 +151,7 @@
                                     <div class="plan-image" >
 <!--                                        <img class="img-responsive" ng-src="{{guidesdetail.cover == null ? tourfound : guidesdetail.photo}}" alt="Guide Cover" />-->
                                      
-                                       <img class="img-responsive" ng-src="{{guidesdetail.cover == null ? tourfound != ''? tourfound : (guidesdetail.city==null ? 'img/SAMPLE_TAJ.jpg' : 'img/city/'+guidesdetail.city+'.jpg') : guidesdetail.photo}}" alt="Guide Cover" />
+                                       <img class="img-responsive" style="width:770px; height:320px;" ng-src="{{guidesdetail.cover == null ? tourfound != ''? tourfound : (guidesdetail.city==null ? 'img/SAMPLE_TAJ.jpg' : 'img/city/'+guidesdetail.city+'.jpg') : guidesdetail.photo}}" alt="Guide Cover" />
 <!--                                         <img class="img-responsive" ng-src="{{guidesdetail.cover == null ? tourfound != ''? tourfound :  'img/city/'+guidesdetail.city+'.jpg' : guidesdetail.photo}}" alt="Guide Cover" />-->
                                     </div>
 
@@ -218,7 +218,7 @@
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <ul class="list-unstyled">
-                                                            <li ng-repeat="x in alltours | filter:{ guide_id:idn }" ng-if="x.guide_id==idn" ng-show="$index<4">
+                                                            <li ng-repeat="x in alltours | filter:{ guide_id:idn }" ng-if="x.guide_id==idn" ng-show="$index<3">
                                                                 <div class="row">
                                                                     <div class="col-md-12">
                                                                         <span class="rc-post-image">
@@ -263,12 +263,12 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="tab-pane" style="height:500px;" id="relatedGuides" ng-controller="TopGuideControl">
+                                        <div class="tab-pane" id="relatedGuides" ng-controller="TopGuideControl">
                                             <div class="col-md-12">
                                                 <ul class="list-unstyled">
-                                                    <li ng-repeat="z in TopGuides" ng-show="$index<15 && z.photo!=null">
+                                                    <li ng-repeat="z in TopGuides" ng-show="$index<3">
                                                         <span class="rc-post-image">
-                                                    <a href="guide-detail-sidebar.php#?id2={{z.id}}" target="_blank"><img class="img-responsive" style="height:70px; width:60px;" src="{{z.photo==null ? 'img/userDefaultIcon.png' :z.photo}}" alt="Guide Image" /></a>
+                                                    <a href="guide-detail-sidebar.php#?id2={{z.id}}" target="_blank"><img class="img-responsive" style="height:70px; width:60px;" ng-src="{{z.photo==null ? 'img/new_user.png' :z.photo}}" alt="Guide Image" /></a>
 												</span>
                                                         <h5><a href="#">{{z.name}}</a></h5>
                                                         <h5><a href="#">{{z.guide_territory[0]}}</a></h5>
@@ -286,7 +286,7 @@
                                         <!-- END TAB 1 -->
 
                                         <!-- START TAB 2 -->
-                                        <div class="tab-pane" style="height:500px;" id="topreviews" >
+                                        <div class="tab-pane" style="height:310px;" id="topreviews" >
                                             <ul class="list-unstyled">
                                                 <p>No Reviews Yet
                                                     <br>
@@ -296,14 +296,17 @@
                                                     <br>
                                                     <br>
                                                     <br>
+                                                    <br> <br>
                                                     <br>
+                                                    <br>
+                                                   
                                                 </p>
                                             </ul>
                                         </div>
                                         <!-- END TAB 2 -->
 
                                         <!-- START TAB 3 -->
-                                        <div class="tab-pane" style="height:500px;" id="toptips">
+                                        <div class="tab-pane" style="height:310px;" id="toptips">
                                             <div class="inside-pane">
                                                 <p>Coming Soon
                                                     <br>
@@ -311,6 +314,12 @@
                                                     <br>
                                                     <br>
                                                     <br>
+                                                    <br>
+                                                    <br>
+                                                    <br> <br>
+                                                    <br>
+                                                    <br>
+                                                    <br> <br>
                                                     <br>
                                                     <br>
                                                     <br>

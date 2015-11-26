@@ -194,9 +194,9 @@
             <!-- START TAB CONTENT -->
             <div class="tab-content gray box-shadow1 clearfix marb30">
                 <!-- START TAB 1 -->
-                <div class="tab-pane active" id="toptours" style="height:500px;">
+                <div class="tab-pane active" id="toptours">
                     <ul class="rc-posts-list list-unstyled">
-                        <li ng-repeat="k in alltours" ng-show="$index<4">
+                        <li ng-repeat="k in alltours" ng-show="$index<3">
                             <span class="rc-post-image">
                                                     <a ng-href="tour_detail_sidebar.php?id={{k.tour_id}}"	>	
                                                         <img class="img-responsive" ng-src="{{'k.photo' == null ? 'img/SAMPLE_TOUR.jpg' : k.photo[0]}}" alt="Tour Image" />
@@ -204,7 +204,7 @@
 												</span>
                             <h5><a ng-href="#">{{k.tour_title}}</a></h5>
                             <span class="rc-post-date small">Starting Price&nbsp;{{k.tour_price}}</span>
-                            <br/>
+                         
                             <a ng-href="booking-form.php#?id1=0&&id2={{k.tour_id}}">
                                 <input type="submit" name="submit" class="pull-right btn btn-sm btn-primary text-upper marb20" value="Book" />
                             </a>
@@ -214,13 +214,13 @@
                 <!-- END TAB 1 -->
 
                 <!-- START TAB 2 -->
-                <div class="tab-pane" id="topguides" style="height:500px;">
+                <div class="tab-pane" id="topguides">
                     <div class="col-md-12">
                         <ul class="list-unstyled">
-                        <li ng-repeat="z in guides" ng-show="$index<16 && z.photo!=null">
+                        <li ng-repeat="z in guides" ng-show="$index<3">
                             <span class="rc-post-image">
                                                     <a ng-href="guide-detail-sidebar.php#?id2={{z.id}}">	
-                                                        <img class="img-responsive" style="height:70px; width:60px;" ng-src="{{z.photo==null ? 'img/SAMPLE_TOUR.jpg' :z.photo}}" alt="Guide Image" /></a>
+                                                        <img class="img-responsive" style="height:70px; width:60px;" ng-src="{{z.photo==null ? 'img/new_user.png' :z.photo}}" alt="Guide Image" /></a>
 												</span>
                             <h5><a ng-href="#">{{z.name}}</a></h5>
                             <h5><a ng-href="#">{{z.guide_territory[0]}}</a></h5>
@@ -228,9 +228,8 @@
                             <span star-rating rating-value="z.review.rating" style="" class=""></span>
                             <a ng-href="guide-detail-sidebar.php#?id2={{z.id}}">
                                 <input type="submit" name="submit" class="pull-right btn btn-sm btn-primary text-upper marb20" value="View Details" />
-                            </a>
-                            <br>
-                            <br>
+                            </a><br><br>
+                            
                         </li>
 
                     </ul>
@@ -240,19 +239,18 @@
 
                 <!-- START TAB 3 -->
                 <!-- lodging hotels -->
-                <div class="tab-pane" id="lodging" style="height:500px;">
-                    <ul class="rc-posts-list list-unstyled">
-                        <li ng-repeat="lodge in lodging" ng-show="$index<4 ">
+                <div class="tab-pane" id="lodging">
+                    <ul class=" list-unstyled">
+                        <li ng-repeat="lodge in lodging" ng-show="$index<3 ">
                             <span class="rc-post-image">
                                                     <a ng-href="#">	<img class="img-responsive" style="height:80px; width:65px;" ng-src="{{lodge.Media.Image[0]}}" alt="Hotel" /></a>
 												</span>
                             <h5><a href="#">{{lodge.Address}}</a></h5>
                             <span style="" class="">Coming Soon from our partners</span>
-                            <br>
-                            <br>
+                           
                             <a href="#" style="margin-left:110px;">
                                 <input type="submit" name="submit" class="pull-right btn btn-sm btn-primary  marb20" value="Coming Soon" />
-                            </a>
+                            </a><br><br><br>
                         </li>
 
                     </ul>
