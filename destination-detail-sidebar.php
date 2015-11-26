@@ -205,10 +205,10 @@
                                         <div class="tab-pane" id="topguides" >
                                             <div class="col-md-12">
                                                 <ul class="list-unstyled">
-                                                    <li ng-repeat="z in guides" ng-show="$index<16 && z.photo!=null">
+                                                    <li ng-repeat="z in guides" ng-show="$index<3">
                                                         <span class="rc-post-image">
                                                     <a href="guide-detail-sidebar.php#?id2={{z.id}}">	
-                                                        <img class="img-responsive" style="height:70px; width:60px;" src="{{z.photo==null ? 'img/SAMPLE_TOUR.jpg' :z.photo}}" alt="Guide Image" /></a>
+                                                        <img class="img-responsive" style="height:70px; width:60px;" src="{{z.photo==null ? 'img/new_user.png' :z.photo}}" alt="Guide Image" /></a>
 												</span>
                                                         <h5><a href="#">{{z.name}}</a></h5>
                                                         <h5><a href="#">{{z.guide_territory[0]}}</a></h5>
@@ -229,7 +229,7 @@
                                         <div class="tab-pane" id="lodging">
                                             <div class="col-md-12">
                                                 <ul class="list-unstyled">
-                                                    <li ng-repeat="lodge in lodging" ng-show="$index<4 ">
+                                                    <li ng-repeat="lodge in lodging" ng-show="$index<3 ">
                                                         <span class="rc-post-image">
                                                     <a href="guide-detail-sidebar.php#?id2={{lodge.id}}">	<img class="img-responsive" style="height:80px; width:65px;" src="{{lodge.Media.Image[0]}}" alt="Hotel" /></a>
 												</span>
@@ -237,8 +237,7 @@
 
                                                         <span style="" class="">{{lodge.Description}}</span>
                                                         <span style="" class="">Coming Soon from our partners</span>
-                                                        <br>
-                                                        <br>
+                                                      
                                                         <a href="#" style="margin-left:110px;">
                                                             <input type="submit" name="submit" class="pull-right btn btn-sm btn-primary  marb20" value="Explore" />
                                                         </a>
