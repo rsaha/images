@@ -31,7 +31,7 @@ app.controller('toursCtrl',['$scope','$http', function($scope, $http) {
 				$scope.data = "error in fetching data";
 			});
 			
-			$http.get("http://130.211.123.212/app/guides")
+			$http.get("http://130.211.123.212/app/guides?theme=popular")
     .success(function (response) {
 		$scope.allguides =response.Guides;
 		})

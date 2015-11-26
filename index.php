@@ -296,7 +296,8 @@ ul.rating {
 				</div>
 				</div> <!-- END .main-contents -->
 
-			<!-- START .main-contents .bom-contents --> <!-- <div class="main-contents bom-contents"> 
+			<!-- START .main-contents .bom-contents -->
+    <div class="main-contents bom-contents"> 
 			<div class="container">
 					<h2 class="text-center text-upper">THEME BASED TOURS</h2> <p class="headline text-center">Visit Unique Attractions around Special Themes</p>
 
@@ -345,8 +346,9 @@ ul.rating {
 						text-upper" href="#"
 						title="Search">Search</a></span> </div>
 						</section> 
-						</div> </div> </div> --> <!-- END .main-contents
-						.bom-contents -->
+						</div> </div> </div>  
+<!--    END .main-contents-->
+<!--						.bom-contents -->
 <br>
 			<!-- START footer --> <?php include('MasterTopFooter.php'); ?>
     <!-- END footer -->
