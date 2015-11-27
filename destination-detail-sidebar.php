@@ -301,8 +301,8 @@
                         <h4 class="modal-title" id="contactForCustomTourModalLabel">Contact For Custom Tour</h4>
                     </div>
                     <div class="modal-body gray">
-                            <div class="col-md-12">
-                                <div class="panel panel-default">
+                            <div class="col-md-12 gray" >
+                               
                                     <!-- Sidebar Newsletter -->
                                     <div class="gray">
                                         <form action="contactGuideMail.php" method="post">
@@ -315,7 +315,7 @@
                                             <input type="submit" name="submit" class="btn btn-primary text-upper marb20" placeholder="Send" />
                                         </form>
                                     </div>
-                                </div>
+                               
                             </div>
                     </div>
                     <div class="modal-footer">
