@@ -151,7 +151,7 @@
                                     <div class="plan-image" >
 <!--                                        <img class="img-responsive" ng-src="{{guidesdetail.cover == null ? tourfound : guidesdetail.photo}}" alt="Guide Cover" />-->
                                      
-                                       <img class="img-responsive" style="width:770px; height:320px;" ng-src="{{guidesdetail.cover == null ? tourfound != ''? tourfound : (guidesdetail.city==null ? 'img/SAMPLE_TAJ.jpg' : 'img/city/'+guidesdetail.city+'.jpg') : guidesdetail.photo}}" alt="Guide Cover" />
+                                       <img class="img-responsive" style="width:770px; height:320px;" ng-src="{{guidesdetail.cover == null ? tourfound != ''? tourfound : ((guidesdetail.city==null || guidesdetail.city=='') ? 'img/SAMPLE_TAJ.jpg' : 'img/city/'+guidesdetail.city+'.jpg') : guidesdetail.photo}}" alt="Guide Cover" />
 <!--                                         <img class="img-responsive" ng-src="{{guidesdetail.cover == null ? tourfound != ''? tourfound :  'img/city/'+guidesdetail.city+'.jpg' : guidesdetail.photo}}" alt="Guide Cover" />-->
                                     </div>
 
@@ -172,17 +172,21 @@
                                     <input type="submit" name="submit" class="btn btn-md btn-success text-upper marb20" value="Book" />
                                 </a>
                                 <!-- START .post-content -->
-                                <article class="post-content">
-                                    <p>{{guidesdetail.guide_summary}}</p>
-                                    <div style="padding-left:50px;">
-                                        <h3 class="text-upper">Language Known : <b>{{guidesdetail.language_known.length}}</b></h3>
-                                        <ul class="list-unstyled">
-                                            <li class="fa fa-book">{{guidesdetail.language_known[0][0]}}</li>
-                                        </ul>
-                                    </div>
-                                    <br>
-                                    <br>
-                                </article>
+                              <div class="row">
+						<div class="col-md-12">
+							<div class="pricing-tables pricing-tables-1 sidebar-widget">
+								<!-- Sidebar Categories -->
+								<h3 class="text-upper">About</h3>
+								<ul class="cats-list list-unstyled">
+									<li class="pricing-table ">Languages Known <span style="color:black;">{{guidesdetail.language_known[0][0]}}</span></li>
+									<li class="pricing-table">Experience (in year) <span style="color:black;">{{guidesdetail.experiance_in_year}}</span></li>
+									<li class="pricing-table pricing-table-featured">Working Region <span style="color:black;">{{guidesdetail.guide_territory[0]}}</span></li>
+									<li class="pricing-table">Communication Mechanism <span style="color:black;">{{guidesdetail.Communication_mechanism}}</span></li>
+									<li class="pricing-table">Self Remark <span style="color:black;">{{guidesdetail.guide_Remarks}}</span></li>
+								</ul>
+							</div>
+                                  </div>
+                                </div>
                                 <!-- END .post-content -->
                                 <div class="styled-box gray">
                                     <h3 class="text-upper">What people are saying About Guide</h3>
@@ -213,7 +217,7 @@
                                     <div class="tab-content gray box-shadow1 clearfix marb30">
                                         <!-- START TAB 1 -->
 
-                                        <div class="tab-pane active" style="" id="toptours" ng-controller="TourControl">
+                                        <div class="tab-pane active" style="" id="toptours">
                                             <div class="col-md-12">
                                                 <div class="row">
                                                     <div class="col-md-12">
@@ -263,7 +267,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="tab-pane" id="relatedGuides" ng-controller="TopGuideControl">
+                                        <div class="tab-pane" id="relatedGuides">
                                             <div class="col-md-12">
                                                 <ul class="list-unstyled">
                                                     <li ng-repeat="z in TopGuides" ng-show="$index<3">
