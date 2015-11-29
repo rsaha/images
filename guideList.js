@@ -7,45 +7,45 @@
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
 }]);
 
-app.controller('guideCtrl',['$scope','$http', function($scope, $http) {
-    $http.get("http://130.211.123.212/app/guides")
-    .success(function (response) {
-		$scope.allguides =response.Guides;
-		})
-	.error(function() {
-				$scope.data = "error in fetching data";
-			});
-}]);
-    app.controller('tourCtrl',['$scope','$http', function($scope, $http) {
-    $http.get("http://130.211.123.212/app/tours")
-    .success(function (response) {
-		$scope.alltours =response.Tours;
-		})
-	.error(function() {
-				$scope.data = "error in fetching data";
-			});
-}]);
-     app.controller('placeCtrl',['$scope','$http', function($scope, $http) {
-    $http.get("http://130.211.123.212/app/places")
-    .success(function (response) {
-		$scope.allplaces =response.Places;
-		})
-	.error(function() {
-				$scope.data = "error in fetching data";
-			});
-}]);
-     app.controller('hotelControl',['$scope','$http', function($scope, $http) {
-    $http.get("http://130.211.123.212/app/lodging")
-    .success(function (response) {
-		$scope.lodging = response.Lodging;
-	   
-		})
-	.error(function() {
-				$scope.data = "error in fetching data";
-			});
-			
-			
-}]);
+//app.controller('guideCtrl',['$scope','$http', function($scope, $http) {
+//    $http.get("http://130.211.123.212/app/guides")
+//    .success(function (response) {
+//		$scope.allguides =response.Guides;
+//		})
+//	.error(function() {
+//				$scope.data = "error in fetching data";
+//			});
+//}]);
+//    app.controller('tourCtrl',['$scope','$http', function($scope, $http) {
+//    $http.get("http://130.211.123.212/app/tours")
+//    .success(function (response) {
+//		$scope.alltours =response.Tours;
+//		})
+//	.error(function() {
+//				$scope.data = "error in fetching data";
+//			});
+//}]);
+//     app.controller('placeCtrl',['$scope','$http', function($scope, $http) {
+//    $http.get("http://130.211.123.212/app/places")
+//    .success(function (response) {
+//		$scope.allplaces =response.Places;
+//		})
+//	.error(function() {
+//				$scope.data = "error in fetching data";
+//			});
+//}]);
+//     app.controller('hotelControl',['$scope','$http', function($scope, $http) {
+//    $http.get("http://130.211.123.212/app/lodging")
+//    .success(function (response) {
+//		$scope.lodging = response.Lodging;
+//	   
+//		})
+//	.error(function() {
+//				$scope.data = "error in fetching data";
+//			});
+//			
+//			
+//}]);
 app.directive('starRating', function () {
     return {
         restrict: 'A',

@@ -217,7 +217,7 @@
                                     <div class="tab-content gray box-shadow1 clearfix marb30">
                                         <!-- START TAB 1 -->
 
-                                        <div class="tab-pane active" style="" id="toptours" ng-controller="TourControl">
+                                        <div class="tab-pane active" style="" id="toptours">
                                             <div class="col-md-12">
                                                 <div class="row">
                                                     <div class="col-md-12">
@@ -267,7 +267,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="tab-pane" id="relatedGuides" ng-controller="TopGuideControl">
+                                        <div class="tab-pane" id="relatedGuides">
                                             <div class="col-md-12">
                                                 <ul class="list-unstyled">
                                                     <li ng-repeat="z in TopGuides" ng-show="$index<3">
