@@ -254,7 +254,7 @@
                                                         <br>
                                                         <div class="panel panel-default">
                                                             <div class="panel-heading">
-                                                                <a class="panel-title collapsed" data-toggle="collapse" href="#collapseTwo"> Transport Service </a>
+                                                                <a class="panel-title collapsed" data-toggle="collapse" href="#collapseTwo"> Transport Service (Coming Soon)</a>
                                                             </div>
                                                             <div id="collapseTwo" class="panel-collapse collapse">
                                                                 <div class="panel-body">
@@ -333,6 +333,7 @@
                                                                 <div class="offer-top">
                                                                     <!--<span class="ft-temp alignright">19&#730;c</span>-->
                                                                     <span class="featured-cr text-upper" style="font-size:15px">{{tour.tour_location}}</span>
+                                                                    <span class="featured-cr" style="font-size:10px">ID: {{tour.tour_id}}</span>
                                                                     <div class="short-text1 featured-cy text-upper" style="font-size:15px;" title="{{tour.tour_title}}">{{tour.tour_title}}</div>
                                                                 </div>
 
@@ -344,7 +345,8 @@
 
                                                         <div class="featured-btm box-shadow1">
                                                             <a class="ft-hotel text-upper" href="#">{{tour.tour_duration}} Day Tour</a>
-                                                            <a class="fa fa-user text-upper" href="guide-detail-sidebar.php#?id={{tour.guide_id}}">{{tour.guide_id}}</a>
+                                                            <a class="fa fa-user text-upper" href="guide-detail-sidebar.php#?id2={{tour.guide_id}}">{{tour.guide_id}}</a>
+                                                            <a class="fa fa-user text-upper" href="tour_detail_sidebar.php#?id1={{tour.tour_id}}">{{tour.tour_id}}</a>
                                                             <a class="ft-tea text-upper" href="#">
                                                                 <div class="short-text2" title="{{tour.inclusive}}">{{tour.inclusive}}</div>
                                                             </a>
@@ -391,7 +393,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                    <h4>Total for Guide: Will contact you</h4>
+                                                    <h4>Total for Guide: Pricing varies</h4>
                                                 <hr style="margin: 20px 0; border: 1px solid #808080;">
                                             </div>
                                         </div>

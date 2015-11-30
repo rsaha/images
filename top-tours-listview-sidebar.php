@@ -129,7 +129,7 @@ ul.rating {
 				<div class="container" >
 				  
 					<div class="row" >
-					<a href="tour_detail_sidebar.php#?id=">
+					<a ng-href="tour_detail_sidebar.php#?id=">
 						<div class="col-md-8" >
                              <div ng-show="filteredItems > 0">
 							<div class="row" ng-repeat="data in filtered = (list) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
@@ -176,9 +176,9 @@ ul.rating {
 								<!-- Sidebar recent popular posts -->
 								<!-- START TABS -->
 								<ul class="nav nav-tabs text-upper">
-									<li class="active"><a href="#topguides" data-toggle="tab">Guides</a></li>
-									<li><a href="#topdestinations" data-toggle="tab">Places</a></li>
-                                    <li><a href="#lodging" data-toggle="tab">Lodging</a></li>
+									<li class="active"><a ng-href="#topguides" data-toggle="tab">Guides</a></li>
+									<li><a ng-href="#topdestinations" data-toggle="tab">Places</a></li>
+                                    <li><a ng-href="#lodging" data-toggle="tab">Lodging</a></li>
 								</ul>
 								<!-- END TABS -->
 								
@@ -190,11 +190,11 @@ ul.rating {
                                             <ul class="list-unstyled">
 											<li ng-repeat="z in guides" ng-show="$index<3">
 												<span class="rc-post-image">
-                                                    <a href="guide-detail-sidebar.php#?id2={{z.id}}" target="_blank">	
-                                                        <img class="img-responsive" style="height:70px; width:60px;" src="{{z.photo==null ? 'img/new_user.png' :z.photo}}" alt="Recent Post 2" /></a>
+                                                    <a ng-href="guide-detail-sidebar.php#?id2={{z.id}}" target="_blank">	
+                                                        <img class="img-responsive" style="height:70px; width:60px;" ng-src="{{z.photo==null ? 'img/new_user.png' :z.photo}}" alt="Recent Post 2" /></a>
 												</span>
-											<h5><a href="#">{{z.name}}</a></h5>
-												<h5><a href="#">{{z.guide_territory[0]}}</a></h5>
+											<h5><a ng-href="#">{{z.name}}</a></h5>
+												<h5><a ng-href="#">{{z.guide_territory[0]}}</a></h5>
 <!--												<h5>{{z.Speciality}}<span class="rc-post-date small">Speciality&nbsp;&nbsp;</span></h5>-->
 												<span star-rating rating-value="z.review.rating" style="" class="" ></span>	
                                                  <!-- a href="booking-form.php#?id1={{z.id}}&id2=0"> <input type="submit" name="submit" class="pull-right btn btn-sm btn-primary  marb20" value="Book Now" /></a -->
@@ -210,9 +210,9 @@ ul.rating {
 										<ul class="rc-posts-list list-unstyled">
 											<li ng-repeat="k in places" ng-show="$index<3">
 												<span class="rc-post-image">
-                                                    <a href="destination-detail-sidebar.php#?id3={{k.ID}}">	<img class="img-responsive"  src="{{k.Media.Image[0]}}" alt="Tour 1" /></a>
+                                                    <a ng-href="destination-detail-sidebar.php#?id3={{k.ID}}">	<img class="img-responsive"  ng-src="{{k.Media.Image[0]}}" alt="Tour 1" /></a>
 												</span>
-												<h5><a href="#">{{k.Name}}</a></h5>
+												<h5><a ng-href="#">{{k.Name}}</a></h5>
 												<span class="rc-post-date small">Best Visit:&nbsp;&nbsp;&nbsp;{{k.BestTimeToVisit}}</span><br/>
                                                <!-- a href="#"> <input type="submit" name="submit" class="pull-right btn btn-sm  btn-primary text-upper marb20" value="Explore" /></a--><br>
 											</li>
@@ -225,11 +225,11 @@ ul.rating {
                                             <ul class="list-unstyled">
 											<li ng-repeat="lodge in lodging" ng-show="$index<3 ">
 												<span class="rc-post-image">
-                                                    <a href="">	<img class="img-responsive" src="{{lodge.Media.Image[0]}}" alt="Hotel" /></a>
+                                                    <a href="">	<img class="img-responsive" ng-src="{{lodge.Media.Image[0]}}" alt="Hotel" /></a>
 												</span>
-											<h5><a href="#">{{lodge.Address}}</a></h5>
+											<h5><a ng-href="#">{{lodge.Address}}</a></h5>
                                                 <span  style="" class="" >Coming Soon from our partners</span><br>
-                                                <a href="#" style="margin-left:110px;"> 
+                                                <a ng-href="#" style="margin-left:110px;"> 
                                                     <input type="submit" name="submit" class="pull-right btn btn-sm btn-primary  marb20" value="Coming Soon" /></a>
 											</li> 
 										</ul>
