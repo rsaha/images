@@ -185,9 +185,9 @@
             <!-- Sidebar recent popular posts -->
             <!-- START TABS -->
             <ul class="nav nav-tabs text-upper">
-                <li class="active"><a href="#toptours" data-toggle="tab">Tours</a></li>
-                <li><a href="#topguides" data-toggle="tab">Guides</a></li>
-                <li><a href="#lodging" data-toggle="tab">Lodging</a></li>
+                <li class="active"><a ng-href="#toptours" data-toggle="tab">Tours</a></li>
+                <li><a ng-href="#topguides" data-toggle="tab">Guides</a></li>
+                <li><a ng-href="#lodging" data-toggle="tab">Lodging</a></li>
             </ul>
             <!-- END TABS -->
 
@@ -245,10 +245,10 @@
                             <span class="rc-post-image">
                                                     <a ng-href="#">	<img class="img-responsive" style="height:80px; width:65px;" ng-src="{{lodge.Media.Image[0]}}" alt="Hotel" /></a>
 												</span>
-                            <h5><a href="#">{{lodge.Address}}</a></h5>
+                            <h5><a ng-href="#">{{lodge.Address}}</a></h5>
                             <span style="" class="">Coming Soon from our partners</span>
                            
-                            <a href="#" style="margin-left:110px;">
+                            <a ng-href="#" style="margin-left:110px;">
                                 <input type="submit" name="submit" class="pull-right btn btn-sm btn-primary  marb20" value="Coming Soon" />
                             </a><br><br><br>
                         </li>

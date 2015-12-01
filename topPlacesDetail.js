@@ -40,6 +40,29 @@ app.controller('placesCtrl',['$scope','$http', function($scope, $http) {
 //			
 //			
 //}]);
+//     app.config(['$routeProvider',function($routeProvider, $locationProvider) {
+//
+//        $routeProvider
+//            .when('/', {
+//                templateUrl : 'partials/index.php',
+//                controller : placeDetailCtrl
+//            })
+//            .when('/toptours', {
+//                templateUrl : 'partials/toptours',
+//                controller : placeDetailCtrl
+//            })
+//            .when('/topguides', {
+//                templateUrl : 'partials/topguides',
+//                controller : placeDetailCtrl
+//            });
+        //      .when('/lodging', {
+        //                templateUrl : 'partials/lodging',
+        //                controller : placeDetailCtrl
+        //            });
+//        // use the HTML5 History API
+//        $locationProvider.html5Mode(true);
+//     }]);
+//    
 app.controller('placeDetailCtrl',['$scope','$http','$location', function($scope, $http,$location) {
     var placeid = $location.search();
     $http.get("http://130.211.123.212/app/place?placeid="+placeid.id3)

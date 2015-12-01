@@ -119,15 +119,15 @@
                                 <!-- START .post-data -->
                                 <div class="post-data">
                                     <div class="plan-image">
-                                        <img class="img-responsive" style="width:770px; height:320px;" src="{{place.Media.Image[0]}}" alt="Kolkata, WB" />
+                                        <img class="img-responsive" style="width:770px; height:320px;" ng-src="{{place.Media.Image[0]}}" alt="Kolkata, WB" />
                                     </div>
 
                                     <ul class="featured-btm single-ft-btm list-unstyled box-shadow1">
-                                        <li class="post-date"><a class="text-upper" href="#">{{place.State}}</a></li>
-                                        <li class="post-date"><a class="text-upper" href="#">{{place.Category}}</a></li>
-                                        <li class="post-category"><a class="text-upper" href="#">{{place.BestTimeToVisit}}</a></li>
-                                        <li class="post-category"><a class="text-upper" href="#">Popularity: {{place.TravelIndex}}</a></li>
-                                        <li class="post-author"><a class="text-upper" href="{{place.Wiki}}">Wikipedia</a></li>
+                                        <li class="post-date"><a class="text-upper" ng-href="#">{{place.State}}</a></li>
+                                        <li class="post-date"><a class="text-upper" ng-href="#">{{place.Category}}</a></li>
+                                        <li class="post-category"><a class="text-upper" ng-href="#">{{place.BestTimeToVisit}}</a></li>
+                                        <li class="post-category"><a class="text-upper" ng-href="#">Popularity: {{place.TravelIndex}}</a></li>
+                                        <li class="post-author"><a class="text-upper" ng-href="{{place.Wiki}}">Wikipedia</a></li>
                                     </ul>
                                 </div>
                                 <!-- END .post-data -->
@@ -137,28 +137,58 @@
                                 <!-- START .post-content -->
                                 <article class="post-content">
                                     <p>{{place.Description}}</p>
-                                    <h5>Attractions</h5>
+<!--                                    <h5>Attractions</h5>-->
+<!--
                                     <p>
                                         <ul>
                                             <li ng-repeat="y in place.Attractions">{{y}}</li>
                                         </ul>
                                         <p>{{y}}</p>
                                     </p>
+-->
+                                    <div class="sidebar-widget">
+								<!-- Sidebar Contact info -->
+								<div class="styled-box ">
+                                   
+									<h3 class="text-upper">Attractions</h3>
+									
+									<ul class="contact-info list-unstyled gray">
+<!--										<li class="ct-phone">+44 - 123 - 4567890</li>-->
+										 <li ng-repeat="y in place.Attractions">{{y}}</li>
+									</ul>
+								</div>
+							</div>
+<!--
                                     <p>
                                         <img class="alignleft" style="width:260px;height:168px;" src="{{place.Media.Image[0]}}" alt="Image in Post" />
                                         <h5>Transport Availability</h5>
                                         <ul>
-                                            <li ng-repeat="y in tg.Transport">{{y}}</li>
+                                            <li ng-repeat="y in place.Transport">{{y}}</li>
                                         </ul>
                                         <p>{{y}}</p>
                                     </p>
-
+-->
+ </article>
+                                 
+							<div class="">
+								<!-- Sidebar Contact info -->
+								<div class="styled-box  sidebar-widget">
+                                    <img class="alignleft" style="width:260px;height:168px;" ng-src="{{place.Media.Image[0]}}" alt="Image in Post" />
+									<h3 class="text-upper">Transport Availability</h3>
+									
+									<ul class="contact-info list-unstyled gray">
+<!--										<li class="ct-phone">+44 - 123 - 4567890</li>-->
+										 <li ng-repeat="y in place.Transport">{{y}}</li>
+									</ul>
+                                    
+								</div>
+							</div>
                                     <!-- BLOCKQUOTE -->
                                     <br>
                                     <br>
                                     <br>
                                     <br>
-                                </article>
+                               
                                 <!-- END .post-content -->
                             </div>
                             <!-- END #page -->
@@ -169,9 +199,9 @@
                                     <!-- Sidebar recent popular posts -->
                                     <!-- START TABS -->
                                     <ul class="nav nav-tabs text-upper">
-                                        <li class="active"><a href="#toptours" data-toggle="tab">Tours</a></li>
-                                        <li><a href="#topguides" data-toggle="tab">Guides</a></li>
-                                        <li><a href="#lodging" data-toggle="tab">Hotels</a></li>
+                                        <li class="active"><a ng-href="#toptours" data-toggle="tab">Tours</a></li>
+                                        <li><a ng-href="#topguides" data-toggle="tab">Guides</a></li>
+                                        <li><a ng-href="#lodging" data-toggle="tab">Hotels</a></li>
                                     </ul>
                                     <!-- END TABS -->
 
@@ -185,12 +215,12 @@
                                                         <div class="row">
                                                             <div class="col-md-12">
                                                                 <span class="rc-post-image">
-                                                    <a href="tour_detail_sidebar.php#?id={{k.tour_id}}"	>	
-                                                        <img class="img-responsive" src="{{'k.photo' == null ? 'img/SAMPLE_TOUR.jpg' : k.photo[0]}}" alt="Tour Image" /></a>
+                                                    <a ng-href="tour_detail_sidebar.php#?id={{k.tour_id}}"	>	
+                                                        <img class="img-responsive" ng-src="{{'k.photo' == null ? 'img/SAMPLE_TOUR.jpg' : k.photo[0]}}" alt="Tour Image" /></a>
 												</span>
-                                                                <h5><a href="#">{{k.tour_title}}</a></h5>
+                                                                <h5><a ng-href="#">{{k.tour_title}}</a></h5>
                                                                 <span class="rc-post-date small">Starting Price&nbsp;{{k.tour_price}}</span>
-                                                                <a href="tour_detail_sidebar.php#?id={{k.tour_id}}">
+                                                                <a ng-href="tour_detail_sidebar.php#?id={{k.tour_id}}">
                                                                     <input type="submit" name="submit" class="pull-right btn btn-sm btn-primary text-upper marb20" value="Explore" />
                                                                 </a>
                                                             </div>
@@ -207,14 +237,14 @@
                                                 <ul class="list-unstyled">
                                                     <li ng-repeat="z in guides" ng-show="$index<3">
                                                         <span class="rc-post-image">
-                                                    <a href="guide-detail-sidebar.php#?id2={{z.id}}">	
-                                                        <img class="img-responsive" style="height:70px; width:60px;" src="{{z.photo==null ? 'img/new_user.png' :z.photo}}" alt="Guide Image" /></a>
+                                                    <a ng-href="guide-detail-sidebar.php#?id2={{z.id}}">	
+                                                        <img class="img-responsive" style="height:70px; width:60px;" ng-src="{{z.photo==null ? 'img/new_user.png' :z.photo}}" alt="Guide Image" /></a>
 												</span>
-                                                        <h5><a href="#">{{z.name}}</a></h5>
-                                                        <h5><a href="#">{{z.guide_territory[0]}}</a></h5>
+                                                        <h5><a ng-href="#">{{z.name}}</a></h5>
+                                                        <h5><a ng-href="#">{{z.guide_territory[0]}}</a></h5>
                                                         <!--												<h5>{{z.Speciality}}<span class="rc-post-date small">Speciality&nbsp;&nbsp;</span></h5>-->
                                                         <span star-rating rating-value="z.review.rating" style="" class=""></span>
-                                                        <a href="booking-form.php#?id1={{z.id}}&&id2=0">
+                                                        <a ng-href="booking-form.php#?id1={{z.id}}&&id2=0">
                                                             <input type="submit" name="submit" class="pull-right btn btn-sm btn-primary text-upper marb20" value="Book Now" />
                                                         </a>
                                                         <br>
@@ -231,14 +261,14 @@
                                                 <ul class="list-unstyled">
                                                     <li ng-repeat="lodge in lodging" ng-show="$index<3 ">
                                                         <span class="rc-post-image">
-                                                    <a href="guide-detail-sidebar.php#?id2={{lodge.id}}">	<img class="img-responsive" style="height:80px; width:65px;" src="{{lodge.Media.Image[0]}}" alt="Hotel" /></a>
+                                                    <a ng-href="guide-detail-sidebar.php#?id2={{lodge.id}}">	<img class="img-responsive" style="height:80px; width:65px;" ng-src="{{lodge.Media.Image[0]}}" alt="Hotel" /></a>
 												</span>
-                                                        <h5><a href="#">{{lodge.Address}}</a></h5>
+                                                        <h5><a ng-href="#">{{lodge.Address}}</a></h5>
 
                                                         <span style="" class="">{{lodge.Description}}</span>
                                                         <span style="" class="">Coming Soon from our partners</span>
                                                       
-                                                        <a href="#" style="margin-left:110px;">
+                                                        <a ng-href="#" style="margin-left:110px;">
                                                             <input type="submit" name="submit" class="pull-right btn btn-sm btn-primary  marb20" value="Explore" />
                                                         </a>
                                                     </li>
@@ -274,7 +304,7 @@
                                 <div class="sidebar-widget" ng-controller="placesCtrl">
                                     <!-- Sidebar Flickr Gallery -->
                                     <h3 class="text-upper">Pinterest Gallery</h3>
-                                    <a data-pin-do="embedBoard" data-pin-board-width="400" data-pin-scale-height="240" data-pin-scale-width="80" href="https://www.pinterest.com/guidedgateway/northern-region/"></a>
+                                    <a data-pin-do="embedBoard" data-pin-board-width="400" data-pin-scale-height="240" data-pin-scale-width="80" ng-href="https://www.pinterest.com/guidedgateway/northern-region/"></a>
                                     </ul>
                                 </div>
                             </aside>
@@ -305,7 +335,7 @@
                                
                                     <!-- Sidebar Newsletter -->
                                     <div class="gray">
-                                        <form action="contactGuideMail.php" method="post">
+                                        <form action="contactForCustomTourMail.php" method="post">
                                             <label>Email Address</label>
                                             <input type="text" name="email" class="form-control input-style1 marb20" value="Enter Email Address.." onfocus="if (this.value == 'Enter Email Address') { this.value = ''; }" onblur="if (this.value == '') { this.value = 'Enter Email Address'; }" />
                                             <label>Name</label>
