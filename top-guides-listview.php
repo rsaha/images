@@ -101,7 +101,7 @@
 
 <!-- START body -->
 
-<body ng-app="myGuideList">
+<body ng-app="myGuideList" ng-controller="customersCrtl">
     <!-- START #wrapper -->
     <div id="wrapper">
         <!-- START header -->
@@ -131,6 +131,35 @@
                     </div>
                 </div>
             </div>
+         <div class="container">
+         <div class="main-contents col-md-8 col-sm-10" id="searchDiv">
+					
+						
+						<div class="row">
+						<br>
+
+						</div>
+						<div class="row">
+						<div class="col-md-12 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1"> <br>
+                            <i class="fa fa-flask"></i>&nbsp;&nbsp;&nbsp;
+						<label ><h4 class="upper">REGION</h4> </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<label><input class="input-cb"	type="checkbox" name="inc_Tour" checked ng-model="checkboxModel.value1" ng-checked=true
+           ng-true-value="'Eastern Region'" ng-false-value="''"/> Eastern</label>&nbsp;&nbsp;&nbsp;&nbsp;
+						<label><input class="input-cb" type="checkbox" name="inc_Guide" ng-model="checkboxModel.value2" ng-checked=true
+           ng-true-value="'Western Region'" ng-false-value="''"/> Western</label>&nbsp;&nbsp;&nbsp;&nbsp;
+						<label><input class="input-cb" type="checkbox"	name="inc_Destination" ng-model="checkboxModel.value3" ng-checked=true
+           ng-true-value="'Northern Region'" ng-false-value="''"/> Northern</label>&nbsp;&nbsp; 
+                            <label><input class="input-cb" type="checkbox"	name="inc_Destination"  ng-model="checkboxModel.value4" ng-checked=true
+           ng-true-value="'Southern Region'" ng-false-value="''"/> Southern</label>&nbsp;&nbsp;
+                            <label><input class="input-cb" type="checkbox"	name="inc_Destination" ng-model="checkboxModel.value5" ng-checked=true
+           ng-true-value="'Central Region'" ng-false-value="''"/> Central</label>
+						</div> 
+						</div>
+					
+					
+				</div>
+    </div>
+				<br><br>
             <!-- END #page-header -->
             <!-- <div class="main-contents col-md-8 col-md-offset-2" id="searchDiv">
 					<form class="plan-tour">
@@ -155,13 +184,13 @@
 					</form>
 				</div> -->
             <!-- START .main-contents -->
-            <div class="main-contents" ng-controller="customersCrtl">
+            <div class="main-contents" >
                 <div class="container">
                     <div class="row ">
                         <div class="col-md-8">
                             <div class="row bom-contents">
                                 <div ng-show="filteredItems > 0">
-                                    <div class="col-md-4" ng-repeat="data in filtered = (list) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
+                                    <div class="col-md-4" ng-repeat="data in filtered = (list) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit ">
                                         <div class="">
                                             <!--                                            ft-item-->
                                             <span class="ft-image">
