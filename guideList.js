@@ -80,6 +80,14 @@ app.directive('starRating', function () {
     }
 });
 app.controller('customersCrtl',['$scope','$http', function ($scope, $http, $timeout) {
+     $scope.checkboxModel = {
+       value1 : 'Eastern Region',
+	   value2 : 'Western Region',
+	   value3 : 'Northern Region',
+          value4 : 'Southern Region',
+          value5 : 'Central Region'
+       /* value2 : 'YES' */
+     };
     $http.get('http://130.211.123.212/app/guides')
 	.success(function(data){
         $scope.list = data.Guides;

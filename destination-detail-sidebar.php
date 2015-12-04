@@ -307,11 +307,32 @@
                                     <a data-pin-do="embedBoard" data-pin-board-width="400" data-pin-scale-height="240" data-pin-scale-width="80" ng-href="https://www.pinterest.com/guidedgateway/northern-region/"></a>
                                     </ul>
                                 </div>
+                            
+                                 <div class="col-md-12 sidebar-widget gray" >
+                                <h4 class="modal-title" id="contactForCustomTourModalLabel">Contact For Custom Tour</h4>
+                                    <!-- Sidebar Newsletter -->
+                                    <div class="">
+                                        <form action="contactForCustomTourMail.php" method="post">
+                                            <label>Email Address</label>
+                                            <input type="text" name="email" class="form-control input-style1 marb20" value="Enter Email Address.." onfocus="if (this.value == 'Enter Email Address') { this.value = ''; }" onblur="if (this.value == '') { this.value = 'Enter Email Address'; }" />
+                                            <label>Name</label>
+                                            <input type="text" name="name" class="form-control input-style1 marb20" placeholder="Enter Full Name.." />
+                                            <label>Mobile Number</label>
+                                            <input type="text" name="mobile" class="form-control input-style1 marb20" placeholder="Enter Mobile Number.." />
+                                            <input type="submit" name="submit" class="btn btn-primary text-upper marb20" placeholder="Send" />
+                                        </form>
+                                    </div>
+                               
+                            </div>
                             </aside>
+                        
                             <!-- END #sidebar -->
+                        
                         </div>
+                    
                         <!-- END .row -->
                     </div>
+            
                 </div>
                 <!-- END .main-contents -->
 

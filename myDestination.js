@@ -8,19 +8,7 @@
 }]);
     
 
-//app.controller('toursCtrl',['$scope','$http', function($scope, $http) {
-//    $http.get("http://130.211.123.212/app/tours")
-//    .success(function (response) {
-//		$scope.tours = response.Tours;
-//	
-//		})
-//	.error(function() {
-//				$scope.data = "error in fetching data";
-//			});
-//			
-//			
-//}]); 
-    
+
     app.controller('MultipleCtrl',['$scope','$http', function($scope, $http) {
     $http.get("http://130.211.123.212/app/tours")
     .success(function (response) {
@@ -57,31 +45,7 @@
 		}
 			
 });
-//app.controller('guideCtrl',['$scope','$http', function($scope, $http) {
-//    $http.get("http://130.211.123.212/app/guides")
-//    .success(function (response) {
-//		$scope.allguides =response.Guides;
-//		})
-//	.error(function() {
-//				$scope.data = "error in fetching data";
-//			});
-//  
-//   
-//			
-//}]);
-//
-//app.controller('placesCtrl',['$scope','$http', function($scope, $http) {
-//    $http.get("http://130.211.123.212/app/places")
-//    .success(function (response) {
-//		$scope.places = response.Places;
-//	
-//		})
-//	.error(function() {
-//				$scope.data = "error in fetching data";
-//			});
-//			
-//			
-//}]); 
+
  app.controller('ExampleController', ['$scope', function($scope) {
       $scope.checkboxModel = {
        value1 : true,
