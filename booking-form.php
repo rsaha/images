@@ -231,7 +231,7 @@
 
                                                                                         <span class="ft-image">
 <!--                                                                                             <img style="" src="{{lodge.Media.Image[0]}}" alt="Top Destination" /> -->
-                                                                                            <img style="" src="img/hotel.jpg" alt="Top Destination" />
+                                                                                            <img style="" src="img/lodging.png" alt="Lodging" />
                                                                                           </span>
 
                                                                                         <div class="ft-data" style="font-size:11px;">
@@ -268,7 +268,7 @@
                                                                                     <div class="ft-item">
                                                                                         <span class="ft-image">
 <!--                                                                                         <img style="" src="{{trans.Media.Image[0]}}" alt="Top Destination" /> -->
-                                                                                            <img style="" src="img/cab.jpg" alt="Top Destination" />
+                                                                                            <img style="" src="img/transport.jpg" alt="Transport" />
                                                                                       </span>
 
                                                                                         <div class="ft-data" style="font-size:11px;">
