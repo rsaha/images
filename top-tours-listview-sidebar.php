@@ -129,9 +129,8 @@ ul.rating {
 				<div class="container" >
 				  
 					<div class="row" >
-					<a href="tour_detail_sidebar.php#?id=">
 						<div class="col-md-8" >
-                             <div ng-show="filteredItems > 0">
+                            <div ng-show="filteredItems > 0">
 							<div class="row" ng-repeat="data in filtered = (list) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
 								<div class="col-md-12">
 									<div class="tour-plans">
@@ -169,7 +168,6 @@ ul.rating {
 							</div>
                         </div>
 						</div>
-						</a>
 						<!-- START #sidebar -->
 						<aside id="sidebar" class="col-md-4">
 							<div class="sidebar-widget">
