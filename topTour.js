@@ -21,42 +21,7 @@
         map = new google.maps.Map(elem[0], mapOptions);
       };
     });
-app.controller('toursCtrl',['$scope','$http', function($scope, $http) {
-    $http.get("http://130.211.123.212/app/tours")
-    .success(function (response) {
-		$scope.tours = response.Tours;
-	   
-		})
-	.error(function() {
-				$scope.data = "error in fetching data";
-			});
-			
-			
-}]); 
-app.controller('guidescontrol',['$scope','$http', function($scope, $http) {
-    $http.get("http://130.211.123.212/app/guides")
-    .success(function (response) {
-		$scope.guides = response.Guides;
-	   
-		})
-	.error(function() {
-				$scope.data = "error in fetching data";
-			});
-			
-			
-}]);
-    app.controller('hotelControl',['$scope','$http', function($scope, $http) {
-    $http.get("http://130.211.123.212/app/lodging")
-    .success(function (response) {
-		$scope.lodging = response.Lodging;
-	   
-		})
-	.error(function() {
-				$scope.data = "error in fetching data";
-			});
-			
-			
-}]);
+
 app.controller('tourDetailCtrl',['$scope','$http','$location', function($scope, $http,$location) {
     
                                debugger;
@@ -101,17 +66,17 @@ app.controller('tourDetailCtrl',['$scope','$http','$location', function($scope, 
 			
 			
 }]); 
-app.controller('guideDetailCtrl',['$scope','$http', function($scope, $http) {
-    $http.get("http://130.211.123.212/app/guide")
-    .success(function (response) {
-		$scope.guide = response;
-		
-		})
-	.error(function() {
-				$scope.data = "error in fetching data";
-			});
-			
-}]); 
+//app.controller('guideDetailCtrl',['$scope','$http', function($scope, $http) {
+//    $http.get("http://130.211.123.212/app/guide")
+//    .success(function (response) {
+//		$scope.guide = response;
+//		
+//		})
+//	.error(function() {
+//				$scope.data = "error in fetching data";
+//			});
+//			
+//}]); 
 
         // paging code 
     app.filter('startFrom', function() {

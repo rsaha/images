@@ -218,11 +218,11 @@ ul.rating {
 				<li> 
 				<div class="row bom-contents"  style="height:380px;">
 				<div class="col-md-11 col-xs-11">
-				<div class="col-md-3" ng-repeat="y in allguides | filter:search"  ng-show="$index<16 && y.photo!=null "> 
+				<div class="col-md-3" ng-repeat="y in allguides | filter:search"  ng-show="$index<4 "> 
 				   <a href="guide-detail-sidebar.php#?id2={{y.id}}" ng-controller="guideIDCtrl" ng-click="setID(y.id)">
 				      <div	class="ft-item"> 
 						  <span class="ft-image">
-							 <img style="height:200px;" src="{{y.photo==null ? 'img/SAMPLE_TOUR.jpg' :y.photo}}" alt="Top Guide" /> 
+							 <img style="height:200px;" src="{{y.photo==null ? 'img/new_user.png' :y.photo}}" alt="Top Guide" /> 
 						  </span>
 					  
 				<div class="ft-data" style="height:45px;font-size:11px;">
@@ -263,7 +263,7 @@ ul.rating {
 				   <a href="destination-detail-sidebar.php#?id3={{z.ID}}">
 				      <div	class="ft-item"> 
 						  <span class="ft-image">
-							 <img style="height:200px;" src="{{z.Media.Image[0]=='' ? 'img/custom1.jpg' :z.Media.Image[0]}}" alt="Top Destination" /> 
+							 <img style="height:200px;" src="{{'z.Media.Image[0]'=='' ? 'img/custom1.jpg' :z.Media.Image[0]}}" alt="Top Destination" /> 
 						  </span>
 					  
 								<div class="ft-data" style="height:45px;font-size:11px;">
@@ -296,7 +296,9 @@ ul.rating {
 				</div>
 				</div> <!-- END .main-contents -->
 
-			<!-- START .main-contents .bom-contents --> <!-- <div class="main-contents bom-contents"> 
+			<!-- START .main-contents .bom-contents -->
+<!--
+    <div class="main-contents bom-contents"> 
 			<div class="container">
 					<h2 class="text-center text-upper">THEME BASED TOURS</h2> <p class="headline text-center">Visit Unique Attractions around Special Themes</p>
 
@@ -345,8 +347,10 @@ ul.rating {
 						text-upper" href="#"
 						title="Search">Search</a></span> </div>
 						</section> 
-						</div> </div> </div> --> <!-- END .main-contents
-						.bom-contents -->
+						</div> </div> </div>  
+-->
+<!--    END .main-contents-->
+<!--						.bom-contents -->
 <br>
 			<!-- START footer --> <?php include('MasterTopFooter.php'); ?>
     <!-- END footer -->

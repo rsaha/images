@@ -19,27 +19,50 @@ app.controller('placesCtrl',['$scope','$http', function($scope, $http) {
 			
 			
 }]); 
- app.controller('tourCtrl',['$scope','$http', function($scope, $http) {
-    $http.get("http://130.211.123.212/app/tours")
-    .success(function (response) {
-		$scope.alltours =response.Tours;
-		})
-	.error(function() {
-				$scope.data = "error in fetching data";
-			});
-}]);
-    app.controller('guidescontrol',['$scope','$http', function($scope, $http) {
-    $http.get("http://130.211.123.212/app/guides")
-    .success(function (response) {
-		$scope.guides = response.Guides;
-	   
-		})
-	.error(function() {
-				$scope.data = "error in fetching data";
-			});
-			
-			
-}]);
+// app.controller('tourCtrl',['$scope','$http', function($scope, $http) {
+//    $http.get("http://130.211.123.212/app/tours")
+//    .success(function (response) {
+//		$scope.alltours =response.Tours;
+//		})
+//	.error(function() {
+//				$scope.data = "error in fetching data";
+//			});
+//}]);
+//    app.controller('guidescontrol',['$scope','$http', function($scope, $http) {
+//    $http.get("http://130.211.123.212/app/guides")
+//    .success(function (response) {
+//		$scope.guides = response.Guides;
+//	   
+//		})
+//	.error(function() {
+//				$scope.data = "error in fetching data";
+//			});
+//			
+//			
+//}]);
+//     app.config(['$routeProvider',function($routeProvider, $locationProvider) {
+//
+//        $routeProvider
+//            .when('/', {
+//                templateUrl : 'partials/index.php',
+//                controller : placeDetailCtrl
+//            })
+//            .when('/toptours', {
+//                templateUrl : 'partials/toptours',
+//                controller : placeDetailCtrl
+//            })
+//            .when('/topguides', {
+//                templateUrl : 'partials/topguides',
+//                controller : placeDetailCtrl
+//            });
+        //      .when('/lodging', {
+        //                templateUrl : 'partials/lodging',
+        //                controller : placeDetailCtrl
+        //            });
+//        // use the HTML5 History API
+//        $locationProvider.html5Mode(true);
+//     }]);
+//    
 app.controller('placeDetailCtrl',['$scope','$http','$location', function($scope, $http,$location) {
     var placeid = $location.search();
     $http.get("http://130.211.123.212/app/place?placeid="+placeid.id3)
@@ -91,42 +114,31 @@ app.controller('placeDetailCtrl',['$scope','$http','$location', function($scope,
 			});
     
 }]); 
-     app.controller('hotelControl',['$scope','$http', function($scope, $http) {
-    $http.get("http://130.211.123.212/app/lodging")
-    .success(function (response) {
-		$scope.lodging = response.Lodging;
-	   
-		})
-	.error(function() {
-				$scope.data = "error in fetching data";
-			});
-			
-			
-}]);
-    app.controller('AllplaceCtrl',['$scope','$http', function($scope, $http) {
-    $http.get("http://130.211.123.212/app/places")
-    .success(function (response) {
-		$scope.places = response.Places;
-		
-		})
-	.error(function() {
-				$scope.data = "error in fetching data";
-			});
-			
-		/*$scope.attractions=function()
-		{
-		     for(var i=0;i<3;i++)
-		     {
-			
-		     y+=$scope.tour.Itineary.Day.Spots[i].Spot+', '		
-			 }
-			 y=substring(0,lastIndexOf(',')-1);
-			 
-			 return y;
-		}*/
-			
-			
-}]); 
+//     app.controller('hotelControl',['$scope','$http', function($scope, $http) {
+//    $http.get("http://130.211.123.212/app/lodging")
+//    .success(function (response) {
+//		$scope.lodging = response.Lodging;
+//	   
+//		})
+//	.error(function() {
+//				$scope.data = "error in fetching data";
+//			});
+//			
+//			
+//}]);
+//    app.controller('AllplaceCtrl',['$scope','$http', function($scope, $http) {
+//    $http.get("http://130.211.123.212/app/places")
+//    .success(function (response) {
+//		$scope.places = response.Places;
+//		
+//		})
+//	.error(function() {
+//				$scope.data = "error in fetching data";
+//			});
+//			
+//	
+//			
+//}]); 
 app.directive('starRating', function () {
     return {
         restrict: 'A',

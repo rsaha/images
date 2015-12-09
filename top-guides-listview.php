@@ -101,7 +101,7 @@
 
 <!-- START body -->
 
-<body ng-app="myGuideList">
+<body ng-app="myGuideList" ng-controller="customersCrtl">
     <!-- START #wrapper -->
     <div id="wrapper">
         <!-- START header -->
@@ -131,6 +131,35 @@
                     </div>
                 </div>
             </div>
+         <div class="container">
+         <div class="main-contents col-md-8 col-sm-10" id="searchDiv">
+					
+						
+						<div class="row">
+						<br>
+
+						</div>
+						<div class="row">
+						<div class="col-md-12 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1"> <br>
+                            <i class="fa fa-flask"></i>&nbsp;&nbsp;&nbsp;
+						<label ><h4 class="upper">REGION</h4> </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<label><input class="input-cb"	type="checkbox" name="inc_Tour" checked ng-model="checkboxModel.value1" ng-checked=true
+           ng-true-value="'Eastern Region'" ng-false-value="''"/> Eastern</label>&nbsp;&nbsp;&nbsp;&nbsp;
+						<label><input class="input-cb" type="checkbox" name="inc_Guide" ng-model="checkboxModel.value2" ng-checked=true
+           ng-true-value="'Western Region'" ng-false-value="''"/> Western</label>&nbsp;&nbsp;&nbsp;&nbsp;
+						<label><input class="input-cb" type="checkbox"	name="inc_Destination" ng-model="checkboxModel.value3" ng-checked=true
+           ng-true-value="'Northern Region'" ng-false-value="''"/> Northern</label>&nbsp;&nbsp; 
+                            <label><input class="input-cb" type="checkbox"	name="inc_Destination"  ng-model="checkboxModel.value4" ng-checked=true
+           ng-true-value="'Southern Region'" ng-false-value="''"/> Southern</label>&nbsp;&nbsp;
+                            <label><input class="input-cb" type="checkbox"	name="inc_Destination" ng-model="checkboxModel.value5" ng-checked=true
+           ng-true-value="'Central Region'" ng-false-value="''"/> Central</label>
+						</div> 
+						</div>
+					
+					
+				</div>
+    </div>
+				<br><br>
             <!-- END #page-header -->
             <!-- <div class="main-contents col-md-8 col-md-offset-2" id="searchDiv">
 					<form class="plan-tour">
@@ -155,13 +184,13 @@
 					</form>
 				</div> -->
             <!-- START .main-contents -->
-            <div class="main-contents" ng-controller="customersCrtl">
+            <div class="main-contents" >
                 <div class="container">
                     <div class="row ">
                         <div class="col-md-8">
                             <div class="row bom-contents">
                                 <div ng-show="filteredItems > 0">
-                                    <div class="col-md-4" ng-repeat="data in filtered = (list) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
+                                    <div class="col-md-4" ng-repeat="data in filtered = (list) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit ">
                                         <div class="">
                                             <!--                                            ft-item-->
                                             <span class="ft-image">
@@ -208,9 +237,9 @@
                                 <!-- START TAB CONTENT -->
                                 <div class="tab-content gray box-shadow1 clearfix marb30">
                                     <!-- START TAB 1 -->
-                                    <div class="tab-pane active" style="height:600px;" id="toptours">
+                                    <div class="tab-pane active" style="height:310px;" id="toptours">
                                         <ul class="rc-posts-list list-unstyled">
-                                            <li ng-repeat="x in alltours" ng-show="$index<4">
+                                            <li ng-repeat="x in alltours" ng-show="$index<3">
                                                 <span class="rc-post-image">
                                                     <a ng-href="tour_detail_sidebar.php#?id={{x.tour_id}}">
                                                         <img class="img-responsive" ng-src="{{x.photo ==null ? 'img/SAMPLE_TAJ.jpg' : x.photo[0]}}" alt="Tour 1" /></a>
@@ -226,12 +255,12 @@
                                     </div>
                                     <!-- END TAB 1 -->
                                     <!-- START TAB 3 -->
-                                    <div class="tab-pane" id="topdestinations" style="height:600px;">
+                                    <div class="tab-pane" id="topdestinations" style="height:310px;">
                                         <ul class="rc-posts-list list-unstyled">
-                                            <li ng-repeat="k in allplaces" ng-show="$index<4">
+                                            <li ng-repeat="k in allplaces" ng-show="$index<3">
                                                 <span class="rc-post-image">
                                                 <a ng-href="destination-detail-sidebar.php#?id3={{k.ID}}">
-													<img class="img-responsive" style="height:80px;width:80px;" ng-src="{{k.Media.Image[0]}}" alt="Tour 1" />
+													<img class="img-responsive"  ng-src="{{k.Media.Image[0]}}" alt="Tour 1" />
                                                 </a>
 												</span>
                                                 <h5>{{k.Name}}</h5>
@@ -246,12 +275,12 @@
                                     <!-- END TAB 3 -->
                                     <!-- START TAB 4 -->
                                     <!-- lodging hotels -->
-                                    <div class="tab-pane" id="lodging" style="height:600px;">
+                                    <div class="tab-pane" id="lodging" style="height:310px;">
                                         <ul class="rc-posts-list list-unstyled">
-                                            <li ng-repeat="lodge in lodging" ng-show="$index<4 ">
+                                            <li ng-repeat="lodge in lodging" ng-show="$index<3 ">
                                                 <span class="rc-post-image">
                                                     <a ng-href="#">	
-                                                        <img class="img-responsive" style="height:80px; width:65px;" ng-src="{{lodge.Media.Image[0]}}" alt="Hotel" /></a>
+                                                        <img class="img-responsive" ng-src="{{lodge.Media.Image[0]}}" alt="Hotel" /></a>
 												</span>
                                                 <h5><a ng-href="#">{{lodge.Address}}</a></h5>
                                                 <span style="" class="">Coming Soon from our partners</span>
