@@ -268,7 +268,7 @@
                                                                                     <div class="ft-item">
                                                                                         <span class="ft-image">
 <!--                                                                                         <img style="" src="{{trans.Media.Image[0]}}" alt="Top Destination" /> -->
-                                                                                            <img style="" src="img/transport.jpg" alt="Transport" />
+                                                                                            <img style="" src="img/transport.png" alt="Transport" />
                                                                                       </span>
 
                                                                                         <div class="ft-data" style="font-size:11px;">
@@ -428,7 +428,7 @@
                                                     <li class="col-md-12">
                                                         <div class="col-md-4">
                                                             <span class="rc-post-image ">
-                                                        <img class="img-responsive" src="img/hotel.jpg" alt="Tour 1" />
+                                                        <img class="img-responsive" src="img/lodging.png" alt="Tour 1" />
 												</span>
                                                         </div>
                                                         <div class="col-md-8">
@@ -454,7 +454,7 @@
                                                     <li class="col-md-12">
                                                         <div class="col-md-4">
                                                             <span class="rc-post-image ">
-                                                        <img class="img-responsive" src="img/cab.jpg" alt="Tour 1" />
+                                                        <img class="img-responsive" src="img/transport.png" alt="Tour 1" />
 												</span>
                                                         </div>
                                                         <div class="col-md-8">
