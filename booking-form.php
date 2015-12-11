@@ -59,7 +59,6 @@
             overflow: hidden;
             text-overflow: ellipsis;
         }
-        
         div.short-text2 {
             white-space: nowrap;
             width: 25em;
@@ -162,7 +161,7 @@
                                             <div class="col-md-6">
                                                 <div class="row">
                                                     <div class="col-md-6">
-                                                        <label>ADULT <span class="required small">(5+ YRS)</span></label>
+                                                        <label>ADULT <span class="required small">(12+ YRS)</span></label>
                                                         <div class="input-group">
                                                             <span class="input-group-addon" style="cursor:pointer" onclick="adultMinus();"><i style="font-size:12px" class="fa fa-minus"></i></span>
                                                             <input type="text" id="adult" name="adult" class="form-control" value="1">
@@ -170,7 +169,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <label>CHILD <span class="required small">(0-4 YRS)</span></label>
+                                                        <label>CHILD <span class="required small">(0-11 YRS)</span></label>
                                                         <div class="input-group">
                                                             <span class="input-group-addon" style="cursor:pointer" onclick="childMinus();"><i style="font-size:12px" class="fa fa-minus"></i></span>
                                                             <input type="text" id="child" name="child" class="form-control" value="0">
@@ -216,22 +215,21 @@
                                                         <div class="panel panel-default">
                                                             <div class="panel-heading">
                                                                 <a class="panel-title collapsed" data-toggle="collapse" href="#collapseOne">
-                                                                    Lodging <span class="small">(Coming Soon)</span>
+                                                                    Lodging (Coming Soon)
                                                                 </a>
                                                             </div>
                                                             <div id="collapseOne" class="panel-collapse collapse">
                                                                 <div class="panel-body">
                                                                     <div class="col-md-12" ng-controller="Singletour">
-                                                                        <div ng-controller="hotel_booking">
+                                                                        <div>
 
                                                                             <div class="col-md-3" ng-repeat="lodge in lodging | filter:{ City: tour.tour_location} ">
-                                                                                <a id="addExtraService" style="height:20px" class="btn btn-xs btn-default" data-toggle="tab" onclick="lodging_price_div_add();">Add</a>
+                                                                                <a id="addExtraService" style="height:20px" class="btn btn-xs btn-default" data-toggle="tab" ng-click="lodgeID(lodge.ID);">Add</a>
                                                                                 <a style="cursor:pointer" data-value="{{lodge.ID}}" onclick="lodgingDetail();">
                                                                                     <div class="ft-item">
 
                                                                                         <span class="ft-image">
-<!--                                                                                             <img style="" src="{{lodge.Media.Image[0]}}" alt="Top Destination" /> -->
-                                                                                            <img style="" src="img/lodging.png" alt="Lodging" />
+                                                                                             <img style="" src="{{lodge.Media.Image[0]}}" alt="Top Destination" /> 
                                                                                           </span>
 
                                                                                         <div class="ft-data" style="font-size:11px;">
@@ -256,21 +254,20 @@
                                                         <br>
                                                         <div class="panel panel-default">
                                                             <div class="panel-heading">
-                                                                <a class="panel-title collapsed" data-toggle="collapse" href="#collapseTwo"> Transport Service <span class="small">(Coming Soon)</span></a>
+                                                                <a class="panel-title collapsed" data-toggle="collapse" href="#collapseTwo"> Transport Service (Coming Soon)</a>
                                                             </div>
                                                             <div id="collapseTwo" class="panel-collapse collapse">
                                                                 <div class="panel-body">
                                                                     <div class="col-md-12" ng-controller="Singletour">
-                                                                        <div ng-controller="transport_booking">
+                                                                        <div>
+                                                                           
                                                                             <div class="col-md-3" ng-repeat="trans in transport | filter:{ City: tour.tour_location}">
-                                                                                <a id="addExtraService" style="height:20px" class="btn btn-xs btn-default" data-toggle="tab" onclick="transport_price_div_add();">Add</a>
+                                                                                <a id="addExtraService" style="height:20px" class="btn btn-xs btn-default" data-toggle="tab" ng-click="transID(trans.ID);">Add</a>
                                                                                 <a style="cursor:pointer" data-value="{{trans.ID}}" onclick="transportDetail();">
                                                                                     <div class="ft-item">
                                                                                         <span class="ft-image">
-<!--                                                                                         <img style="" src="{{trans.Media.Image[0]}}" alt="Top Destination" /> -->
-                                                                                            <img style="" src="img/transport.png" alt="Transport" />
-                                                                                      </span>
-
+							 <img style="" src="{{trans.Media.Image[0]}}" alt="Top Destination" /> 
+						  </span>
                                                                                         <div class="ft-data" style="font-size:11px;">
                                                                                             <span style="color:black;" class="fa fa-book text-upper">&nbsp;&nbsp;{{trans.Category}}&nbsp;&nbsp;</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                                                             <!-- <span style="color:black;" class="fa fa-book text-upper" >&nbsp;&nbsp;{{x.Speciality}}</span>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -289,7 +286,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <br>
+                                                         <br>
                                                         <div class=" panel panel-default">
                                                             <div class="panel-heading">
                                                                 <a class="panel-title collapsed" data-toggle="collapse" href="#collapseThree"> Promo Code <span class="small">(If you have)</span></a>
@@ -306,12 +303,10 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-
                                                     </div>
                                                 </div>
                                             </div>
                                         </li>
-
                                         <li class="row">
                                             <div class="col-md-12">
                                                 <input type="submit" class="btn btn-primary btn-lg text-upper" onclick="bookNowModalShow();" name="booknow" value="Book Now" />
@@ -397,8 +392,10 @@
 
                                             </div>
                                         </div>
+                                    </div>
+                                </div>
 
-                                        <div style="text-align:justify; padding:0px 10px 0px 10px;" ng-controller="Singleguide">
+                                  <div style="text-align:justify; padding:0px 10px 0px 10px;" ng-controller="Singleguide">
                                             <div ng-show="{{guideValue}}">
                                                 <div class="row">
                                                     <div class=" col-md-4 col-sm-4 plan-image">
@@ -419,65 +416,67 @@
                                                 <hr>
                                             </div>
                                         </div>
-
-                                        <div id="lodging_price_div" style="text-align:justify; padding:10px 10px 10px 10px; display:none; border:1px gray dotted; ">
-                                            <div id="close_lodging" class="pull-right"><a style="cursor:pointer" onclick="lodging_price_div_remove()"><i class="fa fa-times"></i></a></div>
+                                <br>
+<!--                                division on the click of lodging and transport -->
+                                        <div id="" ng-show="lodgevalue" class="gray" style="text-align:justify; padding:10px 10px 10px 10px;">
+                                            <div id="close_lodging" class="pull-right"><a style="cursor:pointer" ng-click="closelodge()"><i class="fa fa-times"></i></a></div>
 
                                             <div id="toptours" class="row">
                                                 <ul class=" list-unstyled">
                                                     <li class="col-md-12">
                                                         <div class="col-md-4">
                                                             <span class="rc-post-image ">
-                                                        <img class="img-responsive" src="img/lodging.png" alt="Tour 1" />
+                                                        <img class="img-responsive" src="{{lodgeIDnew.Media.Image[0]}}" alt="Tour 1" />
 												</span>
                                                         </div>
                                                         <div class="col-md-8">
-                                                            <h5>Lodging </h5>
-                                                            <span class="rc-post-date small">{{tour.tour_duration}}</span>
+                                                            <h5>{{lodgeIDnew.City}}</h5>
+                                                            <span class="rc-post-date small">{{lodgeIDnew.Address}}</span>
                                                             <br/>
                                                         </div>
                                                     </li>
                                                 </ul>
                                             </div>
                                             <div class="alignright">
-                                                <h4>Lodging charges: Coming Soon</h4>
+                                                <h4>Lodging charges: Rs.{{lodgeIDnew.PricePerNight}}</h4>
                                             </div>
                                             <hr>
                                         </div>
-
-                                        <br>
-
-                                        <div id="transport_price_div" style="text-align:justify; padding:10px 10px 10px 10px; display:none; border:1px gray dotted;">
-                                            <div id="close_lodging" class="pull-right"><a style="cursor:pointer" onclick="transport_price_div_remove()"><i class="fa fa-times"></i></a></div>
+                                <br>
+                                 <div id="" class="gray" ng-show="transvalue" style="text-align:justify; padding:10px 10px 10px 10px;">
+                                            <div id="close_lodging" class="pull-right"><a style="cursor:pointer" ng-click="closetrans()"><i class="fa fa-times"></i></a></div>
                                             <div id="toptours" class="row">
+                                                 
                                                 <ul class=" list-unstyled">
                                                     <li class="col-md-12">
                                                         <div class="col-md-4">
                                                             <span class="rc-post-image ">
-                                                        <img class="img-responsive" src="img/transport.png" alt="Tour 1" />
+                                                        <img class="img-responsive" src="{{transIDnew.Media.Image[0]}}" alt="Tour 1" />
 												</span>
                                                         </div>
                                                         <div class="col-md-8">
-                                                            <h5>Transport Service </h5>
-                                                            <span class="rc-post-date small">Coming soon</span>
+                                                            <h5>{{transIDnew.City}} </h5>
+                                                            <span class="rc-post-date small">{{transIDnew.Description}}</span>
                                                             <br/>
                                                         </div>
                                                     </li>
                                                 </ul>
                                             </div>
                                             <div class="alignright">
-                                                <h4>Transport charges: Coming Soon </h4>
+                                                <h4>Price: Rs.{{transIDnew.PriceForDay}}</h4>
                                             </div>
                                             <hr>
                                         </div>
-                                        <div style="text-align:justify; padding:10px 10px 10px 10px;">
-                                            <div id="toptours" class="row">
-
+<!--                                close division -->
+                                <br>
+                                <div class="gray">
+                                    <div class="row">
+                                         <div class="col-md-12">
+                                             <div class="pull-right">
+                                                 <h4>Price: Rs.{{transIDnew.PriceForDay}}</h4>
+                                             </div>
+                                                
                                             </div>
-                                            <div class="alignright">
-                                                <h4>Grand Total: {{tour.tour_price}}</h4></div>
-                                        </div>
-
                                     </div>
                                 </div>
                             </div>
@@ -629,24 +628,6 @@
             var oldValue = document.getElementById("tourDuration").value;
             var newValue = parseInt(oldValue) + 1;
             document.getElementById("tourDuration").value = newValue;
-        }
-
-        function lodging_price_div_add() {
-            document.getElementById("lodging_price_div").style.display = "inherit";
-        }
-
-        function transport_price_div_add() {
-            document.getElementById("transport_price_div").style.display = "inherit";
-            //            alert("helo");
-        }
-
-        function lodging_price_div_remove() {
-            document.getElementById("lodging_price_div").style.display = "none";
-        }
-
-        function transport_price_div_remove() {
-            document.getElementById("transport_price_div").style.display = "none";
-            //            alert("helo");
         }
     </script>
 

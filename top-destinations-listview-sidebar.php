@@ -14,8 +14,7 @@
     <meta name="description" content="Authentic Affordable Travel in India" />
 
     <!-- meta keywords -->
-    <meta name="keywords" content="travel
-		guide tourism india" />
+    <meta name="keywords" content="travel guide tourism india" />
 
     <!-- meta viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
@@ -133,171 +132,177 @@
                     <div class="row">
                         <div class="col-md-8">
                             <div ng-show="filteredItems > 0">
-							<div class="row" ng-repeat="data in filtered = (list) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
-								<div class="col-md-12">
-									<div class="tour-plans">
-										<div class="plan-image">
-                                            <a ng-href="destination-detail-sidebar.php#?id3={{data.ID}}">
-									<img class="img-responsive" style="height:360px;" ng-src="{{data.Media.Image[0]}}" alt="{{data.Name}}" ng-href="destination-detail-sidebar.php#?id3={{data.ID}}"/>
-                                            </a>
-											<div class="offer-box">
-												<div class="offer-top">
-													<span class="ft-temp alignright">19&#730;c</span>
-													<span class="featured-cr text-upper">{{data.Name}}</span>
-													<h2 class="featured-cy text-upper">{{data.State}}</h2>
-												</div>
-												
-												<div class="offer-bottom">
-													<span class="featured-stf"></span>
-													<span class="featured-spe">{{data.Category}}</span>
-												</div>
-												<div class="act-date">
-													<span class="bold">{{data.BestTimeToVisit}}</span>
-													<!-- <span></span> -->
-												</div>
-											</div>
-										</div>
-																	
-										<div class="featured-btm box-shadow1">
-										   <ul style="list-style-type:none;">
-											<li class="ft-hotel text-upper" style="float:left;" ng-repeat="y in data.Transport">{{y}}&nbsp&nbsp</li>
-											<!-- <a class="ft-plane text-upper" href="#">Return Air Ticket</a>
+                                <div class="" ng-repeat="data in filtered = (list) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
+                                    
+                                    <div class="col-md-6">
+                                        <div class="tour-plans">
+                                            <div class="plan-image">
+                                                <a ng-href="destination-detail-sidebar.php#?id3={{data.ID}}">
+                                                    <img class="img-responsive" style="height:250px;" ng-src="{{data.Media.Image[0]}}" alt="{{data.Name}}" ng-href="destination-detail-sidebar.php#?id3={{data.ID}}" />
+                                                </a>
+                                                <div class="offer-box">
+                                                    <div class="offer-top">
+                                                        <span class="ft-temp alignright">19&#730;c</span>
+                                                        <span class="featured-cr text-upper">{{data.Name}}</span>
+                                                        <h2 class="featured-cy text-upper">{{data.State}}</h2>
+                                                    </div>
+
+                                                    <div class="offer-bottom">
+                                                        <span class="featured-stf"></span>
+                                                        <span class="featured-spe">{{data.Category}}</span>
+                                                    </div>
+                                                    <div class="act-date">
+                                                        <span class="bold">{{data.BestTimeToVisit}}</span>
+                                                        <!-- <span></span> -->
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="featured-btm box-shadow1">
+                                                <ul style="list-style-type:none;">
+                                                    <li class="ft-hotel text-upper" style="float:left;" ng-repeat="y in data.Transport">{{y}}&nbsp&nbsp</li>
+                                                    <!-- <a class="ft-plane text-upper" href="#">Return Air Ticket</a>
                             <a class="ft-tea text-upper" href="#">Complimentary Break Fast</a> -->
-                            </ul>
-                        </div>
-                        <div class="post-desc">
-                            <h4>{{data.Description}}</h4>
-                            <a class="btn btn-primary marb20" ng-href="destination-detail-sidebar.php#?id3={{data.ID}}">DETAILS</a>
-                            <a id="bookButton" class="alignright" href="#">
-                                <input type="submit" name="submit" class="btn btn-sm btn-success text-upper marb20" value="Explore" />
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                                                </ul>
+                                            </div>
+                                            <div class="post-desc">
+                                                <h4>{{data.Description}}</h4>
+                                                <a class="btn btn-primary marb20" ng-href="destination-detail-sidebar.php#?id3={{data.ID}}">DETAILS</a>
+                                                <a id="bookButton" class="alignright" href="#">
+                                                    <input type="submit" name="submit" class="btn btn-sm btn-success text-upper marb20" value="Explore" />
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
 
-                <div class="clearfix"></div>
-            </div>
-    </div>
-    </div>
-    <!-- START #sidebar -->
-    <aside id="sidebar" class="col-md-4">
-        <div class="sidebar-widget">
-            <!-- Sidebar recent popular posts -->
-            <!-- START TABS -->
-            <ul class="nav nav-tabs text-upper">
-                <li class="active"><a ng-href="#toptours" data-toggle="tab">Tours</a></li>
-                <li><a ng-href="#topguides" data-toggle="tab">Guides</a></li>
-                <li><a ng-href="#lodging" data-toggle="tab">Lodging</a></li>
-            </ul>
-            <!-- END TABS -->
+<!--                                      <div class="clearfix"></div>-->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- START #sidebar -->
+                        <aside id="sidebar" class="col-md-4">
+                            <div class="sidebar-widget">
+                                <!-- Sidebar recent popular posts -->
+                                <!-- START TABS -->
+                                <ul class="nav nav-tabs text-upper">
+                                    <li class="active"><a ng-href="#toptours" data-toggle="tab">Tours</a></li>
+                                    <li><a ng-href="#topguides" data-toggle="tab">Guides</a></li>
+                                    <li><a ng-href="#lodging" data-toggle="tab">Lodging</a></li>
+                                </ul>
+                                <!-- END TABS -->
 
-            <!-- START TAB CONTENT -->
-            <div class="tab-content gray box-shadow1 clearfix marb30">
-                <!-- START TAB 1 -->
-                <div class="tab-pane active" id="toptours">
-                    <ul class="rc-posts-list list-unstyled">
-                        <li ng-repeat="k in alltours" ng-show="$index<3">
-                            <span class="rc-post-image">
+                                <!-- START TAB CONTENT -->
+                                <div class="tab-content gray box-shadow1 clearfix marb30">
+                                    <!-- START TAB 1 -->
+                                    <div class="tab-pane active" id="toptours">
+                                        <ul class="rc-posts-list list-unstyled">
+                                            <li ng-repeat="k in alltours" ng-show="$index<3">
+                                                <span class="rc-post-image">
                                                     <a ng-href="tour_detail_sidebar.php?id={{k.tour_id}}"	>	
                                                         <img class="img-responsive" ng-src="{{'k.photo' == null ? 'img/SAMPLE_TOUR.jpg' : k.photo[0]}}" alt="Tour Image" />
                                                     </a>
 												</span>
-                            <h5><a ng-href="#">{{k.tour_title}}</a></h5>
-                            <span class="rc-post-date small">Starting Price&nbsp;{{k.tour_price}}</span>
-                         
-                            <a ng-href="booking-form.php#?id1=0&&id2={{k.tour_id}}">
-                                <input type="submit" name="submit" class="pull-right btn btn-sm btn-primary text-upper marb20" value="Book" />
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <!-- END TAB 1 -->
+                                                <h5><a ng-href="#">{{k.tour_title}}</a></h5>
+                                                <span class="rc-post-date small">Starting Price&nbsp;{{k.tour_price}}</span>
 
-                <!-- START TAB 2 -->
-                <div class="tab-pane" id="topguides">
-                    <div class="col-md-12">
-                        <ul class="list-unstyled">
-                        <li ng-repeat="z in guides" ng-show="$index<3">
-                            <span class="rc-post-image">
+                                                <a ng-href="booking-form.php#?id1=0&&id2={{k.tour_id}}">
+                                                    <input type="submit" name="submit" class="pull-right btn btn-sm btn-primary text-upper marb20" value="Book" />
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!-- END TAB 1 -->
+
+                                    <!-- START TAB 2 -->
+                                    <div class="tab-pane" id="topguides">
+                                        <div class="col-md-12">
+                                            <ul class="list-unstyled">
+                                                <li ng-repeat="z in guides" ng-show="$index<3">
+                                                    <span class="rc-post-image">
                                                     <a ng-href="guide-detail-sidebar.php#?id2={{z.id}}">	
                                                         <img class="img-responsive" style="height:70px; width:60px;" ng-src="{{z.photo==null ? 'img/new_user.png' :z.photo}}" alt="Guide Image" /></a>
 												</span>
-                            <h5><a ng-href="#">{{z.name}}</a></h5>
-                            <h5><a ng-href="#">{{z.guide_territory[0]}}</a></h5>
-                            <!--												<h5>{{z.Speciality}}<span class="rc-post-date small">Speciality&nbsp;&nbsp;</span></h5>-->
-                            <span star-rating rating-value="z.review.rating" style="" class=""></span>
-                            <a ng-href="guide-detail-sidebar.php#?id2={{z.id}}">
-                                <input type="submit" name="submit" class="pull-right btn btn-sm btn-primary text-upper marb20" value="View Details" />
-                            </a><br><br>
-                            
-                        </li>
+                                                    <h5><a ng-href="#">{{z.name}}</a></h5>
+                                                    <h5><a ng-href="#">{{z.guide_territory[0]}}</a></h5>
+                                                    <!--												<h5>{{z.Speciality}}<span class="rc-post-date small">Speciality&nbsp;&nbsp;</span></h5>-->
+                                                    <span star-rating rating-value="z.review.rating" style="" class=""></span>
+                                                    <a ng-href="guide-detail-sidebar.php#?id2={{z.id}}">
+                                                        <input type="submit" name="submit" class="pull-right btn btn-sm btn-primary text-upper marb20" value="View Details" />
+                                                    </a>
+                                                    <br>
+                                                    <br>
 
-                    </ul>
-                        </div>
-                </div>
-                <!-- END TAB 2 -->
+                                                </li>
 
-                <!-- START TAB 3 -->
-                <!-- lodging hotels -->
-                <div class="tab-pane" id="lodging">
-                    <ul class=" list-unstyled">
-                        <li ng-repeat="lodge in lodging" ng-show="$index<3 ">
-                            <span class="rc-post-image">
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!-- END TAB 2 -->
+
+                                    <!-- START TAB 3 -->
+                                    <!-- lodging hotels -->
+                                    <div class="tab-pane" id="lodging">
+                                        <ul class=" list-unstyled">
+                                            <li ng-repeat="lodge in lodging" ng-show="$index<3 ">
+                                                <span class="rc-post-image">
                                                     <a ng-href="#">	<img class="img-responsive" style="height:80px; width:65px;" ng-src="{{lodge.Media.Image[0]}}" alt="Hotel" /></a>
 												</span>
-                            <h5><a ng-href="#">{{lodge.Address}}</a></h5>
-                            <span style="" class="">Coming Soon from our partners</span>
-                           
-                            <a ng-href="#" style="margin-left:110px;">
-                                <input type="submit" name="submit" class="pull-right btn btn-sm btn-primary  marb20" value="Coming Soon" />
-                            </a><br><br><br>
-                        </li>
+                                                <h5><a ng-href="#">{{lodge.Address}}</a></h5>
+                                                <span style="" class="">Coming Soon from our partners</span>
 
-                    </ul>
+                                                <a ng-href="#" style="margin-left:110px;">
+                                                    <input type="submit" name="submit" class="pull-right btn btn-sm btn-primary  marb20" value="Coming Soon" />
+                                                </a>
+                                                <br>
+                                                <br>
+                                                <br>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                    <!-- END TAB 3 -->
+                                </div>
+                                <!-- END TAB CONTENT -->
+                            </div>
+
+
+                            <div class="sidebar-widget" ng-controller="placesCtrl">
+                                <!-- Sidebar Flickr Gallery -->
+                                <h3 class="text-upper">Destination Gallery</h3>
+                                <ul class="flickr-gal list-unstyled">
+                                    <li ng-repeat="z in places"><img style="height:70px; width:120px;" class="img-responsive" ng-src="{{z.Media.Image[0]}}" alt="image" /></li>
+
+                                </ul>
+                            </div>
+                        </aside>
+                        <!-- END #sidebar -->
+                    </div>
+                    <!-- START .pagination -->
+                    <div class="col-md-12">
+                        <div pagination="" page="currentPage" on-select-page="setPage(page)" boundary-links="true" total-items="filteredItems" items-per-page="entryLimit" class="pagination-small" previous-text="&laquo;" next-text="&raquo;"></div>
+
+
+                    </div>
+                    <!-- END .pagination -->
                 </div>
-                <!-- END TAB 3 -->
             </div>
-            <!-- END TAB CONTENT -->
-        </div>
+            <!-- END .main-contents -->
 
-
-        <div class="sidebar-widget" ng-controller="placesCtrl">
-            <!-- Sidebar Flickr Gallery -->
-            <h3 class="text-upper">Destination Gallery</h3>
-            <ul class="flickr-gal list-unstyled">
-                <li ng-repeat="z in places"><img style="height:70px; width:120px;" class="img-responsive" ng-src="{{z.Media.Image[0]}}" alt="image" /></li>
-
-            </ul>
-        </div>
-    </aside>
-    <!-- END #sidebar -->
+            <!-- START footer -->
+            <!-- START footer -->
+            <?php include('MasterTopFooter.php'); ?>
+                <!-- END footer -->
     </div>
-    <!-- START .pagination -->
-    <div class="col-md-12">
-        <div pagination="" page="currentPage" on-select-page="setPage(page)" boundary-links="true" total-items="filteredItems" items-per-page="entryLimit" class="pagination-small" previous-text="&laquo;" next-text="&raquo;"></div>
+    <!-- END #wrapper -->
 
 
-    </div>
-    <!-- END .pagination -->
-    </div>
-    </div>
-    <!-- END .main-contents -->
+    <!-- javascripts -->
+    <script type="text/javascript" src="js/modernizr.custom.17475.js"></script>
 
-    <!-- START footer -->
-    <!-- START footer -->
-    <?php include('MasterTopFooter.php'); ?>
-        <!-- END footer -->
-        </div>
-        <!-- END #wrapper -->
-
-
-        <!-- javascripts -->
-        <script type="text/javascript" src="js/modernizr.custom.17475.js"></script>
-
-        <script type="text/javascript" src="js/jquery.min.js"></script>
-        <script type="text/javascript" src="bs3/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="js/script.js"></script>
-        <!--[if lt IE 9]>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="bs3/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+    <!--[if lt IE 9]>
 			<script type="text/javascript" src="js/html5shiv.js"></script>
 		<![endif]-->
 

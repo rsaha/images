@@ -8,18 +8,10 @@
 }]);
     
  
-app.controller('tours_booking',['$scope','$http', function($scope, $http) {
-    $http.get("http://130.211.123.212/app/tours")
-    .success(function (response) {
-		$scope.toursbook = response.Tours;
-	
-		})
-	.error(function() {
-				$scope.data = "error in fetching data";
-			});
-			
-			
-}]); 
+//app.controller('tours_booking',['$scope','$http', function($scope, $http) {
+//  
+//			
+//}]); 
 
 app.controller('guides_booking',['$scope','$http', function($scope, $http) {
     $http.get("http://130.211.123.212/app/guides")
@@ -29,13 +21,17 @@ app.controller('guides_booking',['$scope','$http', function($scope, $http) {
 	.error(function() {
 				$scope.data = "error in fetching data";
 			});
-  
-   
+    $http.get("http://130.211.123.212/app/tours")
+    .success(function (response) {
+		$scope.toursbook = response.Tours;
+	
+		})
+	.error(function() {
+				$scope.data = "error in fetching data";
+			});
 			
-}]);
     
-    app.controller('hotel_booking',['$scope','$http','$location', function($scope, $http,$location) {
-        debugger;
+      $scope.lodgeIDnew=0;
     $http.get("http://130.211.123.212/app/lodging")
     .success(function (response) {
 		$scope.lodging =response.Lodging;
@@ -43,23 +39,94 @@ app.controller('guides_booking',['$scope','$http', function($scope, $http) {
 	.error(function() {
 				$scope.data = "error in fetching data";
 			});
-  
+        
+  $scope.lodgeID=function(lodgeID){
    
-			
+                   //  alert(lodgeID);
+
+                     $http.get("http://130.211.123.212/app/lodging")
+                         .success(function (response) {
+                                 //$scope.transport =response.Transport;
+
+                                 var lodgelist = response.Lodging;
+                                // $scope.tourfound = '';
+                                 for (var i = 0, len = lodgelist.length; i < len; i++) {
+
+                                     if (lodgelist[i].ID === lodgeID) {
+                                         $scope.lodgeIDnew = lodgelist[i];
+                                      //   alert("hi");
+                                       //  alert( $scope.lodgeIDnew.ID);
+                                         $scope.lodgevalue=$scope.lodgeIDnew.ID;
+                                         break;
+
+
+                                     }
+                                 }
+                                     })
+                                 .error(function () {
+                                     $scope.data = "error in fetching data";
+                                 });
+                                 //$scope.lodgeIDnew2 = lodgeID;
+                             
+  $scope.closelodge = function ()	{
+		    $scope.lodgevalue=0;
+		}
+      
+  }
+   
+    $scope.transIDnew = 0;
+                 $http.get("http://130.211.123.212/app/transport")
+                     .success(function (response) {
+                         $scope.transport = response.Transport;
+                     })
+                     .error(function () {
+                         $scope.data = "error in fetching data";
+                     });
+
+                 $scope.transID = function (transID) {
+                    // alert(transID);
+
+                     $http.get("http://130.211.123.212/app/transport")
+                         .success(function (response) {
+                                 //$scope.transport =response.Transport;
+
+                                 var translist = response.Transport;
+                                // $scope.tourfound = '';
+                                 for (var i = 0, len = translist.length; i < len; i++) {
+
+                                     if (translist[i].ID === transID) {
+                                         $scope.transIDnew = translist[i];
+                                       //  alert("hi");
+                                        // alert( $scope.transIDnew.ID);
+                                         $scope.transvalue=$scope.transIDnew.ID;
+                                         break;
+
+
+                                     }
+                                 }
+                                     })
+                                 .error(function () {
+                                     $scope.data = "error in fetching data";
+                                 });
+                                 //$scope.lodgeIDnew2 = lodgeID;
+                             }
+                     
+		$scope.closetrans = function ()	{
+		    $scope.transvalue=0;
+		}
 }]);
     
-      app.controller('transport_booking',['$scope','$http', function($scope, $http) {
-    $http.get("http://130.211.123.212/app/transport")
-    .success(function (response) {
-		$scope.transport =response.Transport;
-		})
-	.error(function() {
-				$scope.data = "error in fetching data";
-			});
-  
-   
-			
-}]);
+//    app.controller('hotel_booking',['$scope','$http','$location', function($scope, $http,$location) {
+//        debugger;
+//     
+//			
+//}]);
+//    
+//      app.controller('transport_booking', ['$scope', '$http', function ($scope, $http) {
+//                 debugger;
+//               
+//
+//                         }]);
     
 app.controller('Singleguide',['$scope','$http','$location', function($scope, $http,$location)  {
     // alert(valueID);
@@ -103,18 +170,18 @@ app.controller('Singleguide',['$scope','$http','$location', function($scope, $ht
 		
 			
 }]); 
-app.controller('placesCtrl',['$scope','$http', function($scope, $http) {
-    $http.get("http://130.211.123.212/app/places")
-    .success(function (response) {
-		$scope.places = response.Places;
-	
-		})
-	.error(function() {
-				$scope.data = "error in fetching data";
-			});
-			
-			
-}]); 
+//app.controller('placesCtrl',['$scope','$http', function($scope, $http) {
+//    $http.get("http://130.211.123.212/app/places")
+//    .success(function (response) {
+//		$scope.places = response.Places;
+//	
+//		})
+//	.error(function() {
+//				$scope.data = "error in fetching data";
+//			});
+//			
+//			
+//}]); 
 
 app.directive('starRating', function () {
     return {
