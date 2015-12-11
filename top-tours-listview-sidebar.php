@@ -132,23 +132,23 @@ ul.rating {
 					<a ng-href="tour_detail_sidebar.php#?id=">
 						<div class="col-md-8" >
                              <div ng-show="filteredItems > 0">
-							<div class="row" ng-repeat="data in filtered = (list) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
-								<div class="col-md-12">
+							<div class="" ng-repeat="data in filtered = (list) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
+								<div class="col-md-6">
 									<div class="tour-plans">
 										<div class="plan-image">
                                             <a ng-href="tour_detail_sidebar.php#?id={{data.tour_id}}">
-											<img class="img-responsive" style="width:770px; height:320px;" style="height:360px;" ng-src="{{data.photo ==null ? 'img/SAMPLE_TAJ.jpg' : data.photo[0]}}" alt="Tour image"/>
+											<img class="img-responsive" style="width:770px; height:250px;" ng-src="{{data.photo ==null ? 'img/SAMPLE_TAJ.jpg' : data.photo[0]}}" alt="Tour image"/>
                                             </a>
-											<div class="offer-box">
+											<div class="offer-box" style="width: 230px;">
 												<div class="offer-top">
 													<span class="fa fa-tag alignright">{{data.tour_category}}</span>
-													<span class="featured-cr text-upper">{{data.tour_location}}</span>
-                                                    <div class="short-text featured-cy text-upper" title="{{data.tour_title}}">{{data.tour_title}}</div>
+													<span class="text-upper" style="color:#ff845e; font-size:12px; font-weight:700;">{{data.tour_location}}</span>
+                                                    <div class="short-text text-upper" style="color:#fff; line-height:1; font-size:20px; margin:0;" title="{{data.tour_title}}">{{data.tour_title}}</div>
 												</div>
 												
 												<div class="offer-bottom">
-													<span class="featured-stf">Starting From </span>
-													<span class="featured-spe">{{data.tour_price}}</span>
+													<span class="" style="font-size:12px;">Starting From </span>
+													<span class="" style="font-size:18px; font-weight:700; line-height:1;">{{data.tour_price}}</span>
 												</div>
 											</div>
 										</div>
@@ -163,9 +163,9 @@ ul.rating {
                                              <a id="bookButton" class="alignright" ng-href="booking-form.php#?id1=0&id2={{data.tour_id}}"> <input type="submit" name="submit" class="btn btn-sm btn-success text-upper marb20" value="Book" /></a>
 										</div>
 									</div>
-								</div><br>
+								</div>
 							
-<!--								<div class="clearfix"></div>-->
+                                    <!-- <div class="clearfix"></div>-->
 							</div>
                         </div>
 						</div>
