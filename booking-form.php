@@ -225,7 +225,7 @@
 
                                                                             <div class="col-md-3" ng-repeat="lodge in lodging | filter:{ City: tour.tour_location} ">
                                                                                 <a id="addExtraService" style="height:20px" class="btn btn-xs btn-default" data-toggle="tab" ng-click="lodgeID(lodge.ID);">Add</a>
-                                                                                <a style="cursor:pointer" data-value="{{lodge.ID}}" onclick="lodgingDetail();">
+                                                                                <a style="cursor:pointer" data-value="{{lodge.ID}}" ng-click="lodgingModel(lodge.ID);">
                                                                                     <div class="ft-item">
 
                                                                                         <span class="ft-image">
@@ -263,11 +263,12 @@
                                                                            
                                                                             <div class="col-md-3" ng-repeat="trans in transport | filter:{ City: tour.tour_location}">
                                                                                 <a id="addExtraService" style="height:20px" class="btn btn-xs btn-default" data-toggle="tab" ng-click="transID(trans.ID);">Add</a>
-                                                                                <a style="cursor:pointer" data-value="{{trans.ID}}" onclick="transportDetail();">
+                                                                                <a style="cursor:pointer" data-value="{{trans.ID}}" ng-click="transportModel(trans.ID);">
                                                                                     <div class="ft-item">
                                                                                         <span class="ft-image">
 							 <img style="" src="{{trans.Media.Image[0]}}" alt="Top Destination" /> 
 						  </span>
+
                                                                                         <div class="ft-data" style="font-size:11px;">
                                                                                             <span style="color:black;" class="fa fa-book text-upper">&nbsp;&nbsp;{{trans.Category}}&nbsp;&nbsp;</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                                                             <!-- <span style="color:black;" class="fa fa-book text-upper" >&nbsp;&nbsp;{{x.Speciality}}</span>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -340,7 +341,7 @@
 
                                         <div ng-controller="Singletour">
                                             <div ng-show="{{tourValue}}">
-                                                <div class="tour-plans" style="padding:10px 10px 0px 10px;">
+                                                <div class="tour-plans" style="padding:10px 10px 10px 10px;">
                                                     <div data-model="tour.tour_location">
                                                         <div class="plan-image">
                                                             <img class="img-responsive" alt="Tour Image Scroller" draggable="false" src="{{tour.photo == null ? 'img/custom11.jpg' : tour.photo[0]}}" />
@@ -392,6 +393,82 @@
 
                                             </div>
                                         </div>
+
+                                        <div style="text-align:justify; padding:10px 10px 10px 10px;" ng-controller="Singleguide">
+                                            <div ng-show="{{guideValue}}">
+                                                <div class="row">
+                                                    <div class=" col-md-4 col-sm-4 plan-image">
+                                                        <img class="hover img-responsive" src="{{ guide.photo == null ? 'img/userDefaultIcon.png' : guide.photo}}" />
+                                                    </div>
+                                                    <div class="col-md-8 col-sm-8">
+                                                        <div class="row">
+                                                            <div class="col-md-3 col-sm-4 col-xs-4">Name:</div>
+                                                            <div class="col-md-8 col-sm-8 col-xs-8 alignright">{{guide.name}} </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-4 col-sm-4 col-xs-4">Territory:</div>
+                                                            <div class="col-md-8 col-sm-8 col-xs-8 alignright" ng-repeat="z in guide.guide_territory">{{z}}</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                    <h4>Total for Guide: Pricing varies</h4>
+                                                <hr style="margin: 20px 0; border: 1px solid #808080;">
+                                            </div>
+                                        </div>
+
+                                        <!-- div style="text-align:justify; padding:10px 10px 10px 10px;">
+                                            <div id="toptours" class="row">
+                                                <ul class=" list-unstyled">
+                                                    <li class="col-md-12">
+                                                        <div class="col-md-4">
+                                                            <span class="rc-post-image ">
+                                                    <a href="#"><img class="img-responsive" src="img/SAMPLE_TOUR.jpg" alt="Tour 1" /></a>
+												</span>
+                                                        </div>
+                                                        <div class="col-md-8">
+                                                            <h5><a href="#">Lodging </a></h5>
+                                                            <span class="rc-post-date small">{{tour.tour_duration}}</span>
+                                                            <br/>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="alignright">
+                                                <h4>Lodging charges: Coming Soon</h4></div>
+                                            <hr style="margin: 20px 0; border: 1px solid #808080;">
+                                        </div>
+
+                                        <div style="text-align:justify; padding:10px 10px 10px 10px;">
+                                            <div id="toptours" class="row">
+                                                <ul class=" list-unstyled">
+                                                    <li class="col-md-12">
+                                                        <div class="col-md-4">
+                                                            <span class="rc-post-image ">
+                                                    <a href="#">
+                                                        <img class="img-responsive" src="img/SAMPLE_TOUR.jpg" alt="Tour 1" />
+                                                    </a>
+												</span>
+                                                        </div>
+                                                        <div class="col-md-8">
+                                                            <h5><a href="#">Transport Service </a></h5>
+                                                            <span class="rc-post-date small">Coming soon</span>
+                                                            <br/>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="alignright">
+                                                <h4>Transport charges: Coming Soon </h4></div>
+                                            <hr style="margin: 20px 0; border: 1px solid #808080;">
+                                        </div>
+                                        <div style="text-align:justify; padding:10px 10px 10px 10px;">
+                                            <div id="toptours" class="row">
+
+                                            </div>
+                                            <div class="alignright">
+                                                <h4>Grand Total: {{tour.tour_price}}</h4></div>
+                                        </div -->
+
                                     </div>
                                 </div>
 
@@ -430,15 +507,15 @@
 												</span>
                                                         </div>
                                                         <div class="col-md-8">
-                                                            <h5>{{lodgeIDnew.City}}</h5>
-                                                            <span class="rc-post-date small">{{lodgeIDnew.Address}}</span>
+                                                            <h5>{{lodgeIDnew.Address}}</h5>
+                                                            <span class="rc-post-date small">{{lodgeIDnew.City}}</span>
                                                             <br/>
                                                         </div>
                                                     </li>
                                                 </ul>
                                             </div>
                                             <div class="alignright">
-                                                <h4>Lodging charges: Rs.{{lodgeIDnew.PricePerNight}}</h4>
+                                                <h4>Lodging Charges &nbsp;&nbsp;&nbsp;: Rs.{{lodgeIDnew.PricePerNight}}</h4>
                                             </div>
                                             <hr>
                                         </div>
@@ -455,15 +532,15 @@
 												</span>
                                                         </div>
                                                         <div class="col-md-8">
-                                                            <h5>{{transIDnew.City}} </h5>
-                                                            <span class="rc-post-date small">{{transIDnew.Description}}</span>
+                                                            <h5>{{transIDnew.Description}} </h5>
+                                                            <span class="rc-post-date small">{{transIDnew.City}}</span>
                                                             <br/>
                                                         </div>
                                                     </li>
                                                 </ul>
                                             </div>
                                             <div class="alignright">
-                                                <h4>Price: Rs.{{transIDnew.PriceForDay}}</h4>
+                                                <h4>Transport Charges &nbsp;&nbsp;: Rs.{{transIDnew.PriceForDay}}</h4>
                                             </div>
                                             <hr>
                                         </div>
@@ -473,7 +550,7 @@
                                     <div class="row">
                                          <div class="col-md-12">
                                              <div class="pull-right">
-                                                 <h4>Price: Rs.{{transIDnew.PriceForDay}}</h4>
+                                                 <h4>Grand Total&nbsp;: Rs.&nbsp;{{priceTotal}}</h4>
                                              </div>
                                                 
                                             </div>
@@ -494,7 +571,7 @@
     </div>
     <!-- END #wrapper -->
 
-    <div id="lodgingDetailModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="lodgingDetailModalLabel" aria-hidden="true">
+    <div id="lodgingDetailModal" class="modal fade" tabindex="-1" ng-model="lodgeIDSelected" role="dialog" aria-labelledby="lodgingDetailModalLabel" aria-hidden="true">
         <input type="hidden" id="lodgingID" name="lodgingID" value="" />
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -506,6 +583,9 @@
                     <div class="row">
                         <div class="col-md-12">
                             We will have many more lodging options for you soon...
+                            
+                            {{lodgeIDSelected.ID}}
+                            {{lodgeIDSelected.Name}}
                         </div>
                     </div>
 
@@ -517,7 +597,7 @@
         </div>
     </div>
 
-    <div id="transportDetailModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="transportDetailModalLabel" aria-hidden="true">
+    <div id="transportDetailModal" class="modal fade" tabindex="-1"  role="dialog" aria-labelledby="transportDetailModalLabel" aria-hidden="true">
         <input type="hidden" id="transportID" name="transportID" value="" />
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -566,20 +646,15 @@
     <script type="text/javascript" src="js/styleswitcher.js"></script>
 
     <script>
-        function lodgingDetail() {
-            var id = $(this).data('index');
-            //var id = $(this).attr('data-value');
-            //var id = $(this).data("value");
-
-            document.getElementById("lodgingID").value = id;
-            $('#lodgingDetailModal').modal('show');
-            //alert("This feature will be available soon......");
-        }
-
-        function transportDetail() {
-            $('#transportDetailModal').modal('show');
-            //alert("This feature will be available soon......");
-        }
+//        function lodgingDetail() {
+//            $('#lodgingDetailModal').modal('show');
+//            //alert("This feature will be available soon......");
+//        }
+//
+//        function transportDetail() {
+//            $('#transportDetailModal').modal('show');
+//            //alert("This feature will be available soon......");
+//        }
 
         function bookNowModalShow() {
             $('#bookNowModal').modal('show');

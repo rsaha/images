@@ -169,6 +169,7 @@ ul.rating {
 							</div>
                         </div>
 						</div>
+						</a>
 						<!-- START #sidebar -->
 						<aside id="sidebar" class="col-md-4">
 							<div class="sidebar-widget">
