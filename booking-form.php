@@ -187,7 +187,7 @@
                                             </div>
 
 
-                                            <div class="col-md-6" ng-controller="Singleguide" ng-show="{{guideValue}}">
+                                            <div class="col-md-6" ng-show="{{guideValue}}">
                                                 <label>Tour Duratios [In Days] <span class="required small">(Required)</span></label>
                                                 <div class="input-group">
                                                     <span class="input-group-addon" style="cursor:pointer" onclick="tourDurationMinus();"><i style="font-size:12px" class="fa fa-minus"></i></span>
@@ -197,7 +197,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-md-6" ng-controller="Singletour" ng-show="{{tourValue}}">
+                                            <div class="col-md-6" ng-show="{{tourValue}}">
                                                 <label>Tour Duratios [In Days] <span class="required small">(Required)</span></label>
                                                 <div class="input-group">
                                                     <span class="input-group-addon" onclick="tourDurationMinus();"></span>
@@ -220,7 +220,7 @@
                                                             </div>
                                                             <div id="collapseOne" class="panel-collapse collapse">
                                                                 <div class="panel-body">
-                                                                    <div class="col-md-12" ng-controller="Singletour">
+                                                                    <div class="col-md-12">
                                                                         <div>
 
                                                                             <div class="col-md-3" ng-repeat="lodge in lodging | filter:{ City: tour.tour_location} ">
@@ -258,7 +258,7 @@
                                                             </div>
                                                             <div id="collapseTwo" class="panel-collapse collapse">
                                                                 <div class="panel-body">
-                                                                    <div class="col-md-12" ng-controller="Singletour">
+                                                                    <div class="col-md-12" >
                                                                         <div>
                                                                            
                                                                             <div class="col-md-3" ng-repeat="trans in transport | filter:{ City: tour.tour_location}">
@@ -328,9 +328,9 @@
                             <div class="sidebar-widget">
                                 <!-- START TABS -->
                                 <ul class="nav nav-tabs text-upper" style="background-color:#ff845e;">
-                                    <li class="active" ng-controller="Singletour" ng-show="{{tourValue}}">
+                                    <li class="active" ng-show="{{tourValue}}">
                                         <a href="#popular-posts" data-toggle="tab">Requested Tour Detail</a></li>
-                                    <li ng-controller="Singleguide" class="active" ng-show="{{guideValue}}">
+                                    <li class="active" ng-show="{{guideValue}}">
                                         <a href="#popular-posts" data-toggle="tab">Requested Guide Detail</a></li>
                                 </ul>
                                 <!-- END TABS -->
@@ -339,7 +339,7 @@
                                 <div class="tab-content gray box-shadow1 clearfix marb30">
                                     <div class="tab-pane active" id="popular-posts">
 
-                                        <div ng-controller="Singletour">
+                                        <div>
                                             <div ng-show="{{tourValue}}">
                                                 <div class="tour-plans" style="padding:10px 10px 10px 10px;">
                                                     <div data-model="tour.tour_location">
@@ -394,7 +394,7 @@
                                             </div>
                                         </div>
 
-                                        <div style="text-align:justify; padding:10px 10px 10px 10px;" ng-controller="Singleguide">
+                                        <div style="text-align:justify; padding:10px 10px 10px 10px;" >
                                             <div ng-show="{{guideValue}}">
                                                 <div class="row">
                                                     <div class=" col-md-4 col-sm-4 plan-image">
@@ -472,7 +472,7 @@
                                     </div>
                                 </div>
 
-                                  <div style="text-align:justify; padding:0px 10px 0px 10px;" ng-controller="Singleguide">
+                                  <div style="text-align:justify; padding:0px 10px 0px 10px;">
                                             <div ng-show="{{guideValue}}">
                                                 <div class="row">
                                                     <div class=" col-md-4 col-sm-4 plan-image">
