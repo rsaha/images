@@ -30,6 +30,12 @@ app.controller('guides_booking',['$scope','$http', function($scope, $http) {
 				$scope.data = "error in fetching data";
 			});
 			
+    $scope.priceTotal=0;
+    $scope.tourPrice=0;
+    $scope.lodgingPrice=0;
+    $scope.transportPrice=0;
+    
+    $scope.priceTotal= $scope.tourPrice+$scope.lodgingPrice+ $scope.transportPrice;
     
       $scope.lodgeIDnew=0;
     $http.get("http://130.211.123.212/app/lodging")
@@ -57,6 +63,12 @@ app.controller('guides_booking',['$scope','$http', function($scope, $http) {
                                       //   alert("hi");
                                        //  alert( $scope.lodgeIDnew.ID);
                                          $scope.lodgevalue=$scope.lodgeIDnew.ID;
+                                            if( $scope.lodgingPrice==0)
+                                                {
+                                         $scope.lodgingPrice=$scope.lodgeIDnew.PricePerNight;
+                                        // alert($scope.lodgingPrice);
+                                          $scope.priceTotal=$scope.priceTotal+ $scope.lodgingPrice;
+                                                }
                                          break;
 
 
@@ -68,9 +80,44 @@ app.controller('guides_booking',['$scope','$http', function($scope, $http) {
                                  });
                                  //$scope.lodgeIDnew2 = lodgeID;
                              
-  $scope.closelodge = function ()	{
-		    $scope.lodgevalue=0;
-		}
+  $scope.closelodge = function () {
+     $scope.lodgevalue = 0;
+     if ($scope.lodgingPrice != 0) {
+         // alert($scope.lodgingPrice);
+         $scope.priceTotal = $scope.priceTotal - $scope.lodgingPrice;
+                  $scope.lodgingPrice = 0;
+
+     }
+ }
+      
+  }
+   $scope.lodgeIDSelected =0;
+  $scope.lodgingModel=function(lodgeSelected){
+     // $scope.lodgeIsVisible=1;
+    // alert(lodgeSelected);
+      
+        $http.get("http://130.211.123.212/app/lodging")
+                         .success(function (response) {
+                                 //$scope.transport =response.Transport;
+
+                                 var totallodgelist = response.Lodging;
+                                
+                                 for (var i = 0, len = totallodgelist.length; i < len; i++) {
+
+                                     if (totallodgelist[i].ID === lodgeSelected) {
+                                         $scope.lodgeIDSelected = totallodgelist[i];
+                                        //alert("hi");
+                                      
+                                         break;
+
+
+                                     }
+                                 }
+                                     })
+                                 .error(function () {
+                                     $scope.data = "error in fetching data";
+                                 });
+       $('#lodgingDetailModal').modal('show');
       
   }
    
@@ -99,6 +146,12 @@ app.controller('guides_booking',['$scope','$http', function($scope, $http) {
                                        //  alert("hi");
                                         // alert( $scope.transIDnew.ID);
                                          $scope.transvalue=$scope.transIDnew.ID;
+                                         if($scope.transportPrice==0)
+                                             {
+                                          $scope.transportPrice=$scope.transIDnew.PriceForDay;
+                                         // alert($scope.transportPrice);
+                                         $scope.priceTotal=$scope.priceTotal+ $scope.transportPrice;
+                                             }
                                          break;
 
 
@@ -113,7 +166,17 @@ app.controller('guides_booking',['$scope','$http', function($scope, $http) {
                      
 		$scope.closetrans = function ()	{
 		    $scope.transvalue=0;
+            if ($scope.transportPrice != 0) {
+    // alert($scope.transportPrice);
+    $scope.priceTotal = $scope.priceTotal - $scope.transportPrice;
+                    $scope.transportPrice = 0;
+
+}
 		}
+        
+         $scope.transportModel=function(){
+      $('#transportDetailModal').modal('show');
+  }
 }]);
     
 //    app.controller('hotel_booking',['$scope','$http','$location', function($scope, $http,$location) {

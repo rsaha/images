@@ -119,7 +119,7 @@
                                 <!-- START .post-data -->
                                 <div class="post-data">
                                     <div class="plan-image">
-                                        <img class="img-responsive" style="width:770px; height:320px;" ng-src="{{place.Media.Image[0]}}" alt="Kolkata, WB" />
+                                        <img class="img-responsive" style="width:770px; height:320px;" ng-src="{{place.Media.Image[0]}}" alt="Places Image" />
                                     </div>
 
                                     <ul class="featured-btm single-ft-btm list-unstyled box-shadow1">
