@@ -13,7 +13,8 @@
 //			
 //}]); 
 
-app.controller('guides_booking',['$scope','$http', function($scope, $http) {
+app.controller('guides_booking',['$scope','$http','$location', function($scope, $http,$location) {
+     debugger;
     $http.get("http://130.211.123.212/app/guides")
     .success(function (response) {
 		$scope.guidesbook =response.Guides;
@@ -152,6 +153,17 @@ app.controller('guides_booking',['$scope','$http', function($scope, $http) {
                                          // alert($scope.transportPrice);
                                          $scope.priceTotal=$scope.priceTotal+ $scope.transportPrice;
                                              }
+                                         if($scope.transportPrice!=0)
+                                             {
+                                                 if($scope.transportPrice != $scope.transIDnew.PriceForDay)
+                                                     {
+                                                         $scope.priceTotal=$scope.priceTotal- $scope.transportPrice + $scope.transIDnew.PriceForDay;
+                                                         $scope.transportPrice=$scope.transIDnew.PriceForDay;
+                                                     }
+                                          
+                                         // alert($scope.transportPrice);
+                                        // $scope.priceTotal=$scope.priceTotal+ $scope.transportPrice;
+                                             }
                                          break;
 
 
@@ -177,6 +189,66 @@ app.controller('guides_booking',['$scope','$http', function($scope, $http) {
          $scope.transportModel=function(){
       $('#transportDetailModal').modal('show');
   }
+         
+          var guideID = $location.search();
+    if(guideID.id2==0)
+        {
+                      //  alert("hey");
+             $scope.guideValue=1;
+            $scope.tourValue=guideID.id2;
+             $http.get("http://130.211.123.212/app/guide?id="+guideID.id1)
+   // $http.get("http://130.211.123.212/app/guide?id=10011")
+    .success(function (response) {
+		$scope.guide=response;
+		})
+	.error(function() {
+				$scope.data = "error in fetching data";
+			});
+        }
+   
+    
+    
+     var tourID = $location.search();
+         if(tourID.id1==0)
+        {
+           // alert("hi");
+             $scope.tourValue=1;
+            $scope.guideValue=tourID.id1;
+          
+            $http.get("http://130.211.123.212/app/tour?tourid="+tourID.id2)
+    .success(function (response) {
+		$scope.tour = response;
+                $scope.tourPrice=  parseInt($scope.tour.tour_price, 10);
+                var spl=$scope.tour.tour_price;
+                 if('spl' === NaN)
+                    {
+                        $scope.tourPrice=0;
+                    }
+     
+               // alert(angular.isNumber($scope.tourPrice));
+               
+                  $scope.priceTotal= $scope.priceTotal+$scope.tourPrice;
+		
+		})
+	.error(function() {
+				$scope.data = "error in fetching data";
+			});
+        }
+    $scope.successValue=0;
+    $scope.comparePromo = function(promo,codepromo){
+        
+//        alert(promo);
+//        alert(codepromo);
+        if(promo == codepromo)
+            {
+                if($scope.successValue == 0)
+                    {
+                 //$scope.priceTotal= $scope.priceTotal-500;
+                        $scope.successValue=500;
+                    }
+            }
+    }
+    
 }]);
     
 //    app.controller('hotel_booking',['$scope','$http','$location', function($scope, $http,$location) {
@@ -191,48 +263,21 @@ app.controller('guides_booking',['$scope','$http', function($scope, $http) {
 //
 //                         }]);
     
-app.controller('Singleguide',['$scope','$http','$location', function($scope, $http,$location)  {
-    // alert(valueID);
-                               debugger;
-     var guideID = $location.search();
-    if(guideID.id2==0)
-        {
-             $scope.guideValue=1;
-            $scope.tourValue=guideID.id2;
-        }
-    $http.get("http://130.211.123.212/app/guide?id="+guideID.id1)
-   // $http.get("http://130.211.123.212/app/guide?id=10011")
-    .success(function (response) {
-		$scope.guide=response;
-		})
-	.error(function() {
-				$scope.data = "error in fetching data";
-			});
-}]);
-    
-    app.controller('Singletour',['$scope','$http','$location', function($scope, $http,$location) {
-    
-                               debugger;
-     var tourID = $location.search();
-         if(tourID.id1==0)
-        {
-             $scope.tourValue=1;
-            $scope.guideValue=tourID.id1;
-        }
-    $http.get("http://130.211.123.212/app/tour?tourid="+tourID.id2)
-    .success(function (response) {
-		$scope.tour = response;
-  
-		
-		})
-	.error(function() {
-				$scope.data = "error in fetching data";
-			});
-			
-        
-		
-			
-}]); 
+//app.controller('Singleguide',['$scope','$http','$location', function($scope, $http,$location)  {
+//    // alert(valueID);
+//                               debugger;
+//    
+//}]);
+//    
+//    app.controller('Singletour',['$scope','$http','$location', function($scope, $http,$location) {
+//    
+//                               debugger;
+//    
+//			
+//        
+//		
+//			
+//}]); 
 //app.controller('placesCtrl',['$scope','$http', function($scope, $http) {
 //    $http.get("http://130.211.123.212/app/places")
 //    .success(function (response) {
