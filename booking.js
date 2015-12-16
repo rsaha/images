@@ -193,10 +193,10 @@ app.controller('guides_booking',['$scope','$http','$location', function($scope, 
           var guideID = $location.search();
     if(guideID.id2==0)
         {
+                      //  alert("hey");
              $scope.guideValue=1;
             $scope.tourValue=guideID.id2;
-        }
-    $http.get("http://130.211.123.212/app/guide?id="+guideID.id1)
+             $http.get("http://130.211.123.212/app/guide?id="+guideID.id1)
    // $http.get("http://130.211.123.212/app/guide?id=10011")
     .success(function (response) {
 		$scope.guide=response;
@@ -204,11 +204,14 @@ app.controller('guides_booking',['$scope','$http','$location', function($scope, 
 	.error(function() {
 				$scope.data = "error in fetching data";
 			});
+        }
+   
     
     
      var tourID = $location.search();
          if(tourID.id1==0)
         {
+           // alert("hi");
              $scope.tourValue=1;
             $scope.guideValue=tourID.id1;
           
@@ -231,7 +234,20 @@ app.controller('guides_booking',['$scope','$http','$location', function($scope, 
 				$scope.data = "error in fetching data";
 			});
         }
-    
+    $scope.successValue=0;
+    $scope.comparePromo = function(promo,codepromo){
+        
+//        alert(promo);
+//        alert(codepromo);
+        if(promo == codepromo)
+            {
+                if($scope.successValue == 0)
+                    {
+                 //$scope.priceTotal= $scope.priceTotal-500;
+                        $scope.successValue=500;
+                    }
+            }
+    }
     
 }]);
     
