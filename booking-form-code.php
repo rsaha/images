@@ -2,7 +2,7 @@
 
 include_once('db.php');
 
-    $promoCode = parse_ini_file('config.ini',true)['promoCode'];
+//    $promoCode = parse_ini_file('config.ini',true)['promoCode'];
     
     $tourist_name = mysql_real_escape_string($_POST['tourist_name']);
     $tourist_email = mysql_real_escape_string($_POST['tourist_email']);
@@ -17,26 +17,31 @@ include_once('db.php');
     $guideID = mysql_real_escape_string($_POST['guideID']);
     $serviceTax = mysql_real_escape_string($_POST['serviceTax']);
     $swachhTax = mysql_real_escape_string($_POST['swachhTax']);
+    $PromoCode = mysql_real_escape_string($_POST['promoCode']);
     $PromoDis = mysql_real_escape_string($_POST['PromoDis']);
     $grandTotal = mysql_real_escape_string($_POST['grandTotal']);
 
     
 
 
-    if($lodging_id == "" && $lodging_id == null) {
-        $lodging_id = null;
+    if($lodging_id == "" || $lodging_id == NULL) {
+        $lodging_id = "NULL";
     }
-    if($transport_id == "" && $transport_id == null) {
-        $transport_id = null;
+    if($transport_id == "" || $transport_id == NULL) {
+        $transport_id = "NULL";
     }
-    if($tourID == "" || $tourID == null) {
+    if($PromoCode == "" || $PromoCode == NULL) {
+        $PromoCode = "NULL";
+        $promoDis = "NULL";
+    }
+    if($tourID == "" || $tourID == NULL) {
         $book_reff_id = $guideID;
         $booking_type = "GUIDE";
         $bookedItemName = mysql_real_escape_string($_POST['guideName']);
         $itemPrice = mysql_real_escape_string($_POST['guidePrice']);
             
     }
-    if($guideID == "" || $guideID == null) {
+    if($guideID == "" || $guideID == NULL) {
         $book_reff_id = $tourID;
         $booking_type = "TOUR";
         $bookedItemName = mysql_real_escape_string($_POST['tourName']);
@@ -76,13 +81,13 @@ include_once('db.php');
         $tourDuration,
         $lodging_id,
         $transport_id,
-        '$promoCode',
-        500,
+        '$PromoCode',
+        $promoDis,
         $grandTotal,
         1,
         now()
     )
-    ");
+    ") or die(mysql_error());
 
     if($select2)
     {
@@ -122,15 +127,17 @@ include_once('db.php');
         </table> 
         <br><br> -----------------------------<br>";
 		
-		SendMail($HostEmail, 'GuidedGateway', 'ankitbhagat.ab@gmail.com', 'Ankit Bhagat', $subject, $message);
+//		SendMail($HostEmail, 'GuidedGateway', 'ankitbhagat.ab@gmail.com', 'Ankit Bhagat', $subject, $message);
 //		SendMail($HostEmail, 'GuidedGateway', 'support@guidedgateway.com', 'Guided Gateway Support', $subject, $message);
+        
+        PDFGeneration($tourist_name, $tourist_email, $tourist_mobile, $noOfPerson, $dateOfTour, $tourDuration, $PromoCode, $serviceTax, $swachhTax, $PromoDis, $grandTotal, $book_reff_id, $booking_type, $bookedItemName, $itemPrice, $bookingNumber,$lodging_id, $transport_id);
+
     }
     else
     {
         echo "insertion fail";
     }
 
-PDFGeneration($tourist_name, $tourist_email, $tourist_mobile, $noOfPerson, $dateOfTour, $tourDuration, $lodging_id, $transport_id, $PromoCode, $serviceTax, $swachhTax, $PromoDis, $grandTotal, $lodging_id, $transport_id, $book_reff_id, $booking_type, $bookedItemName, $itemPrice, $bookingNumber);
 
 
 
@@ -155,43 +162,119 @@ PDFGeneration($tourist_name, $tourist_email, $tourist_mobile, $noOfPerson, $date
         
     }
 //==========================================================================================================
-    function PDFGeneration($tourist_name, $tourist_email, $tourist_mobile, $noOfPerson, $dateOfTour, $tourDuration, $lodging_id, $transport_id, $PromoCode, $serviceTax, $swachhTax, $PromoDis, $grandTotal, $lodging_id, $transport_id, $book_reff_id, $booking_type, $bookedItemName, $itemPrice, $bookingNumber)
+    function PDFGeneration($tourist_name, $tourist_email, $tourist_mobile, $noOfPerson, $dateOfTour, $tourDuration, $PromoCode, $serviceTax, $swachhTax, $PromoDis, $grandTotal, $book_reff_id, $booking_type, $bookedItemName, $itemPrice, $bookingNumber,$lodging_id, $transport_id)
     {
-require_once('invoice.php');
+        
+        require('fpdf/fpdf.php');
+        $pdf = new FPDF();
+ 
+        $pdf->AddPage();
 
-$pdf = new PDF_Invoice( 'P', 'mm', 'A6' );
-$pdf->AddPage();
-$pdf->addSociete( "Guided Gateway",
-                  "Email: support@xmapledatalab.com \n" .
-                  "Contact: +1 510 938 2562 ");
-$pdf->addDate( date("d-m-Y") );
-$pdf->addClientAdresse("Ste\nM. " . $tourist_name . "\nEmail: " . $tourist_email . "\n" . $tourist_mobile . "");
-$pdf->addReference("Booking for ".$booking_type."");
-$cols=array( "S.NO."    => 30.5,
-             "".$booking_type." Booking Detail"  => 96,
-             "Price" => 30 );
-$pdf->addCols( $cols);
-$cols=array( "S.NO."    => "C",
-             "".$booking_type." Booking Detail"  => "L",
-             "Price"     => "R");
-$pdf->addLineFormat( $cols);
-$pdf->addLineFormat($cols);
+        $pdf->Image('guidedImg.png',10,10,100);
+        $pdf->SetFont('Arial','',12);
+        $pdf->Cell(101);
+        $pdf->Cell(0,20,'GuidedGateway!',0,0,"L");
+        $pdf->Cell(-89); 
+        $pdf->Cell(0,30,'Email: support@xmapledatalab.com',0,0,"L");
+        $pdf->Cell(-89); 
+        $pdf->Cell(0,40,'Contact: +91 9830032920',0,0,"L");
+        $pdf->Ln(5);
 
-$y    = 90;
-$line = array( "S.NO."    => "1",
-               "".$booking_type." Booking Detail"  => "".$booking_type." ID : ". $book_reff_id."\n" .$bookedItemName."",
-               "Price"     => $itemPrice     );
-$size = $pdf->addLine( $y, $line );
-$y   += $size + 2;
+        $pdf->Cell(0,50,'Invoice Date : '. date("d.m.Y"),0,1,"R");
+        $pdf->SetFont('Arial','I',10);
+        $pdf->SetTextColor(62,66,67);
+        $pdf->Cell(0,0,'Tourest Name : Ashutosh Goel',0,1,"R");
+        $pdf->Cell(0,10,'Tourest Contact : 8532859600',0,1,"R");
+        $pdf->Cell(0,0,'Tourest Email : acewin4u@gmail.com',0,1,"R");
+        $pdf->SetFont('Arial','B',10);
+        $pdf->SetTextColor(62,66,67);
+        $pdf->Cell(0,10,'Date Of Tour : '. date("d.m.Y"),0,1,"R");
 
-$line = array( "S.NO."    => "2",
-               "".$booking_type." Booking Detail"  => "Promo Code",
-               "Price"      => "-".$PromoDis."");
-$size = $pdf->addLine( $y, $line );
-$y   += $size + 2;
+        $pdf->Ln(2);
+        $pdf->Cell(0,0,' ',1,1,"L");
+        
+        //======Booked Tour===================
+        $pdf->SetFont('Arial','B',12);
+        $pdf->Cell(0,5,'',0,1,"L");
+        $pdf->Cell(0,6,'Booked Tour     Tour Id:50001',0,1,"L");
+        $pdf->SetFont('Arial','',10);
+        $pdf->Cell(0,5,'Agra Fort Tour',0,1,"L");
+        $pdf->Cell(0,5,'Tour Duration : 6 Days',0,1,"L");
+        $pdf->Cell(0,5,'Number Of person : 2 Adult, 1 Child',0,1,"L");
+        $pdf->SetFont('Arial','B',10);
+        $pdf->Cell(0,6,'Guide Name : Gopal Chand        Guide Id : 10001',0,1,"L");
+        $pdf->SetFont('Arial','',10);
+        $pdf->Cell(0,5,'Pickup Location :IGI Terminal 3, Delhi',0,1,"L");
+        $pdf->Cell(0,5,'Drop Location : Kashmeri Gate, Delhi',0,1,"L");
+        
+        $pdf->Cell(0,5,'Price : Rs 4000',0,1,"R");
+        
+        //======Booked Tour===================
+        $pdf->Ln(2);
+        $pdf->Cell(0,0,' ',1,1,"L");
 
+        $pdf->SetFont('Arial','B',12);
+        $pdf->Cell(0,5,'',0,1,"L");
+        $pdf->Cell(0,6,'Hotel     Lodging Id:5001',0,1,"L");
+        $pdf->SetFont('Arial','',10);
+        $pdf->Cell(0,5,'Lodging Service Name',0,1,"L");
+        
+        $pdf->Cell(0,5,'Price : Rs 2000',0,1,"R");
+        
+        //======Booked Tour===================
+        $pdf->Ln(2);
+        $pdf->Cell(0,0,' ',1,1,"L");
+        
+        $pdf->SetFont('Arial','B',12);
+        $pdf->Cell(0,5,'',0,1,"L");
+        $pdf->Cell(0,6,'Cab     Transport Id:5001',0,1,"L");
+        $pdf->SetFont('Arial','',10);
+        $pdf->Cell(0,5,'Transport Service Name',0,1,"L");
+        
+        $pdf->Cell(0,5,'Price : Rs 1500',0,1,"R");
+        
+        //======Booked Tour===================
+        $pdf->Ln(2);
+        $pdf->Cell(0,0,' ',1,1,"L");
 
-$pdf->Output();
+        $pdf->SetFont('Arial','B',12);
+        $pdf->Cell(0,5,'',0,1,"L");
+        $pdf->Cell(0,6,'Promo Code     DIS500',0,1,"L");
+        $pdf->SetFont('Arial','',10);
+        $pdf->Cell(0,5,'Discount',0,1,"L");
+        
+        $pdf->Cell(0,5,'Price : Rs (-)500',0,1,"R");
+        
+        //======Booked Tour===================
+        $pdf->Ln(2);
+        $pdf->Cell(140);$pdf->Cell(50,0,' ',1,1,"R");
+
+        $pdf->SetFont('Arial','B',12);
+        $pdf->Cell(0,5,'',0,1,"L");
+        $pdf->Cell(0,5,'Total',0,1,"L");
+        $pdf->Cell(0,5,'Price : Rs 7000',0,1,"R");
+        
+        //======Booked Tour===================
+        $pdf->Ln(2);
+        $pdf->Cell(140);$pdf->Cell(50,0,' ',1,1,"R");
+
+        $pdf->SetFont('Arial','B',12);
+        $pdf->Cell(0,5,'',0,1,"L");
+        $pdf->Cell(0,5,'Grand Total (Tax Inc.)',0,1,"L");
+        $pdf->SetFont('Arial','',10);
+        $pdf->Cell(0,5,'Service Tax @ 14%',0,1,"L");
+        $pdf->Cell(0,5,'Swachh Bharat Tax @ 0.5%',0,1,"L");
+        $pdf->SetFont('Arial','B',15);
+        $pdf->Cell(0,5,'Price : Rs 7650',0,1,"R");
+        
+        $pdf->Ln(19);
+
+        $pdf->SetFont('Arial','',9);
+        $pdf->Cell(0,5,'',0,1,"C");
+        $pdf->Cell(0,5,'Inclusive, Exclusive, Cancelation Policy',0,1,"C");
+        
+
+        $pdf->Output();
 
     }
 

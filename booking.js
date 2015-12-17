@@ -33,6 +33,11 @@ app.controller('guides_booking',['$scope','$http','$location', function($scope, 
 			
     $scope.priceTotal=0;
     $scope.tourPrice=0;
+    $scope.guidePrice=0;
+    $scope.adultValue=1;
+    $scope.dayValue=1;
+    $scope.minTourPrice=0;
+    $scope.MinGuidePrice=0;
     $scope.lodgingPrice=0;
     $scope.transportPrice=0;
     
@@ -196,6 +201,14 @@ app.controller('guides_booking',['$scope','$http','$location', function($scope, 
                       //  alert("hey");
              $scope.guideValue=1;
             $scope.tourValue=guideID.id2;
+             $scope.guidePrice=1000;
+             $scope.MinGuidePrice=$scope.guidePrice;
+             if( $scope.MinGuidePrice <= 2000)
+                    {
+                        $scope.guidePrice=$scope.guidePrice*4;
+                       // $scope.minTourPrice=$scope.tourPrice;
+                    }
+             $scope.priceTotal= $scope.priceTotal+$scope.guidePrice;
              $http.get("http://130.211.123.212/app/guide?id="+guideID.id1)
    // $http.get("http://130.211.123.212/app/guide?id=10011")
     .success(function (response) {
@@ -219,10 +232,11 @@ app.controller('guides_booking',['$scope','$http','$location', function($scope, 
     .success(function (response) {
 		$scope.tour = response;
                 $scope.tourPrice=  parseInt($scope.tour.tour_price, 10);
-                var spl=$scope.tour.tour_price;
-                 if('spl' === NaN)
+              $scope.minTourPrice=$scope.tourPrice;
+                 if( $scope.minTourPrice <= 2000)
                     {
-                        $scope.tourPrice=0;
+                        $scope.tourPrice=$scope.tourPrice*4;
+                       // $scope.minTourPrice=$scope.tourPrice;
                     }
      
                // alert(angular.isNumber($scope.tourPrice));
@@ -248,7 +262,120 @@ app.controller('guides_booking',['$scope','$http','$location', function($scope, 
                     }
             }
     }
+    $scope.adultplus= function(adultplusvalue){
+         //alert("hey");
+        if(tourID.id1==0)
+            {
+        $scope.adultValue= adultplusvalue +1;
+        if($scope.minTourPrice <= 2000)
+            {
+               // alert("hi");
+                if( $scope.adultValue>4)
+                    {
+                         $scope.tourPrice=$scope.tourPrice+$scope.minTourPrice;
+                 $scope.priceTotal= $scope.priceTotal+$scope.minTourPrice;
+                    }
+               
+            }
+        else
+            {
+                $scope.tourPrice=$scope.tourPrice+$scope.minTourPrice;
+                 $scope.priceTotal= $scope.priceTotal+$scope.minTourPrice; 
+            }
+            }
+        if(tourID.id2==0)
+            {
+                       $scope.adultValue= adultplusvalue +1;
+                if($scope.MinGuidePrice <= 2000)
+                    {
+                       // alert("hi");
+                        if( $scope.adultValue>4)
+                            {
+                                 $scope.guidePrice=$scope.guidePrice+$scope.MinGuidePrice;
+                                $scope.guidePriceNew= $scope.guidePrice;
+                         $scope.priceTotal= $scope.priceTotal+$scope.MinGuidePrice;
+                            }
+
+                    }
+                else
+                    {
+                        $scope.guidePrice=$scope.guidePrice+$scope.MinGuidePrice;
+                        $scope.guidePriceNew= $scope.guidePrice;
+                         $scope.priceTotal= $scope.priceTotal+$scope.MinGuidePrice; 
+                    }  
+            }
+    }
     
+     $scope.adultminus= function(adultminusvalue){
+         //alert("hey");
+         if(tourID.id1==0)
+             {
+                 if(adultminusvalue !=1)
+                     {
+                         $scope.adultValue= adultminusvalue - 1;
+
+
+                if($scope.minTourPrice <= 2000)
+                    {
+                       // alert("hi");
+                        if( $scope.adultValue>=4)
+                            {
+                                 $scope.tourPrice=$scope.tourPrice-$scope.minTourPrice;
+                         $scope.priceTotal= $scope.priceTotal-$scope.minTourPrice;
+                            }
+
+                    }
+                else
+                    {
+                        $scope.tourPrice=$scope.tourPrice-$scope.minTourPrice;
+                         $scope.priceTotal= $scope.priceTotal-$scope.minTourPrice; 
+                    }
+                     }
+             }
+         if(tourID.id2==0)
+             {
+                if(adultminusvalue !=1)
+                     {
+                         $scope.adultValue= adultminusvalue - 1;
+
+
+                if($scope.MinGuidePrice <= 2000)
+                    {
+                       // alert("hi");
+                        if( $scope.adultValue>=4)
+                            {
+                                 $scope.guidePrice=$scope.guidePrice-$scope.MinGuidePrice;
+                                $scope.guidePriceNew= $scope.guidePrice;
+                         $scope.priceTotal= $scope.priceTotal-$scope.MinGuidePrice;
+                            }
+
+                    }
+                else
+                    {
+                        $scope.guidePrice=$scope.guidePrice-$scope.MinGuidePrice;
+                        $scope.guidePriceNew= $scope.guidePrice;
+                         $scope.priceTotal= $scope.priceTotal-$scope.MinGuidePrice; 
+                    }
+                     } 
+             }
+    }
+     $scope.tourdayplus=function(dayplus){
+          $scope.dayValue= dayplus +1;
+
+                        $scope.guidePrice= $scope.guidePriceNew*$scope.dayValue;
+                       //  $scope.priceTotal= $scope.priceTotal+$scope.guidePriceNew; 
+                    
+     }
+    $scope.tourdayminus=function(dayminus){
+         if(dayminus !=1)
+                     {
+                         $scope.dayValue= dayminus - 1;
+
+                        $scope.guidePrice=$scope.guidePriceNew/$scope.dayValue;
+                         //$scope.priceTotal= $scope.priceTotal-$scope.guidePriceNew; 
+                    
+                     } 
+     }
 }]);
     
 //    app.controller('hotel_booking',['$scope','$http','$location', function($scope, $http,$location) {
