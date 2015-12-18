@@ -403,8 +403,8 @@
 											</div>
 											<div class="col-sm-6">
 											<div class="form-group">
-												<strong> Tour Price:</strong>
-												<input type="text" class="form-control" tabindex="7" value="<?php echo $tour_price; ?>" placeholder="Tour Price" name="tourPrice" style="background-color:white" required  />
+												<strong> Tour Price: (In Rs.)</strong>
+												<input type="number" class="form-control" tabindex="7" value="<?php echo $tour_price; ?>" placeholder="Tour Price" name="tourPrice" style="background-color:white" required  />
 											</div>
 											</div>
 											<div class="col-sm-6">
