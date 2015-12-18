@@ -40,6 +40,7 @@ app.controller('guides_booking',['$scope','$http','$location', function($scope, 
     $scope.MinGuidePrice=0;
     $scope.lodgingPrice=0;
     $scope.transportPrice=0;
+    $scope.guidePriceNew=1;
     
     $scope.priceTotal= $scope.tourPrice+$scope.lodgingPrice+ $scope.transportPrice;
     
@@ -233,6 +234,7 @@ app.controller('guides_booking',['$scope','$http','$location', function($scope, 
 		$scope.tour = response;
                 $scope.tourPrice=  parseInt($scope.tour.tour_price, 10);
               $scope.minTourPrice=$scope.tourPrice;
+                $scope.dayValue=$scope.tour.tour_duration;
                  if( $scope.minTourPrice <= 2000)
                     {
                         $scope.tourPrice=$scope.tourPrice*4;
@@ -291,17 +293,23 @@ app.controller('guides_booking',['$scope','$http','$location', function($scope, 
                        // alert("hi");
                         if( $scope.adultValue>4)
                             {
-                                 $scope.guidePrice=$scope.guidePrice+$scope.MinGuidePrice;
+                              var guidepriceByPerson=  $scope.MinGuidePrice*$scope.adultValue;
+                               $scope.guidePrice=  $scope.dayValue*guidepriceByPerson;
+                                // $scope.guidePrice=$scope.guidePrice+$scope.MinGuidePrice;
                                 $scope.guidePriceNew= $scope.guidePrice;
-                         $scope.priceTotal= $scope.priceTotal+$scope.MinGuidePrice;
+                        // $scope.priceTotal= $scope.priceTotal+$scope.MinGuidePrice;
+                                $scope.priceTotal= $scope.guidePrice+$scope.transportPrice+ $scope.lodgingPrice;
                             }
 
                     }
                 else
                     {
-                        $scope.guidePrice=$scope.guidePrice+$scope.MinGuidePrice;
+                        var guidepriceByPerson=  $scope.MinGuidePrice*$scope.adultValue;
+                               $scope.guidePrice=  $scope.dayValue*guidepriceByPerson;
+                       // $scope.guidePrice=$scope.guidePrice+$scope.MinGuidePrice;
                         $scope.guidePriceNew= $scope.guidePrice;
-                         $scope.priceTotal= $scope.priceTotal+$scope.MinGuidePrice; 
+                        // $scope.priceTotal= $scope.priceTotal+$scope.MinGuidePrice; 
+                          $scope.priceTotal= $scope.guidePrice+$scope.transportPrice+ $scope.lodgingPrice;
                     }  
             }
     }
@@ -344,17 +352,24 @@ app.controller('guides_booking',['$scope','$http','$location', function($scope, 
                        // alert("hi");
                         if( $scope.adultValue>=4)
                             {
-                                 $scope.guidePrice=$scope.guidePrice-$scope.MinGuidePrice;
+                                  var guidepriceByPerson=  $scope.MinGuidePrice*$scope.adultValue;
+                               $scope.guidePrice=  $scope.dayValue*guidepriceByPerson;
+                                
+                                // $scope.guidePrice=$scope.guidePrice-$scope.MinGuidePrice;
                                 $scope.guidePriceNew= $scope.guidePrice;
-                         $scope.priceTotal= $scope.priceTotal-$scope.MinGuidePrice;
+                         //$scope.priceTotal= $scope.priceTotal-$scope.MinGuidePrice;
+                                  $scope.priceTotal= $scope.guidePrice+$scope.transportPrice+ $scope.lodgingPrice;
                             }
 
                     }
                 else
                     {
-                        $scope.guidePrice=$scope.guidePrice-$scope.MinGuidePrice;
+                          var guidepriceByPerson=  $scope.MinGuidePrice*$scope.adultValue;
+                               $scope.guidePrice=  $scope.dayValue*guidepriceByPerson;
+                       // $scope.guidePrice=$scope.guidePrice-$scope.MinGuidePrice;
                         $scope.guidePriceNew= $scope.guidePrice;
-                         $scope.priceTotal= $scope.priceTotal-$scope.MinGuidePrice; 
+                         //$scope.priceTotal= $scope.priceTotal-$scope.MinGuidePrice; 
+                          $scope.priceTotal= $scope.guidePrice+$scope.transportPrice+ $scope.lodgingPrice;
                     }
                      } 
              }
@@ -362,19 +377,35 @@ app.controller('guides_booking',['$scope','$http','$location', function($scope, 
      $scope.tourdayplus=function(dayplus){
           $scope.dayValue= dayplus +1;
 
-                        $scope.guidePrice= $scope.guidePriceNew*$scope.dayValue;
+                       // $scope.guidePrice= $scope.guidePriceNew*$scope.dayValue;
                        //  $scope.priceTotal= $scope.priceTotal+$scope.guidePriceNew; 
+          var guidepriceByPerson=  $scope.MinGuidePrice*$scope.adultValue;
+                               $scope.guidePrice=  $scope.dayValue*guidepriceByPerson;
+         $scope.priceTotal= $scope.guidePrice+$scope.transportPrice+ $scope.lodgingPrice;
+
                     
      }
     $scope.tourdayminus=function(dayminus){
-         if(dayminus !=1)
-                     {
-                         $scope.dayValue= dayminus - 1;
+         if (dayminus != 1) {
+      $scope.dayValue = dayminus - 1;
+      if ($scope.MinGuidePrice <= 2000) {
+          // alert("hi");
+          if ($scope.adultValue >= 4) {
+              var guidepriceByPerson = $scope.MinGuidePrice * $scope.adultValue;
+              $scope.guidePrice = $scope.dayValue * guidepriceByPerson;
+              $scope.priceTotal = $scope.guidePrice + $scope.transportPrice + $scope.lodgingPrice;
+          }
 
-                        $scope.guidePrice=$scope.guidePriceNew/$scope.dayValue;
-                         //$scope.priceTotal= $scope.priceTotal-$scope.guidePriceNew; 
-                    
-                     } 
+      }
+             else{
+                  var guidepriceByPerson = $scope.MinGuidePrice * $scope.adultValue;
+              $scope.guidePrice = $scope.dayValue * guidepriceByPerson;
+              $scope.priceTotal = $scope.guidePrice + $scope.transportPrice + $scope.lodgingPrice;
+             }
+      // $scope.guidePrice=$scope.guidePriceNew/$scope.dayValue;
+      //$scope.priceTotal= $scope.priceTotal-$scope.guidePriceNew; 
+
+  }
      }
 }]);
     
