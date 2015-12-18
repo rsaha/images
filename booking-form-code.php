@@ -128,7 +128,7 @@ include_once('db.php');
         <br><br> -----------------------------<br>";
 		
 //		SendMail($HostEmail, 'GuidedGateway', 'ankitbhagat.ab@gmail.com', 'Ankit Bhagat', $subject, $message);
-//		SendMail($HostEmail, 'GuidedGateway', 'support@guidedgateway.com', 'Guided Gateway Support', $subject, $message);
+		SendMail($HostEmail, 'GuidedGateway', 'support@guidedgateway.com', 'Guided Gateway Support', $subject, $message);
         
         PDFGeneration($tourist_name, $tourist_email, $tourist_mobile, $noOfPerson, $dateOfTour, $tourDuration, $PromoCode, $serviceTax, $swachhTax, $PromoDis, $grandTotal, $book_reff_id, $booking_type, $bookedItemName, $itemPrice, $bookingNumber,$lodging_id, $transport_id);
 
