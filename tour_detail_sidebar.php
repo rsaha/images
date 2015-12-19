@@ -147,7 +147,7 @@ ul.rating {
 										
 										<div class="offer-bottom">
 <!--											<span class="featured-stf">Per Person </span>-->
-											<span class="featured-spe"> {{tour.tour_price}}</span>
+											<span class="featured-spe">Rs. {{tour.tour_price}}<span style="font-size:20px"> Per Person</span></span>
 										</div>
 									</div>
 								</div>

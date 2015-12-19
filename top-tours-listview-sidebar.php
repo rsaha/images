@@ -148,7 +148,7 @@ ul.rating {
 												
 												<div class="offer-bottom">
 													<span class="" style="font-size:12px;">Starting From </span>
-													<span class="" style="font-size:18px; font-weight:700; line-height:1;">{{data.tour_price}}</span>
+													<span class="" style="font-size:18px; font-weight:700; line-height:1;">Rs. {{data.tour_price}}</span>
 												</div>
 											</div>
 										</div>

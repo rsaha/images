@@ -166,13 +166,13 @@
                                                             <div class="col-md-6">
                                                                 <label>ADULT <span class="required small">(12+ YRS)</span></label>
                                                                 <div class="input-group">
-                                                                    <span class="input-group-addon" style="cursor:pointer" onclick="adultMinus();"><i style="font-size:12px" class="fa fa-minus"></i></span>
-                                                                    <input type="text" id="adult" name="noOfPerson" class="form-control" value="1">
-                                                                    <span class="input-group-addon" style="cursor:pointer" onclick="adultPlus();"><i style="font-size:12px" class="fa fa-plus"></i></span>
+                                                                    <span class="input-group-addon" style="cursor:pointer" ng-click="adultminus(adultValue);"><i style="font-size:12px" class="fa fa-minus"></i></span>
+                                                                    <input type="text" id="adult" name="noOfPerson" class="form-control" ng-model="adultValue">
+                                                                    <span class="input-group-addon" style="cursor:pointer" ng-click="adultplus(adultValue);"><i style="font-size:12px" class="fa fa-plus"></i></span>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
-                                                                <label>CHILD <span class="required small">(0-11 YRS)</span></label>
+                                                                <label>CHILD <span class="required small">(0-12 YRS)</span></label>
                                                                 <div class="input-group">
                                                                     <span class="input-group-addon" style="cursor:pointer" onclick="childMinus();"><i style="font-size:12px" class="fa fa-minus"></i></span>
                                                                     <input type="text" id="child" name="child" class="form-control" value="0">
@@ -193,10 +193,10 @@
                                                     <div class="col-md-6" ng-show="{{guideValue}}">
                                                         <label>Tour Duratios [In Days] <span class="required small">(Required)</span></label>
                                                         <div class="input-group">
-                                                            <span class="input-group-addon" style="cursor:pointer" onclick="tourDurationMinus();"><i style="font-size:12px" class="fa fa-minus"></i></span>
-                                                            <input type="text" id="tourDuration" name="tourDuration" class="form-control" value="1">
+                                                            <span class="input-group-addon" style="cursor:pointer" ng-click="tourdayminus(dayValue);"><i style="font-size:12px" class="fa fa-minus"></i></span>
+                                                            <input type="text" id="tourDuration" name="tourDuration" class="form-control" ng-model="dayValue">
                                                             <span class="input-group-addon">Days</span>
-                                                            <span class="input-group-addon" style="cursor:pointer" onclick="tourDurationPlus();"><i style="font-size:12px" class="fa fa-plus"></i></span>
+                                                            <span class="input-group-addon" style="cursor:pointer" ng-click="tourdayplus(dayValue);"><i style="font-size:12px" class="fa fa-plus"></i></span>
                                                         </div>
                                                     </div>
 
@@ -359,7 +359,7 @@
                                                                             <div class="short-text1 featured-cy text-upper" style="font-size:15px;" title="{{tour.tour_title}}">{{tour.tour_title}}</div>
                                                                         </div>
                                                                         <div class="offer-bottom">
-                                                                            <span class="featured-spe" style="font-size:15px"> {{tour.tour_price}} /-</span>
+                                                                            <span class="featured-spe" style="font-size:15px"> {{tour.tour_price}} Per Person</span>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -390,7 +390,8 @@
                                                                     {{tour.cancelation_policy}}
                                                                 </div>
                                                             </div>
-                                                            <h4>Tour Charges : {{tour.tour_price}}</h4>
+                                                            
+                                                            <h4>Min. Tour Charges &nbsp;: {{tourPrice}}</h4>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -429,7 +430,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <h4>Guide Charges : Pricing varies</h4>
+                                                        <h4>Guide Charges : {{guidePrice}}</h4>
                                                         <hr style="margin: 20px 0; border: 1px solid #808080;">
                                                     </div>
                                                 </div>
@@ -591,10 +592,11 @@
                                                                 <input type="hidden" name="swachhTax" value="{{(priceTotal*0.5)/100}}" />
                                                                 </td>
                                                             </tr>
+                                                             <input type="hidden" name="PromoDis" value="{{successValue}}" />
                                                              <tr ng-show="successValue">
                                                                 <td style="text-align:right">Promotional Discount &nbsp;: Rs.&nbsp;</td>
                                                                 <td style="text-align:right">(-){{successValue}}
-                                                                 <input type="hidden" name="PromoDis" value="{{successValue}}" />
+                                                                
                                                                  </td>
                                                             </tr>
                                                             <tr>
@@ -712,19 +714,19 @@
         </script>
 
         <script>
-            function adultMinus() {
-                var oldValue = document.getElementById("adult").value;
-                if (oldValue > 1) {
-                    var newValue = parseInt(oldValue) - 1;
-                    document.getElementById("adult").value = newValue;
-                }
-            }
+//            function adultMinus() {
+//                var oldValue = document.getElementById("adult").value;
+//                if (oldValue > 1) {
+//                    var newValue = parseInt(oldValue) - 1;
+//                    document.getElementById("adult").value = newValue;
+//                }
+//            }
 
-            function adultPlus() {
-                var oldValue = document.getElementById("adult").value;
-                var newValue = parseInt(oldValue) + 1;
-                document.getElementById("adult").value = newValue;
-            }
+//            function adultPlus() {
+//                var oldValue = document.getElementById("adult").value;
+//                var newValue = parseInt(oldValue) + 1;
+//                document.getElementById("adult").value = newValue;
+//            }
 
             function childMinus() {
                 var oldValue = document.getElementById("child").value;
@@ -740,19 +742,19 @@
                 document.getElementById("child").value = newValue;
             }
 
-            function tourDurationMinus() {
-                var oldValue = document.getElementById("tourDuration").value;
-                if (oldValue > 1) {
-                    var newValue = parseInt(oldValue) - 1;
-                    document.getElementById("tourDuration").value = newValue;
-                }
-            }
-
-            function tourDurationPlus() {
-                var oldValue = document.getElementById("tourDuration").value;
-                var newValue = parseInt(oldValue) + 1;
-                document.getElementById("tourDuration").value = newValue;
-            }
+//            function tourDurationMinus() {
+//                var oldValue = document.getElementById("tourDuration").value;
+//                if (oldValue > 1) {
+//                    var newValue = parseInt(oldValue) - 1;
+//                    document.getElementById("tourDuration").value = newValue;
+//                }
+//            }
+//
+//            function tourDurationPlus() {
+//                var oldValue = document.getElementById("tourDuration").value;
+//                var newValue = parseInt(oldValue) + 1;
+//                document.getElementById("tourDuration").value = newValue;
+//            }
         </script>
 
         <!--[if lt IE 9]>
