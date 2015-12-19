@@ -73,7 +73,6 @@
         </style>
         <script src="js/angular.min.js"></script>
         <script src="booking.js"></script>
-        <script type="text/javascript" src="anki/jquery-1.10.2.min.js"></script>
         <script type="text/javascript">
             $(document).ready(function () {
                 var x_timer;
@@ -167,7 +166,7 @@
                                                                 <label>ADULT <span class="required small">(12+ YRS)</span></label>
                                                                 <div class="input-group">
                                                                     <span class="input-group-addon" style="cursor:pointer" ng-click="adultminus(adultValue);"><i style="font-size:12px" class="fa fa-minus"></i></span>
-                                                                    <input type="text" id="adult" name="noOfPerson" class="form-control" ng-model="adultValue">
+                                                                    <input type="text" id="adult" name="noOfPerson" class="form-control" ng-model="adultValue" readonly>
                                                                     <span class="input-group-addon" style="cursor:pointer" ng-click="adultplus(adultValue);"><i style="font-size:12px" class="fa fa-plus"></i></span>
                                                                 </div>
                                                             </div>
@@ -175,13 +174,12 @@
                                                                 <label>CHILD <span class="required small">(0-12 YRS)</span></label>
                                                                 <div class="input-group">
                                                                     <span class="input-group-addon" style="cursor:pointer" onclick="childMinus();"><i style="font-size:12px" class="fa fa-minus"></i></span>
-                                                                    <input type="text" id="child" name="child" class="form-control" value="0">
+                                                                    <input type="text" id="child" name="noOfPersonChild" class="form-control" value="0" readonly>
                                                                     <span class="input-group-addon" style="cursor:pointer" onclick="childPlus();"><i style="font-size:12px" class="fa fa-plus"></i></span>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
-
                                                 </li>
                                                 <li class="row">
                                                     <div class="col-md-6">
@@ -189,12 +187,11 @@
                                                         <input type="date" class="form-control" name="dateOfTour" value="" />
                                                     </div>
 
-
                                                     <div class="col-md-6" ng-show="{{guideValue}}">
                                                         <label>Tour Duratios [In Days] <span class="required small">(Required)</span></label>
                                                         <div class="input-group">
                                                             <span class="input-group-addon" style="cursor:pointer" ng-click="tourdayminus(dayValue);"><i style="font-size:12px" class="fa fa-minus"></i></span>
-                                                            <input type="text" id="tourDurationG" name="tourDurationG" value="" class="form-control" ng-model="dayValue">
+                                                            <input type="text" id="tourDurationG" name="tourDurationG" value="" class="form-control" ng-model="dayValue" readonly>
                                                             <span class="input-group-addon">Days</span>
                                                             <span class="input-group-addon" style="cursor:pointer" ng-click="tourdayplus(dayValue);"><i style="font-size:12px" class="fa fa-plus"></i></span>
                                                         </div>
@@ -218,7 +215,7 @@
                                                                 <div class="panel panel-default">
                                                                     <div class="panel-heading">
                                                                         <a class="panel-title collapsed" data-toggle="collapse" href="#collapseOne">
-                                                                    Lodging (Coming Soon)
+                                                                    Lodging
                                                                 </a>
                                                                     </div>
                                                                     <div id="collapseOne" class="panel-collapse collapse">
@@ -230,17 +227,14 @@
                                                                                         <a id="addExtraService" style="height:20px" class="btn btn-xs btn-default" data-toggle="tab" ng-click="lodgeID(lodge.ID);">Add</a>
                                                                                         <a style="cursor:pointer" data-value="{{lodge.ID}}" ng-click="lodgingModel(lodge.ID);">
                                                                                             <div class="ft-item">
-
                                                                                                 <span class="ft-image">
                                                                                              <img style="" src="{{lodge.Media.Image[0]}}" alt="Top Destination" /> 
                                                                                           </span>
-
                                                                                                 <div class="ft-data" style="font-size:11px;">
                                                                                                     <span style="color:black;" class="fa fa-book text-upper">{{lodge.Address}}</span> &nbsp;&nbsp;&nbsp;&nbsp;
                                                                                                     <!-- <span style="color:black;" class="fa fa-book text-upper" >&nbsp;&nbsp;{{x.Speciality}}</span>&nbsp;&nbsp;&nbsp;&nbsp;
                                                                                              <span style="color:black;" class="fa fa-plane text-upper" >&nbsp;&nbsp;{{x.LanguageKnown}}</span> -->
                                                                                                 </div>
-
                                                                                                 <div class="ft-foot" style="word-wrap:break-word; ">
                                                                                                     <h4 class="ft-title text-upper" style="color:#686868">{{lodge.City}}</h4>
                                                                                                     <span class="ft-offer text-upper">{{lodge.PricePerNight}}/Night</span>
@@ -248,7 +242,6 @@
                                                                                             </div>
                                                                                         </a>
                                                                                     </div>
-
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -257,27 +250,24 @@
                                                                 <br>
                                                                 <div class="panel panel-default">
                                                                     <div class="panel-heading">
-                                                                        <a class="panel-title collapsed" data-toggle="collapse" href="#collapseTwo"> Transport Service (Coming Soon)</a>
+                                                                        <a class="panel-title collapsed" data-toggle="collapse" href="#collapseTwo"> Transport Service</a>
                                                                     </div>
                                                                     <div id="collapseTwo" class="panel-collapse collapse">
                                                                         <div class="panel-body">
                                                                             <div class="col-md-12">
                                                                                 <div>
-
                                                                                     <div class="col-md-3" ng-repeat="trans in transport | filter:{ City: tour.tour_location}">
                                                                                         <a id="addExtraService" style="height:20px" class="btn btn-xs btn-default" data-toggle="tab" ng-click="transID(trans.ID);">Add</a>
                                                                                         <a style="cursor:pointer" data-value="{{trans.ID}}" ng-click="transportModel(trans.ID);">
                                                                                             <div class="ft-item">
                                                                                                 <span class="ft-image">
-							 <img style="" src="{{trans.Media.Image[0]}}" alt="Top Destination" /> 
-						  </span>
-
+                                                                                                 <img style="" src="{{trans.Media.Image[0]}}" alt="Top Destination" /> 
+                                                                                              </span>
                                                                                                 <div class="ft-data" style="font-size:11px;">
                                                                                                     <span style="color:black;" class="fa fa-book text-upper">&nbsp;&nbsp;{{trans.Category}}&nbsp;&nbsp;</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                                                                     <!-- <span style="color:black;" class="fa fa-book text-upper" >&nbsp;&nbsp;{{x.Speciality}}</span>&nbsp;&nbsp;&nbsp;&nbsp;
 							  <span style="color:black;" class="fa fa-plane text-upper" >&nbsp;&nbsp;{{x.LanguageKnown}}</span> -->
                                                                                                 </div>
-
                                                                                                 <div class="ft-foot" style="word-wrap:break-word; ">
                                                                                                     <h4 class="ft-title text-upper" style="color:#686868">{{trans.City}}</h4>
                                                                                                     <span class="ft-offer text-upper">{{trans.PriceForDay}}Per Day</span>
@@ -345,13 +335,22 @@
                                                 <div>
                                                     <div ng-show="{{tourValue}}">
                                                         <input type="hidden" name="tourID" value="{{tour.tour_id}}" />
+                                                        <input type="hidden" name="tourName" value="{{tour.tour_title}}" />
+                                                        <input type="hidden" name="tGuideID" value="{{tour.guide_id}}" />
+                                                        <input type="hidden" name="tGuideName" value="---" />
+                                                        <input type="hidden" name="PickupLocation" value="{{tour.start_point}}" />
+                                                        <input type="hidden" name="DropLocation" value="{{tour.end_point}}" />
+                                                        <input type="hidden" name="tInclusive" value="{{tour.inclusive}}" />
+                                                        <input type="hidden" name="tExclusice" value="{{tour.exclusive}}" />
+                                                        <input type="hidden" name="tCancelationPolicy" value="{{tour.cancelation_policy}}" />
+                                                        <input type="hidden" name="tRestrictions" value="{{tour.restrictions}}" />
+
                                                         <div class="tour-plans" style="padding:10px 10px 10px 10px;">
                                                             <div data-model="tour.tour_location">
                                                                 <div class="plan-image">
                                                                     <img class="img-responsive" alt="Tour Image Scroller" draggable="false" src="{{tour.photo == null ? 'img/custom11.jpg' : tour.photo[0]}}" />
                                                                     <div class="offer-box">
                                                                         <div class="offer-top">
-                                                                            <input type="hidden" name="tourName" value="{{tour.tour_title}}" />
                                                                             <!--<span class="ft-temp alignright">19&#730;c</span>-->
                                                                             <span class="featured-cr text-upper" style="font-size:15px">{{tour.tour_location}}</span>
                                                                             <span class="featured-cr" style="font-size:10px">ID: {{tour.tour_id}}</span>
@@ -398,13 +397,17 @@
                                                 <div style="text-align:justify; padding:10px 10px 10px 10px;">
                                                     <div ng-show="{{guideValue}}">
                                                         <input type="hidden" name="guideID" value="{{guide.id}}" />
+                                                        <input type="hidden" name="guideName" value="{{guide.name}}" />
+                                                        <input type="hidden" name="guideMobileNumber" value="{{guide.mobileNo}}" />
+                                                        <input type="hidden" name="guideSummary" value="{{guide.guide_summary}}" />
+                                                        <input type="hidden" name="guidePaymentTerm" value="{{guide.payment_terms}}" />
+
                                                         <div class="row">
                                                             <div class=" col-md-4 col-sm-4 plan-image">
                                                                 <img class="hover img-responsive" src="{{ guide.photo == null ? 'img/userDefaultIcon.png' : guide.photo}}" />
                                                             </div>
                                                             <div class="col-md-8 col-sm-8">
                                                                 <div class="row">
-                                                                    <input type="hidden" name="guideName" value="{{guide.name}}" />
                                                                     <div class="col-md-3 col-sm-4 col-xs-4">Name:</div>
                                                                     <div class="col-md-8 col-sm-8 col-xs-8 alignright">{{guide.name}} </div>
                                                                 </div>
@@ -433,60 +436,6 @@
                                                         <hr style="margin: 20px 0; border: 1px solid #808080;">
                                                     </div>
                                                 </div>
-
-                                                <!-- div style="text-align:justify; padding:10px 10px 10px 10px;">
-                                            <div id="toptours" class="row">
-                                                <ul class=" list-unstyled">
-                                                    <li class="col-md-12">
-                                                        <div class="col-md-4">
-                                                            <span class="rc-post-image ">
-                                                    <a href="#"><img class="img-responsive" src="img/SAMPLE_TOUR.jpg" alt="Tour 1" /></a>
-												</span>
-                                                        </div>
-                                                        <div class="col-md-8">
-                                                            <h5><a href="#">Lodging </a></h5>
-                                                            <span class="rc-post-date small">{{tour.tour_duration}}</span>
-                                                            <br/>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="alignright">
-                                                <h4>Lodging charges: Coming Soon</h4></div>
-                                            <hr style="margin: 20px 0; border: 1px solid #808080;">
-                                        </div>
-
-                                        <div style="text-align:justify; padding:10px 10px 10px 10px;">
-                                            <div id="toptours" class="row">
-                                                <ul class=" list-unstyled">
-                                                    <li class="col-md-12">
-                                                        <div class="col-md-4">
-                                                            <span class="rc-post-image ">
-                                                    <a href="#">
-                                                        <img class="img-responsive" src="img/SAMPLE_TOUR.jpg" alt="Tour 1" />
-                                                    </a>
-												</span>
-                                                        </div>
-                                                        <div class="col-md-8">
-                                                            <h5><a href="#">Transport Service </a></h5>
-                                                            <span class="rc-post-date small">Coming soon</span>
-                                                            <br/>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="alignright">
-                                                <h4>Transport charges: Coming Soon </h4></div>
-                                            <hr style="margin: 20px 0; border: 1px solid #808080;">
-                                        </div>
-                                        <div style="text-align:justify; padding:10px 10px 10px 10px;">
-                                            <div id="toptours" class="row">
-
-                                            </div>
-                                            <div class="alignright">
-                                                <h4>Grand Total: {{tour.tour_price}}</h4></div>
-                                        </div -->
-
                                             </div>
                                         </div>
 
@@ -607,10 +556,10 @@
                                                                 <td style="text-align:right">
                                                                     <h4>Grand total&nbsp;: Rs.&nbsp;</h4></td>
                                                                 <td style="text-align:right">
-                                                                    <h4>{{priceTotal+((priceTotal*14)/100)+((priceTotal*0.5)/100)-successValue}}</h4></td>
+                                                                    <h4>{{(priceTotal+((priceTotal*14)/100)+((priceTotal*0.5)/100)-successValue)}}</h4></td> // | number : 0
                                                             </tr>
                                                         </table>
-                                                        <input type="hidden" name="grandTotal" value="{{priceTotal+((priceTotal*14)/100)+((priceTotal*0.5)/100)-successValue}}" />
+                                                        <input type="hidden" name="grandTotal" value="{{(priceTotal+((priceTotal*14)/100)+((priceTotal*0.5)/100)-successValue)}}" />
                                                     </div>
                                                 </div>
                                             </div>
