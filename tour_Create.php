@@ -385,10 +385,10 @@
 											</div>
 											<div class="col-sm-6">
 											<div class="form-group">
-												<strong> Tour Price:</strong><a class="pull-right" tabindex="0" data-toggle="popover"  data-placement="bottom" data-trigger="focus" data-content="Price per person or tail price. ex. INR 1500 per person">
+												<strong> Tour Price:(In Rs.)</strong><a class="pull-right" tabindex="0" data-toggle="popover"  data-placement="bottom" data-trigger="focus" data-content="Price per person or tail price. ex. INR 1500 per person">
 																<i class='fa fa-info-circle' style="color:gray"></i>
 															</a>
-												<input type="text" tabindex="7" class="form-control" placeholder="Price per person or tail price. ex. INR 1500 per person" name="tourPrice" style="background-color:white" required  />
+												<input type="number" tabindex="7" class="form-control" placeholder="Price per person or tail price. ex. INR 1500 per person" name="tourPrice" style="background-color:white" required  />
 											</div>
 											</div>
 											<div class="col-sm-6">
