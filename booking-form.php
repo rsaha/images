@@ -364,7 +364,6 @@
                                                                 <div class="featured-btm box-shadow1">
                                                                     <a class="ft-hotel text-upper" href="#">{{tour.tour_duration}} Day Tour</a>
                                                                     <a class="fa fa-user text-upper" href="guide-detail-sidebar.php#?id2={{tour.guide_id}}">{{tour.guide_id}}</a>
-                                                                    <a class="fa fa-user text-upper" href="tour_detail_sidebar.php#?id1={{tour.tour_id}}">{{tour.tour_id}}</a>
                                                                     <a class="ft-tea text-upper" href="#">
                                                                         <div class="short-text2" title="{{tour.inclusive}}">{{tour.inclusive}}</div>
                                                                     </a>
@@ -389,7 +388,7 @@
                                                                 </div>
                                                             </div>
                                                             <input type="hidden" name="tourPrice" value="{{tourPrice}}" />
-                                                            <h4>Min. Tour Charges &nbsp;: {{tourPrice}}</h4>
+                                                            <h4>Min. Tour Charges (4 persons) &nbsp;: {{tourPrice}}</h4>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -535,14 +534,14 @@
                                                             </tr>
                                                             <tr>
                                                                 <td style="text-align:right">tax @ 14% &nbsp;: Rs.&nbsp;</td>
-                                                                <td style="text-align:right">{{(priceTotal*14)/100}}
-                                                                    <input type="hidden" name="serviceTax" value="{{(priceTotal*14)/100}}" />
+                                                                <td style="text-align:right">{{(priceTotal*14)/100 | number:0}}
+                                                                    <input type="hidden" name="serviceTax" value="{{(priceTotal*14)/100 | number:0}}" />
                                                                 </td>
                                                             </tr>
                                                             <tr>
                                                                 <td style="text-align:right">Swachh Bharat tax @ 0.5% &nbsp;: Rs.&nbsp;</td>
-                                                                <td style="text-align:right">{{(priceTotal*0.5)/100}}
-                                                                    <input type="hidden" name="swachhTax" value="{{(priceTotal*0.5)/100}}" />
+                                                                <td style="text-align:right">{{(priceTotal*0.5)/100 | number:0}}
+                                                                    <input type="hidden" name="swachhTax" value="{{(priceTotal*0.5)/100 | number:0}}" />
                                                                 </td>
                                                             </tr>
                                                             <input type="hidden" name="PromoDis" value="{{successValue}}" />
@@ -556,7 +555,7 @@
                                                                 <td style="text-align:right">
                                                                     <h4>Grand total&nbsp;: Rs.&nbsp;</h4></td>
                                                                 <td style="text-align:right">
-                                                                    <h4>{{(priceTotal+((priceTotal*14)/100)+((priceTotal*0.5)/100)-successValue)}}</h4></td> 
+                                                                    <h4>{{(priceTotal+((priceTotal*14)/100)+((priceTotal*0.5)/100)-successValue) | number:0}}</h4></td> 
                                                             </tr>
                                                         </table>
                                                         <input type="hidden" name="grandTotal" value="{{(priceTotal+((priceTotal*14)/100)+((priceTotal*0.5)/100)-successValue)}}" />
