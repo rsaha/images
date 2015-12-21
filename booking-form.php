@@ -556,10 +556,10 @@
                                                                 <td style="text-align:right">
                                                                     <h4>Grand total&nbsp;: Rs.&nbsp;</h4></td>
                                                                 <td style="text-align:right">
-                                                                    <h4>{{(priceTotal+((priceTotal*14)/100)+((priceTotal*0.5)/100)-successValue)}}</h4></td> // | number : 0
+                                                                    <h4>{{(priceTotal+((priceTotal*14)/100)+((priceTotal*0.5)/100)-successValue) | number : 0 }}</h4></td>
                                                             </tr>
                                                         </table>
-                                                        <input type="hidden" name="grandTotal" value="{{(priceTotal+((priceTotal*14)/100)+((priceTotal*0.5)/100)-successValue)}}" />
+                                                        <input type="hidden" name="grandTotal" value="{{(priceTotal+((priceTotal*14)/100)+((priceTotal*0.5)/100)-successValue) | number : 0 }}" />
                                                     </div>
                                                 </div>
                                             </div>
