@@ -88,6 +88,14 @@
             cursor: pointer;
         }
     </style>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+        <script type='text/javascript'>
+            jQuery(document).ready(function ($) {
+                $(".urlUnchange").click(function (event) {
+                    event.preventDefault();
+                });
+            });
+        </script>
 </head>
 <!-- END head -->
 
@@ -185,9 +193,9 @@
                                 <!-- Sidebar recent popular posts -->
                                 <!-- START TABS -->
                                 <ul class="nav nav-tabs text-upper">
-                                    <li class="active"><a ng-href="#toptours" data-toggle="tab">Tours</a></li>
-                                    <li><a ng-href="#topguides" data-toggle="tab">Guides</a></li>
-                                    <li><a ng-href="#lodging" data-toggle="tab">Lodging</a></li>
+                                    <li class="active urlUnchange"><a ng-href="#toptours" data-toggle="tab">Tours</a></li>
+                                    <li class="urlUnchange"><a ng-href="#topguides" data-toggle="tab">Guides</a></li>
+                                    <li class="urlUnchange"><a ng-href="#lodging" data-toggle="tab">Lodging</a></li>
                                 </ul>
                                 <!-- END TABS -->
 

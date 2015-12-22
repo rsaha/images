@@ -96,6 +96,14 @@
     <!--<script type="text/javascript"  src="topTour.js"></script>-->
     <script src="js/ui-bootstrap-tpls-0.10.0.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+        <script type='text/javascript'>
+            jQuery(document).ready(function ($) {
+                $(".urlUnchange").click(function (event) {
+                    event.preventDefault();
+                });
+            });
+        </script>
 </head>
 <!-- END head -->
 
@@ -228,9 +236,9 @@
                                 <!-- Sidebar recent popular posts -->
                                 <!-- START TABS -->
                                 <ul class="nav nav-tabs text-upper">
-                                    <li class="active"><a href="#toptours" data-toggle="tab">Tours</a></li>
-                                    <li><a href="#topdestinations" data-toggle="tab">Places</a></li>
-                                    <li><a href="#lodging" data-toggle="tab">Hotels</a></li>
+                                    <li class="active urlUnchange"><a href="#toptours" data-toggle="tab">Tours</a></li>
+                                    <li class="urlUnchange"><a href="#topdestinations" data-toggle="tab">Places</a></li>
+                                    <li class="urlUnchange"><a href="#lodging" data-toggle="tab">Hotels</a></li>
                                 </ul>
                                 <!-- END TABS -->
 

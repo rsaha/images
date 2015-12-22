@@ -124,14 +124,14 @@
                             <nav class="main-nav">
                                 <span>MENU</span>
                                 <ul style="width:100%" id="main-menu">
-                                    <li class="pull-right"><a href="#" title=""><i class="fa fa-cog"></i> Setting</a>
+                                    <li class="pull-right"><a href="#" title=""><i class="fa fa-cog"></i>&nbsp;&nbsp;Setting</a>
                                         <ul>
                                             <li><a onclick="editProfile(<?php echo $userid; ?>)" title="">Edit Profile</a></li>
                                             <li><a onclick="myFunctionSetting(<?php echo $userid; ?>)" title="">Change Password</a></li>
                                         </ul>
                                     </li>
-                                    <li class="pull-right"><a href="#" title=""><i class="fa fa-inbox"></i>Messages (Coming Soon)</a></li>
-                                    <li class="pull-right"><a href="login.php" title=""><i class="fa fa-home"></i>Home</a></li>
+                                    <li class="pull-right"><a href="#" title=""><i class="fa fa-inbox"></i>&nbsp;&nbsp;Messages (Coming Soon)</a></li>
+                                    <li class="pull-right"><a href="login.php" title=""><i class="fa fa-home"></i>&nbsp;&nbsp;Home</a></li>
                                 </ul>
                             </nav>
                         </div>
