@@ -31,9 +31,12 @@ include_once('db.php');
     $swachhTax = mysql_real_escape_string($_POST['swachhTax']);
     $PromoCode = mysql_real_escape_string($_POST['promoCode']);
     $PromoDis = mysql_real_escape_string($_POST['PromoDis']);
-    $grandTotal = mysql_real_escape_string($_POST['grandTotal']);
     $gTotal = mysql_real_escape_string($_POST['gTotal']);
-
+    $grandTotal = mysql_real_escape_string($_POST['grandTotal']);
+    $grandTotalTemp = str_replace( ',', '', $grandTotal );
+    if( is_numeric( $grandTotalTemp ) ) {
+        $grandTotal = $grandTotalTemp;
+    }
 
     if($lodging_id == "" || $lodging_id == NULL) {
         $lodging_id = "NULL";
@@ -253,7 +256,7 @@ $tGuideID = mysql_real_escape_string($_POST['tGuideID']);
             $pdf->Cell(0,5,'Tour Duration : '.$tourDuration,0,1,"L");
             $pdf->Cell(0,5,'Number Of person(s) : '.$noOfPerson.' Adult, '.$noOfPersonChild.' Child',0,1,"L");
             $pdf->SetFont('Arial','B',10);
-            $pdf->Cell(0,6,'Guide Name : '.$tGuideName.'        Guide Id : '.$tGuideID,0,1,"L");
+            $pdf->Cell(0,6,'Guide Name : '.$tGuideName.' (Guide Id : '.$tGuideID.')',0,1,"L");
             $pdf->SetFont('Arial','',10);
             $pdf->Cell(0,5,'Pickup Location : '. $PickupLocation ,0,1,"L");
             $pdf->Cell(0,5,'Drop Location : '. $DropLocation,0,1,"L");
@@ -288,7 +291,7 @@ $tGuideID = mysql_real_escape_string($_POST['tGuideID']);
 
             $pdf->SetFont('Arial','B',12);
             $pdf->Cell(0,5,'',0,1,"L");
-            $pdf->Cell(0,6,'Hotel     Lodging Id:'.$lodging_id,0,1,"L");
+            $pdf->Cell(0,6,'Lodging (Id:'.$lodging_id.')',0,1,"L");
             $pdf->SetFont('Arial','',10);
             $pdf->Cell(0,5,$lodging_name,0,1,"L");
 
@@ -302,7 +305,7 @@ $tGuideID = mysql_real_escape_string($_POST['tGuideID']);
 
             $pdf->SetFont('Arial','B',12);
             $pdf->Cell(0,5,'',0,1,"L");
-            $pdf->Cell(0,6,'Cab     Transport Id:'.$transport_id,0,1,"L");
+            $pdf->Cell(0,6,'Transport (Id:'.$transport_id.')',0,1,"L");
             $pdf->SetFont('Arial','',10);
             $pdf->Cell(0,5,$transport_name,0,1,"L");
 

@@ -94,13 +94,20 @@
                 }
             });
         </script>
-
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+        <script type='text/javascript'>
+            jQuery(document).ready(function ($) {
+                $(".urlUnchange").click(function (event) {
+                    event.preventDefault();
+                });
+            });
+        </script>
     </head>
     <!-- END head -->
 
     <!-- START body -->
 
-    <body ng-app="mybookingPage">
+    <body ng-app="mybookingPage" ng-controller="guides_booking">
 
         <div class="modal fade" id="bookNowModal" tabindex="-1" role="dialog" aria-labelledby="bookNowModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -123,12 +130,12 @@
 
 
         <!-- START #wrapper -->
-        <div id="wrapper" ng-controller="guides_booking">
+        <div id="wrapper">
             <!-- START header -->
             <?php include_once('MasterTopHeader.php'); ?>
                 <!-- END header -->
                 <!-- END #page-header -->
-                <form action="booking-form-code.php" method="post">
+                <form id="bookingForm" action="booking-form-code.php" method="post">
                     <!-- START .main-contents -->
                     <div class="main-contents">
                         <div class="container">
@@ -145,17 +152,17 @@
                                                 <li class="row">
                                                     <div class="col-md-12">
                                                         <label>Name <span class="required small">(Required)</span></label>
-                                                        <input type="text" class="form-control" name="tourist_name" />
+                                                        <input type="text" class="form-control" name="tourist_name" required />
                                                     </div>
                                                 </li>
                                                 <li class="row">
                                                     <div class="col-md-6">
                                                         <label>Email <span class="required small">(Required)</span></label>
-                                                        <input type="text" class="form-control" name="tourist_email" />
+                                                        <input type="email" class="form-control" name="tourist_email" required />
                                                     </div>
                                                     <div class="col-md-6">
                                                         <label>Contact Number <span class="required small">(Required)</span></label>
-                                                        <input type="text" class="form-control" name="tourist_mobile" />
+                                                        <input type="number" min="7000000000" max="9999999999" class="form-control" name="tourist_mobile" required />
                                                     </div>
                                                 </li>
 
@@ -184,7 +191,7 @@
                                                 <li class="row">
                                                     <div class="col-md-6">
                                                         <label>Date of Tour <span class="required small">(Required)</span></label>
-                                                        <input type="date" class="form-control" name="dateOfTour" value="" />
+                                                        <input type="date" class="form-control" name="dateOfTour" value="" required />
                                                     </div>
 
                                                     <div class="col-md-6" ng-show="{{guideValue}}">
@@ -214,7 +221,7 @@
                                                             <div class="panel-group" id="accordion">
                                                                 <div class="panel panel-default">
                                                                     <div class="panel-heading">
-                                                                        <a class="panel-title collapsed" data-toggle="collapse" href="#collapseOne">
+                                                                        <a class="panel-title collapsed urlUnchange" data-toggle="collapse" href="#collapseOne">
                                                                     Lodging
                                                                 </a>
                                                                     </div>
@@ -250,7 +257,7 @@
                                                                 <br>
                                                                 <div class="panel panel-default">
                                                                     <div class="panel-heading">
-                                                                        <a class="panel-title collapsed" data-toggle="collapse" href="#collapseTwo"> Transport Service</a>
+                                                                        <a class="panel-title collapsed urlUnchange" data-toggle="collapse" href="#collapseTwo"> Transport Service</a>
                                                                     </div>
                                                                     <div id="collapseTwo" class="panel-collapse collapse">
                                                                         <div class="panel-body">
@@ -283,7 +290,7 @@
                                                                 <br>
                                                                 <div class=" panel panel-default">
                                                                     <div class="panel-heading">
-                                                                        <a class="panel-title collapsed" data-toggle="collapse" href="#collapseThree"> Promo Code <span class="small">(If you have)</span></a>
+                                                                        <a class="panel-title collapsed urlUnchange" data-toggle="collapse" href="#collapseThree"> Promo Code <span class="small">(If you have)</span></a>
                                                                     </div>
                                                                     <div id="collapseThree" class="panel-collapse collapse">
                                                                         <div class="panel-body">
@@ -303,7 +310,8 @@
                                                 </li>
                                                 <li class="row">
                                                     <div class="col-md-12">
-                                                        <input type="submit" class="btn btn-primary btn-lg text-upper" name="booknow" value="Book Now" />
+                                                        <input type="button" class="btn btn-primary btn-md text-upper" onclick="conformationModal();" name="booknow" value="Book Now" />
+                                                        <input type="submit" name="booknow" hidden />
                                                         <span class="required small">*Your email will never published.</span>
                                                     </div>
                                                 </li>
@@ -322,9 +330,9 @@
                                         <!-- START TABS -->
                                         <ul class="nav nav-tabs text-upper" style="background-color:#ff845e;">
                                             <li class="active" ng-show="{{tourValue}}">
-                                                <a href="#popular-posts" data-toggle="tab">Requested Tour Detail</a></li>
+                                                <a class="urlUnchange" href="#popular-posts" data-toggle="tab">Requested Tour Detail</a></li>
                                             <li class="active" ng-show="{{guideValue}}">
-                                                <a href="#popular-posts" data-toggle="tab">Requested Guide Detail</a></li>
+                                                <a class="urlUnchange" href="#popular-posts" data-toggle="tab">Requested Guide Detail</a></li>
                                         </ul>
                                         <!-- END TABS -->
 
@@ -555,10 +563,10 @@
                                                                 <td style="text-align:right">
                                                                     <h4>Grand total&nbsp;: Rs.&nbsp;</h4></td>
                                                                 <td style="text-align:right">
-                                                                    <h4>{{(priceTotal+((priceTotal*14)/100)+((priceTotal*0.5)/100)-successValue) | number:0}}</h4></td> 
+                                                                    <h4>{{(priceTotal+((priceTotal*14)/100)+((priceTotal*0.5)/100)-successValue) | number : 0 }}</h4></td>
                                                             </tr>
                                                         </table>
-                                                        <input type="hidden" name="grandTotal" value="{{(priceTotal+((priceTotal*14)/100)+((priceTotal*0.5)/100)-successValue)}}" />
+                                                        <input type="hidden" name="grandTotal" value="{{(priceTotal+((priceTotal*14)/100)+((priceTotal*0.5)/100)-successValue) | number : 0 }}" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -579,48 +587,122 @@
         </div>
         <!-- END #wrapper -->
 
-        <div id="lodgingDetailModal" class="modal fade" tabindex="-1" ng-model="lodgeIDSelected" role="dialog" aria-labelledby="lodgingDetailModalLabel" aria-hidden="true">
-            <input type="hidden" id="lodgingID" name="lodgingID" value="" />
-            <div class="modal-dialog modal-lg">
+
+        <div class="modal fade" id="lodgingDetailModal" role="dialog" aria-labelledby="lodgingDetailModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <input type="hidden" id="lodgingID" name="lodgingID" value="" />
+                <!-- Modal content-->
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="lodgingDetailModalLabel">Lodging options</h4>
+                    <div class="modal-header" style="padding:35px 50px; background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;">
+                        <button type="button" class="close" style="background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;" data-dismiss="modal">&times;</button>
+                        <h4 style="background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;"><span class="glyphicon glyphicon-lock"></span>Lodging Detail</h4>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body" style="padding:20px 50px 0px;">
                         <div class="row">
                             <div class="col-md-12">
-                                We will have many more lodging options for you soon... {{lodgeIDSelected.ID}} {{lodgeIDSelected.Name}}
+                                <div class="sidebar-widget">
+                                    <!-- Sidebar Categories -->
+                                    <div class="row">
+                                        <div class="col-md-4"><img class="img-responsive" src="{{lodgeIDSelected.Media.Image[0]}}" alt="Lodge" /></div>
+                                        <div class="col-md-6">
+                                            <h3 class="text-upper">{{lodgeIDSelected.City}}</h3> </div>
+                                    </div>
+                                    <br>
+                                    <ul class="cats-list list-unstyled">
+                                        <li>Description <span style="color:black;">{{lodgeIDSelected.Description}}</span></li>
+                                        <li>Address<span style="color:black;"> {{lodgeIDSelected.Address}}</span></li>
+                                        <li>City <span style="color:black;">{{lodgeIDSelected.City}}</span></li>
+                                        <li>Category <span style="color:black;">{{lodgeIDSelected.Category}}</span></li>
+                                        <li>PricePerNight<span style="color:black;">{{lodgeIDSelected.PricePerNight}}</span></li>
+                                        <li>IncludedInTour <span style="color:black;">{{lodgeIDSelected.IncludedInTour}}</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer" style="background-color: #f9f9f9;">
+                        <button type="submit" style="background-color:#ff845e" class="btn btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="transportDetailModal" role="dialog" aria-labelledby="transportDetailModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <input type="hidden" id="lodgingID" name="lodgingID" value="" />
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header" style="padding:35px 50px; background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;">
+                        <button type="button" class="close" style="background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;" data-dismiss="modal">&times;</button>
+                        <h4 style="background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;"><span class="glyphicon glyphicon-lock"></span>Transport Services</h4>
+                    </div>
+                    <div class="modal-body" style="padding:20px 50px 0px;">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="pricing-tables pricing-tables-1 sidebar-widget">
+                                    <!-- Sidebar Categories -->
+                                    <div class="row">
+                                        <div class="col-md-4"><img class="img-responsive" src="{{transIDSelected.Media.Image[0]}}" alt="Transport" /></div>
+                                        <div class="col-md-6">
+                                            <h3 class="text-upper">{{transIDSelected.Description}}</h3> </div>
+                                    </div>
+                                    <br>
+                                    <ul class="cats-list list-unstyled">
+                                        <li class="pricing-table ">Description <span style="color:black;">{{transIDSelected.Description}}</span></li>
+                                        <!--									<li>Address<span style="color:black;"> {{transIDSelected.Address}}</span></li>-->
+                                        <li class="pricing-table ">City <span style="color:black;">{{transIDSelected.City}}</span></li>
+                                        <li class="pricing-table ">Category <span style="color:black;">{{transIDSelected.Category}}</span></li>
+                                        <li class="pricing-table ">PriceForDay<span style="color:black;">{{transIDSelected.PriceForDay}}</span></li>
+                                        <li class="pricing-table ">IncludedInTour <span style="color:black;">{{transIDSelected.IncludedInTour}}</span></li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer" style="background-color: #f9f9f9;">
+                        <button type="submit" style="background-color:#ff845e" class="btn btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="conformationModal" role="dialog" aria-labelledby="conformationModalModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <input type="hidden" id="conformationID" name="conformationID" value="" />
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header" style="padding:35px 50px; background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;">
+                        <button type="button" class="close" style="background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;" data-dismiss="modal">&times;</button>
+                        <h4 style="background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;"><span class="glyphicon glyphicon-lock"></span>Conform Your Booking</h4>
+                    </div>
+                    <div class="modal-body" style="padding:20px 50px 0px;">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="sidebar-widget">
+                                    <!-- Sidebar Categories -->
+                                    <div class="row">
+                                        here the data will come
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer" style="background-color: #f9f9f9;">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <button style="width:200px; background-color:#ff845e" class="btn btn-default pull-left" data-dismiss="modal">Cancel</button>
+                            </div>
+                            <div class="col-md-6">
+                                <button type="submit" id="conformBokingID" style="width:200px; background-color:#ff845e" class="btn btn-default pull-right" data-dismiss="modal">Conform Booking</button>
                             </div>
                         </div>
 
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
-                    </div>
                 </div>
             </div>
         </div>
 
-        <div id="transportDetailModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="transportDetailModalLabel" aria-hidden="true">
-            <input type="hidden" id="transportID" name="transportID" value="" />
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="transportDetailModalLabel">Transport Services</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="col-md-12">
-                            We will have many more transport service options for you soon...
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <div id="bookNowModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="bookNowModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -651,37 +733,18 @@
         <script type="text/javascript" src="js/styleswitcher.js"></script>
 
         <script>
-            //        function lodgingDetail() {
-            //            $('#lodgingDetailModal').modal('show');
-            //            //alert("This feature will be available soon......");
-            //        }
-            //
-            //        function transportDetail() {
-            //            $('#transportDetailModal').modal('show');
-            //            //alert("This feature will be available soon......");
-            //        }
-
-            function bookNowModalShow() {
-                $('#bookNowModal').modal('show');
-                //alert("This feature will be available soon......");
+            function conformationModal() {
+                $('#conformationModal').modal('show');
             }
+
+            $(document).ready(function () {
+                $("#conformBokingID").click(function () {
+                    $("#bookingForm").submit();
+                });
+            });
         </script>
 
         <script>
-            //            function adultMinus() {
-            //                var oldValue = document.getElementById("adult").value;
-            //                if (oldValue > 1) {
-            //                    var newValue = parseInt(oldValue) - 1;
-            //                    document.getElementById("adult").value = newValue;
-            //                }
-            //            }
-
-            //            function adultPlus() {
-            //                var oldValue = document.getElementById("adult").value;
-            //                var newValue = parseInt(oldValue) + 1;
-            //                document.getElementById("adult").value = newValue;
-            //            }
-
             function childMinus() {
                 var oldValue = document.getElementById("child").value;
                 if (oldValue > 0) {
@@ -695,26 +758,7 @@
                 var newValue = parseInt(oldValue) + 1;
                 document.getElementById("child").value = newValue;
             }
-
-            //            function tourDurationMinus() {
-            //                var oldValue = document.getElementById("tourDuration").value;
-            //                if (oldValue > 1) {
-            //                    var newValue = parseInt(oldValue) - 1;
-            //                    document.getElementById("tourDuration").value = newValue;
-            //                }
-            //            }
-            //
-            //            function tourDurationPlus() {
-            //                var oldValue = document.getElementById("tourDuration").value;
-            //                var newValue = parseInt(oldValue) + 1;
-            //                document.getElementById("tourDuration").value = newValue;
-            //            }
         </script>
-
-        <!--[if lt IE 9]>
-			<script type="text/javascript" src="js/html5shiv.js"></script>
-		<![endif]-->
-
     </body>
 
     </html>

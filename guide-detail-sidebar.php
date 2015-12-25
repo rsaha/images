@@ -85,7 +85,14 @@
                 right: 20px;
             }
         </style>
-
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+        <script type='text/javascript'>
+            jQuery(document).ready(function ($) {
+                $(".urlUnchange").click(function (event) {
+                    event.preventDefault();
+                });
+            });
+        </script>
 
     </head>
     <!-- END head -->
@@ -206,10 +213,10 @@
                                     <!-- Sidebar recent popular posts -->
                                     <!-- START TABS -->
                                     <ul class="nav nav-tabs text-upper">
-                                        <li class="active"><a href="#toptours" data-toggle="tab">Tours</a></li>
-                                        <li><a ng-href="#relatedGuides" data-toggle="tab">Guides</a></li>
-                                        <li><a ng-href="#toptips" data-toggle="tab">Advices</a></li>
-                                        <li><a ng-href="#topreviews" data-toggle="tab">Reviews</a></li>
+                                        <li class="active urlUnchange"><a href="#toptours" data-toggle="tab">Tours</a></li>
+                                        <li class="urlUnchange"><a ng-href="#relatedGuides" data-toggle="tab">Guides</a></li>
+                                        <li class="urlUnchange"><a ng-href="#toptips" data-toggle="tab">Advices</a></li>
+                                        <li class="urlUnchange"><a ng-href="#topreviews" data-toggle="tab">Reviews</a></li>
                                     </ul>
                                     <!-- END TABS -->
 
