@@ -73,7 +73,7 @@
         </style>
         <script src="js/angular.min.js"></script>
         <script src="booking.js"></script>
-        <script type="text/javascript">
+        <!--<script type="text/javascript">
             $(document).ready(function () {
                 var x_timer;
                 $("#email").keyup(function (e) {
@@ -93,7 +93,7 @@
                     });
                 }
             });
-        </script>
+        </script>-->
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
         <script type='text/javascript'>
             jQuery(document).ready(function ($) {
@@ -107,26 +107,9 @@
 
     <!-- START body -->
 
-    <body ng-app="mybookingPage" ng-controller="guides_booking">
+    <body ng-app="mybookingPage" ng-controller="guides_booking" ng-init="btnvalue=1">
 
-        <div class="modal fade" id="bookNowModal" tabindex="-1" role="dialog" aria-labelledby="bookNowModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
-                        </button>
-                        <h4 class="modal-title" id="bookNowModallLabel">Thank you !</h4>
 
-                    </div>
-                    <div class="modal-body">
-                        <p>We received your booking request. Our customer service will contact you soon.</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
 
 
         <!-- START #wrapper -->
@@ -135,7 +118,7 @@
             <?php include_once('MasterTopHeader.php'); ?>
                 <!-- END header -->
                 <!-- END #page-header -->
-                <form id="bookingForm" action="booking-form-code.php" method="post">
+                <form id="bookingForm" action="booking-form-code.php" ng-submit="bookingForm.$valid" name="bookingForm" method="post" novalidate>
                     <!-- START .main-contents -->
                     <div class="main-contents">
                         <div class="container">
@@ -152,17 +135,30 @@
                                                 <li class="row">
                                                     <div class="col-md-12">
                                                         <label>Name <span class="required small">(Required)</span></label>
-                                                        <input type="text" class="form-control" name="tourist_name" required />
+                                                        <input type="text" class="form-control" required name="tourist_name" ng-model="name" ng-pattern="/^[a-z A-Z]+$/">
+                                                        <span style="color:red" ng-show="bookingForm.tourist_name.$dirty && bookingForm.tourist_name.$invalid">
+											  <span ng-show="bookingForm.tourist_name.$error.required">*Name is required.</span>
+                                                        <span ng-show="bookingForm.tourist_name.$error.pattern">*Invalid Name ...</span>
+                                                        </span>
                                                     </div>
                                                 </li>
                                                 <li class="row">
                                                     <div class="col-md-6">
                                                         <label>Email <span class="required small">(Required)</span></label>
-                                                        <input type="email" class="form-control" name="tourist_email" required />
+                                                        <input type="text" class="form-control" required name="tourist_email" ng-model="email" ng-pattern="/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9]+\.([a-zA-Z]{2,3}|([a-zA-Z]{2,3}\.[a-zA-Z]{2}))$/" />
+                                                        <span style="color:red" ng-show="bookingForm.tourist_email.$dirty && bookingForm.tourist_email.$invalid">
+                                                           
+											  <span ng-show="bookingForm.tourist_email.$error.required">*Email is required.</span>
+                                                        <span ng-show="bookingForm.tourist_email.$error.pattern">*Invalid email address ...</span>
+                                                        </span>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <label>Contact Number <span class="required small">(Required)</span></label>
-                                                        <input type="number" min="7000000000" max="9999999999" class="form-control" name="tourist_mobile" required />
+                                                        <input type="text" class="form-control" required name="tourist_mobile" ng-model="contact" ng-pattern="/^[7-9]{1}\d{9}$/" />
+                                                        <span style="color:red" ng-show="bookingForm.tourist_mobile.$dirty && bookingForm.tourist_mobile.$invalid">
+											  <span ng-show="bookingForm.tourist_mobile.$error.required">*Mobile number is required.</span>
+                                                        <span ng-show="bookingForm.tourist_mobile.$error.pattern">* Invalid Mobile number ...</span>
+                                                        </span>
                                                     </div>
                                                 </li>
 
@@ -173,16 +169,16 @@
                                                                 <label>ADULT <span class="required small">(12+ YRS)</span></label>
                                                                 <div class="input-group">
                                                                     <span class="input-group-addon" style="cursor:pointer" ng-click="adultminus(adultValue);"><i style="font-size:12px" class="fa fa-minus"></i></span>
-                                                                    <input type="text" id="adult" name="noOfPerson" class="form-control" ng-model="adultValue" readonly>
+                                                                    <input type="text" id="adult" name="noOfPerson" class="form-control" ng-model="adultValue">
                                                                     <span class="input-group-addon" style="cursor:pointer" ng-click="adultplus(adultValue);"><i style="font-size:12px" class="fa fa-plus"></i></span>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <label>CHILD <span class="required small">(0-12 YRS)</span></label>
                                                                 <div class="input-group">
-                                                                    <span class="input-group-addon" style="cursor:pointer" onclick="childMinus();"><i style="font-size:12px" class="fa fa-minus"></i></span>
-                                                                    <input type="text" id="child" name="noOfPersonChild" class="form-control" value="0" readonly>
-                                                                    <span class="input-group-addon" style="cursor:pointer" onclick="childPlus();"><i style="font-size:12px" class="fa fa-plus"></i></span>
+                                                                    <span class="input-group-addon" style="cursor:pointer" ng-click="childMinus();"><i style="font-size:12px" class="fa fa-minus"></i></span>
+                                                                    <input type="text" id="child" name="child" class="form-control" ng-model="child">
+                                                                    <span class="input-group-addon" style="cursor:pointer" ng-click="childPlus();"><i style="font-size:12px" class="fa fa-plus"></i></span>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -191,14 +187,18 @@
                                                 <li class="row">
                                                     <div class="col-md-6">
                                                         <label>Date of Tour <span class="required small">(Required)</span></label>
-                                                        <input type="date" class="form-control" name="dateOfTour" value="" required />
+                                                        <input type="date" class="form-control" required name="dateOfTour" ng-model="bookingdate" />
+                                                           <span style="color:red" ng-show="bookingForm.dateOfTour.$dirty && bookingForm.dateOfTour.$invalid">
+											  <span ng-show="bookingForm.dateOfTour.$error.required">*Date is required.</span>
+                                                       
+                                                        </span>
                                                     </div>
 
                                                     <div class="col-md-6" ng-show="{{guideValue}}">
                                                         <label>Tour Duratios [In Days] <span class="required small">(Required)</span></label>
                                                         <div class="input-group">
                                                             <span class="input-group-addon" style="cursor:pointer" ng-click="tourdayminus(dayValue);"><i style="font-size:12px" class="fa fa-minus"></i></span>
-                                                            <input type="text" id="tourDurationG" name="tourDurationG" value="" class="form-control" ng-model="dayValue" readonly>
+                                                            <input type="text" id="tourDuration" id="tourDurationG" name="tourDurationG" class="form-control" ng-model="dayValue">
                                                             <span class="input-group-addon">Days</span>
                                                             <span class="input-group-addon" style="cursor:pointer" ng-click="tourdayplus(dayValue);"><i style="font-size:12px" class="fa fa-plus"></i></span>
                                                         </div>
@@ -209,7 +209,7 @@
                                                         <div class="input-group">
                                                             <span class="input-group-addon" onclick="tourDurationMinus();"></span>
                                                             <input type="text" id="tourDurationT" name="tourDurationT" value="{{tour.tour_duration}}" class="form-control" readonly>
-                                                            <span class="input-group-addon">Days</span>
+                                                            <span class="input-group-addon">Day(s)</span>
                                                         </div>
                                                     </div>
                                                 </li>
@@ -310,8 +310,17 @@
                                                 </li>
                                                 <li class="row">
                                                     <div class="col-md-12">
-                                                        <input type="button" class="btn btn-primary btn-md text-upper" onclick="conformationModal();" name="booknow" value="Book Now" />
-                                                        <input type="submit" name="booknow" hidden />
+                                                        <input type="button" class="btn btn-primary btn-md text-upper" ng-click="conformationModal();" ng-disabled="bookingForm.$invalid ||
+										bookingForm.tourist_name.$dirty && bookingForm.tourist_name.$invalid 
+										||bookingForm.tourist_email.$dirty && bookingForm.tourist_email.$invalid	
+                                                                            ||bookingForm.tourist_mobile.$dirty && bookingForm.tourist_mobile.$invalid						
+                                                                            ||bookingForm.dateOfTour.$dirty && bookingForm.dateOfTour.$invalid ||
+                                                                           bookingForm.tourist_name.$error.required||
+                                                                            bookingForm.tourist_email.$error.required||
+                                                                            bookingForm.tourist_mobile.$error.required ||
+                                                                         bookingForm.dateOfTour.$error.required
+										" id="booknow2" name="booknow2" value="Book Now" />
+                                                        <input type="submit" id="booknow" name="booknow" hidden />
                                                         <span class="required small">*Your email will never published.</span>
                                                     </div>
                                                 </li>
@@ -594,7 +603,7 @@
                 <input type="hidden" id="lodgingID" name="lodgingID" value="" />
                 <!-- Modal content-->
                 <div class="modal-content">
-                    <div class="modal-header" style="padding:35px 50px; background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;">
+                    <div class="modal-header" style="padding:20px 50px; background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;">
                         <button type="button" class="close" style="background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;" data-dismiss="modal">&times;</button>
                         <h4 style="background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;"><span class="glyphicon glyphicon-lock"></span>Lodging Detail</h4>
                     </div>
@@ -606,7 +615,7 @@
                                     <div class="row">
                                         <div class="col-md-4"><img class="img-responsive" src="{{lodgeIDSelected.Media.Image[0]}}" alt="Lodge" /></div>
                                         <div class="col-md-6">
-                                            <h3 class="text-upper">{{lodgeIDSelected.City}}</h3> </div>
+                                            <h4 class="text-upper">{{lodgeIDSelected.Description}}</h4> </div>
                                     </div>
                                     <br>
                                     <ul class="cats-list list-unstyled">
@@ -633,7 +642,7 @@
                 <input type="hidden" id="lodgingID" name="lodgingID" value="" />
                 <!-- Modal content-->
                 <div class="modal-content">
-                    <div class="modal-header" style="padding:35px 50px; background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;">
+                    <div class="modal-header" style="padding:20px 50px; background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;">
                         <button type="button" class="close" style="background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;" data-dismiss="modal">&times;</button>
                         <h4 style="background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;"><span class="glyphicon glyphicon-lock"></span>Transport Services</h4>
                     </div>
@@ -649,12 +658,12 @@
                                     </div>
                                     <br>
                                     <ul class="cats-list list-unstyled">
-                                        <li class="pricing-table ">Description <span style="color:black;">{{transIDSelected.Description}}</span></li>
+                                        <li>Description <span style="color:black;">{{transIDSelected.Description}}</span></li>
                                         <!--									<li>Address<span style="color:black;"> {{transIDSelected.Address}}</span></li>-->
-                                        <li class="pricing-table ">City <span style="color:black;">{{transIDSelected.City}}</span></li>
-                                        <li class="pricing-table ">Category <span style="color:black;">{{transIDSelected.Category}}</span></li>
-                                        <li class="pricing-table ">PriceForDay<span style="color:black;">{{transIDSelected.PriceForDay}}</span></li>
-                                        <li class="pricing-table ">IncludedInTour <span style="color:black;">{{transIDSelected.IncludedInTour}}</span></li>
+                                        <li>City <span style="color:black;">{{transIDSelected.City}}</span></li>
+                                        <li>Category <span style="color:black;">{{transIDSelected.Category}}</span></li>
+                                        <li>PriceForDay<span style="color:black;">{{transIDSelected.PriceForDay}}</span></li>
+                                        <li>IncludedInTour <span style="color:black;">{{transIDSelected.IncludedInTour}}</span></li>
 
                                     </ul>
                                 </div>
@@ -669,13 +678,13 @@
         </div>
 
         <div class="modal fade" id="conformationModal" role="dialog" aria-labelledby="conformationModalModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
+            <div class="modal-dialog modal-lg">
                 <input type="hidden" id="conformationID" name="conformationID" value="" />
                 <!-- Modal content-->
                 <div class="modal-content">
-                    <div class="modal-header" style="padding:35px 50px; background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;">
+                    <div class="modal-header" style="padding:15px 50px; background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;">
                         <button type="button" class="close" style="background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;" data-dismiss="modal">&times;</button>
-                        <h4 style="background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;"><span class="glyphicon glyphicon-lock"></span>Conform Your Booking</h4>
+                        <h4 style="background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;"><span class="glyphicon glyphicon-lock"></span>Confirm Your Booking</h4>
                     </div>
                     <div class="modal-body" style="padding:20px 50px 0px;">
                         <div class="row">
@@ -683,7 +692,81 @@
                                 <div class="sidebar-widget">
                                     <!-- Sidebar Categories -->
                                     <div class="row">
-                                        here the data will come
+                                        <div class="pricing-tables pricing-tables-1 sidebar-widget">
+                                            <!-- Sidebar Categories -->
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <img ng-show="{{guideValue}}" class="hover img-responsive" src="{{ guide.photo == null ? 'img/userDefaultIcon.png' : guide.photo}}" />
+                                                    <img ng-show="{{tourValue}}" class="img-responsive" alt="Tour Image Scroller" draggable="false" src="{{tour.photo == null ? 'img/custom11.jpg' : tour.photo[0]}}" />
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <h3 ng-show="{{tourValue}}" class="text-upper">{{tour.tour_title}}</h3>
+                                                    <h3 ng-show="{{guideValue}}" class="text-upper">{{guide.name}}</h3>
+                                                    <div ng-show="{{tourValue}}">
+                                                        <div class="row">
+                                                            <div class="col-md-3">Location</div>
+                                                            <div class="col-md-9">{{tour.tour_location}}</div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-3">Included</div>
+                                                            <div class="col-md-9">{{tour.inclusive}}</div>
+                                                        </div>
+                                                        <!--
+                                                            <ul class=" list-unstyled">
+                                                                <li class="pricing-table ">Location <span style="color:black;" class="pull-right">{{tour.tour_location}}</span></li>
+                                                                  <li class="pricing-table ">Tour Price <span style="color:black;" class="pull-right">{{tour.tour_price}}</span></li>
+                                                                <li class="pricing-table ">Included<span style="color:black;" class="pull-right">{{tour.inclusive}}</span></li>
+                                                            </ul>
+-->
+                                                    </div>
+                                                    <div ng-show="{{guideValue}}">
+                                                        <div class="row">
+                                                            <div class="col-md-3">City</div>
+                                                            <div class="col-md-9">{{guide.city}}</div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-3">Mobile</div>
+                                                            <div class="col-md-9">{{guide.mobileNo}}</div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-3">Email</div>
+                                                            <div class="col-md-9">{{guide.email}}</div>
+                                                        </div>
+                                                        <!--
+                                                            <ul class=" list-unstyled">
+                                                                                                                                <li class="pricing-table ">Guide Name <span style="color:black;" class="pull-right">{{guide.name}}</span></li>
+                                                                <li class="pricing-table ">City of Guide <span style="color:black;" class="pull-right">{{guide.city}}</span></li>
+                                                                <li class="pricing-table ">Mobile <span style="color:black;" class="pull-right">{{guide.mobileNo}}</span></li>
+                                                                <li class="pricing-table ">Email <span style="color:black;" class="pull-right">{{guide.email}}</span></li>
+                                                            </ul>
+-->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <ul class=" list-unstyled">
+                                                <li class="pricing-table ">Full Name <span style="color:black;" class="pull-right">{{name}}</span></li>
+                                                <li class="pricing-table ">Email <span style="color:black;" class="pull-right">{{email}}</span></li>
+                                                <li class="pricing-table "> Contact<span style="color:black;" class="pull-right">{{contact}}</span></li>
+                                                <li class="pricing-table ">No. of Persons <span style="color:black;" class="pull-right">{{adultValue}} Adult(s) , {{child}} Child</span></li>
+                                                <!--                                                    <li class="pricing-table ">No. of Child <span style="color:black;" class="pull-right"></span></li>-->
+                                                <li class="pricing-table ">Date of Tour <span style="color:black;" class="pull-right">{{dateoftour | date:'dd-MM-yyyy'}}</span></li>
+                                                <li class="pricing-table " ng-show="{{tourValue}}">Tour Duration <span style="color:black;" class="pull-right">{{tour.tour_duration}} Day(s)</span></li>
+                                                <li class="pricing-table " ng-show="{{guideValue}}">Tour Duration<span style="color:black;" class="pull-right"> {{dayValue}}</span></li>
+
+                                                <li class="pricing-table " ng-show="{{tourValue}}">Tour Price&nbsp;&nbsp;({{adultValue}}&nbsp;Person*{{tour.tour_duration}}&nbsp;Days)<span style="color:black;" class="pull-right">Rs.&nbsp;{{tourPrice}}</span></li>
+                                                <li class="pricing-table " ng-show="{{guideValue}}">Guide's Booking Price&nbsp;&nbsp;({{adultValue}}&nbsp;Person*{{dayValue}}&nbsp;Days)<span style="color:black;" class="pull-right">Rs.&nbsp;{{guidePrice}}</span></li>
+
+                                                <li class="pricing-table " ng-show="lodgevalue">Lodging Price<span style="color:black;" class="pull-right">(+)Rs.&nbsp;{{lodgeIDnew.PricePerNight}}</span></li>
+                                                <li class="pricing-table " ng-show="transvalue">Transport Price <span style="color:black;" class="pull-right">(+)Rs.&nbsp;{{transIDnew.PriceForDay}}</span></li>
+
+                                                <li class="pricing-table ">Total Price(Excluding Tax) <span style="color:black;" class="pull-right">Rs.&nbsp;{{priceTotal}}</span></li>
+                                                <li class="pricing-table " ng-show="successValue">Promotional Discount <span style="color:black;" class="pull-right">Rs.&nbsp;(-){{successValue}}</span></li>
+                                                <li class="pricing-table ">Amount Payable(Including Tax) <span style="color:black;" class="pull-right">Rs.&nbsp;{{(priceTotal+((priceTotal*14)/100)+((priceTotal*0.5)/100)-successValue) | number : 0 }}</span></li>
+                                            </ul>
+                                        </div>
+
+
                                     </div>
                                 </div>
                             </div>
@@ -695,30 +778,10 @@
                                 <button style="width:200px; background-color:#ff845e" class="btn btn-default pull-left" data-dismiss="modal">Cancel</button>
                             </div>
                             <div class="col-md-6">
-                                <button type="submit" id="conformBokingID" style="width:200px; background-color:#ff845e" class="btn btn-default pull-right" data-dismiss="modal">Conform Booking</button>
+                                <button type="submit" id="conformBokingID" style="width:200px; background-color:#ff845e" class="btn btn-default pull-right" data-dismiss="modal">Confirm Booking</button>
                             </div>
                         </div>
 
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div id="bookNowModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="bookNowModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
-                        </button>
-                        <h4 class="modal-title" id="bookNowModallLabel">Thank you !</h4>
-
-                    </div>
-                    <div class="modal-body">
-                        <p>We received your booking request. Our customer service will contact you soon.</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
@@ -734,9 +797,29 @@
         <script type="text/javascript" src="js/styleswitcher.js"></script>
 
         <script>
-            function conformationModal() {
-                $('#conformationModal').modal('show');
+            //            $('#booknow2').click(function (e) {
+            //                var $theForm = $(this).closest('form');
+            //                if ((typeof ($theForm[0].checkValidity) == "function") && !$theForm[0].checkValidity()) {
+            //                    return;
+            //                }
+            //            });
+
+            function bookNowModalShow() {
+                $('#bookNowModal').modal('show');
+                //alert("This feature will be available soon......");
             }
+
+
+            function conformationModal() {
+                var $myForm = $('#bookingForm')
+                if ($myForm[0].checkValidity()) {
+                    $('#conformationModal').modal('show');
+                } else {
+                    //                     alert("Please Fill the required field.");
+                    $('#conformationModal').modal('show');
+                }
+            }
+
 
             $(document).ready(function () {
                 $("#conformBokingID").click(function () {
