@@ -12,18 +12,7 @@
 //  
 //			
 //}]); 
-app.directive('a', function() {
-    return {
-        restrict: 'E',
-        link: function(scope, elem, attrs) {
-            if(attrs.ngClick || attrs.href === '' || attrs.href === '#' ||attrs.href === '#collapseThree'||attrs.href === '#collapseTwo'||attrs.href === '#collapseOne'){
-                elem.on('click', function(e){
-                    e.preventDefault();
-                });
-            }
-        }
-   };
-});
+
 app.controller('guides_booking',['$scope','$http','$location', function($scope, $http,$location) {
      debugger;
     $http.get("http://130.211.123.212/app/guides")
@@ -53,6 +42,7 @@ app.controller('guides_booking',['$scope','$http','$location', function($scope, 
     $scope.transportPrice=0;
     $scope.guidePriceNew=1;
      $scope.lodgeIDSelected =0;
+    $scope.child=0;
     
     $scope.priceTotal= $scope.tourPrice+$scope.lodgingPrice+ $scope.transportPrice;
     
@@ -440,6 +430,20 @@ app.controller('guides_booking',['$scope','$http','$location', function($scope, 
 
   }
      }
+    $scope.conformationModal=function(){
+        $('#conformationModal').modal('show');
+    }
+    
+     $scope.childPlus=function(){
+        $scope.child=$scope.child+1;
+    }
+      $scope.childMinus=function(){
+          
+          if( $scope.child>0){
+                       $scope.child=$scope.child-1;
+ 
+          }
+    }
 }]);
     
 //    app.controller('hotel_booking',['$scope','$http','$location', function($scope, $http,$location) {
