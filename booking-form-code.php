@@ -253,7 +253,7 @@ $tGuideID = mysql_real_escape_string($_POST['tGuideID']);
             $pdf->Cell(0,5,$bookedItemName,0,1,"L");
             $pdf->SetFont('Arial','',10);
             $pdf->Cell(0,6,'Booked '.$booking_type.' Id : '.$book_reff_id,0,1,"L");
-            $pdf->Cell(0,5,'Tour Duration : '.$tourDuration,0,1,"L");
+            $pdf->Cell(0,5,'Tour Duration : '.$tourDuration .' Day(s)',0,1,"L");
             $pdf->Cell(0,5,'Number Of person : '.$noOfPerson.' Adult, '.$noOfPersonChild.' Child',0,1,"L");
             $pdf->SetFont('Arial','B',10);
             $pdf->Cell(0,6,'Guide Name : '.$tGuideName.' (Guide Id : '.$tGuideID.')',0,1,"L");
@@ -317,7 +317,7 @@ $tGuideID = mysql_real_escape_string($_POST['tGuideID']);
 
         $pdf->SetFont('Arial','B',12);
         $pdf->Cell(0,5,'',0,1,"L");
-        $pdf->Cell(0,6,'Promo Code     '.$PromoCode,0,1,"L");
+        $pdf->Cell(0,6,'Promo Code \''.$PromoCode.'\'',0,1,"L");
         $pdf->SetFont('Arial','',10);
         $pdf->Cell(0,5,'Discount',0,1,"L");
 

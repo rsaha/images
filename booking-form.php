@@ -177,7 +177,7 @@
                                                                 <label>CHILD <span class="required small">(0-12 YRS)</span></label>
                                                                 <div class="input-group">
                                                                     <span class="input-group-addon" style="cursor:pointer" ng-click="childMinus();"><i style="font-size:12px" class="fa fa-minus"></i></span>
-                                                                    <input type="text" id="child" name="child" class="form-control" ng-model="child">
+                                                                    <input type="text" id="noOfPersonChild" name="noOfPersonChild" class="form-control" ng-model="child">
                                                                     <span class="input-group-addon" style="cursor:pointer" ng-click="childPlus();"><i style="font-size:12px" class="fa fa-plus"></i></span>
                                                                 </div>
                                                             </div>
@@ -187,10 +187,10 @@
                                                 <li class="row">
                                                     <div class="col-md-6">
                                                         <label>Date of Tour <span class="required small">(Required)</span></label>
-                                                        <input type="date" class="form-control" required name="dateOfTour" ng-model="bookingdate" />
-                                                           <span style="color:red" ng-show="bookingForm.dateOfTour.$dirty && bookingForm.dateOfTour.$invalid">
+                                                        <input type="date" class="form-control" required name="dateOfTour" ng-model="dateOfTour" />
+                                                        <span style="color:red" ng-show="bookingForm.dateOfTour.$dirty && bookingForm.dateOfTour.$invalid">
 											  <span ng-show="bookingForm.dateOfTour.$error.required">*Date is required.</span>
-                                                       
+
                                                         </span>
                                                     </div>
 
@@ -198,7 +198,7 @@
                                                         <label>Tour Duratios [In Days] <span class="required small">(Required)</span></label>
                                                         <div class="input-group">
                                                             <span class="input-group-addon" style="cursor:pointer" ng-click="tourdayminus(dayValue);"><i style="font-size:12px" class="fa fa-minus"></i></span>
-                                                            <input type="text" id="tourDuration" id="tourDurationG" name="tourDurationG" class="form-control" ng-model="dayValue">
+                                                            <input type="text" id="tourDurationG" id="tourDurationG" name="tourDurationG" class="form-control" ng-model="dayValue">
                                                             <span class="input-group-addon">Days</span>
                                                             <span class="input-group-addon" style="cursor:pointer" ng-click="tourdayplus(dayValue);"><i style="font-size:12px" class="fa fa-plus"></i></span>
                                                         </div>
@@ -711,13 +711,6 @@
                                                             <div class="col-md-3">Included</div>
                                                             <div class="col-md-9">{{tour.inclusive}}</div>
                                                         </div>
-                                                        <!--
-                                                            <ul class=" list-unstyled">
-                                                                <li class="pricing-table ">Location <span style="color:black;" class="pull-right">{{tour.tour_location}}</span></li>
-                                                                  <li class="pricing-table ">Tour Price <span style="color:black;" class="pull-right">{{tour.tour_price}}</span></li>
-                                                                <li class="pricing-table ">Included<span style="color:black;" class="pull-right">{{tour.inclusive}}</span></li>
-                                                            </ul>
--->
                                                     </div>
                                                     <div ng-show="{{guideValue}}">
                                                         <div class="row">
@@ -732,14 +725,6 @@
                                                             <div class="col-md-3">Email</div>
                                                             <div class="col-md-9">{{guide.email}}</div>
                                                         </div>
-                                                        <!--
-                                                            <ul class=" list-unstyled">
-                                                                                                                                <li class="pricing-table ">Guide Name <span style="color:black;" class="pull-right">{{guide.name}}</span></li>
-                                                                <li class="pricing-table ">City of Guide <span style="color:black;" class="pull-right">{{guide.city}}</span></li>
-                                                                <li class="pricing-table ">Mobile <span style="color:black;" class="pull-right">{{guide.mobileNo}}</span></li>
-                                                                <li class="pricing-table ">Email <span style="color:black;" class="pull-right">{{guide.email}}</span></li>
-                                                            </ul>
--->
                                                     </div>
                                                 </div>
                                             </div>
@@ -749,8 +734,7 @@
                                                 <li class="pricing-table ">Email <span style="color:black;" class="pull-right">{{email}}</span></li>
                                                 <li class="pricing-table "> Contact<span style="color:black;" class="pull-right">{{contact}}</span></li>
                                                 <li class="pricing-table ">No. of Persons <span style="color:black;" class="pull-right">{{adultValue}} Adult(s) , {{child}} Child</span></li>
-                                                <!--                                                    <li class="pricing-table ">No. of Child <span style="color:black;" class="pull-right"></span></li>-->
-                                                <li class="pricing-table ">Date of Tour <span style="color:black;" class="pull-right">{{dateoftour | date:'dd-MM-yyyy'}}</span></li>
+                                                <li class="pricing-table ">Date of Tour <span style="color:black;" class="pull-right">{{dateOfTour | date:'dd-MM-yyyy'}}</span></li>
                                                 <li class="pricing-table " ng-show="{{tourValue}}">Tour Duration <span style="color:black;" class="pull-right">{{tour.tour_duration}} Day(s)</span></li>
                                                 <li class="pricing-table " ng-show="{{guideValue}}">Tour Duration<span style="color:black;" class="pull-right"> {{dayValue}}</span></li>
 
