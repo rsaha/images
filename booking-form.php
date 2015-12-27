@@ -319,7 +319,7 @@
                                                                             bookingForm.tourist_email.$error.required||
                                                                             bookingForm.tourist_mobile.$error.required ||
                                                                          bookingForm.dateOfTour.$error.required
-										" id="booknow2" name="booknow2" value="Book Now" />
+										" id="booknow2" name="booknow2" value="Request Book" />
                                                         <input type="submit" id="booknow" name="booknow" hidden />
                                                         <span class="required small">*Your email will never published.</span>
                                                     </div>
@@ -683,7 +683,7 @@
                 <div class="modal-content">
                     <div class="modal-header" style="padding:15px 50px; background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;">
                         <button type="button" class="close" style="background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;" data-dismiss="modal">&times;</button>
-                        <h4 style="background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;"><span class="glyphicon glyphicon-lock"></span>Confirm Your Booking</h4>
+                        <h4 style="background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;"><span class="glyphicon glyphicon-lock"></span>Confirm Booking Request</h4>
                     </div>
                     <div class="modal-body" style="padding:20px 50px 0px;">
                         <div class="row">
