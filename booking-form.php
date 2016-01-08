@@ -319,7 +319,7 @@
                                                                             bookingForm.tourist_email.$error.required||
                                                                             bookingForm.tourist_mobile.$error.required ||
                                                                          bookingForm.dateOfTour.$error.required
-										" id="booknow2" name="booknow2" value="Request Book" />
+										" id="booknow2" name="booknow2" value="Request to Book" />
                                                         <input type="submit" id="booknow" name="booknow" hidden />
                                                         <span class="required small">*Your email will never published.</span>
                                                     </div>
