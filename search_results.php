@@ -36,18 +36,8 @@
 		400italic,700italic" /> <!-- color scheme --> <link
 		rel="stylesheet" type="text/css" href="css/colors/color3.css"
 		title="color3" />
-
- <link rel="stylesheet" href="css/ideal-image-slider.css">
-    <style media="screen">
-    #slider {
-        max-width: 100%;
-        margin: auto;
-		
-    }
-    </style>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	<script src= "js/angular.min.js"></script>
-    <script src="js/ideal-image-slider.js"></script>
 <script src="myDestination.js"></script>
 <!-- <script src="myGuideDetail.js"></script> -->
 <!-- Google Analytics -->
@@ -118,15 +108,11 @@ ul.rating {
 	
 	
 	<?php 
-			
-				include('MasterTopHeader.php'); 
-			
-			
-			?>
+       include('MasterTopHeader.php'); 
+    ?>
 			<div>
-					 <div class="main-contents col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1" id="searchDiv">
-					 <form class="" style="background-color:#f1f1f1;">
-						
+                <div class="main-contents col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1" id="searchDiv">
+				<form class="" style="background-color:#f1f1f1;">		
 						<div class="row">
 						<br>
 						<div class="col-md-10 col-sm-10 col-sm-offset-1 col-md-offset-1 col-xs-10 col-xs-offset-1 input-group">
@@ -146,22 +132,8 @@ ul.rating {
 						</div>
 					
 					</form>
-				</div>
-		        <div id="slider">
-					<img data-src="https://storage.googleapis.com/guidedgateway_media/tour_1.jpg" data-src-2x="https://storage.googleapis.com/guidedgateway_media/tour_1.jpg" src="" alt="Slide 1" />
-					<img data-src="https://storage.googleapis.com/guidedgateway_media/tour_2.jpg" data-src-2x="https://storage.googleapis.com/guidedgateway_media/tour_2.jpg" src="" alt="Slide 2" />
-					<img data-src="https://storage.googleapis.com/guidedgateway_media/tour_3.jpg" data-src-2x="https://storage.googleapis.com/guidedgateway_media/tour_3.jpg" src="" alt="Slide 3" />
-				</div>
-				 <script>
-					var slider = new IdealImageSlider.Slider('#slider');
-						slider.start();
-				</script> 
+				</div> 
 			</div>
-				
-									 
-									
-	
- 
 			<!-- START .main-contents --> 
         <div class="main-contents">
 			<div class="container" id="home-page" >
@@ -294,83 +266,20 @@ ul.rating {
 				</div>
             </div>
 				</div>
-				</div> <!-- END .main-contents -->
-
-			<!-- START .main-contents .bom-contents -->
-<!--
-    <div class="main-contents bom-contents"> 
-			<div class="container">
-					<h2 class="text-center text-upper">THEME BASED TOURS</h2> <p class="headline text-center">Visit Unique Attractions around Special Themes</p>
-
-					     <div class="row"> 
-						
-						 <section class="col-md-3 fd-column">
-  						 <div
-					class="featured-dest"> <span class="fd-image"> <img
-					class="img-circle" src="http://placehold.it/150x150"
-					alt="Featured Destination" /> </span> <h3
-					class="text-center text-upper">Beach</h3> <p
-					class="text-center">Beach destinations and tour packages in India</p> <span class="btn-center"><a
-					class="btn btn-primary text-upper" href="#"
-					title="Search">Search</a></span> </div> </section>
-					 <section
-						class="col-md-3 fd-column"> <div
-						class="featured-dest"> <span class="fd-image">
-						<img class="img-circle"
-						src="http://placehold.it/150x150" alt="Featured
-						Destination" /> </span> <h3 class="text-center
-						text-upper">Romantic</h3> <p
-						class="text-center">Romantic destinations and tour packages in India</p> <span
-						class="btn-center"><a class="btn btn-primary
-						text-upper" href="#"
-						title="Search">Search</a></span> </div>
-						</section>  <section
-						class="col-md-3 fd-column"> <div
-						class="featured-dest"> <span class="fd-image">
-						<img class="img-circle"
-						src="http://placehold.it/150x150" alt="Featured
-						Destination" /> </span> <h3 class="text-center
-						text-upper">Adventure</h3> <p
-						class="text-center">Adventure tour packages from different parts of India</p> <span
-						class="btn-center"><a class="btn btn-primary
-						text-upper" href="#"
-						title="Search">Search</a></span> </div>
-						</section> <section
-						class="col-md-3 fd-column"> <div
-						class="featured-dest"> <span class="fd-image">
-						<img class="img-circle"
-						src="http://placehold.it/150x150" alt="Featured
-						Destination" /> </span> <h3 class="text-center
-						text-upper">Eco</h3> <p
-						class="text-center">Ecological tours and destinations from different parts of India</p> <span
-						class="btn-center"><a class="btn btn-primary
-						text-upper" href="#"
-						title="Search">Search</a></span> </div>
-						</section> 
-						</div> </div> </div>  
--->
-<!--    END .main-contents-->
-<!--						.bom-contents -->
-<br>
-			<!-- START footer --> <?php include('MasterTopFooter.php'); ?>
+				</div> <!-- END .main-contents --><br>
+			<!-- START footer --> 
+    <?php include('MasterTopFooter.php'); ?>
     <!-- END footer -->
-							</div> <!-- END #wrapper -->
-
-
-
-
-		<!-- javascripts --> <script type="text/javascript"
-		src="js/modernizr.custom.17475.js"></script>
+    </div> <!-- END #wrapper -->
+		<!-- javascripts --> 
+        <script type="text/javascript" src="js/modernizr.custom.17475.js"></script>
 
 		<script type="text/javascript" src="js/jquery.min.js"></script>
-		<script type="text/javascript"
-		src="bs3/js/bootstrap.min.js"></script> <script
-		type="text/javascript"
-		src="js/bootstrap-datepicker.js"></script> <script
-		src="js/jquery.flexslider-min.js"></script> <script
-		src="js/script.js"></script> <script
-		src="js/jquery.minimalect.min.js"
-		type="text/javascript"></script>
+		<script type="text/javascript" src="bs3/js/bootstrap.min.js"></script> 
+        <script type="text/javascript" src="js/bootstrap-datepicker.js"></script> 
+        <script src="js/jquery.flexslider-min.js"></script> 
+        <script src="js/script.js"></script> 
+        <script src="js/jquery.minimalect.min.js" type="text/javascript"></script>
 
 		<script src="js/styleswitcher.js"></script>
 
@@ -407,22 +316,6 @@ ul.rating {
 	    }
 	    }	    }
 		</script>
-	
-		<!--- SELECT BOX -->
-		<!-- <script type="text/javascript">
-   		$(function() {    	
-                
-					$('span.stars').stars();	
-		});
-
-		$.fn.stars = function() {
-			return $(this).each(function() {
-				$(this).html($('<span />').width(Math.max(0, (Math.min(5, parseFloat($(this).html())))) * 8));
-			});
-		}
-	  </script> -->
-	
-	<!-- <span class="stars alignleft">1</span> -->
 	
 		</body> 
 		</html>
