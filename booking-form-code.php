@@ -225,24 +225,21 @@ $tGuideID = mysql_real_escape_string($_POST['tGuideID']);
         $pdf->Cell(101);
         $pdf->Cell(0,20,'GuidedGateway!',0,0,"L");
         $pdf->Cell(-89); 
-        $pdf->Cell(0,30,'Email: support@xmapledatalab.com',0,0,"L");
+        $pdf->Cell(0,30,'Email: touchus@guidedgateway.com',0,0,"L");
         $pdf->Cell(-89); 
-        $pdf->Cell(0,40,'Contact: +91 9830032920',0,0,"L");
+        $pdf->Cell(0,40,'India Contact: +91 9830032920',0,0,"L");
         $pdf->Ln(5);
         $pdf->Cell(0,30,'',0,1,"L");
-        $pdf->Cell(0,0,'Invoice Date : '. date("d.m.Y"),0,1,"R");
-        $pdf->Cell(0,10,'Booking Number : '.$bookingNumber,0,1,"R");
+        $pdf->Cell(0,0,'Booking Date : '. date("d.m.Y"),0,1,"L");
+        $pdf->Cell(0,10,'Booking Number : '.$bookingNumber,0,1,"L");
         $pdf->Cell(0,10,'',0,1,"L");
         $pdf->SetFont('Arial','I',10);
         $pdf->SetTextColor(62,66,67);
-        $pdf->Cell(0,0,'Tourest Name : '.$tourist_name,0,1,"R");
-        $pdf->Cell(0,10,'Tourest Contact : '.$tourist_mobile,0,1,"R");
-        $pdf->Cell(0,0,'Tourest Email : '.$tourist_email,0,1,"R");
-        $pdf->SetFont('Arial','B',10);
-        $pdf->SetTextColor(62,66,67);
-        $pdf->Cell(0,10,'Date Of Tour : '. $dateOfTour,0,1,"R");
+        $pdf->Cell(0,0,'Tourist Name : '.$tourist_name,0,1,"L");
+        $pdf->Cell(0,10,'Tourist Contact : '.$tourist_mobile,0,1,"L");
+        $pdf->Cell(0,0,'Tourist Email : '.$tourist_email,0,1,"L");
 
-        $pdf->Ln(2);
+        $pdf->Ln(5);
         $pdf->Cell(0,0,' ',1,1,"L");
         
         //======Booked Tour/Guide===================
@@ -251,6 +248,9 @@ $tGuideID = mysql_real_escape_string($_POST['tGuideID']);
             $pdf->SetFont('Arial','B',12);
             $pdf->Cell(0,5,'',0,1,"L");
             $pdf->Cell(0,5,$bookedItemName,0,1,"L");
+        $pdf->SetFont('Arial','B',10);
+        $pdf->SetTextColor(62,66,67);
+        $pdf->Cell(0,10,'Date Of Tour : '. $dateOfTour,0,1,"L");
             $pdf->SetFont('Arial','',10);
             $pdf->Cell(0,6,'Booked '.$booking_type.' Id : '.$book_reff_id,0,1,"L");
             $pdf->Cell(0,5,'Tour Duration : '.$tourDuration .' Day(s)',0,1,"L");
@@ -268,14 +268,17 @@ $tGuideID = mysql_real_escape_string($_POST['tGuideID']);
             $pdf->SetFont('Arial','B',12);
             $pdf->Cell(0,5,'',0,1,"L");
             $pdf->Cell(0,5,'Guide: '.$bookedItemName,0,1,"L");
+        $pdf->SetFont('Arial','B',10);
+        $pdf->SetTextColor(62,66,67);
+        $pdf->Cell(0,10,'Date Of Tour : '. $dateOfTour,0,1,"L");
             $pdf->SetFont('Arial','',10);
-            $pdf->Cell(0,6,'Booked '.$booking_type.' Id:'.$book_reff_id,0,1,"L");
+            $pdf->Cell(0,6,'Guide ID:'.$book_reff_id,0,1,"L");
             $pdf->Cell(0,5,'Guide Mobile Numer : '.$guideMobileNumber,0,1,"L");
             $pdf->Cell(0,5,'Tour Duration : '.$tourDuration,0,1,"L");
-            $pdf->Cell(0,5,'Number Of person : '.$noOfPerson.' Adult, '.$noOfPersonChild.' Child',0,1,"L");
+            $pdf->Cell(0,5,'Number Of person(s) : '.$noOfPerson.' Adult, '.$noOfPersonChild.' Child',0,1,"L");
             $pdf->SetFont('Arial','',10);
 
-            $pdf->Cell(0,5,'Price : Rs '.$itemPrice,0,1,"R");
+            $pdf->Cell(0,5,'Price : Rs. '.$itemPrice,0,1,"R");
         }
         
         
@@ -292,7 +295,7 @@ $tGuideID = mysql_real_escape_string($_POST['tGuideID']);
             $pdf->SetFont('Arial','',10);
             $pdf->Cell(0,5,$lodging_name,0,1,"L");
 
-            $pdf->Cell(0,5,'Price : Rs '.$lodging_price,0,1,"R");
+            $pdf->Cell(0,5,'Price : Rs. '.$lodging_price,0,1,"R");
         }
         //======Transport===================
         if(((int)$transport_id))
@@ -306,7 +309,7 @@ $tGuideID = mysql_real_escape_string($_POST['tGuideID']);
             $pdf->SetFont('Arial','',10);
             $pdf->Cell(0,5,$transport_name,0,1,"L");
 
-            $pdf->Cell(0,5,'Price : Rs '.$transport_price,0,1,"R");
+            $pdf->Cell(0,5,'Price : Rs. '.$transport_price,0,1,"R");
         }
         
         //======$PromoCode===================
@@ -339,7 +342,7 @@ $tGuideID = mysql_real_escape_string($_POST['tGuideID']);
 
         $pdf->SetFont('Arial','B',12);
         $pdf->Cell(0,5,'',0,1,"L");
-        $pdf->Cell(0,5,'Grand Total (Tax Inc.)',0,1,"L");
+        $pdf->Cell(0,5,'Grand Total',0,1,"L");
         $pdf->SetFont('Arial','',10);
         $pdf->Cell(0,5,'Service Tax @ 14%',0,1,"L");
         $pdf->Cell(0,5,'Swachh Bharat Tax @ 0.5%',0,1,"L");

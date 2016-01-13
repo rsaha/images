@@ -319,7 +319,7 @@
                                                                             bookingForm.tourist_email.$error.required||
                                                                             bookingForm.tourist_mobile.$error.required ||
                                                                          bookingForm.dateOfTour.$error.required
-										" id="booknow2" name="booknow2" value="Book Now" />
+										" id="booknow2" name="booknow2" value="Request to Book" />
                                                         <input type="submit" id="booknow" name="booknow" hidden />
                                                         <span class="required small">*Your email will never published.</span>
                                                     </div>
@@ -381,7 +381,6 @@
                                                                 <div class="featured-btm box-shadow1">
                                                                     <a class="ft-hotel text-upper" href="#">{{tour.tour_duration}} Day Tour</a>
                                                                     <a class="fa fa-user text-upper" href="guide-detail-sidebar.php#?id2={{tour.guide_id}}">{{tour.guide_id}}</a>
-                                                                    <a class="fa fa-user text-upper" href="tour_detail_sidebar.php#?id1={{tour.tour_id}}">{{tour.tour_id}}</a>
                                                                     <a class="ft-tea text-upper" href="#">
                                                                         <div class="short-text2" title="{{tour.inclusive}}">{{tour.inclusive}}</div>
                                                                     </a>
@@ -406,7 +405,7 @@
                                                                 </div>
                                                             </div>
                                                             <input type="hidden" name="tourPrice" value="{{tourPrice}}" />
-                                                            <h4>Min. Tour Charges &nbsp;: {{tourPrice}}</h4>
+                                                            <h4>Min. Tour Charges (4 persons) &nbsp;: {{tourPrice}}</h4>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -552,14 +551,14 @@
                                                             </tr>
                                                             <tr>
                                                                 <td style="text-align:right">tax @ 14% &nbsp;: Rs.&nbsp;</td>
-                                                                <td style="text-align:right">{{(priceTotal*14)/100}}
-                                                                    <input type="hidden" name="serviceTax" value="{{(priceTotal*14)/100}}" />
+                                                                <td style="text-align:right">{{(priceTotal*14)/100 | number:0}}
+                                                                    <input type="hidden" name="serviceTax" value="{{(priceTotal*14)/100 | number:0}}" />
                                                                 </td>
                                                             </tr>
                                                             <tr>
                                                                 <td style="text-align:right">Swachh Bharat tax @ 0.5% &nbsp;: Rs.&nbsp;</td>
-                                                                <td style="text-align:right">{{(priceTotal*0.5)/100}}
-                                                                    <input type="hidden" name="swachhTax" value="{{(priceTotal*0.5)/100}}" />
+                                                                <td style="text-align:right">{{(priceTotal*0.5)/100 | number:0}}
+                                                                    <input type="hidden" name="swachhTax" value="{{(priceTotal*0.5)/100 | number:0}}" />
                                                                 </td>
                                                             </tr>
                                                             <input type="hidden" name="PromoDis" value="{{successValue}}" />
@@ -684,7 +683,7 @@
                 <div class="modal-content">
                     <div class="modal-header" style="padding:15px 50px; background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;">
                         <button type="button" class="close" style="background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;" data-dismiss="modal">&times;</button>
-                        <h4 style="background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;"><span class="glyphicon glyphicon-lock"></span>Confirm Your Booking</h4>
+                        <h4 style="background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;"><span class="glyphicon glyphicon-lock"></span>Confirm Booking Request</h4>
                     </div>
                     <div class="modal-body" style="padding:20px 50px 0px;">
                         <div class="row">
