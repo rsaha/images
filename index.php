@@ -129,12 +129,27 @@ ul.rating {
 						
 						<div class="row">
 						<br>
-						<div class="col-md-10 col-sm-10 col-sm-offset-1 col-md-offset-1 col-xs-10 col-xs-offset-1 input-group">
+						<div class="col-md-8 col-sm-8 col-sm-offset-1 col-md-offset-1 col-xs-8 col-xs-offset-1 input-group">
 						<input type="text" class="form-control" style="background-color:white;" ng-model="search" placeholder="Location" />
 						<span class="input-group-addon">
 						<i class="fa fa-search"></i>
 						</span>
+                            </div>
+                            <div class="col-md-3 input-group">
+                            <div class="dropdown" ng-controller="MultipleCtrl">
+  <button class="btn btn-default dropdown-toggle" type="button" id="placeMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+  Places
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu"  aria-labelledby="placeMenu">
+    <li ng-repeat="p in places"><a>{{p.Name}}</a></li>
+  
+    <li role="separator" class="divider"></li>
+    <li><a href="top-destinations-listview-sidebar.php">Top Places</a></li>
+  </ul>
+</div>
 						</div>
+                            
 						</div>
 						<div class="row">
 						<div class="col-md-7 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1"> <br>
@@ -279,6 +294,48 @@ ul.rating {
 								<span class="fa fa-trophy text-upper alignleft">{{z.TourCount}}&nbsp;&nbsp;Tours</span>
 								
 								<span class="alignright fa fa-life-ring">{{z.GuideCount}}&nbsp;&nbsp;Guides</span> 						
+							</div> 
+					</div>
+					</a>
+					 </div>
+					 </div>
+					 <div class="col-md-1 alignright" style="padding-top:265px;padding-right:20px;">
+					<!-- <a class="btn btn-primary" href="top-tours-listview-sidebar.php"><span style="font-weight:bold;">More >></span></a> -->
+					 </div>
+				</div>
+				
+				</li> 
+				</ul>
+				</div>
+                    
+                    <div class="row">	
+				<h2 class="ft-heading text-upper col-md-12" ng-show="checkboxModel.value3"><i class="fa fa-plane"></i>&nbsp;&nbsp;Top Transports<span class="alignright"> <a class="btn btn-primary" href="#"><span>More&nbsp;<i class="fa fa-angle-double-right"></i></span></a></span></h2>
+               </div>
+			   <div class="carousel" ng-show="checkboxModel.value3"> 
+				<ul class="slides">
+				<li> 
+				<div class="row bom-contents"  style="height:380px;">
+				<div class="col-md-11">
+				<div class="col-md-3" ng-repeat="z in transList | filter:search" ng-show="$index<4"> 
+				   <a href="#">
+				      <div	class="ft-item"> 
+						  <span class="ft-image">
+							 <img style="height:200px;" src="{{'z.Media.Image[0]'=='' ? 'img/custom1.jpg' :z.Media.Image[0]}}" alt="Top Destination" /> 
+						  </span>
+					  
+								<div class="ft-data" style="height:45px;font-size:11px;">
+							  <span style="color:black;" class="fa fa-calendar-check-o text-upper">{{z.Description}}</span>
+								</div> 
+					
+							<div class="ft-foot" style="word-wrap:break-word; height:50px;">
+							<h4 class="ft-title text-upper" style="color:#686868">Rs.&nbsp;{{z.PriceForDay}}</h4> 
+							<span class="ft-offer text-upper">{{z.Category}}</span> 
+							</div> 
+					
+							<div class="ft-foot-ex"> 
+								<span class="fa fa-trophy text-upper alignleft">{{z.City}}&nbsp;&nbsp;</span>
+								
+								<span class="alignright fa fa-life-ring">{{z.PartnerName}}&nbsp;&nbsp;</span> 						
 							</div> 
 					</div>
 					</a>
