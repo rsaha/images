@@ -26,6 +26,14 @@
 	.error(function() {
 				$scope.data = "error in fetching data";
 			});
+        	
+        $http.get("http://130.211.123.212/app/transport")
+    .success(function (response) {
+		$scope.transList =response.Transport;
+		})
+	.error(function() {
+				$scope.data = "error in fetching data";
+			});
         
          $http.get("http://130.211.123.212/app/places")
     .success(function (response) {
