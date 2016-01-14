@@ -10,6 +10,14 @@
 
 
     app.controller('MultipleCtrl',['$scope','$http', function($scope, $http) {
+         $scope.placename='';
+          $scope.checkboxModel = {
+       value1 : true,
+	   value2 : true,
+	   value3 : true,
+       /* value2 : 'YES' */
+     };
+        
     $http.get("http://130.211.123.212/app/tours")
     .success(function (response) {
 		$scope.tours = response.Tours;
@@ -34,6 +42,12 @@
 	.error(function() {
 				$scope.data = "error in fetching data";
 			});
+        
+       $scope.placeName=function(placeName){
+            $scope.search=placeName;
+//           alert(  $scope.placename);
+//           alert("hi");
+        }
         
          $http.get("http://130.211.123.212/app/places")
     .success(function (response) {

@@ -63,6 +63,7 @@
                                     <li><a href="top-tours-listview-sidebar.php" title="">Tours</a></li>
                                     <li><a href="top-guides-listview.php" title="">Guides</a></li>
                                     <li><a href="top-destinations-listview-sidebar.php" title="">Destinations</a> </li>
+                                    <li><a href="Transport.php" title="">Transport</a> </li>
                                     <li><a href="#" title="">Travelogue</a> </li>
                                     <!-- li><a
 				href="#" title="">Themed Tours</a> </li-->
