@@ -112,7 +112,7 @@ ul.rating {
 	
 	</head> <!-- END head -->
 
-	<!-- START body --> <body ng-app="myDestinations" ng-controller="ExampleController">
+	<!-- START body --> <body ng-app="myDestinations" ng-controller="MultipleCtrl">
 		
 	<!-- START #wrapper --> <div id="wrapper"> <!-- START header --> 
 	
@@ -136,13 +136,17 @@ ul.rating {
 						</span>
                             </div>
                             <div class="col-md-3 input-group">
-                            <div class="dropdown" ng-controller="MultipleCtrl">
+                            <div class="dropdown" >
   <button class="btn btn-default dropdown-toggle" type="button" id="placeMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
   Places
     <span class="caret"></span>
   </button>
-  <ul class="dropdown-menu"  aria-labelledby="placeMenu">
-    <li ng-repeat="p in places"><a>{{p.Name}}</a></li>
+  <ul class="dropdown-menu" >
+    <li ng-repeat="p in places">
+        
+    <a  ng-click="placeName(p.Name);">{{p.Name}}</a>
+        
+    </li>
   
     <li role="separator" class="divider"></li>
     <li><a href="top-destinations-listview-sidebar.php">Top Places</a></li>
@@ -180,7 +184,7 @@ ul.rating {
 			<!-- START .main-contents --> 
         <div class="main-contents">
 			<div class="container" id="home-page" >
-                <div ng-controller="MultipleCtrl">
+                <div >
                <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 					<!-- START Search Container --> 
                   
@@ -309,7 +313,7 @@ ul.rating {
 				</div>
                     
                     <div class="row">	
-				<h2 class="ft-heading text-upper col-md-12" ng-show="checkboxModel.value3"><i class="fa fa-plane"></i>&nbsp;&nbsp;Top Transports<span class="alignright"> <a class="btn btn-primary" href="#"><span>More&nbsp;<i class="fa fa-angle-double-right"></i></span></a></span></h2>
+				<h2 class="ft-heading text-upper col-md-12" ng-show="checkboxModel.value3"><i class="fa fa-cab"></i>&nbsp;&nbsp;Top Transports<span class="alignright"> <a class="btn btn-primary" href="Transport.php"><span>More&nbsp;<i class="fa fa-angle-double-right"></i></span></a></span></h2>
                </div>
 			   <div class="carousel" ng-show="checkboxModel.value3"> 
 				<ul class="slides">
@@ -328,12 +332,12 @@ ul.rating {
 								</div> 
 					
 							<div class="ft-foot" style="word-wrap:break-word; height:50px;">
-							<h4 class="ft-title text-upper" style="color:#686868">Rs.&nbsp;{{z.PriceForDay}}</h4> 
+							<h4 class="fa fa-rupee text-upper" style="color:#686868">{{z.PricePerHour}}/Hour</h4> 
 							<span class="ft-offer text-upper">{{z.Category}}</span> 
 							</div> 
 					
 							<div class="ft-foot-ex"> 
-								<span class="fa fa-trophy text-upper alignleft">{{z.City}}&nbsp;&nbsp;</span>
+								<span class="fa fa-rupee text-upper alignleft">{{z.City}}{{z.PricePerKM}}/KM&nbsp;</span>
 								
 								<span class="alignright fa fa-life-ring">{{z.PartnerName}}&nbsp;&nbsp;</span> 						
 							</div> 
