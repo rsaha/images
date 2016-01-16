@@ -205,7 +205,7 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <label>To Location<span class="required small">(Required)</span></label>
-                                                        <input type="text" class="form-control" name="toLocation" id="toLocation" autocomplete="on" ng-model="toLocation" value="" ng-pattern="/^[a-z A-Z]+$/" />
+                                                        <input type="text" class="form-control" name="toLocation" id="toLocation" autocomplete="on" ng-model="toLocation" value="" ng-pattern="/^[a-z A-Z]+$/" onfocusout="GetRoute()" />
                                                         <!--
                                                         <span style="color:red" ng-show="bookingForm.yourLocation.$dirty && bookingForm.yourLocation.$invalid">
 											  <span ng-show="bookingForm.yourLocation.$error.required">*Location is required.</span>
@@ -431,6 +431,9 @@
                                                 </div>
 
                                                 <div style="text-align:justify; padding:10px 10px 10px 10px;">
+                                                    
+                                                    <label>Distance in KM.</label> <div id="dvDistance"></div>
+                                                    
                                                     <div ng-show="{{guideValue}}">
                                                         <input type="hidden" name="guideID" value="{{guide.id}}" />
                                                         <input type="hidden" name="guideName" value="{{guide.name}}" />
@@ -799,37 +802,83 @@
         <script type="text/javascript" src="js/script.js"></script>
         <script type="text/javascript" src="js/styleswitcher.js"></script>
 
-        <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places" type="text/javascript"></script>
-        <script type="text/javascript">
-            function initialize() {
+        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
+    <script type="text/javascript">
+        var source, destination;
+        var directionsDisplay;
+        var directionsService = new google.maps.DirectionsService();
 
-                var options = {
-                    types: ['(cities)'],
-                    componentRestrictions: {
-                        country: "in"
-                    }
-                };
+    
 
-                var input = document.getElementById('fromLocation');
-                var autocomplete = new google.maps.places.Autocomplete(input, options);
-            }
-            google.maps.event.addDomListener(window, 'load', initialize);
-        </script>
-        <script type="text/javascript">
-            function initialize() {
+        google.maps.event.addDomListener(window, 'load', function(){
+            var options = {
+                componentRestrictions: {
+                    country: "in"
+                }
+            };
 
-                var options = {
-                    types: ['(cities)'],
-                    componentRestrictions: {
-                        country: "in"
-                    }
-                };
+            var input = document.getElementById('fromLocation');
+            var autocomplete = new google.maps.places.Autocomplete(input, options);
+            
+             var input = document.getElementById('toLocation');
+            var autocomplete = new google.maps.places.Autocomplete(input, options);
 
-                var input = document.getElementById('toLocation');
-                var autocomplete = new google.maps.places.Autocomplete(input, options);
-            }
-            google.maps.event.addDomListener(window, 'load', initialize);
-        </script>
+            new google.maps.places.SearchBox(autocomplete);
+            new google.maps.places.SearchBox(document.getElementById('fromLocation'));
+            new google.maps.places.SearchBox(document.getElementById('toLocation'));
+            directionsDisplay = new google.maps.DirectionsRenderer({
+                'draggable': false
+            });
+        });
+
+        function GetRoute() {
+            var mumbai = new google.maps.LatLng(18.9750, 72.8258);
+            var mapOptions = {
+                zoom: 7,
+                center: mumbai
+            };
+            //map = new google.maps.Map(document.getElementById('dvMap'), mapOptions);
+            //directionsDisplay.setMap(map);
+            //directionsDisplay.setPanel(document.getElementById('dvPanel'));
+
+            //*********DIRECTIONS AND ROUTE**********************//
+            source = document.getElementById("fromLocation").value;
+            destination = document.getElementById("toLocation").value;
+
+            var request = {
+                origin: source,
+                destination: destination,
+                travelMode: google.maps.TravelMode.DRIVING
+            };
+            directionsService.route(request, function (response, status) {
+                if (status == google.maps.DirectionsStatus.OK) {
+                    directionsDisplay.setDirections(response);
+                }
+            });
+
+            //*********DISTANCE AND DURATION**********************//
+            var service = new google.maps.DistanceMatrixService();
+            service.getDistanceMatrix({
+                origins: [source],
+                destinations: [destination],
+                travelMode: google.maps.TravelMode.DRIVING,
+                unitSystem: google.maps.UnitSystem.METRIC,
+                avoidHighways: false,
+                avoidTolls: false
+            }, function (response, status) {
+                if (status == google.maps.DistanceMatrixStatus.OK && response.rows[0].elements[0].status != "ZERO_RESULTS") {
+                    var distance = response.rows[0].elements[0].distance.text;
+                    var duration = response.rows[0].elements[0].duration.text;
+                    var dvDistance = document.getElementById("dvDistance");
+                    dvDistance.innerHTML = "";
+                    dvDistance.innerHTML += distance;
+
+                } else {
+                    alert("Unable to find the distance via road.");
+                }
+            });
+        }
+    </script>
 
         <script>
             //            $('#booknow2').click(function (e) {

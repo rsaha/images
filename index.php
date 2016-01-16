@@ -6,7 +6,8 @@
 
 		<!-- title --> 
         <title>Home | Guided Gateway - Authentic Affordable Travel</title>
-
+ <meta http-equiv="content-type" content="text/html; charset=windows-1250">
+  <meta name="generator" content="Andy Moore: http://locationdetection.mobi/">
 		<!-- meta description --> 
         <meta name="description" content="Authentic Afordable Travel in India" />
 
@@ -113,7 +114,46 @@ ul.rating {
 	</head> <!-- END head -->
 
 	<!-- START body --> <body ng-app="myDestinations" ng-controller="MultipleCtrl">
-		
+<!--		<div id="geo" class="geolocation_data"></div>-->
+		<script type="text/JavaScript" src="geo.js"></script>
+    
+     <div id="quotation">
+        <a href="#GetAQuote"><i class="fa fa-map-marker"></i>&nbsp;&nbsp; places </a>
+    </div>
+    <style>
+        #quotation {
+            height: 104px;
+            width: 104px;
+            position: fixed;
+            top: 45%;
+            z-index: 999;
+            transform: rotate(-90deg);
+            -webkit-transform: rotate(-90deg);
+            -moz-transform: rotate(-90deg);
+            -o-transform: rotate(-90deg);
+            filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+        }
+
+            #quotation a {
+                display: block;
+                background: #159f5c;
+                height: 40px;
+                width: 140px;
+                padding: 8px 16px;
+                color: #fff;
+                font-family: Arial, sans-serif;
+                font-size: 17px;
+                font-weight: bold;
+                text-decoration: none;
+                border-bottom: solid 1px #333;
+                border-left: solid 1px #333;
+                border-right: solid 1px #fff;
+            }
+
+                #quotation a:hover {
+                    background: #06c;
+                }
+    </style>
 	<!-- START #wrapper --> <div id="wrapper"> <!-- START header --> 
 	
 	
@@ -165,12 +205,14 @@ ul.rating {
 						</div>
 					
 					</form>
-				</div>
+                       
+				</div> 
 		        <div id="slider">
 					<img data-src="https://storage.googleapis.com/guidedgateway_media/tour_1.jpg" data-src-2x="https://storage.googleapis.com/guidedgateway_media/tour_1.jpg" src="" alt="Slide 1" />
 					<img data-src="https://storage.googleapis.com/guidedgateway_media/tour_2.jpg" data-src-2x="https://storage.googleapis.com/guidedgateway_media/tour_2.jpg" src="" alt="Slide 2" />
 					<img data-src="https://storage.googleapis.com/guidedgateway_media/tour_3.jpg" data-src-2x="https://storage.googleapis.com/guidedgateway_media/tour_3.jpg" src="" alt="Slide 3" />
-				</div>
+				  
+                </div>
 				 <script>
 					var slider = new IdealImageSlider.Slider('#slider');
 						slider.start();
