@@ -129,16 +129,10 @@ ul.rating {
 						
 						<div class="row">
 						<br>
-						<div class="col-md-8 col-sm-8 col-sm-offset-1 col-md-offset-1 col-xs-8 col-xs-offset-1 input-group">
-						<input type="text" class="form-control" style="background-color:white;" ng-model="search" placeholder="Location" />
-						<span class="input-group-addon">
-						<i class="fa fa-search"></i>
-						</span>
-                            </div>
-                            <div class="col-md-3 input-group">
+                             <div class="col-md-3 input-group">
                             <div class="dropdown" >
   <button class="btn btn-default dropdown-toggle" type="button" id="placeMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-  Places
+  From Location
     <span class="caret"></span>
   </button>
   <ul class="dropdown-menu" >
@@ -147,12 +141,17 @@ ul.rating {
     <a  ng-click="placeName(p.Name);">{{p.Name}}</a>
         
     </li>
-  
     <li role="separator" class="divider"></li>
-    <li><a href="top-destinations-listview-sidebar.php">Top Places</a></li>
   </ul>
 </div>
 						</div>
+						<div class="col-md-8 col-sm-8 col-sm-offset-1 col-md-offset-1 col-xs-8 col-xs-offset-1 input-group">
+						<input type="text" class="form-control" style="background-color:white;" ng-model="search" placeholder="To Location if you know or let us guide you" />
+						<span class="input-group-addon">
+						<a href="search_results.php"> <i class="fa fa-search"></i></a>
+						</span>
+                            </div>
+                           
                             
 						</div>
 						<div class="row">
