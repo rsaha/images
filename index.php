@@ -312,7 +312,7 @@ ul.rating {
 				</div>
                     
                     <div class="row">	
-				<h2 class="ft-heading text-upper col-md-12" ng-show="checkboxModel.value3"><i class="fa fa-cab"></i>&nbsp;&nbsp;Top Transports<span class="alignright"> <a class="btn btn-primary" href="Transport.php"><span>More&nbsp;<i class="fa fa-angle-double-right"></i></span></a></span></h2>
+				<h2 class="ft-heading text-upper col-md-12" ng-show="checkboxModel.value3"><i class="fa fa-cab"></i>&nbsp;&nbsp;Top Transports<span class="alignright"> <a class="btn btn-primary" href="transport_list.php"><span>More&nbsp;<i class="fa fa-angle-double-right"></i></span></a></span></h2>
                </div>
 			   <div class="carousel" ng-show="checkboxModel.value3"> 
 				<ul class="slides">
