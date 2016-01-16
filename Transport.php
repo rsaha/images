@@ -153,7 +153,6 @@
                 <div class="container">
 
                     <div class="row">
-                        <a ng-href="tour_detail_sidebar.php#?id=">
                             <div class="col-md-8">
                                 <div ng-show="filteredItems > 0">
                                     <div class="" ng-repeat="data in filtered = (list) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
@@ -210,9 +209,10 @@
                                                 </div>
 --><br>
                                                 <div class="post-desc">
-                                                    <a class="btn btn-primary marb20" ng-href="#">DETAILS</a>
+        <input type="text" class="form-control" name="fromLocation" id="fromLocation" autocomplete="on" placeholder="From Location" ng-pattern="/^[a-z A-Z]+$/" />
+        <input type="text" class="form-control" name="toLocation" id="toLocation" autocomplete="on" placeholder="From Location" ng-pattern="/^[a-z A-Z]+$/" />
                                                     <a id="bookButton" class="alignright" ng-href="#">
-                                                        <input type="submit" name="submit" class="btn btn-sm btn-success text-upper marb20" value="Book" />
+                                                        <input type="submit" name="submit" class="btn btn-sm btn-success text-upper marb20" value="Estimate Charge" />
                                                     </a>
                                                 </div>
                                                 </div>
@@ -224,7 +224,6 @@
                                     
                                 </div>
                             </div>
-                        </a>
                         <!-- START #sidebar -->
                         <aside id="sidebar" class="col-md-4">
                             <div class="sidebar-widget">

@@ -263,7 +263,7 @@
                                                                         <div class="panel-body">
                                                                             <div class="col-md-12">
                                                                                 <div>
-                                                                                    <div class="col-md-3" ng-repeat="trans in transport | filter:{ City: tour.tour_location}">
+                                                                                    <div class="col-md-3" ng-repeat="trans in transport">
                                                                                         <a id="addExtraService" style="height:20px" class="btn btn-xs btn-default" data-toggle="tab" ng-click="transID(trans.ID);">Add</a>
                                                                                         <a style="cursor:pointer" data-value="{{trans.ID}}" ng-click="transportModel(trans.ID);">
                                                                                             <div class="ft-item">
@@ -272,12 +272,14 @@
                                                                                               </span>
                                                                                                 <div class="ft-data" style="font-size:11px;">
                                                                                                     <span style="color:black;" class="fa fa-book text-upper">&nbsp;&nbsp;{{trans.Category}}&nbsp;&nbsp;</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                                                                    <!-- <span style="color:black;" class="fa fa-book text-upper" >&nbsp;&nbsp;{{x.Speciality}}</span>&nbsp;&nbsp;&nbsp;&nbsp;
-							  <span style="color:black;" class="fa fa-plane text-upper" >&nbsp;&nbsp;{{x.LanguageKnown}}</span> -->
+                                                                                                    <span style="color:black;" class="fa fa-money text-upper" > &nbsp;&nbsp;{{trans.PricePerHour}} /- Per Hour</span>
+							  <span style="color:black;" class="fa fa-money text-upper" >&nbsp;&nbsp;{{trans.PricePerKM}}/- Per KM</span>
+                                                                                                </div>
+                                                                                                <div class="ft-foot" style="color:white">
+                                                                                                    <span class="ft-offer text-upper">{{trans.OutStationMinKM}} Kms</span>
                                                                                                 </div>
                                                                                                 <div class="ft-foot" style="word-wrap:break-word; ">
-                                                                                                    <h4 class="ft-title text-upper" style="color:#686868">{{trans.City}}</h4>
-                                                                                                    <span class="ft-offer text-upper">{{trans.PriceForDay}}Per Day</span>
+                                                                                                    <span class="ft-offer text-upper">{{trans.OutStationCharge}} /-</span>
                                                                                                 </div>
                                                                                             </div>
                                                                                         </a>
