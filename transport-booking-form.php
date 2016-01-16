@@ -225,7 +225,7 @@
                                                     </div>
 
                                                     <div class="col-md-6" ng-show="{{tourValue}}">
-                                                        <label>Tour Duratios [In Days] <span class="required small">(Required)</span></label>
+                                                        <label>Duration [In Hours] <span class="required small">(Required)</span></label>
                                                         <div class="input-group">
                                                             <span class="input-group-addon" onclick="tourDurationMinus();"></span>
                                                             <input type="text" id="tourDurationT" name="tourDurationT" value="{{tour.tour_duration}}" class="form-control" readonly>

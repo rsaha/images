@@ -162,7 +162,7 @@
                                             <div class="tour-plans">
                                                  <div class="col-md-6">
                                                 <div class="plan-image">
-                                                    <a ng-href="tour_detail_sidebar.php#?id={{data.tour_id}}">
+                                                    <a ng-href="transport-booking-form.php#?id={{data.ID}}">
                                                         <img class="img-responsive" style="width:770px; height:150px;hover:opacity: 0.6;" ng-src="{{data.Media.Image[0] ==null ? 'img/SAMPLE_TAJ.jpg' : data.Media.Image[0]}}" alt="Tranport image" />
                                                     </a>
                                                     <div class="offer-boxNew" style="width: 300px; ">
@@ -210,7 +210,7 @@
                                                 </div>
 --><br>
                                                 <div class="post-desc">
-                                                    <a class="btn btn-primary marb20" ng-href="#">DETAILS</a>
+                                                    <input type="text" class="form-control" name="fromLocation" value="" ng-pattern="/^[a-z A-Z]+$/" />
                                                     <a id="bookButton" class="alignright" ng-href="#">
                                                         <input type="submit" name="submit" class="btn btn-sm btn-success text-upper marb20" value="Book" />
                                                     </a>
