@@ -195,7 +195,7 @@
                                                 <li class="row">
                                                     <div class="col-md-6">
                                                         <label>From Location<span class="required small">(Required)</span></label>
-                                                        <input type="text" class="form-control" name="fromLocation" id="fromLocation" autocomplete="on" ng-model="fromLocation" value="" ng-pattern="/^[a-z A-Z]+$/" />
+                                                        <input type="text" class="form-control" name="fromLocation" id="fromLocation" autocomplete="on" ng-model="fromLocation" value="" ng-pattern="/^[a-z ,A-Z]+$/" />
                                                         <!--
                                                         <span style="color:red" ng-show="bookingForm.yourLocation.$dirty && bookingForm.yourLocation.$invalid">
 											  <span ng-show="bookingForm.yourLocation.$error.required">*Location is required.</span>
@@ -205,7 +205,7 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <label>To Location<span class="required small">(Required)</span></label>
-                                                        <input type="text" class="form-control" name="toLocation" id="toLocation" autocomplete="on" ng-model="toLocation" value="" ng-pattern="/^[a-z A-Z]+$/" onfocusout="GetRoute()" />
+                                                        <input type="text" class="form-control" name="toLocation" id="toLocation" autocomplete="on" ng-model="toLocation" value="" ng-pattern="/^[a-z ,A-Z]+$/" onfocusout="GetRoute()" />
                                                         <!--
                                                         <span style="color:red" ng-show="bookingForm.yourLocation.$dirty && bookingForm.yourLocation.$invalid">
 											  <span ng-show="bookingForm.yourLocation.$error.required">*Location is required.</span>
@@ -237,77 +237,7 @@
                                                 <li class="row">
                                                     <div class="col-md-12">
                                                         <div class="sidebar-widget">
-                                                            <!-- Sidebar What We Do -->
                                                             <div class="panel-group" id="accordion">
-                                                                <div class="panel panel-default">
-                                                                    <div class="panel-heading">
-                                                                        <a class="panel-title collapsed urlUnchange" data-toggle="collapse" href="#collapseOne">
-                                                                    Lodging
-                                                                </a>
-                                                                    </div>
-                                                                    <div id="collapseOne" class="panel-collapse collapse">
-                                                                        <div class="panel-body">
-                                                                            <div class="col-md-12">
-                                                                                <div>
-
-                                                                                    <div class="col-md-3" ng-repeat="lodge in lodging | filter:{ City: tour.tour_location} ">
-                                                                                        <a id="addExtraService" style="height:20px" class="btn btn-xs btn-default" data-toggle="tab" ng-click="lodgeID(lodge.ID);">Add</a>
-                                                                                        <a style="cursor:pointer" data-value="{{lodge.ID}}" ng-click="lodgingModel(lodge.ID);">
-                                                                                            <div class="ft-item">
-                                                                                                <span class="ft-image">
-                                                                                             <img style="" src="{{lodge.Media.Image[0]}}" alt="Top Destination" /> 
-                                                                                          </span>
-                                                                                                <div class="ft-data" style="font-size:11px;">
-                                                                                                    <span style="color:black;" class="fa fa-book text-upper">{{lodge.Address}}</span> &nbsp;&nbsp;&nbsp;&nbsp;
-                                                                                                    <!-- <span style="color:black;" class="fa fa-book text-upper" >&nbsp;&nbsp;{{x.Speciality}}</span>&nbsp;&nbsp;&nbsp;&nbsp;
-                                                                                             <span style="color:black;" class="fa fa-plane text-upper" >&nbsp;&nbsp;{{x.LanguageKnown}}</span> -->
-                                                                                                </div>
-                                                                                                <div class="ft-foot" style="word-wrap:break-word; ">
-                                                                                                    <h4 class="ft-title text-upper" style="color:#686868">{{lodge.City}}</h4>
-                                                                                                    <span class="ft-offer text-upper">{{lodge.PricePerNight}}/Night</span>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </a>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <br>
-                                                                <div class="panel panel-default">
-                                                                    <div class="panel-heading">
-                                                                        <a class="panel-title collapsed urlUnchange" data-toggle="collapse" href="#collapseTwo"> Transport Service</a>
-                                                                    </div>
-                                                                    <div id="collapseTwo" class="panel-collapse collapse">
-                                                                        <div class="panel-body">
-                                                                            <div class="col-md-12">
-                                                                                <div>
-                                                                                    <div class="col-md-3" ng-repeat="trans in transport | filter:{ City: tour.tour_location}">
-                                                                                        <a id="addExtraService" style="height:20px" class="btn btn-xs btn-default" data-toggle="tab" ng-click="transID(trans.ID);">Add</a>
-                                                                                        <a style="cursor:pointer" data-value="{{trans.ID}}" ng-click="transportModel(trans.ID);">
-                                                                                            <div class="ft-item">
-                                                                                                <span class="ft-image">
-                                                                                                 <img style="" src="{{trans.Media.Image[0]}}" alt="Top Destination" /> 
-                                                                                              </span>
-                                                                                                <div class="ft-data" style="font-size:11px;">
-                                                                                                    <span style="color:black;" class="fa fa-book text-upper">&nbsp;&nbsp;{{trans.Category}}&nbsp;&nbsp;</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                                                                    <!-- <span style="color:black;" class="fa fa-book text-upper" >&nbsp;&nbsp;{{x.Speciality}}</span>&nbsp;&nbsp;&nbsp;&nbsp;
-							  <span style="color:black;" class="fa fa-plane text-upper" >&nbsp;&nbsp;{{x.LanguageKnown}}</span> -->
-                                                                                                </div>
-                                                                                                <div class="ft-foot" style="word-wrap:break-word; ">
-                                                                                                    <h4 class="ft-title text-upper" style="color:#686868">{{trans.City}}</h4>
-                                                                                                    <span class="ft-offer text-upper">{{trans.PriceForDay}}Per Day</span>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </a>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <br>
                                                                 <div class=" panel panel-default">
                                                                     <div class="panel-heading">
                                                                         <a class="panel-title collapsed urlUnchange" data-toggle="collapse" href="#collapseThree"> Promo Code <span class="small">(If you have)</span></a>
@@ -330,16 +260,15 @@
                                                 </li>
                                                 <li class="row">
                                                     <div class="col-md-12">
-                                                        <input type="button" class="btn btn-primary btn-md text-upper" ng-click="conformationModal();" ng-disabled="bookingForm.$invalid ||
-										bookingForm.tourist_name.$dirty && bookingForm.tourist_name.$invalid 
-										||bookingForm.tourist_email.$dirty && bookingForm.tourist_email.$invalid	
+                                                        <input type="button" class="btn btn-primary btn-md text-upper" ng-click="conformationModal();" ng-disabled="bookingForm.$invalid
+                                                                            || bookingForm.tourist_name.$dirty && bookingForm.tourist_name.$invalid
+                                                                            ||bookingForm.tourist_email.$dirty && bookingForm.tourist_email.$invalid	
                                                                             ||bookingForm.tourist_mobile.$dirty && bookingForm.tourist_mobile.$invalid						
-                                                                            ||bookingForm.dateOfTour.$dirty && bookingForm.dateOfTour.$invalid ||
-                                                                           bookingForm.tourist_name.$error.required||
-                                                                            bookingForm.tourist_email.$error.required||
-                                                                            bookingForm.tourist_mobile.$error.required ||
-                                                                         bookingForm.dateOfTour.$error.required
-										" id="booknow2" name="booknow2" value="Request to Book" />
+                                                                            ||bookingForm.dateOfTour.$dirty && bookingForm.dateOfTour.$invalid
+                                                                            || bookingForm.tourist_name.$error.required
+                                                                            || bookingForm.tourist_email.$error.required
+                                                                            || bookingForm.tourist_mobile.$error.required
+                                                                            || bookingForm.dateOfTour.$error.required" id="booknow2" name="booknow2" value="Request to Book" />
                                                         <input type="submit" id="booknow" name="booknow" hidden />
                                                         <span class="required small">*Your email will never published.</span>
                                                     </div>
@@ -431,9 +360,10 @@
                                                 </div>
 
                                                 <div style="text-align:justify; padding:10px 10px 10px 10px;">
-                                                    
-                                                    <label>Distance in KM.</label> <div id="dvDistance"></div>
-                                                    
+
+                                                    <label>Distance in KM.</label>
+                                                    <div id="dvDistance"></div>
+
                                                     <div ng-show="{{guideValue}}">
                                                         <input type="hidden" name="guideID" value="{{guide.id}}" />
                                                         <input type="hidden" name="guideName" value="{{guide.name}}" />
@@ -793,6 +723,8 @@
             </div>
         </div>
 
+
+
         <!-- javascripts -->
         <script type="text/javascript" src="js/modernizr.custom.17475.js"></script>
 
@@ -801,84 +733,85 @@
         <script type="text/javascript" src="js/check-radio-box.js"></script>
         <script type="text/javascript" src="js/script.js"></script>
         <script type="text/javascript" src="js/styleswitcher.js"></script>
+       
 
         <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
-    <script type="text/javascript">
-        var source, destination;
-        var directionsDisplay;
-        var directionsService = new google.maps.DirectionsService();
+        <script type="text/javascript">
+            var source, destination;
+            var directionsDisplay;
+            var directionsService = new google.maps.DirectionsService();
 
-    
 
-        google.maps.event.addDomListener(window, 'load', function(){
-            var options = {
-                componentRestrictions: {
-                    country: "in"
-                }
-            };
 
-            var input = document.getElementById('fromLocation');
-            var autocomplete = new google.maps.places.Autocomplete(input, options);
-            
-             var input = document.getElementById('toLocation');
-            var autocomplete = new google.maps.places.Autocomplete(input, options);
+            google.maps.event.addDomListener(window, 'load', function () {
+                var options = {
+                    componentRestrictions: {
+                        country: "in"
+                    }
+                };
 
-            new google.maps.places.SearchBox(autocomplete);
-            new google.maps.places.SearchBox(document.getElementById('fromLocation'));
-            new google.maps.places.SearchBox(document.getElementById('toLocation'));
-            directionsDisplay = new google.maps.DirectionsRenderer({
-                'draggable': false
-            });
-        });
+                var input = document.getElementById('fromLocation');
+                var autocomplete = new google.maps.places.Autocomplete(input, options);
 
-        function GetRoute() {
-            var mumbai = new google.maps.LatLng(18.9750, 72.8258);
-            var mapOptions = {
-                zoom: 7,
-                center: mumbai
-            };
-            //map = new google.maps.Map(document.getElementById('dvMap'), mapOptions);
-            //directionsDisplay.setMap(map);
-            //directionsDisplay.setPanel(document.getElementById('dvPanel'));
+                var input = document.getElementById('toLocation');
+                var autocomplete = new google.maps.places.Autocomplete(input, options);
 
-            //*********DIRECTIONS AND ROUTE**********************//
-            source = document.getElementById("fromLocation").value;
-            destination = document.getElementById("toLocation").value;
-
-            var request = {
-                origin: source,
-                destination: destination,
-                travelMode: google.maps.TravelMode.DRIVING
-            };
-            directionsService.route(request, function (response, status) {
-                if (status == google.maps.DirectionsStatus.OK) {
-                    directionsDisplay.setDirections(response);
-                }
+                new google.maps.places.SearchBox(autocomplete);
+                new google.maps.places.SearchBox(document.getElementById('fromLocation'));
+                new google.maps.places.SearchBox(document.getElementById('toLocation'));
+                directionsDisplay = new google.maps.DirectionsRenderer({
+                    'draggable': false
+                });
             });
 
-            //*********DISTANCE AND DURATION**********************//
-            var service = new google.maps.DistanceMatrixService();
-            service.getDistanceMatrix({
-                origins: [source],
-                destinations: [destination],
-                travelMode: google.maps.TravelMode.DRIVING,
-                unitSystem: google.maps.UnitSystem.METRIC,
-                avoidHighways: false,
-                avoidTolls: false
-            }, function (response, status) {
-                if (status == google.maps.DistanceMatrixStatus.OK && response.rows[0].elements[0].status != "ZERO_RESULTS") {
-                    var distance = response.rows[0].elements[0].distance.text;
-                    var duration = response.rows[0].elements[0].duration.text;
-                    var dvDistance = document.getElementById("dvDistance");
-                    dvDistance.innerHTML = "";
-                    dvDistance.innerHTML += distance;
+            function GetRoute() {
+                var mumbai = new google.maps.LatLng(18.9750, 72.8258);
+                var mapOptions = {
+                    zoom: 7,
+                    center: mumbai
+                };
+                //map = new google.maps.Map(document.getElementById('dvMap'), mapOptions);
+                //directionsDisplay.setMap(map);
+                //directionsDisplay.setPanel(document.getElementById('dvPanel'));
 
-                } else {
-                    alert("Unable to find the distance via road.");
-                }
-            });
-        }
-    </script>
+                //*********DIRECTIONS AND ROUTE**********************//
+                source = document.getElementById("fromLocation").value;
+                destination = document.getElementById("toLocation").value;
+
+                var request = {
+                    origin: source,
+                    destination: destination,
+                    travelMode: google.maps.TravelMode.DRIVING
+                };
+                directionsService.route(request, function (response, status) {
+                    if (status == google.maps.DirectionsStatus.OK) {
+                        directionsDisplay.setDirections(response);
+                    }
+                });
+
+                //*********DISTANCE AND DURATION**********************//
+                var service = new google.maps.DistanceMatrixService();
+                service.getDistanceMatrix({
+                    origins: [source],
+                    destinations: [destination],
+                    travelMode: google.maps.TravelMode.DRIVING,
+                    unitSystem: google.maps.UnitSystem.METRIC,
+                    avoidHighways: false,
+                    avoidTolls: false
+                }, function (response, status) {
+                    if (status == google.maps.DistanceMatrixStatus.OK && response.rows[0].elements[0].status != "ZERO_RESULTS") {
+                        var distance = response.rows[0].elements[0].distance.text;
+                        var duration = response.rows[0].elements[0].duration.text;
+                        var dvDistance = document.getElementById("dvDistance");
+                        dvDistance.innerHTML = "";
+                        dvDistance.innerHTML += distance;
+
+                    } else {
+                        alert("Unable to find the distance via road.");
+                    }
+                });
+            }
+        </script>
 
         <script>
             //            $('#booknow2').click(function (e) {
