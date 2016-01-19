@@ -198,7 +198,9 @@
                                                         </div>
                                                  <div class="offer-bottom">
                                                             <span class="" style="font-size:12px;">Price Per Hour </span>
-                                                            <span class="" style="font-size:18px;color:black; font-weight:700; line-height:1;">&nbsp;<i class="fa fa-rupee" ></i>&nbsp;{{data.PricePerHour}}</span>
+                                                            <span class="" style="font-size:18px;color:black; font-weight:700; line-height:1;">&nbsp;<i class="fa fa-rupee" ></i>&nbsp;{{data.PricePerHour}}&nbsp;</span>
+                                        <span class="" style="font-size:12px;">Price Per KM </span>
+                                                            <span class="" style="font-size:18px;color:black; font-weight:700; line-height:1;">&nbsp;<i class="fa fa-rupee" ></i>&nbsp;{{data.PricePerKM}}&nbsp;</span>
                                                         </div>
 <!--
                                               <div class="featured-btm box-shadow1">
@@ -230,8 +232,8 @@
                                 <!-- Sidebar recent popular posts -->
                                 <!-- START TABS -->
                                 <ul class="nav nav-tabs text-upper">
-                                    <li class="active urlUnchange"><a ng-href="#topguides" data-toggle="tab">Guides</a></li>
-                                    <li class="urlUnchange"><a ng-href="#topdestinations" data-toggle="tab">Places</a></li>
+                                    <li class="active urlUnchange"><a ng-href="#topdestinations" data-toggle="tab">Places</a></li>
+                                    <li class="urlUnchange"><a ng-href="#topguides" data-toggle="tab">Guides</a></li>
                                     <li class="urlUnchange"><a ng-href="#lodging" data-toggle="tab">Lodging</a></li>
                                 </ul>
                                 <!-- END TABS -->
@@ -239,7 +241,7 @@
                                 <!-- START TAB CONTENT -->
                                 <div class="tab-content gray box-shadow1 clearfix marb30">
                                     <!-- START TAB 2 -->
-                                    <div class="tab-pane active" id="topguides" style="height:310px;">
+                                    <div class="tab-pane" id="topguides" style="height:310px;">
                                         <div class="col-md-12">
                                             <ul class="list-unstyled">
                                                 <li ng-repeat="z in guides" ng-show="$index<3">
@@ -261,7 +263,7 @@
                                     <!-- END TAB 2 -->
 
                                     <!-- START TAB 3 -->
-                                    <div class="tab-pane" id="topdestinations" style="height:310px;">
+                                    <div class="tab-pane active" id="topdestinations" style="height:310px;">
                                         <ul class="rc-posts-list list-unstyled">
                                             <li ng-repeat="k in places" ng-show="$index<3">
                                                 <span class="rc-post-image">
