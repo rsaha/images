@@ -8,7 +8,7 @@
 }]);
 
 app.controller('TourCtrl',['$scope','$http', function($scope, $http) {
-    $http.get("http://gg_admin-prod.apigee.net/guidedgateway/tours")
+    $http.get("http://130.211.123.212/app/tours")
     .success(function (response) {
 		$scope.alltours =response.Tours;
 		})

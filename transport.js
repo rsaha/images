@@ -12,7 +12,7 @@
 //    
 //                               debugger;
 //     var tourID = $location.search();
-//    $http.get("http://gg_admin-prod.apigee.net/guidedgateway/tour?tourid="+tourID.id)
+//    $http.get("http://130.211.123.212/app/tour?tourid="+tourID.id)
 //    .success(function (response) {
 //		$scope.tour = response;
 //		
@@ -41,7 +41,7 @@
 //			
 //}]); 
 //    app.controller('placesCtrl',['$scope','$http', function($scope, $http) {
-//    $http.get("http://gg_admin-prod.apigee.net/guidedgateway/places")
+//    $http.get("http://130.211.123.212/app/places")
 //    .success(function (response) {
 //		$scope.places = response.Places;
 //	   
@@ -53,7 +53,7 @@
 //			
 //}]); 
 //app.controller('guideDetailCtrl',['$scope','$http', function($scope, $http) {
-//    $http.get("http://gg_admin-prod.apigee.net/guidedgateway/guide")
+//    $http.get("http://130.211.123.212/app/guide")
 //    .success(function (response) {
 //		$scope.guide = response;
 //		
@@ -75,7 +75,7 @@
     }
 });
 app.controller('transportCrtl',['$scope','$http', function ($scope, $http, $timeout) {
-    $http.get('http://gg_admin-prod.apigee.net/guidedgateway/transport')
+    $http.get('http://130.211.123.212/app/transport')
 	.success(function(data){
         $scope.list = data.Transport;
         $scope.currentPage = 1; //current page
@@ -96,7 +96,7 @@ app.controller('transportCrtl',['$scope','$http', function ($scope, $http, $time
 //        $scope.reverse = !$scope.reverse;
 //    };
     
-      $http.get("http://gg_admin-prod.apigee.net/guidedgateway/guides")
+      $http.get("http://130.211.123.212/app/guides")
     .success(function (response) {
 		$scope.guides = response.Guides;
 	   
@@ -105,7 +105,7 @@ app.controller('transportCrtl',['$scope','$http', function ($scope, $http, $time
 				$scope.data = "error in fetching data";
 			});
     
-    $http.get("http://gg_admin-prod.apigee.net/guidedgateway/places")
+    $http.get("http://130.211.123.212/app/places")
     .success(function (response) {
 		$scope.places = response.Places;
 	   
@@ -113,7 +113,7 @@ app.controller('transportCrtl',['$scope','$http', function ($scope, $http, $time
 	.error(function() {
 				$scope.data = "error in fetching data";
 			});
-		$http.get("http://gg_admin-prod.apigee.net/guidedgateway/lodging")
+		$http.get("http://130.211.123.212/app/lodging")
     .success(function (response) {
 		$scope.lodging = response.Lodging;
 	   
