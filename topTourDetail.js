@@ -26,7 +26,7 @@ app.controller('tourDetailCtrl',['$scope','$http','$location', function($scope, 
     
                                debugger;
      var tourID = $location.search();
-    $http.get("http://130.211.123.212/app/tour?tourid="+tourID.id)
+    $http.get("http://gg_admin-prod.apigee.net/guidedgateway/tour?tourid="+tourID.id)
     .success(function (response) {
 		$scope.tour = response;
 		
@@ -53,7 +53,7 @@ app.controller('tourDetailCtrl',['$scope','$http','$location', function($scope, 
 			alert($scope.latit);
 		}
 		
-       $http.get("http://130.211.123.212/app/tours")
+       $http.get("http://gg_admin-prod.apigee.net/guidedgateway/tours")
     .success(function (response) {
 		$scope.tours = response.Tours;
 	   
@@ -62,7 +62,7 @@ app.controller('tourDetailCtrl',['$scope','$http','$location', function($scope, 
 				$scope.data = "error in fetching data";
 			});  
     
-      $http.get("http://130.211.123.212/app/guides")
+      $http.get("http://gg_admin-prod.apigee.net/guidedgateway/guides")
     .success(function (response) {
 		$scope.guides = response.Guides;
 	   
@@ -72,7 +72,7 @@ app.controller('tourDetailCtrl',['$scope','$http','$location', function($scope, 
 			});
     
     
-     $http.get("http://130.211.123.212/app/lodging")
+     $http.get("http://gg_admin-prod.apigee.net/guidedgateway/lodging")
     .success(function (response) {
 		$scope.lodging = response.Lodging;
 	   
@@ -83,7 +83,7 @@ app.controller('tourDetailCtrl',['$scope','$http','$location', function($scope, 
         
 }]); 
 //    app.controller('placesCtrl',['$scope','$http', function($scope, $http) {
-//    $http.get("http://130.211.123.212/app/places")
+//    $http.get("http://gg_admin-prod.apigee.net/guidedgateway/places")
 //    .success(function (response) {
 //		$scope.places = response.Places;
 //	   
@@ -95,7 +95,7 @@ app.controller('tourDetailCtrl',['$scope','$http','$location', function($scope, 
 //			
 //}]); 
 //app.controller('guideDetailCtrl',['$scope','$http', function($scope, $http) {
-//    $http.get("http://130.211.123.212/app/guide")
+//    $http.get("http://gg_admin-prod.apigee.net/guidedgateway/guide")
 //    .success(function (response) {
 //		$scope.guide = response;
 //		

@@ -198,7 +198,7 @@
                                                         </div>
                                                  <div class="offer-bottom">
                                                             <span class="" style="font-size:12px;">Price Per Hour </span>
-                                                            <span class="" style="font-size:18px;color:black; font-weight:700; line-height:1;">&nbsp;<i class="fa fa-rupee" ></i>&nbsp;{{data.PricePerHour}}&nbsp;Per Hour</span>
+                                                            <span class="" style="font-size:18px;color:black; font-weight:700; line-height:1;">&nbsp;<i class="fa fa-rupee" ></i>&nbsp;{{data.PricePerHour}}</span>
                                                         </div>
 <!--
                                               <div class="featured-btm box-shadow1">
