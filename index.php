@@ -161,7 +161,7 @@
             </ul>
         </div>
 -->
-                                <input type="text" class="form-control" style="background-color:white;" ng-model="search" name="fromLocation" id="fromLocation" autocomplete="on" ng-pattern="/^[a-z ,A-Z]+$/" value="" placeholder="From Location" />
+                                <input type="text" class="form-control" style="background-color:white;" ng-model="search" name="fromLocation" id="fromLocation" autocomplete="on" ng-pattern="/^[a-z ,A-Z]+$/" placeholder="From Location" onfocusout="GetRoute()" />
                             </div>
                             <!--                        second dropdown list starts-->
                             <div class="col-md-4  input-group">
@@ -181,7 +181,7 @@
             </ul>
         </div>
 -->
-                                <input type="text" class="form-control" style="background-color:white;" name="toLocation" id="toLocation" autocomplete="on" ng-pattern="/^[a-z ,A-Z]+$/" value="" placeholder="To Location" />
+                                <input type="text" class="form-control" style="background-color:white;" name="toLocation" id="toLocation" autocomplete="on" ng-pattern="/^[a-z ,A-Z]+$/" value="" placeholder="To Location" onfocusout="GetRoute()" />
                             </div>
 
                             <div class="col-md-2 col-sm-2 col-xs-2  input-group">
@@ -191,7 +191,7 @@
 						<a href="search_results.php"> <i class="fa fa-search"></i></a>
 						</span>
 -->
-                                <button class="btn btn-default btn-md" id="placeMenu"><i class="fa fa-search"></i></button>
+                                <a class="btn btn-default btn-md" id="placeMenu" onclick="redirectToSearch();"><i class="fa fa-search"></i></a>
                             </div>
 
 
@@ -540,7 +540,7 @@
         }
         }
     </script>
-    
+
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
     <script type="text/javascript">
         var source, destination;
@@ -551,6 +551,7 @@
 
         google.maps.event.addDomListener(window, 'load', function () {
             var options = {
+                types: ['(cities)'],
                 componentRestrictions: {
                     country: "in"
                 }
@@ -606,16 +607,25 @@
                 avoidTolls: false
             }, function (response, status) {
                 if (status == google.maps.DistanceMatrixStatus.OK && response.rows[0].elements[0].status != "ZERO_RESULTS") {
-                    var distance = response.rows[0].elements[0].distance.text;
-                    var duration = response.rows[0].elements[0].duration.text;
+                    var distanceKM = response.rows[0].elements[0].distance.text;
+                    var distanceParts = distanceKM.split(" ");
+                    var distance = distanceParts[0];
+                    //                    var duration = response.rows[0].elements[0].duration.text;
                     var dvDistance = document.getElementById("dvDistance");
                     dvDistance.innerHTML = "";
                     dvDistance.innerHTML += distance;
-
                 } else {
                     alert("Unable to find the distance via road.");
                 }
             });
+        }
+    </script>
+    <script>
+        function redirectToSearch() {
+            var toLocationValF = document.getElementById("fromLocation").value;
+            var toLocationValPart = toLocationValF.split(",");
+            var toLocationVal = toLocationValPart[0];
+            window.location.href="search_results.php#?id=" + toLocationVal;
         }
     </script>
 
