@@ -75,7 +75,7 @@
     }
 });
 app.controller('transportCrtl',['$scope','$http', function ($scope, $http, $timeout) {
-    $http.get('http://gg_admin-prod.apigee.net/guidedgateway/transport')
+    $http.get('http://gg_admin-prod.apigee.net/guidedgateway/transports')
 	.success(function(data){
         $scope.list = data.Transport;
         $scope.currentPage = 1; //current page
@@ -113,7 +113,7 @@ app.controller('transportCrtl',['$scope','$http', function ($scope, $http, $time
 	.error(function() {
 				$scope.data = "error in fetching data";
 			});
-		$http.get("http://gg_admin-prod.apigee.net/guidedgateway/lodging")
+		$http.get("http://gg_admin-prod.apigee.net/guidedgateway/lodgings")
     .success(function (response) {
 		$scope.lodging = response.Lodging;
 	   
