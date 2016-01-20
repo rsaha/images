@@ -35,8 +35,6 @@
     <!-- color scheme -->
     <link rel="stylesheet" type="text/css" href="css/colors/color3.css" title="color3" />
 
-    <!--   <script src= "js/angular.min.js"></script>
-        <script src="myDestination.js"></script> -->
     <!-- Google Analytics -->
     <script>
         (function (i, s, o, g, r, a, m) {

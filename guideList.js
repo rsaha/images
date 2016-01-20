@@ -116,7 +116,7 @@ app.controller('customersCrtl',['$scope','$http', function ($scope, $http, $time
     
      $http.get("http://gg_admin-prod.apigee.net/guidedgateway/places")
     .success(function (response) {
-		$scope.allplaces =response.Places;
+		$scope.allplaces =response.entities;
 		})
 	.error(function() {
 				$scope.data = "error in fetching data";
@@ -124,7 +124,7 @@ app.controller('customersCrtl',['$scope','$http', function ($scope, $http, $time
     
      $http.get("http://gg_admin-prod.apigee.net/guidedgateway/lodging")
     .success(function (response) {
-		$scope.lodging = response.Lodging;
+		$scope.lodging = response.entities;
 	   
 		})
 	.error(function() {

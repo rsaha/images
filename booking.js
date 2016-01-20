@@ -49,7 +49,7 @@ app.controller('guides_booking',['$scope','$http','$location', function($scope, 
       $scope.lodgeIDnew=0;
     $http.get("http://gg_admin-prod.apigee.net/guidedgateway/lodging")
     .success(function (response) {
-		$scope.lodging =response.Lodging;
+		$scope.lodging =response.entities;
 		})
 	.error(function() {
 				$scope.data = "error in fetching data";
@@ -63,7 +63,7 @@ app.controller('guides_booking',['$scope','$http','$location', function($scope, 
                          .success(function (response) {
                                  //$scope.transport =response.Transport;
 
-                                 var lodgelist = response.Lodging;
+                                 var lodgelist = response.entities;
                                 // $scope.tourfound = '';
                                  for (var i = 0, len = lodgelist.length; i < len; i++) {
 
@@ -133,7 +133,7 @@ app.controller('guides_booking',['$scope','$http','$location', function($scope, 
     $scope.transIDnew = 0;
                  $http.get("http://gg_admin-prod.apigee.net/guidedgateway/transport")
                      .success(function (response) {
-                         $scope.transport = response.Transport;
+                         $scope.transport = response.entities;
                      })
                      .error(function () {
                          $scope.data = "error in fetching data";
@@ -146,7 +146,7 @@ app.controller('guides_booking',['$scope','$http','$location', function($scope, 
                          .success(function (response) {
                                  //$scope.transport =response.Transport;
 
-                                 var translist = response.Transport;
+                                 var translist = response.entities;
                                 // $scope.tourfound = '';
                                  for (var i = 0, len = translist.length; i < len; i++) {
 
@@ -199,7 +199,7 @@ app.controller('guides_booking',['$scope','$http','$location', function($scope, 
                          .success(function (response) {
                                  //$scope.transport =response.Transport;
 
-                                 var totaltranslist = response.Transport;
+                                 var totaltranslist = response.entities;
                                 
                                  for (var i = 0, len = totaltranslist.length; i < len; i++) {
 

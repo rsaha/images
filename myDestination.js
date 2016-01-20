@@ -29,7 +29,7 @@
 			
 			$http.get("http://gg_admin-prod.apigee.net/guidedgateway/guides?theme=popular")
     .success(function (response) {
-		$scope.allguides =response.Guides;
+		$scope.allguides =response.entities;
 		})
 	.error(function() {
 				$scope.data = "error in fetching data";
@@ -37,7 +37,7 @@
         	
         $http.get("http://gg_admin-prod.apigee.net/guidedgateway/transport")
     .success(function (response) {
-		$scope.transList =response.Transport;
+		$scope.transList =response.entities;
 		})
 	.error(function() {
 				$scope.data = "error in fetching data";
@@ -51,7 +51,7 @@
         
          $http.get("http://gg_admin-prod.apigee.net/guidedgateway/places")
     .success(function (response) {
-		$scope.places = response.Places;
+		$scope.places = response.entities;
 	
 		})
 	.error(function() {

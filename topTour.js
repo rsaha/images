@@ -57,7 +57,7 @@ app.controller('tourDetailCtrl',['$scope','$http','$location', function($scope, 
     app.controller('placesCtrl',['$scope','$http', function($scope, $http) {
     $http.get("http://gg_admin-prod.apigee.net/guidedgateway/places")
     .success(function (response) {
-		$scope.places = response.Places;
+		$scope.places = response.entities;
 	   
 		})
 	.error(function() {
