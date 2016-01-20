@@ -26,9 +26,9 @@ app.controller('tourDetailCtrl',['$scope','$http','$location', function($scope, 
     
                                debugger;
      var tourID = $location.search();
-    $http.get("http://gg_admin-test.apigee.net/guidedgateway/tour?tourid="+tourID.id)
+    $http.get("http://gg_admin-prod.apigee.net/guidedgateway/tour?tourid="+tourID.id)
     .success(function (response) {
-		$scope.tour = response;
+		$scope.tour = response.entities[0];
 		
 		})
 	.error(function() {
@@ -55,7 +55,7 @@ app.controller('tourDetailCtrl',['$scope','$http','$location', function($scope, 
 			
 }]); 
     app.controller('placesCtrl',['$scope','$http', function($scope, $http) {
-    $http.get("http://gg_admin-test.apigee.net/guidedgateway/places")
+    $http.get("http://gg_admin-prod.apigee.net/guidedgateway/places")
     .success(function (response) {
 		$scope.places = response.entities;
 	   
@@ -67,7 +67,7 @@ app.controller('tourDetailCtrl',['$scope','$http','$location', function($scope, 
 			
 }]); 
 //app.controller('guideDetailCtrl',['$scope','$http', function($scope, $http) {
-//    $http.get("http://gg_admin-test.apigee.net/guidedgateway/guide")
+//    $http.get("http://gg_admin-prod.apigee.net/guidedgateway/guide")
 //    .success(function (response) {
 //		$scope.guide = response;
 //		
@@ -89,7 +89,7 @@ app.controller('tourDetailCtrl',['$scope','$http','$location', function($scope, 
     }
 });
 app.controller('customersCrtl',['$scope','$http', function ($scope, $http, $timeout) {
-    $http.get('http://gg_admin-test.apigee.net/guidedgateway/tours')
+    $http.get('http://gg_admin-prod.apigee.net/guidedgateway/tours')
 	.success(function(data){
         $scope.list = data.entities;
         $scope.currentPage = 1; //current page
@@ -110,7 +110,7 @@ app.controller('customersCrtl',['$scope','$http', function ($scope, $http, $time
 //        $scope.reverse = !$scope.reverse;
 //    };
     
-      $http.get("http://gg_admin-test.apigee.net/guidedgateway/guides")
+      $http.get("http://gg_admin-prod.apigee.net/guidedgateway/guides")
     .success(function (response) {
 		$scope.guides = response.entities;
 	   
@@ -119,7 +119,7 @@ app.controller('customersCrtl',['$scope','$http', function ($scope, $http, $time
 				$scope.data = "error in fetching data";
 			});
     
-    $http.get("http://gg_admin-test.apigee.net/guidedgateway/places")
+    $http.get("http://gg_admin-prod.apigee.net/guidedgateway/places")
     .success(function (response) {
 		$scope.places = response.entities;
 	   
@@ -127,7 +127,7 @@ app.controller('customersCrtl',['$scope','$http', function ($scope, $http, $time
 	.error(function() {
 				$scope.data = "error in fetching data";
 			});
-		$http.get("http://gg_admin-test.apigee.net/guidedgateway/lodgings")
+		$http.get("http://gg_admin-prod.apigee.net/guidedgateway/lodgings")
     .success(function (response) {
 		$scope.lodging = response.entities;
 	   

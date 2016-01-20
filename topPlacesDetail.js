@@ -8,7 +8,7 @@
 }]);
 
 app.controller('placesCtrl',['$scope','$http', function($scope, $http) {
-    $http.get("http://gg_admin-test.apigee.net/guidedgateway/places")
+    $http.get("http://gg_admin-prod.apigee.net/guidedgateway/places")
     .success(function (response) {
 		$scope.places = response.entities;
 	   
@@ -19,55 +19,11 @@ app.controller('placesCtrl',['$scope','$http', function($scope, $http) {
 			
 			
 }]); 
-// app.controller('tourCtrl',['$scope','$http', function($scope, $http) {
-//    $http.get("http://gg_admin-test.apigee.net/guidedgateway/tours")
-//    .success(function (response) {
-//		$scope.alltours =response.Tours;
-//		})
-//	.error(function() {
-//				$scope.data = "error in fetching data";
-//			});
-//}]);
-//    app.controller('guidescontrol',['$scope','$http', function($scope, $http) {
-//    $http.get("http://gg_admin-test.apigee.net/guidedgateway/guides")
-//    .success(function (response) {
-//		$scope.guides = response.entities;
-//	   
-//		})
-//	.error(function() {
-//				$scope.data = "error in fetching data";
-//			});
-//			
-//			
-//}]);
-//     app.config(['$routeProvider',function($routeProvider, $locationProvider) {
-//
-//        $routeProvider
-//            .when('/', {
-//                templateUrl : 'partials/index.php',
-//                controller : placeDetailCtrl
-//            })
-//            .when('/toptours', {
-//                templateUrl : 'partials/toptours',
-//                controller : placeDetailCtrl
-//            })
-//            .when('/topguides', {
-//                templateUrl : 'partials/topguides',
-//                controller : placeDetailCtrl
-//            });
-        //      .when('/lodging', {
-        //                templateUrl : 'partials/lodging',
-        //                controller : placeDetailCtrl
-        //            });
-//        // use the HTML5 History API
-//        $locationProvider.html5Mode(true);
-//     }]);
-//    
 app.controller('placeDetailCtrl',['$scope','$http','$location', function($scope, $http,$location) {
     var placeid = $location.search();
-    $http.get("http://gg_admin-test.apigee.net/guidedgateway/place?placeid="+placeid.id3)
+    $http.get("http://gg_admin-prod.apigee.net/guidedgateway/place?placeid="+placeid.id3)
     .success(function (response) {
-		$scope.place = response.entities;
+		$scope.place = response.entities[0];
 		
 		})
 	.error(function() {
@@ -86,7 +42,7 @@ app.controller('placeDetailCtrl',['$scope','$http','$location', function($scope,
 			 return y;
 		}*/
 		
-      $http.get("http://gg_admin-test.apigee.net/guidedgateway/tours")
+      $http.get("http://gg_admin-prod.apigee.net/guidedgateway/tours")
     .success(function (response) {
 		$scope.alltours =response.entities;
 		})
@@ -95,7 +51,7 @@ app.controller('placeDetailCtrl',['$scope','$http','$location', function($scope,
 			});
     
 			
-    $http.get("http://gg_admin-test.apigee.net/guidedgateway/guides")
+    $http.get("http://gg_admin-prod.apigee.net/guidedgateway/guides")
     .success(function (response) {
 		$scope.guides = response.entities;
 	   
@@ -104,7 +60,7 @@ app.controller('placeDetailCtrl',['$scope','$http','$location', function($scope,
 				$scope.data = "error in fetching data";
 			});
     
-     $http.get("http://gg_admin-test.apigee.net/guidedgateway/lodgings")
+     $http.get("http://gg_admin-prod.apigee.net/guidedgateway/lodgings")
     .success(function (response) {
 		$scope.lodging = response.entities;
 	   
@@ -114,31 +70,6 @@ app.controller('placeDetailCtrl',['$scope','$http','$location', function($scope,
 			});
     
 }]); 
-//     app.controller('hotelControl',['$scope','$http', function($scope, $http) {
-//    $http.get("http://gg_admin-test.apigee.net/guidedgateway/lodgings")
-//    .success(function (response) {
-//		$scope.lodging = response.Lodging;
-//	   
-//		})
-//	.error(function() {
-//				$scope.data = "error in fetching data";
-//			});
-//			
-//			
-//}]);
-//    app.controller('AllplaceCtrl',['$scope','$http', function($scope, $http) {
-//    $http.get("http://gg_admin-test.apigee.net/guidedgateway/places")
-//    .success(function (response) {
-//		$scope.places = response.Places;
-//		
-//		})
-//	.error(function() {
-//				$scope.data = "error in fetching data";
-//			});
-//			
-//	
-//			
-//}]); 
 app.directive('starRating', function () {
     return {
         restrict: 'A',

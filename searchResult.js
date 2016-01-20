@@ -25,16 +25,16 @@
         }
     $http.get("http://130.211.123.212/app/tours")
     .success(function (response) {
-		$scope.tours = response.Tours;
+		$scope.tours = response.entities;
 	
 		})
 	.error(function() {
 				$scope.data = "error in fetching data";
 			});
 			
-			$http.get("http://130.211.123.212/app/guides?theme=popular")
+			$http.get("http://130.211.123.212/app/guides")
     .success(function (response) {
-		$scope.allguides =response.Guides;
+		$scope.allguides =response.entities;
 		})
 	.error(function() {
 				$scope.data = "error in fetching data";
@@ -42,7 +42,7 @@
         	
         $http.get("http://130.211.123.212/app/transport")
     .success(function (response) {
-		$scope.transList =response.Transport;
+		$scope.transList =response.entities;
 		})
 	.error(function() {
 				$scope.data = "error in fetching data";
@@ -56,7 +56,7 @@
         
          $http.get("http://130.211.123.212/app/places")
     .success(function (response) {
-		$scope.places = response.Places;
+		$scope.places = response.entities;
 	
 		})
 	.error(function() {
