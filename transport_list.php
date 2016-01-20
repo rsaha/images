@@ -211,11 +211,6 @@
                                                 </div>
 --><br>
                                                 <div class="post-desc">
-        <input type="text" class="form-control" name="fromLocation" id="fromLocation" autocomplete="on" placeholder="From Location" ng-pattern="/^[a-z A-Z]+$/" />
-        <input type="text" class="form-control" name="toLocation" id="toLocation" autocomplete="on" placeholder="To Location" ng-pattern="/^[a-z A-Z]+$/" />
-                                                    <a id="bookButton" class="alignright" ng-href="#">
-                                                        <input type="submit" name="submit" class="btn btn-sm btn-success text-upper marb20" value="Estimate Charge" />
-                                                    </a>
                                                     <div class="row" style="padding:8px 0px 0px 0px">
                                                         <lable class="col-md-12">Get Fair Estimate Between Locaitons:&nbsp;<label type="text" id="lblDistance"></label> K.m.</lable>
                                                         <div class="col-md-5">

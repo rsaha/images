@@ -23,7 +23,7 @@
         $scope.toValue=function(valueto){
             alert(valueto);
         }
-    $http.get("http://130.211.123.212/app/tours")
+    $http.get("http://gg_admin-prod.apigee.net/guidedgateway/tours")
     .success(function (response) {
 		$scope.tours = response.entities;
 	
@@ -32,7 +32,7 @@
 				$scope.data = "error in fetching data";
 			});
 			
-			$http.get("http://130.211.123.212/app/guides")
+			$http.get("http://gg_admin-prod.apigee.net/guidedgateway/guides")
     .success(function (response) {
 		$scope.allguides =response.entities;
 		})
@@ -40,7 +40,7 @@
 				$scope.data = "error in fetching data";
 			});
         	
-        $http.get("http://130.211.123.212/app/transport")
+        $http.get("http://gg_admin-prod.apigee.net/guidedgateway/transport")
     .success(function (response) {
 		$scope.transList =response.entities;
 		})
@@ -54,7 +54,7 @@
 //           alert("hi");
         }
         
-         $http.get("http://130.211.123.212/app/places")
+         $http.get("http://gg_admin-prod.apigee.net/guidedgateway/places")
     .success(function (response) {
 		$scope.places = response.entities;
 	

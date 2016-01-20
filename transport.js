@@ -24,7 +24,7 @@
     var trasportlistModel ;
     app.controller('transportCrtl', ['$scope', '$http', function ($scope, $http, $timeout) {
         
-        $http.get('http://130.211.123.212/app/transport')
+        $http.get('http://gg_admin-prod.apigee.net/guidedgateway/transport')
             .success(function (data) {
                 $scope.list = data.entities;
             
@@ -66,7 +66,7 @@
              $('#transportDetailModal').modal('show');
         }
         
-        $http.get("http://130.211.123.212/app/guides")
+        $http.get("http://gg_admin-prod.apigee.net/guidedgateway/guides")
             .success(function (response) {
                 $scope.guides = response.entities;
 
@@ -75,7 +75,7 @@
                 $scope.data = "error in fetching data";
             });
 
-        $http.get("http://130.211.123.212/app/places")
+        $http.get("http://gg_admin-prod.apigee.net/guidedgateway/places")
             .success(function (response) {
                 $scope.places = response.entities;
 
@@ -83,7 +83,7 @@
             .error(function () {
                 $scope.data = "error in fetching data";
             });
-        $http.get("http://130.211.123.212/app/lodgings")
+        $http.get("http://gg_admin-prod.apigee.net/guidedgateway/lodgings")
             .success(function (response) {
                 $scope.lodging = response.entities;
 
