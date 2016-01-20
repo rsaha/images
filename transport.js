@@ -77,7 +77,7 @@
 app.controller('transportCrtl',['$scope','$http', function ($scope, $http, $timeout) {
     $http.get('http://gg_admin-prod.apigee.net/guidedgateway/transports')
 	.success(function(data){
-        $scope.list = data.Transport;
+        $scope.list = data.entities;
         $scope.currentPage = 1; //current page
         $scope.entryLimit = 6; //max no of items to display in a page
         $scope.filteredItems = $scope.list.length; //Initially for no filter  
@@ -98,7 +98,7 @@ app.controller('transportCrtl',['$scope','$http', function ($scope, $http, $time
     
       $http.get("http://gg_admin-prod.apigee.net/guidedgateway/guides")
     .success(function (response) {
-		$scope.guides = response.Guides;
+		$scope.guides = response.entities;
 	   
 		})
 	.error(function() {
@@ -107,7 +107,7 @@ app.controller('transportCrtl',['$scope','$http', function ($scope, $http, $time
     
     $http.get("http://gg_admin-prod.apigee.net/guidedgateway/places")
     .success(function (response) {
-		$scope.places = response.Places;
+		$scope.places = response.entities;
 	   
 		})
 	.error(function() {
@@ -115,7 +115,7 @@ app.controller('transportCrtl',['$scope','$http', function ($scope, $http, $time
 			});
 		$http.get("http://gg_admin-prod.apigee.net/guidedgateway/lodgings")
     .success(function (response) {
-		$scope.lodging = response.Lodging;
+		$scope.lodging = response.entities;
 	   
 		})
 	.error(function() {

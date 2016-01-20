@@ -35,7 +35,7 @@ app.controller('guideControl',['$scope','$http','$location', function($scope, $h
   
     $http.get("http://gg_admin-prod.apigee.net/guidedgateway/tours")
     .success(function (response) {
-		var tourlist = response.Tours;
+		var tourlist = response.entities;
          $scope.tourfound='';
         for(var i=0,len=tourlist.length;i<len;i++){
             
@@ -62,7 +62,7 @@ app.controller('guideControl',['$scope','$http','$location', function($scope, $h
   
     $http.get("http://gg_admin-prod.apigee.net/guidedgateway/tours")
     .success(function (response) {
-		$scope.alltours = response.Tours;
+		$scope.alltours = response.entities;
 		})
 	.error(function() {
 				$scope.data = "error in fetching data";
@@ -70,7 +70,7 @@ app.controller('guideControl',['$scope','$http','$location', function($scope, $h
 
      $http.get("http://gg_admin-prod.apigee.net/guidedgateway/guides")
     .success(function (response) {
-		$scope.TopGuides=response.Guides;
+		$scope.TopGuides=response.entities;
 		})
 	.error(function() {
 				$scope.data = "error in fetching data";
