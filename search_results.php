@@ -38,7 +38,7 @@
 		title="color3" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	<script src= "js/angular.min.js"></script>
-<script src="myDestination.js"></script>
+<script src="searchResult.js"></script>
 <!-- <script src="myGuideDetail.js"></script> -->
 <!-- Google Analytics -->
 <script>
@@ -110,8 +110,28 @@ ul.rating {
 	<?php 
        include('MasterTopHeader.php'); 
     ?>
+    
+         <div id="">
+
+                <div class="container">
+                    <div class="row">
+                        <section class="col-sm-6">
+                            <h1 class="text-upper"><i class="fa fa-hourglass-end" style="color:black;"></i>&nbsp;&nbsp;Top Search Results</h1>
+                        </section>
+
+                        <!-- breadcrumbs -->
+                        <!--<section class="col-sm-6">
+								<ol class="breadcrumb">
+									<li class="home"><a href="#">Home</a></li>
+									<li><a href="#">Top Tours</a></li>
+								</ol>
+							</section> -->
+                    </div>
+                </div>
+
+            </div>
 			<div>
-                <div class="main-contents col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1" id="searchDiv">
+                <div class="main-contents col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1" style="margin-top:20px;">
 				<form class="" style="background-color:#f1f1f1;">		
 						<div class="row">
 						<br>
@@ -124,10 +144,12 @@ ul.rating {
 						</div>
 						<div class="row">
 						<div class="col-md-7 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1"> <br>
+<!--
 						<label >Duration </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						<label><input class="input-cb"	type="checkbox" name="inc_Tour" checked ng-model="checkboxModel.value1" value=""/> Hours</label>&nbsp;&nbsp;&nbsp;&nbsp;
 						<label><input class="input-cb" type="checkbox" name="inc_Guide" value="1" ng-model="checkboxModel.value2" checked /> Single Day</label>&nbsp;&nbsp;&nbsp;&nbsp;
 						<label><input class="input-cb" type="checkbox"	name="inc_Destination" value="1" ng-model="checkboxModel.value3" checked /> Multi Day</label>&nbsp;&nbsp; 
+-->
 						</div> 
 						</div>
 					
@@ -136,94 +158,13 @@ ul.rating {
 			</div>
 			<!-- START .main-contents --> 
         <div class="main-contents">
-			<div class="container" id="home-page" >
+			<div class="container"  >
                 <div ng-controller="MultipleCtrl">
-               <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+               <br/><br/><br/><br/><br/><br/>
 					<!-- START Search Container --> 
                   
 					<!-- END Search Container -->
-<div class="row">
-				<h2 class="ft-heading text-upper col-md-12" ng-show="checkboxModel.value1"><i class="fa fa-trophy"></i>&nbsp;&nbsp; Popular Tours<span class="alignright"> <a class="btn btn-primary" href="top-tours-listview-sidebar.php"><span style="">More&nbsp;<i class="fa fa-angle-double-right"></i></span></a></span></h2>
-</div>
-					<div class="carousel" ng-show="checkboxModel.value1"> 
-					  <ul class="slides">
-					  <li > 
-					   
-					 <div class="row bom-contents"  style="height:380px;"> 
-						<div class="col-md-11" >
-					 <div class="col-md-3" ng-repeat="x in tours | filter:search" ng-show="$index<4"> 
-							<a href="tour_detail_sidebar.php#?id={{x.tour_id}}">
-							<div class="ft-item"> 
-							<span class="ft-image">
-                                <img style="height:200px;" src="{{x.photo ==null ? 'img/SAMPLE_TAJ.jpg' : x.photo[0]}}"   alt="Popular Tours" /> </span> 
-							   <div class="ft-data" style="height:45px;font-size:11px;" >
-							     <span  style="color:black;" class="text-upper fa fa-tag" href="#">{{x.tour_category}}</span>
-								   <span style="color:black;" class="fa aligncenter wrapword">{{x.tour_title}}</span>
-								   <span style="color:black;" class="fa text-upper wrapword"><i  style="color:black;" class="fa text-upper" ></i>{{x.tour_Location}}</span>
-							   </div> 
-								<div class="ft-foot"> <h4 class="ft-title text-upper" style="color:#686868">{{x.Guide}}</h4> 
-								<span class="ft-offer text-upper">Starting&nbsp;&nbsp;{{x.tour_price}}</span> 
-								</div>
-								<div class="ft-foot-ex" > 
-								<span class="fa fa-hourglass text-upper alignleft">{{x.tour_duration}}&nbsp;&nbsp;</span>
-								<span star-rating rating-value="x.Reviews.OverallRating" style="margin-left:20px;" class="" ></span>	
-<span class="alignright">{{x.Reviews.ReviewCount}} reviews</span> 								
-								
-								</div> 							
-							</div>
-							</a>
-					 </div> 
-					 </div>
-					 <div class="col-md-1 alignright" style="padding-top:265px; padding-right:20px;">
-					<!-- <a class="btn btn-primary" href="top-tours-listview-sidebar.php"><span style="font-weight:bold;">More >></span></a> -->
-					 </div>
-					 </div>
-						</li>
-						</ul> 
-						
-				</div>
-    <div class="row">           
-          <h2 class="ft-heading text-upper col-md-12" ng-show="checkboxModel.value2"><i class="fa fa-user-secret"></i>&nbsp;&nbsp; Featured Guides<span class="alignright"> <a class="btn btn-primary" href="top-guides-listview.php"><span style="font-weight:bold;">More&nbsp;<i class="fa fa-angle-double-right"></i></span></a></span></h2>
-</div>               
-			   <div class="carousel" ng-show="checkboxModel.value2"> 
-				<ul class="slides">
-				<li> 
-				<div class="row bom-contents"  style="height:380px;">
-				<div class="col-md-11 col-xs-11">
-				<div class="col-md-3" ng-repeat="y in allguides | filter:search"  ng-show="$index<4 "> 
-				   <a href="guide-detail-sidebar.php#?id2={{y.id}}" ng-controller="guideIDCtrl" ng-click="setID(y.id)">
-				      <div	class="ft-item"> 
-						  <span class="ft-image">
-							 <img style="height:200px;" src="{{y.photo==null ? 'img/new_user.png' :y.photo}}" alt="Top Guide" /> 
-						  </span>
-					  
-				<div class="ft-data" style="height:45px;font-size:11px;">
-							   <span style="color:black;" class="fa fa-registered text-upper" >{{y.license_no}}</span>
-							  <span style="color:black;" class="fa fa-user-times text-upper alignright" >{{y.experiance_in_year}}</span><br>
-								</div> 
-					
-							<div class="ft-foot" style="word-wrap:break-word; height:50px;">
-							<h4 class="fa fa-location text-upper" style="color:#686868">{{y.name}},&nbsp{{y.guide_territory[0]}}</h4> 
-							</div> 
-					
-							<div class="ft-foot-ex"> 
-								<span class="fa fa-trophy text-upper alignleft">{{y.tour.length}} Tours</span>
-								<span star-rating rating-value="y.Review.Star" style="margin-left:20px;" class="aligncenter"></span>
-								<span class="alignright">{{y.review.Count}} reviews</span> 							
-							</div> 
-					</div>
-					</a>
-					 </div>
-					 </div>
-					 <div class="col-md-1 alignright" style="padding-top:265px;padding-right:20px;">
-					<!-- <a class="btn btn-primary" href="top-tours-listview-sidebar.php"><span style="font-weight:bold;">More >></span></a>-->
-					 </div>
-				</div>
-				
-				</li> 
-				</ul>
-				</div>
-			<div class="row">	
+<div class="row" style="margin-top:20px;">	
 				<h2 class="ft-heading text-upper col-md-12" ng-show="checkboxModel.value3"><i class="fa fa-leaf"></i>&nbsp;&nbsp;Top Destinations<span class="alignright"> <a class="btn btn-primary" href="top-destinations-listview-sidebar.php"><span>More&nbsp;<i class="fa fa-angle-double-right"></i></span></a></span></h2>
                </div>
 			   <div class="carousel" ng-show="checkboxModel.value3"> 
@@ -231,7 +172,7 @@ ul.rating {
 				<li> 
 				<div class="row bom-contents"  style="height:380px;">
 				<div class="col-md-11">
-				<div class="col-md-3" ng-repeat="z in places | filter:search" ng-show="$index<4"> 
+				<div class="col-md-3" ng-repeat="z in places | filter:searchID" ng-show="$index<4"> 
 				   <a href="destination-detail-sidebar.php#?id3={{z.ID}}">
 				      <div	class="ft-item"> 
 						  <span class="ft-image">
@@ -264,6 +205,90 @@ ul.rating {
 				</li> 
 				</ul>
 				</div>
+    <div class="row">           
+          <h2 class="ft-heading text-upper col-md-12" ng-show="checkboxModel.value2"><i class="fa fa-user-secret"></i>&nbsp;&nbsp; Featured Guides<span class="alignright"> <a class="btn btn-primary" href="top-guides-listview.php"><span style="font-weight:bold;">More&nbsp;<i class="fa fa-angle-double-right"></i></span></a></span></h2>
+</div>               
+			   <div class="carousel" ng-show="checkboxModel.value2"> 
+				<ul class="slides">
+				<li> 
+				<div class="row bom-contents"  style="height:380px;">
+				<div class="col-md-11 col-xs-11">
+				<div class="col-md-3" ng-repeat="y in allguides | filter:searchID"  ng-show="$index<4 "> 
+				   <a href="guide-detail-sidebar.php#?id2={{y.id}}" ng-controller="guideIDCtrl" ng-click="setID(y.id)">
+				      <div	class="ft-item"> 
+						  <span class="ft-image">
+							 <img style="height:200px;" src="{{y.photo==null ? 'img/new_user.png' :y.photo}}" alt="Top Guide" /> 
+						  </span>
+					  
+				<div class="ft-data" style="height:45px;font-size:11px;">
+							   <span style="color:black;" class="fa fa-registered text-upper" >{{y.license_no}}</span>
+							  <span style="color:black;" class="fa fa-user-times text-upper alignright" >{{y.experiance_in_year}}</span><br>
+								</div> 
+					
+							<div class="ft-foot" style="word-wrap:break-word; height:50px;">
+							<h4 class="fa fa-location text-upper" style="color:#686868">{{y.name}},&nbsp{{y.guide_territory[0]}}</h4> 
+							</div> 
+					
+							<div class="ft-foot-ex"> 
+								<span class="fa fa-trophy text-upper alignleft">{{y.tour.length}} Tours</span>
+								<span star-rating rating-value="y.Review.Star" style="margin-left:20px;" class="aligncenter"></span>
+								<span class="alignright">{{y.review.Count}} reviews</span> 							
+							</div> 
+					</div>
+					</a>
+					 </div>
+					 </div>
+					 <div class="col-md-1 alignright" style="padding-top:265px;padding-right:20px;">
+					<!-- <a class="btn btn-primary" href="top-tours-listview-sidebar.php"><span style="font-weight:bold;">More >></span></a>-->
+					 </div>
+				</div>
+				
+				</li> 
+				</ul>
+				</div>
+			
+<!--                    -->
+                    <div class="row">
+				<h2 class="ft-heading text-upper col-md-12" ng-show="checkboxModel.value1"><i class="fa fa-trophy"></i>&nbsp;&nbsp; Popular Tours<span class="alignright"> <a class="btn btn-primary" href="top-tours-listview-sidebar.php"><span style="">More&nbsp;<i class="fa fa-angle-double-right"></i></span></a></span></h2>
+</div>
+					<div class="carousel" ng-show="checkboxModel.value1"> 
+					  <ul class="slides">
+					  <li > 
+					   
+					 <div class="row bom-contents"  style="height:380px;"> 
+						<div class="col-md-11" >
+					 <div class="col-md-3" ng-repeat="x in tours | filter:searchID" ng-show="$index<4"> 
+							<a href="tour_detail_sidebar.php#?id={{x.tour_id}}">
+							<div class="ft-item"> 
+							<span class="ft-image">
+                                <img style="height:200px;" src="{{x.photo ==null ? 'img/SAMPLE_TAJ.jpg' : x.photo[0]}}"   alt="Popular Tours" /> </span> 
+							   <div class="ft-data" style="height:45px;font-size:11px;" >
+							     <span  style="color:black;" class="text-upper fa fa-tag" href="#">{{x.tour_category}}</span>
+								   <span style="color:black;" class="fa aligncenter wrapword">{{x.tour_title}}</span>
+								   <span style="color:black;" class="fa text-upper wrapword"><i  style="color:black;" class="fa text-upper" ></i>{{x.tour_Location}}</span>
+							   </div> 
+								<div class="ft-foot"> <h4 class="ft-title text-upper" style="color:#686868">{{x.Guide}}</h4> 
+								<span class="ft-offer text-upper">Starting&nbsp;&nbsp;{{x.tour_price}}</span> 
+								</div>
+								<div class="ft-foot-ex" > 
+								<span class="fa fa-hourglass text-upper alignleft">{{x.tour_duration}}&nbsp;&nbsp;</span>
+								<span star-rating rating-value="x.Reviews.OverallRating" style="margin-left:20px;" class="" ></span>	
+<span class="alignright">{{x.Reviews.ReviewCount}} reviews</span> 								
+								
+								</div> 							
+							</div>
+							</a>
+					 </div> 
+					 </div>
+					 <div class="col-md-1 alignright" style="padding-top:265px; padding-right:20px;">
+					<!-- <a class="btn btn-primary" href="top-tours-listview-sidebar.php"><span style="font-weight:bold;">More >></span></a> -->
+					 </div>
+					 </div>
+						</li>
+						</ul> 
+						
+				</div>
+                    
             </div>
 				</div>
 				</div> <!-- END .main-contents --><br>

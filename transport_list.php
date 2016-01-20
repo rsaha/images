@@ -115,7 +115,7 @@
 
 <!-- START body -->
 
-<body ng-app="topTours">
+<body ng-app="topTours"  ng-controller="transportCrtl">
     <!-- START #wrapper -->
     <div id="wrapper">
         <!-- START header -->
@@ -149,7 +149,7 @@
             <!-- END #page-header -->
 
             <!-- START .main-contents -->
-            <div class="main-contents" ng-controller="transportCrtl">
+            <div class="main-contents">
                 <div class="container">
 
                     <div class="row">
@@ -215,7 +215,7 @@
 -->
                                                     </a>
                                                     <div class="row" style="padding:8px 0px 0px 0px">
-                                                        <lable class="col-md-12">Get Fair Estimate Between Locaitons:</lable>
+                                                        <lable class="col-md-12">Get Fair Estimate Between Locaitons:&nbsp;<label type="text" id="lblDistance"></label> K.m.</lable>
                                                         <div class="col-md-5">
                                                             <input name="fromLocation" id="fromLocation" autocomplete="on" ng-pattern="/^[a-z ,A-Z]+$/" value="" type="text" class="form-control" style="height:30px" placeholder="Source">
                                                         </div>
@@ -223,7 +223,7 @@
                                                             <input name="toLocation" id="toLocation" autocomplete="on" ng-pattern="/^[a-z ,A-Z]+$/" value="" type="text" class="form-control" style="height:30px" placeholder="Destination" onfocusout="GetRoute()">
                                                         </div>
                                                         <div class=" col-md-2 ">
-                                                            <a class="btn btn-primary" onclick="transportDetailModalShow()" style="height:30px "><i class="fa fa-lg fa-caret-right "></i></a>
+                                                            <a class="btn btn-primary" ng-click="transportDetailModalShow(data.ID);" style="height:30px "><i class="fa fa-lg fa-caret-right "></i></a>
                                                         </div>
                                                         <!--
                                                             <a class="btn btn-primary marb20 " ng-href="# ">DETAILS</a>
@@ -351,22 +351,24 @@
                 <div class="modal-body" style="padding:20px 50px 0px;">
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="pricing-tables pricing-tables-1 sidebar-widget">
-                                <!-- Sidebar Categories -->
-                                <div class="row">
-<!--
-                                    <div class="col-md-4">
-                                                                                <img class="img-responsive" src="{{transIDSelected.Media.Image[0]}}" alt="Transport" />
+                              <div class="sidebar-widget">
+                                     
+                                    <div class="row">
+                                        <div class="col-md-4"><img class="img-responsive" src="{{trasportlist.Media.Image[0]}}" alt="Lodge" /></div>
+                                        <div class="col-md-6">
+                                            <h4 class="text-upper">{{trasportlist.Description}}</h4> 
+                                        <h6 class="text-upper">Distance  <label type="text" id="lblDistance"></label></h6> </div>
                                     </div>
--->
-                                    <div class="col-md-12">
-                                        <h4 class="text-upper">Estimated distance (in KM.) and Fair Charges</h4> </div>
+                                    <br>
+                                    <ul class=" list-unstyled">
+                                        
+                                         <li>From LocationName <span style="color:black;" class="pull-right">XYZ</span></li>
+                                         <li>To LocationName<span style="color:black;" class="pull-right">PQR</span></li>
+                                        <li>Price Per KM <span style="color:black;" class="pull-right">{{trasportlist.PricePerKM}}</span></li>
+                                        <li>Price Per Hour<span style="color:black;"  class="pull-right"> {{trasportlist.PricePerHour}}</span></li>
+                                      <li>Estimated Price({{lenghtInKM}}*{{trasportlist.PricePerHour}}) <span style="color:black;"  class="pull-right"> {{trasportlist.PricePerHour}}*40</span></li>
+                                    </ul>
                                 </div>
-                                <br>
-                                <ul class="cats-list list-unstyled">
-                                    Distance : <lable id="dvDistance" name="dvDistance"></lable>
-                                </ul>
-                            </lable>
                         </div>
                     </div>
                 </div>
@@ -383,11 +385,13 @@
     <script type="text/javascript " src="bs3/js/bootstrap.min.js "></script>
     <script type="text/javascript " src="js/script.js "></script>
 
+<!--
     <script>
         function transportDetailModalShow() {
             $('#transportDetailModal').modal('show');
         }
     </script>
+-->
 
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
     <script type="text/javascript">
@@ -454,12 +458,11 @@
                 avoidTolls: false
             }, function (response, status) {
                 if (status == google.maps.DistanceMatrixStatus.OK && response.rows[0].elements[0].status != "ZERO_RESULTS") {
-                    var distance = response.rows[0].elements[0].distance.text;
-//                    var duration = response.rows[0].elements[0].duration.text;
-                    var dvDistance = document.getElementById("dvDistance");
-                    dvDistance.innerHTML = "";
-                    dvDistance.innerHTML += distance;
-//                    alert(distance);
+                    var distanceKM = response.rows[0].elements[0].distance.text;
+                    var distanceParts = distanceKM.split(" ");
+                    var distance = distanceParts[0];
+                    document.getElementById("lblDistance").innerHTML = distance;
+
                 } else {
                     alert("Unable to find the distance via road.");
                 }
