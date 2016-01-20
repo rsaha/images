@@ -72,7 +72,7 @@ app.controller('tourDetailCtrl',['$scope','$http','$location', function($scope, 
 			});
     
     
-     $http.get("http://gg_admin-prod.apigee.net/guidedgateway/lodging")
+     $http.get("http://gg_admin-prod.apigee.net/guidedgateway/lodgings")
     .success(function (response) {
 		$scope.lodging = response.entities;
 	   

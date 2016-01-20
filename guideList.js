@@ -35,7 +35,7 @@
 //			});
 //}]);
 //     app.controller('hotelControl',['$scope','$http', function($scope, $http) {
-//    $http.get("http://gg_admin-prod.apigee.net/guidedgateway/lodging")
+//    $http.get("http://gg_admin-prod.apigee.net/guidedgateway/lodgings")
 //    .success(function (response) {
 //		$scope.lodging = response.Lodging;
 //	   
@@ -122,7 +122,7 @@ app.controller('customersCrtl',['$scope','$http', function ($scope, $http, $time
 				$scope.data = "error in fetching data";
 			});
     
-     $http.get("http://gg_admin-prod.apigee.net/guidedgateway/lodging")
+     $http.get("http://gg_admin-prod.apigee.net/guidedgateway/lodgings")
     .success(function (response) {
 		$scope.lodging = response.entities;
 	   

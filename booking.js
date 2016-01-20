@@ -47,7 +47,7 @@ app.controller('guides_booking',['$scope','$http','$location', function($scope, 
     $scope.priceTotal= $scope.tourPrice+$scope.lodgingPrice+ $scope.transportPrice;
     
       $scope.lodgeIDnew=0;
-    $http.get("http://gg_admin-prod.apigee.net/guidedgateway/lodging")
+    $http.get("http://gg_admin-prod.apigee.net/guidedgateway/lodgings")
     .success(function (response) {
 		$scope.lodging =response.entities;
 		})
@@ -59,7 +59,7 @@ app.controller('guides_booking',['$scope','$http','$location', function($scope, 
    
                    //  alert(lodgeID);
 
-                     $http.get("http://gg_admin-prod.apigee.net/guidedgateway/lodging")
+                     $http.get("http://gg_admin-prod.apigee.net/guidedgateway/lodgings")
                          .success(function (response) {
                                  //$scope.transport =response.Transport;
 
@@ -105,7 +105,7 @@ app.controller('guides_booking',['$scope','$http','$location', function($scope, 
      // $scope.lodgeIsVisible=1;
     // alert(lodgeSelected);
       
-        $http.get("http://gg_admin-prod.apigee.net/guidedgateway/lodging")
+        $http.get("http://gg_admin-prod.apigee.net/guidedgateway/lodgings")
                          .success(function (response) {
                                  //$scope.transport =response.Transport;
 
@@ -131,7 +131,7 @@ app.controller('guides_booking',['$scope','$http','$location', function($scope, 
   }
    
     $scope.transIDnew = 0;
-                 $http.get("http://gg_admin-prod.apigee.net/guidedgateway/transport")
+                 $http.get("http://gg_admin-prod.apigee.net/guidedgateway/transports")
                      .success(function (response) {
                          $scope.transport = response.entities;
                      })
@@ -142,7 +142,7 @@ app.controller('guides_booking',['$scope','$http','$location', function($scope, 
                  $scope.transID = function (transID) {
                     // alert(transID);
 
-                     $http.get("http://gg_admin-prod.apigee.net/guidedgateway/transport")
+                     $http.get("http://gg_admin-prod.apigee.net/guidedgateway/transports")
                          .success(function (response) {
                                  //$scope.transport =response.Transport;
 
@@ -195,7 +195,7 @@ app.controller('guides_booking',['$scope','$http','$location', function($scope, 
 		}
         
          $scope.transportModel=function(transSelected){
-               $http.get("http://gg_admin-prod.apigee.net/guidedgateway/transport")
+               $http.get("http://gg_admin-prod.apigee.net/guidedgateway/transports")
                          .success(function (response) {
                                  //$scope.transport =response.Transport;
 

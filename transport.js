@@ -75,7 +75,7 @@
     }
 });
 app.controller('transportCrtl',['$scope','$http', function ($scope, $http, $timeout) {
-    $http.get('http://gg_admin-prod.apigee.net/guidedgateway/transport')
+    $http.get('http://gg_admin-prod.apigee.net/guidedgateway/transports')
 	.success(function(data){
         $scope.list = data.entities;
         $scope.currentPage = 1; //current page

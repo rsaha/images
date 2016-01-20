@@ -35,7 +35,7 @@
 				$scope.data = "error in fetching data";
 			});
         	
-        $http.get("http://gg_admin-prod.apigee.net/guidedgateway/transport")
+        $http.get("http://gg_admin-prod.apigee.net/guidedgateway/transports")
     .success(function (response) {
 		$scope.transList =response.entities;
 		})
