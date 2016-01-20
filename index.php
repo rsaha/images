@@ -53,7 +53,6 @@
     <script src="js/angular.min.js"></script>
     <script src="js/ideal-image-slider.js"></script>
     <script src="myDestination.js"></script>
-    <!-- <script src="myGuideDetail.js"></script> -->
     <!-- Google Analytics -->
     <script>
         (function (i, s, o, g, r, a, m) {

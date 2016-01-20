@@ -27,7 +27,7 @@
 				$scope.data = "error in fetching data";
 			});
 			
-			$http.get("http://gg_admin-prod.apigee.net/guidedgateway/guides?theme=popular")
+			$http.get("http://gg_admin-prod.apigee.net/guidedgateway/guides")
     .success(function (response) {
 		$scope.allguides =response.entities;
 		})

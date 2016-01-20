@@ -67,7 +67,7 @@ app.controller('placeDetailCtrl',['$scope','$http','$location', function($scope,
     var placeid = $location.search();
     $http.get("http://gg_admin-prod.apigee.net/guidedgateway/place?placeid="+placeid.id3)
     .success(function (response) {
-		$scope.place = response;
+		$scope.place = response.entities;
 		
 		})
 	.error(function() {
