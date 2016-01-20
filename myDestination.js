@@ -20,7 +20,7 @@
         
     $http.get("http://gg_admin-prod.apigee.net/guidedgateway/tours")
     .success(function (response) {
-		$scope.tours = response.Tours;
+		$scope.tours = response.entities;
 	
 		})
 	.error(function() {

@@ -10,7 +10,7 @@
 app.controller('TourCtrl',['$scope','$http', function($scope, $http) {
     $http.get("http://gg_admin-prod.apigee.net/guidedgateway/tours")
     .success(function (response) {
-		$scope.alltours =response.Tours;
+		$scope.alltours =response.entities;
 		})
 	.error(function() {
 				$scope.data = "error in fetching data";

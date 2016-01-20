@@ -9,7 +9,7 @@
 app.controller('guideCtrl',['$scope','$http', function($scope, $http) {
     $http.get("http://gg_admin-prod.apigee.net/guidedgateway/guides")
     .success(function (response) {
-		$scope.allguides =response.guides;
+		$scope.allguides =response.entities;
 		})
 	.error(function() {
 				$scope.data = "error in fetching data";

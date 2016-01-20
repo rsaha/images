@@ -17,14 +17,14 @@ app.controller('guides_booking',['$scope','$http','$location', function($scope, 
      debugger;
     $http.get("http://gg_admin-prod.apigee.net/guidedgateway/guides")
     .success(function (response) {
-		$scope.guidesbook =response.Guides;
+		$scope.guidesbook =response.entities;
 		})
 	.error(function() {
 				$scope.data = "error in fetching data";
 			});
     $http.get("http://gg_admin-prod.apigee.net/guidedgateway/tours")
     .success(function (response) {
-		$scope.toursbook = response.Tours;
+		$scope.toursbook = response.entities;
 	
 		})
 	.error(function() {
