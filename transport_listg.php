@@ -115,7 +115,7 @@
 
 <!-- START body -->
 
-<body ng-app="topTours"  ng-controller="transportCrtl">
+<body ng-app="topTours">
     <!-- START #wrapper -->
     <div id="wrapper">
         <!-- START header -->
@@ -149,7 +149,7 @@
             <!-- END #page-header -->
 
             <!-- START .main-contents -->
-            <div class="main-contents">
+            <div class="main-contents" ng-controller="transportCrtl">
                 <div class="container">
 
                     <div class="row">
@@ -198,9 +198,7 @@
                                                         </div>
                                                  <div class="offer-bottom">
                                                             <span class="" style="font-size:12px;">Price Per Hour </span>
-                                                            <span class="" style="font-size:18px;color:black; font-weight:700; line-height:1;">&nbsp;<i class="fa fa-rupee" ></i>&nbsp;{{data.PricePerHour}}&nbsp;</span>
-                                        <span class="" style="font-size:12px;">Price Per KM </span>
-                                                            <span class="" style="font-size:18px;color:black; font-weight:700; line-height:1;">&nbsp;<i class="fa fa-rupee" ></i>&nbsp;{{data.PricePerKM}}&nbsp;</span>
+                                                            <span class="" style="font-size:18px;color:black; font-weight:700; line-height:1;">&nbsp;<i class="fa fa-rupee" ></i>&nbsp;{{data.PricePerHour}}&nbsp;Per Hour</span>
                                                         </div>
 <!--
                                               <div class="featured-btm box-shadow1">
@@ -216,24 +214,6 @@
                                                     <a id="bookButton" class="alignright" ng-href="#">
                                                         <input type="submit" name="submit" class="btn btn-sm btn-success text-upper marb20" value="Estimate Charge" />
                                                     </a>
-                                                    <div class="row" style="padding:8px 0px 0px 0px">
-                                                        <lable class="col-md-12">Get Fair Estimate Between Locaitons:&nbsp;<label type="text" id="lblDistance"></label> K.m.</lable>
-                                                        <div class="col-md-5">
-                                                            <input name="fromLocation" id="fromLocation" autocomplete="on" ng-pattern="/^[a-z ,A-Z]+$/" value="" type="text" class="form-control" style="height:30px" placeholder="Source">
-                                                        </div>
-                                                        <div class="col-md-5">
-                                                            <input name="toLocation" id="toLocation" autocomplete="on" ng-pattern="/^[a-z ,A-Z]+$/" value="" type="text" class="form-control" style="height:30px" placeholder="Destination" onfocusout="GetRoute()">
-                                                        </div>
-                                                        <div class=" col-md-2 ">
-                                                            <a class="btn btn-primary" ng-click="transportDetailModalShow(data.ID);" style="height:30px "><i class="fa fa-lg fa-caret-right "></i></a>
-                                                        </div>
-                                                        <!--
-                                                            <a class="btn btn-primary marb20 " ng-href="# ">DETAILS</a>
-                                                            <a id="bookButton " class="alignright " ng-href="# ">
-                                                                <input type="submit " name="submit " class="btn btn-sm btn-success text-upper marb20 " value="Book " />
-                                                            </a>
--->
-                                                    </div>
                                                 </div>
                                                 </div>
                                                  </div>
@@ -250,8 +230,8 @@
                                 <!-- Sidebar recent popular posts -->
                                 <!-- START TABS -->
                                 <ul class="nav nav-tabs text-upper">
-                                    <li class="active urlUnchange"><a ng-href="#topdestinations" data-toggle="tab">Places</a></li>
-                                    <li class="urlUnchange"><a ng-href="#topguides" data-toggle="tab">Guides</a></li>
+                                    <li class="active urlUnchange"><a ng-href="#topguides" data-toggle="tab">Guides</a></li>
+                                    <li class="urlUnchange"><a ng-href="#topdestinations" data-toggle="tab">Places</a></li>
                                     <li class="urlUnchange"><a ng-href="#lodging" data-toggle="tab">Lodging</a></li>
                                 </ul>
                                 <!-- END TABS -->
@@ -259,7 +239,7 @@
                                 <!-- START TAB CONTENT -->
                                 <div class="tab-content gray box-shadow1 clearfix marb30">
                                     <!-- START TAB 2 -->
-                                    <div class="tab-pane" id="topguides" style="height:310px;">
+                                    <div class="tab-pane active" id="topguides" style="height:310px;">
                                         <div class="col-md-12">
                                             <ul class="list-unstyled">
                                                 <li ng-repeat="z in guides" ng-show="$index<3">
@@ -281,7 +261,7 @@
                                     <!-- END TAB 2 -->
 
                                     <!-- START TAB 3 -->
-                                    <div class="tab-pane active" id="topdestinations" style="height:310px;">
+                                    <div class="tab-pane" id="topdestinations" style="height:310px;">
                                         <ul class="rc-posts-list list-unstyled">
                                             <li ng-repeat="k in places" ng-show="$index<3">
                                                 <span class="rc-post-image">
@@ -338,136 +318,13 @@
     </div>
     <!-- END #wrapper -->
 
-    <div class="modal fade" id="transportDetailModal" role="dialog" aria-labelledby="transportDetailModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <input type="hidden" id="lodgingID" name="lodgingID" value="" />
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header" style="padding:20px 50px; background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;">
-                    <button type="button" class="close" style="background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;" data-dismiss="modal">&times;</button>
-                    <h4 style="background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;"><span class="glyphicon glyphicon-lock"></span>Transport Services</h4>
-                </div>
-                <div class="modal-body" style="padding:20px 50px 0px;">
-                    <div class="row">
-                        <div class="col-md-12">
-                              <div class="sidebar-widget">
-                                     
-                                    <div class="row">
-                                        <div class="col-md-4"><img class="img-responsive" src="{{trasportlist.Media.Image[0]}}" alt="Lodge" /></div>
-                                        <div class="col-md-6">
-                                            <h4 class="text-upper">{{trasportlist.Description}}</h4> 
-                                        <h6 class="text-upper">Distance  <label type="text" id="lblDistance"></label></h6> </div>
-                                    </div>
-                                    <br>
-                                    <ul class=" list-unstyled">
-                                        
-                                         <li>From LocationName <span style="color:black;" class="pull-right">XYZ</span></li>
-                                         <li>To LocationName<span style="color:black;" class="pull-right">PQR</span></li>
-                                        <li>Price Per KM <span style="color:black;" class="pull-right">{{trasportlist.PricePerKM}}</span></li>
-                                        <li>Price Per Hour<span style="color:black;"  class="pull-right"> {{trasportlist.PricePerHour}}</span></li>
-                                      <li>Estimated Price({{lenghtInKM}}*{{trasportlist.PricePerHour}}) <span style="color:black;"  class="pull-right"> {{trasportlist.PricePerHour}}*40</span></li>
-                                    </ul>
-                                </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer" style="background-color: #f9f9f9;">
-                    <button type="submit" style="background-color:#ff845e" class="btn btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
-                </div>
-            </div>
-        </div>
-    </div>
+
     <!-- javascripts -->
-    <script type="text/javascript " src="js/modernizr.custom.17475.js "></script>
+    <script type="text/javascript" src="js/modernizr.custom.17475.js"></script>
 
-    <script type="text/javascript " src="js/jquery.min.js "></script>
-    <script type="text/javascript " src="bs3/js/bootstrap.min.js "></script>
-    <script type="text/javascript " src="js/script.js "></script>
-
-<!--
-    <script>
-        function transportDetailModalShow() {
-            $('#transportDetailModal').modal('show');
-        }
-    </script>
--->
-
-    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
-    <script type="text/javascript">
-        var source, destination;
-        var directionsDisplay;
-        var directionsService = new google.maps.DirectionsService();
-
-
-
-        google.maps.event.addDomListener(window, 'load', function () {
-            var options = {
-                componentRestrictions: {
-                    country: "in"
-                }
-            };
-
-            var input = document.getElementById('fromLocation');
-            var autocomplete = new google.maps.places.Autocomplete(input, options);
-
-            var input = document.getElementById('toLocation');
-            var autocomplete = new google.maps.places.Autocomplete(input, options);
-
-            new google.maps.places.SearchBox(autocomplete);
-            new google.maps.places.SearchBox(document.getElementById('fromLocation'));
-            new google.maps.places.SearchBox(document.getElementById('toLocation'));
-            directionsDisplay = new google.maps.DirectionsRenderer({
-                'draggable': false
-            });
-        });
-
-        function GetRoute() {
-            var mumbai = new google.maps.LatLng(18.9750, 72.8258);
-            var mapOptions = {
-                zoom: 7,
-                center: mumbai
-            };
-            //map = new google.maps.Map(document.getElementById('dvMap'), mapOptions);
-            //directionsDisplay.setMap(map);
-            //directionsDisplay.setPanel(document.getElementById('dvPanel'));
-
-            //*********DIRECTIONS AND ROUTE**********************//
-            source = document.getElementById("fromLocation").value;
-            destination = document.getElementById("toLocation").value;
-
-            var request = {
-                origin: source,
-                destination: destination,
-                travelMode: google.maps.TravelMode.DRIVING
-            };
-            directionsService.route(request, function (response, status) {
-                if (status == google.maps.DirectionsStatus.OK) {
-                    directionsDisplay.setDirections(response);
-                }
-            });
-
-            //*********DISTANCE AND DURATION**********************//
-            var service = new google.maps.DistanceMatrixService();
-            service.getDistanceMatrix({
-                origins: [source],
-                destinations: [destination],
-                travelMode: google.maps.TravelMode.DRIVING,
-                unitSystem: google.maps.UnitSystem.METRIC,
-                avoidHighways: false,
-                avoidTolls: false
-            }, function (response, status) {
-                if (status == google.maps.DistanceMatrixStatus.OK && response.rows[0].elements[0].status != "ZERO_RESULTS") {
-                    var distanceKM = response.rows[0].elements[0].distance.text;
-                    var distanceParts = distanceKM.split(" ");
-                    var distance = distanceParts[0];
-                    document.getElementById("lblDistance").innerHTML = distance;
-
-                } else {
-                    alert("Unable to find the distance via road.");
-                }
-            });
-        }
-    </script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="bs3/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
     <!--[if lt IE 9]>
 			<script type="text/javascript" src="js/html5shiv.js"></script>
 		<![endif]-->

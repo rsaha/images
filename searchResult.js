@@ -5,16 +5,15 @@
 	 app.config(['$httpProvider', function ($httpProvider) {
     $httpProvider.defaults.useXDomain = true;
          delete $httpProvider.defaults.headers.common['X-Requested-With'];
-//         $httpProvider.defaults.withCredentials = true;
-//    
-//         $httpProvider.defaults.headers.common["Accept"] = "application/json";
-//$httpProvider.defaults.headers.common["Content-Type"] = "application/json";
+
 }]);
     
 
 
-    app.controller('MultipleCtrl',['$scope','$http', function($scope, $http) {
+    app.controller('MultipleCtrl',['$scope','$http','$location', function($scope, $http,$location) {
          $scope.placename='';
+          $scope.searchID = $location.search().id;
+        alert( $scope.searchID);
           $scope.checkboxModel = {
        value1 : true,
 	   value2 : true,
@@ -24,26 +23,26 @@
         $scope.toValue=function(valueto){
             alert(valueto);
         }
-    $http.get("http://gg_admin-test.apigee.net/guidedgateway/tours")
+    $http.get("http://130.211.123.212/app/tours")
     .success(function (response) {
-		$scope.tours = response.entities;
+		$scope.tours = response.Tours;
 	
 		})
 	.error(function() {
 				$scope.data = "error in fetching data";
 			});
 			
-			$http.get("http://gg_admin-test.apigee.net/guidedgateway/guides")
+			$http.get("http://130.211.123.212/app/guides?theme=popular")
     .success(function (response) {
-		$scope.allguides =response.entities;
+		$scope.allguides =response.Guides;
 		})
 	.error(function() {
 				$scope.data = "error in fetching data";
 			});
         	
-        $http.get("http://gg_admin-test.apigee.net/guidedgateway/transports")
+        $http.get("http://130.211.123.212/app/transport")
     .success(function (response) {
-		$scope.transList =response.entities;
+		$scope.transList =response.Transport;
 		})
 	.error(function() {
 				$scope.data = "error in fetching data";
@@ -55,9 +54,9 @@
 //           alert("hi");
         }
         
-         $http.get("http://gg_admin-test.apigee.net/guidedgateway/places")
+         $http.get("http://130.211.123.212/app/places")
     .success(function (response) {
-		$scope.places = response.entities;
+		$scope.places = response.Places;
 	
 		})
 	.error(function() {
