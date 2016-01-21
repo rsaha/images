@@ -10,63 +10,6 @@
           
 }]);
 
-
-    //app.controller('tourDetailCtrl',['$scope','$http','$location', function($scope, $http,$location) {
-    //    
-    //                               debugger;
-    //     var tourID = $location.search();
-    //    $http.get("http://130.211.123.212/app/tour?tourid="+tourID.id)
-    //    .success(function (response) {
-    //		$scope.tour = response;
-    //		
-    //		})
-    //	.error(function() {
-    //				$scope.data = "error in fetching data";
-    //			});
-    //			
-    //		$scope.attractions=function()
-    //		{
-    //		     for(var i=0;i<3;i++)
-    //		     {
-    //			
-    //		     y+=$scope.tour.Itineary.Day.Spots[i].Spot+', '		
-    //			 }
-    //			 y=substring(0,lastIndexOf(',')-1);
-    //			 
-    //			 return y;
-    //		}
-    //		$scope.getdata=function(latitude,longitude){
-    //			$scope.longit=longitude;
-    //			alert($scope.longit);
-    //			$scope.latit=latitude;
-    //			alert($scope.latit);
-    //		}
-    //			
-    //}]); 
-    //    app.controller('placesCtrl',['$scope','$http', function($scope, $http) {
-    //    $http.get("http://130.211.123.212/app/places")
-    //    .success(function (response) {
-    //		$scope.places = response.Places;
-    //	   
-    //		})
-    //	.error(function() {
-    //				$scope.data = "error in fetching data";
-    //			});
-    //			
-    //			
-    //}]); 
-    //app.controller('guideDetailCtrl',['$scope','$http', function($scope, $http) {
-    //    $http.get("http://130.211.123.212/app/guide")
-    //    .success(function (response) {
-    //		$scope.guide = response;
-    //		
-    //		})
-    //	.error(function() {
-    //				$scope.data = "error in fetching data";
-    //			});
-    //			
-    //}]); 
-
     // paging code 
     app.filter('startFrom', function () {
         return function (input, start) {
@@ -81,11 +24,11 @@
     var trasportlistModel ;
     app.controller('transportCrtl', ['$scope', '$http', function ($scope, $http, $timeout) {
         
-        $http.get('http://130.211.123.212/app/transport')
+        $http.get('http://gg_admin-prod.apigee.net/guidedgateway/transport')
             .success(function (data) {
-                $scope.list = data.Transport;
+                $scope.list = data.entities;
             
-               trasportlistModel = data.Transport;
+               trasportlistModel = data.entities;
            // alert(trasportlistModel[0].ID);
                 $scope.currentPage = 1; //current page
                 $scope.entryLimit = 6; //max no of items to display in a page
@@ -123,26 +66,26 @@
              $('#transportDetailModal').modal('show');
         }
         
-        $http.get("http://130.211.123.212/app/guides")
+        $http.get("http://gg_admin-prod.apigee.net/guidedgateway/guides")
             .success(function (response) {
-                $scope.guides = response.Guides;
+                $scope.guides = response.entities;
 
             })
             .error(function () {
                 $scope.data = "error in fetching data";
             });
 
-        $http.get("http://130.211.123.212/app/places")
+        $http.get("http://gg_admin-prod.apigee.net/guidedgateway/places")
             .success(function (response) {
-                $scope.places = response.Places;
+                $scope.places = response.entities;
 
             })
             .error(function () {
                 $scope.data = "error in fetching data";
             });
-        $http.get("http://130.211.123.212/app/lodging")
+        $http.get("http://gg_admin-prod.apigee.net/guidedgateway/lodgings")
             .success(function (response) {
-                $scope.lodging = response.Lodging;
+                $scope.lodging = response.entities;
 
             })
             .error(function () {

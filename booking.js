@@ -15,16 +15,16 @@
 
 app.controller('guides_booking',['$scope','$http','$location', function($scope, $http,$location) {
      debugger;
-    $http.get("http://130.211.123.212/app/guides")
+    $http.get("http://gg_admin-prod.apigee.net/guidedgateway/guides")
     .success(function (response) {
-		$scope.guidesbook =response.Guides;
+		$scope.guidesbook =response.entities;
 		})
 	.error(function() {
 				$scope.data = "error in fetching data";
 			});
-    $http.get("http://130.211.123.212/app/tours")
+    $http.get("http://gg_admin-prod.apigee.net/guidedgateway/tours")
     .success(function (response) {
-		$scope.toursbook = response.Tours;
+		$scope.toursbook = response.entities;
 	
 		})
 	.error(function() {
@@ -47,9 +47,9 @@ app.controller('guides_booking',['$scope','$http','$location', function($scope, 
     $scope.priceTotal= $scope.tourPrice+$scope.lodgingPrice+ $scope.transportPrice;
     
       $scope.lodgeIDnew=0;
-    $http.get("http://130.211.123.212/app/lodging")
+    $http.get("http://gg_admin-prod.apigee.net/guidedgateway/lodgings")
     .success(function (response) {
-		$scope.lodging =response.Lodging;
+		$scope.lodging =response.entities;
 		})
 	.error(function() {
 				$scope.data = "error in fetching data";
@@ -59,11 +59,11 @@ app.controller('guides_booking',['$scope','$http','$location', function($scope, 
    
                    //  alert(lodgeID);
 
-                     $http.get("http://130.211.123.212/app/lodging")
+                     $http.get("http://gg_admin-prod.apigee.net/guidedgateway/lodgings")
                          .success(function (response) {
                                  //$scope.transport =response.Transport;
 
-                                 var lodgelist = response.Lodging;
+                                 var lodgelist = response.entities;
                                 // $scope.tourfound = '';
                                  for (var i = 0, len = lodgelist.length; i < len; i++) {
 
@@ -105,7 +105,7 @@ app.controller('guides_booking',['$scope','$http','$location', function($scope, 
      // $scope.lodgeIsVisible=1;
     // alert(lodgeSelected);
       
-        $http.get("http://130.211.123.212/app/lodging")
+        $http.get("http://gg_admin-prod.apigee.net/guidedgateway/lodgings")
                          .success(function (response) {
                                  //$scope.transport =response.Transport;
 
@@ -131,9 +131,9 @@ app.controller('guides_booking',['$scope','$http','$location', function($scope, 
   }
    
     $scope.transIDnew = 0;
-                 $http.get("http://130.211.123.212/app/transport")
+                 $http.get("http://gg_admin-prod.apigee.net/guidedgateway/transports")
                      .success(function (response) {
-                         $scope.transport = response.Transport;
+                         $scope.transport = response.entities;
                      })
                      .error(function () {
                          $scope.data = "error in fetching data";
@@ -142,11 +142,11 @@ app.controller('guides_booking',['$scope','$http','$location', function($scope, 
                  $scope.transID = function (transID) {
                     // alert(transID);
 
-                     $http.get("http://130.211.123.212/app/transport")
+                     $http.get("http://gg_admin-prod.apigee.net/guidedgateway/transports")
                          .success(function (response) {
                                  //$scope.transport =response.Transport;
 
-                                 var translist = response.Transport;
+                                 var translist = response.entities;
                                 // $scope.tourfound = '';
                                  for (var i = 0, len = translist.length; i < len; i++) {
 
@@ -195,11 +195,11 @@ app.controller('guides_booking',['$scope','$http','$location', function($scope, 
 		}
         
          $scope.transportModel=function(transSelected){
-               $http.get("http://130.211.123.212/app/transport")
+               $http.get("http://gg_admin-prod.apigee.net/guidedgateway/transports")
                          .success(function (response) {
                                  //$scope.transport =response.Transport;
 
-                                 var totaltranslist = response.Transport;
+                                 var totaltranslist = response.entities;
                                 
                                  for (var i = 0, len = totaltranslist.length; i < len; i++) {
 
@@ -233,8 +233,8 @@ app.controller('guides_booking',['$scope','$http','$location', function($scope, 
                        // $scope.minTourPrice=$scope.tourPrice;
                     }
              $scope.priceTotal= $scope.priceTotal+$scope.guidePrice;
-             $http.get("http://130.211.123.212/app/guide?id="+guideID.id1)
-   // $http.get("http://130.211.123.212/app/guide?id=10011")
+             $http.get("http://gg_admin-prod.apigee.net/guidedgateway/guide?id="+guideID.id1)
+   // $http.get("http://gg_admin-prod.apigee.net/guidedgateway/guide?id=10011")
     .success(function (response) {
 		$scope.guide=response;
 		})
@@ -252,7 +252,7 @@ app.controller('guides_booking',['$scope','$http','$location', function($scope, 
              $scope.tourValue=1;
             $scope.guideValue=tourID.id1;
           
-            $http.get("http://130.211.123.212/app/tour?tourid="+tourID.id2)
+            $http.get("http://gg_admin-prod.apigee.net/guidedgateway/tour?tourid="+tourID.id2)
     .success(function (response) {
 		$scope.tour = response;
                 $scope.tourPrice=  parseInt($scope.tour.tour_price, 10);
@@ -446,46 +446,6 @@ app.controller('guides_booking',['$scope','$http','$location', function($scope, 
     }
 }]);
     
-//    app.controller('hotel_booking',['$scope','$http','$location', function($scope, $http,$location) {
-//        debugger;
-//     
-//			
-//}]);
-//    
-//      app.controller('transport_booking', ['$scope', '$http', function ($scope, $http) {
-//                 debugger;
-//               
-//
-//                         }]);
-    
-//app.controller('Singleguide',['$scope','$http','$location', function($scope, $http,$location)  {
-//    // alert(valueID);
-//                               debugger;
-//    
-//}]);
-//    
-//    app.controller('Singletour',['$scope','$http','$location', function($scope, $http,$location) {
-//    
-//                               debugger;
-//    
-//			
-//        
-//		
-//			
-//}]); 
-//app.controller('placesCtrl',['$scope','$http', function($scope, $http) {
-//    $http.get("http://130.211.123.212/app/places")
-//    .success(function (response) {
-//		$scope.places = response.Places;
-//	
-//		})
-//	.error(function() {
-//				$scope.data = "error in fetching data";
-//			});
-//			
-//			
-//}]); 
-
 app.directive('starRating', function () {
     return {
         restrict: 'A',

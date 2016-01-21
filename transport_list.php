@@ -115,7 +115,7 @@
 
 <!-- START body -->
 
-<body ng-app="topTours"  ng-controller="transportCrtl">
+<body ng-app="topTours" ng-controller="transportCrtl">
     <!-- START #wrapper -->
     <div id="wrapper">
         <!-- START header -->
@@ -132,16 +132,10 @@
                 <div class="container">
                     <div class="row">
                         <section class="col-sm-6">
-                            <h1 class="text-upper"><i class="fa fa-cab" style="color:black;"></i>&nbsp;&nbsp;Transport</h1>
+                            <h1 class="text-upper"><i class="fa fa-cab" style="color:black;"></i>&nbsp;&nbsp;Transport Services</h1>
                         </section>
 
                         <!-- breadcrumbs -->
-                        <!--<section class="col-sm-6">
-								<ol class="breadcrumb">
-									<li class="home"><a href="#">Home</a></li>
-									<li><a href="#">Top Tours</a></li>
-								</ol>
-							</section> -->
                     </div>
                 </div>
 
@@ -168,26 +162,6 @@
                                                                 <img class="img-responsive" style="width:770px; height:150px;hover:opacity: 0.6;" ng-src="{{data.Media.Image[0] ==null ? 'img/SAMPLE_TAJ.jpg' : data.Media.Image[0]}}" alt="Tranport image" />
                                                             </a>
                                                             <div class="offer-boxNew" style="width: 300px; ">
-                                                                <!--
-                                                       <div class="offer-topNew">
-                                                            <span class="fa fa-tag alignright">{{data.tour_category}}</span>
-                                                            <span class="text-upper" style="color:#ff845e; font-size:12px; font-weight:700;">{{data.tour_location}}</span>
-                                                            <div class="short-text text-upper" style="color:#fff; line-height:1; font-size:20px; margin:0;" title="{{data.tour_title}}">{{data.tour_title}}</div>
-                                                        </div>
--->
-
-                                                                <!--
-                                                        <div class="offer-top">
-                                                            <span class="fa fa-tag alignright">{{data.tour_category}}</span>
-                                                            <span class="text-upper" style="color:#ff845e; font-size:12px; font-weight:700;">{{data.tour_location}}</span>
-                                                            <div class="short-text text-upper" style="color:#fff; line-height:1; font-size:20px; margin:0;" title="{{data.tour_title}}">{{data.tour_title}}</div>
-                                                        </div>
-
-                                                        <div class="offer-bottom">
-                                                            <span class="" style="font-size:12px;">Starting From </span>
-                                                            <span class="" style="font-size:18px; font-weight:700; line-height:1;">Rs. {{data.tour_price}}</span>
-                                                        </div>
--->
                                                             </div>
                                                         </div>
                                                     </div>
@@ -197,27 +171,24 @@
                                                     <a ng-href="tour_detail_sidebar.php#?id=">
                                                         <br>
                                                         <div class="offer-top">
-                                                            <span class="fa fa-tag alignright">{{data.Category}}</span>
-                                                            <span class="text-upper" style="color:#ff845e; font-size:12px; font-weight:700;">{{data.PartnerName}}</span>
-                                                            <div class="short-text text-upper" style="color:#fff; line-height:1; font-size:20px; margin:0;" title="{{data.tour_title}}">{{data.Description}}</div>
+                                                            <span class="fa fa-tag alignright">{{data.PartnerName}}</span>
+                                                            <span class="text-upper" style="color:#ff845e; font-size:12px; font-weight:700;">{{data.Category}}</span>
+                                                            <div class="short-text text-upper" style="color:#fff; line-height:1; font-size:20px; margin:0;" title="{{data.PartnerName}}">{{data.Description}}</div>
                                                         </div>
-                                                        <div class="offer-bottom" style="height:33px">
-                                                            <span class="" style="font-size:12px;">Price Per KM. </span>
-                                                            <span class="" style="font-size:18px;color:black; font-weight:700; line-height:1;">&nbsp;<i class="fa fa-rupee" ></i>&nbsp;{{data.PricePerKM}}&nbsp;/ KM.</span>
+                                                        <div class="offer-bottom">
+                                                            <span class="" style="font-size:12px;">Price Per Hour </span>
+                                                            <span class="" style="font-size:18px;color:black; font-weight:700; line-height:1;">&nbsp;<i class="fa fa-rupee" ></i>&nbsp;{{data.PricePerHour}}&nbsp;</span>
+                                                            <span class="" style="font-size:12px;">Price Per KM </span>
+                                                            <span class="" style="font-size:18px;color:black; font-weight:700; line-height:1;">&nbsp;<i class="fa fa-rupee" ></i>&nbsp;{{data.PricePerKM}}&nbsp;</span>
+                                                            <input type="hidden" value="{{data.PricePerKM}}" id="priceperkm" />
+
                                                         </div>
-                                                        <!--
-                                              <div class="featured-btm box-shadow1">
-                                                    <span class="fa fa-map-pin text-upper">&nbsp;&nbsp;{{data.tour_territory[0]}}&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                                                    <span class="fa fa-hourglass text-upper">&nbsp;&nbsp;{{data.tour_duration}}&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                                                    <span class="fa fa-thumbs-up text-upper" star-rating rating-value="5"></span>
-                                                    <span class="alignleft fa fa-life-ring">&nbsp;&nbsp; reviews&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                                                </div>
--->
                                                     </a>
                                                     <div class="row" style="padding:8px 0px 0px 0px">
-                                                        <lable class="col-md-12">Get Fair Estimate Between Locaitons:&nbsp;<label type="text" id="lblDistance"></label> K.m.</lable>
+                                                        <lable class="col-md-12">Get Fair Estimate Between Locaitons:&nbsp;
+                                                            <label type="text" id="lblDistance"></label> K.m.</lable>
                                                         <div class="col-md-5">
-                                                            <input name="fromLocation" id="fromLocation" autocomplete="on" ng-pattern="/^[a-z ,A-Z]+$/" value="" type="text" class="form-control" style="height:30px" placeholder="Source">
+                                                            <input name="fromLocation" id="fromLocation" autocomplete="on" ng-pattern="/^[a-z ,A-Z]+$/" value="" type="text" class="form-control" style="height:30px" placeholder="Source" onfocusout="GetRoute()">
                                                         </div>
                                                         <div class="col-md-5">
                                                             <input name="toLocation" id="toLocation" autocomplete="on" ng-pattern="/^[a-z ,A-Z]+$/" value="" type="text" class="form-control" style="height:30px" placeholder="Destination" onfocusout="GetRoute()">
@@ -225,12 +196,6 @@
                                                         <div class=" col-md-2 ">
                                                             <a class="btn btn-primary" ng-click="transportDetailModalShow(data.ID);" style="height:30px "><i class="fa fa-lg fa-caret-right "></i></a>
                                                         </div>
-                                                        <!--
-                                                            <a class="btn btn-primary marb20 " ng-href="# ">DETAILS</a>
-                                                            <a id="bookButton " class="alignright " ng-href="# ">
-                                                                <input type="submit " name="submit " class="btn btn-sm btn-success text-upper marb20 " value="Book " />
-                                                            </a>
--->
                                                     </div>
                                                 </div>
                                             </div>
@@ -242,35 +207,35 @@
 
                             </div>
                         </div>
-                        </a>
+
                         <!-- START #sidebar -->
-                        <aside id="sidebar " class="col-md-4 ">
-                            <div class="sidebar-widget ">
+                        <aside id="sidebar" class="col-md-4">
+                            <div class="sidebar-widget">
                                 <!-- Sidebar recent popular posts -->
                                 <!-- START TABS -->
-                                <ul class="nav nav-tabs text-upper ">
-                                    <li class="active urlUnchange "><a ng-href="#topguides " data-toggle="tab ">Guides</a></li>
-                                    <li class="urlUnchange "><a ng-href="#topdestinations " data-toggle="tab ">Places</a></li>
-                                    <li class="urlUnchange "><a ng-href="#lodging " data-toggle="tab ">Lodging</a></li>
+                                <ul class="nav nav-tabs text-upper">
+                                    <li class="active urlUnchange"><a ng-href="#topdestinations" data-toggle="tab">Places</a></li>
+                                    <li class="urlUnchange"><a ng-href="#topguides" data-toggle="tab">Guides</a></li>
+                                    <li class="urlUnchange"><a ng-href="#lodging" data-toggle="tab">Lodging</a></li>
                                 </ul>
                                 <!-- END TABS -->
 
                                 <!-- START TAB CONTENT -->
-                                <div class="tab-content gray box-shadow1 clearfix marb30 ">
+                                <div class="tab-content gray box-shadow1 clearfix marb30">
                                     <!-- START TAB 2 -->
-                                    <div class="tab-pane active " id="topguides " style="height:310px; ">
-                                        <div class="col-md-12 ">
-                                            <ul class="list-unstyled ">
-                                                <li ng-repeat="z in guides " ng-show="$index<3 ">
-                                                    <span class="rc-post-image ">
-                                                    <a ng-href="guide-detail-sidebar.php#?id2={{z.id}} " target="_blank ">	
-                                                        <img class="img-responsive " style="height:70px; width:60px; " ng-src="{{z.photo==null ? 'img/new_user.png' :z.photo}} " alt="Recent Post 2 " /></a>
+                                    <div class="tab-pane" id="topguides" style="height:310px;">
+                                        <div class="col-md-12">
+                                            <ul class="list-unstyled">
+                                                <li ng-repeat="z in guides" ng-show="$index<3">
+                                                    <span class="rc-post-image">
+                                                    <a ng-href="guide-detail-sidebar.php#?id2={{z.id}}" target="_blank">	
+                                                        <img class="img-responsive" style="height:70px; width:60px;" ng-src="{{z.photo==null ? 'img/new_user.png' :z.photo}}" alt="Recent Post 2" /></a>
 												</span>
-                                                    <h5><a ng-href="# ">{{z.name}}</a></h5>
-                                                    <h5><a ng-href="# ">{{z.guide_territory[0]}}</a></h5>
-                                                    <!--												<h5>{{z.Speciality}}<span class="rc-post-date small ">Speciality&nbsp;&nbsp;</span></h5>-->
-                                                    <span star-rating rating-value="z.review.rating " style=" " class=" "></span>
-                                                    <!-- a href="booking-form.php#?id1={{z.id}}&id2=0 "> <input type="submit " name="submit " class="pull-right btn btn-sm btn-primary marb20 " value="Book Now " /></a -->
+                                                    <h5><a ng-href="#">{{z.name}}</a></h5>
+                                                    <h5><a ng-href="#">{{z.guide_territory[0]}}</a></h5>
+                                                    <!--												<h5>{{z.Speciality}}<span class="rc-post-date small">Speciality&nbsp;&nbsp;</span></h5>-->
+                                                    <span star-rating rating-value="z.review.rating" style="" class=""></span>
+                                                    <!-- a href="booking-form.php#?id1={{z.id}}&id2=0"> <input type="submit" name="submit" class="pull-right btn btn-sm btn-primary  marb20" value="Book Now" /></a -->
                                                     <br>
                                                     <br>
                                                 </li>
@@ -280,34 +245,34 @@
                                     <!-- END TAB 2 -->
 
                                     <!-- START TAB 3 -->
-                                    <div class="tab-pane " id="topdestinations " style="height:310px; ">
-                                        <ul class="rc-posts-list list-unstyled ">
-                                            <li ng-repeat="k in places " ng-show="$index<3 ">
-                                                <span class="rc-post-image ">
-                                                    <a ng-href="destination-detail-sidebar.php#?id3={{k.ID}} ">	<img class="img-responsive "  ng-src="{{k.Media.Image[0]}} " alt="Tour 1 " /></a>
+                                    <div class="tab-pane active" id="topdestinations" style="height:310px;">
+                                        <ul class="rc-posts-list list-unstyled">
+                                            <li ng-repeat="k in places" ng-show="$index<3">
+                                                <span class="rc-post-image">
+                                                    <a ng-href="destination-detail-sidebar.php#?id3={{k.ID}}">	<img class="img-responsive"  ng-src="{{k.Media.Image[0]}}" alt="Tour 1" /></a>
 												</span>
-                                                <h5><a ng-href="# ">{{k.Name}}</a></h5>
-                                                <span class="rc-post-date small ">Best Visit:&nbsp;&nbsp;&nbsp;{{k.BestTimeToVisit}}</span>
+                                                <h5><a ng-href="#">{{k.Name}}</a></h5>
+                                                <span class="rc-post-date small">Best Visit:&nbsp;&nbsp;&nbsp;{{k.BestTimeToVisit}}</span>
                                                 <br/>
-                                                <!-- a href="# "> <input type="submit " name="submit " class="pull-right btn btn-sm btn-primary text-upper marb20 " value="Explore " /></a-->
+                                                <!-- a href="#"> <input type="submit" name="submit" class="pull-right btn btn-sm  btn-primary text-upper marb20" value="Explore" /></a-->
                                                 <br>
                                             </li>
                                         </ul>
                                     </div>
                                     <!-- END TAB 3 -->
                                     <!-- lodging hotels -->
-                                    <div class="tab-pane " id="lodging " style="height:310px; ">
-                                        <div class="col-md-12 ">
-                                            <ul class="list-unstyled ">
-                                                <li ng-repeat="lodge in lodging " ng-show="$index<3 ">
-                                                    <span class="rc-post-image ">
-                                                    <a href=" ">	<img class="img-responsive " ng-src="{{lodge.Media.Image[0]}} " alt="Hotel " /></a>
+                                    <div class="tab-pane" id="lodging" style="height:310px;">
+                                        <div class="col-md-12">
+                                            <ul class="list-unstyled">
+                                                <li ng-repeat="lodge in lodging" ng-show="$index<3 ">
+                                                    <span class="rc-post-image">
+                                                    <a href="">	<img class="img-responsive" ng-src="{{lodge.Media.Image[0]}}" alt="Hotel" /></a>
 												</span>
-                                                    <h5><a ng-href="# ">{{lodge.Address}}</a></h5>
-                                                    <span style=" " class=" ">Coming Soon from our partners</span>
+                                                    <h5><a ng-href="#">{{lodge.Address}}</a></h5>
+                                                    <span style="" class="">Coming Soon from our partners</span>
                                                     <br>
-                                                    <a ng-href="# " style="margin-left:110px; ">
-                                                        <input type="submit " name="submit " class="pull-right btn btn-sm btn-primary marb20 " value="Coming Soon " />
+                                                    <a ng-href="#" style="margin-left:110px;">
+                                                        <input type="submit" name="submit" class="pull-right btn btn-sm btn-primary  marb20" value="Coming Soon" />
                                                     </a>
                                                 </li>
                                             </ul>
@@ -320,8 +285,8 @@
                         <!-- END #sidebar -->
                     </div>
                     <!-- START .pagination -->
-                    <div class="col-md-12 ">
-                        <div pagination=" " style="background-color:white; " page="currentPage " on-select-page="setPage(page) " boundary-links="true " total-items="filteredItems " items-per-page="entryLimit " class="pagination-small " previous-text="&laquo; " next-text="&raquo; "></div>
+                    <div class="col-md-12">
+                        <div pagination="" style="background-color:white;" page="currentPage" on-select-page="setPage(page)" boundary-links="true" total-items="filteredItems" items-per-page="entryLimit" class="pagination-small" previous-text="&laquo;" next-text="&raquo;"></div>
 
 
                     </div>
@@ -337,43 +302,38 @@
     </div>
     <!-- END #wrapper -->
 
-
-
     <div class="modal fade" id="transportDetailModal" role="dialog" aria-labelledby="transportDetailModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-            <input type="hidden" id="lodgingID" name="lodgingID" value="" />
+            <input type="hidden" id="transportPrice" name="transportPrice" value="" />
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header" style="padding:20px 50px; background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;">
                     <button type="button" class="close" style="background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;" data-dismiss="modal">&times;</button>
-                    <h4 style="background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;"><span class="glyphicon glyphicon-lock"></span>Transport Services</h4>
+                    <h4 style="background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;"><span class="glyphicon glyphicon-lock"></span>Estimated Price</h4>
                 </div>
                 <div class="modal-body" style="padding:20px 50px 0px;">
                     <div class="row">
                         <div class="col-md-12">
-                              <div class="sidebar-widget">
-                                     
-                                    <div class="row">
-                                        <div class="col-md-4"><img class="img-responsive" src="{{trasportlist.Media.Image[0]}}" alt="Lodge" /></div>
-                                        <div class="col-md-6">
-                                            <h4 class="text-upper">{{trasportlist.Description}}</h4> 
+                            <div class="sidebar-widget">
+
+                                <div class="row">
+                                    <div class="col-md-4"><img class="img-responsive" src="{{trasportlist.Media.Image[0]}}" alt="Transport" /></div>
+                                    <div class="col-md-6">
+                                        <h4 class="text-upper">{{trasportlist.Description}}</h4>
                                         <h6 class="text-upper">Distance  <label type="text" id="lblDistance"></label></h6> </div>
-                                    </div>
-                                    <br>
-                                    <ul class=" list-unstyled">
-                                        
-                                         <li>From LocationName <span style="color:black;" class="pull-right">XYZ</span></li>
-                                         <li>To LocationName<span style="color:black;" class="pull-right">PQR</span></li>
-                                        <li>Price Per KM <span style="color:black;" class="pull-right">{{trasportlist.PricePerKM}}</span></li>
-                                        <li>Price Per Hour<span style="color:black;"  class="pull-right"> {{trasportlist.PricePerHour}}</span></li>
-                                      <li>Estimated Price({{lenghtInKM}}*{{trasportlist.PricePerHour}}) <span style="color:black;"  class="pull-right"> {{trasportlist.PricePerHour}}*40</span></li>
-                                    </ul>
                                 </div>
+                                <br> Estimated Fair charges form
+                                <label id="fromLocationModel"></label>
+                                to
+                                <label id="toLocationModel"></label>
+                                is Rs. <span style="color:black;" id="estimatedPrice"></span>.
+                                <br> the price is a estimate only and can vary on the bases of distance the car drove.
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer" style="background-color: #f9f9f9;">
-                    <button type="submit" style="background-color:#ff845e" class="btn btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+                    <button type="submit" class="btn btn-success pull-right"><span class="glyphicon glyphicon-remove"></span> Book</button>
                 </div>
             </div>
         </div>
@@ -385,7 +345,7 @@
     <script type="text/javascript " src="bs3/js/bootstrap.min.js "></script>
     <script type="text/javascript " src="js/script.js "></script>
 
-<!--
+    <!--
     <script>
         function transportDetailModalShow() {
             $('#transportDetailModal').modal('show');
@@ -403,6 +363,7 @@
 
         google.maps.event.addDomListener(window, 'load', function () {
             var options = {
+                types: ['(cities)'],
                 componentRestrictions: {
                     country: "in"
                 }
@@ -435,7 +396,8 @@
             //*********DIRECTIONS AND ROUTE**********************//
             source = document.getElementById("fromLocation").value;
             destination = document.getElementById("toLocation").value;
-
+            document.getElementById("fromLocationModel").innerHTML = source.split(',')[0];
+            document.getElementById("toLocationModel").innerHTML = destination.split(',')[0];
             var request = {
                 origin: source,
                 destination: destination,
@@ -462,6 +424,11 @@
                     var distanceParts = distanceKM.split(" ");
                     var distance = distanceParts[0];
                     document.getElementById("lblDistance").innerHTML = distance;
+                    distance=distance.replace(/\,/g,''); // 1125, but a string, so convert it to number
+                    distance=parseInt(distance,10);
+                    var dsjh = document.getElementById("priceperkm").value;
+                    var vbhh = dsjh * distance;
+                    document.getElementById("estimatedPrice").innerHTML = Math.round(vbhh);
 
                 } else {
                     alert("Unable to find the distance via road.");
@@ -470,7 +437,7 @@
         }
     </script>
     <!--[if lt IE 9]>
-			<script type="text/javascript " src="js/html5shiv.js "></script>
+			<script type="text/javascript" src="js/html5shiv.js"></script>
 		<![endif]-->
 
 </body>

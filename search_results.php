@@ -116,16 +116,8 @@ ul.rating {
                 <div class="container">
                     <div class="row">
                         <section class="col-sm-6">
-                            <h1 class="text-upper"><i class="fa fa-hourglass-end" style="color:black;"></i>&nbsp;&nbsp;Top Search Results</h1>
+                            <h1 class="text-upper"><i class="fa fa-hourglass-end" style="color:black;"></i>&nbsp;&nbsp;SIghtseeing Ideas From $searchId</h1>
                         </section>
-
-                        <!-- breadcrumbs -->
-                        <!--<section class="col-sm-6">
-								<ol class="breadcrumb">
-									<li class="home"><a href="#">Home</a></li>
-									<li><a href="#">Top Tours</a></li>
-								</ol>
-							</section> -->
                     </div>
                 </div>
 
@@ -144,12 +136,10 @@ ul.rating {
 						</div>
 						<div class="row">
 						<div class="col-md-7 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1"> <br>
-<!--
-						<label >Duration </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<label><input class="input-cb"	type="checkbox" name="inc_Tour" checked ng-model="checkboxModel.value1" value=""/> Hours</label>&nbsp;&nbsp;&nbsp;&nbsp;
-						<label><input class="input-cb" type="checkbox" name="inc_Guide" value="1" ng-model="checkboxModel.value2" checked /> Single Day</label>&nbsp;&nbsp;&nbsp;&nbsp;
-						<label><input class="input-cb" type="checkbox"	name="inc_Destination" value="1" ng-model="checkboxModel.value3" checked /> Multi Day</label>&nbsp;&nbsp; 
--->
+<label > Results Includes </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<label><input class="input-cb"	type="checkbox" name="inc_Tour" checked ng-model="checkboxModel.value1" value=""/>Guides</label>&nbsp;&nbsp;&nbsp;&nbsp;
+						<label><input class="input-cb" type="checkbox" name="inc_Guide" value="1" ng-model="checkboxModel.value2" checked />Tours</label>&nbsp;&nbsp;&nbsp;&nbsp;
+						<label><input class="input-cb" type="checkbox"	name="inc_Destination" value="1" ng-model="checkboxModel.value3" checked />Places</label>&nbsp;&nbsp;
 						</div> 
 						</div>
 					
@@ -198,7 +188,6 @@ ul.rating {
 					 </div>
 					 </div>
 					 <div class="col-md-1 alignright" style="padding-top:265px;padding-right:20px;">
-					<!-- <a class="btn btn-primary" href="top-tours-listview-sidebar.php"><span style="font-weight:bold;">More >></span></a> -->
 					 </div>
 				</div>
 				
@@ -239,7 +228,6 @@ ul.rating {
 					 </div>
 					 </div>
 					 <div class="col-md-1 alignright" style="padding-top:265px;padding-right:20px;">
-					<!-- <a class="btn btn-primary" href="top-tours-listview-sidebar.php"><span style="font-weight:bold;">More >></span></a>-->
 					 </div>
 				</div>
 				
@@ -247,7 +235,6 @@ ul.rating {
 				</ul>
 				</div>
 			
-<!--                    -->
                     <div class="row">
 				<h2 class="ft-heading text-upper col-md-12" ng-show="checkboxModel.value1"><i class="fa fa-trophy"></i>&nbsp;&nbsp; Popular Tours<span class="alignright"> <a class="btn btn-primary" href="top-tours-listview-sidebar.php"><span style="">More&nbsp;<i class="fa fa-angle-double-right"></i></span></a></span></h2>
 </div>

@@ -8,9 +8,9 @@
 }]);
 
 app.controller('placesCtrl',['$scope','$http', function($scope, $http) {
-    $http.get("http://130.211.123.212/app/places")
+    $http.get("http://gg_admin-prod.apigee.net/guidedgateway/places")
     .success(function (response) {
-		$scope.places = response.Places;
+		$scope.places = response.entities;
 	   
 		})
 	.error(function() {
@@ -29,9 +29,9 @@ app.controller('placesCtrl',['$scope','$http', function($scope, $http) {
     }
 });
     app.controller('customersCrtl',['$scope','$http', function ($scope, $http, $timeout) {
-    $http.get('http://130.211.123.212/app/places')
+    $http.get('http://gg_admin-prod.apigee.net/guidedgateway/places')
 	.success(function(data){
-        $scope.list = data.Places;
+        $scope.list = data.entities;
         $scope.currentPage = 1; //current page
         $scope.entryLimit = 6; //max no of items to display in a page
         $scope.filteredItems = $scope.list.length; //Initially for no filter  
@@ -49,26 +49,26 @@ app.controller('placesCtrl',['$scope','$http', function($scope, $http) {
 //        $scope.predicate = predicate;
 //        $scope.reverse = !$scope.reverse;
 //    };
-         $http.get("http://130.211.123.212/app/tours")
+         $http.get("http://gg_admin-prod.apigee.net/guidedgateway/tours")
     .success(function (response) {
-		$scope.alltours =response.Tours;
+		$scope.alltours =response.entities;
 		})
 	.error(function() {
 				$scope.data = "error in fetching data";
 			});
         
-         $http.get("http://130.211.123.212/app/guides")
+         $http.get("http://gg_admin-prod.apigee.net/guidedgateway/guides")
     .success(function (response) {
-		$scope.guides = response.Guides;
+		$scope.guides = response.entities;
 	   
 		})
 	.error(function() {
 				$scope.data = "error in fetching data";
 			});
         
-         $http.get("http://130.211.123.212/app/lodging")
+         $http.get("http://gg_admin-prod.apigee.net/guidedgateway/lodgings")
     .success(function (response) {
-		$scope.lodging = response.Lodging;
+		$scope.lodging = response.entities;
 	   
 		})
 	.error(function() {
@@ -76,67 +76,6 @@ app.controller('placesCtrl',['$scope','$http', function($scope, $http) {
 			});
 }]);
     
-// app.controller('tourCtrl',['$scope','$http', function($scope, $http) {
-//    $http.get("http://130.211.123.212/app/tours")
-//    .success(function (response) {
-//		$scope.alltours =response.Tours;
-//		})
-//	.error(function() {
-//				$scope.data = "error in fetching data";
-//			});
-//}]);
-//    app.controller('guidescontrol',['$scope','$http', function($scope, $http) {
-//    $http.get("http://130.211.123.212/app/guides")
-//    .success(function (response) {
-//		$scope.guides = response.Guides;
-//	   
-//		})
-//	.error(function() {
-//				$scope.data = "error in fetching data";
-//			});
-//			
-//			
-//}]);
-//app.controller('placeDetailCtrl',['$scope','$http','$location', function($scope, $http,$location) {
-//    var placeid = $location.search();
-//    $http.get("http://130.211.123.212/app/place?placeid="+placeid.id3)
-//    .success(function (response) {
-//		$scope.place = response;
-//		
-//		})
-//	.error(function() {
-//				$scope.data = "error in fetching data";
-//			});
-//			
-//	
-//			
-//}]); 
-//     app.controller('hotelControl',['$scope','$http', function($scope, $http) {
-//    $http.get("http://130.211.123.212/app/lodging")
-//    .success(function (response) {
-//		$scope.lodging = response.Lodging;
-//	   
-//		})
-//	.error(function() {
-//				$scope.data = "error in fetching data";
-//			});
-//			
-//			
-//}]);
-//    app.controller('AllplaceCtrl',['$scope','$http', function($scope, $http) {
-//    $http.get("http://130.211.123.212/app/places")
-//    .success(function (response) {
-//		$scope.places = response.Places;
-//		
-//		})
-//	.error(function() {
-//				$scope.data = "error in fetching data";
-//			});
-//			
-//	
-//			
-//			
-//}]); 
 app.directive('starRating', function () {
     return {
         restrict: 'A',

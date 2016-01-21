@@ -26,9 +26,9 @@ app.controller('tourDetailCtrl',['$scope','$http','$location', function($scope, 
     
                                debugger;
      var tourID = $location.search();
-    $http.get("http://130.211.123.212/app/tour?tourid="+tourID.id)
+    $http.get("http://gg_admin-prod.apigee.net/guidedgateway/tour?tourid="+tourID.id)
     .success(function (response) {
-		$scope.tour = response;
+		$scope.tour = response.entities[0];
 		
 		})
 	.error(function() {
@@ -53,18 +53,18 @@ app.controller('tourDetailCtrl',['$scope','$http','$location', function($scope, 
 			alert($scope.latit);
 		}
 		
-       $http.get("http://130.211.123.212/app/tours")
+       $http.get("http://gg_admin-prod.apigee.net/guidedgateway/tours")
     .success(function (response) {
-		$scope.tours = response.Tours;
+		$scope.tours = response.entities;
 	   
 		})
 	.error(function() {
 				$scope.data = "error in fetching data";
 			});  
     
-      $http.get("http://130.211.123.212/app/guides")
+      $http.get("http://gg_admin-prod.apigee.net/guidedgateway/guides")
     .success(function (response) {
-		$scope.guides = response.Guides;
+		$scope.guides = response.entities;
 	   
 		})
 	.error(function() {
@@ -72,9 +72,9 @@ app.controller('tourDetailCtrl',['$scope','$http','$location', function($scope, 
 			});
     
     
-     $http.get("http://130.211.123.212/app/lodging")
+     $http.get("http://gg_admin-prod.apigee.net/guidedgateway/lodgings")
     .success(function (response) {
-		$scope.lodging = response.Lodging;
+		$scope.lodging = response.entities;
 	   
 		})
 	.error(function() {
@@ -82,30 +82,6 @@ app.controller('tourDetailCtrl',['$scope','$http','$location', function($scope, 
 			});
         
 }]); 
-//    app.controller('placesCtrl',['$scope','$http', function($scope, $http) {
-//    $http.get("http://130.211.123.212/app/places")
-//    .success(function (response) {
-//		$scope.places = response.Places;
-//	   
-//		})
-//	.error(function() {
-//				$scope.data = "error in fetching data";
-//			});
-//			
-//			
-//}]); 
-//app.controller('guideDetailCtrl',['$scope','$http', function($scope, $http) {
-//    $http.get("http://130.211.123.212/app/guide")
-//    .success(function (response) {
-//		$scope.guide = response;
-//		
-//		})
-//	.error(function() {
-//				$scope.data = "error in fetching data";
-//			});
-//			
-//}]); 
-
         // paging code 
     app.filter('startFrom', function() {
     return function(input, start) {

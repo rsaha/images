@@ -53,7 +53,6 @@
     <script src="js/angular.min.js"></script>
     <script src="js/ideal-image-slider.js"></script>
     <script src="myDestination.js"></script>
-    <!-- <script src="myGuideDetail.js"></script> -->
     <!-- Google Analytics -->
     <script>
         (function (i, s, o, g, r, a, m) {
@@ -346,7 +345,6 @@
                                                         <span class="ft-image">
 							 <img style="height:200px;" src="{{'z.Media.Image[0]'=='' ? 'img/custom1.jpg' :z.Media.Image[0]}}" alt="Top Destination" /> 
 						  </span>
-
                                                         <div class="ft-data" style="height:45px;font-size:11px;">
                                                             <span style="color:black;" class="fa fa-calendar-check-o text-upper">{{z.BestTimeToVisit}}</span>
                                                         </div>
