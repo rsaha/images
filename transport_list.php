@@ -132,16 +132,10 @@
                 <div class="container">
                     <div class="row">
                         <section class="col-sm-6">
-                            <h1 class="text-upper"><i class="fa fa-cab" style="color:black;"></i>&nbsp;&nbsp;Transport</h1>
+                            <h1 class="text-upper"><i class="fa fa-cab" style="color:black;"></i>&nbsp;&nbsp;Transport Services</h1>
                         </section>
 
                         <!-- breadcrumbs -->
-                        <!--<section class="col-sm-6">
-								<ol class="breadcrumb">
-									<li class="home"><a href="#">Home</a></li>
-									<li><a href="#">Top Tours</a></li>
-								</ol>
-							</section> -->
                     </div>
                 </div>
 
@@ -165,26 +159,6 @@
                                                         <img class="img-responsive" style="width:770px; height:150px;hover:opacity: 0.6;" ng-src="{{data.Media.Image[0] ==null ? 'img/SAMPLE_TAJ.jpg' : data.Media.Image[0]}}" alt="Tranport image" />
                                                     </a>
                                                     <div class="offer-boxNew" style="width: 300px; ">
-<!--
-                                                       <div class="offer-topNew">
-                                                            <span class="fa fa-tag alignright">{{data.tour_category}}</span>
-                                                            <span class="text-upper" style="color:#ff845e; font-size:12px; font-weight:700;">{{data.tour_location}}</span>
-                                                            <div class="short-text text-upper" style="color:#fff; line-height:1; font-size:20px; margin:0;" title="{{data.tour_title}}">{{data.tour_title}}</div>
-                                                        </div>
--->
-                                                        
-<!--
-                                                        <div class="offer-top">
-                                                            <span class="fa fa-tag alignright">{{data.tour_category}}</span>
-                                                            <span class="text-upper" style="color:#ff845e; font-size:12px; font-weight:700;">{{data.tour_location}}</span>
-                                                            <div class="short-text text-upper" style="color:#fff; line-height:1; font-size:20px; margin:0;" title="{{data.tour_title}}">{{data.tour_title}}</div>
-                                                        </div>
-
-                                                        <div class="offer-bottom">
-                                                            <span class="" style="font-size:12px;">Starting From </span>
-                                                            <span class="" style="font-size:18px; font-weight:700; line-height:1;">Rs. {{data.tour_price}}</span>
-                                                        </div>
--->
                                                     </div>
                                                 </div>
                                                 </div>
@@ -192,9 +166,9 @@
                                            
                                             <div class="col-md-6">
                                                 <div class="offer-top">
-                                                            <span class="fa fa-tag alignright">{{data.Category}}</span>
-                                                            <span class="text-upper" style="color:#ff845e; font-size:12px; font-weight:700;">{{data.PartnerName}}</span>
-                                                            <div class="short-text text-upper" style="color:#fff; line-height:1; font-size:20px; margin:0;" title="{{data.tour_title}}">{{data.Description}}</div>
+                                                            <span class="fa fa-tag alignright">{{data.PartnerName}}</span>
+                                                            <span class="text-upper" style="color:#ff845e; font-size:12px; font-weight:700;">{{data.Category}}</span>
+                                                            <div class="short-text text-upper" style="color:#fff; line-height:1; font-size:20px; margin:0;" title="{{data.PartnerName}}">{{data.Description}}</div>
                                                         </div>
                                                  <div class="offer-bottom">
                                                             <span class="" style="font-size:12px;">Price Per Hour </span>
@@ -202,17 +176,10 @@
                                         <span class="" style="font-size:12px;">Price Per KM </span>
                                                             <span class="" style="font-size:18px;color:black; font-weight:700; line-height:1;">&nbsp;<i class="fa fa-rupee" ></i>&nbsp;{{data.PricePerKM}}&nbsp;</span>
                                                         </div>
-<!--
-                                              <div class="featured-btm box-shadow1">
-                                                    <span class="fa fa-map-pin text-upper">&nbsp;&nbsp;{{data.tour_territory[0]}}&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                                                    <span class="fa fa-hourglass text-upper">&nbsp;&nbsp;{{data.tour_duration}}&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                                                    <span class="fa fa-thumbs-up text-upper" star-rating rating-value="5"></span>
-                                                    <span class="alignleft fa fa-life-ring">&nbsp;&nbsp; reviews&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                                                </div>
---><br>
+<br>
                                                 <div class="post-desc">
                                                     <div class="row" style="padding:8px 0px 0px 0px">
-                                                        <lable class="col-md-12">Get Fair Estimate Between Locaitons:&nbsp;<label type="text" id="lblDistance"></label> K.m.</lable>
+                                                        <lable class="col-md-12">Get Fair Estimate Between Locaitons:&nbsp;<label type="text" id="lblDistance"></label> KM</lable>
                                                         <div class="col-md-5">
                                                             <input name="fromLocation" id="fromLocation" autocomplete="on" ng-pattern="/^[a-z ,A-Z]+$/" value="" type="text" class="form-control" style="height:30px" placeholder="Source">
                                                         </div>
@@ -222,12 +189,6 @@
                                                         <div class=" col-md-2 ">
                                                             <a class="btn btn-primary" ng-click="transportDetailModalShow(data.ID);" style="height:30px "><i class="fa fa-lg fa-caret-right "></i></a>
                                                         </div>
-                                                        <!--
-                                                            <a class="btn btn-primary marb20 " ng-href="# ">DETAILS</a>
-                                                            <a id="bookButton " class="alignright " ng-href="# ">
-                                                                <input type="submit " name="submit " class="btn btn-sm btn-success text-upper marb20 " value="Book " />
-                                                            </a>
--->
                                                     </div>
                                                 </div>
                                                 </div>
@@ -335,7 +296,7 @@
 
     <div class="modal fade" id="transportDetailModal" role="dialog" aria-labelledby="transportDetailModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-            <input type="hidden" id="lodgingID" name="lodgingID" value="" />
+            <input type="hidden" id="transportPrice" name="transportPrice" value="" />
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header" style="padding:20px 50px; background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;">
@@ -348,7 +309,7 @@
                               <div class="sidebar-widget">
                                      
                                     <div class="row">
-                                        <div class="col-md-4"><img class="img-responsive" src="{{trasportlist.Media.Image[0]}}" alt="Lodge" /></div>
+                                        <div class="col-md-4"><img class="img-responsive" src="{{trasportlist.Media.Image[0]}}" alt="Transport" /></div>
                                         <div class="col-md-6">
                                             <h4 class="text-upper">{{trasportlist.Description}}</h4> 
                                         <h6 class="text-upper">Distance  <label type="text" id="lblDistance"></label></h6> </div>
@@ -356,8 +317,8 @@
                                     <br>
                                     <ul class=" list-unstyled">
                                         
-                                         <li>From LocationName <span style="color:black;" class="pull-right">XYZ</span></li>
-                                         <li>To LocationName<span style="color:black;" class="pull-right">PQR</span></li>
+                                         <li>From Location Name <span style="color:black;" class="pull-right">XYZ</span></li>
+                                         <li>To Location Name<span style="color:black;" class="pull-right">PQR</span></li>
                                         <li>Price Per KM <span style="color:black;" class="pull-right">{{trasportlist.PricePerKM}}</span></li>
                                         <li>Price Per Hour<span style="color:black;"  class="pull-right"> {{trasportlist.PricePerHour}}</span></li>
                                       <li>Estimated Price({{lenghtInKM}}*{{trasportlist.PricePerHour}}) <span style="color:black;"  class="pull-right"> {{trasportlist.PricePerHour}}*40</span></li>
