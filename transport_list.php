@@ -115,7 +115,7 @@
 
 <!-- START body -->
 
-<body ng-app="topTours"  ng-controller="transportCrtl">
+<body ng-app="topTours" ng-controller="transportCrtl">
     <!-- START #wrapper -->
     <div id="wrapper">
         <!-- START header -->
@@ -147,41 +147,47 @@
                 <div class="container">
 
                     <div class="row">
-                            <div class="col-md-8">
-                                <div ng-show="filteredItems > 0">
-                                    <div class="" ng-repeat="data in filtered = (list) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
-                                        <div class="col-md-12 ">
-                                            <div class="row">
-                                            <div class="tour-plans">
-                                                 <div class="col-md-6">
-                                                <div class="plan-image">
-                                                    <a ng-href="transport-booking-form.php#?id={{data.ID}}">
-                                                        <img class="img-responsive" style="width:770px; height:150px;hover:opacity: 0.6;" ng-src="{{data.Media.Image[0] ==null ? 'img/SAMPLE_TAJ.jpg' : data.Media.Image[0]}}" alt="Tranport image" />
-                                                    </a>
-                                                    <div class="offer-boxNew" style="width: 300px; ">
+                        <div class="col-md-8">
+                            <div ng-show="filteredItems > 0">
+                                <div class="" ng-repeat="data in filtered = (list) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
+                                    <div class="col-md-12 ">
+                                        <div class="row">
+                                            <div class="tour-plans post-desc">
+                                                <a ng-href="tour_detail_sidebar.php#?id=">
+                                                    <div class="col-md-6">
+                                                        <br>
+                                                        <div class="plan-image">
+                                                            <a ng-href="tour_detail_sidebar.php#?id={{data.tour_id}}">
+                                                                <img class="img-responsive" style="width:770px; height:150px;hover:opacity: 0.6;" ng-src="{{data.Media.Image[0] ==null ? 'img/SAMPLE_TAJ.jpg' : data.Media.Image[0]}}" alt="Tranport image" />
+                                                            </a>
+                                                            <div class="offer-boxNew" style="width: 300px; ">
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                </div>
-                                              
-                                           
-                                            <div class="col-md-6">
-                                                <div class="offer-top">
+                                                </a>
+
+                                                <div class="col-md-6">
+                                                    <a ng-href="tour_detail_sidebar.php#?id=">
+                                                        <br>
+                                                        <div class="offer-top">
                                                             <span class="fa fa-tag alignright">{{data.PartnerName}}</span>
                                                             <span class="text-upper" style="color:#ff845e; font-size:12px; font-weight:700;">{{data.Category}}</span>
                                                             <div class="short-text text-upper" style="color:#fff; line-height:1; font-size:20px; margin:0;" title="{{data.PartnerName}}">{{data.Description}}</div>
                                                         </div>
-                                                 <div class="offer-bottom">
+                                                        <div class="offer-bottom">
                                                             <span class="" style="font-size:12px;">Price Per Hour </span>
                                                             <span class="" style="font-size:18px;color:black; font-weight:700; line-height:1;">&nbsp;<i class="fa fa-rupee" ></i>&nbsp;{{data.PricePerHour}}&nbsp;</span>
-                                        <span class="" style="font-size:12px;">Price Per KM </span>
+                                                            <span class="" style="font-size:12px;">Price Per KM </span>
                                                             <span class="" style="font-size:18px;color:black; font-weight:700; line-height:1;">&nbsp;<i class="fa fa-rupee" ></i>&nbsp;{{data.PricePerKM}}&nbsp;</span>
+                                                            <input type="hidden" value="{{data.PricePerKM}}" id="priceperkm" />
+
                                                         </div>
-<br>
-                                                <div class="post-desc">
+                                                    </a>
                                                     <div class="row" style="padding:8px 0px 0px 0px">
-                                                        <lable class="col-md-12">Get Fair Estimate Between Locaitons:&nbsp;<label type="text" id="lblDistance"></label> KM</lable>
+                                                        <lable class="col-md-12">Get Fair Estimate Between Locaitons:&nbsp;
+                                                            <label type="text" id="lblDistance"></label> K.m.</lable>
                                                         <div class="col-md-5">
-                                                            <input name="fromLocation" id="fromLocation" autocomplete="on" ng-pattern="/^[a-z ,A-Z]+$/" value="" type="text" class="form-control" style="height:30px" placeholder="Source">
+                                                            <input name="fromLocation" id="fromLocation" autocomplete="on" ng-pattern="/^[a-z ,A-Z]+$/" value="" type="text" class="form-control" style="height:30px" placeholder="Source" onfocusout="GetRoute()">
                                                         </div>
                                                         <div class="col-md-5">
                                                             <input name="toLocation" id="toLocation" autocomplete="on" ng-pattern="/^[a-z ,A-Z]+$/" value="" type="text" class="form-control" style="height:30px" placeholder="Destination" onfocusout="GetRoute()">
@@ -195,11 +201,10 @@
                                                  </div>
                                         </div><br>
 </div>
-                                        <!-- <div class="clearfix"></div>-->
                                     </div>
-                                    
                                 </div>
                             </div>
+                        </div>
                         <!-- START #sidebar -->
                         <aside id="sidebar" class="col-md-4">
                             <div class="sidebar-widget">
@@ -301,34 +306,31 @@
             <div class="modal-content">
                 <div class="modal-header" style="padding:20px 50px; background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;">
                     <button type="button" class="close" style="background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;" data-dismiss="modal">&times;</button>
-                    <h4 style="background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;"><span class="glyphicon glyphicon-lock"></span>Transport Services</h4>
+                    <h4 style="background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;"><span class="glyphicon glyphicon-lock"></span>Estimated Price</h4>
                 </div>
                 <div class="modal-body" style="padding:20px 50px 0px;">
                     <div class="row">
                         <div class="col-md-12">
-                              <div class="sidebar-widget">
-                                     
-                                    <div class="row">
-                                        <div class="col-md-4"><img class="img-responsive" src="{{trasportlist.Media.Image[0]}}" alt="Transport" /></div>
-                                        <div class="col-md-6">
-                                            <h4 class="text-upper">{{trasportlist.Description}}</h4> 
+                            <div class="sidebar-widget">
+
+                                <div class="row">
+                                    <div class="col-md-4"><img class="img-responsive" src="{{trasportlist.Media.Image[0]}}" alt="Transport" /></div>
+                                    <div class="col-md-6">
+                                        <h4 class="text-upper">{{trasportlist.Description}}</h4>
                                         <h6 class="text-upper">Distance  <label type="text" id="lblDistance"></label></h6> </div>
-                                    </div>
-                                    <br>
-                                    <ul class=" list-unstyled">
-                                        
-                                         <li>From Location Name <span style="color:black;" class="pull-right">XYZ</span></li>
-                                         <li>To Location Name<span style="color:black;" class="pull-right">PQR</span></li>
-                                        <li>Price Per KM <span style="color:black;" class="pull-right">{{trasportlist.PricePerKM}}</span></li>
-                                        <li>Price Per Hour<span style="color:black;"  class="pull-right"> {{trasportlist.PricePerHour}}</span></li>
-                                      <li>Estimated Price({{lenghtInKM}}*{{trasportlist.PricePerHour}}) <span style="color:black;"  class="pull-right"> {{trasportlist.PricePerHour}}*40</span></li>
-                                    </ul>
                                 </div>
+                                <br> Estimated Fair charges form
+                                <label id="fromLocationModel"></label>
+                                to
+                                <label id="toLocationModel"></label>
+                                is Rs. <span style="color:black;" id="estimatedPrice"></span>.
+                                <br> the price is a estimate only and can vary on the bases of distance the car drove.
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer" style="background-color: #f9f9f9;">
-                    <button type="submit" style="background-color:#ff845e" class="btn btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+                    <button type="submit" class="btn btn-success pull-right"><span class="glyphicon glyphicon-remove"></span> Book</button>
                 </div>
             </div>
         </div>
@@ -340,7 +342,7 @@
     <script type="text/javascript " src="bs3/js/bootstrap.min.js "></script>
     <script type="text/javascript " src="js/script.js "></script>
 
-<!--
+    <!--
     <script>
         function transportDetailModalShow() {
             $('#transportDetailModal').modal('show');
@@ -358,6 +360,7 @@
 
         google.maps.event.addDomListener(window, 'load', function () {
             var options = {
+                types: ['(cities)'],
                 componentRestrictions: {
                     country: "in"
                 }
@@ -390,7 +393,8 @@
             //*********DIRECTIONS AND ROUTE**********************//
             source = document.getElementById("fromLocation").value;
             destination = document.getElementById("toLocation").value;
-
+            document.getElementById("fromLocationModel").innerHTML = source.split(',')[0];
+            document.getElementById("toLocationModel").innerHTML = destination.split(',')[0];
             var request = {
                 origin: source,
                 destination: destination,
@@ -417,6 +421,11 @@
                     var distanceParts = distanceKM.split(" ");
                     var distance = distanceParts[0];
                     document.getElementById("lblDistance").innerHTML = distance;
+                    distance=distance.replace(/\,/g,''); // 1125, but a string, so convert it to number
+                    distance=parseInt(distance,10);
+                    var dsjh = document.getElementById("priceperkm").value;
+                    var vbhh = dsjh * distance;
+                    document.getElementById("estimatedPrice").innerHTML = Math.round(vbhh);
 
                 } else {
                     alert("Unable to find the distance via road.");
