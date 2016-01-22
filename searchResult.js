@@ -13,7 +13,7 @@
     app.controller('MultipleCtrl',['$scope','$http','$location', function($scope, $http,$location) {
          $scope.placename='';
           $scope.searchID = $location.search().id;
-        alert( $scope.searchID);
+       // alert( $scope.searchID);
           $scope.checkboxModel = {
        value1 : true,
 	   value2 : true,
