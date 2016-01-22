@@ -179,21 +179,21 @@
                                                             <span class="" style="font-size:18px;color:black; font-weight:700; line-height:1;">&nbsp;<i class="fa fa-rupee" ></i>&nbsp;{{data.PricePerHour}}&nbsp;</span>
                                                             <span class="" style="font-size:12px;">Price Per KM </span>
                                                             <span class="" style="font-size:18px;color:black; font-weight:700; line-height:1;">&nbsp;<i class="fa fa-rupee" ></i>&nbsp;{{data.PricePerKM}}&nbsp;</span>
-                                                            <input type="hidden" value="{{data.PricePerKM}}" id="priceperkm" />
+                                                            <input type="hidden" value="{{data.PricePerKM}}" id="{{data.ID}}_priceperkm" />
 
                                                         </div>
                                                     </a>
                                                     <div class="row" style="padding:8px 0px 0px 0px">
                                                         <lable class="col-md-12">Get Fair Estimate Between Locaitons:&nbsp;
-                                                            <label type="text" id="lblDistance"></label> K.m.</lable>
+                                                            <label type="text" id="{{data.ID}}_lblDistance"></label> K.m.</lable>
                                                         <div class="col-md-5">
-                                                            <input name="fromLocation" id="fromLocation" autocomplete="on" ng-pattern="/^[a-z ,A-Z]+$/" value="" type="text" class="form-control" style="height:30px" placeholder="Source" onfocusout="GetRoute()">
+                                                            <input name="fromLocation" id="{{data.ID}}_f" autocomplete="on" ng-pattern="/^[a-z ,A-Z]+$/" value="" type="text" class="form-control foo" style="height:30px" placeholder="Source" onfocusout="GetRoute(this.id)">
                                                         </div>
                                                         <div class="col-md-5">
-                                                            <input name="toLocation" id="toLocation" autocomplete="on" ng-pattern="/^[a-z ,A-Z]+$/" value="" type="text" class="form-control" style="height:30px" placeholder="Destination" onfocusout="GetRoute()">
+                                                            <input name="toLocation" id="{{data.ID}}_t" autocomplete="on" ng-pattern="/^[a-z ,A-Z]+$/" value="" type="text" class="form-control foo" style="height:30px" placeholder="Destination" onfocusout="GetRoute(this.id)">
                                                         </div>
                                                         <div class=" col-md-2 ">
-                                                            <a class="btn btn-primary" ng-click="transportDetailModalShow(data.ID);" style="height:30px "><i class="fa fa-lg fa-caret-right "></i></a>
+                                                            <a class="btn btn-primary" id="{{data.ID}}_btn" onclick="GetRoute(this.id)" ng-click="transportDetailModalShow(data.ID);" style="height:30px "><i class="fa fa-lg fa-caret-right "></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -312,19 +312,25 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="sidebar-widget">
-
                                 <div class="row">
-                                    <div class="col-md-4"><img class="img-responsive" src="{{trasportlist.Media.Image[0]}}" alt="Transport" /></div>
+                                    <div class="col-md-4">
+                                        <img class="img-responsive" src="{{trasportlist.Media.Image[0]}}" alt="Transport" />
+                                    </div>
                                     <div class="col-md-6">
-                                        <h4 class="text-upper">{{trasportlist.Description}}</h4>
-                                        <h6 class="text-upper">Distance  <label type="text" id="lblDistance"></label></h6> </div>
-                                </div>
-                                <br> Estimated Fair charges form
-                                <label id="fromLocationModel"></label>
-                                to
-                                <label id="toLocationModel"></label>
-                                is Rs. <span style="color:black;" id="estimatedPrice"></span>.
-                                <br> the price is a estimate only and can vary on the bases of distance the car drove.
+                                        <h4 class="text-upper">{{trasportlist.Description}}</h4> From
+                                        <label id="fromLocationModel"></label> to
+                                        <label id="toLocationModel"></label>
+                                    </div>
+                                </div><br>
+                                <ul class=" list-unstyled">
+
+                                    <li class="pricing-table ">Total Distance <span style="color:black;" class="pull-right">{{trasportlist.PricePerKM}} KM.</span></li>
+                                    <li class="pricing-table ">Price Per Km. <span style="color:black;" class="pull-right">Rs.<span style="color:black;" id="disModal"></span></span></li>
+                                    <li class="pricing-table ">Estimated Fair charges<span style="color:black;" class="pull-right">Rs. <span style="color:black;" id="estimatedPrice"></span></span>
+                                    </li>
+
+                                </ul>
+                                <br>Note : the price is a estimate only and can vary on the bases of distance the car drove.
                             </div>
                         </div>
                     </div>
@@ -352,35 +358,28 @@
 
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
     <script type="text/javascript">
-        var source, destination;
-        var directionsDisplay;
-        var directionsService = new google.maps.DirectionsService();
-
-
-
-        google.maps.event.addDomListener(window, 'load', function () {
+        function initialize() {
             var options = {
                 types: ['(cities)'],
                 componentRestrictions: {
                     country: "in"
                 }
             };
+            for (var i = 0; i < document.getElementsByClassName("foo").length; i++) {
+                var autocomplete = new google.maps.places.Autocomplete(document.getElementsByClassName("foo")[i], options);
+            }
+        }
+        google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
 
-            var input = document.getElementById('fromLocation');
-            var autocomplete = new google.maps.places.Autocomplete(input, options);
+    <script type="text/javascript">
+        var source, destination;
+        var directionsDisplay;
+        var directionsService = new google.maps.DirectionsService();
 
-            var input = document.getElementById('toLocation');
-            var autocomplete = new google.maps.places.Autocomplete(input, options);
+        function GetRoute(id) {
 
-            new google.maps.places.SearchBox(autocomplete);
-            new google.maps.places.SearchBox(document.getElementById('fromLocation'));
-            new google.maps.places.SearchBox(document.getElementById('toLocation'));
-            directionsDisplay = new google.maps.DirectionsRenderer({
-                'draggable': false
-            });
-        });
-
-        function GetRoute() {
+            var nID = id.split("_")[0];
             var mumbai = new google.maps.LatLng(18.9750, 72.8258);
             var mapOptions = {
                 zoom: 7,
@@ -391,8 +390,8 @@
             //directionsDisplay.setPanel(document.getElementById('dvPanel'));
 
             //*********DIRECTIONS AND ROUTE**********************//
-            source = document.getElementById("fromLocation").value;
-            destination = document.getElementById("toLocation").value;
+            source = document.getElementById(nID + "_f").value;
+            destination = document.getElementById(nID + "_t").value;
             document.getElementById("fromLocationModel").innerHTML = source.split(',')[0];
             document.getElementById("toLocationModel").innerHTML = destination.split(',')[0];
             var request = {
@@ -420,12 +419,13 @@
                     var distanceKM = response.rows[0].elements[0].distance.text;
                     var distanceParts = distanceKM.split(" ");
                     var distance = distanceParts[0];
-                    document.getElementById("lblDistance").innerHTML = distance;
-                    distance=distance.replace(/\,/g,''); // 1125, but a string, so convert it to number
-                    distance=parseInt(distance,10);
-                    var dsjh = document.getElementById("priceperkm").value;
-                    var vbhh = dsjh * distance;
-                    document.getElementById("estimatedPrice").innerHTML = Math.round(vbhh);
+                    document.getElementById(nID + "_lblDistance").innerHTML = distance;
+                    document.getElementById("disModal").innerHTML = distance;
+                    distance = distance.replace(/\,/g, ''); // 1125, but a string, so convert it to number
+                    distance = parseInt(distance, 10);
+                    var gooo = document.getElementById(nID + "_priceperkm").value;
+                    var hooo = gooo * distance;
+                    document.getElementById("estimatedPrice").innerHTML = Math.round(hooo);
 
                 } else {
                     alert("Unable to find the distance via road.");
@@ -433,9 +433,6 @@
             });
         }
     </script>
-    <!--[if lt IE 9]>
-			<script type="text/javascript" src="js/html5shiv.js"></script>
-		<![endif]-->
 
 </body>
 

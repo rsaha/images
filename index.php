@@ -144,7 +144,7 @@
 
                         <div class="row">
                             <br>
-                            <div class="col-md-4 col-md-offset-1 input-group">
+                            <div class="col-md-8 col-md-offset-1 input-group">
                                 <!--
         <div class="dropdown">
             <button  class="btn btn-default dropdown-toggle" type="button" id="placeMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -161,11 +161,12 @@
             </ul>
         </div>
 -->
-                                <input type="text" class="form-control" style="background-color:white;" ng-model="search" name="fromLocation" id="fromLocation" autocomplete="on" ng-pattern="/^[a-z ,A-Z]+$/" placeholder="From Location" onfocusout="GetRoute()" />
+                                <input type="text" class="form-control" style="background-color:white;" ng-model="search" name="fromLocation" id="fromLocation" autocomplete="on" ng-pattern="/^[a-z ,A-Z]+$/" placeholder="Location" onfocusout="GetRoute()" />
                             </div>
                             <!--                        second dropdown list starts-->
+<!--
                             <div class="col-md-4  input-group">
-                                <!--
+                                
         <div class="dropdown">
             <button class="btn btn-default dropdown-toggle" type="button" id="placeMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                 To Location
@@ -180,9 +181,10 @@
                 <li role="separator" class="divider"></li>
             </ul>
         </div>
--->
+
                                 <input type="text" class="form-control" style="background-color:white;" name="toLocation" id="toLocation" autocomplete="on" ng-pattern="/^[a-z ,A-Z]+$/" value="" placeholder="To Location" onfocusout="GetRoute()" />
                             </div>
+-->
 
                             <div class="col-md-2 col-sm-2 col-xs-2  input-group">
                                 <!--
