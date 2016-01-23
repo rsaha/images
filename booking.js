@@ -15,6 +15,34 @@
 
 app.controller('guides_booking',['$scope','$http','$location', function($scope, $http,$location) {
      debugger;
+   $scope.transportbookValue=0;
+   // $scope.transportBook =0;
+   
+   if($location.search().id1 ==2 || $location.search().id2 ==2)
+       {
+          
+      $http.get("http://gg_admin-prod.apigee.net/guidedgateway/transports")
+    .success(function (response) {
+		$scope.transportbookValue=1;
+           var transbookID=$location.search().id3;
+             var transportlistbook = response.entities;
+                                 for (var i = 0, len = transportlistbook.length; i < len; i++) {
+                                   
+                                     if (transportlistbook[i].ID == transbookID) {
+                                        
+                                         $scope.transportBook = transportlistbook[i];
+                                   
+                                         break;
+
+
+                                     }
+                                 }
+          
+		})
+	.error(function() {
+				$scope.data = "error in fetching data";
+			});
+       }
     $http.get("http://gg_admin-prod.apigee.net/guidedgateway/guides")
     .success(function (response) {
 		$scope.guidesbook =response.entities;
@@ -236,7 +264,7 @@ app.controller('guides_booking',['$scope','$http','$location', function($scope, 
              $http.get("http://gg_admin-prod.apigee.net/guidedgateway/guide?id="+guideID.id1)
    // $http.get("http://gg_admin-prod.apigee.net/guidedgateway/guide?id=10011")
     .success(function (response) {
-		$scope.guide=response;
+		$scope.guide=response.entities[0];
 		})
 	.error(function() {
 				$scope.data = "error in fetching data";
@@ -254,7 +282,8 @@ app.controller('guides_booking',['$scope','$http','$location', function($scope, 
           
             $http.get("http://gg_admin-prod.apigee.net/guidedgateway/tour?tourid="+tourID.id2)
     .success(function (response) {
-		$scope.tour = response;
+		$scope.tour = response.entities[0];
+             
                 $scope.tourPrice=  parseInt($scope.tour.tour_price, 10);
               $scope.minTourPrice=$scope.tourPrice;
                 $scope.dayValue=$scope.tour.tour_duration;

@@ -339,7 +339,7 @@
                     </div>
                 </div>
                 <div class="modal-footer" style="background-color: #f9f9f9;">
-                    <button type="submit" class="btn btn-success pull-right"><span class="glyphicon glyphicon-remove"></span> Book</button>
+                    <a ng-href="booking-form.php#?id1=2&id2=2&id3={{trasportlist.ID}}" class="btn btn-success pull-right"><span class="glyphicon glyphicon-remove"></span> Book</a>
                 </div>
             </div>
         </div>

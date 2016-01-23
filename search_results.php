@@ -177,10 +177,10 @@
                             <!-- START Search Container -->
 
                             <!-- END Search Container -->
-                            <div class="row">
+                            <div class="row" ng-repeat="z in places | filter:searchID" ng-show="$index<1">
                                 <h2 class="ft-heading text-upper col-md-12" ng-show="checkboxModel.value3"><i class="fa fa-leaf"></i>&nbsp;&nbsp;Top Destinations<span class="alignright"> <a class="btn btn-primary" href="top-destinations-listview-sidebar.php"><span>More&nbsp;<i class="fa fa-angle-double-right"></i></span></a></span></h2>
                             </div>
-                            <div class="carousel" ng-show="checkboxModel.value3">
+                            <div class="carousel" ng-repeat="z in places | filter:searchID"  ng-show="checkboxModel.value3 ||$index<1">
                                 <ul class="slides">
                                     <li>
                                         <div class="row bom-contents" style="height:380px;">
@@ -217,10 +217,10 @@
                                     </li>
                                 </ul>
                             </div>
-                            <div class="row">
+                            <div class="row" ng-repeat="y in allguides | filter:searchID" ng-show="$index<1 ">
                                 <h2 class="ft-heading text-upper col-md-12" ng-show="checkboxModel.value2"><i class="fa fa-user-secret"></i>&nbsp;&nbsp; Featured Guides<span class="alignright"> <a class="btn btn-primary" href="top-guides-listview.php"><span style="font-weight:bold;">More&nbsp;<i class="fa fa-angle-double-right"></i></span></a></span></h2>
                             </div>
-                            <div class="carousel" ng-show="checkboxModel.value2">
+                            <div class="carousel" ng-repeat="y in allguides | filter:searchID" ng-show="checkboxModel.value2 || $index<1 ">
                                 <ul class="slides">
                                     <li>
                                         <div class="row bom-contents" style="height:380px;">
@@ -259,10 +259,10 @@
                                 </ul>
                             </div>
 
-                            <div class="row">
+                            <div class="row" ng-repeat="x in tours | filter:searchID" ng-show="$index<1">
                                 <h2 class="ft-heading text-upper col-md-12" ng-show="checkboxModel.value1"><i class="fa fa-trophy"></i>&nbsp;&nbsp; Popular Tours<span class="alignright"> <a class="btn btn-primary" href="top-tours-listview-sidebar.php"><span style="">More&nbsp;<i class="fa fa-angle-double-right"></i></span></a></span></h2>
                             </div>
-                            <div class="carousel" ng-show="checkboxModel.value1">
+                            <div class="carousel"  ng-show="checkboxModel.value1 ">
                                 <ul class="slides">
                                     <li>
 
