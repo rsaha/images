@@ -102,6 +102,88 @@
                 });
             });
         </script>
+
+
+        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
+        <script type="text/javascript">
+            var source, destination;
+            var directionsDisplay;
+            var directionsService = new google.maps.DirectionsService();
+
+
+
+            google.maps.event.addDomListener(window, 'load', function () {
+                var options = {
+                    types: ['(cities)'],
+                    componentRestrictions: {
+                        country: "in"
+                    }
+                };
+                var input = document.getElementById('fromLocation');
+                var autocomplete = new google.maps.places.Autocomplete(input, options);
+
+                var input = document.getElementById('toLocation');
+                var autocomplete = new google.maps.places.Autocomplete(input, options);
+
+                new google.maps.places.SearchBox(autocomplete);
+                new google.maps.places.SearchBox(document.getElementById('fromLocation'));
+                new google.maps.places.SearchBox(document.getElementById('toLocation'));
+                directionsDisplay = new google.maps.DirectionsRenderer({
+                    'draggable': false
+                });
+            });
+
+            function GetRoute() {
+                var mumbai = new google.maps.LatLng(18.9750, 72.8258);
+                var mapOptions = {
+                    zoom: 7,
+                    center: mumbai
+                };
+                //map = new google.maps.Map(document.getElementById('dvMap'), mapOptions);
+                //directionsDisplay.setMap(map);
+                //directionsDisplay.setPanel(document.getElementById('dvPanel'));
+
+                //*********DIRECTIONS AND ROUTE**********************//
+                source = document.getElementById("fromLocation").value;
+                destination = document.getElementById("toLocation").value;
+
+                var request = {
+                    origin: source,
+                    destination: destination,
+                    travelMode: google.maps.TravelMode.DRIVING
+                };
+                directionsService.route(request, function (response, status) {
+                    if (status == google.maps.DirectionsStatus.OK) {
+                        directionsDisplay.setDirections(response);
+                    }
+                });
+
+                //*********DISTANCE AND DURATION**********************//
+                var service = new google.maps.DistanceMatrixService();
+                service.getDistanceMatrix({
+                    origins: [source],
+                    destinations: [destination],
+                    travelMode: google.maps.TravelMode.DRIVING,
+                    unitSystem: google.maps.UnitSystem.METRIC,
+                    avoidHighways: false,
+                    avoidTolls: false
+                }, function (response, status) {
+                    if (status == google.maps.DistanceMatrixStatus.OK && response.rows[0].elements[0].status != "ZERO_RESULTS") {
+                        var distanceKM = response.rows[0].elements[0].distance.text;
+                        var distanceParts = distanceKM.split(" ");
+                        var distance = distanceParts[0];
+                        var distanceShow = document.getElementById("distanceShow");
+                        var distanceShowI = document.getElementById("distanceShowI");
+                        distanceShow.innerHTML = "";
+                        distanceShow.innerHTML += distance;
+                        distanceShowI.value = distance;
+
+                    } else {
+                        alert("Unable to find the distance via road.");
+                    }
+                });
+            }
+        </script>
     </head>
     <!-- END head -->
 
@@ -194,30 +276,50 @@
                                                         </span>
                                                     </div>
                                                     <div ng-hide="transportbookValue">
-                                                    <div class="col-md-6" ng-show="{{guideValue}}">
-                                                        <label>Tour Duratios [In Days] <span class="required small">(Required)</span></label>
-                                                        <div class="input-group">
-                                                            <span class="input-group-addon" style="cursor:pointer" ng-click="tourdayminus(dayValue);"><i style="font-size:12px" class="fa fa-minus"></i></span>
-                                                            <input type="text" id="tourDurationG" id="tourDurationG" name="tourDurationG" class="form-control" ng-model="dayValue">
-                                                            <span class="input-group-addon">Days</span>
-                                                            <span class="input-group-addon" style="cursor:pointer" ng-click="tourdayplus(dayValue);"><i style="font-size:12px" class="fa fa-plus"></i></span>
+                                                        <div class="col-md-6" ng-show="{{guideValue}}">
+                                                            <label>Tour Duratios [In Days] <span class="required small">(Required)</span></label>
+                                                            <div class="input-group">
+                                                                <span class="input-group-addon" style="cursor:pointer" ng-click="tourdayminus(dayValue);"><i style="font-size:12px" class="fa fa-minus"></i></span>
+                                                                <input type="text" id="tourDurationG" id="tourDurationG" name="tourDurationG" class="form-control" ng-model="dayValue">
+                                                                <span class="input-group-addon">Days</span>
+                                                                <span class="input-group-addon" style="cursor:pointer" ng-click="tourdayplus(dayValue);"><i style="font-size:12px" class="fa fa-plus"></i></span>
+                                                            </div>
                                                         </div>
-                                                    </div>
 
-                                                    <div class="col-md-6" ng-show="{{tourValue}}">
-                                                        <label>Tour Duratios [In Days] <span class="required small">(Required)</span></label>
-                                                        <div class="input-group">
-                                                            <span class="input-group-addon" onclick="tourDurationMinus();"></span>
-                                                            <input type="text" id="tourDurationT" name="tourDurationT" value="{{tour.tour_duration}}" class="form-control" readonly>
-                                                            <span class="input-group-addon">Day(s)</span>
+                                                        <div class="col-md-6" ng-show="{{tourValue}}">
+                                                            <label>Tour Duratios [In Days] <span class="required small">(Required)</span></label>
+                                                            <div class="input-group">
+                                                                <span class="input-group-addon" onclick="tourDurationMinus();"></span>
+                                                                <input type="text" id="tourDurationT" name="tourDurationT" value="{{tour.tour_duration}}" class="form-control" readonly>
+                                                                <span class="input-group-addon">Day(s)</span>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                        </div>
                                                 </li>
-                                                    <li class="row">
-                                                           <div class="col-md-6">
+                                                <li class="row">
+                                                    <div class="col-md-6" ng-show="transportbookValue">
+                                                        <label>Pick-up Location <span class="required small">(Required)</span></label>
+                                                        <input type="text" class="form-control" required id="pickupLocation" name="pickupLocation" />
+                                                        <span style="color:red" ng-show="bookingForm.pickupLocation.$dirty && bookingForm.pickupLocation.$invalid">
+											  <span ng-show="bookingForm.pickupLocation.$error.required">*Pick-up Location is required.</span>
+
+                                                        </span>
+                                                    </div>
+                                                    <div class="col-md-6" ng-show="transportbookValue">
+                                                        <label>Pick-up Time <span class="required small">(Required)</span></label>
+                                                        <input type="time" class="form-control" required id="pickuptime" name="pickuptime" />
+                                                        <span style="color:red" ng-show="bookingForm.pickuptime.$dirty && bookingForm.pickuptime.$invalid">
+											  <span ng-show="bookingForm.pickuptime.$error.required">*Pick-up Time is required.</span>
+
+                                                        </span>
+                                                    </div>
+                                                </li>
+                                               
+                                                <input type="hidden" id="distanceShowI" name="distanceShowI" />
+                                                <li class="row">
+                                                    <div class="col-md-6">
                                                         <label>From Location<span class="required small">(Required)</span></label>
-                                                        <input type="text" class="form-control" name="fromLocation" id="fromLocation" autocomplete="on" ng-model="fromLocation" value="" ng-pattern="/^[a-z ,A-Z]+$/" />
+                                                        <input type="text" class="form-control" name="fromLocation" id="fromLocation" autocomplete="on" ng-model="fromLocation" value="" ng-pattern="/^[a-z ,A-Z]+$/" onfocusout="GetRoute()" />
                                                         <!--
                                                         <span style="color:red" ng-show="bookingForm.yourLocation.$dirty && bookingForm.yourLocation.$invalid">
 											  <span ng-show="bookingForm.yourLocation.$error.required">*Location is required.</span>
@@ -235,7 +337,7 @@
                                                         </span>
 -->
                                                     </div>
-                                                    </li>
+                                                </li>
                                                 <li class="row">
                                                     <div class="col-md-12">
                                                         <div class="sidebar-widget">
@@ -294,8 +396,8 @@
                                                                                               </span>
                                                                                                 <div class="ft-data" style="font-size:11px;">
                                                                                                     <span style="color:black;" class="fa fa-book text-upper">&nbsp;&nbsp;{{trans.Category}}&nbsp;&nbsp;</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                                                                    <span style="color:black;" class="fa fa-money text-upper" > &nbsp;&nbsp;{{trans.PricePerHour}} /- Per Hour</span>
-							  <span style="color:black;" class="fa fa-money text-upper" >&nbsp;&nbsp;{{trans.PricePerKM}}/- Per KM</span>
+                                                                                                    <span style="color:black;" class="fa fa-money text-upper"> &nbsp;&nbsp;{{trans.PricePerHour}} /- Per Hour</span>
+                                                                                                    <span style="color:black;" class="fa fa-money text-upper">&nbsp;&nbsp;{{trans.PricePerKM}}/- Per KM</span>
                                                                                                 </div>
                                                                                                 <div class="ft-foot" style="color:white">
                                                                                                     <span class="ft-offer text-upper">{{trans.OutStationMinKM}} Kms</span>
@@ -366,7 +468,7 @@
                                                 <a class="urlUnchange" href="#popular-posts" data-toggle="tab">Requested Tour Detail</a></li>
                                             <li class="active" ng-show="{{guideValue}}">
                                                 <a class="urlUnchange" href="#popular-posts" data-toggle="tab">Requested Guide Detail</a></li>
-                                             <li class="active" ng-show="transportbookValue">
+                                            <li class="active" ng-show="transportbookValue">
                                                 <a class="urlUnchange" href="#popular-posts" data-toggle="tab">Requested Transport Detail</a></li>
                                         </ul>
                                         <!-- END TABS -->
@@ -413,59 +515,6 @@
                                                                 </div>
                                                             </div>
 
-                                                            <div class="row" >{{transportbookValue}}
-                                                                <div class="col-md-5" ng-hide="transportbookValue">
-                                                                    Exclusive :{{transportbookValue}}
-                                                                </div>
-                                                                <div class="col-md-7">
-                                                                    {{tour.exclusive}}
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="row" ng-hide="transportbookValue">
-                                                                <div class="col-md-5">
-                                                                    Cancelation Policy :
-                                                                </div>
-                                                                <div class="col-md-7">
-                                                                    {{tour.cancelation_policy}}
-                                                                </div>
-                                                            </div>
-                                                            <input type="hidden" name="tourPrice" value="{{tourPrice}}" />
-                                                            <h4 ng-hide="transportbookValue">Min. Tour Charges (4 persons) &nbsp;: {{tourPrice}}</h4>
-                                                            <h4 ng-show="transportbookValue">Transport Charges </h4>
-                                                        </div>
-                                                    </div>
-                                                </div>
-<!--                                                transport division-->
-                                                <div ng-show="transportbookValue">
-                                                       
-                                                        <div class="tour-plans" style="padding:10px 10px 10px 10px;">
-                                                            <div data-model="tour.tour_location">
-                                                                <div class="plan-image">
-                                                                    <img class="img-responsive" alt="Tour Image Scroller" draggable="false" src="{{transportBook.Media.Image[0] == null ? 'img/custom11.jpg' : transportBook.Media.Image[0]}}" />
-                                                                    <div class="offer-box">
-                                                                        <div class="offer-top">
-                                                                            <!--<span class="ft-temp alignright">19&#730;c</span>-->
-                                                                            <span class="featured-cr text-upper" style="font-size:15px">{{transportBook.Category}}</span>
-                                                                            <span class="featured-cr" style="font-size:10px">{{transportBook.PartnerName}}</span>
-                                                                            <div class="short-text1 featured-cy text-upper" style="font-size:15px;" title="{{tour.tour_title}}">{{transportBook.Description}}</div>
-                                                                        </div>
-                                                                        <div class="offer-bottom">
-                                                                            <span class="featured-spe" style="font-size:15px"> {{transportBook.PricePerKM}} Per Kilometer</span>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-<!--
-                                                                <div class="featured-btm box-shadow1">
-                                                                    <a class="ft-hotel text-upper" href="#">{{transportBook.tour_duration}} Day Tour</a>
-                                                                    <a class="fa fa-user text-upper" href="guide-detail-sidebar.php#?id2={{tour.guide_id}}">{{transportBook.guide_id}}</a>
-                                                                    <a class="ft-tea text-upper" href="#">
-                                                                        <div class="short-text2" title="{{tour.inclusive}}">{{transportBook.inclusive}}</div>
-                                                                    </a>
-                                                                </div>
--->
-                                                            </div>
-
                                                             <div class="row">
                                                                 <div class="col-md-5">
                                                                     Exclusive :
@@ -485,9 +534,70 @@
                                                             </div>
                                                             <input type="hidden" name="tourPrice" value="{{tourPrice}}" />
                                                             <h4>Min. Tour Charges (4 persons) &nbsp;: {{tourPrice}}</h4>
+
                                                         </div>
                                                     </div>
-<!--                                                transport div end-->
+                                                </div>
+                                                <!--                                                transport division-->
+                                                <div ng-show="transportbookValue">
+                                                    <input type="hidden" name="transportBokingF" value="{{transportBook.ID}}" />
+                                                    <input type="hidden" name="Category" value="{{transportBook.Category}}" />
+                                                    <input type="hidden" name="PartnerName" value="{{transportBook.PartnerName}}" />
+                                                    <input type="hidden" name="Description" value="{{transportBook.Description}}" />
+                                                    <input type="hidden" name="PricePerKM" value="{{transportBook.PricePerKM}}" />
+
+                                                    <div class="tour-plans" style="padding:10px 10px 10px 10px;">
+                                                        <div data-model="tour.tour_location">
+                                                            <div class="plan-image">
+                                                                <img class="img-responsive" alt="Tour Image Scroller" draggable="false" src="{{transportBook.Media.Image[0] == null ? 'img/custom11.jpg' : transportBook.Media.Image[0]}}" />
+                                                                <div class="offer-box">
+                                                                    <div class="offer-top">
+                                                                        <!--<span class="ft-temp alignright">19&#730;c</span>-->
+                                                                        <span class="featured-cr text-upper" style="font-size:15px">{{transportBook.Category}}</span>
+                                                                        <span class="featured-cr" style="font-size:10px">{{transportBook.PartnerName}}</span>
+                                                                        <div class="short-text1 featured-cy text-upper" style="font-size:15px;" title="{{tour.tour_title}}">{{transportBook.Description}}</div>
+                                                                    </div>
+                                                                    <div class="offer-bottom">
+                                                                        <span class="featured-spe" style="font-size:15px"> {{transportBook.PricePerKM}} Per Kilometer</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!--
+                                                                <div class="featured-btm box-shadow1">
+                                                                    <a class="ft-hotel text-upper" href="#">{{transportBook.tour_duration}} Day Tour</a>
+                                                                    <a class="fa fa-user text-upper" href="guide-detail-sidebar.php#?id2={{tour.guide_id}}">{{transportBook.guide_id}}</a>
+                                                                    <a class="ft-tea text-upper" href="#">
+                                                                        <div class="short-text2" title="{{tour.inclusive}}">{{transportBook.inclusive}}</div>
+                                                                    </a>
+                                                                </div>
+-->
+                                                        </div>
+
+                                                        <!--
+                                                            <div class="row">
+                                                                <div class="col-md-5">
+                                                                    Exclusive :
+                                                                </div>
+                                                                <div class="col-md-7">
+                                                                    {{tour.exclusive}}
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="row">
+                                                                <div class="col-md-5">
+                                                                    Cancelation Policy :
+                                                                </div>
+                                                                <div class="col-md-7">
+                                                                    {{tour.cancelation_policy}}
+                                                                </div>
+                                                            </div>
+-->
+
+                                                        <h5><table><tr><td>Distance(Estimated)  &nbsp;:</td><td><div id="distanceShow">0</div></td><td> KM</td></tr></table> </h5>
+                                                        <h4>Transport Charges  &nbsp;: {{tourPrice}}</h4>
+                                                    </div>
+                                                </div>
+                                                <!--                                                transport div end-->
                                                 <div style="text-align:justify; padding:10px 10px 10px 10px;">
                                                     <div ng-show="{{guideValue}}">
                                                         <input type="hidden" name="guideID" value="{{guide.id}}" />

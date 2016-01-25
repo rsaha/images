@@ -126,10 +126,10 @@
                         <div class="row">
                             <br>
                             <div class="col-md-10 col-sm-10 col-sm-offset-1 col-md-offset-1 col-xs-10 col-xs-offset-1 input-group">
-                                <input type="text" class="form-control" style="background-color:white; border:1px #cccccc solid" ng-model="searchID" placeholder="Location" />
-                                <span class="input-group-addon">
+                                <input type="text" class="form-control"  style="background-color:white; border:1px #cccccc solid" ng-model="searchID" placeholder="Location" />
+                             <a href="" ng-click="changeSearch(searchID)" class="input-group-addon">
 						<i class="fa fa-search"></i>
-						</span>
+						</a>
                             </div>
                         </div>
                         <div class="row">
@@ -166,9 +166,9 @@
             <div class="main-contents ">
                 <div class="container">
                     <br>
-                    <div class="row" ng-repeat="f in places | filter:searchID" ng-show="$index<1">
-                        <h3><label  style="color:grey">You search for :</label> {{searchID}}</h3>
-                        <h4><u>{{searchID}}</u> : </h4> <label style="text-align:justify; text-justify: inter-word;">{{f.Description}}</label>
+                    <div class="row" ng-repeat="f in places " ng-show="$index<1">
+                        <h3><label  style="color:grey">You search for :</label> {{SearchCity}}</h3>
+                        <h4><u>{{SearchCity}}</u> : </h4> <label style="text-align:justify; text-justify: inter-word;">{{f.Description}}</label>
                     </div>
                     <div class="row">
                         <div class="col-md-8">
@@ -177,10 +177,10 @@
                             <!-- START Search Container -->
 
                             <!-- END Search Container -->
-                            <div class="row" ng-repeat="z in places | filter:searchID" ng-show="$index<1">
+                            <div class="row" >
                                 <h2 class="ft-heading text-upper col-md-12" ng-show="checkboxModel.value3"><i class="fa fa-leaf"></i>&nbsp;&nbsp;Top Destinations<span class="alignright"> <a class="btn btn-primary" href="top-destinations-listview-sidebar.php"><span>More&nbsp;<i class="fa fa-angle-double-right"></i></span></a></span></h2>
                             </div>
-                            <div class="carousel" ng-repeat="z in places | filter:searchID"  ng-show="checkboxModel.value3 ||$index<1">
+                            <div class="carousel" ng-show="checkboxModel.value3">
                                 <ul class="slides">
                                     <li>
                                         <div class="row bom-contents" style="height:380px;">
@@ -217,10 +217,10 @@
                                     </li>
                                 </ul>
                             </div>
-                            <div class="row" ng-repeat="y in allguides | filter:searchID" ng-show="$index<1 ">
+                            <div class="row" >
                                 <h2 class="ft-heading text-upper col-md-12" ng-show="checkboxModel.value2"><i class="fa fa-user-secret"></i>&nbsp;&nbsp; Featured Guides<span class="alignright"> <a class="btn btn-primary" href="top-guides-listview.php"><span style="font-weight:bold;">More&nbsp;<i class="fa fa-angle-double-right"></i></span></a></span></h2>
                             </div>
-                            <div class="carousel" ng-repeat="y in allguides | filter:searchID" ng-show="checkboxModel.value2 || $index<1 ">
+                            <div class="carousel" ng-show="checkboxModel.value2">
                                 <ul class="slides">
                                     <li>
                                         <div class="row bom-contents" style="height:380px;">
@@ -259,7 +259,7 @@
                                 </ul>
                             </div>
 
-                            <div class="row" ng-repeat="x in tours | filter:searchID" ng-show="$index<1">
+                            <div class="row" >
                                 <h2 class="ft-heading text-upper col-md-12" ng-show="checkboxModel.value1"><i class="fa fa-trophy"></i>&nbsp;&nbsp; Popular Tours<span class="alignright"> <a class="btn btn-primary" href="top-tours-listview-sidebar.php"><span style="">More&nbsp;<i class="fa fa-angle-double-right"></i></span></a></span></h2>
                             </div>
                             <div class="carousel"  ng-show="checkboxModel.value1 ">
@@ -342,7 +342,7 @@
                                     <!-- START TAB 3 -->
                                     <div class="tab-pane active" id="topdestinations" style="height:310px;">
                                         <ul class="rc-posts-list list-unstyled">
-                                            <li ng-repeat="k in places" ng-show="$index<3">
+                                            <li ng-repeat="k in placesALL" ng-show="$index<3">
                                                 <span class="rc-post-image">
                                                     <a ng-href="destination-detail-sidebar.php#?id3={{k.ID}}">	<img class="img-responsive"  ng-src="{{k.Media.Image[0]}}" alt="Tour 1" /></a>
 												</span>
