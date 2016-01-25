@@ -334,48 +334,7 @@
                             </ul>
                         </div>
                         <div class="row">
-                            <h2 class="ft-heading text-upper col-md-12" ng-show="checkboxModel.value3"><i class="fa fa-leaf"></i>&nbsp;&nbsp;Top Destinations<span class="alignright"> <a class="btn btn-primary" href="top-destinations-listview-sidebar.php"><span>More&nbsp;<i class="fa fa-angle-double-right"></i></span></a></span></h2>
-                        </div>
-                        <div class="carousel" ng-show="checkboxModel.value3">
-                            <ul class="slides">
-                                <li>
-                                    <div class="row bom-contents" style="height:380px;">
-                                        <div class="col-md-11">
-                                            <div class="col-md-3" ng-repeat="z in places | filter:search" ng-show="$index<4">
-                                                <a href="destination-detail-sidebar.php#?id3={{z.ID}}">
-                                                    <div class="ft-item">
-                                                        <span class="ft-image">
-							 <img style="height:200px;" src="{{'z.Media.Image[0]'=='' ? 'img/custom1.jpg' :z.Media.Image[0]}}" alt="Top Destination" /> 
-						  </span>
-                                                        <div class="ft-data" style="height:45px;font-size:11px;">
-                                                            <span style="color:black;" class="fa fa-calendar-check-o text-upper">{{z.BestTimeToVisit}}</span>
-                                                        </div>
-
-                                                        <div class="ft-foot" style="word-wrap:break-word; height:50px;">
-                                                            <h4 class="ft-title text-upper" style="color:#686868">{{z.Name}}</h4>
-                                                            <span class="ft-offer text-upper">{{z.Category}}</span>
-                                                        </div>
-
-                                                        <div class="ft-foot-ex">
-                                                            <span class="fa fa-trophy text-upper alignleft">{{z.TourCount}}&nbsp;&nbsp;Tours</span>
-
-                                                            <span class="alignright fa fa-life-ring">{{z.GuideCount}}&nbsp;&nbsp;Guides</span>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-1 alignright" style="padding-top:265px;padding-right:20px;">
-                                            <!-- <a class="btn btn-primary" href="top-tours-listview-sidebar.php"><span style="font-weight:bold;">More >></span></a> -->
-                                        </div>
-                                    </div>
-
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="row">
-                            <h2 class="ft-heading text-upper col-md-12" ng-show="checkboxModel.value3"><i class="fa fa-cab"></i>&nbsp;&nbsp;Top Transports<span class="alignright"> <a class="btn btn-primary" href="transport_list.php"><span>More&nbsp;<i class="fa fa-angle-double-right"></i></span></a></span></h2>
+                            <h2 class="ft-heading text-upper col-md-12" ng-show="checkboxModel.value3"><i class="fa fa-cab"></i>&nbsp;&nbsp;Outstation Cars<span class="alignright"> <a class="btn btn-primary" href="transport_list.php"><span>More&nbsp;<i class="fa fa-angle-double-right"></i></span></a></span></h2>
                         </div>
                         <div class="carousel" ng-show="checkboxModel.value3">
                             <ul class="slides">
