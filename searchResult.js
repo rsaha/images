@@ -13,7 +13,48 @@
     app.controller('MultipleCtrl',['$scope','$http','$location', function($scope, $http,$location) {
          $scope.placename='';
           $scope.searchID = $location.search().id;
+        $scope.SearchCity = $location.search().id;
+        var sID= $location.search().id;
+       // alert(sID);
        // alert( $scope.searchID);
+//        if( $scope.SearchCity != $scope.searchID  )
+//            {
+//                alert("hi");
+//                $scope.SearchCity=$scope.searchID;
+//                sID=$scope.searchID;
+//            }
+        
+        $scope.changeSearch=function(searchID){
+             if( $scope.SearchCity != searchID  )
+            {
+               //alert("hi");
+                // alert(searchID);
+                $scope.SearchCity=searchID;
+                // alert($scope.SearchCity+"new1");
+                sID=searchID;
+                 // alert(sID+"new2");
+                
+                 $http.get("http://gg_admin-prod.apigee.net/guidedgateway/tours?city="+sID)
+    .success(function (response) {
+		$scope.tours = response.entities;
+	
+		})
+	.error(function() {
+				$scope.data = "error in fetching data";
+			});
+			
+			$http.get("http://gg_admin-prod.apigee.net/guidedgateway/guides?city="+sID)
+    .success(function (response) {
+		$scope.allguides =response.entities;
+            
+		})
+	.error(function() {
+				$scope.data = "error in fetching data";
+			});
+            
+            
+            }
+        }
           $scope.checkboxModel = {
        value1 : true,
 	   value2 : true,
@@ -23,7 +64,7 @@
         $scope.toValue=function(valueto){
             alert(valueto);
         }
-    $http.get("http://gg_admin-prod.apigee.net/guidedgateway/tours")
+    $http.get("http://gg_admin-prod.apigee.net/guidedgateway/tours?city="+sID)
     .success(function (response) {
 		$scope.tours = response.entities;
 	
@@ -32,9 +73,10 @@
 				$scope.data = "error in fetching data";
 			});
 			
-			$http.get("http://gg_admin-prod.apigee.net/guidedgateway/guides")
+			$http.get("http://gg_admin-prod.apigee.net/guidedgateway/guides?city="+sID)
     .success(function (response) {
 		$scope.allguides =response.entities;
+            
 		})
 	.error(function() {
 				$scope.data = "error in fetching data";
@@ -54,9 +96,19 @@
 //           alert("hi");
         }
         
-         $http.get("http://gg_admin-prod.apigee.net/guidedgateway/places")
+//         $http.get("http://gg_admin-prod.apigee.net/guidedgateway/places")
+        $http.get("http://gg_admin-prod.apigee.net/guidedgateway/places?city="+sID)
     .success(function (response) {
 		$scope.places = response.entities;
+	
+		})
+	.error(function() {
+				$scope.data = "error in fetching data";
+			});
+        
+            $http.get("http://gg_admin-prod.apigee.net/guidedgateway/places")
+    .success(function (response) {
+		$scope.placesALL = response.entities;
 	
 		})
 	.error(function() {

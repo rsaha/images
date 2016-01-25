@@ -7,11 +7,7 @@ include_once('db.php');
     $tourist_name = mysql_real_escape_string($_POST['tourist_name']);
     $tourist_email = mysql_real_escape_string($_POST['tourist_email']);
     $tourist_mobile = mysql_real_escape_string($_POST['tourist_mobile']);
-    $noOfPerson = mysql_real_escape_string($_POST['noOfPerson']);
-    $noOfPersonChild = mysql_real_escape_string($_POST['noOfPersonChild']);
-
     $dateOfTour = mysql_real_escape_string($_POST['dateOfTour']);
-    
     
     $lodging_id = mysql_real_escape_string($_POST['lodging_id']);
     if(!(is_null($lodging_id)))
@@ -27,6 +23,7 @@ include_once('db.php');
     }
     $tourID = mysql_real_escape_string($_POST['tourID']);
     $guideID = mysql_real_escape_string($_POST['guideID']);
+    $transportBokingF = mysql_real_escape_string($_POST['transportBokingF']);
     $serviceTax = mysql_real_escape_string($_POST['serviceTax']);
     $swachhTax = mysql_real_escape_string($_POST['swachhTax']);
     $PromoCode = mysql_real_escape_string($_POST['promoCode']);
@@ -57,7 +54,7 @@ include_once('db.php');
         $PromoCode = "NULL";
         $promoDis = "NULL";
     }
-    if($tourID == "" || $tourID == NULL) {
+    if(($tourID == "" || $tourID == NULL) && ($transportBokingF == "" || $guideID == NULL)) {
         $book_reff_id = $guideID;
         $booking_type = "GUIDE";
         $bookedItemName = mysql_real_escape_string($_POST['guideName']);
@@ -69,6 +66,9 @@ include_once('db.php');
         $guideSummary = mysql_real_escape_string($_POST['guideSummary']);
         $guidePaymentTerm = mysql_real_escape_string($_POST['guidePaymentTerm']);
         
+        $noOfPerson = mysql_real_escape_string($_POST['noOfPerson']);
+        $noOfPersonChild = mysql_real_escape_string($_POST['noOfPersonChild']);
+        
         $tGuideID = "NULL";
         $tGuideName = "NULL";
         $inclusive = "NULL";
@@ -77,8 +77,12 @@ include_once('db.php');
         $restrictions = "NULL";
         $PickupLocation = "NULL";
         $DropLocation = "NULL";
+        
+        $from_location = "NULL";
+        $to_location = "NULL";
+        $pickup_time = "NULL";
     }
-    if($guideID == "" || $guideID == NULL) {
+    if(($guideID == "" || $guideID == NULL) && ($transportBokingF == "" || $guideID == NULL)) {
         $book_reff_id = $tourID;
         $booking_type = "TOUR";
         $bookedItemName = mysql_real_escape_string($_POST['tourName']);
@@ -93,10 +97,55 @@ include_once('db.php');
         $restrictions = mysql_real_escape_string($_POST['tRestrictions']);
         $PickupLocation = mysql_real_escape_string($_POST['PickupLocation']);
         $DropLocation = mysql_real_escape_string($_POST['DropLocation']);
+        
+        $noOfPerson = mysql_real_escape_string($_POST['noOfPerson']);
+        $noOfPersonChild = mysql_real_escape_string($_POST['noOfPersonChild']);
          
         $guideMobileNumber = "NULL";
         $guideSummary = "NULL";
         $guidePaymentTerm = "NULL";
+        
+        $from_location = "NULL";
+        $to_location = "NULL";
+        $pickup_time = "NULL";
+    }
+    if(($tourID == "" || $tourID == NULL) && ($guideID == "" || $guideID == NULL)) {
+        $book_reff_id = $transportBokingF;
+        $booking_type = "TRANSPORT";
+        $from_location = explode(",", mysql_real_escape_string($_POST['fromLocation']))[0];
+        $to_location = explode(",", mysql_real_escape_string($_POST['toLocation']))[0];
+        $pickup_time = mysql_real_escape_string($_POST['pickuptime']);
+        $category = mysql_real_escape_string($_POST['Category']);
+        $partnerName = mysql_real_escape_string($_POST['PartnerName']);
+        $bookedItemName = mysql_real_escape_string($_POST['Description']);
+        $pricePerKM = mysql_real_escape_string($_POST['PricePerKM']);
+        $extimatedDistance = mysql_real_escape_string($_POST['distanceShowI']);
+        $PickupLocation = mysql_real_escape_string($_POST['pickupLocation']);
+        
+        $tourDuration = "NULL";
+        $noOfPerson = "NULL";
+        $noOfPersonChild = "NULL";
+        $transport_id = "NULL";
+        $lodging_id = "NULL";
+        
+        $tGuideID = "NULL";
+        $tGuideName = "NULL";
+        $inclusive = "NULL";
+        $exclusice = "NULL";
+        $cancelationPolicy = "NULL";
+        $restrictions = "NULL";
+        $PickupLocation = "NULL";
+        $DropLocation = "NULL";
+        
+        $tGuideID = "NULL";
+        $tGuideName = "NULL";
+        $inclusive = "NULL";
+        $exclusice = "NULL";
+        $cancelationPolicy = "NULL";
+        $restrictions = "NULL";
+        $PickupLocation = "NULL";
+        $DropLocation = "NULL";
+        $grandTotal="0";
     }
 $tGuideID = mysql_real_escape_string($_POST['tGuideID']);
     $bookingNumber = AutoGenerateBookingNumber();
@@ -112,6 +161,9 @@ $tGuideID = mysql_real_escape_string($_POST['tGuideID']);
         `no_of_person`, 
         `date_of_tour`, 
         `tour_duration`, 
+        `from_location`, 
+        `to_location`, 
+        `pickup_time`, 
         `lodging_id`, 
         `transport_id`, 
         `promoCode`, 
@@ -130,6 +182,9 @@ $tGuideID = mysql_real_escape_string($_POST['tGuideID']);
         $noOfPerson,
         '$dateOfTour',
         $tourDuration,
+        '$from_location', 
+        '$to_location', 
+        '$pickup_time',
         $lodging_id,
         $transport_id,
         '$PromoCode',
@@ -181,7 +236,14 @@ $tGuideID = mysql_real_escape_string($_POST['tGuideID']);
 //		SendMail($HostEmail, 'GuidedGateway', 'ankitbhagat.ab@gmail.com', 'Ankit Bhagat', $subject, $message);
 //		SendMail($HostEmail, 'GuidedGateway', 'support@guidedgateway.com', 'Guided Gateway Support', $subject, $message);
 
-        PDFGeneration($tourist_name, $tourist_email, $tourist_mobile, $noOfPerson, $noOfPersonChild, $dateOfTour, $tourDuration, $PromoCode, $serviceTax, $swachhTax, $PromoDis, $grandTotal, $book_reff_id, $booking_type, $bookedItemName, $itemPrice, $bookingNumber,$lodging_id, $lodging_name, $lodging_price, $transport_id, $transport_name, $transport_price, $gTotal, $tourID, $guideID, $tGuideID, $tGuideName, $inclusive, $exclusice, $cancelationPolicy, $restrictions, $guideMobileNumber, $guideSummary, $guidePaymentTerm, $PickupLocation, $DropLocation);
+        PDFGeneration($tourist_name, $tourist_email, $tourist_mobile, $noOfPerson, 
+                      $noOfPersonChild, $dateOfTour, $tourDuration, $PromoCode, $serviceTax, $swachhTax, 
+                      $PromoDis, $grandTotal, $book_reff_id, $booking_type, $bookedItemName, $itemPrice, 
+                      $bookingNumber,$lodging_id, $lodging_name, $lodging_price, $transport_id, $transport_name, 
+                      $transport_price, $gTotal, $tourID, $guideID, $tGuideID, $tGuideName, $inclusive, $exclusice, 
+                      $cancelationPolicy, $restrictions, $guideMobileNumber, $guideSummary, $guidePaymentTerm, 
+                      $PickupLocation, $DropLocation, $transportBokingF, $from_location, $to_location, $pickup_time, $category, 
+                      $partnerName, $pricePerKM, $extimatedDistance);
 
     }
     else
@@ -210,7 +272,14 @@ $tGuideID = mysql_real_escape_string($_POST['tGuideID']);
         
     }
 //==========================================================================================================
-    function PDFGeneration($tourist_name, $tourist_email, $tourist_mobile, $noOfPerson, $noOfPersonChild, $dateOfTour, $tourDuration, $PromoCode, $serviceTax, $swachhTax, $PromoDis, $grandTotal, $book_reff_id, $booking_type, $bookedItemName, $itemPrice, $bookingNumber,$lodging_id, $lodging_name, $lodging_price, $transport_id, $transport_name, $transport_price, $gTotal, $tourID, $guideID, $tGuideID, $tGuideName, $inclusive, $exclusice, $cancelationPolicy, $restrictions, $guideMobileNumber, $guideSummary, $guidePaymentTerm, $PickupLocation, $DropLocation)
+    function PDFGeneration($tourist_name, $tourist_email, $tourist_mobile, $noOfPerson, 
+                      $noOfPersonChild, $dateOfTour, $tourDuration, $PromoCode, $serviceTax, $swachhTax, 
+                      $PromoDis, $grandTotal, $book_reff_id, $booking_type, $bookedItemName, $itemPrice, 
+                      $bookingNumber,$lodging_id, $lodging_name, $lodging_price, $transport_id, $transport_name, 
+                      $transport_price, $gTotal, $tourID, $guideID, $tGuideID, $tGuideName, $inclusive, $exclusice, 
+                      $cancelationPolicy, $restrictions, $guideMobileNumber, $guideSummary, $guidePaymentTerm, 
+                      $PickupLocation, $DropLocation, $transportBokingF, $from_location, $to_location, $pickup_time, $category, 
+                      $partnerName, $pricePerKM, $extimatedDistance)
     {
 //        $serviceTax
 //        $swachhTax
@@ -280,6 +349,29 @@ $tGuideID = mysql_real_escape_string($_POST['tGuideID']);
 
             $pdf->Cell(0,5,'Price : Rs. '.$itemPrice,0,1,"R");
         }
+        if(((int)$transportBokingF))
+        {
+            $pdf->SetFont('Arial','B',12);
+            $pdf->Cell(0,5,'',0,1,"L");
+            $pdf->Cell(0,5,$bookedItemName,0,1,"L");
+        $pdf->SetFont('Arial','B',10);
+        $pdf->SetTextColor(62,66,67);
+        $pdf->Cell(0,10,'Date Of Tour : '. $dateOfTour,0,1,"L");
+            $pdf->Cell(0,10,'Time Of Tour : '. $pickup_time,0,1,"L");
+            $pdf->Cell(0,10,'Pickup Location : '. $PickupLocation,0,1,"L");
+            $pdf->SetFont('Arial','',10);
+            $pdf->Cell(0,6,'Booked '.$booking_type.' Id : '.$book_reff_id,0,1,"L");
+            //$pdf->Cell(0,5,'Tour Duration : '.$tourDuration .' Day(s)',0,1,"L");
+            //$pdf->Cell(0,5,'Number Of person : '.$noOfPerson.' Adult, '.$noOfPersonChild.' Child',0,1,"L");
+            $pdf->SetFont('Arial','B',10);
+            $pdf->Cell(0,6,'Category : '.$category.' (Partner Name : '.$partnerName.')',0,1,"L");
+            $pdf->SetFont('Arial','',10);
+            $pdf->Cell(0,5,'From Source : '. $from_location . ' to Destination '.$to_location ,0,1,"L");
+            $pdf->Cell(0,5,'Distance : '. $extimatedDistance,0,1,"L");
+            $pdf->Cell(0,5,'Price / Km : '. $pricePerKM,0,1,"L");
+
+            $pdf->Cell(0,5,'Price : Rs '.$itemPrice,0,1,"R");
+        }
         
         
         
@@ -341,11 +433,14 @@ $tGuideID = mysql_real_escape_string($_POST['tGuideID']);
         $pdf->Cell(140);$pdf->Cell(50,0,' ',1,1,"R");
 
         $pdf->SetFont('Arial','B',12);
-        $pdf->Cell(0,5,'',0,1,"L");
-        $pdf->Cell(0,5,'Grand Total',0,1,"L");
-        $pdf->SetFont('Arial','',10);
-        $pdf->Cell(0,5,'Service Tax @ 14%',0,1,"L");
-        $pdf->Cell(0,5,'Swachh Bharat Tax @ 0.5%',0,1,"L");
+            $pdf->Cell(0,5,'',0,1,"L");
+        if(!((int)$transportBokingF))
+        {
+            $pdf->Cell(0,5,'Grand Total',0,1,"L");
+            $pdf->SetFont('Arial','',10);
+            $pdf->Cell(0,5,'Service Tax @ 14%',0,1,"L");
+            $pdf->Cell(0,5,'Swachh Bharat Tax @ 0.5%',0,1,"L");
+        }
         $pdf->SetFont('Arial','B',15);
         $pdf->Cell(0,5,'Price : Rs '.$grandTotal,0,1,"R");
         
