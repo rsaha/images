@@ -172,10 +172,25 @@
                         var distanceKM = response.rows[0].elements[0].distance.text;
                         var distanceParts = distanceKM.split(" ");
                         var distance = distanceParts[0];
+                        distance = distance.replace(/\,/g, ''); // 1125, but a string, so convert it to number
+                        distance = parseInt(distance, 10);
                         var distanceShow = document.getElementById("distanceShow");
                         var distanceShowI = document.getElementById("distanceShowI");
                         distanceShow.innerHTML = "";
                         distanceShow.innerHTML += distance;
+
+                        var transbookprice = document.getElementById("transbookprice").value;
+
+                        var transportPrice = document.getElementById("transportPrice");
+                        transportPrice.innerHTML = 1;
+                        transportPrice.innerHTML = distance * transbookprice;
+                        var promovalue = 0;
+                        // alert(document.getElementById("promovalue").value);
+                        // promovalue += document.getElementById("promovalue").value;
+                        var ttl=distance * transbookprice + promovalue;
+                        document.getElementById("transPric").value=ttl;
+                        document.getElementById("grandtotalvalue").innerHTML = ttl; 
+                        document.getElementById("grandtotalvalueI").value = ttl;
                         distanceShowI.value = distance;
 
                     } else {
@@ -314,9 +329,9 @@
                                                         </span>
                                                     </div>
                                                 </li>
-                                               
+
                                                 <input type="hidden" id="distanceShowI" name="distanceShowI" />
-                                                <li class="row">
+                                                <li class="row" ng-show="transportbookValue">
                                                     <div class="col-md-6">
                                                         <label>From Location<span class="required small">(Required)</span></label>
                                                         <input type="text" class="form-control" name="fromLocation" id="fromLocation" autocomplete="on" ng-model="fromLocation" value="" ng-pattern="/^[a-z ,A-Z]+$/" onfocusout="GetRoute()" />
@@ -423,8 +438,11 @@
                                                                             <div class="col-md-6">
                                                                                 <div class="input-group">
                                                                                     <!--  <span class="input-group-addon" ></span>-->
-                                                                                    <input type="text" class="form-control" name="promoCode" placeholder="Enter Promo Code" ng-model="promocode">
-                                                                                    <span class="input-group-addon" style="cursor:pointer; color:black; background-color:#979999;" ng-click="comparePromo(promocode,'<?php echo $promoCode; ?>');">Apply</span>
+                                                                                    <input type="text" class="form-control" name="promoCode" placeholder="Enter Promo Code" ng-model="promocode" id="promocodedvalue">
+                                                                                    <span ng-hide="transportbookValue" class="input-group-addon" style="cursor:pointer; color:black; background-color:#979999;" ng-click="comparePromo(promocode,'<?php echo $promoCode; ?>');">Apply</span>
+                                                                                    <?php
+                                                                                    echo '<span ng-show="transportbookValue" class="input-group-addon" style="cursor:pointer; color:black; background-color:#979999;" onclick="comparePromocode(\''.$promoCode.'\');">Apply</span>';
+                                                                                        ?>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -559,6 +577,7 @@
                                                                     </div>
                                                                     <div class="offer-bottom">
                                                                         <span class="featured-spe" style="font-size:15px"> {{transportBook.PricePerKM}} Per Kilometer</span>
+                                                                        <input type="hidden" id="transbookprice" value="{{transportBook.PricePerKM}}" />
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -594,7 +613,7 @@
 -->
 
                                                         <h5><table><tr><td>Distance(Estimated)  &nbsp;:</td><td><div id="distanceShow">0</div></td><td> KM</td></tr></table> </h5>
-                                                        <h4>Transport Charges  &nbsp;: {{tourPrice}}</h4>
+                                                        <h4>Transport Charges  &nbsp;: <label id="transportPrice"></label></h4>
                                                     </div>
                                                 </div>
                                                 <!--                                                transport div end-->
@@ -732,35 +751,49 @@
                                                     <div class="pull-right">
 
                                                         <table>
-                                                            <tr>
+                                                            <tr ng-hide="transportbookValue">
                                                                 <td style="text-align:right">Total&nbsp;: Rs.&nbsp;</td>
                                                                 <td style="text-align:right">{{priceTotal}}</td>
                                                                 <input type="hidden" name="gTotal" value="{{priceTotal}}" />
                                                             </tr>
-                                                            <tr>
+                                                            <tr ng-hide="transportbookValue">
                                                                 <td style="text-align:right">tax @ 14% &nbsp;: Rs.&nbsp;</td>
                                                                 <td style="text-align:right">{{(priceTotal*14)/100 | number:0}}
                                                                     <input type="hidden" name="serviceTax" value="{{(priceTotal*14)/100 | number:0}}" />
                                                                 </td>
                                                             </tr>
-                                                            <tr>
+                                                            <tr ng-hide="transportbookValue">
                                                                 <td style="text-align:right">Swachh Bharat tax @ 0.5% &nbsp;: Rs.&nbsp;</td>
                                                                 <td style="text-align:right">{{(priceTotal*0.5)/100 | number:0}}
                                                                     <input type="hidden" name="swachhTax" value="{{(priceTotal*0.5)/100 | number:0}}" />
                                                                 </td>
                                                             </tr>
-                                                            <input type="hidden" name="PromoDis" value="{{successValue}}" />
+                                                            <input type="hidden" name="PromoDis" value="{{successValue}}" id="promovalue" />
                                                             <tr ng-show="successValue">
                                                                 <td style="text-align:right">Promotional Discount &nbsp;: Rs.&nbsp;</td>
                                                                 <td style="text-align:right">(-){{successValue}}
 
                                                                 </td>
                                                             </tr>
-                                                            <tr>
+                                                            <tr id="promotional" style="display:none;">
+                                                                <td style="text-align:right">Promotional Discount &nbsp;: Rs.&nbsp;</td>
+                                                                <td style="text-align:right">(-)500
+
+                                                                </td>
+                                                            </tr>
+                                                            <tr ng-hide="transportbookValue">
                                                                 <td style="text-align:right">
                                                                     <h4>Grand total&nbsp;: Rs.&nbsp;</h4></td>
                                                                 <td style="text-align:right">
                                                                     <h4>{{(priceTotal+((priceTotal*14)/100)+((priceTotal*0.5)/100)-successValue) | number : 0 }}</h4></td>
+                                                            </tr>
+                                                            <tr ng-show="transportbookValue">
+                                                                <td style="text-align:right">
+                                                                    <h4>Grand total&nbsp;: Rs.&nbsp;</h4></td>
+                                                                <td style="text-align:right">
+                                                                    <h4><label id="grandtotalvalue" name="grandtotalvalue"/></h4>
+                                                                <input type="hidden" value="" id="grandtotalvalueI" name="grandtotalvalueI" >
+                                                                <input type="hidden" value="" id="transPric" name="transPric" ></td>
                                                             </tr>
                                                         </table>
                                                         <input type="hidden" name="grandTotal" value="{{(priceTotal+((priceTotal*14)/100)+((priceTotal*0.5)/100)-successValue) | number : 0 }}" />
@@ -920,7 +953,7 @@
                                                 <li class="pricing-table ">Full Name <span style="color:black;" class="pull-right">{{name}}</span></li>
                                                 <li class="pricing-table ">Email <span style="color:black;" class="pull-right">{{email}}</span></li>
                                                 <li class="pricing-table "> Contact<span style="color:black;" class="pull-right">{{contact}}</span></li>
-                                                <li class="pricing-table ">No. of Persons <span style="color:black;" class="pull-right">{{adultValue}} Adult(s) , {{child}} Child</span></li>
+                                                <li class="pricing-table " ng-hide="transportbookValue">No. of Persons <span style="color:black;" class="pull-right">{{adultValue}} Adult(s) , {{child}} Child</span></li>
                                                 <li class="pricing-table ">Date of Tour <span style="color:black;" class="pull-right">{{dateOfTour | date:'dd-MM-yyyy'}}</span></li>
                                                 <li class="pricing-table " ng-show="{{tourValue}}">Tour Duration <span style="color:black;" class="pull-right">{{tour.tour_duration}} Day(s)</span></li>
                                                 <li class="pricing-table " ng-show="{{guideValue}}">Tour Duration<span style="color:black;" class="pull-right"> {{dayValue}}</span></li>
@@ -928,10 +961,16 @@
                                                 <li class="pricing-table " ng-show="{{tourValue}}">Tour Price&nbsp;&nbsp;({{adultValue}}&nbsp;Person*{{tour.tour_duration}}&nbsp;Days)<span style="color:black;" class="pull-right">Rs.&nbsp;{{tourPrice}}</span></li>
                                                 <li class="pricing-table " ng-show="{{guideValue}}">Guide's Booking Price&nbsp;&nbsp;({{adultValue}}&nbsp;Person*{{dayValue}}&nbsp;Days)<span style="color:black;" class="pull-right">Rs.&nbsp;{{guidePrice}}</span></li>
 
+                                                <li class="pricing-table " ng-show="transportbookValue">Pickup Location<span style="color:black;" class="pull-right"> -</span></li>
+                                                <li class="pricing-table " ng-show="transportbookValue">Pickup Time<span style="color:black;" class="pull-right"> -</span></li>
+                                                <li class="pricing-table " ng-show="transportbookValue">Source Location<span style="color:black;" class="pull-right"> -</span></li>
+                                                <li class="pricing-table " ng-show="transportbookValue">Distance Location<span style="color:black;" class="pull-right"> -</span></li>
+                                                <li class="pricing-table " ng-show="transportbookValue">Promotional Discont<span style="color:black;" class="pull-right"> (-)</span></li>
+                                                
                                                 <li class="pricing-table " ng-show="lodgevalue">Lodging Price<span style="color:black;" class="pull-right">(+)Rs.&nbsp;{{lodgeIDnew.PricePerNight}}</span></li>
                                                 <li class="pricing-table " ng-show="transvalue">Transport Price <span style="color:black;" class="pull-right">(+)Rs.&nbsp;{{transIDnew.PriceForDay}}</span></li>
 
-                                                <li class="pricing-table ">Total Price(Excluding Tax) <span style="color:black;" class="pull-right">Rs.&nbsp;{{priceTotal}}</span></li>
+                                                <li class="pricing-table " ng-hide="transportbookValue">Total Price(Excluding Tax) <span style="color:black;" class="pull-right">Rs.&nbsp;{{priceTotal}}</span></li>
                                                 <li class="pricing-table " ng-show="successValue">Promotional Discount <span style="color:black;" class="pull-right">Rs.&nbsp;(-){{successValue}}</span></li>
                                                 <li class="pricing-table ">Amount Payable(Including Tax) <span style="color:black;" class="pull-right">Rs.&nbsp;{{(priceTotal+((priceTotal*14)/100)+((priceTotal*0.5)/100)-successValue) | number : 0 }}</span></li>
                                             </ul>
@@ -1012,6 +1051,22 @@
                 var oldValue = document.getElementById("child").value;
                 var newValue = parseInt(oldValue) + 1;
                 document.getElementById("child").value = newValue;
+            }
+        </script>
+        <script>
+            function comparePromocode(Ovalue) {
+
+                var Nvalue = document.getElementById("promocodedvalue").value;
+                if (Ovalue == Nvalue) {
+                    document.getElementById("grandtotalvalue").innerHTML = document.getElementById("grandtotalvalue").innerHTML - 500;
+                    var zz = document.getElementById("grandtotalvalue").innerHTML;
+                    document.getElementById("grandtotalvalueI").value = zz;
+                    // alert(zz);
+                    var pcode = document.getElementById("promotional");
+                    // alert(pcode);
+                    pcode.style.display = "block";
+                }
+                //alert("Ovalue = "+Ovalue);
             }
         </script>
     </body>

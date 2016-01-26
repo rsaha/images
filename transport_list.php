@@ -154,11 +154,11 @@
                                     <div class="col-md-12 ">
                                         <div class="row">
                                             <div class="tour-plans post-desc">
-                                                <a ng-href="tour_detail_sidebar.php#?id=">
+                                                <a ng-href="booking-form.php#?id1=2&id2=2&id3={{data.ID}}">
                                                     <div class="col-md-6">
                                                         <br>
                                                         <div class="plan-image">
-                                                            <a ng-href="tour_detail_sidebar.php#?id={{data.tour_id}}">
+                                                            <a ng-href="booking-form.php#?id1=2&id2=2&id3={{data.ID}}">
                                                                 <img class="img-responsive" style="width:770px; height:150px;hover:opacity: 0.6;" ng-src="{{data.Media.Image[0] ==null ? 'img/SAMPLE_TAJ.jpg' : data.Media.Image[0]}}" alt="Tranport image" />
                                                             </a>
                                                             <div class="offer-boxNew" style="width: 300px; ">
@@ -168,7 +168,7 @@
                                                 </a>
 
                                                 <div class="col-md-6">
-                                                    <a ng-href="tour_detail_sidebar.php#?id=">
+                                                    <a ng-href="booking-form.php#?id1=2&id2=2&id3={{data.ID}}">
                                                         <br>
                                                         <div class="offer-top">
                                                             <span class="fa fa-tag alignright">{{data.PartnerName}}</span>
@@ -321,14 +321,16 @@
                                     </div>
                                     <div class="col-md-6">
                                         <h4 class="text-upper">{{trasportlist.Description}}</h4> From
-                                        <label id="fromLocationModel"></label> to
-                                        <label id="toLocationModel"></label>
+                                            <label id="fromLocationModel" name="fromLocationModel"></label> to
+                                            <label id="toLocationModel" name="toLocationModel"></label>
                                     </div>
-                                </div><br>
+                                </div>
+                                <br>
                                 <ul class=" list-unstyled">
 
                                     <li class="pricing-table ">Total Distance <span style="color:black;" class="pull-right">{{trasportlist.PricePerKM}} KM.</span></li>
-                                    <li class="pricing-table ">Price Per Km. <span style="color:black;" class="pull-right">Rs.<span style="color:black;" id="disModal"></span></span></li>
+                                    <li class="pricing-table ">Price Per Km. <span style="color:black;" class="pull-right">Rs.<span style="color:black;" id="disModal"></span></span>
+                                    </li>
                                     <li class="pricing-table ">Estimated Fair charges<span style="color:black;" class="pull-right">Rs. <span style="color:black;" id="estimatedPrice"></span></span>
                                     </li>
 
