@@ -107,7 +107,7 @@
                         <div class="container">
                             <div class="row">
                                 <section class="col-sm-6">
-                                    <h1 class="text-upper"><i class="fa fa-leaf" style="color:black;"></i>&nbsp;&nbsp;{{place.Name}}</h1>
+                                    <h1 class="text-upper"><i class="fa fa-leaf" style="color:black;"></i>&nbsp;&nbsp;{{place.PlaceName}}</h1>
                                 </section>
 
                                 <!-- breadcrumbs -->
