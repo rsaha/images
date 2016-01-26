@@ -132,7 +132,7 @@
                 <div class="container">
                     <div class="row">
                         <section class="col-sm-6">
-                            <h1 class="text-upper"><i class="fa fa-cab" style="color:black;"></i>&nbsp;&nbsp;Transport Services</h1>
+                            <h1 class="text-upper"><i class="fa fa-cab" style="color:black;"></i>&nbsp;&nbsp;Outstation Cars</h1>
                         </section>
 
                         <!-- breadcrumbs -->
@@ -200,11 +200,9 @@
                                                 </div>
                                                  </div>
                                         </div><br>
-</div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
                         <!-- START #sidebar -->
                         <aside id="sidebar" class="col-md-4">
                             <div class="sidebar-widget">
