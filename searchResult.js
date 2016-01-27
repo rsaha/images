@@ -34,7 +34,7 @@
                 sID=searchID;
                  // alert(sID+"new2");
                 
-                 $http.get("http://gg_admin-prod.apigee.net/guidedgateway/tours?city="+sID)
+                 $http.get("http://gg_admin-prod.apigee.net/guidedgateway/tours?ql=tour_location='"+sID+"'")
     .success(function (response) {
 		$scope.tours = response.entities;
 	
@@ -43,7 +43,7 @@
 				$scope.data = "error in fetching data";
 			});
 			
-			$http.get("http://gg_admin-prod.apigee.net/guidedgateway/guides?city="+sID)
+			$http.get("http://gg_admin-prod.apigee.net/guidedgateway/guides?ql=city='"+sID+"'")
     .success(function (response) {
 		$scope.allguides =response.entities;
             
