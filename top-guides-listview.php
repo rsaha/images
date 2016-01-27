@@ -139,6 +139,7 @@
                     </div>
                 </div>
             </div>
+<!--
          <div class="container">
          <div class="main-contents col-md-8 col-sm-10" id="searchDiv">
 					
@@ -168,6 +169,7 @@
 				</div>
     </div>
 				<br><br>
+-->
             <!-- END #page-header -->
             <!-- <div class="main-contents col-md-8 col-md-offset-2" id="searchDiv">
 					<form class="plan-tour">

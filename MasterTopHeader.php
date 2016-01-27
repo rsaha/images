@@ -25,8 +25,8 @@
                     <div class="row top-row">
                         <div class="col-md-6">
                             <div class="left-part alignleft">
-                                <span class="contact-email small">touchus@guidedgateway.com</span>
-                                <span class="contact-phone small">+1 510 938 2562</span>
+                                <span class="contact-email small">support@guidedgateway.com</span>
+                                <span class="contact-phone small">+91 9830032920</span>
                                 <ul class="social-media header-social">
                                     <li><a class="sm-facebook" href="https://www.facebook.com/Guided-Gateway-1462689710717715"><span>Facebook</span></a></li>
                                     <li><a class="sm-pinterest" href="https://www.pinterest.com/guidedgateway/"><span>Pinterest</span></a></li>
@@ -60,10 +60,14 @@
                                 <span>MENU</span>
                                 <ul id="main-menu">
                                     <li><a href="index.php" title="">HOME</a></li>
-                                    <li><a href="top-tours-listview-sidebar.php" title="">Tours</a></li>
-                                    <li><a href="top-guides-listview.php" title="">Guides</a></li>
-                                    <li><a href="top-destinations-listview-sidebar.php" title="">Destinations</a> </li>
-                                    <li><a href="transport_list.php" title="">Transport</a> </li>
+                                    <li><a href="transport_list.php" title="">Outstaion Cars</a> </li>
+                                    <li><a href="top-tours-listview-sidebar.php" title="">Guided Tours</a>
+                                    <ul>
+                                        <li><a href="top-guides-listview.php" title="">Guides</a></li>
+                                        <li><a href="top-tours-listview-sidebar.php" title="">Guided Tours</a></li>
+                                        <li><a href="top-destinations-listview-sidebar.php" title="">Destinations</a> </li>
+                                    </ul>
+                                    </li>
                                     <li><a href="#" title="">Travelogue</a> </li>
                                     <!-- li><a
 				href="#" title="">Themed Tours</a> </li-->

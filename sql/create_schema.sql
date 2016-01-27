@@ -7,9 +7,12 @@ CREATE TABLE IF NOT EXISTS `tbl_booking` (
   `name` varchar(30) NOT NULL,
   `email` varchar(30) NOT NULL,
   `contact` varchar(15) NOT NULL,
-  `no_of_person` bigint(20) NOT NULL,
+  `no_of_person` bigint(20) DEFAULT NULL,
   `date_of_tour` date NOT NULL,
-  `tour_duration` bigint(20) NOT NULL,
+  `tour_duration` bigint(20) DEFAULT NULL,
+  `from_location` varchar(50) DEFAULT NULL,
+  `to_location` varchar(50) DEFAULT NULL,
+  `pickup_time` varchar(5) DEFAULT NULL,
   `lodging_id` bigint(20) DEFAULT NULL,
   `transport_id` bigint(20) DEFAULT NULL,
   `promoCode` text,
@@ -17,7 +20,7 @@ CREATE TABLE IF NOT EXISTS `tbl_booking` (
   `total_price` int(20) NOT NULL,
   `status` varchar(100) NOT NULL,
   `date_created` date NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COMMENT='Booking tour and guide table';
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8 COMMENT='Booking tour and guide table';
 
 
 CREATE TABLE IF NOT EXISTS `tbl_guide_detail_profile` (

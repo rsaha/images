@@ -97,19 +97,19 @@
         }
         
         img:hover {
-            opacity: 1.0;
-            // filter: alpha(opacity=100); /* For IE8 and earlier */
-        }
+    opacity: 1.0;
+   // filter: alpha(opacity=100); /* For IE8 and earlier */
+}
     </style>
-
+    
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
-    <script type='text/javascript'>
-        jQuery(document).ready(function ($) {
-            $(".urlUnchange").click(function (event) {
-                event.preventDefault();
+        <script type='text/javascript'>
+            jQuery(document).ready(function ($) {
+                $(".urlUnchange").click(function (event) {
+                    event.preventDefault();
+                });
             });
-        });
-    </script>
+        </script>
 </head>
 <!-- END head -->
 
@@ -132,7 +132,7 @@
                 <div class="container">
                     <div class="row">
                         <section class="col-sm-6">
-                            <h1 class="text-upper"><i class="fa fa-cab" style="color:black;"></i>&nbsp;&nbsp;Transport Services</h1>
+                            <h1 class="text-upper"><i class="fa fa-cab" style="color:black;"></i>&nbsp;&nbsp;Outstation Cars</h1>
                         </section>
 
                         <!-- breadcrumbs -->
@@ -147,7 +147,6 @@
                 <div class="container">
 
                     <div class="row">
-
                         <div class="col-md-8">
                             <div ng-show="filteredItems > 0">
                                 <div class="" ng-repeat="data in filtered = (list) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
@@ -198,16 +197,12 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <br>
+                                                </div>
+                                                 </div>
+                                        </div><br>
                                     </div>
-                                    <!-- <div class="clearfix "></div>-->
                                 </div>
-
                             </div>
-                        </div>
-
                         <!-- START #sidebar -->
                         <aside id="sidebar" class="col-md-4">
                             <div class="sidebar-widget">

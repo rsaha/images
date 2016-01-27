@@ -146,12 +146,12 @@
                                         <div class="tour-plans">
                                             <div class="plan-image">
                                                 <a ng-href="destination-detail-sidebar.php#?id3={{data.ID}}">
-                                                    <img class="img-responsive" style="height:250px;" ng-src="{{data.Media.Image[0]}}" alt="{{data.Name}}" ng-href="destination-detail-sidebar.php#?id3={{data.ID}}" />
+                                                    <img class="img-responsive" style="height:250px;" ng-src="{{data.Media.Image[0]}}" alt="{{data.PlaceName}}" ng-href="destination-detail-sidebar.php#?id3={{data.ID}}" />
                                                 </a>
                                                 <div class="offer-box">
                                                     <div class="offer-top">
                                                         <span class="ft-temp alignright">19&#730;c</span>
-                                                        <span class="featured-cr text-upper">{{data.Name}}</span>
+                                                        <span class="featured-cr text-upper">{{data.PlaceName}}</span>
                                                         <h2 class="featured-cy text-upper">{{data.State}}</h2>
                                                     </div>
 
