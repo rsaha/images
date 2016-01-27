@@ -259,8 +259,9 @@ $tGuideID = mysql_real_escape_string($_POST['tGuideID']);
         </table> 
         <br><br> -----------------------------<br>";
 		
-//		SendMail($HostEmail, 'GuidedGateway', 'ankitbhagat.ab@gmail.com', 'Ankit Bhagat', $subject, $message);
+		SendMail($HostEmail, 'GuidedGateway', $tourist_mobile, $tourist_name, $subject, $message);
 //		SendMail($HostEmail, 'GuidedGateway', 'support@guidedgateway.com', 'Guided Gateway Support', $subject, $message);
+		SendMail($HostEmail, 'GuidedGateway', 'ankitbhagat.ab@gmail.com', 'Ankit Bhagat', $subject, $message);
 
         PDFGeneration($tourist_name, $tourist_email, $tourist_mobile, $noOfPerson, 
                       $noOfPersonChild, $dateOfTour, $tourDuration, $PromoCode, $serviceTax, $swachhTax, 
@@ -396,7 +397,7 @@ $tGuideID = mysql_real_escape_string($_POST['tGuideID']);
             $pdf->Cell(0,5,'Distance : '. $extimatedDistance,0,1,"L");
             $pdf->Cell(0,5,'Price / Km : '. $pricePerKM,0,1,"L");
 
-            $pdf->Cell(0,5,'Price : Rs '.$itemPrice,0,1,"R");
+            $pdf->Cell(0,5,'Aprox Price : Rs '.$itemPrice,0,1,"R");
         }
         
         

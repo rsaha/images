@@ -183,15 +183,24 @@
 
                         var transportPrice = document.getElementById("transportPrice");
                         transportPrice.innerHTML = 1;
-                        transportPrice.innerHTML = distance * transbookprice;
+                        var transTTL = distance * transbookprice;
+                        transportPrice.innerHTML = transTTL;
                         var promovalue = 0;
                         // alert(document.getElementById("promovalue").value);
                         // promovalue += document.getElementById("promovalue").value;
-                        var ttl=distance * transbookprice + promovalue;
-                        document.getElementById("transPric").value=ttl;
-                        document.getElementById("grandtotalvalue").innerHTML = ttl; 
+                        var ttl = distance * transbookprice + promovalue;
+                        document.getElementById("transPric").value = ttl;
+                        document.getElementById("grandtotalvalue").innerHTML = ttl;
                         document.getElementById("grandtotalvalueI").value = ttl;
                         distanceShowI.value = distance;
+
+                        document.getElementById("pickupLocationModal").innerHTML = document.getElementById("pickupLocation").value;
+                        document.getElementById("pickuptimeModal").innerHTML = document.getElementById("pickuptime").value;
+                        document.getElementById("fromLocationModal").innerHTML = source;
+                        document.getElementById("toLocationModal").innerHTML = destination;
+                        document.getElementById("promocodedvalueModal").innerHTML = "0";
+                        document.getElementById("grandtotalTransModal").innerHTML = transTTL;
+
 
                     } else {
                         alert("Unable to find the distance via road.");
@@ -789,11 +798,13 @@
                                                             </tr>
                                                             <tr ng-show="transportbookValue">
                                                                 <td style="text-align:right">
-                                                                    <h4>Grand total&nbsp;: Rs.&nbsp;</h4></td>
+                                                                    <h4>Grand total&nbsp;: Rs.&nbsp;</h4>
+                                                                </td>
                                                                 <td style="text-align:right">
+                                                                    <input type="hidden" value="" id="grandtotalvalueI" name="grandtotalvalueI">
+                                                                    <input type="hidden" value="" id="transPric" name="transPric">
                                                                     <h4><label id="grandtotalvalue" name="grandtotalvalue"/></h4>
-                                                                <input type="hidden" value="" id="grandtotalvalueI" name="grandtotalvalueI" >
-                                                                <input type="hidden" value="" id="transPric" name="transPric" ></td>
+                                                                </td>
                                                             </tr>
                                                         </table>
                                                         <input type="hidden" name="grandTotal" value="{{(priceTotal+((priceTotal*14)/100)+((priceTotal*0.5)/100)-successValue) | number : 0 }}" />
@@ -961,22 +972,22 @@
                                                 <li class="pricing-table " ng-show="{{tourValue}}">Tour Price&nbsp;&nbsp;({{adultValue}}&nbsp;Person*{{tour.tour_duration}}&nbsp;Days)<span style="color:black;" class="pull-right">Rs.&nbsp;{{tourPrice}}</span></li>
                                                 <li class="pricing-table " ng-show="{{guideValue}}">Guide's Booking Price&nbsp;&nbsp;({{adultValue}}&nbsp;Person*{{dayValue}}&nbsp;Days)<span style="color:black;" class="pull-right">Rs.&nbsp;{{guidePrice}}</span></li>
 
-                                                <li class="pricing-table " ng-show="transportbookValue">Pickup Location<span style="color:black;" class="pull-right"> -</span></li>
-                                                <li class="pricing-table " ng-show="transportbookValue">Pickup Time<span style="color:black;" class="pull-right"> -</span></li>
-                                                <li class="pricing-table " ng-show="transportbookValue">Source Location<span style="color:black;" class="pull-right"> -</span></li>
-                                                <li class="pricing-table " ng-show="transportbookValue">Distance Location<span style="color:black;" class="pull-right"> -</span></li>
-                                                <li class="pricing-table " ng-show="transportbookValue">Promotional Discont<span style="color:black;" class="pull-right"> (-)</span></li>
-                                                
+                                                <li class="pricing-table " ng-show="transportbookValue">Pickup Location<span style="color:black;" id="pickupLocationModal" class="pull-right"></span></li>
+                                                <li class="pricing-table " ng-show="transportbookValue">Pickup Time<span style="color:black;" id="pickuptimeModal" class="pull-right"></span></li>
+                                                <li class="pricing-table " ng-show="transportbookValue">Source Location<span style="color:black;" id="fromLocationModal" class="pull-right"></span></li>
+                                                <li class="pricing-table " ng-show="transportbookValue">Distance Location<span style="color:black;" id="toLocationModal" class="pull-right"></span></li>
+                                                <li class="pricing-table " ng-show="transportbookValue">Promotional Discont<span style="color:black;" id="promocodedvalueModal" class="pull-right"> (-)</span></li>
+
                                                 <li class="pricing-table " ng-show="lodgevalue">Lodging Price<span style="color:black;" class="pull-right">(+)Rs.&nbsp;{{lodgeIDnew.PricePerNight}}</span></li>
                                                 <li class="pricing-table " ng-show="transvalue">Transport Price <span style="color:black;" class="pull-right">(+)Rs.&nbsp;{{transIDnew.PriceForDay}}</span></li>
 
                                                 <li class="pricing-table " ng-hide="transportbookValue">Total Price(Excluding Tax) <span style="color:black;" class="pull-right">Rs.&nbsp;{{priceTotal}}</span></li>
                                                 <li class="pricing-table " ng-show="successValue">Promotional Discount <span style="color:black;" class="pull-right">Rs.&nbsp;(-){{successValue}}</span></li>
-                                                <li class="pricing-table ">Amount Payable(Including Tax) <span style="color:black;" class="pull-right">Rs.&nbsp;{{(priceTotal+((priceTotal*14)/100)+((priceTotal*0.5)/100)-successValue) | number : 0 }}</span></li>
+                                                <li class="pricing-table " ng-hide="transportbookValue">Amount Payable(Including Tax) <span style="color:black;" class="pull-right">Rs.&nbsp;{{(priceTotal+((priceTotal*14)/100)+((priceTotal*0.5)/100)-successValue) | number : 0 }}</span></li>
+                                                <li class="pricing-table " ng-show="transportbookValue">Amount Payable (Aprox.) <span style="color:black;" class="pull-right">Rs.&nbsp;<span id="grandtotalTransModal"></span></span>
+                                                </li>
                                             </ul>
                                         </div>
-
-
                                     </div>
                                 </div>
                             </div>
@@ -1065,6 +1076,9 @@
                     var pcode = document.getElementById("promotional");
                     // alert(pcode);
                     pcode.style.display = "block";
+                    document.getElementById("promocodedvalueModal").innerHTML = "500";
+                    document.getElementById("grandtotalTransModal").innerHTML = zz;
+                    comparePromocode = function(a){};
                 }
                 //alert("Ovalue = "+Ovalue);
             }
