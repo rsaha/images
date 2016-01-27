@@ -64,7 +64,7 @@
         $scope.toValue=function(valueto){
             alert(valueto);
         }
-    $http.get("http://gg_admin-prod.apigee.net/guidedgateway/tours?city="+sID)
+    $http.get("http://gg_admin-prod.apigee.net/guidedgateway/tours?ql=tour_location='"+sID+"'")
     .success(function (response) {
 		$scope.tours = response.entities;
 	
@@ -73,7 +73,7 @@
 				$scope.data = "error in fetching data";
 			});
 			
-			$http.get("http://gg_admin-prod.apigee.net/guidedgateway/guides?city="+sID)
+			$http.get("http://gg_admin-prod.apigee.net/guidedgateway/guides?ql=city='"+sID+"'")
     .success(function (response) {
 		$scope.allguides =response.entities;
             
@@ -97,10 +97,11 @@
         }
         
 //         $http.get("http://gg_admin-prod.apigee.net/guidedgateway/places")
-        $http.get("http://gg_admin-prod.apigee.net/guidedgateway/places?city="+sID)
+        $http.get("http://gg_admin-prod.apigee.net/guidedgateway/places?ql=PlaceName='"+sID+"'")
     .success(function (response) {
-		$scope.places = response.entities;
-	
+            	$scope.placescomplete = response.entities;
+		$scope.places = response.entities[0].NearByPlaces;
+	      // alert($scope.places[0].Name);
 		})
 	.error(function() {
 				$scope.data = "error in fetching data";

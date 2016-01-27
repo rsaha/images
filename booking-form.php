@@ -416,18 +416,14 @@
                                                                                         <a style="cursor:pointer" data-value="{{trans.ID}}" ng-click="transportModel(trans.ID);">
                                                                                             <div class="ft-item">
                                                                                                 <span class="ft-image">
-                                                                                                 <img style="" src="{{trans.Media.Image[0]}}" alt="Top Destination" /> 
+                                                                                                 <img style="height:80px" src="{{trans.Media.Image[0]}}" alt="Top Destination" /> 
                                                                                               </span>
                                                                                                 <div class="ft-data" style="font-size:11px;">
-                                                                                                    <span style="color:black;" class="fa fa-book text-upper">&nbsp;&nbsp;{{trans.Category}}&nbsp;&nbsp;</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                                                                    <span style="color:black;" class="fa fa-money text-upper"> &nbsp;&nbsp;{{trans.PricePerHour}} /- Per Hour</span>
-                                                                                                    <span style="color:black;" class="fa fa-money text-upper">&nbsp;&nbsp;{{trans.PricePerKM}}/- Per KM</span>
-                                                                                                </div>
-                                                                                                <div class="ft-foot" style="color:white">
-                                                                                                    <span class="ft-offer text-upper">{{trans.OutStationMinKM}} Kms</span>
+                                                                                                    <span style="color:black;" class="fa fa-book text-upper">&nbsp;&nbsp;{{trans.Category}}&nbsp;&nbsp;</span>
                                                                                                 </div>
                                                                                                 <div class="ft-foot" style="word-wrap:break-word; ">
-                                                                                                    <span class="ft-offer text-upper">{{trans.OutStationCharge}} /-</span>
+                                                                                                    <!-- <span class="ft-offer text-upper">Rs. {{trans.PricePerHour}} / Per Hour</span>-->
+                                                                                                    <span class="ft-offer text-upper">Rs. {{trans.PricePerKM}} / Per KM</span>
                                                                                                 </div>
                                                                                             </div>
                                                                                         </a>
@@ -501,7 +497,7 @@
                                         <!-- END TABS -->
 
                                         <!-- START TAB CONTENT -->
-                                        <div class="tab-content gray box-shadow1 clearfix marb30">
+                                        <div class="tab-content gray box-shadow1 clearfix">
                                             <div class="tab-pane active" id="popular-posts">
 
                                                 <div>
@@ -517,7 +513,7 @@
                                                         <input type="hidden" name="tCancelationPolicy" value="{{tour.cancelation_policy}}" />
                                                         <input type="hidden" name="tRestrictions" value="{{tour.restrictions}}" />
 
-                                                        <div class="tour-plans" style="padding:10px 10px 10px 10px;">
+                                                        <div class="tour-plans" style="padding:10px 10px 0px 10px;">
                                                             <div data-model="tour.tour_location">
                                                                 <div class="plan-image">
                                                                     <img class="img-responsive" alt="Tour Image Scroller" draggable="false" src="{{tour.photo == null ? 'img/custom11.jpg' : tour.photo[0]}}" />
@@ -561,7 +557,6 @@
                                                             </div>
                                                             <input type="hidden" name="tourPrice" value="{{tourPrice}}" />
                                                             <h4>Min. Tour Charges (4 persons) &nbsp;: {{tourPrice}}</h4>
-
                                                         </div>
                                                     </div>
                                                 </div>
@@ -573,7 +568,7 @@
                                                     <input type="hidden" name="Description" value="{{transportBook.Description}}" />
                                                     <input type="hidden" name="PricePerKM" value="{{transportBook.PricePerKM}}" />
 
-                                                    <div class="tour-plans" style="padding:10px 10px 10px 10px;">
+                                                    <div class="tour-plans" style="padding:10px 10px 0px 10px;">
                                                         <div data-model="tour.tour_location">
                                                             <div class="plan-image">
                                                                 <img class="img-responsive" alt="Tour Image Scroller" draggable="false" src="{{transportBook.Media.Image[0] == null ? 'img/custom11.jpg' : transportBook.Media.Image[0]}}" />
@@ -664,8 +659,9 @@
                                                             </div>
                                                         </div>
                                                         <input type="hidden" name="guidePrice" value="{{guidePrice}}" />
-                                                        <h4>Guide Charges : {{guidePrice}}</h4>
-                                                        <hr style="margin: 20px 0; border: 1px solid #808080;">
+                                                        <br>
+                                                        <h4 class="pull-right">Guide Charges : Rs. {{guidePrice}}</h4>
+<!--                                                        <hr style="margin: 20px 0; border: 1px solid #808080;">-->
                                                     </div>
                                                 </div>
                                             </div>
@@ -747,8 +743,8 @@
                                             <div class="alignright">
                                                 <input type="hidden" name="transport_id" value="{{transIDnew.ID}}" />
                                                 <input type="hidden" name="transport_name" value="{{transIDnew.Description}}" />
-                                                <input type="hidden" name="transport_price" value="{{transIDnew.PriceForDay}}" />
-                                                <h4>Transport Charges &nbsp;&nbsp;: Rs.&nbsp;{{transIDnew.PriceForDay}}</h4>
+                                                <input type="hidden" name="transport_price" value="{{transIDnew.PricePerKM}}" />
+                                                <span style="font-weight:bold;font-size:17px">Transport will be charged @ Rs.&nbsp;{{transIDnew.PricePerKM}}</span>
                                             </div>
                                             <hr>
                                         </div>
@@ -780,15 +776,11 @@
                                                             <input type="hidden" name="PromoDis" value="{{successValue}}" id="promovalue" />
                                                             <tr ng-show="successValue">
                                                                 <td style="text-align:right">Promotional Discount &nbsp;: Rs.&nbsp;</td>
-                                                                <td style="text-align:right">(-){{successValue}}
-
-                                                                </td>
+                                                                <td style="text-align:right">(-){{successValue}} </td>
                                                             </tr>
                                                             <tr id="promotional" style="display:none;">
                                                                 <td style="text-align:right">Promotional Discount &nbsp;: Rs.&nbsp;</td>
-                                                                <td style="text-align:right">(-)500
-
-                                                                </td>
+                                                                <td style="text-align:right">(-)500 </td>
                                                             </tr>
                                                             <tr ng-hide="transportbookValue">
                                                                 <td style="text-align:right">
@@ -978,14 +970,14 @@
                                                 <li class="pricing-table " ng-show="transportbookValue">Distance Location<span style="color:black;" id="toLocationModal" class="pull-right"></span></li>
                                                 <li class="pricing-table " ng-show="transportbookValue">Promotional Discont<span style="color:black;" id="promocodedvalueModal" class="pull-right"> (-)</span></li>
 
-                                                <li class="pricing-table " ng-show="lodgevalue">Lodging Price<span style="color:black;" class="pull-right">(+)Rs.&nbsp;{{lodgeIDnew.PricePerNight}}</span></li>
-                                                <li class="pricing-table " ng-show="transvalue">Transport Price <span style="color:black;" class="pull-right">(+)Rs.&nbsp;{{transIDnew.PriceForDay}}</span></li>
+                                                <li class="pricing-table " ng-show="lodgevalue">Lodging Price<span style="color:black;" class="pull-right">Rs.&nbsp;{{lodgeIDnew.PricePerNight}}</span></li>
 
                                                 <li class="pricing-table " ng-hide="transportbookValue">Total Price(Excluding Tax) <span style="color:black;" class="pull-right">Rs.&nbsp;{{priceTotal}}</span></li>
                                                 <li class="pricing-table " ng-show="successValue">Promotional Discount <span style="color:black;" class="pull-right">Rs.&nbsp;(-){{successValue}}</span></li>
                                                 <li class="pricing-table " ng-hide="transportbookValue">Amount Payable(Including Tax) <span style="color:black;" class="pull-right">Rs.&nbsp;{{(priceTotal+((priceTotal*14)/100)+((priceTotal*0.5)/100)-successValue) | number : 0 }}</span></li>
-                                                <li class="pricing-table " ng-show="transportbookValue">Amount Payable (Aprox.) <span style="color:black;" class="pull-right">Rs.&nbsp;<span id="grandtotalTransModal"></span></span>
-                                                </li>
+                                                <li class="pricing-table " ng-show="transportbookValue">Amount Payable (Aprox.) <span style="color:black;" class="pull-right">Rs.&nbsp;<span id="grandtotalTransModal"></span></span></li>
+                                                <br>
+                                                <li class="pricing-table " ng-show="transvalue">Transport Price Extra <span style="color:black;" class="pull-right">@ Rs.&nbsp;{{transIDnew.PricePerKM}} / Km</span></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -1074,11 +1066,11 @@
                     document.getElementById("grandtotalvalueI").value = zz;
                     // alert(zz);
                     var pcode = document.getElementById("promotional");
-                    // alert(pcode);
-                    pcode.style.display = "block";
+                    pcode.style.display = "table-row";
+                    
                     document.getElementById("promocodedvalueModal").innerHTML = "500";
                     document.getElementById("grandtotalTransModal").innerHTML = zz;
-                    comparePromocode = function(a){};
+                    comparePromocode = function (a) {};
                 }
                 //alert("Ovalue = "+Ovalue);
             }

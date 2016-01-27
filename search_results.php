@@ -120,33 +120,34 @@
         <?php 
            include('MasterTopHeader.php'); 
         ?>
-            <div class="row">
-                <div class="main-contents col-md-4 col-md-offset-1 col-sm-10 col-sm-offset-1 pull-left" style="margin-top:20px;">
-                    <form class="">
-                        <div class="row">
-                            <br>
+            <div class="row post-desc">
+                <div class="col-md-12">
+                    <div class="main-contents col-md-6 pull-left" style="margin-top:20px;">
+                        <form class="">
                             <div class="col-md-10 col-sm-10 col-sm-offset-1 col-md-offset-1 col-xs-10 col-xs-offset-1 input-group">
-                                <input type="text" class="form-control"  style="background-color:white; border:1px #cccccc solid" ng-model="searchID" placeholder="Location" />
-                             <a href="" ng-click="changeSearch(searchID)" class="input-group-addon">
-						<i class="fa fa-search"></i>
-						</a>
+                                <input type="text" class="form-control" style="background-color:white; border:1px #cccccc solid" ng-model="searchID" placeholder="Location" />
+                                <a href="" ng-click="changeSearch(searchID)" class="input-group-addon">
+                                    <i class="fa fa-search"></i>
+                                </a>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
-                                <br>
-                                <label> Search By </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <label>
-                                    <input class="input-cb" type="checkbox" name="inc_Destination" value="1" ng-model="checkboxModel.value3" checked />&nbsp;Destinations</label>&nbsp;&nbsp;
-                                <label>
-                                    <input class="input-cb" type="checkbox" name="inc_Guide" value="1" ng-model="checkboxModel.value2" checked />&nbsp;Guides</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                                <label>
-                                    <input class="input-cb" type="checkbox" name="inc_Tour" checked ng-model="checkboxModel.value1" value="" />&nbsp;Tours</label>&nbsp;&nbsp;&nbsp;&nbsp;
-
-                            </div>
-                        </div>
-                    </form>
-                </div>
+                        </form>
+                    </div>
+                    <div class="main-contents col-md-5" style="margin-top:20px;">
+                        <a class="input-group-addon" style="height:40px;border:1px solid #cccccc;">
+                        <label class="col-md-2"> Filter By :
+                        </label>
+                        <label class="col-md-3">
+                            <input class="input-cb" type="checkbox" name="inc_Destination" value="1" ng-model="checkboxModel.value3" checked />&nbsp;Destinations
+                        </label>
+                        <label class="col-md-2">
+                            <input class="input-cb" type="checkbox" name="inc_Guide" value="1" ng-model="checkboxModel.value2" checked />&nbsp;Guides
+                        </label>
+                        <label class="col-md-2">
+                            <input class="input-cb" type="checkbox" name="inc_Tour" checked ng-model="checkboxModel.value1" value="" />&nbsp;Tours
+                        </label>
+                        </a>
+                    </div>
+                </div><br><br><br><br>
             </div>
 
             <!--
@@ -165,47 +166,45 @@
             <!-- START .main-contents -->
             <div class="main-contents ">
                 <div class="container">
-                    <br>
-                    <div class="row" ng-repeat="f in places " ng-show="$index<1">
+                    <div class="row" ng-repeat="f in placescomplete " ng-show="$index<1">
                         <h3><label  style="color:grey">You search for :</label> {{SearchCity}}</h3>
-                        <h4><u>{{SearchCity}}</u> : </h4> <label style="text-align:justify; text-justify: inter-word;">{{f.Description}}</label>
+                        <h4><u>{{SearchCity}}</u> : </h4>
+                        <label style="text-align:justify; text-justify: inter-word;">{{f.Description}}</label>
                     </div>
                     <div class="row">
                         <div class="col-md-8">
                             
-                            <br/>
-                            <!-- START Search Container -->
-
-                            <!-- END Search Container -->
-                            <div class="row" >
-                                <h2 class="ft-heading text-upper col-md-12" ng-show="checkboxModel.value3"><i class="fa fa-leaf"></i>&nbsp;&nbsp;Top Destinations<span class="alignright"> <a class="btn btn-primary" href="top-destinations-listview-sidebar.php"><span>More&nbsp;<i class="fa fa-angle-double-right"></i></span></a></span></h2>
+                            <div class="row">
+                                <h2 class="ft-heading text-upper col-md-12" ng-show="checkboxModel.value3"><i class="fa fa-leaf"></i>&nbsp;&nbsp;Near By Places<span class="alignright"> </span></h2>
                             </div>
                             <div class="carousel" ng-show="checkboxModel.value3">
                                 <ul class="slides">
                                     <li>
                                         <div class="row bom-contents" style="height:380px;">
                                             <div class="col-md-11">
-                                                <div class="col-md-4" ng-repeat="z in places | filter:searchID" ng-show="$index<3">
+                                                <div class="col-md-4" ng-repeat="z in places" ng-show="$index<3">
                                                     <a href="destination-detail-sidebar.php#?id3={{z.ID}}">
                                                         <div class="ft-item">
                                                             <span class="ft-image">
-							 <img style="height:200px;" src="{{'z.Media.Image[0]'=='' ? 'img/custom1.jpg' :z.Media.Image[0]}}" alt="Top Destination" /> 
+							 <img style="height:200px;" src="img/city/{{SearchCity}}.jpg" alt="Top Destination" /> 
 						  </span>
 
                                                             <div class="ft-data" style="height:45px;font-size:11px;">
-                                                                <span style="color:black;" class="fa fa-calendar-check-o text-upper">{{z.BestTimeToVisit}}</span>
+                                                                <span style="color:black;" class="fa fa-calendar-check-o text-upper">{{z.Name}}</span>
                                                             </div>
 
                                                             <div class="ft-foot" style="word-wrap:break-word; height:50px;">
-                                                                <h4 class="ft-title text-upper" style="color:#686868">{{z.Name}}</h4>
-                                                                <span class="ft-offer text-upper">{{z.Category}}</span>
+                                                                <h4 class="ft-title text-upper" style="color:#686868">{{z.TourismType}}</h4>
+                                                                <span class="ft-offer text-upper">{{z.Distance}}KM</span>
                                                             </div>
 
+<!--
                                                             <div class="ft-foot-ex">
                                                                 <span class="fa fa-trophy text-upper alignleft">{{z.TourCount}}&nbsp;&nbsp;Tours</span>
 
                                                                 <span class="alignright fa fa-life-ring">{{z.GuideCount}}&nbsp;&nbsp;Guides</span>
                                                             </div>
+-->
                                                         </div>
                                                     </a>
                                                 </div>
@@ -217,7 +216,7 @@
                                     </li>
                                 </ul>
                             </div>
-                            <div class="row" >
+                            <div class="row">
                                 <h2 class="ft-heading text-upper col-md-12" ng-show="checkboxModel.value2"><i class="fa fa-user-secret"></i>&nbsp;&nbsp; Featured Guides<span class="alignright"> <a class="btn btn-primary" href="top-guides-listview.php"><span style="font-weight:bold;">More&nbsp;<i class="fa fa-angle-double-right"></i></span></a></span></h2>
                             </div>
                             <div class="carousel" ng-show="checkboxModel.value2">
@@ -259,10 +258,10 @@
                                 </ul>
                             </div>
 
-                            <div class="row" >
+                            <div class="row">
                                 <h2 class="ft-heading text-upper col-md-12" ng-show="checkboxModel.value1"><i class="fa fa-trophy"></i>&nbsp;&nbsp; Popular Tours<span class="alignright"> <a class="btn btn-primary" href="top-tours-listview-sidebar.php"><span style="">More&nbsp;<i class="fa fa-angle-double-right"></i></span></a></span></h2>
                             </div>
-                            <div class="carousel"  ng-show="checkboxModel.value1 ">
+                            <div class="carousel" ng-show="checkboxModel.value1 ">
                                 <ul class="slides">
                                     <li>
 
@@ -304,7 +303,7 @@
                         </div>
 
                         <!-- START #sidebar -->
-                        <aside id="sidebar" class="col-md-4" style="margin-top:148px;">
+                        <aside id="sidebar" class="col-md-4" style="margin-top:66px;">
                             <div class="sidebar-widget">
                                 <!-- Sidebar recent popular posts -->
                                 <!-- START TABS -->
@@ -344,7 +343,7 @@
                                         <ul class="rc-posts-list list-unstyled">
                                             <li ng-repeat="k in placesALL" ng-show="$index<3">
                                                 <span class="rc-post-image">
-                                                    <a ng-href="destination-detail-sidebar.php#?id3={{k.ID}}">	<img class="img-responsive"  ng-src="{{k.Media.Image[0]}}" alt="Tour 1" /></a>
+                                                    <a ng-href="search_results.php#?id={{k.PlaceName}}" target="_blank">	<img class="img-responsive"  ng-src="{{k.Media.Image[0]}}" alt="Tour 1" /></a>
 												</span>
                                                 <h5><a ng-href="#">{{k.Name}}</a></h5>
                                                 <span class="rc-post-date small">Best Visit:&nbsp;&nbsp;&nbsp;{{k.BestTimeToVisit}}</span>

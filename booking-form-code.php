@@ -144,7 +144,6 @@ include_once('db.php');
         $exclusice = "NULL";
         $cancelationPolicy = "NULL";
         $restrictions = "NULL";
-        $PickupLocation = "NULL";
         $DropLocation = "NULL";
         
         $tGuideID = "NULL";
@@ -153,7 +152,6 @@ include_once('db.php');
         $exclusice = "NULL";
         $cancelationPolicy = "NULL";
         $restrictions = "NULL";
-        $PickupLocation = "NULL";
         $DropLocation = "NULL";
         $grandTotal = mysql_real_escape_string($_POST['grandtotalvalueI']);
     }
@@ -381,15 +379,11 @@ $tGuideID = mysql_real_escape_string($_POST['tGuideID']);
             $pdf->SetFont('Arial','B',12);
             $pdf->Cell(0,5,'',0,1,"L");
             $pdf->Cell(0,5,$bookedItemName,0,1,"L");
-        $pdf->SetFont('Arial','B',10);
-        $pdf->SetTextColor(62,66,67);
-        $pdf->Cell(0,10,'Date Of Tour : '. $dateOfTour,0,1,"L");
+            $pdf->SetFont('Arial','B',10);
+            $pdf->SetTextColor(62,66,67);
+            $pdf->Cell(0,10,'Date Of Tour : '. $dateOfTour,0,1,"L");
             $pdf->Cell(0,10,'Time Of Tour : '. $pickup_time,0,1,"L");
             $pdf->Cell(0,10,'Pickup Location : '. $PickupLocation,0,1,"L");
-            $pdf->SetFont('Arial','',10);
-            $pdf->Cell(0,6,'Booked '.$booking_type.' Id : '.$book_reff_id,0,1,"L");
-            //$pdf->Cell(0,5,'Tour Duration : '.$tourDuration .' Day(s)',0,1,"L");
-            //$pdf->Cell(0,5,'Number Of person : '.$noOfPerson.' Adult, '.$noOfPersonChild.' Child',0,1,"L");
             $pdf->SetFont('Arial','B',10);
             $pdf->Cell(0,6,'Category : '.$category.' (Partner Name : '.$partnerName.')',0,1,"L");
             $pdf->SetFont('Arial','',10);
@@ -428,7 +422,7 @@ $tGuideID = mysql_real_escape_string($_POST['tGuideID']);
             $pdf->SetFont('Arial','',10);
             $pdf->Cell(0,5,$transport_name,0,1,"L");
 
-            $pdf->Cell(0,5,'Price : Rs. '.$transport_price,0,1,"R");
+            $pdf->Cell(0,5,'Price extra @ Rs. '.$transport_price.' / Km',0,1,"R");
         }
         
         //======$PromoCode===================
@@ -488,6 +482,13 @@ $tGuideID = mysql_real_escape_string($_POST['tGuideID']);
         {
             $pdf->Cell(0,5,'Guide Summary :'.$guideSummary,0,1,'L');
             $pdf->Cell(0,5,'Guide Payment Term :'.$guidePaymentTerm,0,1,'L');
+        }
+        if(((int)$transportBokingF))
+        {
+            $pdf->Cell(0,5,'Inclusive :'.$inclusive,0,1,'L');
+            $pdf->Cell(0,5,'Exclusive :'.$exclusice,0,1,'L');
+            $pdf->Cell(0,5,'Cancelation Policy :'.$cancelationPolicy,0,1,'L');
+            $pdf->Cell(0,5,'Restriction :'.$restrictions,0,1,'L');
         }
         
         $pdf->Output();
