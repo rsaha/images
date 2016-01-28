@@ -11,8 +11,15 @@
 
 
     app.controller('MultipleCtrl',['$scope','$http','$location', function($scope, $http,$location) {
+        
+           $scope.checkboxModel = {
+       value1 : true,
+	   value2 : true,
+	   value3 : true,
+       /* value2 : 'YES' */
+     };
          $scope.placename='';
-          $scope.searchID = $location.search().id;
+        //  $scope.searchID = $location.search().id;
         $scope.SearchCity = $location.search().id;
         var sID= $location.search().id;
        // alert(sID);
@@ -52,18 +59,20 @@
 				$scope.data = "error in fetching data";
 			});
             
+                    $http.get("http://gg_admin-prod.apigee.net/guidedgateway/places?ql=PlaceName='"+sID+"'")
+    .success(function (response) {
+            	$scope.placescomplete = response.entities;
+		$scope.places = response.entities[0].NearByPlaces;
+	      // alert($scope.places[0].Name);
+		})
+	.error(function() {
+				$scope.data = "error in fetching data";
+			});
             
             }
         }
-          $scope.checkboxModel = {
-       value1 : true,
-	   value2 : true,
-	   value3 : true,
-       /* value2 : 'YES' */
-     };
-        $scope.toValue=function(valueto){
-            alert(valueto);
-        }
+       
+
     $http.get("http://gg_admin-prod.apigee.net/guidedgateway/tours?ql=tour_location='"+sID+"'")
     .success(function (response) {
 		$scope.tours = response.entities;

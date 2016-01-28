@@ -133,21 +133,25 @@
                         </form>
                     </div>
                     <div class="main-contents col-md-5" style="margin-top:20px;">
-                        <a class="input-group-addon" style="height:40px;border:1px solid #cccccc;">
-                        <label class="col-md-2"> Filter By :
-                        </label>
-                        <label class="col-md-3">
-                            <input class="input-cb" type="checkbox" name="inc_Destination" value="1" ng-model="checkboxModel.value3" checked />&nbsp;Destinations
-                        </label>
-                        <label class="col-md-2">
-                            <input class="input-cb" type="checkbox" name="inc_Guide" value="1" ng-model="checkboxModel.value2" checked />&nbsp;Guides
-                        </label>
-                        <label class="col-md-2">
-                            <input class="input-cb" type="checkbox" name="inc_Tour" checked ng-model="checkboxModel.value1" value="" />&nbsp;Tours
-                        </label>
-                        </a>
+                        <span class="input-group-addon" style="height:40px;border:1px solid #cccccc;">
+                            <label class="col-md-2"> Filter By :
+                            </label>
+                            <label class="col-md-3">
+                                <input class="input-cb" type="checkbox" name="inc_Destination" checked ng-model="checkboxModel.value3" />&nbsp;Destinations
+                            </label>
+                            <label class="col-md-2">
+                                <input class="input-cb" type="checkbox" name="inc_Guide" checked ng-model="checkboxModel.value2" />&nbsp;Guides
+                            </label>
+                            <label class="col-md-2">
+                                <input class="input-cb" type="checkbox" name="inc_Tour" checked ng-model="checkboxModel.value1"  />&nbsp;Tours
+                            </label>
+                        </span>
                     </div>
-                </div><br><br><br><br>
+                </div>
+                <br>
+                <br>
+                <br>
+                <br>
             </div>
 
             <!--
@@ -173,7 +177,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-8">
-                            
+
                             <div class="row">
                                 <h2 class="ft-heading text-upper col-md-12" ng-show="checkboxModel.value3"><i class="fa fa-leaf"></i>&nbsp;&nbsp;Near By Places<span class="alignright"> </span></h2>
                             </div>
@@ -198,7 +202,7 @@
                                                                 <span class="ft-offer text-upper">{{z.Distance}}KM</span>
                                                             </div>
 
-<!--
+                                                            <!--
                                                             <div class="ft-foot-ex">
                                                                 <span class="fa fa-trophy text-upper alignleft">{{z.TourCount}}&nbsp;&nbsp;Tours</span>
 
@@ -224,7 +228,7 @@
                                     <li>
                                         <div class="row bom-contents" style="height:380px;">
                                             <div class="col-md-11 col-xs-11">
-                                                <div class="col-md-4" ng-repeat="y in allguides | filter:searchID" ng-show="$index<3 ">
+                                                <div class="col-md-4" ng-repeat="y in allguides " ng-show="$index<3 ">
                                                     <a href="guide-detail-sidebar.php#?id2={{y.id}}" ng-controller="guideIDCtrl" ng-click="setID(y.id)">
                                                         <div class="ft-item">
                                                             <span class="ft-image">
@@ -267,7 +271,7 @@
 
                                         <div class="row bom-contents" style="height:380px;">
                                             <div class="col-md-11">
-                                                <div class="col-md-4" ng-repeat="x in tours | filter:searchID" ng-show="$index<3">
+                                                <div class="col-md-4" ng-repeat="x in tours " ng-show="$index<3">
                                                     <a href="tour_detail_sidebar.php#?id={{x.tour_id}}">
                                                         <div class="ft-item">
                                                             <span class="ft-image">
