@@ -78,6 +78,12 @@
         $http.get("http://gg_admin-prod.apigee.net/guidedgateway/places")
             .success(function (response) {
                 $scope.places = response.entities;
+            var placeslist = response.entities;
+	      $scope.placesforDropdown=[];
+                for (var i = 0, len = placeslist.length; i < len; i++) {
+                 $scope.placesforDropdown.push(placeslist[i].PlaceName);
+                      
+                    }
 
             })
             .error(function () {

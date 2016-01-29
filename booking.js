@@ -17,6 +17,20 @@
         debugger;
         $scope.transportbookValue = 0;
         // $scope.transportBook =0;
+           $http.get("http://gg_admin-prod.apigee.net/guidedgateway/places")
+    .success(function (response) {
+            //	$scope.placescomplete = response.entities;
+		var placeslist = response.entities;
+	      $scope.placesforDropdown=[];
+                for (var i = 0, len = placeslist.length; i < len; i++) {
+                 $scope.placesforDropdown.push(placeslist[i].PlaceName);
+                      
+                    }
+          
+		})
+	.error(function() {
+				$scope.data = "error in fetching data";
+			});
 
         if ($location.search().id1 == 2 || $location.search().id2 == 2) {
 

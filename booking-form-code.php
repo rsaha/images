@@ -485,10 +485,7 @@ $tGuideID = mysql_real_escape_string($_POST['tGuideID']);
         }
         if(((int)$transportBokingF))
         {
-            $pdf->Cell(0,5,'Inclusive :'.$inclusive,0,1,'L');
-            $pdf->Cell(0,5,'Exclusive :'.$exclusice,0,1,'L');
-            $pdf->Cell(0,5,'Cancelation Policy :'.$cancelationPolicy,0,1,'L');
-            $pdf->Cell(0,5,'Restriction :'.$restrictions,0,1,'L');
+            $pdf->Cell(0,5,'Note : Our Person will contact you soon.',0,1,'L');
         }
         
         $pdf->Output();

@@ -119,8 +119,8 @@
                         country: "in"
                     }
                 };
-                var input = document.getElementById('fromLocation');
-                var autocomplete = new google.maps.places.Autocomplete(input, options);
+                //                var input = document.getElementById('fromLocation');
+                //                var autocomplete = new google.maps.places.Autocomplete(input, options);
 
                 var input = document.getElementById('toLocation');
                 var autocomplete = new google.maps.places.Autocomplete(input, options);
@@ -343,7 +343,11 @@
                                                 <li class="row" ng-show="transportbookValue">
                                                     <div class="col-md-6">
                                                         <label>From Location<span class="required small">(Required)</span></label>
-                                                        <input type="text" class="form-control" name="fromLocation" id="fromLocation" autocomplete="on" ng-model="fromLocation" value="" ng-pattern="/^[a-z ,A-Z]+$/" onfocusout="GetRoute()" />
+
+                                                        <input type="text" class="form-control" name="fromLocation" id="fromLocation" autocomplete="on" ng-model="fromLocation" value="" ng-pattern="/^[a-z ,A-Z]+$/" onfocusout="GetRoute()" list="exampleList" />
+                                                        <datalist id="exampleList">
+                                                            <option ng-repeat="dropdwn in placesforDropdown" value="{{dropdwn}}">
+                                                        </datalist>
                                                         <!--
                                                         <span style="color:red" ng-show="bookingForm.yourLocation.$dirty && bookingForm.yourLocation.$invalid">
 											  <span ng-show="bookingForm.yourLocation.$error.required">*Location is required.</span>
@@ -556,7 +560,7 @@
                                                                 </div>
                                                             </div>
                                                             <input type="hidden" name="tourPrice" value="{{tourPrice}}" />
-                                                            <h4>Min. Tour Charges (4 persons) &nbsp;: {{tourPrice}}</h4>
+                                                            <h4 class="pull-right">Min. Tour Charges (4 persons) &nbsp;: {{tourPrice}}</h4>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -617,7 +621,7 @@
 -->
 
                                                         <h5><table><tr><td>Distance(Estimated)  &nbsp;:</td><td><div id="distanceShow">0</div></td><td> KM</td></tr></table> </h5>
-                                                        <h4>Transport Charges  &nbsp;: <label id="transportPrice"></label></h4>
+                                                        <h4 class="pull-right">Transport Charges  &nbsp;: <label id="transportPrice"></label></h4>
                                                     </div>
                                                 </div>
                                                 <!--                                                transport div end-->
@@ -661,7 +665,7 @@
                                                         <input type="hidden" name="guidePrice" value="{{guidePrice}}" />
                                                         <br>
                                                         <h4 class="pull-right">Guide Charges : Rs. {{guidePrice}}</h4>
-<!--                                                        <hr style="margin: 20px 0; border: 1px solid #808080;">-->
+                                                        <!--                                                        <hr style="margin: 20px 0; border: 1px solid #808080;">-->
                                                     </div>
                                                 </div>
                                             </div>
@@ -744,7 +748,7 @@
                                                 <input type="hidden" name="transport_id" value="{{transIDnew.ID}}" />
                                                 <input type="hidden" name="transport_name" value="{{transIDnew.Description}}" />
                                                 <input type="hidden" name="transport_price" value="{{transIDnew.PricePerKM}}" />
-                                                <span style="font-weight:bold;font-size:17px">Transport will be charged @ Rs.&nbsp;{{transIDnew.PricePerKM}}</span>
+                                                <span style="font-weight:bold;font-size:17px">Transport will be charged @ Rs.&nbsp;{{transIDnew.PricePerKM}} / KM.</span>
                                             </div>
                                             <hr>
                                         </div>
@@ -975,7 +979,8 @@
                                                 <li class="pricing-table " ng-hide="transportbookValue">Total Price(Excluding Tax) <span style="color:black;" class="pull-right">Rs.&nbsp;{{priceTotal}}</span></li>
                                                 <li class="pricing-table " ng-show="successValue">Promotional Discount <span style="color:black;" class="pull-right">Rs.&nbsp;(-){{successValue}}</span></li>
                                                 <li class="pricing-table " ng-hide="transportbookValue">Amount Payable(Including Tax) <span style="color:black;" class="pull-right">Rs.&nbsp;{{(priceTotal+((priceTotal*14)/100)+((priceTotal*0.5)/100)-successValue) | number : 0 }}</span></li>
-                                                <li class="pricing-table " ng-show="transportbookValue">Amount Payable (Aprox.) <span style="color:black;" class="pull-right">Rs.&nbsp;<span id="grandtotalTransModal"></span></span></li>
+                                                <li class="pricing-table " ng-show="transportbookValue">Amount Payable (Aprox.) <span style="color:black;" class="pull-right">Rs.&nbsp;<span id="grandtotalTransModal"></span></span>
+                                                </li>
                                                 <br>
                                                 <li class="pricing-table " ng-show="transvalue">Transport Price Extra <span style="color:black;" class="pull-right">@ Rs.&nbsp;{{transIDnew.PricePerKM}} / Km</span></li>
                                             </ul>
@@ -1067,7 +1072,7 @@
                     // alert(zz);
                     var pcode = document.getElementById("promotional");
                     pcode.style.display = "table-row";
-                    
+
                     document.getElementById("promocodedvalueModal").innerHTML = "500";
                     document.getElementById("grandtotalTransModal").innerHTML = zz;
                     comparePromocode = function (a) {};

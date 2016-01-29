@@ -13,8 +13,7 @@
     <meta name="description" content="Authentic Afordable Travel in India" />
 
     <!-- meta keywords -->
-    <meta name="keywords" content="travel
-		guide tourism india" />
+    <meta name="keywords" content="travel guide tourism india" />
 
     <!-- meta viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
@@ -97,19 +96,19 @@
         }
         
         img:hover {
-    opacity: 1.0;
-   // filter: alpha(opacity=100); /* For IE8 and earlier */
-}
+            opacity: 1.0;
+            // filter: alpha(opacity=100); /* For IE8 and earlier */
+        }
     </style>
-    
+
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
-        <script type='text/javascript'>
-            jQuery(document).ready(function ($) {
-                $(".urlUnchange").click(function (event) {
-                    event.preventDefault();
-                });
+    <script type='text/javascript'>
+        jQuery(document).ready(function ($) {
+            $(".urlUnchange").click(function (event) {
+                event.preventDefault();
             });
-        </script>
+        });
+    </script>
 </head>
 <!-- END head -->
 
@@ -187,7 +186,10 @@
                                                         <lable class="col-md-12">Get Fair Estimate Between Locaitons:&nbsp;
                                                             <label type="text" id="{{data.ID}}_lblDistance"></label> K.m.</lable>
                                                         <div class="col-md-5">
-                                                            <input name="fromLocation" id="{{data.ID}}_f" autocomplete="on" ng-pattern="/^[a-z ,A-Z]+$/" value="" type="text" class="form-control foo" style="height:30px" placeholder="Source" onfocusout="GetRoute(this.id)">
+                                                            <input name="fromLocation" id="{{data.ID}}_f" autocomplete="on" ng-pattern="/^[a-z ,A-Z]+$/" value="" type="text" class="form-control foo" style="height:30px" placeholder="Source" onfocusout="GetRoute(this.id)" list="{{data.ID}}_dl">
+                                                            <datalist id="{{data.ID}}_dl">
+                                                                <option ng-repeat="dropdwn in placesforDropdown" value="{{dropdwn}}">
+                                                            </datalist>
                                                         </div>
                                                         <div class="col-md-5">
                                                             <input name="toLocation" id="{{data.ID}}_t" autocomplete="on" ng-pattern="/^[a-z ,A-Z]+$/" value="" type="text" class="form-control foo" style="height:30px" placeholder="Destination" onfocusout="GetRoute(this.id)">
@@ -197,12 +199,13 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                </div>
-                                                 </div>
-                                        </div><br>
+                                            </div>
+                                        </div>
                                     </div>
+                                    <br>
                                 </div>
                             </div>
+                        </div>
                         <!-- START #sidebar -->
                         <aside id="sidebar" class="col-md-4">
                             <div class="sidebar-widget">
@@ -246,7 +249,7 @@
                                                 <span class="rc-post-image">
                                                     <a ng-href="destination-detail-sidebar.php#?id3={{k.ID}}">	<img class="img-responsive"  ng-src="{{k.Media.Image[0]}}" alt="Tour 1" /></a>
 												</span>
-                                                <h5><a ng-href="#">{{k.Name}}</a></h5>
+                                                <h5><a ng-href="#">{{k.PlaceName}}</a></h5>
                                                 <span class="rc-post-date small">Best Visit:&nbsp;&nbsp;&nbsp;{{k.BestTimeToVisit}}</span>
                                                 <br/>
                                                 <!-- a href="#"> <input type="submit" name="submit" class="pull-right btn btn-sm  btn-primary text-upper marb20" value="Explore" /></a-->
@@ -316,19 +319,17 @@
                                     </div>
                                     <div class="col-md-6">
                                         <h4 class="text-upper">{{trasportlist.Description}}</h4> From
-                                            <label id="fromLocationModel" name="fromLocationModel"></label> to
-                                            <label id="toLocationModel" name="toLocationModel"></label>
+                                        <label id="fromLocationModel" name="fromLocationModel"></label> to
+                                        <label id="toLocationModel" name="toLocationModel"></label>
                                     </div>
                                 </div>
                                 <br>
                                 <ul class=" list-unstyled">
-
                                     <li class="pricing-table ">Total Distance <span style="color:black;" class="pull-right">{{trasportlist.PricePerKM}} KM.</span></li>
                                     <li class="pricing-table ">Price Per Km. <span style="color:black;" class="pull-right">Rs.<span style="color:black;" id="disModal"></span></span>
                                     </li>
                                     <li class="pricing-table ">Estimated Fair charges<span style="color:black;" class="pull-right">Rs. <span style="color:black;" id="estimatedPrice"></span></span>
                                     </li>
-
                                 </ul>
                                 <br>Note : the price is a estimate only and can vary on the bases of distance the car drove.
                             </div>
