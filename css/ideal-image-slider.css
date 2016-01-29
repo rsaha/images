@@ -29,6 +29,7 @@
 
 /* Slide effect */
 .iis-effect-slide .iis-slide {
+    height: 300px;
 	opacity: 0;
 	-webkit-transition-property: -webkit-transform;
        -moz-transition-property: -moz-transform;

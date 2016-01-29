@@ -340,6 +340,16 @@
                                         <!-- END TAB 3 -->
                                     </div>
                                     <!-- END TAB CONTENT -->
+                                    <div class="row">
+    <div class="col-md-4">
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- GG Responsive -->
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8172692591429277" data-ad-slot="8233559541" data-ad-format="auto"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+</div>
                                 </div>
 
 

@@ -76,7 +76,7 @@
 
     <style type="text/css">
         #searchDiv {
-            top: 280px;
+            top: 150px;
             position: absolute;
             z-index: 2;
             height: 100px;
@@ -126,90 +126,64 @@
 <!-- START body -->
 
 <body ng-app="myDestinations" ng-controller="MultipleCtrl">
+ 		<label style="display:none;" id="geo" class="geolocation_data"></label>
+		<script type="text/JavaScript" src="geo.js"></script>
+    <div id="quotation">
+        <a href="" onclick="redirectTo();"><i class="fa fa-map-marker"></i>&nbsp;&nbsp;Location </a>
+    </div>
+    <style>
+        #quotation {
+            height: 104px;
+            width: 104px;
+            position: fixed;
+            top: 45%;
+            z-index: 999;
+            transform: rotate(-90deg);
+            -webkit-transform: rotate(-90deg);
+            -moz-transform: rotate(-90deg);
+            -o-transform: rotate(-90deg);
+            filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+        }
 
+            #quotation a {
+                display: block;
+                background: #159f5c;
+                height: 40px;
+                width: 140px;
+                padding: 8px 16px;
+                color: #fff;
+                font-family: Arial, sans-serif;
+                font-size: 17px;
+                font-weight: bold;
+                text-decoration: none;
+                border-bottom: solid 1px #333;
+                border-left: solid 1px #333;
+                border-right: solid 1px #fff;
+            }
+
+                #quotation a:hover {
+                    background: #06c;
+                }
+    </style>
     <!-- START #wrapper -->
     <div id="wrapper">
         <!-- START header -->
 
 
         <?php 
-			
 				include('MasterTopHeader.php'); 
-			
-			
 			?>
             <div>
                 <div class="main-contents col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1" id="searchDiv">
                     <form class="" style="background-color:#f1f1f1;">
-
-                        <div class="row">
-                            <br>
+                        <div class="row" style="padding: 10px 0px 10px 0px">
                             <div class="col-md-8 col-md-offset-1 input-group">
-                                <!--
-        <div class="dropdown">
-            <button  class="btn btn-default dropdown-toggle" type="button" id="placeMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                From Location
-                <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu">
-                <li ng-repeat="p in places">
-
-                    <a ng-click="placeName(p.Name);">{{p.Name}}</a>
-
-                </li>
-                <li role="separator" class="divider"></li>
-            </ul>
-        </div>
--->
                                 <input type="text" class="form-control" style="background-color:white;" ng-model="search" name="fromLocation" id="fromLocation" autocomplete="on" ng-pattern="/^[a-z ,A-Z]+$/" placeholder="Location" onfocusout="GetRoute()" />
                             </div>
-                            <!--                        second dropdown list starts-->
-<!--
-                            <div class="col-md-4  input-group">
-                                
-        <div class="dropdown">
-            <button class="btn btn-default dropdown-toggle" type="button" id="placeMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                To Location
-                <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu">
-                <li ng-repeat="p in places">
-
-                    <a ng-click="placeName(p.Name);">{{p.Name}}</a>
-
-                </li>
-                <li role="separator" class="divider"></li>
-            </ul>
-        </div>
-
-                                <input type="text" class="form-control" style="background-color:white;" name="toLocation" id="toLocation" autocomplete="on" ng-pattern="/^[a-z ,A-Z]+$/" value="" placeholder="To Location" onfocusout="GetRoute()" />
-                            </div>
--->
-
                             <div class="col-md-2 col-sm-2 col-xs-2  input-group">
-                                <!--
-        <input type="text" class="form-control" style="background-color:white;" ng-model="search" placeholder="To Location if you know or let us guide you" />
-       <span class="input-group-addon">
-						<a href="search_results.php"> <i class="fa fa-search"></i></a>
-						</span>
--->
                                 <a class="btn btn-default btn-md" id="placeMenu" onclick="redirectToSearch();"><i class="fa fa-search"></i></a>
                             </div>
-
-
                         </div>
-                        <div class="row">
-                            <div class="col-md-7 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
-                                <br>
-                                <!--
-						<label >Duration </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<label><input class="input-cb"	type="checkbox" name="inc_Tour" checked ng-model="checkboxModel.value1" value=""/> Hours</label>&nbsp;&nbsp;&nbsp;&nbsp;
-						<label><input class="input-cb" type="checkbox" name="inc_Guide" value="1" ng-model="checkboxModel.value2" checked /> Single Day</label>&nbsp;&nbsp;&nbsp;&nbsp;
-						<label><input class="input-cb" type="checkbox"	name="inc_Destination" value="1" ng-model="checkboxModel.value3" checked /> Multi Day</label>&nbsp;&nbsp; 
--->
-                            </div>
-                        </div>
-
                     </form>
                 </div>
                 <div id="slider">
@@ -221,32 +195,43 @@
                     var slider = new IdealImageSlider.Slider('#slider');
                     slider.start();
                 </script>
+
             </div>
-
-
-
-
 
             <!-- START .main-contents -->
             <div class="main-contents">
                 <div class="container" id="home-page">
+                    <br/>
+                    <br/>
+                    <br/>
                     <div>
+                        <div class="row">
+                            <center>
+                                <div class="post-desc" style="padding:10px; 10px; 10px; 10px">
+                                    <span class="ft-heading text-upper" style="font-weight:bold; font-size:20px">Find Tours From Ur City &nbsp;&nbsp; </span>
+                                    <a class="has-tip tip-top radius" ng-href="search_results.php#?id={{plimage.PlaceName}}" title="{{plimage.PlaceName}}" ng-repeat="plimage in places" title=""><img style="height:40px;width:60px;" ng-src="{{plimage.Media.Image[0]}}" alt="">&nbsp;&nbsp;</a>
+                                    </div>
+                            </center>
+                        </div>
+                        <div class="row post-desc" style="padding:15px; 15px; 15px; 15px">
+                            <div class="col-md-3 text-center">
+                                <img src="img/InventoryOfExperts.png" style="height:100px; width:100px" /><br> <span class="ft-heading text-upper" style="font-weight:bold; font-size:13px">Large inventory of experts</span>
+                            </div>
+                            <div class="col-md-3 text-center">
+                                <img src="img/Packaged&CustomTours.png" style="height:100px; width:100px" /><br> <span class="ft-heading text-upper" style="font-weight:bold; font-size:13px">Packaged and custom tours</span>
+                            </div>
+                            <div class="col-md-3 text-center">
+                                <img src="img/MultiplePaymentOptions.png" style="height:100px; width:100px" /><br> <span class="ft-heading text-upper" style="font-weight:bold; font-size:13px">Multiple payment options</span>
+                            </div>
+                            <div class="col-md-3 text-center">
+                                <img src="img/Lodging&TransportOptions.png" style="height:100px; width:100px" /><br> <span class="ft-heading text-upper" style="font-weight:bold; font-size:13px">Lodging & Transport Options</span>
+                            </div>
+                        </div>
+
                         <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
+                        
+                        
+                        
                         <!-- START Search Container -->
 
                         <!-- END Search Container -->
@@ -586,10 +571,18 @@
             var toLocationValF = document.getElementById("fromLocation").value;
             var toLocationValPart = toLocationValF.split(",");
             var toLocationVal = toLocationValPart[0];
-            window.location.href="search_results.php#?id=" + toLocationVal;
+            window.location.href = "search_results.php#?id=" + toLocationVal;
         }
     </script>
-
+<script>
+    function redirectTo() {
+        var toLocationValF = document.getElementById("geo").innerHTML;
+        window.open(
+            'search_results.php#?id=' + toLocationValF,
+            '_blank' // <- This is what makes it open in a new window.
+        );
+    }
+</script>
     <!--- SELECT BOX -->
     <!-- <script type="text/javascript">
    		$(function() {    	
