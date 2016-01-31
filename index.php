@@ -119,6 +119,51 @@
             background-color: #ffa546;
         }
     </style>
+<!--    farzi data-->
+ <style>
+        a.tooltippp {
+            outline: none;
+        }
+        
+        a.tooltippp strong {
+            line-height: 30px;
+        }
+        
+        a.tooltippp:hover {
+            text-decoration: none;
+        }
+        
+        a.tooltippp span {
+            z-index: 10;
+            display: none;
+            padding: 5px 10px 5px 10px;
+            margin-top: -50px;
+            margin-left: -70px;
+            width: auto;
+        }
+        
+        a.tooltippp:hover span {
+            display: inline;
+            position: absolute;
+            color: #111;
+            border: 1px solid #DCA;
+            background: #fffAF0;
+        }
+        
+        .callout {
+            z-index: 20;
+            position: absolute;
+            top: 30px;
+            border: 0;
+            left: -12px;
+        }
+        /*CSS3 extras*/
+        
+        a.tooltippp span {
+            border-radius: 4px;
+            box-shadow: 5px 5px 8px #CCC;
+        }
+    </style>
 
 </head>
 <!-- END head -->
@@ -128,11 +173,12 @@
 <body ng-app="myDestinations" ng-controller="MultipleCtrl">
  		<label style="display:none;" id="geo" class="geolocation_data"></label>
 		<script type="text/JavaScript" src="geo.js"></script>
-    <div id="quotation">
+
+    <div id="CLocation">
         <a href="" onclick="redirectTo();"><i class="fa fa-map-marker"></i>&nbsp;&nbsp;Location </a>
     </div>
     <style>
-        #quotation {
+        #CLocation {
             height: 104px;
             width: 104px;
             position: fixed;
@@ -145,7 +191,7 @@
             filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
         }
 
-            #quotation a {
+            #CLocation a {
                 display: block;
                 background: #159f5c;
                 height: 40px;
@@ -161,7 +207,7 @@
                 border-right: solid 1px #fff;
             }
 
-                #quotation a:hover {
+                #CLocation a:hover {
                     background: #06c;
                 }
     </style>
@@ -205,12 +251,21 @@
                     <br/>
                     <br/>
                     <div>
+                        
                         <div class="row">
                             <center>
                                 <div class="post-desc" style="padding:10px; 10px; 10px; 10px">
                                     <span class="ft-heading text-upper" style="font-weight:bold; font-size:20px">Find Tours From Ur City &nbsp;&nbsp; </span>
-                                    <a class="has-tip tip-top radius" ng-href="search_results.php#?id={{plimage.PlaceName}}" title="{{plimage.PlaceName}}" ng-repeat="plimage in places" title=""><img style="height:40px;width:60px;" ng-src="{{plimage.Media.Image[0]}}" alt="">&nbsp;&nbsp;</a>
-                                    </div>
+                                    
+                                    <a  class="tooltippp" ng-href="search_results.php#?id={{plimage.PlaceName}}" ng-repeat="plimage in places" >
+                                        <img style="height:40px;width:60px;border-radius:8px"  ng-src="{{plimage.Media.Image[0]}}" alt="">
+                                        <span>
+                                            <strong>{{plimage.PlaceName}}</strong>
+                                        </span>
+                                         &nbsp;&nbsp;
+                                    </a>
+                                    
+                                </div>
                             </center>
                         </div>
                         <div class="row post-desc" style="padding:15px; 15px; 15px; 15px">
@@ -318,9 +373,12 @@
                                 </li>
                             </ul>
                         </div>
+<!--
                         <div class="row">
                             <h2 class="ft-heading text-upper col-md-12" ng-show="checkboxModel.value3"><i class="fa fa-cab"></i>&nbsp;&nbsp;Outstation Cars<span class="alignright"> <a class="btn btn-primary" href="transport_list.php"><span>More&nbsp;<i class="fa fa-angle-double-right"></i></span></a></span></h2>
                         </div>
+-->
+<!--
                         <div class="carousel" ng-show="checkboxModel.value3">
                             <ul class="slides">
                                 <li>
@@ -352,16 +410,18 @@
                                             </div>
                                         </div>
                                         <div class="col-md-1 alignright" style="padding-top:265px;padding-right:20px;">
-                                            <!-- <a class="btn btn-primary" href="top-tours-listview-sidebar.php"><span style="font-weight:bold;">More >></span></a> -->
+                                             <a class="btn btn-primary" href="top-tours-listview-sidebar.php"><span style="font-weight:bold;">More >></span></a> 
                                         </div>
                                     </div>
 
                                 </li>
                             </ul>
                         </div>
+-->
                     </div>
                 </div>
             </div>
+     
             <!-- END .main-contents -->
 
             <!-- START .main-contents .bom-contents -->

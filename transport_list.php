@@ -186,7 +186,7 @@
                                                         <lable class="col-md-12">Get Fair Estimate Between Locaitons:&nbsp;
                                                             <label type="text" id="{{data.ID}}_lblDistance"></label> K.m.</lable>
                                                         <div class="col-md-5">
-                                                            <input name="fromLocation" id="{{data.ID}}_f" autocomplete="on" ng-pattern="/^[a-z ,A-Z]+$/" value="" type="text" class="form-control foo" style="height:30px" placeholder="Source" onfocusout="GetRoute(this.id)" list="{{data.ID}}_dl">
+                                                            <input name="fromLocation" id="{{data.ID}}_f" autocomplete="on" ng-pattern="/^[a-z ,A-Z]+$/" value="" type="text" class="form-control" style="height:30px" placeholder="Source" onfocusout="GetRoute(this.id)" list="{{data.ID}}_dl">
                                                             <datalist id="{{data.ID}}_dl">
                                                                 <option ng-repeat="dropdwn in placesforDropdown" value="{{dropdwn}}">
                                                             </datalist>
