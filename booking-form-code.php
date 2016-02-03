@@ -2,7 +2,7 @@
 
 include_once('db.php');
 
-//    $promoCode = parse_ini_file('config.ini',true)['promoCode'];
+    //$promoCode = parse_ini_file('config.ini',true)['promoCode'];
     
     $tourist_name = mysql_real_escape_string($_POST['tourist_name']);
     $tourist_email = mysql_real_escape_string($_POST['tourist_email']);

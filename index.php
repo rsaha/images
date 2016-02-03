@@ -182,7 +182,7 @@
             height: 104px;
             width: 104px;
             position: fixed;
-            top: 45%;
+            top: 58%;
             z-index: 999;
             transform: rotate(-90deg);
             -webkit-transform: rotate(-90deg);
@@ -192,6 +192,7 @@
         }
 
             #CLocation a {
+                border-radius: 0px 0px 10px 10px;
                 display: block;
                 background: #159f5c;
                 height: 40px;
@@ -223,7 +224,7 @@
                 <div class="main-contents col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1" id="searchDiv">
                     <form class="" style="background-color:#f1f1f1;">
                         <div class="row" style="padding: 10px 0px 10px 0px">
-                            <div class="col-md-8 col-md-offset-1 input-group">
+                            <div class="col-md-9 col-md-offset-1 col-sm-8  col-sm-offset-1 input-group">
                                 <input type="text" class="form-control" style="background-color:white;" ng-model="search" name="fromLocation" id="fromLocation" autocomplete="on" ng-pattern="/^[a-z ,A-Z]+$/" placeholder="Location" onfocusout="GetRoute()" />
                             </div>
                             <div class="col-md-2 col-sm-2 col-xs-2  input-group">
@@ -270,17 +271,22 @@
                         </div>
                         <div class="row post-desc" style="padding:15px; 15px; 15px; 15px">
                             <div class="col-md-3 text-center">
-                                <img src="img/InventoryOfExperts.png" style="height:100px; width:100px" /><br> <span class="ft-heading text-upper" style="font-weight:bold; font-size:13px">Large inventory of experts</span>
+                                <img src="img/InventoryOfExperts2.png" style="height:100px; width:100px" /><br> <span class="ft-heading text-upper" style="font-weight:bold; font-size:13px">Large inventory of experts</span>
+                            </div>
+                            <div class="col-md-3 text-center">
+                                <img src="img/Safe&ComfortableTransport.png" style="height:100px; width:100px" /><br> <span class="ft-heading text-upper" style="font-weight:bold; font-size:13px">Safe and Comfortable Transport</span>
                             </div>
                             <div class="col-md-3 text-center">
                                 <img src="img/Packaged&CustomTours.png" style="height:100px; width:100px" /><br> <span class="ft-heading text-upper" style="font-weight:bold; font-size:13px">Packaged and custom tours</span>
                             </div>
                             <div class="col-md-3 text-center">
+                                <img src="img/BrandedLodging.png" style="height:100px; width:100px" /><br> <span class="ft-heading text-upper" style="font-weight:bold; font-size:13px">Branded Lodging</span>
+                            </div>
+<!--
+                            <div class="col-md-3 text-center">
                                 <img src="img/MultiplePaymentOptions.png" style="height:100px; width:100px" /><br> <span class="ft-heading text-upper" style="font-weight:bold; font-size:13px">Multiple payment options</span>
                             </div>
-                            <div class="col-md-3 text-center">
-                                <img src="img/Lodging&TransportOptions.png" style="height:100px; width:100px" /><br> <span class="ft-heading text-upper" style="font-weight:bold; font-size:13px">Lodging & Transport Options</span>
-                            </div>
+-->
                         </div>
 
                         <br/>
