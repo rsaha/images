@@ -19,6 +19,12 @@
 		$scope.username = '';
 		$scope.password = '';
 	});
+    
+    app.controller('validateBookingLogin', function($scope) {
+		$scope.username = '';
+		$scope.mobilnumber = '';
+        $scope.bookingid = '';
+	});
 	
 	app.controller('validateCtrl', function($scope) {
 		$scope.FirstName = '';
