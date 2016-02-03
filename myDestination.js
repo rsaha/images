@@ -33,7 +33,7 @@
 				$scope.data = "error in fetching data";
 			});
 			
-			$http.get("http://gg_admin-test.apigee.net/guidedgateway/guides")
+			$http.get("http://gg_admin-test.apigee.net/guidedgateway/guides?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe")
     .success(function (response) {
 		$scope.allguides =response.entities;
 		})
@@ -41,7 +41,7 @@
 				$scope.data = "error in fetching data";
 			});
         	
-        $http.get("http://gg_admin-test.apigee.net/guidedgateway/transports")
+        $http.get("http://gg_admin-test.apigee.net/guidedgateway/transports?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe")
     .success(function (response) {
 		$scope.transList =response.entities;
 		})
@@ -55,7 +55,7 @@
 //           alert("hi");
         }
         
-         $http.get("http://gg_admin-test.apigee.net/guidedgateway/places")
+         $http.get("http://gg_admin-test.apigee.net/guidedgateway/places?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe")
     .success(function (response) {
 		$scope.places = response.entities;
 	

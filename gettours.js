@@ -8,7 +8,7 @@
 }]);
 
 app.controller('TourCtrl',['$scope','$http', function($scope, $http) {
-    $http.get("http://gg_admin-prod.apigee.net/guidedgateway/tours")
+    $http.get("http://gg_admin-test.apigee.net/guidedgateway/tours?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe")
     .success(function (response) {
 		$scope.alltours =response.entities;
 		})

@@ -17,7 +17,7 @@
         debugger;
         $scope.transportbookValue = 0;
         // $scope.transportBook =0;
-           $http.get("http://gg_admin-prod.apigee.net/guidedgateway/places")
+           $http.get("http://gg_admin-test.apigee.net/guidedgateway/places?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe")
     .success(function (response) {
             //	$scope.placescomplete = response.entities;
 		var placeslist = response.entities;
@@ -34,7 +34,7 @@
 
         if ($location.search().id1 == 2 || $location.search().id2 == 2) {
 
-            $http.get("http://gg_admin-prod.apigee.net/guidedgateway/transports")
+            $http.get("http://gg_admin-test.apigee.net/guidedgateway/transports?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe")
                 .success(function (response) {
                     $scope.transportbookValue = 1;
                     var transbookID = $location.search().id3;
@@ -56,14 +56,14 @@
                     $scope.data = "error in fetching data";
                 });
         }
-        $http.get("http://gg_admin-prod.apigee.net/guidedgateway/guides")
+        $http.get("http://gg_admin-test.apigee.net/guidedgateway/guides?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe")
             .success(function (response) {
                 $scope.guidesbook = response.entities;
             })
             .error(function () {
                 $scope.data = "error in fetching data";
             });
-        $http.get("http://gg_admin-prod.apigee.net/guidedgateway/tours")
+        $http.get("http://gg_admin-test.apigee.net/guidedgateway/tours?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe")
             .success(function (response) {
                 $scope.toursbook = response.entities;
 
@@ -88,7 +88,7 @@
         $scope.priceTotal = $scope.tourPrice + $scope.lodgingPrice + $scope.transportPrice;
 
         $scope.lodgeIDnew = 0;
-        $http.get("http://gg_admin-prod.apigee.net/guidedgateway/lodgings")
+        $http.get("http://gg_admin-test.apigee.net/guidedgateway/lodgings?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe")
             .success(function (response) {
                 $scope.lodging = response.entities;
             })
@@ -100,7 +100,7 @@
 
             //  alert(lodgeID);
 
-            $http.get("http://gg_admin-prod.apigee.net/guidedgateway/lodgings")
+            $http.get("http://gg_admin-test.apigee.net/guidedgateway/lodgings?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe")
                 .success(function (response) {
                     //$scope.transport =response.Transport;
 
@@ -145,7 +145,7 @@
             // $scope.lodgeIsVisible=1;
             // alert(lodgeSelected);
 
-            $http.get("http://gg_admin-prod.apigee.net/guidedgateway/lodgings")
+            $http.get("http://gg_admin-test.apigee.net/guidedgateway/lodgings?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe")
                 .success(function (response) {
                     //$scope.transport =response.Transport;
 
@@ -171,7 +171,7 @@
         }
 
         $scope.transIDnew = 0;
-        $http.get("http://gg_admin-prod.apigee.net/guidedgateway/transports")
+        $http.get("http://gg_admin-test.apigee.net/guidedgateway/transports?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe")
             .success(function (response) {
                 $scope.transport = response.entities;
             })
@@ -182,7 +182,7 @@
         $scope.transID = function (transID) {
             // alert(transID);
 
-            $http.get("http://gg_admin-prod.apigee.net/guidedgateway/transports")
+            $http.get("http://gg_admin-test.apigee.net/guidedgateway/transports?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe")
                 .success(function (response) {
                     //$scope.transport =response.Transport;
 
@@ -232,7 +232,7 @@
         }
 
         $scope.transportModel = function (transSelected) {
-            $http.get("http://gg_admin-prod.apigee.net/guidedgateway/transports")
+            $http.get("http://gg_admin-test.apigee.net/guidedgateway/transports?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe")
                 .success(function (response) {
                     //$scope.transport =response.Transport;
 
@@ -268,8 +268,7 @@
                 // $scope.minTourPrice=$scope.tourPrice;
             }
             $scope.priceTotal = $scope.priceTotal + $scope.guidePrice;
-            $http.get("http://gg_admin-prod.apigee.net/guidedgateway/guide?id=" + guideID.id1)
-                // $http.get("http://gg_admin-prod.apigee.net/guidedgateway/guide?id=10011")
+            $http.get("http://gg_admin-test.apigee.net/guidedgateway/guide?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe&id=" + guideID.id1)
                 .success(function (response) {
                     $scope.guide = response.entities[0];
                 })
@@ -286,7 +285,7 @@
             $scope.tourValue = 1;
             $scope.guideValue = tourID.id1;
 
-            $http.get("http://gg_admin-prod.apigee.net/guidedgateway/tour?tourid=" + tourID.id2)
+            $http.get("http://gg_admin-test.apigee.net/guidedgateway/tour?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe&tourid=" + tourID.id2)
                 .success(function (response) {
                     $scope.tour = response.entities[0];
 

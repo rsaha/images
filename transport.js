@@ -24,7 +24,7 @@
     var trasportlistModel ;
     app.controller('transportCrtl', ['$scope', '$http', function ($scope, $http, $timeout) {
         
-        $http.get('http://gg_admin-prod.apigee.net/guidedgateway/transport')
+        $http.get('http://gg_admin-test.apigee.net/guidedgateway/transports?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe')
             .success(function (data) {
                 $scope.list = data.entities;
             
@@ -66,7 +66,7 @@
              $('#transportDetailModal').modal('show');
         }
         
-        $http.get("http://gg_admin-prod.apigee.net/guidedgateway/guides")
+        $http.get("http://gg_admin-test.apigee.net/guidedgateway/guides?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe")
             .success(function (response) {
                 $scope.guides = response.entities;
 
@@ -75,7 +75,7 @@
                 $scope.data = "error in fetching data";
             });
 
-        $http.get("http://gg_admin-prod.apigee.net/guidedgateway/places")
+        $http.get("http://gg_admin-test.apigee.net/guidedgateway/places?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe")
             .success(function (response) {
                 $scope.places = response.entities;
             var placeslist = response.entities;
@@ -89,7 +89,7 @@
             .error(function () {
                 $scope.data = "error in fetching data";
             });
-        $http.get("http://gg_admin-prod.apigee.net/guidedgateway/lodgings")
+        $http.get("http://gg_admin-test.apigee.net/guidedgateway/lodgings?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe")
             .success(function (response) {
                 $scope.lodging = response.entities;
 
