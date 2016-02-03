@@ -49,7 +49,7 @@ app.controller('customersCrtl',['$scope','$http', function ($scope, $http, $time
           value5 : 'Central Region'
        /* value2 : 'YES' */
      };
-    $http.get('http://gg_admin-test.apigee.net/guidedgateway/guides?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe')
+    $http.get('https://gg_admin-prod.apigee.net/guidedgateway/guides?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe')
 	.success(function(data){
         $scope.list = data.entities;
         $scope.currentPage = 1; //current page
@@ -67,7 +67,7 @@ app.controller('customersCrtl',['$scope','$http', function ($scope, $http, $time
     };
     
     
-     $http.get("http://gg_admin-test.apigee.net/guidedgateway/tours?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe")
+     $http.get("https://gg_admin-prod.apigee.net/guidedgateway/tours?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe")
     .success(function (response) {
 		$scope.alltours =response.entities;
 		})
@@ -75,7 +75,7 @@ app.controller('customersCrtl',['$scope','$http', function ($scope, $http, $time
 				$scope.data = "error in fetching data";
 			});
     
-     $http.get("http://gg_admin-test.apigee.net/guidedgateway/places?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe")
+     $http.get("https://gg_admin-prod.apigee.net/guidedgateway/places?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe")
     .success(function (response) {
 		$scope.allplaces =response.entities;
 		})
@@ -83,7 +83,7 @@ app.controller('customersCrtl',['$scope','$http', function ($scope, $http, $time
 				$scope.data = "error in fetching data";
 			});
     
-     $http.get("http://gg_admin-test.apigee.net/guidedgateway/lodgings?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe")
+     $http.get("https://gg_admin-prod.apigee.net/guidedgateway/lodgings?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe")
     .success(function (response) {
 		$scope.lodging = response.entities;
 	   

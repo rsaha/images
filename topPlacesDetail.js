@@ -8,7 +8,7 @@
 }]);
 
 app.controller('placesCtrl',['$scope','$http', function($scope, $http) {
-    $http.get("http://gg_admin-test.apigee.net/guidedgateway/places?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe")
+    $http.get("https://gg_admin-prod.apigee.net/guidedgateway/places?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe")
     .success(function (response) {
 		$scope.places = response.entities;
 	   
@@ -21,7 +21,7 @@ app.controller('placesCtrl',['$scope','$http', function($scope, $http) {
 }]); 
 app.controller('placeDetailCtrl',['$scope','$http','$location', function($scope, $http,$location) {
     var placeid = $location.search();
-    $http.get("http://gg_admin-test.apigee.net/guidedgateway/places?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe&ql=ID="+placeid.id3)
+    $http.get("https://gg_admin-prod.apigee.net/guidedgateway/places?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe&ql=ID="+placeid.id3)
     .success(function (response) {
 		$scope.place = response.entities[0];
 		
@@ -42,7 +42,7 @@ app.controller('placeDetailCtrl',['$scope','$http','$location', function($scope,
 			 return y;
 		}*/
 		
-      $http.get("http://gg_admin-test.apigee.net/guidedgateway/tours?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe")
+      $http.get("https://gg_admin-prod.apigee.net/guidedgateway/tours?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe")
     .success(function (response) {
 		$scope.alltours =response.entities;
 		})
@@ -51,7 +51,7 @@ app.controller('placeDetailCtrl',['$scope','$http','$location', function($scope,
 			});
     
 			
-    $http.get("http://gg_admin-test.apigee.net/guidedgateway/guides?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe")
+    $http.get("https://gg_admin-prod.apigee.net/guidedgateway/guides?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe")
     .success(function (response) {
 		$scope.guides = response.entities;
 	   
@@ -60,7 +60,7 @@ app.controller('placeDetailCtrl',['$scope','$http','$location', function($scope,
 				$scope.data = "error in fetching data";
 			});
     
-     $http.get("http://gg_admin-test.apigee.net/guidedgateway/lodgings?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe")
+     $http.get("https://gg_admin-prod.apigee.net/guidedgateway/lodgings?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe")
     .success(function (response) {
 		$scope.lodging = response.entities;
 	   

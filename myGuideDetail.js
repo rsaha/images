@@ -7,7 +7,7 @@
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
 }]);
 app.controller('guideCtrl',['$scope','$http', function($scope, $http) {
-    $http.get("http://gg_admin-test.apigee.net/guidedgateway/guides?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe")
+    $http.get("https://gg_admin-prod.apigee.net/guidedgateway/guides?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe")
     .success(function (response) {
 		$scope.allguides =response.entities;
 		})

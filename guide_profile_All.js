@@ -21,7 +21,7 @@ app.controller('guideControl',['$scope','$http','$location', function($scope, $h
     // alert(valueID);
                                debugger;
      var guideID = $location.search();
-    $http.get("http://gg_admin-test.apigee.net/guidedgateway/guide?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe&id="+guideID.id2)
+    $http.get("https://gg_admin-prod.apigee.net/guidedgateway/guide?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe&id="+guideID.id2)
     .success(function (response) {
 		$scope.guidesdetail=response.entities[0];
 		})
@@ -32,7 +32,7 @@ app.controller('guideControl',['$scope','$http','$location', function($scope, $h
      var ids2 = $location.search().id2;
     //$scope.idn=ids;
   
-    $http.get("http://gg_admin-test.apigee.net/guidedgateway/tours?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe")
+    $http.get("https://gg_admin-prod.apigee.net/guidedgateway/tours?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe")
     .success(function (response) {
 		var tourlist = response.entities;
          $scope.tourfound='';
@@ -59,7 +59,7 @@ app.controller('guideControl',['$scope','$http','$location', function($scope, $h
      var ids = $location.search().id2;
     $scope.idn=ids;
   
-    $http.get("http://gg_admin-test.apigee.net/guidedgateway/tours?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe")
+    $http.get("https://gg_admin-prod.apigee.net/guidedgateway/tours?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe")
     .success(function (response) {
 		$scope.alltours = response.entities;
 		})
@@ -67,7 +67,7 @@ app.controller('guideControl',['$scope','$http','$location', function($scope, $h
 				$scope.data = "error in fetching data";
 			});
 
-     $http.get("http://gg_admin-test.apigee.net/guidedgateway/guides?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe")
+     $http.get("https://gg_admin-prod.apigee.net/guidedgateway/guides?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe")
     .success(function (response) {
 		$scope.TopGuides=response.entities;
 		})

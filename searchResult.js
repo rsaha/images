@@ -41,7 +41,7 @@
                 sID=searchID;
                  // alert(sID+"new2");
                 
-                 $http.get("http://gg_admin-test.apigee.net/guidedgateway/tours?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe&ql=tour_location='"+sID+"'")
+                 $http.get("https://gg_admin-prod.apigee.net/guidedgateway/tours?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe&ql=tour_location='"+sID+"'")
     .success(function (response) {
 		$scope.tours = response.entities;
 	
@@ -50,7 +50,7 @@
 				$scope.data = "error in fetching data";
 			});
 			
-			$http.get("http://gg_admin-test.apigee.net/guidedgateway/guides?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe&ql=city='"+sID+"'")
+			$http.get("https://gg_admin-prod.apigee.net/guidedgateway/guides?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe&ql=city='"+sID+"'")
     .success(function (response) {
 		$scope.allguides =response.entities;
             
@@ -59,7 +59,7 @@
 				$scope.data = "error in fetching data";
 			});
             
-                    $http.get("http://gg_admin-test.apigee.net/guidedgateway/places?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe&ql=PlaceName='"+sID+"'")
+                    $http.get("https://gg_admin-prod.apigee.net/guidedgateway/places?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe&ql=PlaceName='"+sID+"'")
     .success(function (response) {
             	$scope.placescomplete = response.entities;
 		$scope.places = response.entities[0].NearByPlaces;
@@ -73,7 +73,7 @@
         }
        
 
-    $http.get("http://gg_admin-test.apigee.net/guidedgateway/tours?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe&ql=tour_location='"+sID+"'")
+    $http.get("https://gg_admin-prod.apigee.net/guidedgateway/tours?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe&ql=tour_location='"+sID+"'")
     .success(function (response) {
 		$scope.tours = response.entities;
 	
@@ -82,7 +82,7 @@
 				$scope.data = "error in fetching data";
 			});
 			
-			$http.get("http://gg_admin-test.apigee.net/guidedgateway/guides?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe&ql=city='"+sID+"'")
+			$http.get("https://gg_admin-prod.apigee.net/guidedgateway/guides?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe&ql=city='"+sID+"'")
     .success(function (response) {
 		$scope.allguides =response.entities;
             
@@ -91,7 +91,7 @@
 				$scope.data = "error in fetching data";
 			});
         	
-        $http.get("http://gg_admin-test.apigee.net/guidedgateway/transports?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe")
+        $http.get("https://gg_admin-prod.apigee.net/guidedgateway/transports?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe")
     .success(function (response) {
 		$scope.transList =response.entities;
 		})
@@ -105,8 +105,8 @@
 //           alert("hi");
         }
         
-//         $http.get("http://gg_admin-test.apigee.net/guidedgateway/places?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe")
-        $http.get("http://gg_admin-test.apigee.net/guidedgateway/places?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe&ql=PlaceName='"+sID+"'")
+//         $http.get("https://gg_admin-prod.apigee.net/guidedgateway/places?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe")
+        $http.get("https://gg_admin-prod.apigee.net/guidedgateway/places?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe&ql=PlaceName='"+sID+"'")
     .success(function (response) {
             	$scope.placescomplete = response.entities;
 		$scope.places = response.entities[0].NearByPlaces;
@@ -116,7 +116,7 @@
 				$scope.data = "error in fetching data";
 			});
         
-            $http.get("http://gg_admin-test.apigee.net/guidedgateway/places?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe")
+            $http.get("https://gg_admin-prod.apigee.net/guidedgateway/places?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe")
     .success(function (response) {
 		$scope.placesALL = response.entities;
 	
