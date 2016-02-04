@@ -234,9 +234,9 @@
                     </form>
                 </div>
                 <div id="slider">
-                    <img data-src="https://storage.googleapis.com/guidedgateway_media/tour_1.jpg" data-src-2x="https://storage.googleapis.com/guidedgateway_media/tour_1.jpg" src="" alt="Slide 1" />
-                    <img data-src="https://storage.googleapis.com/guidedgateway_media/tour_2.jpg" data-src-2x="https://storage.googleapis.com/guidedgateway_media/tour_2.jpg" src="" alt="Slide 2" />
-                    <img data-src="https://storage.googleapis.com/guidedgateway_media/tour_3.jpg" data-src-2x="https://storage.googleapis.com/guidedgateway_media/tour_3.jpg" src="" alt="Slide 3" />
+                    <img data-src="https://storage.googleapis.com/guidedgateway_media/tour_1.png" data-src-2x="https://storage.googleapis.com/guidedgateway_media/tour_1.png" src="" alt="Slide 1" />
+                    <img data-src="https://storage.googleapis.com/guidedgateway_media/tour_2.png" data-src-2x="https://storage.googleapis.com/guidedgateway_media/tour_2.png" src="" alt="Slide 2" />
+                    <img data-src="https://storage.googleapis.com/guidedgateway_media/tour_3.png" data-src-2x="https://storage.googleapis.com/guidedgateway_media/tour_3.png" src="" alt="Slide 3" />
                 </div>
                 <script>
                     var slider = new IdealImageSlider.Slider('#slider');
