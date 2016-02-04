@@ -8,7 +8,7 @@
 }]);
 
 app.controller('placesCtrl',['$scope','$http', function($scope, $http) {
-    $http.get("http://gg_admin-prod.apigee.net/guidedgateway/places")
+    $http.get("https://gg_admin-prod.apigee.net/guidedgateway/places?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe")
     .success(function (response) {
 		$scope.places = response.entities;
 	   
@@ -29,7 +29,7 @@ app.controller('placesCtrl',['$scope','$http', function($scope, $http) {
     }
 });
     app.controller('customersCrtl',['$scope','$http', function ($scope, $http, $timeout) {
-    $http.get('http://gg_admin-prod.apigee.net/guidedgateway/places')
+    $http.get('https://gg_admin-prod.apigee.net/guidedgateway/places?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe')
 	.success(function(data){
         $scope.list = data.entities;
         $scope.currentPage = 1; //current page
@@ -49,7 +49,7 @@ app.controller('placesCtrl',['$scope','$http', function($scope, $http) {
 //        $scope.predicate = predicate;
 //        $scope.reverse = !$scope.reverse;
 //    };
-         $http.get("http://gg_admin-prod.apigee.net/guidedgateway/tours")
+         $http.get("https://gg_admin-prod.apigee.net/guidedgateway/tours?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe")
     .success(function (response) {
 		$scope.alltours =response.entities;
 		})
@@ -57,7 +57,7 @@ app.controller('placesCtrl',['$scope','$http', function($scope, $http) {
 				$scope.data = "error in fetching data";
 			});
         
-         $http.get("http://gg_admin-prod.apigee.net/guidedgateway/guides")
+         $http.get("https://gg_admin-prod.apigee.net/guidedgateway/guides?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe")
     .success(function (response) {
 		$scope.guides = response.entities;
 	   
@@ -66,7 +66,7 @@ app.controller('placesCtrl',['$scope','$http', function($scope, $http) {
 				$scope.data = "error in fetching data";
 			});
         
-         $http.get("http://gg_admin-prod.apigee.net/guidedgateway/lodgings")
+         $http.get("https://gg_admin-prod.apigee.net/guidedgateway/lodgings?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe")
     .success(function (response) {
 		$scope.lodging = response.entities;
 	   

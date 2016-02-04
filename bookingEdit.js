@@ -15,47 +15,31 @@
 
     app.controller('guides_booking', ['$scope', '$http', '$location', function ($scope, $http, $location) {
         debugger;
+        $scope.GUIDEid = 0;
+        $scope.TOURid = 0;
+        $scope.TRANSPORTid = 0;
         $scope.transportbookValue = 0;
+
+
+
+        //        $scope.transportbookValue = 0;
         // $scope.transportBook =0;
-           $http.get("https://gg_admin-prod.apigee.net/guidedgateway/places?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe")
-    .success(function (response) {
-            //	$scope.placescomplete = response.entities;
-		var placeslist = response.entities;
-	      $scope.placesforDropdown=[];
+        $http.get("https://gg_admin-prod.apigee.net/guidedgateway/places?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe")
+            .success(function (response) {
+                //	$scope.placescomplete = response.entities;
+                var placeslist = response.entities;
+                $scope.placesforDropdown = [];
                 for (var i = 0, len = placeslist.length; i < len; i++) {
-                 $scope.placesforDropdown.push(placeslist[i].PlaceName);
-                      
-                    }
-          
-		})
-	.error(function() {
-				$scope.data = "error in fetching data";
-			});
+                    $scope.placesforDropdown.push(placeslist[i].PlaceName);
 
-        if ($location.search().id1 == 2 || $location.search().id2 == 2) {
+                }
 
-            $http.get("https://gg_admin-prod.apigee.net/guidedgateway/transports?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe")
-                .success(function (response) {
-                    $scope.transportbookValue = 1;
-                    var transbookID = $location.search().id3;
-                    var transportlistbook = response.entities;
-                    for (var i = 0, len = transportlistbook.length; i < len; i++) {
-
-                        if (transportlistbook[i].ID == transbookID) {
-
-                            $scope.transportBook = transportlistbook[i];
-
-                            break;
+            })
+            .error(function () {
+                $scope.data = "error in fetching data";
+            });
 
 
-                        }
-                    }
-
-                })
-                .error(function () {
-                    $scope.data = "error in fetching data";
-                });
-        }
         $http.get("https://gg_admin-prod.apigee.net/guidedgateway/guides?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe")
             .success(function (response) {
                 $scope.guidesbook = response.entities;
@@ -196,14 +180,14 @@
                             // alert( $scope.transIDnew.ID);
                             $scope.transvalue = $scope.transIDnew.ID;
                             if ($scope.transportPrice == 0) {
-                                $scope.transportPrice = 0;//$scope.transIDnew.PriceForDay;
+                                $scope.transportPrice = 0; //$scope.transIDnew.PriceForDay;
                                 // alert($scope.transportPrice);
                                 $scope.priceTotal = $scope.priceTotal + $scope.transportPrice;
                             }
                             if ($scope.transportPrice != 0) {
                                 if ($scope.transportPrice != $scope.transIDnew.PriceForDay) {
-                                    $scope.priceTotal = $scope.priceTotal - $scope.transportPrice;// + $scope.transIDnew.PriceForDay;
-                                    $scope.transportPrice = 0;//$scope.transIDnew.PriceForDay;
+                                    $scope.priceTotal = $scope.priceTotal - $scope.transportPrice; // + $scope.transIDnew.PriceForDay;
+                                    $scope.transportPrice = 0; //$scope.transIDnew.PriceForDay;
                                 }
 
                                 // alert($scope.transportPrice);
@@ -256,56 +240,10 @@
             $('#transportDetailModal').modal('show');
         }
 
-        var guideID = $location.search();
-        if (guideID.id2 == 0) {
-            //  alert("hey");
-            $scope.guideValue = 1;
-            $scope.tourValue = guideID.id2;
-            $scope.guidePrice = 1000;
-            $scope.MinGuidePrice = $scope.guidePrice;
-            if ($scope.MinGuidePrice <= 2000) {
-                $scope.guidePrice = $scope.guidePrice * 4;
-                // $scope.minTourPrice=$scope.tourPrice;
-            }
-            $scope.priceTotal = $scope.priceTotal + $scope.guidePrice;
-            $http.get("https://gg_admin-prod.apigee.net/guidedgateway/guide?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe&id=" + guideID.id1)
-                .success(function (response) {
-                    $scope.guide = response.entities[0];
-                })
-                .error(function () {
-                    $scope.data = "error in fetching data";
-                });
-        }
 
 
 
-        var tourID = $location.search();
-        if (tourID.id1 == 0) {
-            // alert("hi");
-            $scope.tourValue = 1;
-            $scope.guideValue = tourID.id1;
 
-            $http.get("https://gg_admin-prod.apigee.net/guidedgateway/tour?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe&tourid=" + tourID.id2)
-                .success(function (response) {
-                    $scope.tour = response.entities[0];
-
-                    $scope.tourPrice = parseInt($scope.tour.tour_price, 10);
-                    $scope.minTourPrice = $scope.tourPrice;
-                    $scope.dayValue = $scope.tour.tour_duration;
-                    if ($scope.minTourPrice <= 2000) {
-                        $scope.tourPrice = $scope.tourPrice * 4;
-                        // $scope.minTourPrice=$scope.tourPrice;
-                    }
-
-                    // alert(angular.isNumber($scope.tourPrice));
-
-                    $scope.priceTotal = $scope.priceTotal + $scope.tourPrice;
-
-                })
-                .error(function () {
-                    $scope.data = "error in fetching data";
-                });
-        }
         $scope.successValue = 0;
         $scope.comparePromo = function (promo, codepromo) {
 
@@ -452,6 +390,97 @@
 
             }
         }
+
+
+
+
+        $scope.init = function (IDa, IDb, IDc) {
+            $scope.GUIDEid = IDa;
+            $scope.TOURid = IDb;
+            $scope.TRANSPORTid = IDc;
+
+
+            if ($scope.GUIDEid == 2 || $scope.TOURid == 2) {
+
+                $http.get("https://gg_admin-prod.apigee.net/guidedgateway/transports?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe")
+                    .success(function (response) {
+                        $scope.transportbookValue = 1;
+                        var transbookID = $scope.TRANSPORTid;
+                        var transportlistbook = response.entities;
+                        for (var i = 0, len = transportlistbook.length; i < len; i++) {
+
+                            if (transportlistbook[i].ID == transbookID) {
+
+                                $scope.transportBook = transportlistbook[i];
+
+                                break;
+
+
+                            }
+                        }
+
+                    })
+                    .error(function () {
+                        $scope.data = "error in fetching data";
+                    });
+            }
+
+
+            if ($scope.TOURid == 0) {
+                //  alert("hey");
+                $scope.guideValue = 1;
+                $scope.tourValue = $scope.TOURid;
+                $scope.guidePrice = 1000;
+                $scope.MinGuidePrice = $scope.guidePrice;
+                if ($scope.MinGuidePrice <= 2000) {
+                    $scope.guidePrice = $scope.guidePrice * 4;
+                    // $scope.minTourPrice=$scope.tourPrice;
+                }
+                $scope.priceTotal = $scope.priceTotal + $scope.guidePrice;
+                $http.get("https://gg_admin-prod.apigee.net/guidedgateway/guide?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe&id=" + $scope.GUIDEid)
+                    .success(function (response) {
+                        $scope.guide = response.entities[0];
+                    })
+                    .error(function () {
+                        $scope.data = "error in fetching data";
+                    });
+            }
+
+
+            if ($scope.GUIDEid == 0) {
+                // alert("hi");
+                $scope.tourValue = 1;
+                $scope.guideValue = $scope.GUIDEid;
+
+                $http.get("https://gg_admin-prod.apigee.net/guidedgateway/tour?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe&tourid=" + $scope.TOURid)
+                    .success(function (response) {
+                        $scope.tour = response.entities[0];
+
+                        $scope.tourPrice = parseInt($scope.tour.tour_price, 10);
+                        $scope.minTourPrice = $scope.tourPrice;
+                        $scope.dayValue = $scope.tour.tour_duration;
+                        if ($scope.minTourPrice <= 2000) {
+                            $scope.tourPrice = $scope.tourPrice * 4;
+                            // $scope.minTourPrice=$scope.tourPrice;
+                        }
+
+                        // alert(angular.isNumber($scope.tourPrice));
+
+                        $scope.priceTotal = $scope.priceTotal + $scope.tourPrice;
+
+                    })
+                    .error(function () {
+                        $scope.data = "error in fetching data";
+                    });
+            }
+
+
+
+
+        }
+
+
+
 }]);
 
     app.directive('starRating', function () {

@@ -37,7 +37,7 @@
                         <div class="col-md-6">
                             <div class="right-part alignright">
                                 <span class="small" style="float:right;">
-                                        <a href="manage_booking.php" title="">Manage yout Boking</a> 
+                                        <a href="manage_booking.php" title="">Manage your Booking</a> 
                                     &nbsp;&nbsp;|&nbsp;&nbsp; 
                                     <a href="login.php" title="">Provider Sign-in</a>
                                 </span>
@@ -62,7 +62,7 @@
                                 <span>MENU</span>
                                 <ul id="main-menu">
                                     <li><a href="index.php" title="">HOME</a></li>
-                                    <li><a href="transport_list.php" title="">Outstaion Cars</a> </li>
+                                    <li><a href="transport_list.php" title="">Outstation Cars</a> </li>
                                     <li><a href="top-tours-listview-sidebar.php" title="">Guided Tours</a>
                                         <ul>
                                             <li><a href="top-guides-listview.php" title="">Guides</a></li>

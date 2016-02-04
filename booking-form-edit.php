@@ -34,7 +34,7 @@ if (isset($_POST['username']) && isset($_POST['mobilnumber']) && isset($_POST['b
             $transportID = $row["book_reff_id"];
         }
 //    header('Location:booking-form-edit.php#?id1='.$guideID.'&id2='.$tourID.'&id3='.$transportID);
-         echo $row["booking_type"];
+//         echo $row["booking_type"];
         
         $booking_id = $row["booking_id"];
         $user_id = $row["user_id"];
@@ -67,66 +67,7 @@ if (isset($_POST['username']) && isset($_POST['mobilnumber']) && isset($_POST['b
     
 }
 
-//    id1 = 0;
-//    id2 = 0;
-//    $transportID = $_GET["id3"];
-//if($_GET["id1"] == 2 && $_GET["id2"]==2)
-//{
-//    $guideID = 0;
-//        $tourID = 0;
-//    $transportID = $_GET["id3"];
-//}
-//if($_GET["id1"] == 0 && $_GET["id3"]==0)
-//{
-//    $tourID = $_GET["id2"];
-//    $guideID = 0;
-//        $toxurID = 0;
-//        $transportID = 0;
-//}
-//if($_GET["id2"] == 0 && $_GET["id3"]==0)
-//{
-//    $guideID = $_GET["id1"];
-//        $tourID = 0;
-//        $transportID = 0;
-//}
 
-
-//if (isset($_POST['username']) && isset($_POST['mobilnumber']) && isset($_POST['bookingnumber']))
-//{
-//    include_once('db.php');
-//    $userName = mysql_real_escape_string($_POST['username']);
-//    $mobileNumber = mysql_real_escape_string($_POST['mobilnumber']);
-//    $bookingNumber = mysql_real_escape_string($_POST['bookingnumber']);
-//
-//    $result1 = mysql_query("SELECT * FROM `tbl_booking` WHERE (`name` = '$userName' && `contact` = '$mobileNumber' && `booking_number` = '$bookingNumber')");
-//    $row = mysql_fetch_assoc($result1);
-//    $count = mysql_num_rows($result1);
-//
-//    if ($count==1)
-//    {
-//        $booking_type = $row["booking_type"];
-//        if($booking_type=="GUIDE")
-//        {
-//            $guideID = $row["book_reff_id"];
-//        }
-//        if($booking_type=="TOUR")
-//        {
-//            $tourID = $row["book_reff_id"];
-//        }
-//        if($booking_type=="TRANSPORT")
-//        {
-//            $transportID = $row["book_reff_id"];
-//        }
-//    }
-//    else
-//    {	
-//        $guideID = 0;
-//        $tourID = 0;
-//        $transportID = 0;
-//        echo "Permission Denied to user : ".$userName;
-//    }
-//    
-//}
 
 ?>
 
@@ -199,7 +140,7 @@ if (isset($_POST['username']) && isset($_POST['mobilnumber']) && isset($_POST['b
             }
         </style>
         <script src="js/angular.min.js"></script>
-        <script src="booking.js"></script>
+        <script src="bookingEdit.js"></script>
         <!--<script type="text/javascript">
             $(document).ready(function () {
                 var x_timer;
@@ -340,7 +281,7 @@ if (isset($_POST['username']) && isset($_POST['mobilnumber']) && isset($_POST['b
 
     <!-- START body -->
 
-    <body ng-app="mybookingPage" ng-controller="guides_booking" ng-init="btnvalue=1">
+    <body onload="setTimeout()" ng-app="mybookingPage" ng-controller="guides_booking" ng-init="init('<?php echo $guideID; ?>','<?php echo $tourID; ?>','<?php echo $transportID; ?>')">
         <?php 
         
         
@@ -402,7 +343,7 @@ if (isset($_POST['username']) && isset($_POST['mobilnumber']) && isset($_POST['b
                                                     <li class="row">
                                                         <div class="col-md-6">
                                                             <label>Email <span class="required small">(Required)</span></label>
-                                                            <input type="text" class="form-control" required name="tourist_email" ng-pattern="/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9]+\.([a-zA-Z]{2,3}|([a-zA-Z]{2,3}\.[a-zA-Z]{2}))$/" value="<?php echo $email; ?>"/>
+                                                            <input type="text" class="form-control" required name="tourist_email" ng-pattern="/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9]+\.([a-zA-Z]{2,3}|([a-zA-Z]{2,3}\.[a-zA-Z]{2}))$/" value="<?php echo $email; ?>" />
                                                             <span style="color:red" ng-show="bookingForm.tourist_email.$dirty && bookingForm.tourist_email.$invalid">
                                                            
 											  <span ng-show="bookingForm.tourist_email.$error.required">*Email is required.</span>
@@ -1232,6 +1173,11 @@ if (isset($_POST['username']) && isset($_POST['mobilnumber']) && isset($_POST['b
                     //alert("Ovalue = "+Ovalue);
                 }
             </script>
+        <script>
+            setTimeout(function() {
+                GetRoute(); 
+            }, 8000);
+</script>
     </body>
 
     </html>
