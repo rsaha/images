@@ -221,7 +221,7 @@
 				include('MasterTopHeader.php'); 
 			?>
             <div>
-                <div class="main-contents col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1" id="searchDiv">
+                <!-- div class="main-contents col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1" id="searchDiv">
                     <form class="" style="background-color:#f1f1f1;">
                         <div class="row" style="padding: 10px 0px 10px 0px">
                             <div class="col-md-9 col-md-offset-1 col-sm-8  col-sm-offset-1 input-group">
@@ -232,11 +232,11 @@
                             </div>
                         </div>
                     </form>
-                </div>
+                </div -->
                 <div id="slider">
-                    <img data-src="https://storage.googleapis.com/guidedgateway_media/tour_1.jpg" data-src-2x="https://storage.googleapis.com/guidedgateway_media/tour_1.jpg" src="" alt="Slide 1" />
-                    <img data-src="https://storage.googleapis.com/guidedgateway_media/tour_2.jpg" data-src-2x="https://storage.googleapis.com/guidedgateway_media/tour_2.jpg" src="" alt="Slide 2" />
-                    <img data-src="https://storage.googleapis.com/guidedgateway_media/tour_3.jpg" data-src-2x="https://storage.googleapis.com/guidedgateway_media/tour_3.jpg" src="" alt="Slide 3" />
+                    <img data-src="https://storage.googleapis.com/guidedgateway_media/tour_5.jpg" data-src-2x="https://storage.googleapis.com/guidedgateway_media/tour_5.jpg" src="" alt="Slide 1" />
+                    <img data-src="https://storage.googleapis.com/guidedgateway_media/tour_6.jpg" data-src-2x="https://storage.googleapis.com/guidedgateway_media/tour_6.jpg" src="" alt="Slide 2" />
+                    <img data-src="https://storage.googleapis.com/guidedgateway_media/tour_7.jpg" data-src-2x="https://storage.googleapis.com/guidedgateway_media/tour_7.jpg" src="" alt="Slide 3" />
                 </div>
                 <script>
                     var slider = new IdealImageSlider.Slider('#slider');
@@ -251,12 +251,17 @@
                     <br/>
                     <br/>
                     <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
                     <div>
                         
                         <div class="row">
                             <center>
                                 <div class="post-desc" style="padding:10px; 10px; 10px; 10px">
-                                    <span class="ft-heading text-upper" style="font-weight:bold; font-size:20px">Find Tours From Ur City &nbsp;&nbsp; </span>
+                                    <span class="ft-heading text-upper" style="font-weight:bold; font-size:20px">Find Tours From Your City &nbsp;&nbsp; </span>
                                     
                                     <a  class="tooltippp" ng-href="search_results.php#?id={{plimage.PlaceName}}" ng-repeat="plimage in places" >
                                         <img style="height:40px;width:60px;border-radius:8px"  ng-src="{{plimage.Media.Image[0]}}" alt="">
@@ -521,7 +526,7 @@
             revapi = $("#content-slider").revolution({
                 delay: 15000,
                 startwidth: 1170,
-                startheight: 920,
+                startheight: 1220,
                 hideThumbs: 10,
                 fullWidth: "on",
                 fullScreen: "off",
