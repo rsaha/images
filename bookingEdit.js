@@ -112,7 +112,7 @@
                     $scope.data = "error in fetching data";
                 });
             //$scope.lodgeIDnew2 = lodgeID;
-
+        }
             $scope.closelodge = function () {
                 $scope.lodgevalue = 0;
                 if ($scope.lodgingPrice != 0) {
@@ -123,7 +123,7 @@
                 }
             }
 
-        }
+        
 
         $scope.lodgingModel = function (lodgeSelected) {
             // $scope.lodgeIsVisible=1;
@@ -257,7 +257,7 @@
             }
         }
         $scope.adultplus = function (adultplusvalue) {
-            //alert("hey");
+            alert(adultplusvalue);
             if (tourID.id1 == 0) {
                 $scope.adultValue = adultplusvalue + 1;
                 if ($scope.minTourPrice <= 2000) {
@@ -297,7 +297,7 @@
         }
 
         $scope.adultminus = function (adultminusvalue) {
-            //alert("hey");
+            alert(adultminusvalue);
             if (tourID.id1 == 0) {
                 if (adultminusvalue != 1) {
                     $scope.adultValue = adultminusvalue - 1;
@@ -394,7 +394,7 @@
 
 
 
-        $scope.init = function (IDa, IDb, IDc) {
+        $scope.init = function (IDa, IDb, IDc , lodgeID_db, transportID_db, promoAmount_db) {
             $scope.GUIDEid = IDa;
             $scope.TOURid = IDb;
             $scope.TRANSPORTid = IDc;
@@ -476,6 +476,94 @@
 
 
 
+            
+            if(lodgeID_db)
+                {
+                          $http.get("https://gg_admin-prod.apigee.net/guidedgateway/lodgings?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe")
+                .success(function (response) {
+                    //$scope.transport =response.Transport;
+
+                    var lodgelist = response.entities;
+                    // $scope.tourfound = '';
+                    for (var i = 0, len = lodgelist.length; i < len; i++) {
+
+                        if (lodgelist[i].ID === lodgeID_db) {
+                            $scope.lodgeIDnew = lodgelist[i];
+                            //   alert("hi");
+                            //  alert( $scope.lodgeIDnew.ID);
+                            $scope.lodgevalue = $scope.lodgeIDnew.ID;
+                            if ($scope.lodgingPrice == 0) {
+                                $scope.lodgingPrice = $scope.lodgeIDnew.PricePerNight;
+                                // alert($scope.lodgingPrice);
+                                $scope.priceTotal = $scope.priceTotal + $scope.lodgingPrice;
+                            }
+                            break;
+
+
+                        }
+                    }
+                })
+                .error(function () {
+                    $scope.data = "error in fetching data";
+                });
+                    
+                    
+                }
+            
+            
+            
+            if(transportID_db)
+                {
+                   
+                       $http.get("https://gg_admin-prod.apigee.net/guidedgateway/transports?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe")
+                .success(function (response) {
+                    //$scope.transport =response.Transport;
+
+                    var translist = response.entities;
+                    // $scope.tourfound = '';
+                    for (var i = 0, len = translist.length; i < len; i++) {
+
+                        if (translist[i].ID == transportID_db) {
+                          
+                            $scope.transIDnew = translist[i];
+                            //  alert("hi");
+                            // alert( $scope.transIDnew.ID);
+                            $scope.transvalue = $scope.transIDnew.ID;
+                            if ($scope.transportPrice == 0) {
+                                $scope.transportPrice = 0; //$scope.transIDnew.PriceForDay;
+                                // alert($scope.transportPrice);
+                                $scope.priceTotal = $scope.priceTotal + $scope.transportPrice;
+                            }
+                            if ($scope.transportPrice != 0) {
+                                if ($scope.transportPrice != $scope.transIDnew.PriceForDay) {
+                                    $scope.priceTotal = $scope.priceTotal - $scope.transportPrice; // + $scope.transIDnew.PriceForDay;
+                                    $scope.transportPrice = 0; //$scope.transIDnew.PriceForDay;
+                                }
+
+                                // alert($scope.transportPrice);
+                                // $scope.priceTotal=$scope.priceTotal+ $scope.transportPrice;
+                            }
+                            break;
+
+
+                        }
+                    }
+                })
+                .error(function () {
+                    $scope.data = "error in fetching data";
+                });
+                }
+            
+            
+            if(promoAmount_db)
+                {
+                   if ($scope.successValue == 0) {
+                    //$scope.priceTotal= $scope.priceTotal-500;
+                    $scope.successValue = 500;
+                }  
+                }
+            
+            
 
         }
 

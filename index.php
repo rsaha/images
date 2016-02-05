@@ -173,12 +173,50 @@
 <body ng-app="myDestinations" ng-controller="MultipleCtrl">
  		<label style="display:none;" id="geo" class="geolocation_data"></label>
 		<script type="text/JavaScript" src="geo.js"></script>
-
-    <div id="CLocation">
-        <a href="" onclick="redirectTo();"><i class="fa fa-map-marker"></i>&nbsp;&nbsp;Location </a>
+ <div id="PInterest">
+        <a href="#" ><i class="fa fa-pinterest-p"></i> </a>
     </div>
     <style>
-        #CLocation {
+        #PInterest {
+            height: 104px;
+            width: 104px;
+            position: fixed;
+            top: 52%;
+            z-index: 999;
+            transform: rotate(-90deg);
+            -webkit-transform: rotate(-90deg);
+            -moz-transform: rotate(-90deg);
+            -o-transform: rotate(-90deg);
+            filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+        }
+
+            #PInterest a {
+                border-radius: 0px 0px 0px 0px;
+                display: block;
+                background: #bd2126;
+                height: 40px;
+                width: 40px;
+                padding: 8px 16px;
+                color: #fff;
+                font-family: Arial, sans-serif;
+                font-size: 17px;
+                font-weight: bold;
+                text-decoration: none;
+                border-bottom: solid 1px #333;
+                border-left: solid 1px #333;
+                border-right: solid 1px #fff;
+            }
+
+                #PInterest a:hover {
+                    background: #06c;
+                }
+    </style>
+    
+    <div id="Facebook">
+        <a href="#" ><i class="fa fa-facebook"></i> </a>
+    </div>
+    <style>
+        #Facebook {
             height: 104px;
             width: 104px;
             position: fixed;
@@ -191,8 +229,84 @@
             filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
         }
 
+            #Facebook a {
+                border-radius: 0px 0px 0px 0px;
+                display: block;
+                background: #3d5a99;
+                height: 40px;
+                width: 40px;
+                padding: 8px 16px;
+                color: #fff;
+                font-family: Arial, sans-serif;
+                font-size: 17px;
+                font-weight: bold;
+                text-decoration: none;
+                border-bottom: solid 1px #333;
+                border-left: solid 1px #333;
+                border-right: solid 1px #fff;
+            }
+
+                #Facebook a:hover {
+                    background: #06c;
+                }
+    </style>
+    <div id="Twitter">
+        <a href="" ><i class="fa fa-twitter"></i> </a>
+    </div>
+    <style>
+        #Twitter {
+            height: 104px;
+            width: 104px;
+            position: fixed;
+            top: 64%;
+            z-index: 999;
+            transform: rotate(-90deg);
+            -webkit-transform: rotate(-90deg);
+            -moz-transform: rotate(-90deg);
+            -o-transform: rotate(-90deg);
+            filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+        }
+
+            #Twitter a {
+                border-radius: 0px 0px 0px 0px;
+                display: block;
+                background: #57aee7;
+                height: 40px;
+                width: 40px;
+                padding: 8px 16px;
+                color: #fff;
+                font-family: Arial, sans-serif;
+                font-size: 17px;
+                font-weight: bold;
+                text-decoration: none;
+                border-bottom: solid 1px #333;
+                border-left: solid 1px #333;
+                border-right: solid 1px #fff;
+            }
+
+                #Twitter a:hover {
+                    background: #06c;
+                }
+    </style>
+    <div id="CLocation">
+        <a href="" onclick="redirectTo();"><i class="fa fa-map-marker"></i>&nbsp;&nbsp;Location </a>
+    </div>
+    <style>
+        #CLocation {
+            height: 104px;
+            width: 104px;
+            position: fixed;
+            top: 40%;
+            z-index: 999;
+            transform: rotate(-90deg);
+            -webkit-transform: rotate(-90deg);
+            -moz-transform: rotate(-90deg);
+            -o-transform: rotate(-90deg);
+            filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+        }
+
             #CLocation a {
-                border-radius: 0px 0px 10px 10px;
+                border-radius: 0px 0px 0px 0px;
                 display: block;
                 background: #159f5c;
                 height: 40px;
@@ -254,7 +368,7 @@
                     <br/>
                     <br/>
                     <br/>
-                    <br/>
+                     <br/>
                     <br/>
                     <div>
                         
