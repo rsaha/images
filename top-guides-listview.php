@@ -119,7 +119,45 @@
 			
 			
 			?>
-
+     <div class="row post-desc">
+                <div class="col-md-12">
+                    <div class="main-contents col-md-6 pull-left" style="margin-top:20px;">
+                        <form class="">
+                            <div class="col-md-10 col-sm-10 col-sm-offset-1 col-md-offset-1 col-xs-10 col-xs-offset-1 input-group">
+                                <input type="text" class="form-control" style="background-color:white; border:1px #cccccc solid" ng-model="searchID" placeholder="Location" />
+                                <a href="" ng-click="changeSearch(searchID)" class="input-group-addon">
+                                    <i class="fa fa-search"></i>
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="main-contents col-md-5" style="margin-top:20px;">
+                        <span class="input-group-addon" style="height:40px;border:1px solid #cccccc;">
+                            <label class="col-md-2"> Filter By 
+                            </label>
+                            <label class="col-md-2">
+                                <input class="input-cb" type="checkbox" name="inc_Destination" checked ng-model="checkboxModel.value3" />&nbsp;Eastern
+                            </label>
+                            <label class="col-md-2">
+                                <input class="input-cb" type="checkbox" name="inc_Guide" checked ng-model="checkboxModel.value2" />&nbsp;Western
+                            </label>
+                            <label class="col-md-2">
+                                <input class="input-cb" type="checkbox" name="inc_Tour" checked ng-model="checkboxModel.value1"  />&nbsp;Northern
+                            </label>
+                             <label class="col-md-2">
+                                <input class="input-cb" type="checkbox" name="inc_Tour" checked ng-model="checkboxModel.value1"  />&nbsp;Southern
+                            </label>
+                              <label class="col-md-2">
+                                <input class="input-cb" type="checkbox" name="inc_Tour" checked ng-model="checkboxModel.value1"  />&nbsp;Central
+                            </label>
+                        </span>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <br>
+                <br>
+            </div>
             <!-- START #page-header -->
             <div id="">
 

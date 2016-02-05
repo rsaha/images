@@ -270,9 +270,10 @@ if (isset($_POST['username']) && isset($_POST['mobilnumber']) && isset($_POST['b
                         document.getElementById("grandtotalTransModal").innerHTML = transTTL;
 
 
-                    } else {
-                        alert("Unable to find the distance via road.");
-                    }
+                    } 
+//                    else {
+//                        alert("Unable to find the distance via road.");
+//                    }
                 });
             }
         </script>
@@ -281,7 +282,7 @@ if (isset($_POST['username']) && isset($_POST['mobilnumber']) && isset($_POST['b
 
     <!-- START body -->
 
-    <body onload="setTimeout()" ng-app="mybookingPage" ng-controller="guides_booking" ng-init="init('<?php echo $guideID; ?>','<?php echo $tourID; ?>','<?php echo $transportID; ?>')">
+    <body onload="setTimeout()" ng-app="mybookingPage" ng-controller="guides_booking" ng-init="init('<?php echo $guideID; ?>','<?php echo $tourID; ?>','<?php echo $transportID; ?>','<?php echo $lodging_id; ?>','<?php echo $transport_id; ?>','<?php echo $promoCodeAmount; ?>')">
         <?php 
         
         
@@ -316,12 +317,12 @@ if (isset($_POST['username']) && isset($_POST['mobilnumber']) && isset($_POST['b
                 <?php include_once('MasterTopHeader.php'); ?>
                     <!-- END header -->
                     <!-- END #page-header -->
-                    <form id="bookingForm" action="booking-form-code.php" ng-submit="bookingForm.$valid" name="bookingForm" method="post" novalidate>
+                    <form id="bookingForm" action="booking-form-edit-code.php" ng-submit="bookingForm.$valid" name="bookingForm" method="post" novalidate>
                         <!-- START .main-contents -->
                         <div class="main-contents">
                             <div class="container">
                                 <div class="row">
-
+                                    
                                     <!-- START #page -->
                                     <div id="page" class="col-md-8">
                                         <!-- START #contactForm -->
@@ -329,6 +330,7 @@ if (isset($_POST['username']) && isset($_POST['mobilnumber']) && isset($_POST['b
                                             <h2 class="ft-heading text-upper">Provide Your Booking Information</h2>
 
                                             <fieldset>
+                                                <input type="hidden" id="booking_id" name="booking_id" value="<?php echo $booking_id; ?>" />
                                                 <ul class="formFields list-unstyled">
                                                     <li class="row">
                                                         <div class="col-md-12">
@@ -367,7 +369,7 @@ if (isset($_POST['username']) && isset($_POST['mobilnumber']) && isset($_POST['b
                                                                     <label>ADULT <span class="required small">(12+ YRS)</span></label>
                                                                     <div class="input-group">
                                                                         <span class="input-group-addon" style="cursor:pointer" ng-click="adultminus(adultValue);"><i style="font-size:12px" class="fa fa-minus"></i></span>
-                                                                        <input type="text" id="adult" name="noOfPerson" class="form-control" value="<?php echo $no_of_person; ?>">
+                                                                        <input type="text" id="adult" name="noOfPerson" class="form-control" ng-model="adultValue" value="<?php echo $no_of_person; ?>">
                                                                         <span class="input-group-addon" style="cursor:pointer" ng-click="adultplus(adultValue);"><i style="font-size:12px" class="fa fa-plus"></i></span>
                                                                     </div>
                                                                 </div>
@@ -564,8 +566,8 @@ if (isset($_POST['username']) && isset($_POST['mobilnumber']) && isset($_POST['b
                                                                             bookingForm.tourist_email.$error.required||
                                                                             bookingForm.tourist_mobile.$error.required ||
                                                                          bookingForm.dateOfTour.$error.required
-										" id="booknow2" name="booknow2" value="Update" />
-                                                            <input type="button" class="btn btn-primary btn-md text-upper" id="cancelTour" name="cancelTour" value="Cancel" />
+										" id="booknow2" name="booknow2" value="Update your Booking" />
+                                                            <input type="button" class="btn btn-primary btn-md text-upper" id="cancelTour" name="cancelTour" value="Cancel your Booking" />
                                                             <input type="submit" id="booknow" name="booknow" hidden />
                                                             <span class="required small">*Your email will never published.</span>
                                                         </div>
@@ -1141,17 +1143,17 @@ if (isset($_POST['username']) && isset($_POST['mobilnumber']) && isset($_POST['b
 
             <script>
                 function childMinus() {
-                    var oldValue = document.getElementById("child").value;
+                    var oldValue = document.getElementById("noOfPersonChild").value;
                     if (oldValue > 0) {
                         var newValue = parseInt(oldValue) - 1;
-                        document.getElementById("child").value = newValue;
+                        document.getElementById("noOfPersonChild").value = newValue;
                     }
                 }
 
                 function childPlus() {
-                    var oldValue = document.getElementById("child").value;
+                    var oldValue = document.getElementById("noOfPersonChild").value;
                     var newValue = parseInt(oldValue) + 1;
-                    document.getElementById("child").value = newValue;
+                    document.getElementById("noOfPersonChild").value = newValue;
                 }
             </script>
             <script>
