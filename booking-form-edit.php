@@ -62,9 +62,10 @@ if (isset($_POST['username']) && isset($_POST['mobilnumber']) && isset($_POST['b
     {	
         echo "Permission Denied to user : ".$userName;
     }
-    
-    
-    
+}
+else
+{
+    header('Location:manage_booking.php');
 }
 
 
@@ -270,10 +271,10 @@ if (isset($_POST['username']) && isset($_POST['mobilnumber']) && isset($_POST['b
                         document.getElementById("grandtotalTransModal").innerHTML = transTTL;
 
 
-                    } 
-//                    else {
-//                        alert("Unable to find the distance via road.");
-//                    }
+                    }
+                    //                    else {
+                    //                        alert("Unable to find the distance via road.");
+                    //                    }
                 });
             }
         </script>
@@ -282,7 +283,7 @@ if (isset($_POST['username']) && isset($_POST['mobilnumber']) && isset($_POST['b
 
     <!-- START body -->
 
-    <body onload="setTimeout()" ng-app="mybookingPage" ng-controller="guides_booking" ng-init="init('<?php echo $guideID; ?>','<?php echo $tourID; ?>','<?php echo $transportID; ?>','<?php echo $lodging_id; ?>','<?php echo $transport_id; ?>','<?php echo $promoCodeAmount; ?>')">
+    <body onload="setTimeout()" ng-app="mybookingPage" ng-controller="guides_booking" ng-init="init('<?php echo $guideID; ?>','<?php echo $tourID; ?>','<?php echo $transportID; ?>','<?php echo $lodging_id; ?>','<?php echo $transport_id; ?>','<?php echo $promoCodeAmount; ?>','<?php echo $no_of_person; ?>','<?php echo $tour_duration; ?>','<?php echo $name; ?>','<?php echo $email; ?>','<?php echo $contact; ?>','<?php echo $date_of_tour; ?>')">
         <?php 
         
         
@@ -322,7 +323,7 @@ if (isset($_POST['username']) && isset($_POST['mobilnumber']) && isset($_POST['b
                         <div class="main-contents">
                             <div class="container">
                                 <div class="row">
-                                    
+
                                     <!-- START #page -->
                                     <div id="page" class="col-md-8">
                                         <!-- START #contactForm -->
@@ -330,12 +331,12 @@ if (isset($_POST['username']) && isset($_POST['mobilnumber']) && isset($_POST['b
                                             <h2 class="ft-heading text-upper">Provide Your Booking Information</h2>
 
                                             <fieldset>
-                                                <input type="hidden" id="booking_id" name="booking_id" value="<?php echo $booking_id; ?>" />
+<input type="hidden" id="booking_id" name="booking_id" value="<?php echo $booking_id; ?>" />
                                                 <ul class="formFields list-unstyled">
                                                     <li class="row">
                                                         <div class="col-md-12">
                                                             <label>Name <span class="required small">(Required)</span></label>
-                                                            <input type="text" class="form-control" required name="tourist_name" ng-pattern="/^[a-z A-Z]+$/" value="<?php echo $name; ?>">
+                                                            <input type="text" class="form-control" required name="tourist_name" ng-pattern="/^[a-z A-Z]+$/" ng-model="name">
                                                             <span style="color:red" ng-show="bookingForm.tourist_name.$dirty && bookingForm.tourist_name.$invalid">
 											  <span ng-show="bookingForm.tourist_name.$error.required">*Name is required.</span>
                                                             <span ng-show="bookingForm.tourist_name.$error.pattern">*Invalid Name ...</span>
@@ -345,7 +346,7 @@ if (isset($_POST['username']) && isset($_POST['mobilnumber']) && isset($_POST['b
                                                     <li class="row">
                                                         <div class="col-md-6">
                                                             <label>Email <span class="required small">(Required)</span></label>
-                                                            <input type="text" class="form-control" required name="tourist_email" ng-pattern="/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9]+\.([a-zA-Z]{2,3}|([a-zA-Z]{2,3}\.[a-zA-Z]{2}))$/" value="<?php echo $email; ?>" />
+                                                            <input type="text" class="form-control" required name="tourist_email" ng-pattern="/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9]+\.([a-zA-Z]{2,3}|([a-zA-Z]{2,3}\.[a-zA-Z]{2}))$/" ng-model="email" />
                                                             <span style="color:red" ng-show="bookingForm.tourist_email.$dirty && bookingForm.tourist_email.$invalid">
                                                            
 											  <span ng-show="bookingForm.tourist_email.$error.required">*Email is required.</span>
@@ -354,7 +355,7 @@ if (isset($_POST['username']) && isset($_POST['mobilnumber']) && isset($_POST['b
                                                         </div>
                                                         <div class="col-md-6">
                                                             <label>Contact Number <span class="required small">(Required)</span></label>
-                                                            <input type="text" class="form-control" required name="tourist_mobile" ng-pattern="/^[7-9]{1}\d{9}$/" value="<?php echo $contact; ?>" />
+                                                            <input type="text" class="form-control" required name="tourist_mobile" ng-pattern="/^[7-9]{1}\d{9}$/" ng-model="contact" />
                                                             <span style="color:red" ng-show="bookingForm.tourist_mobile.$dirty && bookingForm.tourist_mobile.$invalid">
 											  <span ng-show="bookingForm.tourist_mobile.$error.required">*Mobile number is required.</span>
                                                             <span ng-show="bookingForm.tourist_mobile.$error.pattern">* Invalid Mobile number ...</span>
@@ -369,7 +370,7 @@ if (isset($_POST['username']) && isset($_POST['mobilnumber']) && isset($_POST['b
                                                                     <label>ADULT <span class="required small">(12+ YRS)</span></label>
                                                                     <div class="input-group">
                                                                         <span class="input-group-addon" style="cursor:pointer" ng-click="adultminus(adultValue);"><i style="font-size:12px" class="fa fa-minus"></i></span>
-                                                                        <input type="text" id="adult" name="noOfPerson" class="form-control" ng-model="adultValue" value="<?php echo $no_of_person; ?>">
+                                                                        <input type="text" id="adult" name="noOfPerson" class="form-control" ng-model="adultValue">
                                                                         <span class="input-group-addon" style="cursor:pointer" ng-click="adultplus(adultValue);"><i style="font-size:12px" class="fa fa-plus"></i></span>
                                                                     </div>
                                                                 </div>
@@ -377,7 +378,7 @@ if (isset($_POST['username']) && isset($_POST['mobilnumber']) && isset($_POST['b
                                                                     <label>CHILD <span class="required small">(0-12 YRS)</span></label>
                                                                     <div class="input-group">
                                                                         <span class="input-group-addon" style="cursor:pointer" ng-click="childMinus();"><i style="font-size:12px" class="fa fa-minus"></i></span>
-                                                                        <input type="text" id="noOfPersonChild" name="noOfPersonChild" class="form-control" value="0">
+                                                                        <input type="text" id="noOfPersonChild" name="noOfPersonChild" class="form-control" ng-model="child">
                                                                         <span class="input-group-addon" style="cursor:pointer" ng-click="childPlus();"><i style="font-size:12px" class="fa fa-plus"></i></span>
                                                                     </div>
                                                                 </div>
@@ -387,7 +388,7 @@ if (isset($_POST['username']) && isset($_POST['mobilnumber']) && isset($_POST['b
                                                     <li class="row">
                                                         <div class="col-md-6">
                                                             <label>Date of Tour <span class="required small">(Required)</span></label>
-                                                            <input type="date" class="form-control" required name="dateOfTour" value="<?php echo $date_of_tour; ?>" />
+                                                            <input type="date" class="form-control" required name="dateOfTour" ng-model="dateOfTour" />
                                                             <span style="color:red" ng-show="bookingForm.dateOfTour.$dirty && bookingForm.dateOfTour.$invalid">
 											  <span ng-show="bookingForm.dateOfTour.$error.required">*Date is required.</span>
 
@@ -398,7 +399,7 @@ if (isset($_POST['username']) && isset($_POST['mobilnumber']) && isset($_POST['b
                                                                 <label>Tour Duratios [In Days] <span class="required small">(Required)</span></label>
                                                                 <div class="input-group">
                                                                     <span class="input-group-addon" style="cursor:pointer" ng-click="tourdayminus(dayValue);"><i style="font-size:12px" class="fa fa-minus"></i></span>
-                                                                    <input type="text" id="tourDurationG" id="tourDurationG" name="tourDurationG" class="form-control" value="<?php echo $tour_duration; ?>">
+                                                                    <input type="text" id="tourDurationG" id="tourDurationG" name="tourDurationG" class="form-control" ng-model="dayValue">
                                                                     <span class="input-group-addon">Days</span>
                                                                     <span class="input-group-addon" style="cursor:pointer" ng-click="tourdayplus(dayValue);"><i style="font-size:12px" class="fa fa-plus"></i></span>
                                                                 </div>
@@ -408,7 +409,7 @@ if (isset($_POST['username']) && isset($_POST['mobilnumber']) && isset($_POST['b
                                                                 <label>Tour Duratios [In Days] <span class="required small">(Required)</span></label>
                                                                 <div class="input-group">
                                                                     <span class="input-group-addon" onclick="tourDurationMinus();"></span>
-                                                                    <input type="text" id="tourDurationT" name="tourDurationT" value="{{tour.tour_duration}}" class="form-control" value="<?php echo $tour_duration; ?>" readonly>
+                                                                    <input type="text" id="tourDurationT" name="tourDurationT" value="{{tour.tour_duration}}" class="form-control" readonly>
                                                                     <span class="input-group-addon">Day(s)</span>
                                                                 </div>
                                                             </div>
@@ -566,8 +567,8 @@ if (isset($_POST['username']) && isset($_POST['mobilnumber']) && isset($_POST['b
                                                                             bookingForm.tourist_email.$error.required||
                                                                             bookingForm.tourist_mobile.$error.required ||
                                                                          bookingForm.dateOfTour.$error.required
-										" id="booknow2" name="booknow2" value="Update your Booking" />
-                                                            <input type="button" class="btn btn-primary btn-md text-upper" id="cancelTour" name="cancelTour" value="Cancel your Booking" />
+										" id="booknow2" name="booknow2" value="Update" />
+                                                            <input type="button" class="btn btn-primary btn-md text-upper" id="cancelTour" name="cancelTour" value="Cancel" />
                                                             <input type="submit" id="booknow" name="booknow" hidden />
                                                             <span class="required small">*Your email will never published.</span>
                                                         </div>
@@ -813,6 +814,7 @@ if (isset($_POST['username']) && isset($_POST['mobilnumber']) && isset($_POST['b
                                                     </ul>
                                                 </div>
                                                 <div class="alignright">
+                                                    <input type="hidden" name="lodging_value" value="{{lodgevalue}}" />
                                                     <input type="hidden" name="lodging_id" value="{{lodgeIDnew.ID}}" />
                                                     <input type="hidden" name="lodging_name" value="{{lodgeIDnew.Address}}" />
                                                     <input type="hidden" name="lodging_price" value="{{lodgeIDnew.PricePerNight}}" />
@@ -840,6 +842,7 @@ if (isset($_POST['username']) && isset($_POST['mobilnumber']) && isset($_POST['b
                                                     </ul>
                                                 </div>
                                                 <div class="alignright">
+                                                    <input type="hidden" name="transport_value" value="{{transvalue}}" />
                                                     <input type="hidden" name="transport_id" value="{{transIDnew.ID}}" />
                                                     <input type="hidden" name="transport_name" value="{{transIDnew.Description}}" />
                                                     <input type="hidden" name="transport_price" value="{{transIDnew.PricePerKM}}" />
@@ -1143,17 +1146,17 @@ if (isset($_POST['username']) && isset($_POST['mobilnumber']) && isset($_POST['b
 
             <script>
                 function childMinus() {
-                    var oldValue = document.getElementById("noOfPersonChild").value;
+                    var oldValue = document.getElementById("child").value;
                     if (oldValue > 0) {
                         var newValue = parseInt(oldValue) - 1;
-                        document.getElementById("noOfPersonChild").value = newValue;
+                        document.getElementById("child").value = newValue;
                     }
                 }
 
                 function childPlus() {
-                    var oldValue = document.getElementById("noOfPersonChild").value;
+                    var oldValue = document.getElementById("child").value;
                     var newValue = parseInt(oldValue) + 1;
-                    document.getElementById("noOfPersonChild").value = newValue;
+                    document.getElementById("child").value = newValue;
                 }
             </script>
             <script>
@@ -1175,11 +1178,11 @@ if (isset($_POST['username']) && isset($_POST['mobilnumber']) && isset($_POST['b
                     //alert("Ovalue = "+Ovalue);
                 }
             </script>
-        <script>
-            setTimeout(function() {
-                GetRoute(); 
-            }, 8000);
-</script>
+            <script>
+                setTimeout(function () {
+                    GetRoute();
+                }, 8000);
+            </script>
     </body>
 
     </html>
