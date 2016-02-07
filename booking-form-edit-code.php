@@ -9,18 +9,34 @@ include_once('db.php');
     $tourist_mobile = mysql_real_escape_string($_POST['tourist_mobile']);
     $dateOfTour = mysql_real_escape_string($_POST['dateOfTour']);
     
-    $lodging_id = mysql_real_escape_string($_POST['lodging_id']);
-    if(!(is_null($lodging_id)))
+    $lodging_value = mysql_real_escape_string($_POST['lodging_value']);
+    $transport_value = mysql_real_escape_string($_POST['transport_value']);
+
+//echo "<script>alert(".$lodging_value.")</script>";
+//echo "<script>alert(".$transport_value.")</script>";
+
+    if($lodging_value !=0 )
     {
+    $lodging_id = mysql_real_escape_string($_POST['lodging_id']);
         $lodging_name = mysql_real_escape_string($_POST['lodging_name']);
         $lodging_price = mysql_real_escape_string($_POST['lodging_price']);
     }
-    $transport_id = mysql_real_escape_string($_POST['transport_id']);
-    if(!(is_null($transport_id)))
+else{
+    $lodging_id = "NULL";
+        $lodging_name = "NULL";
+        $lodging_price = "NULL";
+}
+    if($transport_value !=0)
     {
+    $transport_id = mysql_real_escape_string($_POST['transport_id']);
         $transport_name = mysql_real_escape_string($_POST['transport_name']);
         $transport_price = mysql_real_escape_string($_POST['transport_price']);
     }
+else{
+     $transport_id = "NULL";
+        $transport_name = "NULL";
+        $transport_price = "NULL";
+}
     $tourID = mysql_real_escape_string($_POST['tourID']);
     $guideID = mysql_real_escape_string($_POST['guideID']);
     $transportBokingF = mysql_real_escape_string($_POST['transportBokingF']);
@@ -35,12 +51,12 @@ include_once('db.php');
         $grandTotal = $grandTotalTemp;
     }
 
-    if($lodging_id == "" || $lodging_id == NULL) {
-        $lodging_id = "NULL";
-    }
-    if($transport_id == "" || $transport_id == NULL) {
-        $transport_id = "NULL";
-    }
+//    if($lodging_id == "" || $lodging_id == NULL) {
+//        $lodging_id = "NULL";
+//    }
+//    if($transport_id == "" || $transport_id == NULL) {
+//        $transport_id = "NULL";
+//    }
     
     if(($tourID == "" || $tourID == NULL) && ($transportBokingF == "" || $guideID == NULL)) {
         $book_reff_id = $guideID;
@@ -243,7 +259,7 @@ $tGuideID = mysql_real_escape_string($_POST['tGuideID']);
         PDFGeneration($tourist_name, $tourist_email, $tourist_mobile, $noOfPerson, 
                       $noOfPersonChild, $dateOfTour, $tourDuration, $PromoCode, $serviceTax, $swachhTax, 
                       $PromoDis, $grandTotal, $book_reff_id, $booking_type, $bookedItemName, $itemPrice, 
-                      $bookingNumber,$lodging_id, $lodging_name, $lodging_price, $transport_id, $transport_name, 
+                      $bookingNumber,$transport_value, $lodging_value, $lodging_id, $lodging_name, $lodging_price, $transport_id, $transport_name, 
                       $transport_price, $gTotal, $tourID, $guideID, $tGuideID, $tGuideName, $inclusive, $exclusice, 
                       $cancelationPolicy, $restrictions, $guideMobileNumber, $guideSummary, $guidePaymentTerm, 
                       $PickupLocation, $DropLocation, $transportBokingF, $from_location, $to_location, $pickup_time, $category, 
@@ -279,7 +295,7 @@ $tGuideID = mysql_real_escape_string($_POST['tGuideID']);
     function PDFGeneration($tourist_name, $tourist_email, $tourist_mobile, $noOfPerson, 
                       $noOfPersonChild, $dateOfTour, $tourDuration, $PromoCode, $serviceTax, $swachhTax, 
                       $PromoDis, $grandTotal, $book_reff_id, $booking_type, $bookedItemName, $itemPrice, 
-                      $bookingNumber,$lodging_id, $lodging_name, $lodging_price, $transport_id, $transport_name, 
+                      $bookingNumber,$transport_value, $lodging_value, $lodging_id, $lodging_name, $lodging_price, $transport_id, $transport_name, 
                       $transport_price, $gTotal, $tourID, $guideID, $tGuideID, $tGuideName, $inclusive, $exclusice, 
                       $cancelationPolicy, $restrictions, $guideMobileNumber, $guideSummary, $guidePaymentTerm, 
                       $PickupLocation, $DropLocation, $transportBokingF, $from_location, $to_location, $pickup_time, $category, 
@@ -376,7 +392,7 @@ $tGuideID = mysql_real_escape_string($_POST['tGuideID']);
         
         
         //======Lodging===================
-        if(((int)$lodging_id))
+        if(((int)$lodging_value))
         {
             $pdf->Ln(2);
             $pdf->Cell(0,0,' ',1,1,"L");
@@ -390,7 +406,7 @@ $tGuideID = mysql_real_escape_string($_POST['tGuideID']);
             $pdf->Cell(0,5,'Price : Rs. '.$lodging_price,0,1,"R");
         }
         //======Transport===================
-        if(((int)$transport_id))
+        if(((int)$transport_value))
         {
              $pdf->Ln(2);
             $pdf->Cell(0,0,' ',1,1,"L");
