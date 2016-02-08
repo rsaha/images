@@ -225,7 +225,6 @@
                                         <div class="row bom-contents" style="height:380px;">
                                             <div class="col-md-11">
                                                 <div class="col-md-4" ng-repeat="z in places" ng-show="$index<3">
-                                                    <a href="destination-detail-sidebar.php#?id3={{z.ID}}">
                                                         <div class="ft-item">
                                                             <span class="ft-image">
 							 <img style="height:200px;" src="img/city/{{SearchCity}}.jpg" alt="Top Destination" /> 
@@ -248,7 +247,6 @@
                                                             </div>
 -->
                                                         </div>
-                                                    </a>
                                                 </div>
                                             </div>
                                             <div class="col-md-1 alignright" style="padding-top:265px;padding-right:20px;">
@@ -387,7 +385,7 @@
                                                 <span class="rc-post-image">
                                                     <a ng-href="search_results.php#?id={{k.PlaceName}}" target="_blank">	<img class="img-responsive"  ng-src="{{k.Media.Image[0]}}" alt="Tour 1" /></a>
 												</span>
-                                                <h5><a ng-href="#">{{k.Name}}</a></h5>
+                                                <h5><a ng-href="#">{{k.PlaceName}}</a></h5>
                                                 <span class="rc-post-date small">Best Visit:&nbsp;&nbsp;&nbsp;{{k.BestTimeToVisit}}</span>
                                                 <br/>
                                                 <!-- a href="#"> <input type="submit" name="submit" class="pull-right btn btn-sm  btn-primary text-upper marb20" value="Explore" /></a-->
@@ -419,11 +417,14 @@
                                 <div class="row">
     <div class="col-md-4">
         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        <!-- GG Responsive -->
-        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8172692591429277" data-ad-slot="8233559541" data-ad-format="auto"></ins>
-        <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
+<!-- GG LIst Ad -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:336px;height:280px"
+     data-ad-client="ca-pub-8172692591429277"
+     data-ad-slot="1612152742"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
     </div>
 </div>
                             </div>

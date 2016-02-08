@@ -174,7 +174,7 @@
  		<label style="display:none;" id="geo" class="geolocation_data"></label>
 		<script type="text/JavaScript" src="geo.js"></script>
  <div id="PInterest">
-        <a href="#" ><i class="fa fa-pinterest-p"></i> </a>
+        <a href="https://www.pinterest.com/guidedgateway" ><i class="fa fa-pinterest-p"></i> </a>
     </div>
     <style>
         #PInterest {
@@ -213,7 +213,7 @@
     </style>
     
     <div id="Facebook">
-        <a href="#" ><i class="fa fa-facebook"></i> </a>
+        <a href="https://www.facebook.com/Guided-Gateway-1462689710717715" ><i class="fa fa-facebook"></i> </a>
     </div>
     <style>
         #Facebook {
@@ -251,7 +251,7 @@
                 }
     </style>
     <div id="Twitter">
-        <a href="" ><i class="fa fa-twitter"></i> </a>
+        <a href="https://twitter.com/intent/tweet?text=Visiting%20Guided%20Gateway&url=http%3A%2F%2Fguidedgateway.com%2F" ><i class="fa fa-twitter"></i> </a>
     </div>
     <style>
         #Twitter {
@@ -370,7 +370,6 @@
                     <br/>
                      <br/>
                     <br/>
-                   
                     <div>
                         
                         <div class="row">
