@@ -96,14 +96,14 @@
     <!--<script type="text/javascript"  src="topTour.js"></script>-->
     <script src="js/ui-bootstrap-tpls-0.10.0.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
-        <script type='text/javascript'>
-            jQuery(document).ready(function ($) {
-                $(".urlUnchange").click(function (event) {
-                    event.preventDefault();
-                });
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+    <script type='text/javascript'>
+        jQuery(document).ready(function ($) {
+            $(".urlUnchange").click(function (event) {
+                event.preventDefault();
             });
-        </script>
+        });
+    </script>
 </head>
 <!-- END head -->
 
@@ -119,12 +119,12 @@
 			
 			
 			?>
-     <div class="row post-desc">
+            <div class="row post-desc">
                 <div class="col-md-12">
                     <div class="main-contents col-md-6 pull-left" style="margin-top:20px;">
                         <form class="">
                             <div class="col-md-10 col-sm-10 col-sm-offset-1 col-md-offset-1 col-xs-10 col-xs-offset-1 input-group">
-                                <input type="text" class="form-control" style="background-color:white; border:1px #cccccc solid" ng-model="searchID" placeholder="Location" />
+                                <input type="text" class="form-control" style="background-color:white; border:1px #cccccc solid" ng-model="searchID" placeholder="Search..." />
                                 <a href="" ng-click="changeSearch(searchID)" class="input-group-addon">
                                     <i class="fa fa-search"></i>
                                 </a>
@@ -136,19 +136,19 @@
                             <label class="col-md-2"> Filter By 
                             </label>
                             <label class="col-md-2">
-                                <input class="input-cb" type="checkbox" name="inc_Destination" checked ng-model="checkboxModel.value3" />&nbsp;Eastern
+                                <input class="input-cb" type="radio" name="region" value="Eastern Region" ng-click="region_value('Eastern Region');"/>&nbsp;Eastern
                             </label>
                             <label class="col-md-2">
-                                <input class="input-cb" type="checkbox" name="inc_Guide" checked ng-model="checkboxModel.value2" />&nbsp;Western
+                                <input class="input-cb" type="radio"  name="region"  value="Western Region" ng-click="region_value('Western Region');"/>&nbsp;Western
                             </label>
                             <label class="col-md-2">
-                                <input class="input-cb" type="checkbox" name="inc_Tour" checked ng-model="checkboxModel.value1"  />&nbsp;Northern
+                                <input class="input-cb" type="radio" name="region"  value="Northern Region" ng-click="region_value('Northern Region');"/>&nbsp;Northern
                             </label>
                              <label class="col-md-2">
-                                <input class="input-cb" type="checkbox" name="inc_Tour" checked ng-model="checkboxModel.value1"  />&nbsp;Southern
+                                <input class="input-cb" type="radio"    name="region"  value="Southern Region" ng-click="region_value('Southern Region');"/>&nbsp;Southern
                             </label>
                               <label class="col-md-2">
-                                <input class="input-cb" type="checkbox" name="inc_Tour" checked ng-model="checkboxModel.value1"  />&nbsp;Central
+                                <input class="input-cb" type="radio"  name="region"  value="Central Region" ng-click="region_value('Central Region');"/>&nbsp;Central
                             </label>
                         </span>
                     </div>
@@ -177,7 +177,7 @@
                     </div>
                 </div>
             </div>
-<!--
+            <!--
          <div class="container">
          <div class="main-contents col-md-8 col-sm-10" id="searchDiv">
 					
@@ -232,7 +232,7 @@
 					</form>
 				</div> -->
             <!-- START .main-contents -->
-            <div class="main-contents" >
+            <div class="main-contents">
                 <div class="container">
                     <div class="row ">
                         <div class="col-md-8">
@@ -250,7 +250,7 @@
                                                 <span style="color:black;" class="fa fa-hourglass text-upper">&nbsp;{{data.experiance_in_year}}&nbsp;</span>
                                                 <br>
                                                 <span style="font-size:11px;color:black;" class="fa fa-book text-upper">&nbsp;{{data.language_known[0][0]}}&nbsp;</span>
-                                                 <span style="font-size:11px;color:black;" class="fa fa-registered text-upper" >{{data.license_no}}</span>
+                                                <span style="font-size:11px;color:black;" class="fa fa-registered text-upper">{{data.license_no}}</span>
                                             </div>
                                         </div>
 
@@ -345,18 +345,15 @@
                                 </div>
                                 <!-- END TAB CONTENT -->
                                 <div class="row">
-    <div class="col-md-4">
-       <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- GG LIst Ad -->
-<ins class="adsbygoogle"
-     style="display:inline-block;width:336px;height:280px"
-     data-ad-client="ca-pub-8172692591429277"
-     data-ad-slot="1612152742"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-    </div>
-</div>
+                                    <div class="col-md-4">
+                                        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                                        <!-- GG LIst Ad -->
+                                        <ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-8172692591429277" data-ad-slot="1612152742"></ins>
+                                        <script>
+                                            (adsbygoogle = window.adsbygoogle || []).push({});
+                                        </script>
+                                    </div>
+                                </div>
                             </div>
                         </aside>
                     </div>
