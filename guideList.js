@@ -95,6 +95,24 @@ app.controller('customersCrtl',['$scope','$http', function ($scope, $http, $time
 //        $scope.predicate = predicate;
 //        $scope.reverse = !$scope.reverse;
 //    };
+    
+    $scope.region_value=function(regionvalue){
+
+        
+        	$http.get("https://gg_admin-prod.apigee.net/guidedgateway/guides?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe&ql=guide_territory='"+regionvalue+"'")
+    .success(function (response) {
+		$scope.list =response.entities;
+                 $scope.currentPage = 1; //current page
+        $scope.entryLimit = 12; //max no of items to display in a page
+        $scope.filteredItems = $scope.list.length; //Initially for no filter  
+        $scope.totalItems = $scope.list.length;
+             
+		})
+	.error(function() {
+                
+				$scope.data = "error in fetching data";
+			});
+    }
 }]);
 
 })();

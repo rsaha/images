@@ -134,6 +134,8 @@
             });
 
             function GetRoute() {
+                guideProposalModalShowFun();
+                document.getElementById("lcnName").innerHTML = document.getElementById("fromLocation").value; 
                 var mumbai = new google.maps.LatLng(18.9750, 72.8258);
                 var mapOptions = {
                     zoom: 7,
@@ -206,6 +208,10 @@
                         alert("Unable to find the distance via road.");
                     }
                 });
+            }
+
+            function guideProposalModalShowFun() {
+                $('#guideProposalModal').modal('show');
             }
         </script>
     </head>
@@ -747,7 +753,7 @@
                                             </div>
                                             <div class="alignright">
                                                 <input type="hidden" name="transport_value" value="{{transvalue}}" />
-                                                 <input type="hidden" name="transport_id" value="{{transIDnew.ID}}" />
+                                                <input type="hidden" name="transport_id" value="{{transIDnew.ID}}" />
                                                 <input type="hidden" name="transport_name" value="{{transIDnew.Description}}" />
                                                 <input type="hidden" name="transport_price" value="{{transIDnew.PricePerKM}}" />
                                                 <span style="font-weight:bold;font-size:17px">Transport will be charged @ Rs.&nbsp;{{transIDnew.PricePerKM}} / KM.</span>
@@ -906,6 +912,7 @@
             </div>
         </div>
 
+
         <div class="modal fade" id="conformationModal" role="dialog" aria-labelledby="conformationModalModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <input type="hidden" id="conformationID" name="conformationID" value="" />
@@ -1007,6 +1014,47 @@
             </div>
         </div>
 
+        
+        <div class="modal fade" id="guideProposalModal" role="dialog" aria-labelledby="guideProposalModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <input type="hidden" id="conformationID" name="conformationID" value="" />
+                <div class="modal-content">
+                    <div class="modal-header" style="padding:15px 50px; background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;">
+                        <button type="button" class="close" style="background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;" data-dismiss="modal">&times;</button>
+                        <h4 style="background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;"><span class="glyphicon glyphicon-lock"></span>Guide Propasal</h4>
+                    </div>
+                    <div class="modal-body" style="padding:20px 50px 0px;">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="sidebar-widget">
+                                    <div class="row">
+                                        <div class="pricing-tables pricing-tables-1 sidebar-widget">
+                                            <div class="row">
+                                                <center>You may also be intrested to book a Guide with your transport from <span id="lcnName"></span>.<br>
+                                                if yes!! then click "OK" to book guide and select your transport with Guide. <br>:)</center>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer" style="background-color: #f9f9f9;">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <button style="width:200px; background-color:#ff845e" class="btn btn-default pull-left" data-dismiss="modal">Cancel</button>
+                            </div>
+                            <div class="col-md-6">
+                                <button type="button" style="width:200px; background-color:#ff845e" onclick="red2search();" class="btn btn-default pull-right" data-dismiss="modal">OK</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
         <!-- javascripts -->
         <script type="text/javascript" src="js/modernizr.custom.17475.js"></script>
 
@@ -1081,6 +1129,13 @@
                 }
                 //alert("Ovalue = "+Ovalue);
             }
+        </script>
+        <script>
+        function red2search()
+        {
+            var place = document.getElementById("fromLocation").value;
+            window.location='search_results.php#?id='+place;
+        }
         </script>
     </body>
 
