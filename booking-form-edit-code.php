@@ -1,6 +1,24 @@
 <?php
-
 include_once('db.php');
+if(isset($_GET["cn"]))
+{
+    
+    $cencelU = mysql_query("UPDATE `tbl_booking` SET 
+    `status` = 0
+    WHERE `booking_id` = " . $_GET["cn"] . "")  or die('Error : ' . mysql_error());
+
+    if($cencelU)
+    {
+        header("Location:manage_booking.php");
+    }
+    else
+    {
+        
+    }
+}
+else
+{
+
 
     //$promoCode = parse_ini_file('config.ini',true)['promoCode'];
     $booking_id = mysql_real_escape_string($_POST['booking_id']);
@@ -12,31 +30,28 @@ include_once('db.php');
     $lodging_value = mysql_real_escape_string($_POST['lodging_value']);
     $transport_value = mysql_real_escape_string($_POST['transport_value']);
 
-//echo "<script>alert(".$lodging_value.")</script>";
-//echo "<script>alert(".$transport_value.")</script>";
-
     if($lodging_value !=0 )
     {
     $lodging_id = mysql_real_escape_string($_POST['lodging_id']);
         $lodging_name = mysql_real_escape_string($_POST['lodging_name']);
         $lodging_price = mysql_real_escape_string($_POST['lodging_price']);
     }
-else{
-    $lodging_id = "NULL";
-        $lodging_name = "NULL";
-        $lodging_price = "NULL";
-}
+    else{
+        $lodging_id = "NULL";
+            $lodging_name = "NULL";
+            $lodging_price = "NULL";
+    }
     if($transport_value !=0)
     {
     $transport_id = mysql_real_escape_string($_POST['transport_id']);
         $transport_name = mysql_real_escape_string($_POST['transport_name']);
         $transport_price = mysql_real_escape_string($_POST['transport_price']);
     }
-else{
-     $transport_id = "NULL";
-        $transport_name = "NULL";
-        $transport_price = "NULL";
-}
+    else{
+         $transport_id = "NULL";
+            $transport_name = "NULL";
+            $transport_price = "NULL";
+    }
     $tourID = mysql_real_escape_string($_POST['tourID']);
     $guideID = mysql_real_escape_string($_POST['guideID']);
     $transportBokingF = mysql_real_escape_string($_POST['transportBokingF']);
@@ -253,13 +268,13 @@ $tGuideID = mysql_real_escape_string($_POST['tGuideID']);
         </table> 
         <br><br> -----------------------------<br>";
 		SendMail($HostEmail, 'GuidedGateway', $tourist_mobile, $tourist_name, $subject, $message);
-//		SendMail($HostEmail, 'GuidedGateway', 'support@guidedgateway.com', 'Guided Gateway Support', $subject, $message);
-		SendMail($HostEmail, 'GuidedGateway', 'ankitbhagat.ab@gmail.com', 'Ankit Bhagat', $subject, $message);
+		SendMail($HostEmail, 'GuidedGateway', 'support@guidedgateway.com', 'Guided Gateway Support', $subject, $message);
+//		SendMail($HostEmail, 'GuidedGateway', 'ankitbhagat.ab@gmail.com', 'Ankit Bhagat', $subject, $message);
 
         PDFGeneration($tourist_name, $tourist_email, $tourist_mobile, $noOfPerson, 
                       $noOfPersonChild, $dateOfTour, $tourDuration, $PromoCode, $serviceTax, $swachhTax, 
                       $PromoDis, $grandTotal, $book_reff_id, $booking_type, $bookedItemName, $itemPrice, 
-                      $bookingNumber,$transport_value, $lodging_value, $lodging_id, $lodging_name, $lodging_price, $transport_id, $transport_name, 
+                      $bookingNumber, $transport_value, $lodging_value, $lodging_id, $lodging_name, $lodging_price, $transport_id, $transport_name, 
                       $transport_price, $gTotal, $tourID, $guideID, $tGuideID, $tGuideName, $inclusive, $exclusice, 
                       $cancelationPolicy, $restrictions, $guideMobileNumber, $guideSummary, $guidePaymentTerm, 
                       $PickupLocation, $DropLocation, $transportBokingF, $from_location, $to_location, $pickup_time, $category, 
@@ -270,7 +285,7 @@ $tGuideID = mysql_real_escape_string($_POST['tGuideID']);
     {
         echo "insertion fail";
     }
-
+}
 //==========================================================================================================
     function AutoGenerateBookingNumber()
     {

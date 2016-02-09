@@ -247,8 +247,9 @@
         $scope.successValue = 0;
         $scope.comparePromo = function (promo, codepromo) {
 
-            //        alert(promo);
-            //        alert(codepromo);
+                    alert(promo);
+                    alert(codepromo);
+              alert($scope.successValue);
             if (promo == codepromo) {
                 if ($scope.successValue == 0) {
                     //$scope.priceTotal= $scope.priceTotal-500;
@@ -405,8 +406,8 @@
              $scope.name = name_db;
              $scope.email = email_db;
              $scope.contact = contact_db;
-            $scope.dateOfTour = date_of_tour_db;
-                    
+            var newDate= date_of_tour_db;
+             $scope.dateOfTour = new Date(newDate);
 
             if ($scope.GUIDEid == 2 || $scope.TOURid == 2) {
 
@@ -602,10 +603,11 @@
             
             if(promoAmount_db)
                 {
+                  if(transportID_db){
                    if ($scope.successValue == 0) {
                     //$scope.priceTotal= $scope.priceTotal-500;
                     $scope.successValue = 500;
-                }  
+                }  }
                 }
             
             

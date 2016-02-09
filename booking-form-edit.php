@@ -8,7 +8,7 @@ if (isset($_POST['username']) && isset($_POST['mobilnumber']) && isset($_POST['b
     $mobileNumber = mysql_real_escape_string($_POST['mobilnumber']);
     $bookingNumber = mysql_real_escape_string($_POST['bookingnumber']);
 
-    $result1 = mysql_query("SELECT * FROM `tbl_booking` WHERE (`name` = '$userName' && `contact` = '$mobileNumber' && `booking_number` = '$bookingNumber')");
+    $result1 = mysql_query("SELECT * FROM `tbl_booking` WHERE (`name` = '$userName' && `contact` = '$mobileNumber' && `booking_number` = '$bookingNumber' && `status` = 1)");
     $row = mysql_fetch_assoc($result1);
     $count = mysql_num_rows($result1);
 
@@ -52,7 +52,7 @@ if (isset($_POST['username']) && isset($_POST['mobilnumber']) && isset($_POST['b
         $pickup_time = $row["pickup_time"];
         $lodging_id = $row["lodging_id"];
         $transport_id = $row["transport_id"];
-        $promoCode = $row["promoCode"];
+        $promoCodeDB = $row["promoCode"];
         $promoCodeAmount = $row["promoCodeAmount"];
         $total_price = $row["total_price"];
 //        $status = $row["status"];
@@ -60,7 +60,7 @@ if (isset($_POST['username']) && isset($_POST['mobilnumber']) && isset($_POST['b
     }
     else
     {	
-        echo "Permission Denied to user : ".$userName;
+        header('Location:manage_booking.php');
     }
 }
 else
@@ -77,6 +77,8 @@ else
     <!-- START head -->
 
     <head>
+
+
         <!-- Site meta charset -->
         <meta charset="UTF-8">
 
@@ -284,270 +286,243 @@ else
     <!-- START body -->
 
     <body onload="setTimeout()" ng-app="mybookingPage" ng-controller="guides_booking" ng-init="init('<?php echo $guideID; ?>','<?php echo $tourID; ?>','<?php echo $transportID; ?>','<?php echo $lodging_id; ?>','<?php echo $transport_id; ?>','<?php echo $promoCodeAmount; ?>','<?php echo $no_of_person; ?>','<?php echo $tour_duration; ?>','<?php echo $name; ?>','<?php echo $email; ?>','<?php echo $contact; ?>','<?php echo $date_of_tour; ?>')">
-        <?php 
-        
-        
-//        $guideCehckValue="{{guideValue}}";
-//        $tourCehckValue="{{tourValue}}";
-//        $transprotCehckValue="{{transportbookValue}}";
-//        
-//        if($guideCehckValue)
-//        {
-//            $id1="{{guide.id}}";
-//            $type1="GUIDE";
-//        }
-//        if($tourCehckValue)
-//        {
-//            $id2="{{tour.tour_id}}";
-//            $type2="TOUR";
-//        }
-//        if($transprotCehckValue)
-//        {
-//            $id3="{{transportBook.ID}}";
-//            $type3="TRANSPORT";
-//        }
-//        
-//        $id = trim($id1).trim($id2).trim($id3); 
-//        
-//        echo (int)$id;  
-        
-        ?>
-            <!-- START #wrapper -->
-            <div id="wrapper">
-                <!-- START header -->
-                <?php include_once('MasterTopHeader.php'); ?>
-                    <!-- END header -->
-                    <!-- END #page-header -->
-                    <form id="bookingForm" action="booking-form-edit-code.php" ng-submit="bookingForm.$valid" name="bookingForm" method="post" novalidate>
-                        <!-- START .main-contents -->
-                        <div class="main-contents">
-                            <div class="container">
-                                <div class="row">
+        <input type="hidden" id="promoCodeEmtDB" name="promoCodeEmtDB" value=" <?php echo $promoCodeAmount; ?>" />
+        <!-- START #wrapper -->
+        <div id="wrapper">
+            <!-- START header -->
+            <?php include_once('MasterTopHeader.php'); ?>
+                <!-- END header -->
+                <!-- END #page-header -->
+                <form id="bookingForm" action="booking-form-edit-code.php" ng-submit="bookingForm.$valid" name="bookingForm" method="post" novalidate>
+                    <!-- START .main-contents -->
+                    <div class="main-contents">
+                        <div class="container">
+                            <div class="row">
 
-                                    <!-- START #page -->
-                                    <div id="page" class="col-md-8">
-                                        <!-- START #contactForm -->
-                                        <section id="booking-form">
-                                            <h2 class="ft-heading text-upper">Provide Your Booking Information</h2>
+                                <!-- START #page -->
+                                <div id="page" class="col-md-8">
+                                    <!-- START #contactForm -->
+                                    <section id="booking-form">
+                                        <h2 class="ft-heading text-upper">Provide Your Booking Information</h2>
 
-                                            <fieldset>
-<input type="hidden" id="booking_id" name="booking_id" value="<?php echo $booking_id; ?>" />
-                                                <ul class="formFields list-unstyled">
-                                                    <li class="row">
-                                                        <div class="col-md-12">
-                                                            <label>Name <span class="required small">(Required)</span></label>
-                                                            <input type="text" class="form-control" required name="tourist_name" ng-pattern="/^[a-z A-Z]+$/" ng-model="name">
-                                                            <span style="color:red" ng-show="bookingForm.tourist_name.$dirty && bookingForm.tourist_name.$invalid">
+                                        <fieldset>
+                                            <input type="hidden" id="booking_id" name="booking_id" value="<?php echo $booking_id; ?>" />
+                                            <ul class="formFields list-unstyled">
+                                                <li class="row">
+                                                    <div class="col-md-12">
+                                                        <label>Name <span class="required small">(Required)</span></label>
+                                                        <input type="text" class="form-control" required name="tourist_name" ng-pattern="/^[a-z A-Z]+$/" ng-model="name">
+                                                        <span style="color:red" ng-show="bookingForm.tourist_name.$dirty && bookingForm.tourist_name.$invalid">
 											  <span ng-show="bookingForm.tourist_name.$error.required">*Name is required.</span>
-                                                            <span ng-show="bookingForm.tourist_name.$error.pattern">*Invalid Name ...</span>
-                                                            </span>
-                                                        </div>
-                                                    </li>
-                                                    <li class="row">
-                                                        <div class="col-md-6">
-                                                            <label>Email <span class="required small">(Required)</span></label>
-                                                            <input type="text" class="form-control" required name="tourist_email" ng-pattern="/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9]+\.([a-zA-Z]{2,3}|([a-zA-Z]{2,3}\.[a-zA-Z]{2}))$/" ng-model="email" />
-                                                            <span style="color:red" ng-show="bookingForm.tourist_email.$dirty && bookingForm.tourist_email.$invalid">
+                                                        <span ng-show="bookingForm.tourist_name.$error.pattern">*Invalid Name ...</span>
+                                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="row">
+                                                    <div class="col-md-6">
+                                                        <label>Email <span class="required small">(Required)</span></label>
+                                                        <input type="text" class="form-control" required name="tourist_email" ng-pattern="/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9]+\.([a-zA-Z]{2,3}|([a-zA-Z]{2,3}\.[a-zA-Z]{2}))$/" ng-model="email" />
+                                                        <span style="color:red" ng-show="bookingForm.tourist_email.$dirty && bookingForm.tourist_email.$invalid">
                                                            
 											  <span ng-show="bookingForm.tourist_email.$error.required">*Email is required.</span>
-                                                            <span ng-show="bookingForm.tourist_email.$error.pattern">*Invalid email address ...</span>
-                                                            </span>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <label>Contact Number <span class="required small">(Required)</span></label>
-                                                            <input type="text" class="form-control" required name="tourist_mobile" ng-pattern="/^[7-9]{1}\d{9}$/" ng-model="contact" />
-                                                            <span style="color:red" ng-show="bookingForm.tourist_mobile.$dirty && bookingForm.tourist_mobile.$invalid">
+                                                        <span ng-show="bookingForm.tourist_email.$error.pattern">*Invalid email address ...</span>
+                                                        </span>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label>Contact Number <span class="required small">(Required)</span></label>
+                                                        <input type="text" class="form-control" required name="tourist_mobile" ng-pattern="/^[7-9]{1}\d{9}$/" ng-model="contact" />
+                                                        <span style="color:red" ng-show="bookingForm.tourist_mobile.$dirty && bookingForm.tourist_mobile.$invalid">
 											  <span ng-show="bookingForm.tourist_mobile.$error.required">*Mobile number is required.</span>
-                                                            <span ng-show="bookingForm.tourist_mobile.$error.pattern">* Invalid Mobile number ...</span>
-                                                            </span>
-                                                        </div>
-                                                    </li>
+                                                        <span ng-show="bookingForm.tourist_mobile.$error.pattern">* Invalid Mobile number ...</span>
+                                                        </span>
+                                                    </div>
+                                                </li>
 
-                                                    <li class="row" ng-hide="transportbookValue">
-                                                        <div class="col-md-6">
-                                                            <div class="row">
-                                                                <div class="col-md-6">
-                                                                    <label>ADULT <span class="required small">(12+ YRS)</span></label>
-                                                                    <div class="input-group">
-                                                                        <span class="input-group-addon" style="cursor:pointer" ng-click="adultminus(adultValue);"><i style="font-size:12px" class="fa fa-minus"></i></span>
-                                                                        <input type="text" id="adult" name="noOfPerson" class="form-control" ng-model="adultValue">
-                                                                        <span class="input-group-addon" style="cursor:pointer" ng-click="adultplus(adultValue);"><i style="font-size:12px" class="fa fa-plus"></i></span>
-                                                                    </div>
+                                                <li class="row" ng-hide="transportbookValue">
+                                                    <input type="hidden" id="transportbookValue" name="transportbookValue" value="{{transportbookValue}}" />
+                                                    <div class="col-md-6">
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <label>ADULT <span class="required small">(12+ YRS)</span></label>
+                                                                <div class="input-group">
+                                                                    <span class="input-group-addon" style="cursor:pointer" ng-click="adultminus(adultValue);"><i style="font-size:12px" class="fa fa-minus"></i></span>
+                                                                    <input type="text" id="adult" name="noOfPerson" class="form-control" ng-model="adultValue">
+                                                                    <span class="input-group-addon" style="cursor:pointer" ng-click="adultplus(adultValue);"><i style="font-size:12px" class="fa fa-plus"></i></span>
                                                                 </div>
-                                                                <div class="col-md-6">
-                                                                    <label>CHILD <span class="required small">(0-12 YRS)</span></label>
-                                                                    <div class="input-group">
-                                                                        <span class="input-group-addon" style="cursor:pointer" ng-click="childMinus();"><i style="font-size:12px" class="fa fa-minus"></i></span>
-                                                                        <input type="text" id="noOfPersonChild" name="noOfPersonChild" class="form-control" ng-model="child">
-                                                                        <span class="input-group-addon" style="cursor:pointer" ng-click="childPlus();"><i style="font-size:12px" class="fa fa-plus"></i></span>
-                                                                    </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <label>CHILD <span class="required small">(0-12 YRS)</span></label>
+                                                                <div class="input-group">
+                                                                    <span class="input-group-addon" style="cursor:pointer" ng-click="childMinus();"><i style="font-size:12px" class="fa fa-minus"></i></span>
+                                                                    <input type="text" id="noOfPersonChild" name="noOfPersonChild" class="form-control" ng-model="child">
+                                                                    <span class="input-group-addon" style="cursor:pointer" ng-click="childPlus();"><i style="font-size:12px" class="fa fa-plus"></i></span>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </li>
-                                                    <li class="row">
-                                                        <div class="col-md-6">
-                                                            <label>Date of Tour <span class="required small">(Required)</span></label>
-                                                            <input type="date" class="form-control" required name="dateOfTour" ng-model="dateOfTour" />
-                                                            <span style="color:red" ng-show="bookingForm.dateOfTour.$dirty && bookingForm.dateOfTour.$invalid">
+                                                    </div>
+                                                </li>
+                                                <li class="row">
+                                                    <div class="col-md-6">
+                                                        <label>Date of Tour <span class="required small">(Required)</span></label>
+                                                        <input type="date" class="form-control" required name="dateOfTour" ng-model="dateOfTour" />
+                                                        <span style="color:red" ng-show="bookingForm.dateOfTour.$dirty && bookingForm.dateOfTour.$invalid">
 											  <span ng-show="bookingForm.dateOfTour.$error.required">*Date is required.</span>
 
-                                                            </span>
-                                                        </div>
-                                                        <div ng-hide="transportbookValue">
-                                                            <div class="col-md-6" ng-show="{{guideValue}}">
-                                                                <label>Tour Duratios [In Days] <span class="required small">(Required)</span></label>
-                                                                <div class="input-group">
-                                                                    <span class="input-group-addon" style="cursor:pointer" ng-click="tourdayminus(dayValue);"><i style="font-size:12px" class="fa fa-minus"></i></span>
-                                                                    <input type="text" id="tourDurationG" id="tourDurationG" name="tourDurationG" class="form-control" ng-model="dayValue">
-                                                                    <span class="input-group-addon">Days</span>
-                                                                    <span class="input-group-addon" style="cursor:pointer" ng-click="tourdayplus(dayValue);"><i style="font-size:12px" class="fa fa-plus"></i></span>
-                                                                </div>
+                                                        </span>
+                                                    </div>
+                                                    <div ng-hide="transportbookValue">
+                                                        <div class="col-md-6" ng-show="{{guideValue}}">
+                                                            <label>Tour Duratios [In Days] <span class="required small">(Required)</span></label>
+                                                            <div class="input-group">
+                                                                <span class="input-group-addon" style="cursor:pointer" ng-click="tourdayminus(dayValue);"><i style="font-size:12px" class="fa fa-minus"></i></span>
+                                                                <input type="text" id="tourDurationG" id="tourDurationG" name="tourDurationG" class="form-control" ng-model="dayValue">
+                                                                <span class="input-group-addon">Days</span>
+                                                                <span class="input-group-addon" style="cursor:pointer" ng-click="tourdayplus(dayValue);"><i style="font-size:12px" class="fa fa-plus"></i></span>
                                                             </div>
+                                                        </div>
 
-                                                            <div class="col-md-6" ng-show="{{tourValue}}">
-                                                                <label>Tour Duratios [In Days] <span class="required small">(Required)</span></label>
-                                                                <div class="input-group">
-                                                                    <span class="input-group-addon" onclick="tourDurationMinus();"></span>
-                                                                    <input type="text" id="tourDurationT" name="tourDurationT" value="{{tour.tour_duration}}" class="form-control" readonly>
-                                                                    <span class="input-group-addon">Day(s)</span>
-                                                                </div>
+                                                        <div class="col-md-6" ng-show="{{tourValue}}">
+                                                            <label>Tour Duratios [In Days] <span class="required small">(Required)</span></label>
+                                                            <div class="input-group">
+                                                                <span class="input-group-addon" onclick="tourDurationMinus();"></span>
+                                                                <input type="text" id="tourDurationT" name="tourDurationT" value="{{tour.tour_duration}}" class="form-control" readonly>
+                                                                <span class="input-group-addon">Day(s)</span>
                                                             </div>
                                                         </div>
-                                                    </li>
-                                                    <li class="row">
-                                                        <div class="col-md-6" ng-show="transportbookValue">
-                                                            <label>Pick-up Location <span class="required small">(Required)</span></label>
-                                                            <input type="text" class="form-control" required id="pickupLocation" name="pickupLocation" value="<?php echo $from_location; ?>" />
-                                                            <span style="color:red" ng-show="bookingForm.pickupLocation.$dirty && bookingForm.pickupLocation.$invalid">
+                                                    </div>
+                                                </li>
+                                                <li class="row">
+                                                    <div class="col-md-6" ng-show="transportbookValue">
+                                                        <label>Pick-up Location <span class="required small">(Required)</span></label>
+                                                        <input type="text" class="form-control" required id="pickupLocation" name="pickupLocation" value="<?php echo $from_location; ?>" />
+                                                        <span style="color:red" ng-show="bookingForm.pickupLocation.$dirty && bookingForm.pickupLocation.$invalid">
 											  <span ng-show="bookingForm.pickupLocation.$error.required">*Pick-up Location is required.</span>
 
-                                                            </span>
-                                                        </div>
-                                                        <div class="col-md-6" ng-show="transportbookValue">
-                                                            <label>Pick-up Time <span class="required small">(Required)</span></label>
-                                                            <input type="time" class="form-control" required id="pickuptime" name="pickuptime" value="<?php echo $pickup_time; ?>" />
-                                                            <span style="color:red" ng-show="bookingForm.pickuptime.$dirty && bookingForm.pickuptime.$invalid">
+                                                        </span>
+                                                    </div>
+                                                    <div class="col-md-6" ng-show="transportbookValue">
+                                                        <label>Pick-up Time <span class="required small">(Required)</span></label>
+                                                        <input type="time" class="form-control" required id="pickuptime" name="pickuptime" value="<?php echo $pickup_time; ?>" />
+                                                        <span style="color:red" ng-show="bookingForm.pickuptime.$dirty && bookingForm.pickuptime.$invalid">
 											  <span ng-show="bookingForm.pickuptime.$error.required">*Pick-up Time is required.</span>
 
-                                                            </span>
-                                                        </div>
-                                                    </li>
+                                                        </span>
+                                                    </div>
+                                                </li>
 
-                                                    <input type="hidden" id="distanceShowI" name="distanceShowI" />
-                                                    <li class="row" ng-show="transportbookValue">
-                                                        <div class="col-md-6">
-                                                            <label>From Location<span class="required small">(Required)</span></label>
+                                                <input type="hidden" id="distanceShowI" name="distanceShowI" />
+                                                <li class="row" ng-show="transportbookValue">
+                                                    <div class="col-md-6">
+                                                        <label>From Location<span class="required small">(Required)</span></label>
 
-                                                            <input type="text" class="form-control" name="fromLocation" id="fromLocation" autocomplete="on" value="<?php echo $from_location; ?>" ng-pattern="/^[a-z ,A-Z]+$/" onfocusout="GetRoute()" list="exampleList" />
-                                                            <datalist id="exampleList">
-                                                                <option ng-repeat="dropdwn in placesforDropdown" value="{{dropdwn}}">
-                                                            </datalist>
-                                                            <!--
+                                                        <input type="text" class="form-control" name="fromLocation" id="fromLocation" autocomplete="on" value="<?php echo $from_location; ?>" ng-pattern="/^[a-z ,A-Z]+$/" onfocusout="GetRoute()" list="exampleList" />
+                                                        <datalist id="exampleList">
+                                                            <option ng-repeat="dropdwn in placesforDropdown" value="{{dropdwn}}">
+                                                        </datalist>
+                                                        <!--
                                                         <span style="color:red" ng-show="bookingForm.yourLocation.$dirty && bookingForm.yourLocation.$invalid">
 											  <span ng-show="bookingForm.yourLocation.$error.required">*Location is required.</span>
 
                                                         </span>
 -->
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <label>To Location<span class="required small">(Required)</span></label>
-                                                            <input type="text" class="form-control" name="toLocation" id="toLocation" autocomplete="on" value="<?php echo $to_location; ?>" ng-pattern="/^[a-z ,A-Z]+$/" onfocusout="GetRoute()" />
-                                                            <!--
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label>To Location<span class="required small">(Required)</span></label>
+                                                        <input type="text" class="form-control" name="toLocation" id="toLocation" autocomplete="on" value="<?php echo $to_location; ?>" ng-pattern="/^[a-z ,A-Z]+$/" onfocusout="GetRoute()" />
+                                                        <!--
                                                         <span style="color:red" ng-show="bookingForm.yourLocation.$dirty && bookingForm.yourLocation.$invalid">
 											  <span ng-show="bookingForm.yourLocation.$error.required">*Location is required.</span>
 
                                                         </span>
 -->
-                                                        </div>
-                                                    </li>
-                                                    <li class="row">
-                                                        <div class="col-md-12">
-                                                            <div class="sidebar-widget">
-                                                                <!-- Sidebar What We Do -->
-                                                                <div class="panel-group" id="accordion">
-                                                                    <div class="panel panel-default" ng-hide="transportbookValue">
-                                                                        <div class="panel-heading">
-                                                                            <a class="panel-title collapsed urlUnchange" data-toggle="collapse" href="#collapseOne">
+                                                    </div>
+                                                </li>
+                                                <li class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="sidebar-widget">
+                                                            <!-- Sidebar What We Do -->
+                                                            <div class="panel-group" id="accordion">
+                                                                <div class="panel panel-default" ng-hide="transportbookValue">
+                                                                    <div class="panel-heading">
+                                                                        <a class="panel-title collapsed urlUnchange" data-toggle="collapse" href="#collapseOne">
                                                                     Lodging
                                                                 </a>
-                                                                        </div>
-                                                                        <div id="collapseOne" class="panel-collapse collapse">
-                                                                            <div class="panel-body">
-                                                                                <div class="col-md-12">
-                                                                                    <div>
+                                                                    </div>
+                                                                    <div id="collapseOne" class="panel-collapse collapse">
+                                                                        <div class="panel-body">
+                                                                            <div class="col-md-12">
+                                                                                <div>
 
-                                                                                        <div class="col-md-3" ng-repeat="lodge in lodging | filter:{ City: tour.tour_location} ">
-                                                                                            <a id="addExtraService" style="height:20px" class="btn btn-xs btn-default" data-toggle="tab" ng-click="lodgeID(lodge.ID);">Add</a>
-                                                                                            <a style="cursor:pointer" data-value="{{lodge.ID}}" ng-click="lodgingModel(lodge.ID);">
-                                                                                                <div class="ft-item">
-                                                                                                    <span class="ft-image">
+                                                                                    <div class="col-md-3" ng-repeat="lodge in lodging | filter:{ City: tour.tour_location} ">
+                                                                                        <a id="addExtraService" style="height:20px" class="btn btn-xs btn-default" data-toggle="tab" ng-click="lodgeID(lodge.ID);">Add</a>
+                                                                                        <a style="cursor:pointer" data-value="{{lodge.ID}}" ng-click="lodgingModel(lodge.ID);">
+                                                                                            <div class="ft-item">
+                                                                                                <span class="ft-image">
                                                                                              <img style="" src="{{lodge.Media.Image[0]}}" alt="Top Destination" /> 
                                                                                           </span>
-                                                                                                    <div class="ft-data" style="font-size:11px;">
-                                                                                                        <span style="color:black;" class="fa fa-book text-upper">{{lodge.Address}}</span> &nbsp;&nbsp;&nbsp;&nbsp;
-                                                                                                        <!-- <span style="color:black;" class="fa fa-book text-upper" >&nbsp;&nbsp;{{x.Speciality}}</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                                                <div class="ft-data" style="font-size:11px;">
+                                                                                                    <span style="color:black;" class="fa fa-book text-upper">{{lodge.Address}}</span> &nbsp;&nbsp;&nbsp;&nbsp;
+                                                                                                    <!-- <span style="color:black;" class="fa fa-book text-upper" >&nbsp;&nbsp;{{x.Speciality}}</span>&nbsp;&nbsp;&nbsp;&nbsp;
                                                                                              <span style="color:black;" class="fa fa-plane text-upper" >&nbsp;&nbsp;{{x.LanguageKnown}}</span> -->
-                                                                                                    </div>
-                                                                                                    <div class="ft-foot" style="word-wrap:break-word; ">
-                                                                                                        <h4 class="ft-title text-upper" style="color:#686868">{{lodge.City}}</h4>
-                                                                                                        <span class="ft-offer text-upper">{{lodge.PricePerNight}}/Night</span>
-                                                                                                    </div>
                                                                                                 </div>
-                                                                                            </a>
-                                                                                        </div>
+                                                                                                <div class="ft-foot" style="word-wrap:break-word; ">
+                                                                                                    <h4 class="ft-title text-upper" style="color:#686868">{{lodge.City}}</h4>
+                                                                                                    <span class="ft-offer text-upper">{{lodge.PricePerNight}}/Night</span>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </a>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <br>
-                                                                    <div class="panel panel-default" ng-hide="transportbookValue">
-                                                                        <div class="panel-heading">
-                                                                            <a class="panel-title collapsed urlUnchange" data-toggle="collapse" href="#collapseTwo"> Transport Service</a>
-                                                                        </div>
-                                                                        <div id="collapseTwo" class="panel-collapse collapse">
-                                                                            <div class="panel-body">
-                                                                                <div class="col-md-12">
-                                                                                    <div>
-                                                                                        <div class="col-md-3" ng-repeat="trans in transport">
-                                                                                            <a id="addExtraService" style="height:20px" class="btn btn-xs btn-default" data-toggle="tab" ng-click="transID(trans.ID);">Add</a>
-                                                                                            <a style="cursor:pointer" data-value="{{trans.ID}}" ng-click="transportModel(trans.ID);">
-                                                                                                <div class="ft-item">
-                                                                                                    <span class="ft-image">
+                                                                </div>
+                                                                <br>
+                                                                <div class="panel panel-default" ng-hide="transportbookValue">
+                                                                    <div class="panel-heading">
+                                                                        <a class="panel-title collapsed urlUnchange" data-toggle="collapse" href="#collapseTwo"> Transport Service</a>
+                                                                    </div>
+                                                                    <div id="collapseTwo" class="panel-collapse collapse">
+                                                                        <div class="panel-body">
+                                                                            <div class="col-md-12">
+                                                                                <div>
+                                                                                    <div class="col-md-3" ng-repeat="trans in transport">
+                                                                                        <a id="addExtraService" style="height:20px" class="btn btn-xs btn-default" data-toggle="tab" ng-click="transID(trans.ID);">Add</a>
+                                                                                        <a style="cursor:pointer" data-value="{{trans.ID}}" ng-click="transportModel(trans.ID);">
+                                                                                            <div class="ft-item">
+                                                                                                <span class="ft-image">
                                                                                                  <img style="height:80px" src="{{trans.Media.Image[0]}}" alt="Top Destination" /> 
                                                                                               </span>
-                                                                                                    <div class="ft-data" style="font-size:11px;">
-                                                                                                        <span style="color:black;" class="fa fa-book text-upper">&nbsp;&nbsp;{{trans.Category}}&nbsp;&nbsp;</span>
-                                                                                                    </div>
-                                                                                                    <div class="ft-foot" style="word-wrap:break-word; ">
-                                                                                                        <!-- <span class="ft-offer text-upper">Rs. {{trans.PricePerHour}} / Per Hour</span>-->
-                                                                                                        <span class="ft-offer text-upper">Rs. {{trans.PricePerKM}} / Per KM</span>
-                                                                                                    </div>
+                                                                                                <div class="ft-data" style="font-size:11px;">
+                                                                                                    <span style="color:black;" class="fa fa-book text-upper">&nbsp;&nbsp;{{trans.Category}}&nbsp;&nbsp;</span>
                                                                                                 </div>
-                                                                                            </a>
-                                                                                        </div>
+                                                                                                <div class="ft-foot" style="word-wrap:break-word; ">
+                                                                                                    <!-- <span class="ft-offer text-upper">Rs. {{trans.PricePerHour}} / Per Hour</span>-->
+                                                                                                    <span class="ft-offer text-upper">Rs. {{trans.PricePerKM}} / Per KM</span>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </a>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <br>
-                                                                    <div class=" panel panel-default">
-                                                                        <div class="panel-heading">
-                                                                            <a class="panel-title collapsed urlUnchange" data-toggle="collapse" href="#collapseThree"> Promo Code <span class="small">(If you have)</span></a>
-                                                                        </div>
-                                                                        <div id="collapseThree" class="panel-collapse collapse">
-                                                                            <div class="panel-body">
-                                                                                <div class="col-md-6">
-                                                                                    <div class="input-group">
-                                                                                        <!--  <span class="input-group-addon" ></span>-->
-                                                                                        <input type="text" class="form-control" name="promoCode" placeholder="Enter Promo Code" ng-model="promocode" id="promocodedvalue">
-                                                                                        <span ng-hide="transportbookValue" class="input-group-addon" style="cursor:pointer; color:black; background-color:#979999;" ng-click="comparePromo(promocode,'<?php echo $promoCode; ?>');">Apply</span>
-                                                                                        <?php
+                                                                </div>
+                                                                <br>
+                                                                <div class=" panel panel-default">
+                                                                    <div class="panel-heading">
+                                                                        <a class="panel-title collapsed urlUnchange" data-toggle="collapse" href="#collapseThree"> Promo Code <span class="small">(If you have)</span></a>
+                                                                    </div>
+                                                                    <div id="collapseThree" class="panel-collapse collapse">
+                                                                        <div class="panel-body">
+                                                                            <div class="col-md-6">
+                                                                                <div class="input-group">
+                                                                                    <!--  <span class="input-group-addon" ></span>-->
+                                                                                    <input type="text" class="form-control" name="promoCode" placeholder="Enter Promo Code" ng-model="promocode" id="promocodedvalue">
+                                                                                    <span ng-hide="transportbookValue" class="input-group-addon" style="cursor:pointer; color:black; background-color:#979999;" ng-click="comparePromo(promocode,'<?php echo $promoCode; ?>');">Apply</span>
+                                                                                    <?php
                                                                                     echo '<span ng-show="transportbookValue" class="input-group-addon" style="cursor:pointer; color:black; background-color:#979999;" onclick="comparePromocode(\''.$promoCode.'\');">Apply</span>';
                                                                                         ?>
-                                                                                    </div>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -555,10 +530,11 @@ else
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </li>
-                                                    <li class="row">
-                                                        <div class="col-md-12">
-                                                            <input type="button" class="btn btn-primary btn-md text-upper" ng-click="conformationModal();" ng-disabled="bookingForm.$invalid ||
+                                                    </div>
+                                                </li>
+                                                <li class="row">
+                                                    <div class="col-md-12">
+                                                        <input type="button" class="btn btn-primary btn-md text-upper" ng-click="conformationModal();" ng-disabled="bookingForm.$invalid ||
 										bookingForm.tourist_name.$dirty && bookingForm.tourist_name.$invalid 
 										||bookingForm.tourist_email.$dirty && bookingForm.tourist_email.$invalid	
                                                                             ||bookingForm.tourist_mobile.$dirty && bookingForm.tourist_mobile.$invalid						
@@ -567,125 +543,126 @@ else
                                                                             bookingForm.tourist_email.$error.required||
                                                                             bookingForm.tourist_mobile.$error.required ||
                                                                          bookingForm.dateOfTour.$error.required
-										" id="booknow2" name="booknow2" value="Update" />
-                                                            <input type="button" class="btn btn-primary btn-md text-upper" id="cancelTour" name="cancelTour" value="Cancel" />
-                                                            <input type="submit" id="booknow" name="booknow" hidden />
-                                                            <span class="required small">*Your email will never published.</span>
-                                                        </div>
-                                                    </li>
+										" id="booknow2" name="booknow2" value="Update Booking" />
+                                                        <input type="button" class="btn btn-primary btn-md text-upper" id="cancelTour" name="cancelTour" value="Cancel Booking" onclick="cancelModalShow();" />
 
-                                                </ul>
-                                            </fieldset>
-                                            <!--								</form>-->
-                                        </section>
-                                        <!-- END #contactForm -->
-                                    </div>
-                                    <!-- END #page -->
-                                    <br>
-                                    <!-- START #sidebar -->
-                                    <aside id="sidebar" class="col-md-4">
-                                        <div class="sidebar-widget">
-                                            <!-- START TABS -->
-                                            <ul class="nav nav-tabs text-upper" style="background-color:#ff845e;">
-                                                <li class="active" ng-show="{{tourValue}}">
-                                                    <a class="urlUnchange" href="#popular-posts" data-toggle="tab">Requested Tour Detail</a></li>
-                                                <li class="active" ng-show="{{guideValue}}">
-                                                    <a class="urlUnchange" href="#popular-posts" data-toggle="tab">Requested Guide Detail</a></li>
-                                                <li class="active" ng-show="transportbookValue">
-                                                    <a class="urlUnchange" href="#popular-posts" data-toggle="tab">Requested Transport Detail</a></li>
-                                            </ul>
-                                            <!-- END TABS -->
-
-                                            <!-- START TAB CONTENT -->
-                                            <div class="tab-content gray box-shadow1 clearfix">
-                                                <div class="tab-pane active" id="popular-posts">
-
-                                                    <div>
-                                                        <div ng-show="{{tourValue}}">
-                                                            <input type="hidden" name="tourID" value="{{tour.tour_id}}" />
-                                                            <input type="hidden" name="tourName" value="{{tour.tour_title}}" />
-                                                            <input type="hidden" name="tGuideID" value="{{tour.guide_id}}" />
-                                                            <input type="hidden" name="tGuideName" value="---" />
-                                                            <input type="hidden" name="PickupLocation" value="{{tour.start_point}}" />
-                                                            <input type="hidden" name="DropLocation" value="{{tour.end_point}}" />
-                                                            <input type="hidden" name="tInclusive" value="{{tour.inclusive}}" />
-                                                            <input type="hidden" name="tExclusice" value="{{tour.exclusive}}" />
-                                                            <input type="hidden" name="tCancelationPolicy" value="{{tour.cancelation_policy}}" />
-                                                            <input type="hidden" name="tRestrictions" value="{{tour.restrictions}}" />
-
-                                                            <div class="tour-plans" style="padding:10px 10px 0px 10px;">
-                                                                <div data-model="tour.tour_location">
-                                                                    <div class="plan-image">
-                                                                        <img class="img-responsive" alt="Tour Image Scroller" draggable="false" src="{{tour.photo == null ? 'img/custom11.jpg' : tour.photo[0]}}" />
-                                                                        <div class="offer-box">
-                                                                            <div class="offer-top">
-                                                                                <!--<span class="ft-temp alignright">19&#730;c</span>-->
-                                                                                <span class="featured-cr text-upper" style="font-size:15px">{{tour.tour_location}}</span>
-                                                                                <span class="featured-cr" style="font-size:10px">ID: {{tour.tour_id}}</span>
-                                                                                <div class="short-text1 featured-cy text-upper" style="font-size:15px;" title="{{tour.tour_title}}">{{tour.tour_title}}</div>
-                                                                            </div>
-                                                                            <div class="offer-bottom">
-                                                                                <span class="featured-spe" style="font-size:15px"> {{tour.tour_price}} Per Person</span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="featured-btm box-shadow1">
-                                                                        <a class="ft-hotel text-upper" href="#">{{tour.tour_duration}} Day Tour</a>
-                                                                        <a class="fa fa-user text-upper" href="guide-detail-sidebar.php#?id2={{tour.guide_id}}">{{tour.guide_id}}</a>
-                                                                        <a class="ft-tea text-upper" href="#">
-                                                                            <div class="short-text2" title="{{tour.inclusive}}">{{tour.inclusive}}</div>
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="row">
-                                                                    <div class="col-md-5">
-                                                                        Exclusive :
-                                                                    </div>
-                                                                    <div class="col-md-7">
-                                                                        {{tour.exclusive}}
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="row">
-                                                                    <div class="col-md-5">
-                                                                        Cancelation Policy :
-                                                                    </div>
-                                                                    <div class="col-md-7">
-                                                                        {{tour.cancelation_policy}}
-                                                                    </div>
-                                                                </div>
-                                                                <input type="hidden" name="tourPrice" value="{{tourPrice}}" />
-                                                                <h4 class="pull-right">Min. Tour Charges (4 persons) &nbsp;: {{tourPrice}}</h4>
-                                                            </div>
-                                                        </div>
+                                                        <input type="submit" id="booknow" name="booknow" hidden />
+                                                        <span class="required small">*Your email will never published.</span>
                                                     </div>
-                                                    <!--                                                transport division-->
-                                                    <div ng-show="transportbookValue">
-                                                        <input type="hidden" name="transportBokingF" value="{{transportBook.ID}}" />
-                                                        <input type="hidden" name="Category" value="{{transportBook.Category}}" />
-                                                        <input type="hidden" name="PartnerName" value="{{transportBook.PartnerName}}" />
-                                                        <input type="hidden" name="Description" value="{{transportBook.Description}}" />
-                                                        <input type="hidden" name="PricePerKM" value="{{transportBook.PricePerKM}}" />
+                                                </li>
+
+                                            </ul>
+                                        </fieldset>
+                                        <!--								</form>-->
+                                    </section>
+                                    <!-- END #contactForm -->
+                                </div>
+                                <!-- END #page -->
+                                <br>
+                                <!-- START #sidebar -->
+                                <aside id="sidebar" class="col-md-4">
+                                    <div class="sidebar-widget">
+                                        <!-- START TABS -->
+                                        <ul class="nav nav-tabs text-upper" style="background-color:#ff845e;">
+                                            <li class="active" ng-show="{{tourValue}}">
+                                                <a class="urlUnchange" href="#popular-posts" data-toggle="tab">Requested Tour Detail</a></li>
+                                            <li class="active" ng-show="{{guideValue}}">
+                                                <a class="urlUnchange" href="#popular-posts" data-toggle="tab">Requested Guide Detail</a></li>
+                                            <li class="active" ng-show="transportbookValue">
+                                                <a class="urlUnchange" href="#popular-posts" data-toggle="tab">Requested Transport Detail</a></li>
+                                        </ul>
+                                        <!-- END TABS -->
+
+                                        <!-- START TAB CONTENT -->
+                                        <div class="tab-content gray box-shadow1 clearfix">
+                                            <div class="tab-pane active" id="popular-posts">
+
+                                                <div>
+                                                    <div ng-show="{{tourValue}}">
+                                                        <input type="hidden" name="tourID" value="{{tour.tour_id}}" />
+                                                        <input type="hidden" name="tourName" value="{{tour.tour_title}}" />
+                                                        <input type="hidden" name="tGuideID" value="{{tour.guide_id}}" />
+                                                        <input type="hidden" name="tGuideName" value="---" />
+                                                        <input type="hidden" name="PickupLocation" value="{{tour.start_point}}" />
+                                                        <input type="hidden" name="DropLocation" value="{{tour.end_point}}" />
+                                                        <input type="hidden" name="tInclusive" value="{{tour.inclusive}}" />
+                                                        <input type="hidden" name="tExclusice" value="{{tour.exclusive}}" />
+                                                        <input type="hidden" name="tCancelationPolicy" value="{{tour.cancelation_policy}}" />
+                                                        <input type="hidden" name="tRestrictions" value="{{tour.restrictions}}" />
 
                                                         <div class="tour-plans" style="padding:10px 10px 0px 10px;">
                                                             <div data-model="tour.tour_location">
                                                                 <div class="plan-image">
-                                                                    <img class="img-responsive" alt="Tour Image Scroller" draggable="false" src="{{transportBook.Media.Image[0] == null ? 'img/custom11.jpg' : transportBook.Media.Image[0]}}" />
+                                                                    <img class="img-responsive" alt="Tour Image Scroller" draggable="false" src="{{tour.photo == null ? 'img/custom11.jpg' : tour.photo[0]}}" />
                                                                     <div class="offer-box">
                                                                         <div class="offer-top">
                                                                             <!--<span class="ft-temp alignright">19&#730;c</span>-->
-                                                                            <span class="featured-cr text-upper" style="font-size:15px">{{transportBook.Category}}</span>
-                                                                            <span class="featured-cr" style="font-size:10px">{{transportBook.PartnerName}}</span>
-                                                                            <div class="short-text1 featured-cy text-upper" style="font-size:15px;" title="{{tour.tour_title}}">{{transportBook.Description}}</div>
+                                                                            <span class="featured-cr text-upper" style="font-size:15px">{{tour.tour_location}}</span>
+                                                                            <span class="featured-cr" style="font-size:10px">ID: {{tour.tour_id}}</span>
+                                                                            <div class="short-text1 featured-cy text-upper" style="font-size:15px;" title="{{tour.tour_title}}">{{tour.tour_title}}</div>
                                                                         </div>
                                                                         <div class="offer-bottom">
-                                                                            <span class="featured-spe" style="font-size:15px"> {{transportBook.PricePerKM}} Per Kilometer</span>
-                                                                            <input type="hidden" id="transbookprice" value="{{transportBook.PricePerKM}}" />
+                                                                            <span class="featured-spe" style="font-size:15px"> {{tour.tour_price}} Per Person</span>
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <!--
+                                                                <div class="featured-btm box-shadow1">
+                                                                    <a class="ft-hotel text-upper" href="#">{{tour.tour_duration}} Day Tour</a>
+                                                                    <a class="fa fa-user text-upper" href="guide-detail-sidebar.php#?id2={{tour.guide_id}}">{{tour.guide_id}}</a>
+                                                                    <a class="ft-tea text-upper" href="#">
+                                                                        <div class="short-text2" title="{{tour.inclusive}}">{{tour.inclusive}}</div>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="row">
+                                                                <div class="col-md-5">
+                                                                    Exclusive :
+                                                                </div>
+                                                                <div class="col-md-7">
+                                                                    {{tour.exclusive}}
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="row">
+                                                                <div class="col-md-5">
+                                                                    Cancelation Policy :
+                                                                </div>
+                                                                <div class="col-md-7">
+                                                                    {{tour.cancelation_policy}}
+                                                                </div>
+                                                            </div>
+                                                            <input type="hidden" name="tourPrice" value="{{tourPrice}}" />
+                                                            <h4 class="pull-right">Min. Tour Charges (4 persons) &nbsp;: {{tourPrice}}</h4>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--                                                transport division-->
+                                                <div ng-show="transportbookValue">
+                                                    <input type="hidden" name="transportBokingF" value="{{transportBook.ID}}" />
+                                                    <input type="hidden" name="Category" value="{{transportBook.Category}}" />
+                                                    <input type="hidden" name="PartnerName" value="{{transportBook.PartnerName}}" />
+                                                    <input type="hidden" name="Description" value="{{transportBook.Description}}" />
+                                                    <input type="hidden" name="PricePerKM" value="{{transportBook.PricePerKM}}" />
+
+                                                    <div class="tour-plans" style="padding:10px 10px 0px 10px;">
+                                                        <div data-model="tour.tour_location">
+                                                            <div class="plan-image">
+                                                                <img class="img-responsive" alt="Tour Image Scroller" draggable="false" src="{{transportBook.Media.Image[0] == null ? 'img/custom11.jpg' : transportBook.Media.Image[0]}}" />
+                                                                <div class="offer-box">
+                                                                    <div class="offer-top">
+                                                                        <!--<span class="ft-temp alignright">19&#730;c</span>-->
+                                                                        <span class="featured-cr text-upper" style="font-size:15px">{{transportBook.Category}}</span>
+                                                                        <span class="featured-cr" style="font-size:10px">{{transportBook.PartnerName}}</span>
+                                                                        <div class="short-text1 featured-cy text-upper" style="font-size:15px;" title="{{tour.tour_title}}">{{transportBook.Description}}</div>
+                                                                    </div>
+                                                                    <div class="offer-bottom">
+                                                                        <span class="featured-spe" style="font-size:15px"> {{transportBook.PricePerKM}} Per Kilometer</span>
+                                                                        <input type="hidden" id="transbookprice" value="{{transportBook.PricePerKM}}" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!--
                                                                 <div class="featured-btm box-shadow1">
                                                                     <a class="ft-hotel text-upper" href="#">{{transportBook.tour_duration}} Day Tour</a>
                                                                     <a class="fa fa-user text-upper" href="guide-detail-sidebar.php#?id2={{tour.guide_id}}">{{transportBook.guide_id}}</a>
@@ -694,9 +671,9 @@ else
                                                                     </a>
                                                                 </div>
 -->
-                                                            </div>
+                                                        </div>
 
-                                                            <!--
+                                                        <!--
                                                             <div class="row">
                                                                 <div class="col-md-5">
                                                                     Exclusive :
@@ -716,58 +693,58 @@ else
                                                             </div>
 -->
 
-                                                            <h5><table><tr><td>Distance(Estimated)  &nbsp;:</td><td><div id="distanceShow">0</div></td><td> KM</td></tr></table> </h5>
-                                                            <h4 class="pull-right">Transport Charges  &nbsp;: <label id="transportPrice"></label></h4>
-                                                        </div>
+                                                        <h5><table><tr><td>Distance(Estimated)  &nbsp;:</td><td><div id="distanceShow">0</div></td><td> KM</td></tr></table> </h5>
+                                                        <h4 class="pull-right">Transport Charges  &nbsp;: <label id="transportPrice"></label></h4>
                                                     </div>
-                                                    <!--                                                transport div end-->
-                                                    <div style="text-align:justify; padding:10px 10px 10px 10px;">
-                                                        <div ng-show="{{guideValue}}">
-                                                            <input type="hidden" name="guideID" value="{{guide.id}}" />
-                                                            <input type="hidden" name="guideName" value="{{guide.name}}" />
-                                                            <input type="hidden" name="guideMobileNumber" value="{{guide.mobileNo}}" />
-                                                            <input type="hidden" name="guideSummary" value="{{guide.guide_summary}}" />
-                                                            <input type="hidden" name="guidePaymentTerm" value="{{guide.payment_terms}}" />
+                                                </div>
+                                                <!--                                                transport div end-->
+                                                <div style="text-align:justify; padding:10px 10px 10px 10px;">
+                                                    <div ng-show="{{guideValue}}">
+                                                        <input type="hidden" name="guideID" value="{{guide.id}}" />
+                                                        <input type="hidden" name="guideName" value="{{guide.name}}" />
+                                                        <input type="hidden" name="guideMobileNumber" value="{{guide.mobileNo}}" />
+                                                        <input type="hidden" name="guideSummary" value="{{guide.guide_summary}}" />
+                                                        <input type="hidden" name="guidePaymentTerm" value="{{guide.payment_terms}}" />
 
-                                                            <div class="row">
-                                                                <div class=" col-md-4 col-sm-4 plan-image">
-                                                                    <img class="hover img-responsive" src="{{ guide.photo == null ? 'img/userDefaultIcon.png' : guide.photo}}" />
+                                                        <div class="row">
+                                                            <div class=" col-md-4 col-sm-4 plan-image">
+                                                                <img class="hover img-responsive" src="{{ guide.photo == null ? 'img/userDefaultIcon.png' : guide.photo}}" />
+                                                            </div>
+                                                            <div class="col-md-8 col-sm-8">
+                                                                <div class="row">
+                                                                    <div class="col-md-3 col-sm-4 col-xs-4">Name:</div>
+                                                                    <div class="col-md-8 col-sm-8 col-xs-8 alignright">{{guide.name}} </div>
                                                                 </div>
-                                                                <div class="col-md-8 col-sm-8">
-                                                                    <div class="row">
-                                                                        <div class="col-md-3 col-sm-4 col-xs-4">Name:</div>
-                                                                        <div class="col-md-8 col-sm-8 col-xs-8 alignright">{{guide.name}} </div>
-                                                                    </div>
-                                                                    <div class="row">
-                                                                        <div class="col-md-4 col-sm-4 col-xs-4">Territory:</div>
-                                                                        <div class="col-md-8 col-sm-8 col-xs-8 alignright" ng-repeat="z in guide.guide_territory">{{z}}</div>
-                                                                    </div>
-                                                                    <div class="row">
-                                                                        <div class="col-md-4 col-sm-4 col-xs-4">City:</div>
-                                                                        <div class="col-md-8 col-sm-8 col-xs-8 alignright">{{guide.city}}</div>
-                                                                    </div>
-                                                                    <!--
+                                                                <div class="row">
+                                                                    <div class="col-md-4 col-sm-4 col-xs-4">Territory:</div>
+                                                                    <div class="col-md-8 col-sm-8 col-xs-8 alignright" ng-repeat="z in guide.guide_territory">{{z}}</div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-4 col-sm-4 col-xs-4">City:</div>
+                                                                    <div class="col-md-8 col-sm-8 col-xs-8 alignright">{{guide.city}}</div>
+                                                                </div>
+                                                                <!--
                                                          <div class="row">
                                                             <div class="col-md-4 col-sm-4 col-xs-4">Mobile:</div>
                                                             <div class="col-md-8 col-sm-8 col-xs-8 alignright">{{guide.mobileNo}}</div>
                                                         </div>
 -->
-                                                                    <div class="row">
-                                                                        <div class="col-md-4 col-sm-4 col-xs-4">Email:</div>
-                                                                        <div class="col-md-8 col-sm-8 col-xs-8 alignright">{{guide.email}}</div>
-                                                                    </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-4 col-sm-4 col-xs-4">Email:</div>
+                                                                    <div class="col-md-8 col-sm-8 col-xs-8 alignright">{{guide.email}}</div>
                                                                 </div>
                                                             </div>
-                                                            <input type="hidden" name="guidePrice" value="{{guidePrice}}" />
-                                                            <br>
-                                                            <h4 class="pull-right">Guide Charges : Rs. {{guidePrice}}</h4>
-                                                            <!--                                                        <hr style="margin: 20px 0; border: 1px solid #808080;">-->
                                                         </div>
+                                                        <input type="hidden" name="guidePrice" value="{{guidePrice}}" />
+                                                        <br>
+                                                        <h4 class="pull-right">Guide Charges : Rs. {{guidePrice}}</h4>
+                                                        <!--                                                        <hr style="margin: 20px 0; border: 1px solid #808080;">-->
                                                     </div>
                                                 </div>
                                             </div>
+                                        </div>
 
-                                            <!--
+                                        <!--
                                   <div style="text-align:justify; padding:0px 10px 0px 10px;">
                                             <div ng-show="{{guideValue}}">
                                                 <div class="row">
@@ -790,399 +767,499 @@ else
                                             </div>
                                         </div>
 -->
-                                            <br>
-                                            <!--                                division on the click of lodging and transport -->
-                                            <div id="" ng-show="lodgevalue" class="gray" style="text-align:justify; padding:10px 10px 10px 10px;">
-                                                <div id="close_lodging" class="pull-right">
-                                                    <a style="cursor:pointer" ng-click="closelodge()"><i class="fa fa-times"></i></a>
-                                                </div>
+                                        <br>
+                                        <!--                                division on the click of lodging and transport -->
+                                        <div id="" ng-show="lodgevalue" class="gray" style="text-align:justify; padding:10px 10px 10px 10px;">
+                                            <div id="close_lodging" class="pull-right">
+                                                <a style="cursor:pointer" ng-click="closelodge()"><i class="fa fa-times"></i></a>
+                                            </div>
 
-                                                <div id="toptours" class="row">
-                                                    <ul class=" list-unstyled">
-                                                        <li class="col-md-12">
-                                                            <div class="col-md-4">
-                                                                <span class="rc-post-image ">
+                                            <div id="toptours" class="row">
+                                                <ul class=" list-unstyled">
+                                                    <li class="col-md-12">
+                                                        <div class="col-md-4">
+                                                            <span class="rc-post-image ">
                                                         <img class="img-responsive" src="{{lodgeIDnew.Media.Image[0]}}" alt="Tour 1" />
 												</span>
-                                                            </div>
-                                                            <div class="col-md-8">
-                                                                <h5>{{lodgeIDnew.Address}}</h5>
-                                                                <span class="rc-post-date small">{{lodgeIDnew.City}}</span>
-                                                                <br/>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <div class="alignright">
-                                                    <input type="hidden" name="lodging_value" value="{{lodgevalue}}" />
-                                                    <input type="hidden" name="lodging_id" value="{{lodgeIDnew.ID}}" />
-                                                    <input type="hidden" name="lodging_name" value="{{lodgeIDnew.Address}}" />
-                                                    <input type="hidden" name="lodging_price" value="{{lodgeIDnew.PricePerNight}}" />
-                                                    <h4>Lodging Charges &nbsp;&nbsp;&nbsp;: Rs.&nbsp;{{lodgeIDnew.PricePerNight}}</h4>
-                                                </div>
-                                                <hr>
-                                            </div>
-                                            <br>
-                                            <div id="" class="gray" ng-show="transvalue" style="text-align:justify; padding:10px 10px 10px 10px;">
-                                                <div id="close_lodging" class="pull-right"><a style="cursor:pointer" ng-click="closetrans()"><i class="fa fa-times"></i></a></div>
-                                                <div id="toptours" class="row">
-                                                    <ul class=" list-unstyled">
-                                                        <li class="col-md-12">
-                                                            <div class="col-md-4">
-                                                                <span class="rc-post-image ">
-                                                        <img class="img-responsive" src="{{transIDnew.Media.Image[0]}}" alt="Tour 1" />
-												</span>
-                                                            </div>
-                                                            <div class="col-md-8">
-                                                                <h5>{{transIDnew.Description}} </h5>
-                                                                <span class="rc-post-date small">{{transIDnew.City}}</span>
-                                                                <br/>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <div class="alignright">
-                                                    <input type="hidden" name="transport_value" value="{{transvalue}}" />
-                                                    <input type="hidden" name="transport_id" value="{{transIDnew.ID}}" />
-                                                    <input type="hidden" name="transport_name" value="{{transIDnew.Description}}" />
-                                                    <input type="hidden" name="transport_price" value="{{transIDnew.PricePerKM}}" />
-                                                    <span style="font-weight:bold;font-size:17px">Transport will be charged @ Rs.&nbsp;{{transIDnew.PricePerKM}} / KM.</span>
-                                                </div>
-                                                <hr>
-                                            </div>
-                                            <!--                                close division -->
-                                            <br>
-                                            <div class="gray">
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div class="pull-right">
-
-                                                            <table>
-                                                                <tr ng-hide="transportbookValue">
-                                                                    <td style="text-align:right">Total&nbsp;: Rs.&nbsp;</td>
-                                                                    <td style="text-align:right">{{priceTotal}}</td>
-                                                                    <input type="hidden" name="gTotal" value="{{priceTotal}}" />
-                                                                </tr>
-                                                                <tr ng-hide="transportbookValue">
-                                                                    <td style="text-align:right">tax @ 14% &nbsp;: Rs.&nbsp;</td>
-                                                                    <td style="text-align:right">{{(priceTotal*14)/100 | number:0}}
-                                                                        <input type="hidden" name="serviceTax" value="{{(priceTotal*14)/100 | number:0}}" />
-                                                                    </td>
-                                                                </tr>
-                                                                <tr ng-hide="transportbookValue">
-                                                                    <td style="text-align:right">Swachh Bharat tax @ 0.5% &nbsp;: Rs.&nbsp;</td>
-                                                                    <td style="text-align:right">{{(priceTotal*0.5)/100 | number:0}}
-                                                                        <input type="hidden" name="swachhTax" value="{{(priceTotal*0.5)/100 | number:0}}" />
-                                                                    </td>
-                                                                </tr>
-                                                                <input type="hidden" name="PromoDis" value="{{successValue}}" id="promovalue" />
-                                                                <tr ng-show="successValue">
-                                                                    <td style="text-align:right">Promotional Discount &nbsp;: Rs.&nbsp;</td>
-                                                                    <td style="text-align:right">(-){{successValue}} </td>
-                                                                </tr>
-                                                                <tr id="promotional" style="display:none;">
-                                                                    <td style="text-align:right">Promotional Discount &nbsp;: Rs.&nbsp;</td>
-                                                                    <td style="text-align:right">(-)500 </td>
-                                                                </tr>
-                                                                <tr ng-hide="transportbookValue">
-                                                                    <td style="text-align:right">
-                                                                        <h4>Grand total&nbsp;: Rs.&nbsp;</h4></td>
-                                                                    <td style="text-align:right">
-                                                                        <h4>{{(priceTotal+((priceTotal*14)/100)+((priceTotal*0.5)/100)-successValue) | number : 0 }}</h4></td>
-                                                                </tr>
-                                                                <tr ng-show="transportbookValue">
-                                                                    <td style="text-align:right">
-                                                                        <h4>Grand total&nbsp;: Rs.&nbsp;</h4>
-                                                                    </td>
-                                                                    <td style="text-align:right">
-                                                                        <input type="hidden" value="" id="grandtotalvalueI" name="grandtotalvalueI">
-                                                                        <input type="hidden" value="" id="transPric" name="transPric">
-                                                                        <h4><label id="grandtotalvalue" name="grandtotalvalue"/></h4>
-                                                                    </td>
-                                                                </tr>
-                                                            </table>
-                                                            <input type="hidden" name="grandTotal" value="{{(priceTotal+((priceTotal*14)/100)+((priceTotal*0.5)/100)-successValue) | number : 0 }}" />
                                                         </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </aside>
-                                    <!-- END #sidebar -->
-                                </div>
-                                <!-- END .row -->
-
-                            </div>
-                        </div>
-                        <!-- END .main-contents -->
-                    </form>
-                    <!-- START footer -->
-                    <?php include('MasterTopFooter.php'); ?>
-                        <!-- END footer -->
-            </div>
-            <!-- END #wrapper -->
-
-
-            <div class="modal fade" id="lodgingDetailModal" role="dialog" aria-labelledby="lodgingDetailModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <input type="hidden" id="lodgingID" name="lodgingID" value="" />
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                        <div class="modal-header" style="padding:20px 50px; background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;">
-                            <button type="button" class="close" style="background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;" data-dismiss="modal">&times;</button>
-                            <h4 style="background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;"><span class="glyphicon glyphicon-lock"></span>Lodging Detail</h4>
-                        </div>
-                        <div class="modal-body" style="padding:20px 50px 0px;">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="sidebar-widget">
-                                        <!-- Sidebar Categories -->
-                                        <div class="row">
-                                            <div class="col-md-4"><img class="img-responsive" src="{{lodgeIDSelected.Media.Image[0]}}" alt="Lodge" /></div>
-                                            <div class="col-md-6">
-                                                <h4 class="text-upper">{{lodgeIDSelected.Description}}</h4> </div>
-                                        </div>
-                                        <br>
-                                        <ul class="cats-list list-unstyled">
-                                            <li>Description <span style="color:black;">{{lodgeIDSelected.Description}}</span></li>
-                                            <li>Address<span style="color:black;"> {{lodgeIDSelected.Address}}</span></li>
-                                            <li>City <span style="color:black;">{{lodgeIDSelected.City}}</span></li>
-                                            <li>Category <span style="color:black;">{{lodgeIDSelected.Category}}</span></li>
-                                            <li>PricePerNight<span style="color:black;">{{lodgeIDSelected.PricePerNight}}</span></li>
-                                            <li>IncludedInTour <span style="color:black;">{{lodgeIDSelected.IncludedInTour}}</span></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer" style="background-color: #f9f9f9;">
-                            <button type="submit" style="background-color:#ff845e" class="btn btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="modal fade" id="transportDetailModal" role="dialog" aria-labelledby="transportDetailModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <input type="hidden" id="lodgingID" name="lodgingID" value="" />
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                        <div class="modal-header" style="padding:20px 50px; background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;">
-                            <button type="button" class="close" style="background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;" data-dismiss="modal">&times;</button>
-                            <h4 style="background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;"><span class="glyphicon glyphicon-lock"></span>Transport Services</h4>
-                        </div>
-                        <div class="modal-body" style="padding:20px 50px 0px;">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="pricing-tables pricing-tables-1 sidebar-widget">
-                                        <!-- Sidebar Categories -->
-                                        <div class="row">
-                                            <div class="col-md-4"><img class="img-responsive" src="{{transIDSelected.Media.Image[0]}}" alt="Transport" /></div>
-                                            <div class="col-md-6">
-                                                <h3 class="text-upper">{{transIDSelected.Description}}</h3> </div>
-                                        </div>
-                                        <br>
-                                        <ul class="cats-list list-unstyled">
-                                            <li>Description <span style="color:black;">{{transIDSelected.Description}}</span></li>
-                                            <!--									<li>Address<span style="color:black;"> {{transIDSelected.Address}}</span></li>-->
-                                            <li>City <span style="color:black;">{{transIDSelected.City}}</span></li>
-                                            <li>Category <span style="color:black;">{{transIDSelected.Category}}</span></li>
-                                            <li>PriceForDay<span style="color:black;">{{transIDSelected.PriceForDay}}</span></li>
-                                            <li>IncludedInTour <span style="color:black;">{{transIDSelected.IncludedInTour}}</span></li>
-
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer" style="background-color: #f9f9f9;">
-                            <button type="submit" style="background-color:#ff845e" class="btn btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="modal fade" id="conformationModal" role="dialog" aria-labelledby="conformationModalModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                    <input type="hidden" id="conformationID" name="conformationID" value="" />
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                        <div class="modal-header" style="padding:15px 50px; background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;">
-                            <button type="button" class="close" style="background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;" data-dismiss="modal">&times;</button>
-                            <h4 style="background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;"><span class="glyphicon glyphicon-lock"></span>Confirm Booking Request</h4>
-                        </div>
-                        <div class="modal-body" style="padding:20px 50px 0px;">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="sidebar-widget">
-                                        <!-- Sidebar Categories -->
-                                        <div class="row">
-                                            <div class="pricing-tables pricing-tables-1 sidebar-widget">
-                                                <!-- Sidebar Categories -->
-                                                <div class="row">
-                                                    <div class="col-md-4">
-                                                        <img ng-show="{{guideValue}}" class="hover img-responsive" src="{{ guide.photo == null ? 'img/userDefaultIcon.png' : guide.photo}}" />
-                                                        <img ng-show="{{tourValue}}" class="img-responsive" alt="Tour Image Scroller" draggable="false" src="{{tour.photo == null ? 'img/custom11.jpg' : tour.photo[0]}}" />
-                                                    </div>
-                                                    <div class="col-md-8">
-                                                        <h3 ng-show="{{tourValue}}" class="text-upper">{{tour.tour_title}}</h3>
-                                                        <h3 ng-show="{{guideValue}}" class="text-upper">{{guide.name}}</h3>
-                                                        <div ng-show="{{tourValue}}">
-                                                            <div class="row">
-                                                                <div class="col-md-3">Location</div>
-                                                                <div class="col-md-9">{{tour.tour_location}}</div>
-                                                            </div>
-                                                            <div class="row">
-                                                                <div class="col-md-3">Included</div>
-                                                                <div class="col-md-9">{{tour.inclusive}}</div>
-                                                            </div>
+                                                        <div class="col-md-8">
+                                                            <h5>{{lodgeIDnew.Address}}</h5>
+                                                            <span class="rc-post-date small">{{lodgeIDnew.City}}</span>
+                                                            <br/>
                                                         </div>
-                                                        <div ng-show="{{guideValue}}">
-                                                            <div class="row">
-                                                                <div class="col-md-3">City</div>
-                                                                <div class="col-md-9">{{guide.city}}</div>
-                                                            </div>
-                                                            <div class="row">
-                                                                <div class="col-md-3">Mobile</div>
-                                                                <div class="col-md-9">{{guide.mobileNo}}</div>
-                                                            </div>
-                                                            <div class="row">
-                                                                <div class="col-md-3">Email</div>
-                                                                <div class="col-md-9">{{guide.email}}</div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <br>
-                                                <ul class=" list-unstyled">
-                                                    <li class="pricing-table ">Full Name <span style="color:black;" class="pull-right">{{name}}</span></li>
-                                                    <li class="pricing-table ">Email <span style="color:black;" class="pull-right">{{email}}</span></li>
-                                                    <li class="pricing-table "> Contact<span style="color:black;" class="pull-right">{{contact}}</span></li>
-                                                    <li class="pricing-table " ng-hide="transportbookValue">No. of Persons <span style="color:black;" class="pull-right">{{adultValue}} Adult(s) , {{child}} Child</span></li>
-                                                    <li class="pricing-table ">Date of Tour <span style="color:black;" class="pull-right">{{dateOfTour | date:'dd-MM-yyyy'}}</span></li>
-                                                    <li class="pricing-table " ng-show="{{tourValue}}">Tour Duration <span style="color:black;" class="pull-right">{{tour.tour_duration}} Day(s)</span></li>
-                                                    <li class="pricing-table " ng-show="{{guideValue}}">Tour Duration<span style="color:black;" class="pull-right"> {{dayValue}}</span></li>
-
-                                                    <li class="pricing-table " ng-show="{{tourValue}}">Tour Price&nbsp;&nbsp;({{adultValue}}&nbsp;Person*{{tour.tour_duration}}&nbsp;Days)<span style="color:black;" class="pull-right">Rs.&nbsp;{{tourPrice}}</span></li>
-                                                    <li class="pricing-table " ng-show="{{guideValue}}">Guide's Booking Price&nbsp;&nbsp;({{adultValue}}&nbsp;Person*{{dayValue}}&nbsp;Days)<span style="color:black;" class="pull-right">Rs.&nbsp;{{guidePrice}}</span></li>
-
-                                                    <li class="pricing-table " ng-show="transportbookValue">Pickup Location<span style="color:black;" id="pickupLocationModal" class="pull-right"></span></li>
-                                                    <li class="pricing-table " ng-show="transportbookValue">Pickup Time<span style="color:black;" id="pickuptimeModal" class="pull-right"></span></li>
-                                                    <li class="pricing-table " ng-show="transportbookValue">Source Location<span style="color:black;" id="fromLocationModal" class="pull-right"></span></li>
-                                                    <li class="pricing-table " ng-show="transportbookValue">Distance Location<span style="color:black;" id="toLocationModal" class="pull-right"></span></li>
-                                                    <li class="pricing-table " ng-show="transportbookValue">Promotional Discont<span style="color:black;" id="promocodedvalueModal" class="pull-right"> (-)</span></li>
-
-                                                    <li class="pricing-table " ng-show="lodgevalue">Lodging Price<span style="color:black;" class="pull-right">Rs.&nbsp;{{lodgeIDnew.PricePerNight}}</span></li>
-
-                                                    <li class="pricing-table " ng-hide="transportbookValue">Total Price(Excluding Tax) <span style="color:black;" class="pull-right">Rs.&nbsp;{{priceTotal}}</span></li>
-                                                    <li class="pricing-table " ng-show="successValue">Promotional Discount <span style="color:black;" class="pull-right">Rs.&nbsp;(-){{successValue}}</span></li>
-                                                    <li class="pricing-table " ng-hide="transportbookValue">Amount Payable(Including Tax) <span style="color:black;" class="pull-right">Rs.&nbsp;{{(priceTotal+((priceTotal*14)/100)+((priceTotal*0.5)/100)-successValue) | number : 0 }}</span></li>
-                                                    <li class="pricing-table " ng-show="transportbookValue">Amount Payable (Aprox.) <span style="color:black;" class="pull-right">Rs.&nbsp;<span id="grandtotalTransModal"></span></span>
                                                     </li>
-                                                    <br>
-                                                    <li class="pricing-table " ng-show="transvalue">Transport Price Extra <span style="color:black;" class="pull-right">@ Rs.&nbsp;{{transIDnew.PricePerKM}} / Km</span></li>
                                                 </ul>
                                             </div>
+                                            <div class="alignright">
+                                                <input type="hidden" name="lodging_value" value="{{lodgevalue}}" />
+                                                <input type="hidden" name="lodging_id" value="{{lodgeIDnew.ID}}" />
+                                                <input type="hidden" name="lodging_name" value="{{lodgeIDnew.Address}}" />
+                                                <input type="hidden" name="lodging_price" value="{{lodgeIDnew.PricePerNight}}" />
+                                                <h4>Lodging Charges &nbsp;&nbsp;&nbsp;: Rs.&nbsp;{{lodgeIDnew.PricePerNight}}</h4>
+                                            </div>
+                                            <hr>
+                                        </div>
+                                        <br>
+                                        <div id="" class="gray" ng-show="transvalue" style="text-align:justify; padding:10px 10px 10px 10px;">
+                                            <div id="close_lodging" class="pull-right"><a style="cursor:pointer" ng-click="closetrans()"><i class="fa fa-times"></i></a></div>
+                                            <div id="toptours" class="row">
+                                                <ul class=" list-unstyled">
+                                                    <li class="col-md-12">
+                                                        <div class="col-md-4">
+                                                            <span class="rc-post-image ">
+                                                        <img class="img-responsive" src="{{transIDnew.Media.Image[0]}}" alt="Tour 1" />
+												</span>
+                                                        </div>
+                                                        <div class="col-md-8">
+                                                            <h5>{{transIDnew.Description}} </h5>
+                                                            <span class="rc-post-date small">{{transIDnew.City}}</span>
+                                                            <br/>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="alignright">
+                                                <input type="hidden" name="transport_value" value="{{transvalue}}" />
+                                                <input type="hidden" name="transport_id" value="{{transIDnew.ID}}" />
+                                                <input type="hidden" name="transport_name" value="{{transIDnew.Description}}" />
+                                                <input type="hidden" name="transport_price" value="{{transIDnew.PricePerKM}}" />
+                                                <span style="font-weight:bold;font-size:17px">Transport will be charged @ Rs.&nbsp;{{transIDnew.PricePerKM}} / KM.</span>
+                                            </div>
+                                            <hr>
+                                        </div>
+                                        <!--                                close division -->
+                                        <br>
+                                        <div class="gray">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="pull-right">
+
+                                                        <table>
+                                                            <tr ng-hide="transportbookValue">
+                                                                <td style="text-align:right">Total&nbsp;: Rs.&nbsp;</td>
+                                                                <td style="text-align:right">{{priceTotal}}</td>
+                                                                <input type="hidden" name="gTotal" value="{{priceTotal}}" />
+                                                            </tr>
+                                                            <tr ng-hide="transportbookValue">
+                                                                <td style="text-align:right">tax @ 14% &nbsp;: Rs.&nbsp;</td>
+                                                                <td style="text-align:right">{{(priceTotal*14)/100 | number:0}}
+                                                                    <input type="hidden" name="serviceTax" value="{{(priceTotal*14)/100 | number:0}}" />
+                                                                </td>
+                                                            </tr>
+                                                            <tr ng-hide="transportbookValue">
+                                                                <td style="text-align:right">Swachh Bharat tax @ 0.5% &nbsp;: Rs.&nbsp;</td>
+                                                                <td style="text-align:right">{{(priceTotal*0.5)/100 | number:0}}
+                                                                    <input type="hidden" name="swachhTax" value="{{(priceTotal*0.5)/100 | number:0}}" />
+                                                                </td>
+                                                            </tr>
+                                                            <input type="hidden" name="PromoDis" value="{{successValue}}" id="promovalue" />
+                                                            <tr id="promotional1" ng-show="successValue">
+                                                                <td style="text-align:right">Promotional Discount &nbsp;: Rs.&nbsp;</td>
+                                                                <td style="text-align:right">(-){{successValue}} </td>
+                                                            </tr>
+                                                            <tr id="promotional" style="display:none;">
+                                                                <td style="text-align:right">Promotional Discount &nbsp;: Rs.&nbsp;</td>
+                                                                <td style="text-align:right">(-)500 </td>
+                                                            </tr>
+                                                            <tr ng-hide="transportbookValue">
+                                                                <td style="text-align:right">
+                                                                    <h4>Grand total&nbsp;: Rs.&nbsp;</h4></td>
+                                                                <td style="text-align:right">
+                                                                    <h4>{{(priceTotal+((priceTotal*14)/100)+((priceTotal*0.5)/100)-successValue) | number : 0 }}</h4></td>
+                                                            </tr>
+                                                            <tr ng-show="transportbookValue">
+                                                                <td style="text-align:right">
+                                                                    <h4>Grand total&nbsp;: Rs.&nbsp;</h4>
+                                                                </td>
+                                                                <td style="text-align:right">
+                                                                    <input type="hidden" value="" id="grandtotalvalueI" name="grandtotalvalueI">
+                                                                    <input type="hidden" value="" id="transPric" name="transPric">
+                                                                    <h4><label id="grandtotalvalue" name="grandtotalvalue"/></h4>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                        <input type="hidden" name="grandTotal" value="{{(priceTotal+((priceTotal*14)/100)+((priceTotal*0.5)/100)-successValue) | number : 0 }}" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </aside>
+                                <!-- END #sidebar -->
+                            </div>
+                            <!-- END .row -->
+
+                        </div>
+                    </div>
+                    <!-- END .main-contents -->
+                </form>
+                <!-- START footer -->
+                <?php include('MasterTopFooter.php'); ?>
+                    <!-- END footer -->
+        </div>
+        <!-- END #wrapper -->
+
+
+        <div class="modal fade" id="lodgingDetailModal" role="dialog" aria-labelledby="lodgingDetailModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <input type="hidden" id="lodgingID" name="lodgingID" value="" />
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header" style="padding:20px 50px; background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;">
+                        <button type="button" class="close" style="background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;" data-dismiss="modal">&times;</button>
+                        <h4 style="background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;"><span class="glyphicon glyphicon-lock"></span>Lodging Detail</h4>
+                    </div>
+                    <div class="modal-body" style="padding:20px 50px 0px;">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="sidebar-widget">
+                                    <!-- Sidebar Categories -->
+                                    <div class="row">
+                                        <div class="col-md-4"><img class="img-responsive" src="{{lodgeIDSelected.Media.Image[0]}}" alt="Lodge" /></div>
+                                        <div class="col-md-6">
+                                            <h4 class="text-upper">{{lodgeIDSelected.Description}}</h4> </div>
+                                    </div>
+                                    <br>
+                                    <ul class="cats-list list-unstyled">
+                                        <li>Description <span style="color:black;">{{lodgeIDSelected.Description}}</span></li>
+                                        <li>Address<span style="color:black;"> {{lodgeIDSelected.Address}}</span></li>
+                                        <li>City <span style="color:black;">{{lodgeIDSelected.City}}</span></li>
+                                        <li>Category <span style="color:black;">{{lodgeIDSelected.Category}}</span></li>
+                                        <li>PricePerNight<span style="color:black;">{{lodgeIDSelected.PricePerNight}}</span></li>
+                                        <li>IncludedInTour <span style="color:black;">{{lodgeIDSelected.IncludedInTour}}</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer" style="background-color: #f9f9f9;">
+                        <button type="submit" style="background-color:#ff845e" class="btn btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="transportDetailModal" role="dialog" aria-labelledby="transportDetailModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <input type="hidden" id="lodgingID" name="lodgingID" value="" />
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header" style="padding:20px 50px; background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;">
+                        <button type="button" class="close" style="background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;" data-dismiss="modal">&times;</button>
+                        <h4 style="background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;"><span class="glyphicon glyphicon-lock"></span>Transport Services</h4>
+                    </div>
+                    <div class="modal-body" style="padding:20px 50px 0px;">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="pricing-tables pricing-tables-1 sidebar-widget">
+                                    <!-- Sidebar Categories -->
+                                    <div class="row">
+                                        <div class="col-md-4"><img class="img-responsive" src="{{transIDSelected.Media.Image[0]}}" alt="Transport" /></div>
+                                        <div class="col-md-6">
+                                            <h3 class="text-upper">{{transIDSelected.Description}}</h3> </div>
+                                    </div>
+                                    <br>
+                                    <ul class="cats-list list-unstyled">
+                                        <li>Description <span style="color:black;">{{transIDSelected.Description}}</span></li>
+                                        <!--									<li>Address<span style="color:black;"> {{transIDSelected.Address}}</span></li>-->
+                                        <li>City <span style="color:black;">{{transIDSelected.City}}</span></li>
+                                        <li>Category <span style="color:black;">{{transIDSelected.Category}}</span></li>
+                                        <li>PriceForDay<span style="color:black;">{{transIDSelected.PriceForDay}}</span></li>
+                                        <li>IncludedInTour <span style="color:black;">{{transIDSelected.IncludedInTour}}</span></li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer" style="background-color: #f9f9f9;">
+                        <button type="submit" style="background-color:#ff845e" class="btn btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="conformationModal" role="dialog" aria-labelledby="conformationModalModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <input type="hidden" id="conformationID" name="conformationID" value="" />
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header" style="padding:15px 50px; background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;">
+                        <button type="button" class="close" style="background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;" data-dismiss="modal">&times;</button>
+                        <h4 style="background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;"><span class="glyphicon glyphicon-lock"></span>Confirm Booking Update</h4>
+                    </div>
+                    <div class="modal-body" style="padding:20px 50px 0px;">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="sidebar-widget">
+                                    <!-- Sidebar Categories -->
+                                    <div class="row">
+                                        <div class="pricing-tables pricing-tables-1 sidebar-widget">
+                                            <!-- Sidebar Categories -->
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <img ng-show="{{guideValue}}" class="hover img-responsive" src="{{ guide.photo == null ? 'img/userDefaultIcon.png' : guide.photo}}" />
+                                                    <img ng-show="{{tourValue}}" class="img-responsive" alt="Tour Image Scroller" draggable="false" src="{{tour.photo == null ? 'img/custom11.jpg' : tour.photo[0]}}" />
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <h3 ng-show="{{tourValue}}" class="text-upper">{{tour.tour_title}}</h3>
+                                                    <h3 ng-show="{{guideValue}}" class="text-upper">{{guide.name}}</h3>
+                                                    <div ng-show="{{tourValue}}">
+                                                        <div class="row">
+                                                            <div class="col-md-3">Location</div>
+                                                            <div class="col-md-9">{{tour.tour_location}}</div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-3">Included</div>
+                                                            <div class="col-md-9">{{tour.inclusive}}</div>
+                                                        </div>
+                                                    </div>
+                                                    <div ng-show="{{guideValue}}">
+                                                        <div class="row">
+                                                            <div class="col-md-3">City</div>
+                                                            <div class="col-md-9">{{guide.city}}</div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-3">Mobile</div>
+                                                            <div class="col-md-9">{{guide.mobileNo}}</div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-3">Email</div>
+                                                            <div class="col-md-9">{{guide.email}}</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <ul class=" list-unstyled">
+                                                <li class="pricing-table ">Full Name <span style="color:black;" class="pull-right">{{name}}</span></li>
+                                                <li class="pricing-table ">Email <span style="color:black;" class="pull-right">{{email}}</span></li>
+                                                <li class="pricing-table "> Contact<span style="color:black;" class="pull-right">{{contact}}</span></li>
+                                                <li class="pricing-table " ng-hide="transportbookValue">No. of Persons <span style="color:black;" class="pull-right">{{adultValue}} Adult(s) , {{child}} Child</span></li>
+                                                <li class="pricing-table ">Date of Tour <span style="color:black;" class="pull-right">{{dateOfTour | date:'dd-MM-yyyy'}}</span></li>
+                                                <li class="pricing-table " ng-show="{{tourValue}}">Tour Duration <span style="color:black;" class="pull-right">{{tour.tour_duration}} Day(s)</span></li>
+                                                <li class="pricing-table " ng-show="{{guideValue}}">Tour Duration<span style="color:black;" class="pull-right"> {{dayValue}} Day(s)</span></li>
+
+                                                <li class="pricing-table " ng-show="{{tourValue}}">Tour Price&nbsp;&nbsp;({{adultValue}}&nbsp;Person*{{tour.tour_duration}}&nbsp;Days)<span style="color:black;" class="pull-right">Rs.&nbsp;{{tourPrice}}</span></li>
+                                                <li class="pricing-table " ng-show="{{guideValue}}">Guide's Booking Price&nbsp;&nbsp;({{adultValue}}&nbsp;Person*{{dayValue}}&nbsp;Days)<span style="color:black;" class="pull-right">Rs.&nbsp;{{guidePrice}}</span></li>
+
+                                                <li class="pricing-table " ng-show="transportbookValue">Pickup Location<span style="color:black;" id="pickupLocationModal" class="pull-right"></span></li>
+                                                <li class="pricing-table " ng-show="transportbookValue">Pickup Time<span style="color:black;" id="pickuptimeModal" class="pull-right"></span></li>
+                                                <li class="pricing-table " ng-show="transportbookValue">Source Location<span style="color:black;" id="fromLocationModal" class="pull-right"></span></li>
+                                                <li class="pricing-table " ng-show="transportbookValue">Distance Location<span style="color:black;" id="toLocationModal" class="pull-right"></span></li>
+                                                <li class="pricing-table " ng-show="transportbookValue">Promotional Discont<span style="color:black;" id="promocodedvalueModal" class="pull-right"> (-)</span></li>
+
+                                                <li class="pricing-table " ng-show="lodgevalue">Lodging Price<span style="color:black;" class="pull-right">Rs.&nbsp;{{lodgeIDnew.PricePerNight}}</span></li>
+
+                                                <li class="pricing-table " ng-hide="transportbookValue">Total Price(Excluding Tax) <span style="color:black;" class="pull-right">Rs.&nbsp;{{priceTotal}}</span></li>
+                                                <li class="pricing-table " ng-show="successValue">Promotional Discount <span style="color:black;" class="pull-right">Rs.&nbsp;(-){{successValue}}</span></li>
+                                                <li class="pricing-table " ng-hide="transportbookValue">Amount Payable(Including Tax) <span style="color:black;" class="pull-right">Rs.&nbsp;{{(priceTotal+((priceTotal*14)/100)+((priceTotal*0.5)/100)-successValue) | number : 0 }}</span></li>
+                                                <li class="pricing-table " ng-show="transportbookValue">Amount Payable (Aprox.) <span style="color:black;" class="pull-right">Rs.&nbsp;<span id="grandtotalTransModal"></span></span>
+                                                </li>
+                                                <br>
+                                                <li class="pricing-table " ng-show="transvalue">Transport Price Extra <span style="color:black;" class="pull-right">@ Rs.&nbsp;{{transIDnew.PricePerKM}} / Km</span></li>
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="modal-footer" style="background-color: #f9f9f9;">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <button style="width:200px; background-color:#ff845e" class="btn btn-default pull-left" data-dismiss="modal">Cancel</button>
-                                </div>
-                                <div class="col-md-6">
-                                    <button type="submit" id="conformBokingID" style="width:200px; background-color:#ff845e" class="btn btn-default pull-right" data-dismiss="modal">Confirm Booking</button>
-                                </div>
+                    </div>
+                    <div class="modal-footer" style="background-color: #f9f9f9;">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <button style="width:200px; background-color:#ff845e" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
                             </div>
-
+                            <div class="col-md-6">
+                                <button type="submit" id="conformBokingID" style="width:200px; background-color:#ff845e" class="btn btn-default pull-right" data-dismiss="modal">Confirm Update</button>
+                            </div>
                         </div>
+
                     </div>
                 </div>
             </div>
+        </div>
 
-            <!-- javascripts -->
-            <script type="text/javascript" src="js/modernizr.custom.17475.js"></script>
+        <div class="modal fade" id="cancelModal" role="dialog" aria-labelledby="cancelModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <input type="hidden" id="conformationID" name="conformationID" value="" />
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header" style="padding:15px 50px; background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;">
+                        <button type="button" class="close" style="background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;" data-dismiss="modal">&times;</button>
+                        <h4 style="background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;"><span class="glyphicon glyphicon-lock"></span>Confirm Booking Cancelation</h4>
+                    </div>
+                    <div class="modal-body" style="padding:20px 50px 0px;">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="sidebar-widget">
+                                    <!-- Sidebar Categories -->
+                                    <div class="row">
+                                        <div class="pricing-tables pricing-tables-1 sidebar-widget">
+                                            <!-- Sidebar Categories -->
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <img ng-show="{{guideValue}}" class="hover img-responsive" src="{{ guide.photo == null ? 'img/userDefaultIcon.png' : guide.photo}}" />
+                                                    <img ng-show="{{tourValue}}" class="img-responsive" alt="Tour Image Scroller" draggable="false" src="{{tour.photo == null ? 'img/custom11.jpg' : tour.photo[0]}}" />
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <h3 ng-show="{{tourValue}}" class="text-upper">{{tour.tour_title}}</h3>
+                                                    <h3 ng-show="{{guideValue}}" class="text-upper">{{guide.name}}</h3>
+                                                    <div ng-show="{{tourValue}}">
+                                                        <div class="row">
+                                                            <div class="col-md-3">Location</div>
+                                                            <div class="col-md-9">{{tour.tour_location}}</div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-3">Included</div>
+                                                            <div class="col-md-9">{{tour.inclusive}}</div>
+                                                        </div>
+                                                    </div>
+                                                    <div ng-show="{{guideValue}}">
+                                                        <div class="row">
+                                                            <div class="col-md-3">City</div>
+                                                            <div class="col-md-9">{{guide.city}}</div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-3">Mobile</div>
+                                                            <div class="col-md-9">{{guide.mobileNo}}</div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-3">Email</div>
+                                                            <div class="col-md-9">{{guide.email}}</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <br>
+                                            <br>
+                                            <center>
+                                                <h3>Do you realy want to cancel this</h3></center>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer" style="background-color: #f9f9f9;">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <button style="width:200px; background-color:#ff845e" class="btn btn-default pull-left" data-dismiss="modal">NO</button>
+                            </div>
+                            <div class="col-md-6">
+                                <?php echo '<button type="submit" id="cancelBookingID" style="width:200px; background-color:#ff845e" class="btn btn-default pull-right" onclick="cancelBooking('. $booking_id .');" data-dismiss="modal">YES</button>'; ?>
+                            </div>
+                        </div>
 
-            <script type="text/javascript" src="js/jquery.min.js"></script>
-            <script type="text/javascript" src="bs3/js/bootstrap.min.js"></script>
-            <script type="text/javascript" src="js/check-radio-box.js"></script>
-            <script type="text/javascript" src="js/script.js"></script>
-            <script type="text/javascript" src="js/styleswitcher.js"></script>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-            <script>
-                //            $('#booknow2').click(function (e) {
-                //                var $theForm = $(this).closest('form');
-                //                if ((typeof ($theForm[0].checkValidity) == "function") && !$theForm[0].checkValidity()) {
-                //                    return;
-                //                }
-                //            });
+        <!-- javascripts -->
+        <script type="text/javascript" src="js/modernizr.custom.17475.js"></script>
 
-                function bookNowModalShow() {
-                    $('#bookNowModal').modal('show');
-                    //alert("This feature will be available soon......");
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="bs3/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/check-radio-box.js"></script>
+        <script type="text/javascript" src="js/script.js"></script>
+        <script type="text/javascript" src="js/styleswitcher.js"></script>
+
+        <script>
+            //            $('#booknow2').click(function (e) {
+            //                var $theForm = $(this).closest('form');
+            //                if ((typeof ($theForm[0].checkValidity) == "function") && !$theForm[0].checkValidity()) {
+            //                    return;
+            //                }
+            //            });
+
+            function bookNowModalShow() {
+                $('#bookNowModal').modal('show');
+                //alert("This feature will be available soon......");
+            }
+
+
+            function conformationModal() {
+                var $myForm = $('#bookingForm')
+                if ($myForm[0].checkValidity()) {
+                    $('#conformationModal').modal('show');
+                } else {
+                    //                     alert("Please Fill the required field.");
+                    $('#conformationModal').modal('show');
                 }
+            }
 
 
-                function conformationModal() {
-                    var $myForm = $('#bookingForm')
-                    if ($myForm[0].checkValidity()) {
-                        $('#conformationModal').modal('show');
-                    } else {
-                        //                     alert("Please Fill the required field.");
-                        $('#conformationModal').modal('show');
-                    }
-                }
-
-
-                $(document).ready(function () {
-                    $("#conformBokingID").click(function () {
-                        $("#bookingForm").submit();
-                    });
+            $(document).ready(function () {
+                $("#conformBokingID").click(function () {
+                    $("#bookingForm").submit();
                 });
-            </script>
+            });
+        </script>
 
-            <script>
-                function childMinus() {
-                    var oldValue = document.getElementById("child").value;
-                    if (oldValue > 0) {
-                        var newValue = parseInt(oldValue) - 1;
-                        document.getElementById("child").value = newValue;
-                    }
-                }
-
-                function childPlus() {
-                    var oldValue = document.getElementById("child").value;
-                    var newValue = parseInt(oldValue) + 1;
+        <script>
+            function childMinus() {
+                var oldValue = document.getElementById("child").value;
+                if (oldValue > 0) {
+                    var newValue = parseInt(oldValue) - 1;
                     document.getElementById("child").value = newValue;
                 }
-            </script>
-            <script>
-                function comparePromocode(Ovalue) {
+            }
 
-                    var Nvalue = document.getElementById("promocodedvalue").value;
-                    if (Ovalue == Nvalue) {
+            function childPlus() {
+                var oldValue = document.getElementById("child").value;
+                var newValue = parseInt(oldValue) + 1;
+                document.getElementById("child").value = newValue;
+            }
+        </script>
+        <script>
+            function comparePromocode(Ovalue) {
+                var Nvalue = document.getElementById("promocodedvalue").value;
+                if (Ovalue == Nvalue) {
+                    var zz = document.getElementById("grandtotalvalue").innerHTML;
+                    document.getElementById("grandtotalvalue").innerHTML = zz - 500;
+                    document.getElementById("grandtotalvalueI").value = zz;
+                    // alert(zz);
+                    var pcode = document.getElementById("promotional");
+                    pcode.style.display = "table-row";
+
+                    document.getElementById("promocodedvalueModal").innerHTML = "500";
+                    document.getElementById("grandtotalTransModal").innerHTML = zz;
+                    comparePromocode = function (a) {};
+                }
+                //alert("Ovalue = "+Ovalue);
+            }
+        </script>
+        <script>
+            setTimeout(function () {
+                GetRoute();
+            }, 8000);
+        </script>
+        <script>
+            function cancelModalShow() {
+                $('#cancelModal').modal('show');
+            }
+        </script>
+        <script>
+            function cancelBooking(bookingID) {
+                window.location.href = "booking-form-edit-code.php?cn=" + bookingID;
+            }
+        </script>
+        <script>
+            setTimeout(function () {
+                var transportbookValue = document.getElementById("transportbookValue").value
+                if (transportbookValue) {
+                    var promoCodeEmtDB = document.getElementById("promoCodeEmtDB").value;
+                    if (promoCodeEmtDB == 500)
+                    {
+                        document.getElementById("promotional").style.display = "table-row";
                         document.getElementById("grandtotalvalue").innerHTML = document.getElementById("grandtotalvalue").innerHTML - 500;
-                        var zz = document.getElementById("grandtotalvalue").innerHTML;
-                        document.getElementById("grandtotalvalueI").value = zz;
-                        // alert(zz);
-                        var pcode = document.getElementById("promotional");
-                        pcode.style.display = "table-row";
-
-                        document.getElementById("promocodedvalueModal").innerHTML = "500";
-                        document.getElementById("grandtotalTransModal").innerHTML = zz;
                         comparePromocode = function (a) {};
                     }
-                    //alert("Ovalue = "+Ovalue);
                 }
-            </script>
-            <script>
-                setTimeout(function () {
-                    GetRoute();
-                }, 8000);
-            </script>
+            }, 8100);
+        </script>
     </body>
 
     </html>

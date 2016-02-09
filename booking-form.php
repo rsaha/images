@@ -275,7 +275,7 @@
                                                                 <label>ADULT <span class="required small">(12+ YRS)</span></label>
                                                                 <div class="input-group">
                                                                     <span class="input-group-addon" style="cursor:pointer" ng-click="adultminus(adultValue);"><i style="font-size:12px" class="fa fa-minus"></i></span>
-                                                                    <input type="text" id="adult" name="noOfPerson" class="form-control" ng-model="adultValue">
+                                                                    <input type="text" id="adult" name="noOfPerson" class="form-control" ng-model="adultValue" readonly>
                                                                     <span class="input-group-addon" style="cursor:pointer" ng-click="adultplus(adultValue);"><i style="font-size:12px" class="fa fa-plus"></i></span>
                                                                 </div>
                                                             </div>
@@ -283,7 +283,7 @@
                                                                 <label>CHILD <span class="required small">(0-12 YRS)</span></label>
                                                                 <div class="input-group">
                                                                     <span class="input-group-addon" style="cursor:pointer" ng-click="childMinus();"><i style="font-size:12px" class="fa fa-minus"></i></span>
-                                                                    <input type="text" id="noOfPersonChild" name="noOfPersonChild" class="form-control" ng-model="child">
+                                                                    <input type="text" id="noOfPersonChild" name="noOfPersonChild" class="form-control" ng-model="child" readonly>
                                                                     <span class="input-group-addon" style="cursor:pointer" ng-click="childPlus();"><i style="font-size:12px" class="fa fa-plus"></i></span>
                                                                 </div>
                                                             </div>
@@ -718,6 +718,7 @@
                                                 </ul>
                                             </div>
                                             <div class="alignright">
+                                                <input type="hidden" name="lodging_value" value="{{lodgevalue}}" />
                                                 <input type="hidden" name="lodging_id" value="{{lodgeIDnew.ID}}" />
                                                 <input type="hidden" name="lodging_name" value="{{lodgeIDnew.Address}}" />
                                                 <input type="hidden" name="lodging_price" value="{{lodgeIDnew.PricePerNight}}" />
@@ -745,7 +746,8 @@
                                                 </ul>
                                             </div>
                                             <div class="alignright">
-                                                <input type="hidden" name="transport_id" value="{{transIDnew.ID}}" />
+                                                <input type="hidden" name="transport_value" value="{{transvalue}}" />
+                                                 <input type="hidden" name="transport_id" value="{{transIDnew.ID}}" />
                                                 <input type="hidden" name="transport_name" value="{{transIDnew.Description}}" />
                                                 <input type="hidden" name="transport_price" value="{{transIDnew.PricePerKM}}" />
                                                 <span style="font-weight:bold;font-size:17px">Transport will be charged @ Rs.&nbsp;{{transIDnew.PricePerKM}} / KM.</span>
@@ -963,7 +965,7 @@
                                                 <li class="pricing-table " ng-hide="transportbookValue">No. of Persons <span style="color:black;" class="pull-right">{{adultValue}} Adult(s) , {{child}} Child</span></li>
                                                 <li class="pricing-table ">Date of Tour <span style="color:black;" class="pull-right">{{dateOfTour | date:'dd-MM-yyyy'}}</span></li>
                                                 <li class="pricing-table " ng-show="{{tourValue}}">Tour Duration <span style="color:black;" class="pull-right">{{tour.tour_duration}} Day(s)</span></li>
-                                                <li class="pricing-table " ng-show="{{guideValue}}">Tour Duration<span style="color:black;" class="pull-right"> {{dayValue}}</span></li>
+                                                <li class="pricing-table " ng-show="{{guideValue}}">Tour Duration<span style="color:black;" class="pull-right"> {{dayValue}} Day(s)</span></li>
 
                                                 <li class="pricing-table " ng-show="{{tourValue}}">Tour Price&nbsp;&nbsp;({{adultValue}}&nbsp;Person*{{tour.tour_duration}}&nbsp;Days)<span style="color:black;" class="pull-right">Rs.&nbsp;{{tourPrice}}</span></li>
                                                 <li class="pricing-table " ng-show="{{guideValue}}">Guide's Booking Price&nbsp;&nbsp;({{adultValue}}&nbsp;Person*{{dayValue}}&nbsp;Days)<span style="color:black;" class="pull-right">Rs.&nbsp;{{guidePrice}}</span></li>
