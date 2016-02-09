@@ -36,8 +36,10 @@
                         </div>
                         <div class="col-md-6">
                             <div class="right-part alignright">
-                                <span class="top-link small">
-                                        <a href="login.php" title="">Provider Sign-in</a>
+                                <span class="small" style="float:right;">
+                                        <a href="manage_booking.php" title="">Manage your Booking</a> 
+                                    &nbsp;&nbsp;|&nbsp;&nbsp; 
+                                    <a href="login.php" title="">Provider Sign-in</a>
                                 </span>
                             </div>
                         </div>
@@ -60,13 +62,13 @@
                                 <span>MENU</span>
                                 <ul id="main-menu">
                                     <li><a href="index.php" title="">HOME</a></li>
-                                    <li><a href="transport_list.php" title="">Outstaion Cars</a> </li>
+                                    <li><a href="transport_list.php" title="">Outstation Cars</a> </li>
                                     <li><a href="top-tours-listview-sidebar.php" title="">Guided Tours</a>
-                                    <ul>
-                                        <li><a href="top-guides-listview.php" title="">Guides</a></li>
-                                        <li><a href="top-tours-listview-sidebar.php" title="">Guided Tours</a></li>
-                                        <li><a href="top-destinations-listview-sidebar.php" title="">Destinations</a> </li>
-                                    </ul>
+                                        <ul>
+                                            <li><a href="top-guides-listview.php" title="">Guides</a></li>
+                                            <li><a href="top-tours-listview-sidebar.php" title="">Guided Tours</a></li>
+                                            <li><a href="top-destinations-listview-sidebar.php" title="">Destinations</a> </li>
+                                        </ul>
                                     </li>
                                     <li><a href="#" title="">Travelogue</a> </li>
                                     <!-- li><a

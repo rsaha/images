@@ -1,13 +1,84 @@
-<?php
-    $promoCode = parse_ini_file('config.ini',true)['promoCode'];
-?>
+<?php 
+$promoCode = parse_ini_file('config.ini',true)['promoCode'];
 
+if (isset($_POST['username']) && isset($_POST['mobilnumber']) && isset($_POST['bookingnumber']))
+{
+    include_once('db.php');
+    $userName = mysql_real_escape_string($_POST['username']);
+    $mobileNumber = mysql_real_escape_string($_POST['mobilnumber']);
+    $bookingNumber = mysql_real_escape_string($_POST['bookingnumber']);
+
+    $result1 = mysql_query("SELECT * FROM `tbl_booking` WHERE (`name` = '$userName' && `contact` = '$mobileNumber' && `booking_number` = '$bookingNumber' && `status` = 1)");
+    $row = mysql_fetch_assoc($result1);
+    $count = mysql_num_rows($result1);
+
+    if ($count==1)
+    {
+        $booking_type = $row["booking_type"];
+        if($booking_type=="GUIDE")
+        {
+            $guideID = $row["book_reff_id"];
+            $tourID = 0;
+            $transportID = 0;
+        }
+        if($booking_type=="TOUR")
+        {
+            $guideID = 0;
+            $tourID = $row["book_reff_id"];
+            $transportID = 0;
+        }
+        if($booking_type=="TRANSPORT")
+        {
+            $guideID = 2;
+            $tourID = 2;
+            $transportID = $row["book_reff_id"];
+        }
+//    header('Location:booking-form-edit.php#?id1='.$guideID.'&id2='.$tourID.'&id3='.$transportID);
+//         echo $row["booking_type"];
+        
+        $booking_id = $row["booking_id"];
+        $user_id = $row["user_id"];
+        $booking_number = $row["booking_number"];
+        $book_reff_id = $row["book_reff_id"];
+        $booking_type = $row["booking_type"];
+        $name = $row["name"];
+        $email = $row["email"];
+        $contact = $row["contact"];
+        $no_of_person = $row["no_of_person"];
+        $date_of_tour = $row["date_of_tour"];
+        $tour_duration = $row["tour_duration"];
+        $from_location = $row["from_location"];
+        $to_location = $row["to_location"];
+        $pickup_time = $row["pickup_time"];
+        $lodging_id = $row["lodging_id"];
+        $transport_id = $row["transport_id"];
+        $promoCodeDB = $row["promoCode"];
+        $promoCodeAmount = $row["promoCodeAmount"];
+        $total_price = $row["total_price"];
+//        $status = $row["status"];
+//        $date_created = $row["date_created"];
+    }
+    else
+    {	
+        header('Location:manage_booking.php');
+    }
+}
+else
+{
+    header('Location:manage_booking.php');
+}
+
+
+
+?>
 
     <html lang="en" dir="ltr">
 
     <!-- START head -->
 
     <head>
+
+
         <!-- Site meta charset -->
         <meta charset="UTF-8">
 
@@ -72,7 +143,7 @@
             }
         </style>
         <script src="js/angular.min.js"></script>
-        <script src="booking.js"></script>
+        <script src="bookingEdit.js"></script>
         <!--<script type="text/javascript">
             $(document).ready(function () {
                 var x_timer;
@@ -134,8 +205,6 @@
             });
 
             function GetRoute() {
-                guideProposalModalShowFun();
-                document.getElementById("lcnName").innerHTML = document.getElementById("fromLocation").value; 
                 var mumbai = new google.maps.LatLng(18.9750, 72.8258);
                 var mapOptions = {
                     zoom: 7,
@@ -204,14 +273,11 @@
                         document.getElementById("grandtotalTransModal").innerHTML = transTTL;
 
 
-                    } else {
-                        alert("Unable to find the distance via road.");
                     }
+                    //                    else {
+                    //                        alert("Unable to find the distance via road.");
+                    //                    }
                 });
-            }
-
-            function guideProposalModalShowFun() {
-                $('#guideProposalModal').modal('show');
             }
         </script>
     </head>
@@ -219,18 +285,15 @@
 
     <!-- START body -->
 
-    <body ng-app="mybookingPage" ng-controller="guides_booking" ng-init="btnvalue=1">
-
-
-
-
+    <body onload="setTimeout()" ng-app="mybookingPage" ng-controller="guides_booking" ng-init="init('<?php echo $guideID; ?>','<?php echo $tourID; ?>','<?php echo $transportID; ?>','<?php echo $lodging_id; ?>','<?php echo $transport_id; ?>','<?php echo $promoCodeAmount; ?>','<?php echo $no_of_person; ?>','<?php echo $tour_duration; ?>','<?php echo $name; ?>','<?php echo $email; ?>','<?php echo $contact; ?>','<?php echo $date_of_tour; ?>')">
+        <input type="hidden" id="promoCodeEmtDB" name="promoCodeEmtDB" value=" <?php echo $promoCodeAmount; ?>" />
         <!-- START #wrapper -->
         <div id="wrapper">
             <!-- START header -->
             <?php include_once('MasterTopHeader.php'); ?>
                 <!-- END header -->
                 <!-- END #page-header -->
-                <form id="bookingForm" action="booking-form-code.php" ng-submit="bookingForm.$valid" name="bookingForm" method="post" novalidate>
+                <form id="bookingForm" action="booking-form-edit-code.php" ng-submit="bookingForm.$valid" name="bookingForm" method="post" novalidate>
                     <!-- START .main-contents -->
                     <div class="main-contents">
                         <div class="container">
@@ -243,11 +306,12 @@
                                         <h2 class="ft-heading text-upper">Provide Your Booking Information</h2>
 
                                         <fieldset>
+                                            <input type="hidden" id="booking_id" name="booking_id" value="<?php echo $booking_id; ?>" />
                                             <ul class="formFields list-unstyled">
                                                 <li class="row">
                                                     <div class="col-md-12">
                                                         <label>Name <span class="required small">(Required)</span></label>
-                                                        <input type="text" class="form-control" required name="tourist_name" ng-model="name" ng-pattern="/^[a-z A-Z]+$/">
+                                                        <input type="text" class="form-control" required name="tourist_name" ng-pattern="/^[a-z A-Z]+$/" ng-model="name">
                                                         <span style="color:red" ng-show="bookingForm.tourist_name.$dirty && bookingForm.tourist_name.$invalid">
 											  <span ng-show="bookingForm.tourist_name.$error.required">*Name is required.</span>
                                                         <span ng-show="bookingForm.tourist_name.$error.pattern">*Invalid Name ...</span>
@@ -257,7 +321,7 @@
                                                 <li class="row">
                                                     <div class="col-md-6">
                                                         <label>Email <span class="required small">(Required)</span></label>
-                                                        <input type="text" class="form-control" required name="tourist_email" ng-model="email" ng-pattern="/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9]+\.([a-zA-Z]{2,3}|([a-zA-Z]{2,3}\.[a-zA-Z]{2}))$/" />
+                                                        <input type="text" class="form-control" required name="tourist_email" ng-pattern="/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9]+\.([a-zA-Z]{2,3}|([a-zA-Z]{2,3}\.[a-zA-Z]{2}))$/" ng-model="email" />
                                                         <span style="color:red" ng-show="bookingForm.tourist_email.$dirty && bookingForm.tourist_email.$invalid">
                                                            
 											  <span ng-show="bookingForm.tourist_email.$error.required">*Email is required.</span>
@@ -266,7 +330,7 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <label>Contact Number <span class="required small">(Required)</span></label>
-                                                        <input type="text" class="form-control" required name="tourist_mobile" ng-model="contact" ng-pattern="/^[7-9]{1}\d{9}$/" />
+                                                        <input type="text" class="form-control" required name="tourist_mobile" ng-pattern="/^[7-9]{1}\d{9}$/" ng-model="contact" />
                                                         <span style="color:red" ng-show="bookingForm.tourist_mobile.$dirty && bookingForm.tourist_mobile.$invalid">
 											  <span ng-show="bookingForm.tourist_mobile.$error.required">*Mobile number is required.</span>
                                                         <span ng-show="bookingForm.tourist_mobile.$error.pattern">* Invalid Mobile number ...</span>
@@ -275,13 +339,14 @@
                                                 </li>
 
                                                 <li class="row" ng-hide="transportbookValue">
+                                                    <input type="hidden" id="transportbookValue" name="transportbookValue" value="{{transportbookValue}}" />
                                                     <div class="col-md-6">
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <label>ADULT <span class="required small">(12+ YRS)</span></label>
                                                                 <div class="input-group">
                                                                     <span class="input-group-addon" style="cursor:pointer" ng-click="adultminus(adultValue);"><i style="font-size:12px" class="fa fa-minus"></i></span>
-                                                                    <input type="text" id="adult" name="noOfPerson" class="form-control" ng-model="adultValue" readonly>
+                                                                    <input type="text" id="adult" name="noOfPerson" class="form-control" ng-model="adultValue">
                                                                     <span class="input-group-addon" style="cursor:pointer" ng-click="adultplus(adultValue);"><i style="font-size:12px" class="fa fa-plus"></i></span>
                                                                 </div>
                                                             </div>
@@ -289,7 +354,7 @@
                                                                 <label>CHILD <span class="required small">(0-12 YRS)</span></label>
                                                                 <div class="input-group">
                                                                     <span class="input-group-addon" style="cursor:pointer" ng-click="childMinus();"><i style="font-size:12px" class="fa fa-minus"></i></span>
-                                                                    <input type="text" id="noOfPersonChild" name="noOfPersonChild" class="form-control" ng-model="child" readonly>
+                                                                    <input type="text" id="noOfPersonChild" name="noOfPersonChild" class="form-control" ng-model="child">
                                                                     <span class="input-group-addon" style="cursor:pointer" ng-click="childPlus();"><i style="font-size:12px" class="fa fa-plus"></i></span>
                                                                 </div>
                                                             </div>
@@ -329,7 +394,7 @@
                                                 <li class="row">
                                                     <div class="col-md-6" ng-show="transportbookValue">
                                                         <label>Pick-up Location <span class="required small">(Required)</span></label>
-                                                        <input type="text" class="form-control" required id="pickupLocation" name="pickupLocation" />
+                                                        <input type="text" class="form-control" required id="pickupLocation" name="pickupLocation" value="<?php echo $from_location; ?>" />
                                                         <span style="color:red" ng-show="bookingForm.pickupLocation.$dirty && bookingForm.pickupLocation.$invalid">
 											  <span ng-show="bookingForm.pickupLocation.$error.required">*Pick-up Location is required.</span>
 
@@ -337,7 +402,7 @@
                                                     </div>
                                                     <div class="col-md-6" ng-show="transportbookValue">
                                                         <label>Pick-up Time <span class="required small">(Required)</span></label>
-                                                        <input type="time" class="form-control" required id="pickuptime" name="pickuptime" />
+                                                        <input type="time" class="form-control" required id="pickuptime" name="pickuptime" value="<?php echo $pickup_time; ?>" />
                                                         <span style="color:red" ng-show="bookingForm.pickuptime.$dirty && bookingForm.pickuptime.$invalid">
 											  <span ng-show="bookingForm.pickuptime.$error.required">*Pick-up Time is required.</span>
 
@@ -350,7 +415,7 @@
                                                     <div class="col-md-6">
                                                         <label>From Location<span class="required small">(Required)</span></label>
 
-                                                        <input type="text" class="form-control" name="fromLocation" id="fromLocation" autocomplete="on" ng-model="fromLocation" value="" ng-pattern="/^[a-z ,A-Z]+$/" onfocusout="GetRoute()" list="exampleList" />
+                                                        <input type="text" class="form-control" name="fromLocation" id="fromLocation" autocomplete="on" value="<?php echo $from_location; ?>" ng-pattern="/^[a-z ,A-Z]+$/" onfocusout="GetRoute()" list="exampleList" />
                                                         <datalist id="exampleList">
                                                             <option ng-repeat="dropdwn in placesforDropdown" value="{{dropdwn}}">
                                                         </datalist>
@@ -363,7 +428,7 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <label>To Location<span class="required small">(Required)</span></label>
-                                                        <input type="text" class="form-control" name="toLocation" id="toLocation" autocomplete="on" ng-model="toLocation" value="" ng-pattern="/^[a-z ,A-Z]+$/" onfocusout="GetRoute()" />
+                                                        <input type="text" class="form-control" name="toLocation" id="toLocation" autocomplete="on" value="<?php echo $to_location; ?>" ng-pattern="/^[a-z ,A-Z]+$/" onfocusout="GetRoute()" />
                                                         <!--
                                                         <span style="color:red" ng-show="bookingForm.yourLocation.$dirty && bookingForm.yourLocation.$invalid">
 											  <span ng-show="bookingForm.yourLocation.$error.required">*Location is required.</span>
@@ -478,7 +543,9 @@
                                                                             bookingForm.tourist_email.$error.required||
                                                                             bookingForm.tourist_mobile.$error.required ||
                                                                          bookingForm.dateOfTour.$error.required
-										" id="booknow2" name="booknow2" value="Request to Book" />
+										" id="booknow2" name="booknow2" value="Update Booking" />
+                                                        <input type="button" class="btn btn-primary btn-md text-upper" id="cancelTour" name="cancelTour" value="Cancel Booking" onclick="cancelModalShow();" />
+
                                                         <input type="submit" id="booknow" name="booknow" hidden />
                                                         <span class="required small">*Your email will never published.</span>
                                                     </div>
@@ -786,7 +853,7 @@
                                                                 </td>
                                                             </tr>
                                                             <input type="hidden" name="PromoDis" value="{{successValue}}" id="promovalue" />
-                                                            <tr ng-show="successValue">
+                                                            <tr id="promotional1" ng-show="successValue">
                                                                 <td style="text-align:right">Promotional Discount &nbsp;: Rs.&nbsp;</td>
                                                                 <td style="text-align:right">(-){{successValue}} </td>
                                                             </tr>
@@ -912,7 +979,6 @@
             </div>
         </div>
 
-
         <div class="modal fade" id="conformationModal" role="dialog" aria-labelledby="conformationModalModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <input type="hidden" id="conformationID" name="conformationID" value="" />
@@ -920,7 +986,7 @@
                 <div class="modal-content">
                     <div class="modal-header" style="padding:15px 50px; background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;">
                         <button type="button" class="close" style="background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;" data-dismiss="modal">&times;</button>
-                        <h4 style="background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;"><span class="glyphicon glyphicon-lock"></span>Confirm Booking Request</h4>
+                        <h4 style="background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;"><span class="glyphicon glyphicon-lock"></span>Confirm Booking Update</h4>
                     </div>
                     <div class="modal-body" style="padding:20px 50px 0px;">
                         <div class="row">
@@ -1002,10 +1068,10 @@
                     <div class="modal-footer" style="background-color: #f9f9f9;">
                         <div class="row">
                             <div class="col-md-6">
-                                <button style="width:200px; background-color:#ff845e" class="btn btn-default pull-left" data-dismiss="modal">Cancel</button>
+                                <button style="width:200px; background-color:#ff845e" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
                             </div>
                             <div class="col-md-6">
-                                <button type="submit" id="conformBokingID" style="width:200px; background-color:#ff845e" class="btn btn-default pull-right" data-dismiss="modal">Confirm Booking</button>
+                                <button type="submit" id="conformBokingID" style="width:200px; background-color:#ff845e" class="btn btn-default pull-right" data-dismiss="modal">Confirm Update</button>
                             </div>
                         </div>
 
@@ -1014,25 +1080,62 @@
             </div>
         </div>
 
-        
-        <div class="modal fade" id="guideProposalModal" role="dialog" aria-labelledby="guideProposalModalLabel" aria-hidden="true">
+        <div class="modal fade" id="cancelModal" role="dialog" aria-labelledby="cancelModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <input type="hidden" id="conformationID" name="conformationID" value="" />
+                <!-- Modal content-->
                 <div class="modal-content">
                     <div class="modal-header" style="padding:15px 50px; background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;">
                         <button type="button" class="close" style="background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;" data-dismiss="modal">&times;</button>
-                        <h4 style="background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;"><span class="glyphicon glyphicon-lock"></span>Guide Propasal</h4>
+                        <h4 style="background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;"><span class="glyphicon glyphicon-lock"></span>Confirm Booking Cancelation</h4>
                     </div>
                     <div class="modal-body" style="padding:20px 50px 0px;">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="sidebar-widget">
+                                    <!-- Sidebar Categories -->
                                     <div class="row">
                                         <div class="pricing-tables pricing-tables-1 sidebar-widget">
+                                            <!-- Sidebar Categories -->
                                             <div class="row">
-                                                <center>You may also be intrested to book a Guide with your transport from <span id="lcnName"></span>.<br>
-                                                if yes!! then click "OK" to book guide and select your transport with Guide. <br>:)</center>
+                                                <div class="col-md-4">
+                                                    <img ng-show="{{guideValue}}" class="hover img-responsive" src="{{ guide.photo == null ? 'img/userDefaultIcon.png' : guide.photo}}" />
+                                                    <img ng-show="{{tourValue}}" class="img-responsive" alt="Tour Image Scroller" draggable="false" src="{{tour.photo == null ? 'img/custom11.jpg' : tour.photo[0]}}" />
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <h3 ng-show="{{tourValue}}" class="text-upper">{{tour.tour_title}}</h3>
+                                                    <h3 ng-show="{{guideValue}}" class="text-upper">{{guide.name}}</h3>
+                                                    <div ng-show="{{tourValue}}">
+                                                        <div class="row">
+                                                            <div class="col-md-3">Location</div>
+                                                            <div class="col-md-9">{{tour.tour_location}}</div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-3">Included</div>
+                                                            <div class="col-md-9">{{tour.inclusive}}</div>
+                                                        </div>
+                                                    </div>
+                                                    <div ng-show="{{guideValue}}">
+                                                        <div class="row">
+                                                            <div class="col-md-3">City</div>
+                                                            <div class="col-md-9">{{guide.city}}</div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-3">Mobile</div>
+                                                            <div class="col-md-9">{{guide.mobileNo}}</div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-3">Email</div>
+                                                            <div class="col-md-9">{{guide.email}}</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
+                                            <br>
+                                            <br>
+                                            <br>
+                                            <center>
+                                                <h3>Do you realy want to cancel this</h3></center>
                                         </div>
                                     </div>
                                 </div>
@@ -1042,10 +1145,10 @@
                     <div class="modal-footer" style="background-color: #f9f9f9;">
                         <div class="row">
                             <div class="col-md-6">
-                                <button style="width:200px; background-color:#ff845e" class="btn btn-default pull-left" data-dismiss="modal">Cancel</button>
+                                <button style="width:200px; background-color:#ff845e" class="btn btn-default pull-left" data-dismiss="modal">NO</button>
                             </div>
                             <div class="col-md-6">
-                                <button type="button" style="width:200px; background-color:#ff845e" onclick="red2search();" class="btn btn-default pull-right" data-dismiss="modal">OK</button>
+                                <?php echo '<button type="submit" id="cancelBookingID" style="width:200px; background-color:#ff845e" class="btn btn-default pull-right" onclick="cancelBooking('. $booking_id .');" data-dismiss="modal">YES</button>'; ?>
                             </div>
                         </div>
 
@@ -1053,7 +1156,6 @@
                 </div>
             </div>
         </div>
-
 
         <!-- javascripts -->
         <script type="text/javascript" src="js/modernizr.custom.17475.js"></script>
@@ -1113,11 +1215,10 @@
         </script>
         <script>
             function comparePromocode(Ovalue) {
-
                 var Nvalue = document.getElementById("promocodedvalue").value;
                 if (Ovalue == Nvalue) {
-                    document.getElementById("grandtotalvalue").innerHTML = document.getElementById("grandtotalvalue").innerHTML - 500;
                     var zz = document.getElementById("grandtotalvalue").innerHTML;
+                    document.getElementById("grandtotalvalue").innerHTML = zz - 500;
                     document.getElementById("grandtotalvalueI").value = zz;
                     // alert(zz);
                     var pcode = document.getElementById("promotional");
@@ -1131,11 +1232,33 @@
             }
         </script>
         <script>
-        function red2search()
-        {
-            var place = document.getElementById("fromLocation").value;
-            window.location='search_results.php#?id='+place;
-        }
+            setTimeout(function () {
+                GetRoute();
+            }, 8000);
+        </script>
+        <script>
+            function cancelModalShow() {
+                $('#cancelModal').modal('show');
+            }
+        </script>
+        <script>
+            function cancelBooking(bookingID) {
+                window.location.href = "booking-form-edit-code.php?cn=" + bookingID;
+            }
+        </script>
+        <script>
+            setTimeout(function () {
+                var transportbookValue = document.getElementById("transportbookValue").value
+                if (transportbookValue) {
+                    var promoCodeEmtDB = document.getElementById("promoCodeEmtDB").value;
+                    if (promoCodeEmtDB == 500)
+                    {
+                        document.getElementById("promotional").style.display = "table-row";
+                        document.getElementById("grandtotalvalue").innerHTML = document.getElementById("grandtotalvalue").innerHTML - 500;
+                        comparePromocode = function (a) {};
+                    }
+                }
+            }, 8100);
         </script>
     </body>
 

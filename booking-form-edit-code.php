@@ -1,14 +1,32 @@
 <?php
-
 include_once('db.php');
+if(isset($_GET["cn"]))
+{
+    
+    $cencelU = mysql_query("UPDATE `tbl_booking` SET 
+    `status` = 0
+    WHERE `booking_id` = " . $_GET["cn"] . "")  or die('Error : ' . mysql_error());
+
+    if($cencelU)
+    {
+        header("Location:manage_booking.php");
+    }
+    else
+    {
+        
+    }
+}
+else
+{
+
 
     //$promoCode = parse_ini_file('config.ini',true)['promoCode'];
-    
+    $booking_id = mysql_real_escape_string($_POST['booking_id']);
     $tourist_name = mysql_real_escape_string($_POST['tourist_name']);
     $tourist_email = mysql_real_escape_string($_POST['tourist_email']);
     $tourist_mobile = mysql_real_escape_string($_POST['tourist_mobile']);
     $dateOfTour = mysql_real_escape_string($_POST['dateOfTour']);
-
+    
     $lodging_value = mysql_real_escape_string($_POST['lodging_value']);
     $transport_value = mysql_real_escape_string($_POST['transport_value']);
 
@@ -34,8 +52,6 @@ include_once('db.php');
             $transport_name = "NULL";
             $transport_price = "NULL";
     }
-
-   
     $tourID = mysql_real_escape_string($_POST['tourID']);
     $guideID = mysql_real_escape_string($_POST['guideID']);
     $transportBokingF = mysql_real_escape_string($_POST['transportBokingF']);
@@ -49,6 +65,13 @@ include_once('db.php');
     if( is_numeric( $grandTotalTemp ) ) {
         $grandTotal = $grandTotalTemp;
     }
+
+//    if($lodging_id == "" || $lodging_id == NULL) {
+//        $lodging_id = "NULL";
+//    }
+//    if($transport_id == "" || $transport_id == NULL) {
+//        $transport_id = "NULL";
+//    }
     
     if(($tourID == "" || $tourID == NULL) && ($transportBokingF == "" || $guideID == NULL)) {
         $book_reff_id = $guideID;
@@ -131,7 +154,6 @@ include_once('db.php');
         $bookedItemName = mysql_real_escape_string($_POST['Description']);
         $pricePerKM = mysql_real_escape_string($_POST['PricePerKM']);
         $extimatedDistance = mysql_real_escape_string($_POST['distanceShowI']);
-        $PickupLocation = mysql_real_escape_string($_POST['pickupLocation']);
         $itemPrice = mysql_real_escape_string($_POST['transPric']);
         
         if($PromoCode == "" || $PromoCode == NULL)
@@ -185,52 +207,28 @@ if($PromoCode == "" || $PromoCode == NULL) {
 $tGuideID = mysql_real_escape_string($_POST['tGuideID']);
     $bookingNumber = AutoGenerateBookingNumber();
 
-    $select2 = mysql_query("INSERT INTO `tbl_booking`(
-        `user_id`, 
-        `booking_number`, 
-        `book_reff_id`, 
-        `booking_type`, 
-        `name`, 
-        `email`, 
-        `contact`, 
-        `no_of_person`, 
-        `date_of_tour`, 
-        `tour_duration`, 
-        `from_location`, 
-        `to_location`, 
-        `pickup_time`,
-        `pickup_location`,
-        `lodging_id`, 
-        `transport_id`, 
-        `promoCode`, 
-        `promoCodeAmount`, 
-        `total_price`, 
-        `status`, 
-        `date_created`
-    ) VALUES (
-        NULL,
-        '$bookingNumber',
-        $book_reff_id,
-        '$booking_type',
-        '$tourist_name',
-        '$tourist_email',
-        '$tourist_mobile',
-        $noOfPerson,
-        '$dateOfTour',
-        $tourDuration,
-        '$from_location', 
-        '$to_location', 
-        '$pickup_time',
-        '$Pickup_Location',
-        $lodging_id,
-        $transport_id,
-        '$PromoCode',
-        $promoDis,
-        $grandTotal,
-        1,
-        now()
-    )
-    ")  or die('Error : ' . mysql_error());
+    $select2 = mysql_query("UPDATE `tbl_booking` SET 
+    `user_id` = NULL, 
+    `book_reff_id` = $book_reff_id, 
+    `booking_type` = '$booking_type',
+    `name`  = '$tourist_name', 
+    `email` = '$tourist_email', 
+    `contact` = '$tourist_mobile', 
+    `no_of_person` = $noOfPerson, 
+    `date_of_tour` = '$dateOfTour', 
+    `tour_duration` = $tourDuration, 
+    `from_location` = '$from_location', 
+    `to_location` = '$to_location', 
+    `pickup_time` = '$pickup_time',
+    `pickup_location` = '$Pickup_Location',
+    `lodging_id` = $lodging_id, 
+    `transport_id` = $transport_id, 
+    `promoCode` = '$PromoCode', 
+    `promoCodeAmount` = $promoDis, 
+    `total_price` = $grandTotal, 
+    `status` = 1, 
+    `date_created` = now()
+    WHERE `booking_id` = " . $booking_id . "")  or die('Error : ' . mysql_error());
 
     if($select2)
     {
@@ -269,7 +267,6 @@ $tGuideID = mysql_real_escape_string($_POST['tGuideID']);
         </tr> 
         </table> 
         <br><br> -----------------------------<br>";
-		
 		SendMail($HostEmail, 'GuidedGateway', $tourist_mobile, $tourist_name, $subject, $message);
 		SendMail($HostEmail, 'GuidedGateway', 'support@guidedgateway.com', 'Guided Gateway Support', $subject, $message);
 //		SendMail($HostEmail, 'GuidedGateway', 'ankitbhagat.ab@gmail.com', 'Ankit Bhagat', $subject, $message);
@@ -288,7 +285,7 @@ $tGuideID = mysql_real_escape_string($_POST['tGuideID']);
     {
         echo "insertion fail";
     }
-
+}
 //==========================================================================================================
     function AutoGenerateBookingNumber()
     {
@@ -313,7 +310,7 @@ $tGuideID = mysql_real_escape_string($_POST['tGuideID']);
     function PDFGeneration($tourist_name, $tourist_email, $tourist_mobile, $noOfPerson, 
                       $noOfPersonChild, $dateOfTour, $tourDuration, $PromoCode, $serviceTax, $swachhTax, 
                       $PromoDis, $grandTotal, $book_reff_id, $booking_type, $bookedItemName, $itemPrice, 
-                      $bookingNumber, $transport_value, $lodging_value, $lodging_id, $lodging_name, $lodging_price, $transport_id, $transport_name, 
+                      $bookingNumber,$transport_value, $lodging_value, $lodging_id, $lodging_name, $lodging_price, $transport_id, $transport_name, 
                       $transport_price, $gTotal, $tourID, $guideID, $tGuideID, $tGuideName, $inclusive, $exclusice, 
                       $cancelationPolicy, $restrictions, $guideMobileNumber, $guideSummary, $guidePaymentTerm, 
                       $PickupLocation, $DropLocation, $transportBokingF, $from_location, $to_location, $pickup_time, $category, 
@@ -400,7 +397,7 @@ $tGuideID = mysql_real_escape_string($_POST['tGuideID']);
             $pdf->SetFont('Arial','B',10);
             $pdf->Cell(0,6,'Category : '.$category.' (Partner Name : '.$partnerName.')',0,1,"L");
             $pdf->SetFont('Arial','',10);
-            $pdf->Cell(0,5,'From Source : "'. $from_location . '" to Destination : "'.$to_location .'"',0,1,"L");
+            $pdf->Cell(0,5,'From Source : '. $from_location . ' to Destination '.$to_location ,0,1,"L");
             $pdf->Cell(0,5,'Distance : '. $extimatedDistance,0,1,"L");
             $pdf->Cell(0,5,'Price / Km : '. $pricePerKM,0,1,"L");
 

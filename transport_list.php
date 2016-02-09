@@ -186,7 +186,7 @@
                                                         <lable class="col-md-12">Get Fair Estimate Between Locaitons:&nbsp;
                                                             <label type="text" id="{{data.ID}}_lblDistance"></label> K.m.</lable>
                                                         <div class="col-md-5">
-                                                            <input name="fromLocation" id="{{data.ID}}_f" autocomplete="on" ng-pattern="/^[a-z ,A-Z]+$/" value="" type="text" class="form-control foo" style="height:30px" placeholder="Source" onfocusout="GetRoute(this.id)" list="{{data.ID}}_dl">
+                                                            <input name="fromLocation" id="{{data.ID}}_f" autocomplete="on" ng-pattern="/^[a-z ,A-Z]+$/" value="" type="text" class="form-control" style="height:30px" placeholder="Source" onfocusout="GetRoute(this.id)" list="{{data.ID}}_dl">
                                                             <datalist id="{{data.ID}}_dl">
                                                                 <option ng-repeat="dropdwn in placesforDropdown" value="{{dropdwn}}">
                                                             </datalist>
@@ -281,11 +281,14 @@
                                 <div class="row">
     <div class="col-md-4">
         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        <!-- GG Responsive -->
-        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8172692591429277" data-ad-slot="8233559541" data-ad-format="auto"></ins>
-        <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
+<!-- GG LIst Ad -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:336px;height:280px"
+     data-ad-client="ca-pub-8172692591429277"
+     data-ad-slot="1612152742"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
     </div>
 </div>
                             </div>

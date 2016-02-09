@@ -96,15 +96,15 @@
             cursor: pointer;
         }
     </style>
-    
+
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
-        <script type='text/javascript'>
-            jQuery(document).ready(function ($) {
-                $(".urlUnchange").click(function (event) {
-                    event.preventDefault();
-                });
+    <script type='text/javascript'>
+        jQuery(document).ready(function ($) {
+            $(".urlUnchange").click(function (event) {
+                event.preventDefault();
             });
-        </script>
+        });
+    </script>
 </head>
 <!-- END head -->
 
@@ -262,16 +262,19 @@
                                         </div>
                                     </div>
                                 </div>
-<div class="row">
-    <div class="col-md-4">
-        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        <!-- GG Responsive -->
-        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8172692591429277" data-ad-slot="8233559541" data-ad-format="auto"></ins>
-        <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-    </div>
-</div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- GG List Ad -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:336px;height:280px"
+     data-ad-client="ca-pub-8172692591429277"
+     data-ad-slot="1612152742"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+                                    </div>
+                                </div>
                                 <!-- END TAB CONTENT -->
                             </div>
                         </aside>

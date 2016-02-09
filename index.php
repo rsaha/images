@@ -119,6 +119,51 @@
             background-color: #ffa546;
         }
     </style>
+<!--    farzi data-->
+ <style>
+        a.tooltippp {
+            outline: none;
+        }
+        
+        a.tooltippp strong {
+            line-height: 30px;
+        }
+        
+        a.tooltippp:hover {
+            text-decoration: none;
+        }
+        
+        a.tooltippp span {
+            z-index: 10;
+            display: none;
+            padding: 5px 10px 5px 10px;
+            margin-top: -50px;
+            margin-left: -70px;
+            width: auto;
+        }
+        
+        a.tooltippp:hover span {
+            display: inline;
+            position: absolute;
+            color: #111;
+            border: 1px solid #DCA;
+            background: #fffAF0;
+        }
+        
+        .callout {
+            z-index: 20;
+            position: absolute;
+            top: 30px;
+            border: 0;
+            left: -12px;
+        }
+        /*CSS3 extras*/
+        
+        a.tooltippp span {
+            border-radius: 4px;
+            box-shadow: 5px 5px 8px #CCC;
+        }
+    </style>
 
 </head>
 <!-- END head -->
@@ -128,15 +173,15 @@
 <body ng-app="myDestinations" ng-controller="MultipleCtrl">
  		<label style="display:none;" id="geo" class="geolocation_data"></label>
 		<script type="text/JavaScript" src="geo.js"></script>
-    <div id="quotation">
-        <a href="" onclick="redirectTo();"><i class="fa fa-map-marker"></i>&nbsp;&nbsp;Location </a>
+ <div id="PInterest">
+        <a href="https://www.pinterest.com/guidedgateway" ><i class="fa fa-pinterest-p"></i> </a>
     </div>
     <style>
-        #quotation {
+        #PInterest {
             height: 104px;
             width: 104px;
             position: fixed;
-            top: 45%;
+            top: 52%;
             z-index: 999;
             transform: rotate(-90deg);
             -webkit-transform: rotate(-90deg);
@@ -145,7 +190,123 @@
             filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
         }
 
-            #quotation a {
+            #PInterest a {
+                border-radius: 0px 0px 0px 0px;
+                display: block;
+                background: #bd2126;
+                height: 40px;
+                width: 40px;
+                padding: 8px 16px;
+                color: #fff;
+                font-family: Arial, sans-serif;
+                font-size: 17px;
+                font-weight: bold;
+                text-decoration: none;
+                border-bottom: solid 1px #333;
+                border-left: solid 1px #333;
+                border-right: solid 1px #fff;
+            }
+
+                #PInterest a:hover {
+                    background: #06c;
+                }
+    </style>
+    
+    <div id="Facebook">
+        <a href="https://www.facebook.com/Guided-Gateway-1462689710717715" ><i class="fa fa-facebook"></i> </a>
+    </div>
+    <style>
+        #Facebook {
+            height: 104px;
+            width: 104px;
+            position: fixed;
+            top: 58%;
+            z-index: 999;
+            transform: rotate(-90deg);
+            -webkit-transform: rotate(-90deg);
+            -moz-transform: rotate(-90deg);
+            -o-transform: rotate(-90deg);
+            filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+        }
+
+            #Facebook a {
+                border-radius: 0px 0px 0px 0px;
+                display: block;
+                background: #3d5a99;
+                height: 40px;
+                width: 40px;
+                padding: 8px 16px;
+                color: #fff;
+                font-family: Arial, sans-serif;
+                font-size: 17px;
+                font-weight: bold;
+                text-decoration: none;
+                border-bottom: solid 1px #333;
+                border-left: solid 1px #333;
+                border-right: solid 1px #fff;
+            }
+
+                #Facebook a:hover {
+                    background: #06c;
+                }
+    </style>
+    <div id="Twitter">
+        <a href="https://twitter.com/intent/tweet?text=Visiting%20Guided%20Gateway&url=http%3A%2F%2Fguidedgateway.com%2F" ><i class="fa fa-twitter"></i> </a>
+    </div>
+    <style>
+        #Twitter {
+            height: 104px;
+            width: 104px;
+            position: fixed;
+            top: 64%;
+            z-index: 999;
+            transform: rotate(-90deg);
+            -webkit-transform: rotate(-90deg);
+            -moz-transform: rotate(-90deg);
+            -o-transform: rotate(-90deg);
+            filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+        }
+
+            #Twitter a {
+                border-radius: 0px 0px 0px 0px;
+                display: block;
+                background: #57aee7;
+                height: 40px;
+                width: 40px;
+                padding: 8px 16px;
+                color: #fff;
+                font-family: Arial, sans-serif;
+                font-size: 17px;
+                font-weight: bold;
+                text-decoration: none;
+                border-bottom: solid 1px #333;
+                border-left: solid 1px #333;
+                border-right: solid 1px #fff;
+            }
+
+                #Twitter a:hover {
+                    background: #06c;
+                }
+    </style>
+    <div id="CLocation">
+        <a href="" onclick="redirectTo();"><i class="fa fa-map-marker"></i>&nbsp;&nbsp;Location </a>
+    </div>
+    <style>
+        #CLocation {
+            height: 104px;
+            width: 104px;
+            position: fixed;
+            top: 40%;
+            z-index: 999;
+            transform: rotate(-90deg);
+            -webkit-transform: rotate(-90deg);
+            -moz-transform: rotate(-90deg);
+            -o-transform: rotate(-90deg);
+            filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+        }
+
+            #CLocation a {
+                border-radius: 0px 0px 0px 0px;
                 display: block;
                 background: #159f5c;
                 height: 40px;
@@ -161,7 +322,7 @@
                 border-right: solid 1px #fff;
             }
 
-                #quotation a:hover {
+                #CLocation a:hover {
                     background: #06c;
                 }
     </style>
@@ -174,10 +335,10 @@
 				include('MasterTopHeader.php'); 
 			?>
             <div>
-                <div class="main-contents col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1" id="searchDiv">
+                <!-- div class="main-contents col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1" id="searchDiv">
                     <form class="" style="background-color:#f1f1f1;">
                         <div class="row" style="padding: 10px 0px 10px 0px">
-                            <div class="col-md-8 col-md-offset-1 input-group">
+                            <div class="col-md-9 col-md-offset-1 col-sm-8  col-sm-offset-1 input-group">
                                 <input type="text" class="form-control" style="background-color:white;" ng-model="search" name="fromLocation" id="fromLocation" autocomplete="on" ng-pattern="/^[a-z ,A-Z]+$/" placeholder="Location" onfocusout="GetRoute()" />
                             </div>
                             <div class="col-md-2 col-sm-2 col-xs-2  input-group">
@@ -185,11 +346,11 @@
                             </div>
                         </div>
                     </form>
-                </div>
+                </div -->
                 <div id="slider">
-                    <img data-src="https://storage.googleapis.com/guidedgateway_media/tour_1.jpg" data-src-2x="https://storage.googleapis.com/guidedgateway_media/tour_1.jpg" src="" alt="Slide 1" />
-                    <img data-src="https://storage.googleapis.com/guidedgateway_media/tour_2.jpg" data-src-2x="https://storage.googleapis.com/guidedgateway_media/tour_2.jpg" src="" alt="Slide 2" />
-                    <img data-src="https://storage.googleapis.com/guidedgateway_media/tour_3.jpg" data-src-2x="https://storage.googleapis.com/guidedgateway_media/tour_3.jpg" src="" alt="Slide 3" />
+                    <img data-src="https://storage.googleapis.com/guidedgateway_media/tour_5.jpg" data-src-2x="https://storage.googleapis.com/guidedgateway_media/tour_5.jpg" src="" alt="Slide 1" />
+                    <img data-src="https://storage.googleapis.com/guidedgateway_media/tour_6.jpg" data-src-2x="https://storage.googleapis.com/guidedgateway_media/tour_6.jpg" src="" alt="Slide 2" />
+                    <img data-src="https://storage.googleapis.com/guidedgateway_media/tour_7.jpg" data-src-2x="https://storage.googleapis.com/guidedgateway_media/tour_7.jpg" src="" alt="Slide 3" />
                 </div>
                 <script>
                     var slider = new IdealImageSlider.Slider('#slider');
@@ -204,28 +365,47 @@
                     <br/>
                     <br/>
                     <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                     <br/>
+                    <br/>
                     <div>
+                        
                         <div class="row">
                             <center>
                                 <div class="post-desc" style="padding:10px; 10px; 10px; 10px">
-                                    <span class="ft-heading text-upper" style="font-weight:bold; font-size:20px">Find Tours From Ur City &nbsp;&nbsp; </span>
-                                    <a class="has-tip tip-top radius" ng-href="search_results.php#?id={{plimage.PlaceName}}" title="{{plimage.PlaceName}}" ng-repeat="plimage in places" title=""><img style="height:40px;width:60px;" ng-src="{{plimage.Media.Image[0]}}" alt="">&nbsp;&nbsp;</a>
-                                    </div>
+                                    <span class="ft-heading text-upper" style="font-weight:bold; font-size:20px">Find Tours From Your City &nbsp;&nbsp; </span>
+                                    
+                                    <a  class="tooltippp" ng-href="search_results.php#?id={{plimage.PlaceName}}" ng-repeat="plimage in places" >
+                                        <img style="height:40px;width:60px;border-radius:8px"  ng-src="{{plimage.Media.Image[0]}}" alt="">
+                                        <span>
+                                            <strong>{{plimage.PlaceName}}</strong>
+                                        </span>
+                                         &nbsp;&nbsp;
+                                    </a>
+                                    
+                                </div>
                             </center>
                         </div>
                         <div class="row post-desc" style="padding:15px; 15px; 15px; 15px">
                             <div class="col-md-3 text-center">
-                                <img src="img/InventoryOfExperts.png" style="height:100px; width:100px" /><br> <span class="ft-heading text-upper" style="font-weight:bold; font-size:13px">Large inventory of experts</span>
+                                <img src="img/InventoryOfExperts2.png" style="height:100px; width:100px" /><br> <span class="ft-heading text-upper" style="font-weight:bold; font-size:13px">Large inventory of experts</span>
+                            </div>
+                            <div class="col-md-3 text-center">
+                                <img src="img/Safe&ComfortableTransport.png" style="height:100px; width:100px" /><br> <span class="ft-heading text-upper" style="font-weight:bold; font-size:13px">Safe and Comfortable Transport</span>
                             </div>
                             <div class="col-md-3 text-center">
                                 <img src="img/Packaged&CustomTours.png" style="height:100px; width:100px" /><br> <span class="ft-heading text-upper" style="font-weight:bold; font-size:13px">Packaged and custom tours</span>
                             </div>
                             <div class="col-md-3 text-center">
+                                <img src="img/BrandedLodging.png" style="height:100px; width:100px" /><br> <span class="ft-heading text-upper" style="font-weight:bold; font-size:13px">Branded Lodging</span>
+                            </div>
+<!--
+                            <div class="col-md-3 text-center">
                                 <img src="img/MultiplePaymentOptions.png" style="height:100px; width:100px" /><br> <span class="ft-heading text-upper" style="font-weight:bold; font-size:13px">Multiple payment options</span>
                             </div>
-                            <div class="col-md-3 text-center">
-                                <img src="img/Lodging&TransportOptions.png" style="height:100px; width:100px" /><br> <span class="ft-heading text-upper" style="font-weight:bold; font-size:13px">Lodging & Transport Options</span>
-                            </div>
+-->
                         </div>
 
                         <br/>
@@ -318,9 +498,12 @@
                                 </li>
                             </ul>
                         </div>
+<!--
                         <div class="row">
                             <h2 class="ft-heading text-upper col-md-12" ng-show="checkboxModel.value3"><i class="fa fa-cab"></i>&nbsp;&nbsp;Outstation Cars<span class="alignright"> <a class="btn btn-primary" href="transport_list.php"><span>More&nbsp;<i class="fa fa-angle-double-right"></i></span></a></span></h2>
                         </div>
+-->
+<!--
                         <div class="carousel" ng-show="checkboxModel.value3">
                             <ul class="slides">
                                 <li>
@@ -352,16 +535,18 @@
                                             </div>
                                         </div>
                                         <div class="col-md-1 alignright" style="padding-top:265px;padding-right:20px;">
-                                            <!-- <a class="btn btn-primary" href="top-tours-listview-sidebar.php"><span style="font-weight:bold;">More >></span></a> -->
+                                             <a class="btn btn-primary" href="top-tours-listview-sidebar.php"><span style="font-weight:bold;">More >></span></a> 
                                         </div>
                                     </div>
 
                                 </li>
                             </ul>
                         </div>
+-->
                     </div>
                 </div>
             </div>
+     
             <!-- END .main-contents -->
 
             <!-- START .main-contents .bom-contents -->
@@ -455,7 +640,7 @@
             revapi = $("#content-slider").revolution({
                 delay: 15000,
                 startwidth: 1170,
-                startheight: 920,
+                startheight: 1220,
                 hideThumbs: 10,
                 fullWidth: "on",
                 fullScreen: "off",

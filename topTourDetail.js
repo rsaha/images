@@ -26,7 +26,7 @@ app.controller('tourDetailCtrl',['$scope','$http','$location', function($scope, 
     
                                debugger;
      var tourID = $location.search();
-    $http.get("http://gg_admin-prod.apigee.net/guidedgateway/tour?tourid="+tourID.id)
+    $http.get("https://gg_admin-prod.apigee.net/guidedgateway/tour?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe&tourid="+tourID.id)
     .success(function (response) {
 		$scope.tour = response.entities[0];
 		
@@ -53,7 +53,7 @@ app.controller('tourDetailCtrl',['$scope','$http','$location', function($scope, 
 			alert($scope.latit);
 		}
 		
-       $http.get("http://gg_admin-prod.apigee.net/guidedgateway/tours")
+       $http.get("https://gg_admin-prod.apigee.net/guidedgateway/tours?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe")
     .success(function (response) {
 		$scope.tours = response.entities;
 	   
@@ -62,7 +62,7 @@ app.controller('tourDetailCtrl',['$scope','$http','$location', function($scope, 
 				$scope.data = "error in fetching data";
 			});  
     
-      $http.get("http://gg_admin-prod.apigee.net/guidedgateway/guides")
+      $http.get("https://gg_admin-prod.apigee.net/guidedgateway/guides?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe")
     .success(function (response) {
 		$scope.guides = response.entities;
 	   
@@ -72,7 +72,7 @@ app.controller('tourDetailCtrl',['$scope','$http','$location', function($scope, 
 			});
     
     
-     $http.get("http://gg_admin-prod.apigee.net/guidedgateway/lodgings")
+     $http.get("https://gg_admin-prod.apigee.net/guidedgateway/lodgings?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe")
     .success(function (response) {
 		$scope.lodging = response.entities;
 	   
