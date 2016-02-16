@@ -1021,7 +1021,7 @@
                 <div class="modal-content">
                     <div class="modal-header" style="padding:15px 50px; background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;">
                         <button type="button" class="close" style="background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;" data-dismiss="modal">&times;</button>
-                        <h4 style="background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;"><span class="glyphicon glyphicon-lock"></span>Guide Propasal</h4>
+                        <h4 style="background-color: #ff845e; color:white !important; text-align: center; font-size: 30px;"><span class="glyphicon glyphicon-lock"></span>Guide Proposal</h4>
                     </div>
                     <div class="modal-body" style="padding:20px 50px 0px;">
                         <div class="row">
@@ -1030,8 +1030,9 @@
                                     <div class="row">
                                         <div class="pricing-tables pricing-tables-1 sidebar-widget">
                                             <div class="row">
-                                                <center>You may also be intrested to book a Guide with your transport from <span id="lcnName"></span>.<br>
-                                                if yes!! then click "OK" to book guide and select your transport with Guide. <br>:)</center>
+                                                <center>We also offer guided tours or guides for hire. If are intrested to book a guide with your transport <span id="lcnName"></span>.<br>
+                                                then click "OK" to book guide and select your transport with guide. 
+                                                Many pakcaged guided tour already includes car.<br</center>
                                             </div>
                                         </div>
                                     </div>
@@ -1065,12 +1066,6 @@
         <script type="text/javascript" src="js/styleswitcher.js"></script>
 
         <script>
-            //            $('#booknow2').click(function (e) {
-            //                var $theForm = $(this).closest('form');
-            //                if ((typeof ($theForm[0].checkValidity) == "function") && !$theForm[0].checkValidity()) {
-            //                    return;
-            //                }
-            //            });
 
             function bookNowModalShow() {
                 $('#bookNowModal').modal('show');

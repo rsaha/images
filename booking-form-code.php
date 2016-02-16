@@ -237,18 +237,19 @@ $tGuideID = mysql_real_escape_string($_POST['tGuideID']);
         include_once('sendEmail.php');
 		$HostEmail = parse_ini_file('config.ini',true)['email'];
 		$subject = "A Tourist hase booked a " .$booking_type;
-		$message    = "<b> A touriest with the following information has booked the " . $booking_type . "... </b><br>
+		$message    = "<b> A tourist with the following information has booked the " . $booking_type . ".
+        Please contact them over their contact immediately.. </b><br>
         <table> 
         <tr> 
-        <td>Tourest Name </td> 
+        <td>Tourist Name </td> 
         <td>:&nbsp;&nbsp;" . $tourist_name . "</td> 
         </tr> 
         <tr> 
-        <td>Tourest Email </td> 
+        <td>Tourist Email </td> 
         <td>:&nbsp;&nbsp;" . $tourist_email . "</td> 
         </tr> 
         <tr> 
-        <td>Tourest Contact </td> 
+        <td>Tourist Contact </td> 
         <td>:&nbsp;&nbsp;" . $tourist_mobile . "</td> 
         </tr> 
         <tr> 
@@ -269,10 +270,46 @@ $tGuideID = mysql_real_escape_string($_POST['tGuideID']);
         </tr> 
         </table> 
         <br><br> -----------------------------<br>";
+        
+        $tourist_subject = "Thank you for booking with Guided Gateway";
+        $tourist_message    = "<b> Thank you for booking " . $booking_type . " with us. </b><br>
+        Our Support team will contact you soon on your contact no to confirm the booking details 
+        and explain the payment process. </b><br>
+        <table> 
+        <tr> 
+        <td>Name </td> 
+        <td>:&nbsp;&nbsp;" . $tourist_name . "</td> 
+        </tr> 
+        <tr> 
+        <td>Email </td> 
+        <td>:&nbsp;&nbsp;" . $tourist_email . "</td> 
+        </tr> 
+        <tr> 
+        <td>Contact </td> 
+        <td>:&nbsp;&nbsp;" . $tourist_mobile . "</td> 
+        </tr> 
+        <tr> 
+        <td>Booking ". $booking_type ." ID </td> 
+        <td>:&nbsp;&nbsp;". $book_reff_id ."</td> 
+        </tr> 
+        <tr> 
+        <td>Date Of Tour </td> 
+        <td>:&nbsp;&nbsp;". $dateOfTour ."</td> 
+        </tr> 
+        <tr> 
+        <td><b>Booking Reference</b></td> 
+        <td><b>:&nbsp;&nbsp;". $bookingNumber ."</b></td> 
+        </tr> 
+        <tr> 
+        <td><b>Estimated Booking Amount </td> 
+        <td><b>:&nbsp;&nbsp;". $grandTotal ."</b></td> 
+        </tr> 
+        </table> 
+        <br><br> Use your booking reference to change or cancel your booking at any time <a href='http://www.guidedgateway.com/manage_booking.php'>here</a> or contacting our support team.<br> 
+        -----------------------------<br>";
 		
-		SendMail($HostEmail, 'GuidedGateway', $tourist_mobile, $tourist_name, $subject, $message);
+		SendMail($HostEmail, 'GuidedGateway', $tourist_email, $tourist_name, $tourist_subject, $tourist_message);
 		SendMail($HostEmail, 'GuidedGateway', 'support@guidedgateway.com', 'Guided Gateway Support', $subject, $message);
-//		SendMail($HostEmail, 'GuidedGateway', 'ankitbhagat.ab@gmail.com', 'Ankit Bhagat', $subject, $message);
 
         PDFGeneration($tourist_name, $tourist_email, $tourist_mobile, $noOfPerson, 
                       $noOfPersonChild, $dateOfTour, $tourDuration, $PromoCode, $serviceTax, $swachhTax, 

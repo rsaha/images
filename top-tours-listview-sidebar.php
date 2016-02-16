@@ -110,7 +110,7 @@
 
 <!-- START body -->
 
-<body ng-app="topTours">
+<body ng-app="topTours" ng-controller="customersCrtl">
     <!-- START #wrapper -->
     <div id="wrapper">
         <!-- START header -->
@@ -120,7 +120,45 @@
 			
 			
 			?>
-
+           <div class="row post-desc">
+                <div class="col-md-12">
+                    <div class="main-contents col-md-6 pull-left" style="margin-top:20px;">
+                        <form class="">
+                            <div class="col-md-10 col-sm-10 col-sm-offset-1 col-md-offset-1 col-xs-10 col-xs-offset-1 input-group">
+                                <input type="text" class="form-control" style="background-color:white; border:1px #cccccc solid" ng-model="searchID" placeholder="Search..." />
+                                <a href="" ng-click="changeSearch(searchID)" class="input-group-addon">
+                                    <i class="fa fa-search"></i>
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="main-contents col-md-5" style="margin-top:20px;">
+                        <span class="input-group-addon" style="height:40px;border:1px solid #cccccc;">
+                            <label class="col-md-2"> Filter By 
+                            </label>
+                            <label class="col-md-2">
+                                <input class="input-cb" type="radio" name="region" value="Eastern Region" ng-click="region_value('Eastern Region');"/>&nbsp;Eastern
+                            </label>
+                            <label class="col-md-2">
+                                <input class="input-cb" type="radio"  name="region"  value="Western Region" ng-click="region_value('Western Region');"/>&nbsp;Western
+                            </label>
+                            <label class="col-md-2">
+                                <input class="input-cb" type="radio" name="region"  value="Northern Region" ng-click="region_value('Northern Region');"/>&nbsp;Northern
+                            </label>
+                             <label class="col-md-2">
+                                <input class="input-cb" type="radio"    name="region"  value="Southern Region" ng-click="region_value('Southern Region');"/>&nbsp;Southern
+                            </label>
+                              <label class="col-md-2">
+                                <input class="input-cb" type="radio"  name="region"  value="Central Region" ng-click="region_value('Central Region');"/>&nbsp;Central
+                            </label>
+                        </span>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <br>
+                <br>
+            </div>
             <!-- START #page-header -->
             <div id="">
 
@@ -144,14 +182,14 @@
             <!-- END #page-header -->
 
             <!-- START .main-contents -->
-            <div class="main-contents" ng-controller="customersCrtl">
+            <div class="main-contents" >
                 <div class="container">
 
                     <div class="row">
                         <a ng-href="tour_detail_sidebar.php#?id=">
                             <div class="col-md-8">
                                 <div ng-show="filteredItems > 0">
-                                    <div class="" ng-repeat="data in filtered = (list) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
+                                    <div class="" ng-repeat="data in filtered = (list) | searchFor:searchID | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
                                         <div class="col-md-6">
                                             <div class="tour-plans">
                                                 <div class="plan-image">
