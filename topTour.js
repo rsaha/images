@@ -125,8 +125,52 @@ app.controller('customersCrtl',['$scope','$http', function ($scope, $http, $time
 	.error(function() {
 				$scope.data = "error in fetching data";
 			});	
+    
+       $scope.region_value=function(regionvalue){
+
+        $http.get("https://gg_admin-prod.apigee.net/guidedgateway/tours?ql=tour_territory='"+regionvalue+"'&apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe")
+//        	$http.get("https://gg_admin-prod.apigee.net/guidedgateway/guides?apikey=QIArDn9C3RCuVmnlMh53uDccAamkgZMe&ql=guide_territory='"+regionvalue+"'")
+    .success(function (data) {
+		  $scope.list = data.entities;
+        $scope.currentPage = 1; //current page
+        $scope.entryLimit = 6; //max no of items to display in a page
+        $scope.filteredItems = $scope.list.length; //Initially for no filter  
+        $scope.totalItems = $scope.list.length;
+             
+		})
+	.error(function() {
+                
+				$scope.data = "error in fetching data";
+			});
+    }
+    
+ 
 }]);
 
+     app.filter('searchFor', function(){
+    return function(arr, searchString){
+        if(!searchString){
+            return arr;
+        }
+        var result = [];
+        searchString = searchString.toLowerCase();
+       // alert(searchString);
+        angular.forEach(arr, function(item){
+            var territoryValue =item.tour_territory[0].toLowerCase();
+          //  alert(territoryValue);
+            if(territoryValue === searchString) {
+//                alert(territoryValue);
+//                alert(searchString); 
+                
+            result.push(item);
+        alert(JSON.stringify(result));
+        }
+        });
+//        alert(result[0].guide_id);
+        
+        return result;
+    };
+});
 app.directive('starRating', function () {
     return {
         restrict: 'A',
