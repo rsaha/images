@@ -1,0 +1,111 @@
+{
+  "action" : "get",
+  "application" : "5a80f0a0-be57-11e5-af68-2f5309d2cd79",
+  "params" : {
+    "limit" : [ "150" ]
+  },
+  "path" : "/packagecategories",
+  "uri" : "https://api.usergrid.com/gg_admin/cgdataapi/packagecategories",
+  "entities" : [ {
+    "uuid" : "8065613a-c563-11e5-9955-ff77d6c089d7",
+    "type" : "packagecategory",
+    "name" : "Cardiology",
+    "created" : 1453946685123,
+    "modified" : 1455220353550,
+    "Description" : "Treatment packages for diseases and abnormalities of the heart",
+    "metadata" : {
+      "path" : "/packagecategories/8065613a-c563-11e5-9955-ff77d6c089d7"
+    },
+    "PackageCount" : 6,
+    "value" : "https://storage.googleapis.com/curegateway_media/cardiology-min.jpg"
+  }, {
+    "uuid" : "806b2d9a-c563-11e5-8263-4d28e2bf4bf0",
+    "type" : "packagecategory",
+    "name" : "General Surgery",
+    "created" : 1453946685161,
+    "modified" : 1455220911364,
+    "Description" : "Treatment packages for injuries or disorders of the body by operation",
+    "metadata" : {
+      "path" : "/packagecategories/806b2d9a-c563-11e5-8263-4d28e2bf4bf0"
+    },
+    "PackageCount" : 10,
+    "value" : "https://storage.googleapis.com/curegateway_media/surgery-min.jpg"
+  }, {
+    "uuid" : "806e61ea-c563-11e5-bf86-61f7e1e93135",
+    "type" : "packagecategory",
+    "name" : "Obstetrics",
+    "created" : 1453946685182,
+    "modified" : 1455220466621,
+    "Description" : "Treatment packages for childbirth and female health related issues",
+    "metadata" : {
+      "path" : "/packagecategories/806e61ea-c563-11e5-bf86-61f7e1e93135"
+    },
+    "PackageCount" : 6,
+    "value" : "https://storage.googleapis.com/curegateway_media/obsterics-min.jpg"
+  }, {
+    "uuid" : "80716f2a-c563-11e5-b68f-a7c7ae21ea08",
+    "type" : "packagecategory",
+    "name" : "Opthalmology",
+    "created" : 1453946685202,
+    "modified" : 1455220987075,
+    "Description" : "Treatment packages for eye-related diseases",
+    "metadata" : {
+      "path" : "/packagecategories/80716f2a-c563-11e5-b68f-a7c7ae21ea08"
+    },
+    "PackageCount" : 1,
+    "value" : "https://storage.googleapis.com/curegateway_media/opthalmo-min.jpg"
+  }, {
+    "uuid" : "80747c6a-c563-11e5-b5ca-85dbf6f4513b",
+    "type" : "packagecategory",
+    "name" : "Nephrology",
+    "created" : 1453946685222,
+    "modified" : 1455221013993,
+    "Description" : "Treatment packages for kidney and urinary tract related ailments",
+    "metadata" : {
+      "path" : "/packagecategories/80747c6a-c563-11e5-b5ca-85dbf6f4513b"
+    },
+    "PackageCount" : 8,
+    "value" : "https://storage.googleapis.com/curegateway_media/nephrology-min.jpg"
+  }, {
+    "uuid" : "807789aa-c563-11e5-92f1-1d3b10daf699",
+    "type" : "packagecategory",
+    "name" : "ENT",
+    "created" : 1453946685242,
+    "modified" : 1455221040062,
+    "Description" : "Treatment packages for ear , nose and throat related issues",
+    "metadata" : {
+      "path" : "/packagecategories/807789aa-c563-11e5-92f1-1d3b10daf699"
+    },
+    "PackageCount" : 9,
+    "value" : "https://storage.googleapis.com/curegateway_media/ent-min.jpg"
+  }, {
+    "uuid" : "9c68a9ca-c601-11e5-a6fb-a939da5ac752",
+    "type" : "packagecategory",
+    "name" : "Orthopaedics",
+    "created" : 1454014592604,
+    "modified" : 1455221067245,
+    "Description" : "Treatment packages for  bones or muscles",
+    "metadata" : {
+      "path" : "/packagecategories/9c68a9ca-c601-11e5-a6fb-a939da5ac752"
+    },
+    "PackageCount" : 8,
+    "value" : "https://storage.googleapis.com/curegateway_media/ortho-min.jpg"
+  }, {
+    "uuid" : "c71f91ba-c601-11e5-a845-35217f1d8187",
+    "type" : "packagecategory",
+    "name" : "Vascular Surgery",
+    "created" : 1454014664267,
+    "modified" : 1455221080056,
+    "Description" : "Treatment packages for diseases of arteries and veins",
+    "metadata" : {
+      "path" : "/packagecategories/c71f91ba-c601-11e5-a845-35217f1d8187"
+    },
+    "PackageCount" : 2,
+    "value" : "https://storage.googleapis.com/curegateway_media/vascular-min.jpg"
+  } ],
+  "timestamp" : 1455822536535,
+  "duration" : 67,
+  "organization" : "gg_admin",
+  "applicationName" : "cgdataapi",
+  "count" : 8
+}
